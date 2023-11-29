@@ -41,7 +41,7 @@ public struct ColorValue:
 
     public var cgColor: CGColor {
         CGColor(
-            red: red,
+            srgbRed: red,
             green: green,
             blue: blue,
             alpha: alpha
