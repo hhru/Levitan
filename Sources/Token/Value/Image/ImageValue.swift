@@ -41,6 +41,7 @@ public struct ImageValue:
         source
             .image
             .iflet(resizingMode) { $0.resizable(resizingMode: $1.resizingMode) }
+            .if(foregroundColor == nil) { $0.renderingMode(.original) }
             .iflet(foregroundColor) { $0.foregroundColor($1.color) }
             .if(insets != .zero) { $0.padding(insets.edgeInsets) }
     }
