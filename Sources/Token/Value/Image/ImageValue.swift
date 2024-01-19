@@ -28,6 +28,8 @@ public struct ImageValue:
                 foregroundColor,
                 renderingMode: .alwaysOriginal
             )
+        } else {
+            uiImage = uiImage.withRenderingMode(.alwaysOriginal)
         }
 
         if insets != .zero {
