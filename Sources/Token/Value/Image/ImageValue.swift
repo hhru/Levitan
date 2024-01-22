@@ -42,8 +42,8 @@ public struct ImageValue:
     public var image: some View {
         source
             .image
-            .resizable(resizingMode: resizingMode?.resizingMode ?? .stretch)
-            .if(foregroundColor == nil) { $0.renderingMode(.original) }
+            .renderingMode(foregroundColor == nil ? .original : .template)
+            .iflet(resizingMode) { $0.resizable(resizingMode: $1.resizingMode) }
             .iflet(foregroundColor) { $0.foregroundColor($1.color) }
             .if(insets != .zero) { $0.padding(insets.edgeInsets) }
     }
