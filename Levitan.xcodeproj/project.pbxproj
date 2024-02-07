@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25F6DC262B7387E700FBAB9C /* NilCoalescingDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */; };
 		C0310C222B04BB4800BCA3AC /* LineBreakModeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0310B312B04BB4800BCA3AC /* LineBreakModeDecorator.swift */; };
 		C0310C232B04BB4800BCA3AC /* TokenDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0310B322B04BB4800BCA3AC /* TokenDecorator.swift */; };
 		C0310C242B04BB4800BCA3AC /* DecorableByNegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0310B342B04BB4800BCA3AC /* DecorableByNegation.swift */; };
@@ -447,6 +448,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilCoalescingDecorator.swift; sourceTree = "<group>"; };
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		C010082725EEA6B700A2FF1A /* Levitan.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Levitan.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C0310B312B04BB4800BCA3AC /* LineBreakModeDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineBreakModeDecorator.swift; sourceTree = "<group>"; };
@@ -711,6 +713,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25F6DC242B73878B00FBAB9C /* NilCoalescing */ = {
+			isa = PBXGroup;
+			children = (
+				25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */,
+			);
+			path = NilCoalescing;
+			sourceTree = "<group>";
+		};
 		C0310B2E2B04BB4800BCA3AC /* Token */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,6 +737,7 @@
 		C0310B2F2B04BB4800BCA3AC /* Decorators */ = {
 			isa = PBXGroup;
 			children = (
+				25F6DC242B73878B00FBAB9C /* NilCoalescing */,
 				C0310B5D2B04BB4800BCA3AC /* Alignment */,
 				C0855EE92B08DF08003EBC34 /* Alpha */,
 				C0310B542B04BB4800BCA3AC /* BackgroundColor */,
@@ -1870,6 +1881,7 @@
 				C0312BF02B07B05600BC21A7 /* ShapeToken.swift in Sources */,
 				C0358FDD2B0AA981000E599A /* TokenViewPropertyKey.swift in Sources */,
 				C0310C302B04BB4800BCA3AC /* ForegroundColorDecorator.swift in Sources */,
+				25F6DC262B7387E700FBAB9C /* NilCoalescingDecorator.swift in Sources */,
 				C0310C4B2B04BB4800BCA3AC /* DecorableByDuration.swift in Sources */,
 				C09305192B0B775000F6F13D /* TokenViewProperties+UISwitch.swift in Sources */,
 				C0D4046B2B030840009306EB /* ExpressibleByArrayLiteral+Extensions.swift in Sources */,
