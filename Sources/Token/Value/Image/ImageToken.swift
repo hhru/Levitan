@@ -23,6 +23,8 @@ extension ImageToken {
 
 extension ImageToken {
 
+    public static let empty = uiImage(UIImage())
+
     public static func uiImage(
         _ uiImage: UIImage,
         resizingMode: ImageResizingMode? = nil,
