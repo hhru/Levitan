@@ -22,7 +22,7 @@ extension CALayer {
         backLayer.frame = bounds
 
         backLayer.backgroundColor = shapeColorAssociation[self]?.cgColor
-        backLayer.gradients = gradientsAssociation[self] ?? .empty
+        backLayer.gradients = gradientsAssociation[self] ?? []
 
         insertSublayer(backLayer, at: .zero)
 

@@ -2,11 +2,11 @@ import QuartzCore
 
 internal final class BackLayer: CALayer {
 
-    internal var gradients: [GradientValue] = .empty {
+    internal var gradients: [GradientValue] = [] {
         didSet { updateGradientLayers() }
     }
 
-    private var gradientLayers: [GradientLayer] = .empty
+    private var gradientLayers: [GradientLayer] = []
 
     internal override init() {
         super.init()
@@ -16,7 +16,7 @@ internal final class BackLayer: CALayer {
         if let layer = layer as? Self {
             gradients = layer.gradients
         } else {
-            gradients = .empty
+            gradients = []
         }
 
         super.init(layer: layer)

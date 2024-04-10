@@ -16,13 +16,13 @@ extension TokenViewProperties where View: CALayer {
 
     public var shadows: TokenViewProperty<[ShadowValue], Void> {
         property { layer, value in
-            layer.updateShadows(value ?? .empty)
+            layer.updateShadows(value ?? [])
         }
     }
 
     public var shadow: TokenViewProperty<ShadowValue, Void> {
         property(overloading: \.shadows) { layer, value in
-            layer.updateShadows(value.map { [$0] } ?? .empty)
+            layer.updateShadows(value.map { [$0] } ?? [])
         }
     }
 
@@ -34,13 +34,13 @@ extension TokenViewProperties where View: CALayer {
 
     public var gradients: TokenViewProperty<[GradientValue], Void> {
         property { layer, value in
-            layer.updateGradients(value ?? .empty)
+            layer.updateGradients(value ?? [])
         }
     }
 
     public var gradient: TokenViewProperty<GradientValue, Void> {
         property(overloading: \.gradients) { layer, value in
-            layer.updateGradients(value.map { [$0] } ?? .empty)
+            layer.updateGradients(value.map { [$0] } ?? [])
         }
     }
 

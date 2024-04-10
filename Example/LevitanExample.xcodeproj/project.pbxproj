@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4FEBB9E91DC8F1CA337070B8 /* Pods_LevitanExample_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C26319D42F9D5289CC664CA /* Pods_LevitanExample_tvOS.framework */; };
+		5C56C6319038856A61906C80 /* Pods_LevitanExample_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60EBAF28B14BB73F3A10DE56 /* Pods_LevitanExample_iOS.framework */; };
+		C017D13725FBAD0F008B90C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C017D13625FBAD0F008B90C0 /* AppDelegate.swift */; };
+		C017D13925FBAD0F008B90C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C017D13825FBAD0F008B90C0 /* SceneDelegate.swift */; };
+		C017D14025FBAD11008B90C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C017D13F25FBAD11008B90C0 /* Assets.xcassets */; };
+		C017D14325FBAD11008B90C0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C017D14125FBAD11008B90C0 /* Launch.storyboard */; };
+		C036D9602BB6CA330095D0BA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C036D95F2BB6CA330095D0BA /* HomeViewController.swift */; };
+		C06E9A61265A74060087A913 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C06E9A60265A74060087A913 /* Launch.storyboard */; };
+		C07888E5265910AE00F09955 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07888E4265910AE00F09955 /* Colors.swift */; };
+		C07888E72659133500F09955 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07888E62659133500F09955 /* Images.swift */; };
+		C0BF2F5A265A709700419426 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07888E4265910AE00F09955 /* Colors.swift */; };
+		C0BF2F5B265A709700419426 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07888E62659133500F09955 /* Images.swift */; };
+		C0BF2F68265A70BD00419426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C017D13625FBAD0F008B90C0 /* AppDelegate.swift */; };
+		C0BF2F69265A70C400419426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C017D13F25FBAD11008B90C0 /* Assets.xcassets */; };
+		C0BF2F6B265A70CC00419426 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C017D13825FBAD0F008B90C0 /* SceneDelegate.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08DF1F1824BB2C48E0FB213B /* Pods-LevitanExample-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample-tvOS.release.xcconfig"; path = "Target Support Files/Pods-LevitanExample-tvOS/Pods-LevitanExample-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		14AD338D35A78A6D82CAE3AC /* Pods-LevitanExample-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-LevitanExample-tvOS/Pods-LevitanExample-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		158CE3A46AAC4C130EC752B9 /* Pods-LevitanDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanDemo.debug.xcconfig"; path = "Target Support Files/Pods-LevitanDemo/Pods-LevitanDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		28CAC8595655DD024D406903 /* Pods-LevitanExample-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample-iOS.release.xcconfig"; path = "Target Support Files/Pods-LevitanExample-iOS/Pods-LevitanExample-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		2C26319D42F9D5289CC664CA /* Pods_LevitanExample_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevitanExample_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36AF9F8669BFCF1AE90CD672 /* Pods-LevitanExample-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample-tvOS.release.xcconfig"; path = "Target Support Files/Pods-LevitanExample-tvOS/Pods-LevitanExample-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		3D95991134D269121A8392FE /* Pods-Levitan Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Levitan Demo.release.xcconfig"; path = "Target Support Files/Pods-Levitan Demo/Pods-Levitan Demo.release.xcconfig"; sourceTree = "<group>"; };
+		514ABFD7FB6F793EC33CD317 /* Pods-LevitanExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample.debug.xcconfig"; path = "Target Support Files/Pods-LevitanExample/Pods-LevitanExample.debug.xcconfig"; sourceTree = "<group>"; };
+		60EBAF28B14BB73F3A10DE56 /* Pods_LevitanExample_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevitanExample_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		79CD3AF452D17A01D6BF9FFA /* Pods-LevitanExample-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample-iOS.debug.xcconfig"; path = "Target Support Files/Pods-LevitanExample-iOS/Pods-LevitanExample-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7CEE3B34C95E5F60043B780E /* Pods-LevitanExample-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-LevitanExample-tvOS/Pods-LevitanExample-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		846F491497BC4BC91FCFB1C1 /* Pods-LevitanExample-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample-tvOS.release.xcconfig"; path = "Target Support Files/Pods-LevitanExample-tvOS/Pods-LevitanExample-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		8AB58FF6F8456AEC09DBB54D /* Pods-LevitanExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample.debug.xcconfig"; path = "Target Support Files/Pods-LevitanExample/Pods-LevitanExample.debug.xcconfig"; sourceTree = "<group>"; };
+		929116B8E1608A63B0CA832A /* Pods-Levitan Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Levitan Demo.debug.xcconfig"; path = "Target Support Files/Pods-Levitan Demo/Pods-Levitan Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		A948E4633FBDF925C60B9BED /* Pods-LevitanDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanDemo.release.xcconfig"; path = "Target Support Files/Pods-LevitanDemo/Pods-LevitanDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C017D13325FBAD0F008B90C0 /* LevitanExample-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LevitanExample-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C017D13625FBAD0F008B90C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C017D13825FBAD0F008B90C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C017D13F25FBAD11008B90C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C017D14225FBAD11008B90C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
+		C017D14425FBAD11008B90C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C036D95F2BB6CA330095D0BA /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C06E9A60265A74060087A913 /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		C07888E4265910AE00F09955 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C07888E62659133500F09955 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		C0BF2F45265A704400419426 /* LevitanExample-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LevitanExample-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8530BA8AC70AE0CDA58AA9 /* Pods-LevitanExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample.release.xcconfig"; path = "Target Support Files/Pods-LevitanExample/Pods-LevitanExample.release.xcconfig"; sourceTree = "<group>"; };
+		D0C55471C2A04E2917DABF90 /* Pods-LevitanExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample.release.xcconfig"; path = "Target Support Files/Pods-LevitanExample/Pods-LevitanExample.release.xcconfig"; sourceTree = "<group>"; };
+		EF395F56008252324C82C9BF /* Pods-LevitanExample-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevitanExample-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-LevitanExample-tvOS/Pods-LevitanExample-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C017D13025FBAD0F008B90C0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C56C6319038856A61906C80 /* Pods_LevitanExample_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0BF2F42265A704400419426 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FEBB9E91DC8F1CA337070B8 /* Pods_LevitanExample_tvOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02195B38B968E1610A7B3F07 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				929116B8E1608A63B0CA832A /* Pods-Levitan Demo.debug.xcconfig */,
+				3D95991134D269121A8392FE /* Pods-Levitan Demo.release.xcconfig */,
+				158CE3A46AAC4C130EC752B9 /* Pods-LevitanDemo.debug.xcconfig */,
+				A948E4633FBDF925C60B9BED /* Pods-LevitanDemo.release.xcconfig */,
+				514ABFD7FB6F793EC33CD317 /* Pods-LevitanExample.debug.xcconfig */,
+				CE8530BA8AC70AE0CDA58AA9 /* Pods-LevitanExample.release.xcconfig */,
+				EF395F56008252324C82C9BF /* Pods-LevitanExample-tvOS.debug.xcconfig */,
+				08DF1F1824BB2C48E0FB213B /* Pods-LevitanExample-tvOS.release.xcconfig */,
+				8AB58FF6F8456AEC09DBB54D /* Pods-LevitanExample.debug.xcconfig */,
+				D0C55471C2A04E2917DABF90 /* Pods-LevitanExample.release.xcconfig */,
+				7CEE3B34C95E5F60043B780E /* Pods-LevitanExample-tvOS.debug.xcconfig */,
+				36AF9F8669BFCF1AE90CD672 /* Pods-LevitanExample-tvOS.release.xcconfig */,
+				79CD3AF452D17A01D6BF9FFA /* Pods-LevitanExample-iOS.debug.xcconfig */,
+				28CAC8595655DD024D406903 /* Pods-LevitanExample-iOS.release.xcconfig */,
+				14AD338D35A78A6D82CAE3AC /* Pods-LevitanExample-tvOS.debug.xcconfig */,
+				846F491497BC4BC91FCFB1C1 /* Pods-LevitanExample-tvOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		2A7DE3228D44B4ECD25E5F17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60EBAF28B14BB73F3A10DE56 /* Pods_LevitanExample_iOS.framework */,
+				2C26319D42F9D5289CC664CA /* Pods_LevitanExample_tvOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C017D12A25FBAD0F008B90C0 = {
+			isa = PBXGroup;
+			children = (
+				C017D13525FBAD0F008B90C0 /* LevitanExample */,
+				C017D13425FBAD0F008B90C0 /* Products */,
+				02195B38B968E1610A7B3F07 /* Pods */,
+				2A7DE3228D44B4ECD25E5F17 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C017D13425FBAD0F008B90C0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C017D13325FBAD0F008B90C0 /* LevitanExample-iOS.app */,
+				C0BF2F45265A704400419426 /* LevitanExample-tvOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C017D13525FBAD0F008B90C0 /* LevitanExample */ = {
+			isa = PBXGroup;
+			children = (
+				C0E9D2BA25FCA3E800ABDBE5 /* Helpers */,
+				C0DA318025FBB1E1009A9CB8 /* Resources */,
+				C0DA318225FBB219009A9CB8 /* Screens */,
+				C017D13625FBAD0F008B90C0 /* AppDelegate.swift */,
+				C017D13825FBAD0F008B90C0 /* SceneDelegate.swift */,
+				C017D14425FBAD11008B90C0 /* Info.plist */,
+			);
+			path = LevitanExample;
+			sourceTree = "<group>";
+		};
+		C06E9A5E265A73EC0087A913 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C017D14125FBAD11008B90C0 /* Launch.storyboard */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		C06E9A5F265A73F60087A913 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				C06E9A60265A74060087A913 /* Launch.storyboard */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		C0DA318025FBB1E1009A9CB8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C06E9A5F265A73F60087A913 /* tvOS */,
+				C06E9A5E265A73EC0087A913 /* iOS */,
+				C017D13F25FBAD11008B90C0 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C0DA318225FBB219009A9CB8 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C036D95F2BB6CA330095D0BA /* HomeViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		C0E9D2BA25FCA3E800ABDBE5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C07888E4265910AE00F09955 /* Colors.swift */,
+				C07888E62659133500F09955 /* Images.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C017D13225FBAD0F008B90C0 /* LevitanExample-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C017D14725FBAD11008B90C0 /* Build configuration list for PBXNativeTarget "LevitanExample-iOS" */;
+			buildPhases = (
+				BAA64B09CFA32C6A3C6A0330 /* [CP] Check Pods Manifest.lock */,
+				C0B5A45126625B8900D7521C /* SwiftLint */,
+				C017D12F25FBAD0F008B90C0 /* Sources */,
+				C017D13025FBAD0F008B90C0 /* Frameworks */,
+				C017D13125FBAD0F008B90C0 /* Resources */,
+				B38B7ACC96AA3EB6496A66D0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LevitanExample-iOS";
+			productName = "Levitan Demo";
+			productReference = C017D13325FBAD0F008B90C0 /* LevitanExample-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C0BF2F44265A704400419426 /* LevitanExample-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0BF2F56265A704500419426 /* Build configuration list for PBXNativeTarget "LevitanExample-tvOS" */;
+			buildPhases = (
+				7A80D5E6624194E18328354C /* [CP] Check Pods Manifest.lock */,
+				C0FE8F4A2A0B1D560076BF81 /* SwiftLint */,
+				C0BF2F41265A704400419426 /* Sources */,
+				C0BF2F42265A704400419426 /* Frameworks */,
+				C0BF2F43265A704400419426 /* Resources */,
+				5D6E696FD3B44A035AFB1456 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LevitanExample-tvOS";
+			productName = "LevitanExample-tvOS";
+			productReference = C0BF2F45265A704400419426 /* LevitanExample-tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C017D12B25FBAD0F008B90C0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					C017D13225FBAD0F008B90C0 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					C0BF2F44265A704400419426 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = C017D12E25FBAD0F008B90C0 /* Build configuration list for PBXProject "LevitanExample" */;
+			compatibilityVersion = "Xcode 11.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C017D12A25FBAD0F008B90C0;
+			productRefGroup = C017D13425FBAD0F008B90C0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C017D13225FBAD0F008B90C0 /* LevitanExample-iOS */,
+				C0BF2F44265A704400419426 /* LevitanExample-tvOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C017D13125FBAD0F008B90C0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C017D14325FBAD11008B90C0 /* Launch.storyboard in Resources */,
+				C017D14025FBAD11008B90C0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0BF2F43265A704400419426 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0BF2F69265A70C400419426 /* Assets.xcassets in Resources */,
+				C06E9A61265A74060087A913 /* Launch.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D6E696FD3B44A035AFB1456 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LevitanExample-tvOS/Pods-LevitanExample-tvOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LevitanExample-tvOS/Pods-LevitanExample-tvOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LevitanExample-tvOS/Pods-LevitanExample-tvOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A80D5E6624194E18328354C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LevitanExample-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B38B7ACC96AA3EB6496A66D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LevitanExample-iOS/Pods-LevitanExample-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LevitanExample-iOS/Pods-LevitanExample-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LevitanExample-iOS/Pods-LevitanExample-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAA64B09CFA32C6A3C6A0330 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LevitanExample-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0B5A45126625B8900D7521C /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh ../Scripts/swiftlint.sh\n";
+		};
+		C0FE8F4A2A0B1D560076BF81 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "sh ../Scripts/swiftlint.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C017D12F25FBAD0F008B90C0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C036D9602BB6CA330095D0BA /* HomeViewController.swift in Sources */,
+				C07888E5265910AE00F09955 /* Colors.swift in Sources */,
+				C07888E72659133500F09955 /* Images.swift in Sources */,
+				C017D13725FBAD0F008B90C0 /* AppDelegate.swift in Sources */,
+				C017D13925FBAD0F008B90C0 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0BF2F41265A704400419426 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0BF2F68265A70BD00419426 /* AppDelegate.swift in Sources */,
+				C0BF2F6B265A70CC00419426 /* SceneDelegate.swift in Sources */,
+				C0BF2F5B265A709700419426 /* Images.swift in Sources */,
+				C0BF2F5A265A709700419426 /* Colors.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C017D14125FBAD11008B90C0 /* Launch.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C017D14225FBAD11008B90C0 /* Base */,
+			);
+			name = Launch.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C017D14525FBAD11008B90C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+			};
+			name = Debug;
+		};
+		C017D14625FBAD11008B90C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TVOS_DEPLOYMENT_TARGET = 15.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C017D14825FBAD11008B90C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79CD3AF452D17A01D6BF9FFA /* Pods-LevitanExample-iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = LevitanExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.hh.Levitan.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.7;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C017D14925FBAD11008B90C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28CAC8595655DD024D406903 /* Pods-LevitanExample-iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = LevitanExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.hh.Levitan.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.7;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C0BF2F54265A704500419426 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14AD338D35A78A6D82CAE3AC /* Pods-LevitanExample-tvOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LevitanExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.hh.Levitan.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.7;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		C0BF2F55265A704500419426 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 846F491497BC4BC91FCFB1C1 /* Pods-LevitanExample-tvOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "Brand Assets";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LevitanExample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ru.hh.Levitan.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.7;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C017D12E25FBAD0F008B90C0 /* Build configuration list for PBXProject "LevitanExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C017D14525FBAD11008B90C0 /* Debug */,
+				C017D14625FBAD11008B90C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C017D14725FBAD11008B90C0 /* Build configuration list for PBXNativeTarget "LevitanExample-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C017D14825FBAD11008B90C0 /* Debug */,
+				C017D14925FBAD11008B90C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0BF2F56265A704500419426 /* Build configuration list for PBXNativeTarget "LevitanExample-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0BF2F54265A704500419426 /* Debug */,
+				C0BF2F55265A704500419426 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C017D12B25FBAD0F008B90C0 /* Project object */;
+}

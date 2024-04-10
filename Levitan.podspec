@@ -1,14 +1,14 @@
 Pod::Spec.new do |spec|
   spec.name = "Levitan"
   spec.version = "1.0.0"
-  spec.summary = "A Swift design token system for SwiftUI and UIKit apps with a convenient and compile time safe syntax."
+  spec.summary = "A user interface toolkit that lets us design apps in a convenient and declarative way using SwiftUI and UIKit."
 
   spec.homepage = "https://github.com/hhru/Levitan"
   spec.license = { :type => 'MIT', :file => 'LICENSE' }
   spec.author = { "Almaz Ibragimov" => "almazrafi@gmail.com" }
   spec.source = { :git => "https://github.com/hhru/Levitan.git", :tag => "#{spec.version}" }
 
-  spec.swift_version = '5.7'
+  spec.swift_version = '5.9'
   spec.requires_arc = true
   spec.source_files = 'Sources/**/*.swift'
 

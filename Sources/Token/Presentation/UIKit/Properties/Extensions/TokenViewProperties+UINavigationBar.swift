@@ -26,14 +26,14 @@ extension TokenViewProperties where View: UINavigationBar {
 
     public var titleTextAttributes: TokenViewProperty<TypographyValue, Void> {
         property { view, value in
-            view.titleTextAttributes = value?.attributes ?? .empty
+            view.titleTextAttributes = value?.attributes ?? [:]
         }
     }
 
     #if os(iOS)
     public var largeTitleTextAttributes: TokenViewProperty<TypographyValue, Void> {
         property { view, value in
-            view.largeTitleTextAttributes = value?.attributes ?? .empty
+            view.largeTitleTextAttributes = value?.attributes ?? [:]
         }
     }
 

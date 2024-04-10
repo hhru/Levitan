@@ -1,4 +1,5 @@
 included:
+  - Example
   - Sources
   - Tests
 
@@ -314,6 +315,7 @@ file_name:
 
 file_types_order:
   order:
+    - supporting_type
     - main_type
     - extension
     - preview_provider
@@ -323,8 +325,8 @@ force_try:
   severity: warning
 
 function_body_length:
-  warning: 40
-  error: 400
+  warning: 50
+  error: 500
 
 function_parameter_count:
   warning: 6
@@ -363,7 +365,7 @@ identifier_name:
     - y
     - z
     - w
-  allowed_symbols: []
+  allowed_symbols: [_]
   validates_start_with_lowercase: warning
 
 implicit_return:
@@ -399,10 +401,10 @@ modifier_order:
   preferred_modifier_order:
     - acl
     - setterACL
+    - final
     - override
     - owned
     - mutators
-    - final
     - typeMethods
     - required
     - convenience
@@ -516,7 +518,8 @@ type_name:
   max_length:
     warning: 50
     error: 500
-  excluded: []
+  excluded:
+    - ID
   allowed_symbols: []
   validates_start_with_lowercase: warning
   validate_protocols: true
