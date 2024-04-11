@@ -195,6 +195,188 @@
 		C04844012B0B431F002DF0CA /* EnvironmentValues+TokenThemeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1CD2B093732005F5499 /* EnvironmentValues+TokenThemeKey.swift */; };
 		C04844032B0B433F002DF0CA /* TokenViewPropertySubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FD92B0AA401000E599A /* TokenViewPropertySubscript.swift */; };
 		C04844042B0B433F002DF0CA /* TokenViewPropertyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FDC2B0AA981000E599A /* TokenViewPropertyKey.swift */; };
+		C04864B12BC73403001D1167 /* ListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864552BC73403001D1167 /* ListBuilder.swift */; };
+		C04864B22BC73403001D1167 /* ListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864572BC73403001D1167 /* ListSectionHeader.swift */; };
+		C04864B32BC73403001D1167 /* ListSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864582BC73403001D1167 /* ListSectionItem.swift */; };
+		C04864B42BC73403001D1167 /* ListSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864592BC73403001D1167 /* ListSectionFooter.swift */; };
+		C04864B52BC73403001D1167 /* ListSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048645A2BC73403001D1167 /* ListSectionBuilder.swift */; };
+		C04864B62BC73403001D1167 /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048645B2BC73403001D1167 /* ListSection.swift */; };
+		C04864B72BC73403001D1167 /* ListSectionPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048645C2BC73403001D1167 /* ListSectionPredicate.swift */; };
+		C04864B82BC73403001D1167 /* CollectionViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048645F2BC73403001D1167 /* CollectionViewUpdate.swift */; };
+		C04864B92BC73403001D1167 /* CollectionViewUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864602BC73403001D1167 /* CollectionViewUpdateManager.swift */; };
+		C04864BA2BC73403001D1167 /* CollectionViewDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864612BC73403001D1167 /* CollectionViewDelegateManager.swift */; };
+		C04864BB2BC73403001D1167 /* CollectionViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864632BC73403001D1167 /* CollectionViewLayoutAttributes.swift */; };
+		C04864BC2BC73403001D1167 /* CollectionViewLayoutScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864652BC73403001D1167 /* CollectionViewLayoutScrollManager.swift */; };
+		C04864BD2BC73403001D1167 /* CollectionViewLayoutScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864662BC73403001D1167 /* CollectionViewLayoutScrollAnchor.swift */; };
+		C04864BE2BC73403001D1167 /* CollectionViewLayoutScrollAnchorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864672BC73403001D1167 /* CollectionViewLayoutScrollAnchorItem.swift */; };
+		C04864BF2BC73403001D1167 /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864682BC73403001D1167 /* CollectionViewLayoutScrollAnchorAxis.swift */; };
+		C04864C02BC73403001D1167 /* CollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864692BC73403001D1167 /* CollectionViewLayoutDelegate.swift */; };
+		C04864C12BC73403001D1167 /* AnyCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646A2BC73403001D1167 /* AnyCollectionViewLayout.swift */; };
+		C04864C22BC73403001D1167 /* CollectionViewLayoutBoundsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646B2BC73403001D1167 /* CollectionViewLayoutBoundsProvider.swift */; };
+		C04864C32BC73403001D1167 /* CollectionViewLayoutStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646C2BC73403001D1167 /* CollectionViewLayoutStateManager.swift */; };
+		C04864C42BC73403001D1167 /* CollectionViewLayoutInvalidationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646D2BC73403001D1167 /* CollectionViewLayoutInvalidationContext.swift */; };
+		C04864C52BC73403001D1167 /* CollectionViewLayoutSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646E2BC73403001D1167 /* CollectionViewLayoutSizing.swift */; };
+		C04864C62BC73403001D1167 /* CollectionViewLayoutUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646F2BC73403001D1167 /* CollectionViewLayoutUpdateManager.swift */; };
+		C04864C72BC73403001D1167 /* CollectionViewStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864712BC73403001D1167 /* CollectionViewStateManager.swift */; };
+		C04864C82BC73403001D1167 /* CollectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864722BC73403001D1167 /* CollectionViewState.swift */; };
+		C04864C92BC73403001D1167 /* CollectionViewInconsistentSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864742BC73403001D1167 /* CollectionViewInconsistentSupplementaryView.swift */; };
+		C04864CA2BC73403001D1167 /* CollectionViewInconsistentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864752BC73403001D1167 /* CollectionViewInconsistentCell.swift */; };
+		C04864CB2BC73403001D1167 /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864762BC73403001D1167 /* CollectionViewManager.swift */; };
+		C04864CC2BC73403001D1167 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864772BC73403001D1167 /* ListView.swift */; };
+		C04864CD2BC73403001D1167 /* ListLayoutMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864792BC73403001D1167 /* ListLayoutMetrics.swift */; };
+		C04864CE2BC73403001D1167 /* ListLayoutContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048647A2BC73403001D1167 /* ListLayoutContext.swift */; };
+		C04864CF2BC73403001D1167 /* ListLayoutDefaultAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048647C2BC73403001D1167 /* ListLayoutDefaultAppearance.swift */; };
+		C04864D02BC73403001D1167 /* ListLayoutAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048647D2BC73403001D1167 /* ListLayoutAppearance.swift */; };
+		C04864D12BC73403001D1167 /* ListLayoutCustomAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048647E2BC73403001D1167 /* ListLayoutCustomAppearance.swift */; };
+		C04864D22BC73403001D1167 /* ListLayoutSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864802BC73403001D1167 /* ListLayoutSize.swift */; };
+		C04864D32BC73403001D1167 /* ListLayoutFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864812BC73403001D1167 /* ListLayoutFooter.swift */; };
+		C04864D42BC73403001D1167 /* ListLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864822BC73403001D1167 /* ListLayoutSection.swift */; };
+		C04864D52BC73403001D1167 /* ListLayoutHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864832BC73403001D1167 /* ListLayoutHeader.swift */; };
+		C04864D62BC73403001D1167 /* ListLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864842BC73403001D1167 /* ListLayoutItem.swift */; };
+		C04864D72BC73403001D1167 /* ListLayoutState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864852BC73403001D1167 /* ListLayoutState.swift */; };
+		C04864D82BC73403001D1167 /* ListLayoutOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864862BC73403001D1167 /* ListLayoutOrigin.swift */; };
+		C04864D92BC73403001D1167 /* ListLayoutScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864872BC73403001D1167 /* ListLayoutScrollAnchor.swift */; };
+		C04864DA2BC73403001D1167 /* ListLayoutPinnedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864882BC73403001D1167 /* ListLayoutPinnedViews.swift */; };
+		C04864DB2BC73403001D1167 /* ListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864892BC73403001D1167 /* ListLayout.swift */; };
+		C04864DC2BC73403001D1167 /* ListLayoutScrollAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048648A2BC73403001D1167 /* ListLayoutScrollAxis.swift */; };
+		C04864DD2BC73403001D1167 /* AnyListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048648D2BC73403001D1167 /* AnyListFooterView.swift */; };
+		C04864DE2BC73403001D1167 /* ListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048648E2BC73403001D1167 /* ListFooter.swift */; };
+		C04864DF2BC73403001D1167 /* ListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048648F2BC73403001D1167 /* ListFooterView.swift */; };
+		C04864E02BC73403001D1167 /* AnyListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864902BC73403001D1167 /* AnyListFooter.swift */; };
+		C04864E12BC73403001D1167 /* AnyListSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864912BC73403001D1167 /* AnyListSupplementaryView.swift */; };
+		C04864E22BC73403001D1167 /* AnyListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864932BC73403001D1167 /* AnyListHeader.swift */; };
+		C04864E32BC73403001D1167 /* AnyListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864942BC73403001D1167 /* AnyListHeaderView.swift */; };
+		C04864E42BC73403001D1167 /* ListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864952BC73403001D1167 /* ListHeaderView.swift */; };
+		C04864E52BC73403001D1167 /* ListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864962BC73403001D1167 /* ListHeader.swift */; };
+		C04864E62BC73403001D1167 /* ListUpdateStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864972BC73403001D1167 /* ListUpdateStrategy.swift */; };
+		C04864E72BC73403001D1167 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864982BC73403001D1167 /* List.swift */; };
+		C04864E82BC73403001D1167 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048649A2BC73403001D1167 /* ListItem.swift */; };
+		C04864E92BC73403001D1167 /* AnyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048649B2BC73403001D1167 /* AnyListCell.swift */; };
+		C04864EA2BC73403001D1167 /* AnyListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048649C2BC73403001D1167 /* AnyListItem.swift */; };
+		C04864EB2BC73403001D1167 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048649D2BC73403001D1167 /* ListCell.swift */; };
+		C04864EC2BC73403001D1167 /* ListItemPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048649E2BC73403001D1167 /* ListItemPredicate.swift */; };
+		C04864ED2BC73403001D1167 /* ListVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864A02BC73403001D1167 /* ListVerticalAlignment.swift */; };
+		C04864EE2BC73403001D1167 /* ListHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864A12BC73403001D1167 /* ListHorizontalAlignment.swift */; };
+		C04864EF2BC73403001D1167 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864A32BC73403001D1167 /* CollectionViewLayout.swift */; };
+		C04865062BC73970001D1167 /* ListRowSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864FB2BC73970001D1167 /* ListRowSize.swift */; };
+		C04865072BC73970001D1167 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864FC2BC73970001D1167 /* ListRow.swift */; };
+		C04865082BC73970001D1167 /* ListHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864FD2BC73970001D1167 /* ListHorizontalLayout.swift */; };
+		C04865092BC73970001D1167 /* ListColumnSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865002BC73970001D1167 /* ListColumnSize.swift */; };
+		C048650A2BC73970001D1167 /* ListColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865012BC73970001D1167 /* ListColumn.swift */; };
+		C048650F2BC73986001D1167 /* ViewObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A282BC6DF4100CF37A7 /* ViewObservedObject.swift */; };
+		C04865102BC73986001D1167 /* ViewEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A232BC6DF4100CF37A7 /* ViewEnvironment.swift */; };
+		C04865112BC73986001D1167 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A212BC6DF4100CF37A7 /* ViewState.swift */; };
+		C04865122BC73986001D1167 /* ViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A272BC6DF4100CF37A7 /* ViewAction.swift */; };
+		C04865132BC73986001D1167 /* ViewFocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A222BC6DF4100CF37A7 /* ViewFocusState.swift */; };
+		C04865142BC73986001D1167 /* ViewArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A202BC6DF4100CF37A7 /* ViewArrayBuilder.swift */; };
+		C04865152BC73986001D1167 /* ViewBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A242BC6DF4100CF37A7 /* ViewBinding.swift */; };
+		C04865162BC73986001D1167 /* ViewFocusBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A262BC6DF4100CF37A7 /* ViewFocusBinding.swift */; };
+		C04865172BC73986001D1167 /* ViewNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A252BC6DF4100CF37A7 /* ViewNamespace.swift */; };
+		C04865182BC7398E001D1167 /* AnyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A472BC6DF5200CF37A7 /* AnyComponent.swift */; };
+		C04865192BC7398E001D1167 /* AnyComponentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A452BC6DF5200CF37A7 /* AnyComponentPresenter.swift */; };
+		C048651A2BC7398E001D1167 /* AnyComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A462BC6DF5200CF37A7 /* AnyComponentView.swift */; };
+		C048651B2BC73993001D1167 /* ComponentContextOverriding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A372BC6DF5200CF37A7 /* ComponentContextOverriding.swift */; };
+		C048651C2BC73993001D1167 /* ComponentContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A392BC6DF5200CF37A7 /* ComponentContext.swift */; };
+		C048651D2BC73993001D1167 /* ComponentContextOverride.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A382BC6DF5200CF37A7 /* ComponentContextOverride.swift */; };
+		C048651E2BC73998001D1167 /* EnvironmentValues+ComponentContainerSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A4D2BC6DF5200CF37A7 /* EnvironmentValues+ComponentContainerSize.swift */; };
+		C048651F2BC73998001D1167 /* EnvironmentValues+ComponentLayoutInvalidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A4F2BC6DF5200CF37A7 /* EnvironmentValues+ComponentLayoutInvalidation.swift */; };
+		C04865202BC73998001D1167 /* EnvironmentValues+ComponentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A4E2BC6DF5200CF37A7 /* EnvironmentValues+ComponentIdentifier.swift */; };
+		C04865212BC73998001D1167 /* EnvironmentValues+ComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A502BC6DF5200CF37A7 /* EnvironmentValues+ComponentViewController.swift */; };
+		C04865222BC7399E001D1167 /* FallbackComponentBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A3D2BC6DF5200CF37A7 /* FallbackComponentBodyView.swift */; };
+		C04865232BC7399E001D1167 /* FallbackComponentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A3C2BC6DF5200CF37A7 /* FallbackComponentBody.swift */; };
+		C04865242BC739A1001D1167 /* FallbackComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A3F2BC6DF5200CF37A7 /* FallbackComponentView.swift */; };
+		C04865252BC739A1001D1167 /* FallbackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A3E2BC6DF5200CF37A7 /* FallbackComponent.swift */; };
+		C04865262BC739A7001D1167 /* ComponentHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A492BC6DF5200CF37A7 /* ComponentHostingController.swift */; };
+		C04865272BC739A7001D1167 /* ComponentHostingRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A4B2BC6DF5200CF37A7 /* ComponentHostingRoot.swift */; };
+		C04865282BC739A7001D1167 /* ComponentHostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A4A2BC6DF5200CF37A7 /* ComponentHostingView.swift */; };
+		C04865292BC739AA001D1167 /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A352BC6DF5200CF37A7 /* ComponentFrame.swift */; };
+		C048652A2BC739AA001D1167 /* ComponentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A342BC6DF5200CF37A7 /* ComponentModifier.swift */; };
+		C048652B2BC739AF001D1167 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A512BC6DF5200CF37A7 /* Component.swift */; };
+		C048652C2BC739AF001D1167 /* ComponentSizingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A422BC6DF5200CF37A7 /* ComponentSizingStrategy.swift */; };
+		C048652D2BC739AF001D1167 /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A402BC6DF5200CF37A7 /* ComponentView.swift */; };
+		C048652E2BC739AF001D1167 /* ComponentSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A432BC6DF5200CF37A7 /* ComponentSizing.swift */; };
+		C048652F2BC739B7001D1167 /* ListHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864A12BC73403001D1167 /* ListHorizontalAlignment.swift */; };
+		C04865302BC739B7001D1167 /* ListVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864A02BC73403001D1167 /* ListVerticalAlignment.swift */; };
+		C04865312BC739BE001D1167 /* CollectionViewInconsistentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864752BC73403001D1167 /* CollectionViewInconsistentCell.swift */; };
+		C04865322BC739BE001D1167 /* CollectionViewInconsistentSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864742BC73403001D1167 /* CollectionViewInconsistentSupplementaryView.swift */; };
+		C04865332BC739C4001D1167 /* CollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864692BC73403001D1167 /* CollectionViewLayoutDelegate.swift */; };
+		C04865342BC739C4001D1167 /* CollectionViewLayoutInvalidationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646D2BC73403001D1167 /* CollectionViewLayoutInvalidationContext.swift */; };
+		C04865352BC739C4001D1167 /* CollectionViewLayoutStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646C2BC73403001D1167 /* CollectionViewLayoutStateManager.swift */; };
+		C04865362BC739C4001D1167 /* CollectionViewLayoutScrollAnchorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864672BC73403001D1167 /* CollectionViewLayoutScrollAnchorItem.swift */; };
+		C04865372BC739C4001D1167 /* CollectionViewLayoutScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864662BC73403001D1167 /* CollectionViewLayoutScrollAnchor.swift */; };
+		C04865382BC739C4001D1167 /* CollectionViewLayoutUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646F2BC73403001D1167 /* CollectionViewLayoutUpdateManager.swift */; };
+		C04865392BC739C4001D1167 /* CollectionViewLayoutScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864652BC73403001D1167 /* CollectionViewLayoutScrollManager.swift */; };
+		C048653A2BC739C4001D1167 /* CollectionViewLayoutSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646E2BC73403001D1167 /* CollectionViewLayoutSizing.swift */; };
+		C048653B2BC739C4001D1167 /* CollectionViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864632BC73403001D1167 /* CollectionViewLayoutAttributes.swift */; };
+		C048653C2BC739C4001D1167 /* AnyCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646A2BC73403001D1167 /* AnyCollectionViewLayout.swift */; };
+		C048653D2BC739C4001D1167 /* CollectionViewLayoutBoundsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048646B2BC73403001D1167 /* CollectionViewLayoutBoundsProvider.swift */; };
+		C048653E2BC739C4001D1167 /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864682BC73403001D1167 /* CollectionViewLayoutScrollAnchorAxis.swift */; };
+		C048653F2BC739C8001D1167 /* CollectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864722BC73403001D1167 /* CollectionViewState.swift */; };
+		C04865402BC739C8001D1167 /* CollectionViewStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864712BC73403001D1167 /* CollectionViewStateManager.swift */; };
+		C04865412BC739CE001D1167 /* CollectionViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048645F2BC73403001D1167 /* CollectionViewUpdate.swift */; };
+		C04865422BC739CE001D1167 /* CollectionViewUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864602BC73403001D1167 /* CollectionViewUpdateManager.swift */; };
+		C04865432BC739CE001D1167 /* CollectionViewDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864612BC73403001D1167 /* CollectionViewDelegateManager.swift */; };
+		C04865442BC739CE001D1167 /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864762BC73403001D1167 /* CollectionViewManager.swift */; };
+		C04865452BC739D3001D1167 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048649A2BC73403001D1167 /* ListItem.swift */; };
+		C04865462BC739D3001D1167 /* AnyListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048649C2BC73403001D1167 /* AnyListItem.swift */; };
+		C04865472BC739D3001D1167 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048649D2BC73403001D1167 /* ListCell.swift */; };
+		C04865482BC739D3001D1167 /* ListItemPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048649E2BC73403001D1167 /* ListItemPredicate.swift */; };
+		C04865492BC739D3001D1167 /* AnyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048649B2BC73403001D1167 /* AnyListCell.swift */; };
+		C048654A2BC739DE001D1167 /* ListLayoutPinnedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864882BC73403001D1167 /* ListLayoutPinnedViews.swift */; };
+		C048654B2BC739DE001D1167 /* ListLayoutMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864792BC73403001D1167 /* ListLayoutMetrics.swift */; };
+		C048654C2BC739DE001D1167 /* ListLayoutScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864872BC73403001D1167 /* ListLayoutScrollAnchor.swift */; };
+		C048654D2BC739DE001D1167 /* ListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864892BC73403001D1167 /* ListLayout.swift */; };
+		C048654E2BC739DE001D1167 /* ListLayoutContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048647A2BC73403001D1167 /* ListLayoutContext.swift */; };
+		C048654F2BC739DE001D1167 /* ListLayoutScrollAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048648A2BC73403001D1167 /* ListLayoutScrollAxis.swift */; };
+		C04865502BC739E3001D1167 /* ListLayoutOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864862BC73403001D1167 /* ListLayoutOrigin.swift */; };
+		C04865512BC739E3001D1167 /* ListLayoutSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864802BC73403001D1167 /* ListLayoutSize.swift */; };
+		C04865522BC739E3001D1167 /* ListLayoutHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864832BC73403001D1167 /* ListLayoutHeader.swift */; };
+		C04865532BC739E3001D1167 /* ListLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864822BC73403001D1167 /* ListLayoutSection.swift */; };
+		C04865542BC739E3001D1167 /* ListLayoutFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864812BC73403001D1167 /* ListLayoutFooter.swift */; };
+		C04865552BC739E3001D1167 /* ListLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864842BC73403001D1167 /* ListLayoutItem.swift */; };
+		C04865562BC739E3001D1167 /* ListLayoutState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864852BC73403001D1167 /* ListLayoutState.swift */; };
+		C04865572BC739E8001D1167 /* ListLayoutAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048647D2BC73403001D1167 /* ListLayoutAppearance.swift */; };
+		C04865582BC739E8001D1167 /* ListLayoutCustomAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048647E2BC73403001D1167 /* ListLayoutCustomAppearance.swift */; };
+		C04865592BC739E8001D1167 /* ListLayoutDefaultAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048647C2BC73403001D1167 /* ListLayoutDefaultAppearance.swift */; };
+		C048655A2BC739EF001D1167 /* ListSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048645A2BC73403001D1167 /* ListSectionBuilder.swift */; };
+		C048655B2BC739EF001D1167 /* ListSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864592BC73403001D1167 /* ListSectionFooter.swift */; };
+		C048655C2BC739EF001D1167 /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048645B2BC73403001D1167 /* ListSection.swift */; };
+		C048655D2BC739EF001D1167 /* ListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864572BC73403001D1167 /* ListSectionHeader.swift */; };
+		C048655E2BC739EF001D1167 /* ListSectionPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048645C2BC73403001D1167 /* ListSectionPredicate.swift */; };
+		C048655F2BC739EF001D1167 /* ListSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864582BC73403001D1167 /* ListSectionItem.swift */; };
+		C04865602BC739F5001D1167 /* AnyListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864902BC73403001D1167 /* AnyListFooter.swift */; };
+		C04865612BC739F5001D1167 /* AnyListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048648D2BC73403001D1167 /* AnyListFooterView.swift */; };
+		C04865622BC739F5001D1167 /* ListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048648F2BC73403001D1167 /* ListFooterView.swift */; };
+		C04865632BC739F5001D1167 /* ListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C048648E2BC73403001D1167 /* ListFooter.swift */; };
+		C04865642BC739FB001D1167 /* ListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864962BC73403001D1167 /* ListHeader.swift */; };
+		C04865652BC739FB001D1167 /* AnyListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864932BC73403001D1167 /* AnyListHeader.swift */; };
+		C04865662BC739FB001D1167 /* ListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864952BC73403001D1167 /* ListHeaderView.swift */; };
+		C04865672BC739FB001D1167 /* AnyListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864942BC73403001D1167 /* AnyListHeaderView.swift */; };
+		C04865682BC739FF001D1167 /* AnyListSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864912BC73403001D1167 /* AnyListSupplementaryView.swift */; };
+		C04865692BC73A06001D1167 /* ListUpdateStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864972BC73403001D1167 /* ListUpdateStrategy.swift */; };
+		C048656A2BC73A06001D1167 /* ListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864552BC73403001D1167 /* ListBuilder.swift */; };
+		C048656B2BC73A06001D1167 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864982BC73403001D1167 /* List.swift */; };
+		C048656C2BC73A06001D1167 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864772BC73403001D1167 /* ListView.swift */; };
+		C048656D2BC73A09001D1167 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864A32BC73403001D1167 /* CollectionViewLayout.swift */; };
+		C048656F2BC73A15001D1167 /* ListHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864FD2BC73970001D1167 /* ListHorizontalLayout.swift */; };
+		C04865702BC73A19001D1167 /* ListRowSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864FB2BC73970001D1167 /* ListRowSize.swift */; };
+		C04865712BC73A19001D1167 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04864FC2BC73970001D1167 /* ListRow.swift */; };
+		C04865722BC73A1D001D1167 /* ListColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865012BC73970001D1167 /* ListColumn.swift */; };
+		C04865732BC73A1D001D1167 /* ListColumnSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865002BC73970001D1167 /* ListColumnSize.swift */; };
+		C048657A2BC7BE75001D1167 /* VerticalListMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865022BC73970001D1167 /* VerticalListMetrics.swift */; };
+		C048657B2BC7BE75001D1167 /* VerticalListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865042BC73970001D1167 /* VerticalListSection.swift */; };
+		C048657C2BC7BE75001D1167 /* VerticalListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865032BC73970001D1167 /* VerticalListLayout.swift */; };
+		C048657D2BC7BE75001D1167 /* VerticalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865052BC73970001D1167 /* VerticalList.swift */; };
+		C048657E2BC7BE75001D1167 /* VerticalListMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865022BC73970001D1167 /* VerticalListMetrics.swift */; };
+		C048657F2BC7BE75001D1167 /* VerticalListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865042BC73970001D1167 /* VerticalListSection.swift */; };
+		C04865802BC7BE75001D1167 /* VerticalListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865032BC73970001D1167 /* VerticalListLayout.swift */; };
+		C04865812BC7BE75001D1167 /* VerticalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04865052BC73970001D1167 /* VerticalList.swift */; };
+		C04866AE2BC7CF31001D1167 /* ListContainerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04866A62BC7CF31001D1167 /* ListContainerFooterView.swift */; };
+		C04866AF2BC7CF31001D1167 /* ListContainerFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04866A72BC7CF31001D1167 /* ListContainerFooter.swift */; };
+		C04866B02BC7CF31001D1167 /* ListContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04866A92BC7CF31001D1167 /* ListContainerCell.swift */; };
+		C04866B12BC7CF31001D1167 /* ListContainerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04866AA2BC7CF31001D1167 /* ListContainerItem.swift */; };
+		C04866B22BC7CF31001D1167 /* ListContainerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04866AC2BC7CF31001D1167 /* ListContainerHeader.swift */; };
+		C04866B32BC7CF31001D1167 /* ListContainerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04866AD2BC7CF31001D1167 /* ListContainerHeaderView.swift */; };
 		C057F01823CB8EEB00C2D895 /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C057F00E23CB8EEB00C2D895 /* Levitan.framework */; };
 		C057F01F23CB8EEB00C2D895 /* Levitan.h in Headers */ = {isa = PBXBuildFile; fileRef = C057F01123CB8EEB00C2D895 /* Levitan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C05CD1E62B093732005F5499 /* TokenViewPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1862B093732005F5499 /* TokenViewPayload.swift */; };
@@ -614,6 +796,84 @@
 		C0358FCF2B0A7904000E599A /* TokenViewProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewProperty.swift; sourceTree = "<group>"; };
 		C0358FD92B0AA401000E599A /* TokenViewPropertySubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewPropertySubscript.swift; sourceTree = "<group>"; };
 		C0358FDC2B0AA981000E599A /* TokenViewPropertyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewPropertyKey.swift; sourceTree = "<group>"; };
+		C04864552BC73403001D1167 /* ListBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListBuilder.swift; sourceTree = "<group>"; };
+		C04864572BC73403001D1167 /* ListSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSectionHeader.swift; sourceTree = "<group>"; };
+		C04864582BC73403001D1167 /* ListSectionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSectionItem.swift; sourceTree = "<group>"; };
+		C04864592BC73403001D1167 /* ListSectionFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSectionFooter.swift; sourceTree = "<group>"; };
+		C048645A2BC73403001D1167 /* ListSectionBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSectionBuilder.swift; sourceTree = "<group>"; };
+		C048645B2BC73403001D1167 /* ListSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
+		C048645C2BC73403001D1167 /* ListSectionPredicate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSectionPredicate.swift; sourceTree = "<group>"; };
+		C048645F2BC73403001D1167 /* CollectionViewUpdate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewUpdate.swift; sourceTree = "<group>"; };
+		C04864602BC73403001D1167 /* CollectionViewUpdateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewUpdateManager.swift; sourceTree = "<group>"; };
+		C04864612BC73403001D1167 /* CollectionViewDelegateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegateManager.swift; sourceTree = "<group>"; };
+		C04864632BC73403001D1167 /* CollectionViewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutAttributes.swift; sourceTree = "<group>"; };
+		C04864652BC73403001D1167 /* CollectionViewLayoutScrollManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollManager.swift; sourceTree = "<group>"; };
+		C04864662BC73403001D1167 /* CollectionViewLayoutScrollAnchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollAnchor.swift; sourceTree = "<group>"; };
+		C04864672BC73403001D1167 /* CollectionViewLayoutScrollAnchorItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollAnchorItem.swift; sourceTree = "<group>"; };
+		C04864682BC73403001D1167 /* CollectionViewLayoutScrollAnchorAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollAnchorAxis.swift; sourceTree = "<group>"; };
+		C04864692BC73403001D1167 /* CollectionViewLayoutDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutDelegate.swift; sourceTree = "<group>"; };
+		C048646A2BC73403001D1167 /* AnyCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCollectionViewLayout.swift; sourceTree = "<group>"; };
+		C048646B2BC73403001D1167 /* CollectionViewLayoutBoundsProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutBoundsProvider.swift; sourceTree = "<group>"; };
+		C048646C2BC73403001D1167 /* CollectionViewLayoutStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutStateManager.swift; sourceTree = "<group>"; };
+		C048646D2BC73403001D1167 /* CollectionViewLayoutInvalidationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutInvalidationContext.swift; sourceTree = "<group>"; };
+		C048646E2BC73403001D1167 /* CollectionViewLayoutSizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutSizing.swift; sourceTree = "<group>"; };
+		C048646F2BC73403001D1167 /* CollectionViewLayoutUpdateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutUpdateManager.swift; sourceTree = "<group>"; };
+		C04864712BC73403001D1167 /* CollectionViewStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewStateManager.swift; sourceTree = "<group>"; };
+		C04864722BC73403001D1167 /* CollectionViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewState.swift; sourceTree = "<group>"; };
+		C04864742BC73403001D1167 /* CollectionViewInconsistentSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewInconsistentSupplementaryView.swift; sourceTree = "<group>"; };
+		C04864752BC73403001D1167 /* CollectionViewInconsistentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewInconsistentCell.swift; sourceTree = "<group>"; };
+		C04864762BC73403001D1167 /* CollectionViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewManager.swift; sourceTree = "<group>"; };
+		C04864772BC73403001D1167 /* ListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		C04864792BC73403001D1167 /* ListLayoutMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutMetrics.swift; sourceTree = "<group>"; };
+		C048647A2BC73403001D1167 /* ListLayoutContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutContext.swift; sourceTree = "<group>"; };
+		C048647C2BC73403001D1167 /* ListLayoutDefaultAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutDefaultAppearance.swift; sourceTree = "<group>"; };
+		C048647D2BC73403001D1167 /* ListLayoutAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutAppearance.swift; sourceTree = "<group>"; };
+		C048647E2BC73403001D1167 /* ListLayoutCustomAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutCustomAppearance.swift; sourceTree = "<group>"; };
+		C04864802BC73403001D1167 /* ListLayoutSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutSize.swift; sourceTree = "<group>"; };
+		C04864812BC73403001D1167 /* ListLayoutFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutFooter.swift; sourceTree = "<group>"; };
+		C04864822BC73403001D1167 /* ListLayoutSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutSection.swift; sourceTree = "<group>"; };
+		C04864832BC73403001D1167 /* ListLayoutHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutHeader.swift; sourceTree = "<group>"; };
+		C04864842BC73403001D1167 /* ListLayoutItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutItem.swift; sourceTree = "<group>"; };
+		C04864852BC73403001D1167 /* ListLayoutState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutState.swift; sourceTree = "<group>"; };
+		C04864862BC73403001D1167 /* ListLayoutOrigin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutOrigin.swift; sourceTree = "<group>"; };
+		C04864872BC73403001D1167 /* ListLayoutScrollAnchor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutScrollAnchor.swift; sourceTree = "<group>"; };
+		C04864882BC73403001D1167 /* ListLayoutPinnedViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutPinnedViews.swift; sourceTree = "<group>"; };
+		C04864892BC73403001D1167 /* ListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayout.swift; sourceTree = "<group>"; };
+		C048648A2BC73403001D1167 /* ListLayoutScrollAxis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListLayoutScrollAxis.swift; sourceTree = "<group>"; };
+		C048648D2BC73403001D1167 /* AnyListFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyListFooterView.swift; sourceTree = "<group>"; };
+		C048648E2BC73403001D1167 /* ListFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFooter.swift; sourceTree = "<group>"; };
+		C048648F2BC73403001D1167 /* ListFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListFooterView.swift; sourceTree = "<group>"; };
+		C04864902BC73403001D1167 /* AnyListFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyListFooter.swift; sourceTree = "<group>"; };
+		C04864912BC73403001D1167 /* AnyListSupplementaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyListSupplementaryView.swift; sourceTree = "<group>"; };
+		C04864932BC73403001D1167 /* AnyListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyListHeader.swift; sourceTree = "<group>"; };
+		C04864942BC73403001D1167 /* AnyListHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyListHeaderView.swift; sourceTree = "<group>"; };
+		C04864952BC73403001D1167 /* ListHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeaderView.swift; sourceTree = "<group>"; };
+		C04864962BC73403001D1167 /* ListHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeader.swift; sourceTree = "<group>"; };
+		C04864972BC73403001D1167 /* ListUpdateStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListUpdateStrategy.swift; sourceTree = "<group>"; };
+		C04864982BC73403001D1167 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		C048649A2BC73403001D1167 /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		C048649B2BC73403001D1167 /* AnyListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyListCell.swift; sourceTree = "<group>"; };
+		C048649C2BC73403001D1167 /* AnyListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyListItem.swift; sourceTree = "<group>"; };
+		C048649D2BC73403001D1167 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		C048649E2BC73403001D1167 /* ListItemPredicate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItemPredicate.swift; sourceTree = "<group>"; };
+		C04864A02BC73403001D1167 /* ListVerticalAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVerticalAlignment.swift; sourceTree = "<group>"; };
+		C04864A12BC73403001D1167 /* ListHorizontalAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHorizontalAlignment.swift; sourceTree = "<group>"; };
+		C04864A32BC73403001D1167 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
+		C04864FB2BC73970001D1167 /* ListRowSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRowSize.swift; sourceTree = "<group>"; };
+		C04864FC2BC73970001D1167 /* ListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
+		C04864FD2BC73970001D1167 /* ListHorizontalLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHorizontalLayout.swift; sourceTree = "<group>"; };
+		C04865002BC73970001D1167 /* ListColumnSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListColumnSize.swift; sourceTree = "<group>"; };
+		C04865012BC73970001D1167 /* ListColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListColumn.swift; sourceTree = "<group>"; };
+		C04865022BC73970001D1167 /* VerticalListMetrics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalListMetrics.swift; sourceTree = "<group>"; };
+		C04865032BC73970001D1167 /* VerticalListLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalListLayout.swift; sourceTree = "<group>"; };
+		C04865042BC73970001D1167 /* VerticalListSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalListSection.swift; sourceTree = "<group>"; };
+		C04865052BC73970001D1167 /* VerticalList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalList.swift; sourceTree = "<group>"; };
+		C04866A62BC7CF31001D1167 /* ListContainerFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContainerFooterView.swift; sourceTree = "<group>"; };
+		C04866A72BC7CF31001D1167 /* ListContainerFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContainerFooter.swift; sourceTree = "<group>"; };
+		C04866A92BC7CF31001D1167 /* ListContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContainerCell.swift; sourceTree = "<group>"; };
+		C04866AA2BC7CF31001D1167 /* ListContainerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContainerItem.swift; sourceTree = "<group>"; };
+		C04866AC2BC7CF31001D1167 /* ListContainerHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContainerHeader.swift; sourceTree = "<group>"; };
+		C04866AD2BC7CF31001D1167 /* ListContainerHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListContainerHeaderView.swift; sourceTree = "<group>"; };
 		C057F00E23CB8EEB00C2D895 /* Levitan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Levitan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C057F01123CB8EEB00C2D895 /* Levitan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Levitan.h; sourceTree = "<group>"; };
 		C057F01223CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1327,6 +1587,283 @@
 			path = Internal;
 			sourceTree = "<group>";
 		};
+		C04864542BC73403001D1167 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				C04866A42BC7CF31001D1167 /* Containers */,
+				C048649F2BC73403001D1167 /* Alignment */,
+				C048645D2BC73403001D1167 /* CollectionView */,
+				C04864992BC73403001D1167 /* Item */,
+				C04864782BC73403001D1167 /* Layout */,
+				C04864562BC73403001D1167 /* Section */,
+				C048648B2BC73403001D1167 /* Supplementary */,
+				C04864A22BC73403001D1167 /* WIP */,
+				C04864982BC73403001D1167 /* List.swift */,
+				C04864552BC73403001D1167 /* ListBuilder.swift */,
+				C04864972BC73403001D1167 /* ListUpdateStrategy.swift */,
+				C04864772BC73403001D1167 /* ListView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		C04864562BC73403001D1167 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				C048645B2BC73403001D1167 /* ListSection.swift */,
+				C048645A2BC73403001D1167 /* ListSectionBuilder.swift */,
+				C04864592BC73403001D1167 /* ListSectionFooter.swift */,
+				C04864572BC73403001D1167 /* ListSectionHeader.swift */,
+				C04864582BC73403001D1167 /* ListSectionItem.swift */,
+				C048645C2BC73403001D1167 /* ListSectionPredicate.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		C048645D2BC73403001D1167 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C04864732BC73403001D1167 /* Inconsistent */,
+				C04864622BC73403001D1167 /* Layout */,
+				C04864702BC73403001D1167 /* State */,
+				C048645E2BC73403001D1167 /* Update */,
+				C04864612BC73403001D1167 /* CollectionViewDelegateManager.swift */,
+				C04864762BC73403001D1167 /* CollectionViewManager.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		C048645E2BC73403001D1167 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				C048645F2BC73403001D1167 /* CollectionViewUpdate.swift */,
+				C04864602BC73403001D1167 /* CollectionViewUpdateManager.swift */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
+		C04864622BC73403001D1167 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C04864642BC73403001D1167 /* Scroll */,
+				C048646A2BC73403001D1167 /* AnyCollectionViewLayout.swift */,
+				C04864632BC73403001D1167 /* CollectionViewLayoutAttributes.swift */,
+				C048646B2BC73403001D1167 /* CollectionViewLayoutBoundsProvider.swift */,
+				C04864692BC73403001D1167 /* CollectionViewLayoutDelegate.swift */,
+				C048646D2BC73403001D1167 /* CollectionViewLayoutInvalidationContext.swift */,
+				C048646E2BC73403001D1167 /* CollectionViewLayoutSizing.swift */,
+				C048646C2BC73403001D1167 /* CollectionViewLayoutStateManager.swift */,
+				C048646F2BC73403001D1167 /* CollectionViewLayoutUpdateManager.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		C04864642BC73403001D1167 /* Scroll */ = {
+			isa = PBXGroup;
+			children = (
+				C04864652BC73403001D1167 /* CollectionViewLayoutScrollManager.swift */,
+				C04864662BC73403001D1167 /* CollectionViewLayoutScrollAnchor.swift */,
+				C04864672BC73403001D1167 /* CollectionViewLayoutScrollAnchorItem.swift */,
+				C04864682BC73403001D1167 /* CollectionViewLayoutScrollAnchorAxis.swift */,
+			);
+			path = Scroll;
+			sourceTree = "<group>";
+		};
+		C04864702BC73403001D1167 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				C04864722BC73403001D1167 /* CollectionViewState.swift */,
+				C04864712BC73403001D1167 /* CollectionViewStateManager.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		C04864732BC73403001D1167 /* Inconsistent */ = {
+			isa = PBXGroup;
+			children = (
+				C04864752BC73403001D1167 /* CollectionViewInconsistentCell.swift */,
+				C04864742BC73403001D1167 /* CollectionViewInconsistentSupplementaryView.swift */,
+			);
+			path = Inconsistent;
+			sourceTree = "<group>";
+		};
+		C04864782BC73403001D1167 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C048647B2BC73403001D1167 /* Appearance */,
+				C048647F2BC73403001D1167 /* State */,
+				C04864892BC73403001D1167 /* ListLayout.swift */,
+				C048647A2BC73403001D1167 /* ListLayoutContext.swift */,
+				C04864792BC73403001D1167 /* ListLayoutMetrics.swift */,
+				C04864882BC73403001D1167 /* ListLayoutPinnedViews.swift */,
+				C04864872BC73403001D1167 /* ListLayoutScrollAnchor.swift */,
+				C048648A2BC73403001D1167 /* ListLayoutScrollAxis.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		C048647B2BC73403001D1167 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				C048647D2BC73403001D1167 /* ListLayoutAppearance.swift */,
+				C048647E2BC73403001D1167 /* ListLayoutCustomAppearance.swift */,
+				C048647C2BC73403001D1167 /* ListLayoutDefaultAppearance.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		C048647F2BC73403001D1167 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				C04864812BC73403001D1167 /* ListLayoutFooter.swift */,
+				C04864832BC73403001D1167 /* ListLayoutHeader.swift */,
+				C04864842BC73403001D1167 /* ListLayoutItem.swift */,
+				C04864862BC73403001D1167 /* ListLayoutOrigin.swift */,
+				C04864822BC73403001D1167 /* ListLayoutSection.swift */,
+				C04864802BC73403001D1167 /* ListLayoutSize.swift */,
+				C04864852BC73403001D1167 /* ListLayoutState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		C048648B2BC73403001D1167 /* Supplementary */ = {
+			isa = PBXGroup;
+			children = (
+				C048648C2BC73403001D1167 /* Footer */,
+				C04864922BC73403001D1167 /* Header */,
+				C04864912BC73403001D1167 /* AnyListSupplementaryView.swift */,
+			);
+			path = Supplementary;
+			sourceTree = "<group>";
+		};
+		C048648C2BC73403001D1167 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				C04864902BC73403001D1167 /* AnyListFooter.swift */,
+				C048648D2BC73403001D1167 /* AnyListFooterView.swift */,
+				C048648E2BC73403001D1167 /* ListFooter.swift */,
+				C048648F2BC73403001D1167 /* ListFooterView.swift */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
+		C04864922BC73403001D1167 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				C04864932BC73403001D1167 /* AnyListHeader.swift */,
+				C04864942BC73403001D1167 /* AnyListHeaderView.swift */,
+				C04864962BC73403001D1167 /* ListHeader.swift */,
+				C04864952BC73403001D1167 /* ListHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		C04864992BC73403001D1167 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				C048649B2BC73403001D1167 /* AnyListCell.swift */,
+				C048649C2BC73403001D1167 /* AnyListItem.swift */,
+				C048649D2BC73403001D1167 /* ListCell.swift */,
+				C048649A2BC73403001D1167 /* ListItem.swift */,
+				C048649E2BC73403001D1167 /* ListItemPredicate.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		C048649F2BC73403001D1167 /* Alignment */ = {
+			isa = PBXGroup;
+			children = (
+				C04864A12BC73403001D1167 /* ListHorizontalAlignment.swift */,
+				C04864A02BC73403001D1167 /* ListVerticalAlignment.swift */,
+			);
+			path = Alignment;
+			sourceTree = "<group>";
+		};
+		C04864A22BC73403001D1167 /* WIP */ = {
+			isa = PBXGroup;
+			children = (
+				C04864F92BC73970001D1167 /* Horizontal */,
+				C04864FE2BC73970001D1167 /* Vertical */,
+				C04864A32BC73403001D1167 /* CollectionViewLayout.swift */,
+			);
+			path = WIP;
+			sourceTree = "<group>";
+		};
+		C04864F92BC73970001D1167 /* Horizontal */ = {
+			isa = PBXGroup;
+			children = (
+				C04864FA2BC73970001D1167 /* Row */,
+				C04864FD2BC73970001D1167 /* ListHorizontalLayout.swift */,
+			);
+			path = Horizontal;
+			sourceTree = "<group>";
+		};
+		C04864FA2BC73970001D1167 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				C04864FC2BC73970001D1167 /* ListRow.swift */,
+				C04864FB2BC73970001D1167 /* ListRowSize.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		C04864FE2BC73970001D1167 /* Vertical */ = {
+			isa = PBXGroup;
+			children = (
+				C04864FF2BC73970001D1167 /* Column */,
+				C04865052BC73970001D1167 /* VerticalList.swift */,
+				C04865032BC73970001D1167 /* VerticalListLayout.swift */,
+				C04865022BC73970001D1167 /* VerticalListMetrics.swift */,
+				C04865042BC73970001D1167 /* VerticalListSection.swift */,
+			);
+			path = Vertical;
+			sourceTree = "<group>";
+		};
+		C04864FF2BC73970001D1167 /* Column */ = {
+			isa = PBXGroup;
+			children = (
+				C04865012BC73970001D1167 /* ListColumn.swift */,
+				C04865002BC73970001D1167 /* ListColumnSize.swift */,
+			);
+			path = Column;
+			sourceTree = "<group>";
+		};
+		C04866A42BC7CF31001D1167 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				C04866A52BC7CF31001D1167 /* Footer */,
+				C04866A82BC7CF31001D1167 /* Item */,
+				C04866AB2BC7CF31001D1167 /* Header */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		C04866A52BC7CF31001D1167 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				C04866A72BC7CF31001D1167 /* ListContainerFooter.swift */,
+				C04866A62BC7CF31001D1167 /* ListContainerFooterView.swift */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
+		C04866A82BC7CF31001D1167 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				C04866A92BC7CF31001D1167 /* ListContainerCell.swift */,
+				C04866AA2BC7CF31001D1167 /* ListContainerItem.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		C04866AB2BC7CF31001D1167 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				C04866AC2BC7CF31001D1167 /* ListContainerHeader.swift */,
+				C04866AD2BC7CF31001D1167 /* ListContainerHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		C057F00423CB8EEB00C2D895 = {
 			isa = PBXGroup;
 			children = (
@@ -1366,6 +1903,7 @@
 			isa = PBXGroup;
 			children = (
 				C0E97A322BC6DF5200CF37A7 /* Component */,
+				C04864542BC73403001D1167 /* List */,
 				C0E97A1F2BC6DF4100CF37A7 /* Misc */,
 				C0310B2E2B04BB4800BCA3AC /* Token */,
 				C0D403CF2B030840009306EB /* Tools */,
@@ -2141,9 +2679,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04866B12BC7CF31001D1167 /* ListContainerItem.swift in Sources */,
 				C05CD21F2B093732005F5499 /* AccentColorModifier.swift in Sources */,
 				C0310C842B04BB4800BCA3AC /* FontToken.swift in Sources */,
 				C0310C242B04BB4800BCA3AC /* DecorableByNegation.swift in Sources */,
+				C04864E02BC73403001D1167 /* AnyListFooter.swift in Sources */,
 				C05CD2242B093732005F5499 /* TokenValueView.swift in Sources */,
 				C0E97A1B2BC6DDCC00CF37A7 /* EnvironmentValues+Extensions.swift in Sources */,
 				C0E97A142BC6DDCC00CF37A7 /* UICollectionView+Extensions.swift in Sources */,
@@ -2151,35 +2691,49 @@
 				C0E97A072BC6DDCC00CF37A7 /* TraitsObservation.swift in Sources */,
 				C0E97A182BC6DDCC00CF37A7 /* Dictionary+Extensions.swift in Sources */,
 				C0E97A562BC6DF5200CF37A7 /* ComponentContext.swift in Sources */,
+				C04864EF2BC73403001D1167 /* CollectionViewLayout.swift in Sources */,
 				C0E97A572BC6DF5200CF37A7 /* FallbackComponentBody.swift in Sources */,
 				C0E979F42BC6DDCC00CF37A7 /* Array+Changeable.swift in Sources */,
 				C05CD22A2B093732005F5499 /* TokenThemeView.swift in Sources */,
 				C0310C4D2B04BB4800BCA3AC /* LetterSpacingDecorator.swift in Sources */,
 				C05CD1F82B093732005F5499 /* FrontLayer.swift in Sources */,
+				C04864DF2BC73403001D1167 /* ListFooterView.swift in Sources */,
 				C0358FDA2B0AA401000E599A /* TokenViewPropertySubscript.swift in Sources */,
+				C04864CD2BC73403001D1167 /* ListLayoutMetrics.swift in Sources */,
 				C05CD1F92B093732005F5499 /* TokenShapeLayer.swift in Sources */,
 				C0310C862B04BB4800BCA3AC /* FontValue.swift in Sources */,
+				C04864DD2BC73403001D1167 /* AnyListFooterView.swift in Sources */,
+				C048657B2BC7BE75001D1167 /* VerticalListSection.swift in Sources */,
 				C0310C3C2B04BB4800BCA3AC /* OpacityDecorator.swift in Sources */,
 				C0310C2D2B04BB4800BCA3AC /* DecorableByMinus.swift in Sources */,
 				C0310C252B04BB4800BCA3AC /* NegationDecorator.swift in Sources */,
 				C0310C2C2B04BB4800BCA3AC /* MinusDecorator.swift in Sources */,
 				C0E97A532BC6DF5200CF37A7 /* ComponentFrame.swift in Sources */,
 				C05CD2172B093732005F5499 /* PaddingModifier.swift in Sources */,
+				C04866AF2BC7CF31001D1167 /* ListContainerFooter.swift in Sources */,
 				C0E97A652BC6DF5200CF37A7 /* EnvironmentValues+ComponentIdentifier.swift in Sources */,
 				C0310C712B04BB4800BCA3AC /* CGPoint+TokenValue.swift in Sources */,
 				C0312BD92B07563B00BC21A7 /* TokenTraitProvider.swift in Sources */,
+				C04864EA2BC73403001D1167 /* AnyListItem.swift in Sources */,
 				C09305042B0B68A800F6F13D /* TokenViewProperties+CATextLayer.swift in Sources */,
 				C0310C352B04BB4800BCA3AC /* DecorableByColor.swift in Sources */,
+				C04865092BC73970001D1167 /* ListColumnSize.swift in Sources */,
+				C04864B32BC73403001D1167 /* ListSectionItem.swift in Sources */,
+				C04864D42BC73403001D1167 /* ListLayoutSection.swift in Sources */,
 				C0E97A0B2BC6DDCC00CF37A7 /* TraitsObserver.swift in Sources */,
+				C04864D22BC73403001D1167 /* ListLayoutSize.swift in Sources */,
 				C0310C332B04BB4800BCA3AC /* DecorableByStroke.swift in Sources */,
 				C0E979F92BC6DDCC00CF37A7 /* DifferenceMotion.swift in Sources */,
 				C093051F2B0B77FB00F6F13D /* TokenViewProperties+UITextView.swift in Sources */,
 				C05CD1F52B093732005F5499 /* CALayer+MaskLayer.swift in Sources */,
 				C0310C422B04BB4800BCA3AC /* DecorableByResizingMode.swift in Sources */,
 				C0312BDC2B075FB000BC21A7 /* AnimationToken.swift in Sources */,
+				C04864C62BC73403001D1167 /* CollectionViewLayoutUpdateManager.swift in Sources */,
 				C0E97A1D2BC6DDCC00CF37A7 /* Nullable.swift in Sources */,
 				C0310C262B04BB4800BCA3AC /* FontScaleDecorator.swift in Sources */,
 				C05CD2322B093732005F5499 /* TokenThemeScheme.swift in Sources */,
+				C04865082BC73970001D1167 /* ListHorizontalLayout.swift in Sources */,
+				C04864E42BC73403001D1167 /* ListHeaderView.swift in Sources */,
 				C0E97A0D2BC6DDCC00CF37A7 /* CGPoint+Extensions.swift in Sources */,
 				C05CD21A2B093732005F5499 /* TransitionModifier.swift in Sources */,
 				C0E979F32BC6DDCC00CF37A7 /* Set+Changeable.swift in Sources */,
@@ -2189,8 +2743,13 @@
 				C0E97A672BC6DF5200CF37A7 /* EnvironmentValues+ComponentViewController.swift in Sources */,
 				C0310C832B04BB4800BCA3AC /* FontScaleValue.swift in Sources */,
 				C0310C532B04BB4800BCA3AC /* DecorableByPlus.swift in Sources */,
+				C04864D12BC73403001D1167 /* ListLayoutCustomAppearance.swift in Sources */,
 				C0310C792B04BB4800BCA3AC /* TypographyStrokeValue.swift in Sources */,
+				C04864D82BC73403001D1167 /* ListLayoutOrigin.swift in Sources */,
 				C0E97A682BC6DF5200CF37A7 /* Component.swift in Sources */,
+				C04864DC2BC73403001D1167 /* ListLayoutScrollAxis.swift in Sources */,
+				C04864D52BC73403001D1167 /* ListLayoutHeader.swift in Sources */,
+				C04865072BC73970001D1167 /* ListRow.swift in Sources */,
 				C0310C622B04BB4800BCA3AC /* StrokeType.swift in Sources */,
 				C0BFF3532B10E24F0098F0B7 /* UIWindowScene+TokenView.swift in Sources */,
 				C0E97A002BC6DDCC00CF37A7 /* DifferenceTrace.swift in Sources */,
@@ -2207,14 +2766,24 @@
 				C0310C702B04BB4800BCA3AC /* CGRect+TokenValue.swift in Sources */,
 				C0855EED2B08DF21003EBC34 /* DecorableByAlpha.swift in Sources */,
 				C05CD2122B093732005F5499 /* TokenModifiedView.swift in Sources */,
+				C04864C32BC73403001D1167 /* CollectionViewLayoutStateManager.swift in Sources */,
+				C04864E32BC73403001D1167 /* AnyListHeaderView.swift in Sources */,
 				C0E97A122BC6DDCC00CF37A7 /* NSLayoutConstraint+Extensions.swift in Sources */,
 				C0310C222B04BB4800BCA3AC /* LineBreakModeDecorator.swift in Sources */,
 				C0310C392B04BB4800BCA3AC /* DecorableByLineHeight.swift in Sources */,
 				C0310C6D2B04BB4800BCA3AC /* ImageResizingMode.swift in Sources */,
+				C04864E92BC73403001D1167 /* AnyListCell.swift in Sources */,
+				C048650A2BC73970001D1167 /* ListColumn.swift in Sources */,
 				C0310C6C2B04BB4800BCA3AC /* ImageValue.swift in Sources */,
+				C04864B12BC73403001D1167 /* ListBuilder.swift in Sources */,
 				C05CD22C2B093732005F5499 /* TokenTheme.swift in Sources */,
 				C09305112B0B6EA900F6F13D /* TokenViewProperties+UILabel.swift in Sources */,
 				C0E979F72BC6DDCC00CF37A7 /* SectionDifferenceCalculator.swift in Sources */,
+				C04864CF2BC73403001D1167 /* ListLayoutDefaultAppearance.swift in Sources */,
+				C04864BD2BC73403001D1167 /* CollectionViewLayoutScrollAnchor.swift in Sources */,
+				C04864D72BC73403001D1167 /* ListLayoutState.swift in Sources */,
+				C04864B52BC73403001D1167 /* ListSectionBuilder.swift in Sources */,
+				C04864BC2BC73403001D1167 /* CollectionViewLayoutScrollManager.swift in Sources */,
 				C0E979FB2BC6DDCC00CF37A7 /* DifferenceCalculator.swift in Sources */,
 				C0E97A0F2BC6DDCC00CF37A7 /* CGRect+Extensions.swift in Sources */,
 				C05CD2112B093732005F5499 /* TokenViewModifier.swift in Sources */,
@@ -2227,10 +2796,15 @@
 				C0358FD02B0A7904000E599A /* TokenViewProperty.swift in Sources */,
 				C0E97A042BC6DDCC00CF37A7 /* DiffableSection.swift in Sources */,
 				C0E97A2E2BC6DF4100CF37A7 /* ViewNamespace.swift in Sources */,
+				C04864ED2BC73403001D1167 /* ListVerticalAlignment.swift in Sources */,
 				C0310C3B2B04BB4800BCA3AC /* DecorableByBackgroundColor.swift in Sources */,
+				C04864D32BC73403001D1167 /* ListLayoutFooter.swift in Sources */,
 				C0312BE92B07A39000BC21A7 /* NSTextAlignment+TokenTraitProvider.swift in Sources */,
+				C04864BA2BC73403001D1167 /* CollectionViewDelegateManager.swift in Sources */,
 				C093057E2B0B879500F6F13D /* TokenViewProperties+UIBarPositioning.swift in Sources */,
+				C04866B32BC7CF31001D1167 /* ListContainerHeaderView.swift in Sources */,
 				C0310CD62B04BB4800BCA3AC /* Token.swift in Sources */,
+				C04866B22BC7CF31001D1167 /* ListContainerHeader.swift in Sources */,
 				C05CD2162B093732005F5499 /* AnimationModifier.swift in Sources */,
 				C09305152B0B75C800F6F13D /* TokenViewProperties+UIProgressView.swift in Sources */,
 				C05CD2302B093732005F5499 /* DefaultTokenThemeStorage.swift in Sources */,
@@ -2240,9 +2814,13 @@
 				C0E97A032BC6DDCC00CF37A7 /* UICollectionView+UpdateData.swift in Sources */,
 				C05CD1EE2B093732005F5499 /* TokenView.swift in Sources */,
 				C05CD2292B093732005F5499 /* ShapeValue+Shape.swift in Sources */,
+				C04864DE2BC73403001D1167 /* ListFooter.swift in Sources */,
+				C04864CA2BC73403001D1167 /* CollectionViewInconsistentCell.swift in Sources */,
 				C0E97A612BC6DF5200CF37A7 /* ComponentHostingController.swift in Sources */,
 				C05CD2312B093732005F5499 /* TokenThemeManager.swift in Sources */,
 				C0E97A152BC6DDCC00CF37A7 /* IndexPath+Extensions.swift in Sources */,
+				C04864CB2BC73403001D1167 /* CollectionViewManager.swift in Sources */,
+				C04864C82BC73403001D1167 /* CollectionViewState.swift in Sources */,
 				C09305242B0B7CE000F6F13D /* TokenViewProperties+UIView.swift in Sources */,
 				C0310C2B2B04BB4800BCA3AC /* DivisionDecorator.swift in Sources */,
 				C05CD2152B093732005F5499 /* BackgroundGradientModifier.swift in Sources */,
@@ -2253,37 +2831,51 @@
 				C0310C482B04BB4800BCA3AC /* MultiplicationDecorator.swift in Sources */,
 				C0310C742B04BB4800BCA3AC /* Int+TokenValue.swift in Sources */,
 				C0310C372B04BB4800BCA3AC /* DecorableByParagraphFirstLineIndent.swift in Sources */,
+				C04864B42BC73403001D1167 /* ListSectionFooter.swift in Sources */,
 				C0312BF02B07B05600BC21A7 /* ShapeToken.swift in Sources */,
 				C0E97A102BC6DDCC00CF37A7 /* UIEdgeInsets+Extensions.swift in Sources */,
 				C0358FDD2B0AA981000E599A /* TokenViewPropertyKey.swift in Sources */,
 				C0E979F62BC6DDCC00CF37A7 /* ObjectAssociation.swift in Sources */,
 				C0310C302B04BB4800BCA3AC /* ForegroundColorDecorator.swift in Sources */,
 				C0E97A5F2BC6DF5200CF37A7 /* AnyComponentView.swift in Sources */,
+				C04864DB2BC73403001D1167 /* ListLayout.swift in Sources */,
 				25F6DC262B7387E700FBAB9C /* NilCoalescingDecorator.swift in Sources */,
+				C04864B22BC73403001D1167 /* ListSectionHeader.swift in Sources */,
 				C0310C4B2B04BB4800BCA3AC /* DecorableByDuration.swift in Sources */,
 				C0E979FC2BC6DDCC00CF37A7 /* ItemDifferenceCalculator.swift in Sources */,
 				C09305192B0B775000F6F13D /* TokenViewProperties+UISwitch.swift in Sources */,
 				C093051D2B0B77A400F6F13D /* TokenViewProperties+UITextField.swift in Sources */,
 				C0310C512B04BB4800BCA3AC /* DecorableByParagraphOtherLineIndent.swift in Sources */,
+				C04866AE2BC7CF31001D1167 /* ListContainerFooterView.swift in Sources */,
+				C048657D2BC7BE75001D1167 /* VerticalList.swift in Sources */,
 				C0E97A052BC6DDCC00CF37A7 /* Diffable.swift in Sources */,
 				C0312BE72B07A36A00BC21A7 /* NSLineBreakMode+TokenTraitProvider.swift in Sources */,
 				C05CD1ED2B093732005F5499 /* CALayer+TokenView.swift in Sources */,
+				C04864CC2BC73403001D1167 /* ListView.swift in Sources */,
 				C0310C6B2B04BB4800BCA3AC /* ImageToken.swift in Sources */,
 				C05CD2202B093732005F5499 /* EnvironmentValues+TokenThemeScheme.swift in Sources */,
+				C04864DA2BC73403001D1167 /* ListLayoutPinnedViews.swift in Sources */,
+				C04864BF2BC73403001D1167 /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */,
 				C0310C7C2B04BB4800BCA3AC /* TypographyToken.swift in Sources */,
 				C0E97A062BC6DDCC00CF37A7 /* ItemPath.swift in Sources */,
 				C0E97A1C2BC6DDCC00CF37A7 /* View+Extensions.swift in Sources */,
+				C04864C42BC73403001D1167 /* CollectionViewLayoutInvalidationContext.swift in Sources */,
 				C0310C432B04BB4800BCA3AC /* ResizingModeDecorator.swift in Sources */,
 				C0310C602B04BB4800BCA3AC /* StrokeToken.swift in Sources */,
 				C05CD22D2B093732005F5499 /* TokenThemeUnit.swift in Sources */,
 				C05CD2252B093732005F5499 /* ShadowShape.swift in Sources */,
+				C04864EE2BC73403001D1167 /* ListHorizontalAlignment.swift in Sources */,
+				C04864C92BC73403001D1167 /* CollectionViewInconsistentSupplementaryView.swift in Sources */,
+				C04864B82BC73403001D1167 /* CollectionViewUpdate.swift in Sources */,
 				C0E97A0C2BC6DDCC00CF37A7 /* CGSize+Extensions.swift in Sources */,
 				C0310C402B04BB4800BCA3AC /* AlignmentDecorator.swift in Sources */,
 				C0310C382B04BB4800BCA3AC /* LineHeightDecorator.swift in Sources */,
 				C0310C522B04BB4800BCA3AC /* ParagraphOtherLineIndentDecorator.swift in Sources */,
+				C04864C22BC73403001D1167 /* CollectionViewLayoutBoundsProvider.swift in Sources */,
 				C0E97A522BC6DF5200CF37A7 /* ComponentModifier.swift in Sources */,
 				C0E97A082BC6DDCC00CF37A7 /* UIView+TraitsObservable.swift in Sources */,
 				C0310C642B04BB4800BCA3AC /* ColorToken.swift in Sources */,
+				C04864E82BC73403001D1167 /* ListItem.swift in Sources */,
 				C0310C6E2B04BB4800BCA3AC /* CGSize+TokenValue.swift in Sources */,
 				C09305082B0B68D800F6F13D /* TokenViewProperties+UIActivityIndicatorView.swift in Sources */,
 				C0310C362B04BB4800BCA3AC /* ParagraphFirstLineIndentDecorator.swift in Sources */,
@@ -2294,12 +2886,17 @@
 				C09305132B0B73E900F6F13D /* TokenViewProperties+UINavigationBar.swift in Sources */,
 				C05CD22F2B093732005F5499 /* TokenThemeStorage.swift in Sources */,
 				C05CD2352B093732005F5499 /* DefaultTokenThemeResolver.swift in Sources */,
+				C04864C52BC73403001D1167 /* CollectionViewLayoutSizing.swift in Sources */,
 				C05CD2212B093732005F5499 /* EnvironmentValues+TokenTheme.swift in Sources */,
+				C04864BE2BC73403001D1167 /* CollectionViewLayoutScrollAnchorItem.swift in Sources */,
 				C0E97A2C2BC6DF4100CF37A7 /* ViewEnvironment.swift in Sources */,
+				C04864CE2BC73403001D1167 /* ListLayoutContext.swift in Sources */,
 				C0310C772B04BB4800BCA3AC /* Double+TokenValue.swift in Sources */,
 				C0E979FF2BC6DDCC00CF37A7 /* DifferenceStageSections.swift in Sources */,
+				C04865062BC73970001D1167 /* ListRowSize.swift in Sources */,
 				C0E97A582BC6DF5200CF37A7 /* FallbackComponentBodyView.swift in Sources */,
 				C05CD1E82B093732005F5499 /* TokenViewBinding.swift in Sources */,
+				C04864C12BC73403001D1167 /* AnyCollectionViewLayout.swift in Sources */,
 				C0E97A132BC6DDCC00CF37A7 /* UILayoutPriority+Extensions.swift in Sources */,
 				C05CD1F02B093732005F5499 /* ShadowLayer.swift in Sources */,
 				C0E97A2A2BC6DF4100CF37A7 /* ViewState.swift in Sources */,
@@ -2309,6 +2906,7 @@
 				C09305062B0B68CC00F6F13D /* TokenViewProperties+SFSafariViewController.swift in Sources */,
 				C05CD2262B093732005F5499 /* ImageValue+View.swift in Sources */,
 				C0310C782B04BB4800BCA3AC /* Set+TokenValue.swift in Sources */,
+				C04864E22BC73403001D1167 /* AnyListHeader.swift in Sources */,
 				C05CD2342B093732005F5499 /* TokenThemeResolver.swift in Sources */,
 				C0310C752B04BB4800BCA3AC /* String+TokenValue.swift in Sources */,
 				C0310C732B04BB4800BCA3AC /* Array+TokenValue.swift in Sources */,
@@ -2334,6 +2932,7 @@
 				C0E97A5E2BC6DF5200CF37A7 /* AnyComponentPresenter.swift in Sources */,
 				C05CD1EC2B093732005F5499 /* UIViewController+TokenView.swift in Sources */,
 				C0E97A0A2BC6DDCC00CF37A7 /* TraitsObservable.swift in Sources */,
+				C04864BB2BC73403001D1167 /* CollectionViewLayoutAttributes.swift in Sources */,
 				C0310C6F2B04BB4800BCA3AC /* CGFloat+TokenValue.swift in Sources */,
 				C0310C502B04BB4800BCA3AC /* StrikethroughDecorator.swift in Sources */,
 				C0E97A662BC6DF5200CF37A7 /* EnvironmentValues+ComponentLayoutInvalidation.swift in Sources */,
@@ -2348,6 +2947,7 @@
 				C0E97A642BC6DF5200CF37A7 /* EnvironmentValues+ComponentContainerSize.swift in Sources */,
 				C0310C312B04BB4800BCA3AC /* DecorableByForegroundColor.swift in Sources */,
 				C0312BDF2B075FF600BC21A7 /* CornersToken.swift in Sources */,
+				C04864D92BC73403001D1167 /* ListLayoutScrollAnchor.swift in Sources */,
 				C0310C282B04BB4800BCA3AC /* DecorableByUnderline.swift in Sources */,
 				C093057B2B0B86FB00F6F13D /* TokenViewProperties+UIControl.swift in Sources */,
 				C0E97A172BC6DDCC00CF37A7 /* Sequence+Extensions.swift in Sources */,
@@ -2358,13 +2958,18 @@
 				C0310C5A2B04BB4800BCA3AC /* CapsuleShape.swift in Sources */,
 				C05CD2182B093732005F5499 /* ShadowModifier.swift in Sources */,
 				C0310C292B04BB4800BCA3AC /* UnderlineDecorator.swift in Sources */,
+				C04864EC2BC73403001D1167 /* ListItemPredicate.swift in Sources */,
+				C04864D62BC73403001D1167 /* ListLayoutItem.swift in Sources */,
 				C0310C4C2B04BB4800BCA3AC /* DecorableByLetterSpacing.swift in Sources */,
+				C048657A2BC7BE75001D1167 /* VerticalListMetrics.swift in Sources */,
 				C0310C562B04BB4800BCA3AC /* GradientToken.swift in Sources */,
+				C04864B92BC73403001D1167 /* CollectionViewUpdateManager.swift in Sources */,
 				C0E979F52BC6DDCC00CF37A7 /* Changeable.swift in Sources */,
 				C0310C722B04BB4800BCA3AC /* Bool+TokenValue.swift in Sources */,
 				C0E97A5A2BC6DF5200CF37A7 /* FallbackComponentView.swift in Sources */,
 				C0310C582B04BB4800BCA3AC /* RectangleShape.swift in Sources */,
 				C0310C2F2B04BB4800BCA3AC /* ParagraphSpacingDecorator.swift in Sources */,
+				C04864B62BC73403001D1167 /* ListSection.swift in Sources */,
 				C05CD20D2B093732005F5499 /* TokenViewManager.swift in Sources */,
 				C093051B2B0B778D00F6F13D /* TokenViewProperties+UITabBar.swift in Sources */,
 				C05CD2332B093732005F5499 /* TokenThemeKey.swift in Sources */,
@@ -2378,6 +2983,7 @@
 				C0310C612B04BB4800BCA3AC /* StrokeValue.swift in Sources */,
 				C0310C2E2B04BB4800BCA3AC /* DecorableByParagraphSpacing.swift in Sources */,
 				C05CD20A2B093732005F5499 /* TokenViewDSL.swift in Sources */,
+				C04864E12BC73403001D1167 /* AnyListSupplementaryView.swift in Sources */,
 				C0310C672B04BB4800BCA3AC /* ShadowValue.swift in Sources */,
 				C0310C542B04BB4800BCA3AC /* PlusDecorator.swift in Sources */,
 				C0312BE52B07A0B600BC21A7 /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */,
@@ -2386,31 +2992,41 @@
 				C0E979FA2BC6DDCC00CF37A7 /* DifferenceChangeset.swift in Sources */,
 				C0E97A602BC6DF5200CF37A7 /* AnyComponent.swift in Sources */,
 				C0E97A312BC6DF4100CF37A7 /* ViewObservedObject.swift in Sources */,
+				C04864E62BC73403001D1167 /* ListUpdateStrategy.swift in Sources */,
 				C05CD1EB2B093732005F5499 /* UIView+TokenView.swift in Sources */,
 				C05CD1F62B093732005F5499 /* CALayer+BackLayer.swift in Sources */,
 				C05CD2272B093732005F5499 /* ColorValue+View.swift in Sources */,
 				C05CD20F2B093732005F5499 /* OpacityModifier.swift in Sources */,
+				C048657C2BC7BE75001D1167 /* VerticalListLayout.swift in Sources */,
 				C0E97A5C2BC6DF5200CF37A7 /* ComponentSizingStrategy.swift in Sources */,
 				C0310C5F2B04BB4800BCA3AC /* CornersMask.swift in Sources */,
+				C04864D02BC73403001D1167 /* ListLayoutAppearance.swift in Sources */,
 				C0310C4F2B04BB4800BCA3AC /* DecorableByStrikethrough.swift in Sources */,
 				C05CD21B2B093732005F5499 /* BackgroundColorModifier.swift in Sources */,
 				C0310C652B04BB4800BCA3AC /* ShadowToken.swift in Sources */,
 				C0310C552B04BB4800BCA3AC /* GradientValue.swift in Sources */,
 				C05CD21E2B093732005F5499 /* FontModifier.swift in Sources */,
+				C04866B02BC7CF31001D1167 /* ListContainerCell.swift in Sources */,
 				C0310C4A2B04BB4800BCA3AC /* DurationDecorator.swift in Sources */,
 				C05CD1F12B093732005F5499 /* TokenShapeView.swift in Sources */,
 				C0E979F12BC6DDCC00CF37A7 /* ChangeableWrapper.swift in Sources */,
 				C0310C272B04BB4800BCA3AC /* DecorableByFontScale.swift in Sources */,
+				C04864E72BC73403001D1167 /* List.swift in Sources */,
 				C093050A2B0B6A0B00F6F13D /* TokenViewProperties+UIButton.swift in Sources */,
+				C04864C72BC73403001D1167 /* CollectionViewStateManager.swift in Sources */,
 				C0E97A0E2BC6DDCC00CF37A7 /* CGColor+Extensions.swift in Sources */,
 				C05CD22B2B093732005F5499 /* ShadowMaskShape.swift in Sources */,
+				C04864B72BC73403001D1167 /* ListSectionPredicate.swift in Sources */,
 				C0310C812B04BB4800BCA3AC /* InsetsEdge.swift in Sources */,
 				C0310C442B04BB4800BCA3AC /* InsetsDecorator.swift in Sources */,
+				C04864EB2BC73403001D1167 /* ListCell.swift in Sources */,
 				C0E97A592BC6DF5200CF37A7 /* FallbackComponent.swift in Sources */,
 				C05CD2222B093732005F5499 /* EnvironmentValues+TokenThemeKey.swift in Sources */,
 				C05CD20C2B093732005F5499 /* AnyTokenView.swift in Sources */,
+				C04864C02BC73403001D1167 /* CollectionViewLayoutDelegate.swift in Sources */,
 				C0310C662B04BB4800BCA3AC /* ShadowType.swift in Sources */,
 				C05CD1EA2B093732005F5499 /* UIApplication+TokenView.swift in Sources */,
+				C04864E52BC73403001D1167 /* ListHeader.swift in Sources */,
 				C0E97A302BC6DF4100CF37A7 /* ViewAction.swift in Sources */,
 				C0E97A092BC6DDCC00CF37A7 /* UIScreen+TraitsObservable.swift in Sources */,
 				C0E97A632BC6DF5200CF37A7 /* ComponentHostingRoot.swift in Sources */,
@@ -2429,6 +3045,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C04865602BC739F5001D1167 /* AnyListFooter.swift in Sources */,
+				C048657F2BC7BE75001D1167 /* VerticalListSection.swift in Sources */,
 				C093055B2B0B806E00F6F13D /* TypographyLineValue.swift in Sources */,
 				C09305322B0B803800F6F13D /* CGPoint+TokenValue.swift in Sources */,
 				C04843FD2B0B4317002DF0CA /* ScaleEffectModifier.swift in Sources */,
@@ -2436,36 +3054,57 @@
 				C09305092B0B68D800F6F13D /* TokenViewProperties+UIActivityIndicatorView.swift in Sources */,
 				C093057C2B0B86FD00F6F13D /* TokenViewProperties+UIControl.swift in Sources */,
 				C093054E2B0B805800F6F13D /* ShadowToken.swift in Sources */,
+				C048651D2BC73993001D1167 /* ComponentContextOverride.swift in Sources */,
+				C04865582BC739E8001D1167 /* ListLayoutCustomAppearance.swift in Sources */,
+				C04865482BC739D3001D1167 /* ListItemPredicate.swift in Sources */,
+				C048651E2BC73998001D1167 /* EnvironmentValues+ComponentContainerSize.swift in Sources */,
 				C093050B2B0B6A0B00F6F13D /* TokenViewProperties+UIButton.swift in Sources */,
+				C048651B2BC73993001D1167 /* ComponentContextOverriding.swift in Sources */,
 				C09305522B0B805D00F6F13D /* RectangleShape.swift in Sources */,
 				C04843EB2B0B4307002DF0CA /* UnderlineDecorator.swift in Sources */,
 				C04843F52B0B4317002DF0CA /* AnimationModifier.swift in Sources */,
 				C09305162B0B75C900F6F13D /* TokenViewProperties+UIProgressView.swift in Sources */,
 				C04843D92B0B42E1002DF0CA /* DecorableByOpacity.swift in Sources */,
 				C04844042B0B433F002DF0CA /* TokenViewPropertyKey.swift in Sources */,
+				C04865492BC739D3001D1167 /* AnyListCell.swift in Sources */,
+				C04865112BC73986001D1167 /* ViewState.swift in Sources */,
 				C04843C82B0B42B6002DF0CA /* DecorableByForegroundColor.swift in Sources */,
 				C04843CB2B0B42B9002DF0CA /* InsetsDecorator.swift in Sources */,
 				C04843D02B0B42C6002DF0CA /* LineHeightDecorator.swift in Sources */,
 				C09305502B0B805D00F6F13D /* ShapeValue.swift in Sources */,
+				C04865712BC73A19001D1167 /* ListRow.swift in Sources */,
 				C09305622B0B809600F6F13D /* StrokeLayer.swift in Sources */,
 				C04843EC2B0B430A002DF0CA /* TokenDecorator.swift in Sources */,
 				C093056F2B0B80F300F6F13D /* ShapeValue+Shape.swift in Sources */,
 				C04844032B0B433F002DF0CA /* TokenViewPropertySubscript.swift in Sources */,
+				C04865592BC739E8001D1167 /* ListLayoutDefaultAppearance.swift in Sources */,
+				C048653C2BC739C4001D1167 /* AnyCollectionViewLayout.swift in Sources */,
 				C04843E52B0B42FA002DF0CA /* DecorableByResizingMode.swift in Sources */,
+				C048655E2BC739EF001D1167 /* ListSectionPredicate.swift in Sources */,
 				C0358FD72B0AA24A000E599A /* TokenViewProperty.swift in Sources */,
 				C093055A2B0B806E00F6F13D /* TypographyLineToken.swift in Sources */,
+				C048652B2BC739AF001D1167 /* Component.swift in Sources */,
 				C04843EE2B0B4313002DF0CA /* TokenModifiedView.swift in Sources */,
+				C04865102BC73986001D1167 /* ViewEnvironment.swift in Sources */,
+				C04865232BC7399E001D1167 /* FallbackComponentBody.swift in Sources */,
 				C093051A2B0B775000F6F13D /* TokenViewProperties+UISwitch.swift in Sources */,
 				C09305122B0B6EAA00F6F13D /* TokenViewProperties+UILabel.swift in Sources */,
 				C04843ED2B0B4313002DF0CA /* TokenShapedView.swift in Sources */,
+				C048652C2BC739AF001D1167 /* ComponentSizingStrategy.swift in Sources */,
+				C04865312BC739BE001D1167 /* CollectionViewInconsistentCell.swift in Sources */,
 				C09305902B0B90DA00F6F13D /* UIViewController+TokenView.swift in Sources */,
+				C04865662BC739FB001D1167 /* ListHeaderView.swift in Sources */,
 				C09305392B0B803C00F6F13D /* Double+TokenValue.swift in Sources */,
 				C09305352B0B803C00F6F13D /* Bool+TokenValue.swift in Sources */,
+				C048652E2BC739AF001D1167 /* ComponentSizing.swift in Sources */,
 				C09305292B0B802400F6F13D /* Token.swift in Sources */,
+				C04865812BC7BE75001D1167 /* VerticalList.swift in Sources */,
 				C0BFF3542B10E24F0098F0B7 /* UIWindowScene+TokenView.swift in Sources */,
+				C04865142BC73986001D1167 /* ViewArrayBuilder.swift in Sources */,
 				C04843F82B0B4317002DF0CA /* TransitionModifier.swift in Sources */,
 				C093052D2B0B802E00F6F13D /* ColorToken.swift in Sources */,
 				C04843C42B0B42AD002DF0CA /* DurationDecorator.swift in Sources */,
+				C04865352BC739C4001D1167 /* CollectionViewLayoutStateManager.swift in Sources */,
 				C04843F62B0B4317002DF0CA /* ForegroundColorModifier.swift in Sources */,
 				C04843FA2B0B4317002DF0CA /* FontModifier.swift in Sources */,
 				C093056D2B0B80EF00F6F13D /* StrokeShape.swift in Sources */,
@@ -2477,56 +3116,87 @@
 				C04843E62B0B4300002DF0CA /* StrikethroughDecorator.swift in Sources */,
 				C093054B2B0B805400F6F13D /* InsetsToken.swift in Sources */,
 				C09304FF2B0B689200F6F13D /* TokenViewProperties+CAGradientLayer.swift in Sources */,
+				C048654F2BC739DE001D1167 /* ListLayoutScrollAxis.swift in Sources */,
 				C09305732B0B817500F6F13D /* TokenViewPayload.swift in Sources */,
+				C04865132BC73986001D1167 /* ViewFocusState.swift in Sources */,
+				C048651A2BC7398E001D1167 /* AnyComponentView.swift in Sources */,
 				C09305932B0B90DA00F6F13D /* UIApplication+TokenView.swift in Sources */,
+				C04865502BC739E3001D1167 /* ListLayoutOrigin.swift in Sources */,
 				C09305742B0B817500F6F13D /* TokenViewDSL.swift in Sources */,
 				C093055F2B0B809600F6F13D /* BackLayer.swift in Sources */,
 				C09305422B0B804600F6F13D /* FontSource.swift in Sources */,
+				C04865702BC73A19001D1167 /* ListRowSize.swift in Sources */,
 				C09305052B0B68A800F6F13D /* TokenViewProperties+CATextLayer.swift in Sources */,
+				C04865532BC739E3001D1167 /* ListLayoutSection.swift in Sources */,
 				C04843DF2B0B42ED002DF0CA /* ParagraphOtherLineIndentDecorator.swift in Sources */,
 				C093056E2B0B80EF00F6F13D /* ShadowShape.swift in Sources */,
+				C048651C2BC73993001D1167 /* ComponentContext.swift in Sources */,
+				C04865732BC73A1D001D1167 /* ListColumnSize.swift in Sources */,
 				C093053F2B0B804600F6F13D /* FontScaleToken.swift in Sources */,
+				C048656A2BC73A06001D1167 /* ListBuilder.swift in Sources */,
 				C04843DE2B0B42ED002DF0CA /* DecorableByParagraphOtherLineIndent.swift in Sources */,
+				C04865182BC7398E001D1167 /* AnyComponent.swift in Sources */,
+				C04865542BC739E3001D1167 /* ListLayoutFooter.swift in Sources */,
 				C04843BA2B0B4298002DF0CA /* AlignmentDecorator.swift in Sources */,
+				C048653A2BC739C4001D1167 /* CollectionViewLayoutSizing.swift in Sources */,
+				C048651F2BC73998001D1167 /* EnvironmentValues+ComponentLayoutInvalidation.swift in Sources */,
 				C09305552B0B806400F6F13D /* StrokeToken.swift in Sources */,
 				C09305332B0B803800F6F13D /* CGSize+TokenValue.swift in Sources */,
 				C093054D2B0B805800F6F13D /* ShadowValue.swift in Sources */,
 				C09305442B0B804C00F6F13D /* GradientToken.swift in Sources */,
 				C04843DD2B0B42E9002DF0CA /* ParagraphFirstLineIndentDecorator.swift in Sources */,
+				C04865272BC739A7001D1167 /* ComponentHostingRoot.swift in Sources */,
 				C093052B2B0B802A00F6F13D /* AnimationValue.swift in Sources */,
+				C048654D2BC739DE001D1167 /* ListLayout.swift in Sources */,
 				C04843C32B0B42A9002DF0CA /* DivisionDecorator.swift in Sources */,
 				C093052F2B0B803300F6F13D /* CornersValue.swift in Sources */,
 				C04843E32B0B42F6002DF0CA /* PlusDecorator.swift in Sources */,
+				C048653E2BC739C4001D1167 /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */,
 				C04843BB2B0B4298002DF0CA /* DecorableByAlignment.swift in Sources */,
 				C04843FF2B0B431F002DF0CA /* EnvironmentValues+TokenThemeScheme.swift in Sources */,
 				C09305002B0B689800F6F13D /* TokenViewProperties+CALayer.swift in Sources */,
 				C093055C2B0B807200F6F13D /* TypographyStrokeValue.swift in Sources */,
 				C09305692B0B80C900F6F13D /* CALayer+MaskLayer.swift in Sources */,
+				C04865672BC739FB001D1167 /* AnyListHeaderView.swift in Sources */,
+				C04865362BC739C4001D1167 /* CollectionViewLayoutScrollAnchorItem.swift in Sources */,
 				C093050F2B0B6E2E00F6F13D /* TokenViewProperties+UIImageView.swift in Sources */,
 				C09305852B0B908C00F6F13D /* TokenThemeKey.swift in Sources */,
+				C048654B2BC739DE001D1167 /* ListLayoutMetrics.swift in Sources */,
 				C09305562B0B806400F6F13D /* StrokeType.swift in Sources */,
+				C04865442BC739CE001D1167 /* CollectionViewManager.swift in Sources */,
 				C04843BD2B0B429D002DF0CA /* AlphaDecorator.swift in Sources */,
 				C09305752B0B817500F6F13D /* AnyTokenView.swift in Sources */,
 				C04843CC2B0B42BD002DF0CA /* DecorableByLetterSpacing.swift in Sources */,
 				C04843E12B0B42F1002DF0CA /* DecorableByParagraphSpacing.swift in Sources */,
 				C093058D2B0B90B300F6F13D /* TokenValue.swift in Sources */,
+				C04865552BC739E3001D1167 /* ListLayoutItem.swift in Sources */,
 				C04843F22B0B4317002DF0CA /* ClipShapeModifier.swift in Sources */,
 				C04843D22B0B42CA002DF0CA /* MinusDecorator.swift in Sources */,
 				C093052A2B0B802A00F6F13D /* AnimationToken.swift in Sources */,
 				C09305582B0B806900F6F13D /* TypographyValue.swift in Sources */,
+				C048652F2BC739B7001D1167 /* ListHorizontalAlignment.swift in Sources */,
 				C04843F12B0B4317002DF0CA /* ForegroundGradientModifier.swift in Sources */,
 				C09305372B0B803C00F6F13D /* Float+TokenValue.swift in Sources */,
 				C09305412B0B804600F6F13D /* FontToken.swift in Sources */,
 				C09305642B0B809600F6F13D /* MaskLayer.swift in Sources */,
 				C09305402B0B804600F6F13D /* FontScaleValue.swift in Sources */,
 				C093058E2B0B90BA00F6F13D /* TokenTraitProvider.swift in Sources */,
+				C048652A2BC739AA001D1167 /* ComponentModifier.swift in Sources */,
 				C09305342B0B803800F6F13D /* CGRect+TokenValue.swift in Sources */,
+				C04865642BC739FB001D1167 /* ListHeader.swift in Sources */,
 				C04843B92B0B4292002DF0CA /* TokenViewBinding.swift in Sources */,
 				C09305652B0B809600F6F13D /* ShadowLayer.swift in Sources */,
 				C09305512B0B805D00F6F13D /* CapsuleShape.swift in Sources */,
+				C04865452BC739D3001D1167 /* ListItem.swift in Sources */,
 				C04843DA2B0B42E5002DF0CA /* DecorableByOutsets.swift in Sources */,
 				C09305362B0B803C00F6F13D /* String+TokenValue.swift in Sources */,
+				C04865242BC739A1001D1167 /* FallbackComponentView.swift in Sources */,
+				C04865202BC73998001D1167 /* EnvironmentValues+ComponentIdentifier.swift in Sources */,
+				C04865222BC7399E001D1167 /* FallbackComponentBodyView.swift in Sources */,
+				C04865572BC739E8001D1167 /* ListLayoutAppearance.swift in Sources */,
 				C09305182B0B75F600F6F13D /* TokenViewProperties+UISlider.swift in Sources */,
+				C04865252BC739A1001D1167 /* FallbackComponent.swift in Sources */,
+				C048655A2BC739EF001D1167 /* ListSectionBuilder.swift in Sources */,
 				C04843D32B0B42CA002DF0CA /* DecorableByMinus.swift in Sources */,
 				C093053C2B0B804100F6F13D /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */,
 				C093053A2B0B803C00F6F13D /* Int+TokenValue.swift in Sources */,
@@ -2537,30 +3207,47 @@
 				C04843DB2B0B42E5002DF0CA /* OutsetsDecorator.swift in Sources */,
 				C09305222B0B78AB00F6F13D /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C04843DC2B0B42E9002DF0CA /* DecorableByParagraphFirstLineIndent.swift in Sources */,
+				C04865392BC739C4001D1167 /* CollectionViewLayoutScrollManager.swift in Sources */,
 				C09305572B0B806400F6F13D /* StrokeValue.swift in Sources */,
 				C09305832B0B908C00F6F13D /* TokenThemeScheme.swift in Sources */,
+				C04865302BC739B7001D1167 /* ListVerticalAlignment.swift in Sources */,
+				C04865802BC7BE75001D1167 /* VerticalListLayout.swift in Sources */,
+				C048656B2BC73A06001D1167 /* List.swift in Sources */,
 				C093053D2B0B804100F6F13D /* NSTextAlignment+TokenTraitProvider.swift in Sources */,
 				C04843C12B0B42A6002DF0CA /* ColorDecorator.swift in Sources */,
+				C04865622BC739F5001D1167 /* ListFooterView.swift in Sources */,
 				C093051C2B0B778D00F6F13D /* TokenViewProperties+UITabBar.swift in Sources */,
 				C04843CF2B0B42C2002DF0CA /* LineBreakModeDecorator.swift in Sources */,
+				C04865172BC73986001D1167 /* ViewNamespace.swift in Sources */,
+				C04865342BC739C4001D1167 /* CollectionViewLayoutInvalidationContext.swift in Sources */,
 				C09305772B0B817500F6F13D /* TokenViewManager.swift in Sources */,
 				C09305912B0B90DA00F6F13D /* UIView+TokenView.swift in Sources */,
 				C04843C72B0B42B2002DF0CA /* FontScaleDecorator.swift in Sources */,
+				C04865612BC739F5001D1167 /* AnyListFooterView.swift in Sources */,
+				C048656C2BC73A06001D1167 /* ListView.swift in Sources */,
+				C04865722BC73A1D001D1167 /* ListColumn.swift in Sources */,
 				C04844002B0B431F002DF0CA /* EnvironmentValues+TokenTheme.swift in Sources */,
 				C09305072B0B68CC00F6F13D /* TokenViewProperties+SFSafariViewController.swift in Sources */,
 				C09305382B0B803C00F6F13D /* Set+TokenValue.swift in Sources */,
 				C09305712B0B80F300F6F13D /* ColorValue+View.swift in Sources */,
 				C09305602B0B809600F6F13D /* FrontLayer.swift in Sources */,
 				C09305482B0B805000F6F13D /* ImageToken.swift in Sources */,
+				C04865432BC739CE001D1167 /* CollectionViewDelegateManager.swift in Sources */,
 				C09305492B0B805000F6F13D /* ImageValue.swift in Sources */,
+				C048653F2BC739C8001D1167 /* CollectionViewState.swift in Sources */,
+				C04865152BC73986001D1167 /* ViewBinding.swift in Sources */,
+				C048653B2BC739C4001D1167 /* CollectionViewLayoutAttributes.swift in Sources */,
 				C04843EF2B0B4313002DF0CA /* TokenShapedModifier.swift in Sources */,
 				C09305892B0B909000F6F13D /* DefaultTokenThemeStorage.swift in Sources */,
 				C09305762B0B817500F6F13D /* TokenView.swift in Sources */,
 				C09305942B0B90E700F6F13D /* TokenViewProperties+UIBarPositioning.swift in Sources */,
+				C04865212BC73998001D1167 /* EnvironmentValues+ComponentViewController.swift in Sources */,
 				C04843F72B0B4317002DF0CA /* PaddingModifier.swift in Sources */,
 				C04843BF2B0B42A2002DF0CA /* DecorableByBackgroundColor.swift in Sources */,
 				C04843FB2B0B4317002DF0CA /* AccentColorModifier.swift in Sources */,
+				C04865422BC739CE001D1167 /* CollectionViewUpdateManager.swift in Sources */,
 				C093054A2B0B805400F6F13D /* InsetsValue.swift in Sources */,
+				C048653D2BC739C4001D1167 /* CollectionViewLayoutBoundsProvider.swift in Sources */,
 				C04843B82B0B4292002DF0CA /* TokenViewPropertyBinding.swift in Sources */,
 				C093051E2B0B77A400F6F13D /* TokenViewProperties+UITextField.swift in Sources */,
 				C093053E2B0B804100F6F13D /* NSLineBreakMode+TokenTraitProvider.swift in Sources */,
@@ -2571,58 +3258,91 @@
 				C04843CA2B0B42B9002DF0CA /* DecorableByInsets.swift in Sources */,
 				C093054F2B0B805800F6F13D /* ShadowType.swift in Sources */,
 				C04843E92B0B4304002DF0CA /* DecorableByStroke.swift in Sources */,
+				C04865652BC739FB001D1167 /* AnyListHeader.swift in Sources */,
 				C04843EA2B0B4307002DF0CA /* DecorableByUnderline.swift in Sources */,
 				C04843C62B0B42B2002DF0CA /* DecorableByFontScale.swift in Sources */,
 				C04843C52B0B42AD002DF0CA /* DecorableByDuration.swift in Sources */,
 				C09305972B0BA55700F6F13D /* TokenViewCustomBinding.swift in Sources */,
+				C048654A2BC739DE001D1167 /* ListLayoutPinnedViews.swift in Sources */,
+				C04865412BC739CE001D1167 /* CollectionViewUpdate.swift in Sources */,
 				C09305882B0B908C00F6F13D /* TokenThemeUnit.swift in Sources */,
+				C048650F2BC73986001D1167 /* ViewObservedObject.swift in Sources */,
 				C093058A2B0B909000F6F13D /* TokenThemeStorage.swift in Sources */,
 				C04843F02B0B4313002DF0CA /* TokenViewModifier.swift in Sources */,
 				C09305672B0B80C400F6F13D /* CALayer+BackLayer.swift in Sources */,
+				C04865402BC739C8001D1167 /* CollectionViewStateManager.swift in Sources */,
+				C048654C2BC739DE001D1167 /* ListLayoutScrollAnchor.swift in Sources */,
 				C093058F2B0B90BD00F6F13D /* TokenTrait.swift in Sources */,
+				C04865122BC73986001D1167 /* ViewAction.swift in Sources */,
 				C093056C2B0B80EF00F6F13D /* ShadowMaskShape.swift in Sources */,
 				C09305312B0B803800F6F13D /* CGFloat+TokenValue.swift in Sources */,
+				C04865522BC739E3001D1167 /* ListLayoutHeader.swift in Sources */,
 				C04843E22B0B42F6002DF0CA /* DecorableByPlus.swift in Sources */,
+				C048655C2BC739EF001D1167 /* ListSection.swift in Sources */,
+				C04865162BC73986001D1167 /* ViewFocusBinding.swift in Sources */,
 				C04843F92B0B4317002DF0CA /* BackgroundGradientModifier.swift in Sources */,
+				C048657E2BC7BE75001D1167 /* VerticalListMetrics.swift in Sources */,
+				C04865322BC739BE001D1167 /* CollectionViewInconsistentSupplementaryView.swift in Sources */,
 				C04843E82B0B4304002DF0CA /* StrokeDecorator.swift in Sources */,
 				C09305452B0B804C00F6F13D /* GradientValue.swift in Sources */,
 				C093056A2B0B80DC00F6F13D /* TokenValueView.swift in Sources */,
 				C04843D12B0B42C6002DF0CA /* DecorableByLineHeight.swift in Sources */,
 				C04843C02B0B42A6002DF0CA /* DecorableByColor.swift in Sources */,
+				C04865292BC739AA001D1167 /* ComponentFrame.swift in Sources */,
 				C04843D62B0B42DC002DF0CA /* DecorableByNegation.swift in Sources */,
 				C093052C2B0B802E00F6F13D /* ColorValue.swift in Sources */,
 				C09305592B0B806900F6F13D /* TypographyToken.swift in Sources */,
+				C04865192BC7398E001D1167 /* AnyComponentPresenter.swift in Sources */,
 				C093055D2B0B807200F6F13D /* TypographyStrokeToken.swift in Sources */,
+				C04865472BC739D3001D1167 /* ListCell.swift in Sources */,
 				C093054C2B0B805400F6F13D /* InsetsEdge.swift in Sources */,
 				C04843F42B0B4317002DF0CA /* ShadowModifier.swift in Sources */,
 				C04843D82B0B42E1002DF0CA /* OpacityDecorator.swift in Sources */,
 				C04843FC2B0B4317002DF0CA /* BackgroundColorModifier.swift in Sources */,
+				C04865682BC739FF001D1167 /* AnyListSupplementaryView.swift in Sources */,
 				C093058C2B0B909400F6F13D /* DefaultTokenThemeResolver.swift in Sources */,
 				C09305432B0B804600F6F13D /* FontValue.swift in Sources */,
 				C09305632B0B809600F6F13D /* TokenShapeLayer.swift in Sources */,
 				C04843D42B0B42CE002DF0CA /* DecorableByMultiplication.swift in Sources */,
+				C04865372BC739C4001D1167 /* CollectionViewLayoutScrollAnchor.swift in Sources */,
+				C04865462BC739D3001D1167 /* AnyListItem.swift in Sources */,
 				C09305862B0B908C00F6F13D /* TokenTheme.swift in Sources */,
 				C09305472B0B805000F6F13D /* ImageSource.swift in Sources */,
+				C04865282BC739A7001D1167 /* ComponentHostingView.swift in Sources */,
+				C04865562BC739E3001D1167 /* ListLayoutState.swift in Sources */,
+				C048654E2BC739DE001D1167 /* ListLayoutContext.swift in Sources */,
 				C09305142B0B73E900F6F13D /* TokenViewProperties+UINavigationBar.swift in Sources */,
 				C04843E02B0B42F1002DF0CA /* ParagraphSpacingDecorator.swift in Sources */,
 				C04843BC2B0B429D002DF0CA /* DecorableByAlpha.swift in Sources */,
 				C09305722B0B80F300F6F13D /* ImageValue+View.swift in Sources */,
 				C04843F32B0B4317002DF0CA /* OpacityModifier.swift in Sources */,
 				C093052E2B0B803300F6F13D /* CornersToken.swift in Sources */,
+				C04865692BC73A06001D1167 /* ListUpdateStrategy.swift in Sources */,
 				C04843CE2B0B42C2002DF0CA /* DecorableByLineBreakMode.swift in Sources */,
 				C04843C22B0B42A9002DF0CA /* DecorableByDivision.swift in Sources */,
 				C09305872B0B908C00F6F13D /* TokenThemeManager.swift in Sources */,
+				C048652D2BC739AF001D1167 /* ComponentView.swift in Sources */,
 				C09305842B0B908C00F6F13D /* TokenThemeBody.swift in Sources */,
 				C04843E42B0B42FA002DF0CA /* ResizingModeDecorator.swift in Sources */,
+				C04865382BC739C4001D1167 /* CollectionViewLayoutUpdateManager.swift in Sources */,
+				C048655B2BC739EF001D1167 /* ListSectionFooter.swift in Sources */,
 				C09305542B0B805D00F6F13D /* ShapeToken.swift in Sources */,
+				C048656D2BC73A09001D1167 /* CollectionViewLayout.swift in Sources */,
 				C09305252B0B7CE000F6F13D /* TokenViewProperties+UIView.swift in Sources */,
+				C048655D2BC739EF001D1167 /* ListSectionHeader.swift in Sources */,
+				C04865262BC739A7001D1167 /* ComponentHostingController.swift in Sources */,
 				C0358FD62B0AA24A000E599A /* TokenViewProperties.swift in Sources */,
 				C09305612B0B809600F6F13D /* GradientLayer.swift in Sources */,
+				C048656F2BC73A15001D1167 /* ListHorizontalLayout.swift in Sources */,
+				C04865332BC739C4001D1167 /* CollectionViewLayoutDelegate.swift in Sources */,
+				C048655F2BC739EF001D1167 /* ListSectionItem.swift in Sources */,
 				C093053B2B0B803C00F6F13D /* Array+TokenValue.swift in Sources */,
 				C09305302B0B803300F6F13D /* CornersMask.swift in Sources */,
 				C04843D72B0B42DC002DF0CA /* NegationDecorator.swift in Sources */,
+				C04865512BC739E3001D1167 /* ListLayoutSize.swift in Sources */,
 				C093056B2B0B80DC00F6F13D /* TokenThemeView.swift in Sources */,
 				C093058B2B0B909400F6F13D /* TokenThemeResolver.swift in Sources */,
+				C04865632BC739F5001D1167 /* ListFooter.swift in Sources */,
 				C09305922B0B90DA00F6F13D /* CALayer+TokenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
