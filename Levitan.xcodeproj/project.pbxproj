@@ -402,6 +402,7 @@
 		C0A01A5E23CB92F200AC2C3A /* Levitan.h in Headers */ = {isa = PBXBuildFile; fileRef = C057F01123CB8EEB00C2D895 /* Levitan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0BFF3532B10E24F0098F0B7 /* UIWindowScene+TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFF3522B10E24F0098F0B7 /* UIWindowScene+TokenView.swift */; };
 		C0BFF3542B10E24F0098F0B7 /* UIWindowScene+TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFF3522B10E24F0098F0B7 /* UIWindowScene+TokenView.swift */; };
+		C0D93EED2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93EEC2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift */; };
 		C0E979F12BC6DDCC00CF37A7 /* ChangeableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E979B42BC6DDCC00CF37A7 /* ChangeableWrapper.swift */; };
 		C0E979F22BC6DDCC00CF37A7 /* Dictionary+Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E979B62BC6DDCC00CF37A7 /* Dictionary+Changeable.swift */; };
 		C0E979F32BC6DDCC00CF37A7 /* Set+Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E979B72BC6DDCC00CF37A7 /* Set+Changeable.swift */; };
@@ -716,6 +717,7 @@
 		C0A01A6523CB9B1600AC2C3A /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		C0BFF3522B10E24F0098F0B7 /* UIWindowScene+TokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindowScene+TokenView.swift"; sourceTree = "<group>"; };
 		C0C9FE8B2655DECE0074D669 /* Mintfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Mintfile; sourceTree = "<group>"; };
+		C0D93EEC2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentContext.swift"; sourceTree = "<group>"; };
 		C0E979B42BC6DDCC00CF37A7 /* ChangeableWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeableWrapper.swift; sourceTree = "<group>"; };
 		C0E979B62BC6DDCC00CF37A7 /* Dictionary+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Changeable.swift"; sourceTree = "<group>"; };
 		C0E979B72BC6DDCC00CF37A7 /* Set+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Changeable.swift"; sourceTree = "<group>"; };
@@ -1913,6 +1915,7 @@
 			isa = PBXGroup;
 			children = (
 				C0E97A4D2BC6DF5200CF37A7 /* EnvironmentValues+ComponentContainerSize.swift */,
+				C0D93EEC2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift */,
 				C0E97A4E2BC6DF5200CF37A7 /* EnvironmentValues+ComponentIdentifier.swift */,
 				C0E97A4F2BC6DF5200CF37A7 /* EnvironmentValues+ComponentLayoutInvalidation.swift */,
 				C0E97A502BC6DF5200CF37A7 /* EnvironmentValues+ComponentViewController.swift */,
@@ -2283,6 +2286,7 @@
 				C0310C522B04BB4800BCA3AC /* ParagraphOtherLineIndentDecorator.swift in Sources */,
 				C0E97A522BC6DF5200CF37A7 /* ComponentModifier.swift in Sources */,
 				C0E97A082BC6DDCC00CF37A7 /* UIView+TraitsObservable.swift in Sources */,
+				C0D93EED2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift in Sources */,
 				C0310C642B04BB4800BCA3AC /* ColorToken.swift in Sources */,
 				C0310C6E2B04BB4800BCA3AC /* CGSize+TokenValue.swift in Sources */,
 				C09305082B0B68D800F6F13D /* TokenViewProperties+UIActivityIndicatorView.swift in Sources */,
