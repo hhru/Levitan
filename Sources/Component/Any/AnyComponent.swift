@@ -32,7 +32,7 @@ public struct AnyComponent: Component {
     /// - SeeAlso: ``AnyComponentView``
     public typealias UIView = AnyComponentView
 
-    /// Оборачиваемый компонент со стертым типом
+    /// Оборачиваемый компонент со стертым типом.
     public let wrapped: any Component
 
     /// SwiftUI-представление компонента.

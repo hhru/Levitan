@@ -28,14 +28,14 @@ extension RangeReplaceableCollection {
         appending(contentsOf: [element])
     }
 
-    public func inserting(_ element: Element, at index: Index) -> Self {
+    internal func inserting(_ element: Element, at index: Index) -> Self {
         var collection = self
         collection.insert(element, at: index)
 
         return collection
     }
 
-    public func removing(at index: Index) -> Self {
+    internal func removing(at index: Index) -> Self {
         var collection = self
         collection.remove(at: index)
 
