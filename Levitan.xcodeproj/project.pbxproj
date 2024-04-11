@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		25F6DC262B7387E700FBAB9C /* NilCoalescingDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */; };
-		C0081D712BC82A1600BE7293 /* AutoChangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6A2BC82A1600BE7293 /* AutoChangeable.swift */; };
-		C0081D722BC82A1600BE7293 /* AutoChangeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6A2BC82A1600BE7293 /* AutoChangeable.swift */; };
 		C0081D732BC82A1600BE7293 /* ChangeableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6B2BC82A1600BE7293 /* ChangeableWrapper.swift */; };
 		C0081D742BC82A1600BE7293 /* ChangeableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6B2BC82A1600BE7293 /* ChangeableWrapper.swift */; };
 		C0081D752BC82A1600BE7293 /* Dictionary+Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */; };
@@ -585,7 +583,6 @@
 /* Begin PBXFileReference section */
 		25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilCoalescingDecorator.swift; sourceTree = "<group>"; };
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
-		C0081D6A2BC82A1600BE7293 /* AutoChangeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoChangeable.swift; sourceTree = "<group>"; };
 		C0081D6B2BC82A1600BE7293 /* ChangeableWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeableWrapper.swift; sourceTree = "<group>"; };
 		C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Changeable.swift"; sourceTree = "<group>"; };
 		C0081D6E2BC82A1600BE7293 /* Set+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Changeable.swift"; sourceTree = "<group>"; };
@@ -930,7 +927,6 @@
 			isa = PBXGroup;
 			children = (
 				C0081D6C2BC82A1600BE7293 /* Extensions */,
-				C0081D6A2BC82A1600BE7293 /* AutoChangeable.swift */,
 				C0081D702BC82A1600BE7293 /* Changeable.swift */,
 				C0081D6B2BC82A1600BE7293 /* ChangeableWrapper.swift */,
 			);
@@ -2238,7 +2234,6 @@
 				C0E97A072BC6DDCC00CF37A7 /* TraitsObservation.swift in Sources */,
 				C0E97A182BC6DDCC00CF37A7 /* Dictionary+Extensions.swift in Sources */,
 				C0E97A562BC6DF5200CF37A7 /* ComponentContext.swift in Sources */,
-				C0081D712BC82A1600BE7293 /* AutoChangeable.swift in Sources */,
 				C0E97A572BC6DF5200CF37A7 /* FallbackComponentBody.swift in Sources */,
 				C05CD22A2B093732005F5499 /* TokenThemeView.swift in Sources */,
 				C0310C4D2B04BB4800BCA3AC /* LetterSpacingDecorator.swift in Sources */,
@@ -2761,7 +2756,6 @@
 				C09305862B0B908C00F6F13D /* TokenTheme.swift in Sources */,
 				C0081DAB2BC82ABC00BE7293 /* UICollectionView+UpdateData.swift in Sources */,
 				C09305472B0B805000F6F13D /* ImageSource.swift in Sources */,
-				C0081D722BC82A1600BE7293 /* AutoChangeable.swift in Sources */,
 				C0081D982BC82A3900BE7293 /* ViewNamespace.swift in Sources */,
 				C0081DC42BC82B0900BE7293 /* MethodSwizzler.swift in Sources */,
 				C09305142B0B73E900F6F13D /* TokenViewProperties+UINavigationBar.swift in Sources */,
