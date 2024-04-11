@@ -1,4 +1,5 @@
 import UIKit
+import Levitan
 
 /// Технический UI-контейнер для встраивания UIKit-компонентов в SwiftUI-представление.
 ///
@@ -381,10 +382,10 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
                 fixedHeight: fixedHeight
             )
 
-        case let (.fixed(fixedWidth), .hug):
+        case let (.fixed(fixedWidth), .hug(isHeightBounded)):
             return layoutWithFixedWidthAndHuggingHeight(
                 fixedWidth: fixedWidth,
-                proposedHeight: proposedHeight
+                proposedHeight: isHeightBounded ? proposedHeight : nil
             )
 
         case let (.fixed(fixedWidth), .fill):
@@ -393,21 +394,21 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
                 proposedHeight: proposedHeight
             )
 
-        case (.hug, .hug):
+        case let (.hug(isWidthBounded), .hug(isHeightBounded)):
             return layoutWithHuggingSize(
-                proposedWidth: proposedWidth,
-                proposedHeight: proposedHeight
+                proposedWidth: isWidthBounded ? proposedWidth : nil,
+                proposedHeight: isHeightBounded ? proposedHeight : nil
             )
 
-        case let (.hug, .fixed(fixedHeight)):
+        case let (.hug(isWidthBounded), .fixed(fixedHeight)):
             return layoutWithHuggingWidthAndFixedHeight(
-                proposedWidth: proposedWidth,
+                proposedWidth: isWidthBounded ? proposedWidth : nil,
                 fixedHeight: fixedHeight
             )
 
-        case (.hug, .fill):
+        case let (.hug(isWidthBounded), .fill):
             return layoutWithHuggingWidthAndFillingHeight(
-                proposedWidth: proposedWidth,
+                proposedWidth: isWidthBounded ? proposedWidth : nil,
                 proposedHeight: proposedHeight
             )
 
@@ -423,10 +424,10 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
                 fixedHeight: fixedHeight
             )
 
-        case (.fill, .hug):
+        case let (.fill, .hug(isHeightBounded)):
             return layoutWithFillingWidthAndHuggingHeight(
                 proposedWidth: proposedWidth,
-                proposedHeight: proposedHeight
+                proposedHeight: isHeightBounded ? proposedHeight : nil
             )
         }
     }
