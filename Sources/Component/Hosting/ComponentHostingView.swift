@@ -79,8 +79,6 @@ public final class ComponentHostingView<Content: Component>: UIView {
         if !shouldIgnoreParentViewController {
             hostingController.didMove(toParent: viewController)
         }
-
-        layoutHostingController()
     }
 
     private func resetHostingControllerIfNeeded() {
@@ -132,8 +130,8 @@ extension ComponentHostingView: ComponentView {
 
         if hostingController.view.superview == nil {
             setupHostingControllerIfNeeded(window: window)
-        } else {
-            layoutHostingController()
         }
+            
+        layoutHostingController()
     }
 }
