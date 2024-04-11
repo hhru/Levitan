@@ -2,12 +2,12 @@ import Foundation
 
 extension Array: Changeable {
 
-    internal typealias ChangeableCopy = Self
+    public typealias ChangeableCopy = Self
 }
 
 extension Array where Element: Changeable {
 
-    internal subscript(changing index: Index) -> Element.ChangeableCopy {
+    public subscript(changing index: Index) -> Element.ChangeableCopy {
         get { self[index].changeableCopy }
         set { self[index] = Element(copy: newValue) }
     }

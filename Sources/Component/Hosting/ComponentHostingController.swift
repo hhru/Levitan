@@ -7,7 +7,7 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
     internal override init(rootView: Content) {
         super.init(rootView: rootView)
 
-        if #available(iOS 16.4, *) {
+        if #available(iOS 16.4, tvOS 16.4, *) {
             safeAreaRegions = []
         } else {
             _disableSafeArea = true
