@@ -61,7 +61,7 @@ import SwiftUI
 ///         setupFooView()
 ///     }
 ///
-///     func setupBarView() {
+///     func setupFooView() {
 ///         addSubview(fooView)
 ///
 ///         fooView.snp.makeConstraints { make in
