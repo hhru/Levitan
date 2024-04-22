@@ -97,6 +97,12 @@ public final class ComponentHostingView<Content: Component>: UIView {
         layoutHostingController()
     }
 
+    public override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+
+        setupHostingControllerIfNeeded(window: window)
+    }
+
     public override func didMoveToWindow() {
         super.didMoveToWindow()
 
@@ -130,8 +136,8 @@ extension ComponentHostingView: ComponentView {
 
         if hostingController.view.superview == nil {
             setupHostingControllerIfNeeded(window: window)
+        } else {
+            layoutHostingController()
         }
-            
-        layoutHostingController()
     }
 }

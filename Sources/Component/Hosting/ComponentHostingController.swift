@@ -3,7 +3,6 @@ import UIKit
 
 internal final class ComponentHostingController<Content: View>: UIHostingController<Content> {
 
-    @MainActor
     internal override init(rootView: Content) {
         super.init(rootView: rootView)
 
@@ -14,7 +13,6 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
         }
     }
 
-    @MainActor
     @available(*, unavailable)
     internal required dynamic init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -24,6 +22,5 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
         super.viewDidLoad()
 
         view.backgroundColor = .clear
-        view.clipsToBounds = false
     }
 }

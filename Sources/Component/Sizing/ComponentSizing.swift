@@ -27,4 +27,49 @@ public struct ComponentSizing: Equatable {
         self.width = width
         self.height = height
     }
+
+    /// Создает данные для определения размеров компонента.
+    ///
+    /// - Parameters:
+    ///   - width: Фиксированная ширина компонента.
+    ///   - height: Стратегия определения высоты компонента.
+    public init(
+        width: CGFloat,
+        height: ComponentSizingStrategy
+    ) {
+        self.init(
+            width: .fixed(width),
+            height: height
+        )
+    }
+
+    /// Создает данные для определения размеров компонента.
+    ///
+    /// - Parameters:
+    ///   - width: Стратегия определения ширины компонента.
+    ///   - height: Фиксированная высота компонента.
+    public init(
+        width: ComponentSizingStrategy,
+        height: CGFloat
+    ) {
+        self.init(
+            width: width,
+            height: .fixed(height)
+        )
+    }
+
+    /// Создает данные для определения размеров компонента.
+    ///
+    /// - Parameters:
+    ///   - width: Фиксированная ширина компонента.
+    ///   - height: Фиксированная высота компонента.
+    public init(
+        width: CGFloat,
+        height: CGFloat
+    ) {
+        self.init(
+            width: .fixed(width),
+            height: .fixed(height)
+        )
+    }
 }

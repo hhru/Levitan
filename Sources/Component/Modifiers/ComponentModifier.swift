@@ -12,7 +12,6 @@ import SwiftUI
 /// сохраняя возможность встраивать компонент в Lazy-контейнер (например, коллекцию).
 ///
 /// - SeeAlso: ``Component``
-/// - SeeAlso: ``ViewModifier``
 public protocol ComponentModifier: ViewModifier, Equatable {
 
     /// Возвращает данные для определения размеров компонента.
