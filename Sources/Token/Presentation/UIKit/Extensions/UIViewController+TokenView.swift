@@ -3,11 +3,11 @@ import UIKit
 extension UIViewController: TokenView {
 
     internal var tokenViewParent: TokenView? {
-        view.superview
+        viewIfLoaded?.superview
     }
 
     internal var tokenViewChildren: [TokenView] {
-        [view]
+        [viewIfLoaded].compactMap { $0 }
     }
 
     internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme?) {
