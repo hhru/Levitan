@@ -50,19 +50,19 @@ public final class ComponentHostingView<Content: Component>: UIView {
             return
         }
 
-        guard let viewController = viewController ?? superview.next(of: UIViewController.self) else {
-            return
-        }
+        let viewController = viewController ?? superview.next(of: UIViewController.self)
 
-        let shouldIgnoreParentViewController = viewController is UINavigationController
-            || viewController is UITabBarController
-            || viewController is UISplitViewController
+        let shouldIgnoreParentViewController = viewController.map { viewController in
+            viewController is UINavigationController
+                || viewController is UITabBarController
+                || viewController is UISplitViewController
+        } ?? false
 
         hostingController.view.frame = bounds
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 
         if !shouldIgnoreParentViewController {
-            viewController.addChild(hostingController)
+            viewController?.addChild(hostingController)
         }
 
         addSubview(hostingController.view)
@@ -79,8 +79,6 @@ public final class ComponentHostingView<Content: Component>: UIView {
         if !shouldIgnoreParentViewController {
             hostingController.didMove(toParent: viewController)
         }
-
-        layoutHostingController()
     }
 
     private func resetHostingControllerIfNeeded() {
@@ -97,6 +95,12 @@ public final class ComponentHostingView<Content: Component>: UIView {
         super.traitCollectionDidChange(previousTraitCollection)
 
         layoutHostingController()
+    }
+
+    public override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+
+        setupHostingControllerIfNeeded(window: window)
     }
 
     public override func didMoveToWindow() {

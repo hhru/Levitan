@@ -2,5 +2,5 @@ import Foundation
 
 extension Set: Changeable {
 
-    internal typealias ChangeableCopy = Self
+    public typealias ChangeableCopy = Self
 }

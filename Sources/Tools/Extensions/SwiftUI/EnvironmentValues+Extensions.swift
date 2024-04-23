@@ -15,7 +15,7 @@ extension EnvironmentValues {
         environment.legibilityWeight = legibilityWeight(for: traitCollection.legibilityWeight)
         environment.sizeCategory = sizeCategory(for: traitCollection.preferredContentSizeCategory)
 
-        if #available(iOS 15.0, *) {
+        if #available(iOS 15.0, tvOS 15.0, *) {
             environment.dynamicTypeSize = dynamicTypeSize(for: traitCollection.preferredContentSizeCategory)
         }
 
@@ -91,7 +91,7 @@ extension EnvironmentValues {
         )
     }
 
-    @available(iOS 15.0, *)
+    @available(iOS 15.0, tvOS 15.0, *)
     private static func dynamicTypeSize(
         for uiSizeCategory: UIContentSizeCategory,
         defaultValue: DynamicTypeSize? = nil

@@ -30,6 +30,19 @@ public struct ViewBinding<Value> {
         initialValue = getter()
     }
 
+    public func equating<Wrapped: Hashable>(to value: Wrapped) -> ViewBinding<Bool>
+    where Value == Wrapped? {
+        ViewBinding<Bool> {
+            getter() == value
+        } setter: { newValue in
+            if newValue {
+                setter(value)
+            } else if getter() == value {
+                setter(nil)
+            }
+        }
+    }
+
     public subscript<Subject>(
         dynamicMember keyPath: ReferenceWritableKeyPath<Value, Subject>
     ) -> ViewBinding<Subject> {
@@ -37,6 +50,71 @@ public struct ViewBinding<Value> {
             getter: { wrappedValue[keyPath: keyPath] },
             setter: { wrappedValue[keyPath: keyPath] = $0 }
         )
+    }
+
+    public subscript<Subject: Hashable>(
+        dynamicMember keyPath: ReferenceWritableKeyPath<Value, Subject?>
+    ) -> ViewFocusBinding<Subject?> {
+        ViewFocusBinding(binding: self[dynamicMember: keyPath])
+    }
+
+    public subscript(
+        dynamicMember keyPath: ReferenceWritableKeyPath<Value, Bool>
+    ) -> ViewFocusBinding<Bool> {
+        ViewFocusBinding(binding: self[dynamicMember: keyPath])
+    }
+}
+
+extension ViewBinding where
+    Value: Changeable,
+    Value.ChangeableCopy == ChangeableWrapper<Value> {
+
+    public subscript<Subject>(
+        dynamicMember keyPath: KeyPath<Value, Subject>
+    ) -> ViewBinding<Subject> {
+        ViewBinding<Subject>(
+            getter: { getter()[keyPath: keyPath] },
+            setter: { setter(getter().changing(keyPath, to: $0)) }
+        )
+    }
+
+    public subscript<Subject: ExpressibleByStringLiteral>(
+        dynamicMember keyPath: KeyPath<Value, Subject>
+    ) -> ViewBinding<Subject?> {
+        ViewBinding<Subject?>(
+            getter: { getter()[keyPath: keyPath] },
+            setter: { setter(getter().changing(keyPath, to: $0 ?? "")) }
+        )
+    }
+
+    public subscript<Subject: ExpressibleByArrayLiteral>(
+        dynamicMember keyPath: KeyPath<Value, Subject>
+    ) -> ViewBinding<Subject?> {
+        ViewBinding<Subject?>(
+            getter: { getter()[keyPath: keyPath] },
+            setter: { setter(getter().changing(keyPath, to: $0 ?? [])) }
+        )
+    }
+
+    public subscript<Subject: ExpressibleByDictionaryLiteral>(
+        dynamicMember keyPath: KeyPath<Value, Subject>
+    ) -> ViewBinding<Subject?> {
+        ViewBinding<Subject?>(
+            getter: { getter()[keyPath: keyPath] },
+            setter: { setter(getter().changing(keyPath, to: $0 ?? [:])) }
+        )
+    }
+
+    public subscript<Subject: Hashable>(
+        dynamicMember keyPath: KeyPath<Value, Subject?>
+    ) -> ViewFocusBinding<Subject?> {
+        ViewFocusBinding(binding: self[dynamicMember: keyPath])
+    }
+
+    public subscript(
+        dynamicMember keyPath: KeyPath<Value, Bool>
+    ) -> ViewFocusBinding<Bool> {
+        ViewFocusBinding(binding: self[dynamicMember: keyPath])
     }
 }
 
