@@ -56,7 +56,7 @@ public final class ComponentHostingView<Content: Component>: UIView {
             viewController is UINavigationController
                 || viewController is UITabBarController
                 || viewController is UISplitViewController
-        } ?? false
+        } ?? true
 
         hostingController.view.frame = bounds
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false

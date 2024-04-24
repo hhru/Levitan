@@ -1,5 +1,4 @@
 import UIKit
-import Levitan
 
 /// Технический UI-контейнер для встраивания UIKit-компонентов в SwiftUI-представление.
 ///
