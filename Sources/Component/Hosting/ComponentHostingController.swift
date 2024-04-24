@@ -3,6 +3,14 @@ import UIKit
 
 internal final class ComponentHostingController<Content: View>: UIHostingController<Content> {
 
+    internal override var navigationController: UINavigationController? {
+        if #available(iOS 16.0, tvOS 16.0, *) {
+            return super.navigationController
+        }
+
+        return nil
+    }
+
     internal override init(rootView: Content) {
         super.init(rootView: rootView)
 
