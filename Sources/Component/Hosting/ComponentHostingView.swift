@@ -136,8 +136,8 @@ extension ComponentHostingView: ComponentView {
 
         if hostingController.view.superview == nil {
             setupHostingControllerIfNeeded(window: window)
-        } else {
-            layoutHostingController()
         }
+            
+        layoutHostingController()
     }
 }
