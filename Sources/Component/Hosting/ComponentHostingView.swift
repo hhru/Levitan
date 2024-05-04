@@ -16,9 +16,9 @@ public final class ComponentHostingView<Content: Component>: UIView {
     private typealias HostingRoot = ComponentHostingRoot<Content>
     private typealias HostingController = ComponentHostingController<HostingRoot>
 
-    private weak var viewController: UIViewController?
-
     private let hostingController: HostingController
+
+    private var context: ComponentContext?
 
     public override init(frame: CGRect = .zero) {
         let hostingRoot = HostingRoot(
@@ -36,21 +36,14 @@ public final class ComponentHostingView<Content: Component>: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func layoutHostingController() {
-        hostingController.view.setNeedsLayout()
-        hostingController.view.layoutIfNeeded()
-
-        hostingController.view.invalidateIntrinsicContentSize()
-    }
-
-    private func setupHostingControllerIfNeeded(window: UIWindow?) {
+    private func setupHostingControllerIfNeeded() {
         resetHostingControllerIfNeeded()
 
-        guard let superview, window != nil else {
+        guard let superview, let context else {
             return
         }
 
-        let viewController = viewController ?? superview.next(of: UIViewController.self)
+        let viewController = context.componentViewController ?? superview.next(of: UIViewController.self)
 
         let shouldIgnoreParentViewController = viewController.map { viewController in
             viewController is UINavigationController
@@ -82,7 +75,7 @@ public final class ComponentHostingView<Content: Component>: UIView {
     }
 
     private func resetHostingControllerIfNeeded() {
-        guard hostingController.view.superview != nil else {
+        guard hostingController.viewIfLoaded?.superview != nil else {
             return
         }
 
@@ -91,37 +84,24 @@ public final class ComponentHostingView<Content: Component>: UIView {
         hostingController.removeFromParent()
     }
 
-    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
+    private func layoutHostingController() {
+        hostingController.view.setNeedsLayout()
+        hostingController.view.layoutIfNeeded()
 
-        layoutHostingController()
+        hostingController.view.invalidateIntrinsicContentSize()
     }
 
     public override func didMoveToSuperview() {
         super.didMoveToSuperview()
 
-        setupHostingControllerIfNeeded(window: window)
-    }
-
-    public override func didMoveToWindow() {
-        super.didMoveToWindow()
-
-        if window == nil {
-            resetHostingControllerIfNeeded()
-        }
-    }
-
-    public override func willMove(toWindow window: UIWindow?) {
-        super.willMove(toWindow: window)
-
-        setupHostingControllerIfNeeded(window: window)
+        setupHostingControllerIfNeeded()
     }
 }
 
 extension ComponentHostingView: ComponentView {
 
     public func update(with content: Content, context: ComponentContext) {
-        viewController = context.componentViewController
+        self.context = context
 
         let contentContext = context
             .componentViewController(hostingController)
@@ -134,10 +114,10 @@ extension ComponentHostingView: ComponentView {
             context: contentContext
         )
 
-        if hostingController.view.superview == nil {
-            setupHostingControllerIfNeeded(window: window)
+        if hostingController.viewIfLoaded?.superview == nil {
+            setupHostingControllerIfNeeded()
+        } else {
+            layoutHostingController()
         }
-            
-        layoutHostingController()
     }
 }
