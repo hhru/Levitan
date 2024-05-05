@@ -18,6 +18,7 @@ public final class ComponentHostingView<Content: Component>: UIView {
 
     private let hostingController: HostingController
 
+    private var content: Content?
     private var context: ComponentContext?
 
     public override init(frame: CGRect = .zero) {
@@ -29,6 +30,12 @@ public final class ComponentHostingView<Content: Component>: UIView {
         hostingController = HostingController(rootView: hostingRoot)
 
         super.init(frame: frame)
+
+        tokens.customBinding { view, _ in
+            if let content = view.content, let context = view.context {
+                view.update(with: content, context: context)
+            }
+        }
     }
 
     @available(*, unavailable)
@@ -102,6 +109,7 @@ extension ComponentHostingView: ComponentView {
 
     public func update(with content: Content, context: ComponentContext) {
         self.context = context
+        self.content = content
 
         let contentContext = context
             .componentViewController(hostingController)
