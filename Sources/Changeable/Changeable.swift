@@ -1,6 +1,6 @@
 import Foundation
 
-internal protocol Changeable {
+public protocol Changeable {
 
     associatedtype ChangeableCopy
 
@@ -11,23 +11,23 @@ internal protocol Changeable {
 
 extension Changeable where ChangeableCopy == Self {
 
-    internal var changeableCopy: ChangeableCopy { self }
+    public var changeableCopy: ChangeableCopy { self }
 
-    internal init(copy: ChangeableCopy) {
+    public init(copy: ChangeableCopy) {
         self = copy
     }
 }
 
 extension Changeable where ChangeableCopy == ChangeableWrapper<Self> {
 
-    internal func changing<T>(_ keypath: KeyPath<Self, T>, to value: T) -> Self {
+    public func changing<T>(_ keypath: KeyPath<Self, T>, to value: T) -> Self {
         Self(copy: ChangeableWrapper(wrapped: self, changes: [keypath: value]))
     }
 }
 
 extension Changeable {
 
-    internal func changing(_ change: (inout ChangeableCopy) -> Void) -> Self {
+    public func changing(_ change: (inout ChangeableCopy) -> Void) -> Self {
         var copy = self.changeableCopy
 
         change(&copy)

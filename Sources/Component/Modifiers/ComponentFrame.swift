@@ -10,7 +10,6 @@ import SwiftUI
 /// - SeeAlso: ``ComponentSizing``
 /// - SeeAlso: ``ComponentModifier``
 /// - SeeAlso: ``Component``
-/// - SeeAlso: ``Alignment``
 public struct ComponentFrame {
 
     /// Данные для определения размеров.
@@ -117,12 +116,12 @@ extension View {
     ///   - alignment: Выравнивание контента относительно контейнера.
     /// - Returns: Контейнер для расположения контента с заданными размерами.
     ///
-    /// - SeeAlso: ``Frame``
+    /// - SeeAlso: ``ComponentFrame``
     /// - SeeAlso: ``ComponentSizing``
     /// - SeeAlso: ``ComponentSizingStrategy``
     public func frame(
-        width: ComponentSizingStrategy = .hug(bounded: false),
-        height: ComponentSizingStrategy = .hug(bounded: false),
+        width: ComponentSizingStrategy = .hug(bounded: true),
+        height: ComponentSizingStrategy = .hug(bounded: true),
         alignment: Alignment = .topLeading
     ) -> ModifiedContent<Self, ComponentFrame> {
         frame(

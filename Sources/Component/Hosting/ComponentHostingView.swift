@@ -16,9 +16,10 @@ public final class ComponentHostingView<Content: Component>: UIView {
     private typealias HostingRoot = ComponentHostingRoot<Content>
     private typealias HostingController = ComponentHostingController<HostingRoot>
 
-    private weak var viewController: UIViewController?
-
     private let hostingController: HostingController
+
+    private var content: Content?
+    private var context: ComponentContext?
 
     public override init(frame: CGRect = .zero) {
         let hostingRoot = HostingRoot(
@@ -29,6 +30,12 @@ public final class ComponentHostingView<Content: Component>: UIView {
         hostingController = HostingController(rootView: hostingRoot)
 
         super.init(frame: frame)
+
+        tokens.customBinding { view, _ in
+            if let content = view.content, let context = view.context {
+                view.update(with: content, context: context)
+            }
+        }
     }
 
     @available(*, unavailable)
@@ -36,33 +43,26 @@ public final class ComponentHostingView<Content: Component>: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func layoutHostingController() {
-        hostingController.view.setNeedsLayout()
-        hostingController.view.layoutIfNeeded()
-
-        hostingController.view.invalidateIntrinsicContentSize()
-    }
-
-    private func setupHostingControllerIfNeeded(window: UIWindow?) {
+    private func setupHostingControllerIfNeeded() {
         resetHostingControllerIfNeeded()
 
-        guard let superview, window != nil else {
+        guard let superview, let context else {
             return
         }
 
-        guard let viewController = viewController ?? superview.next(of: UIViewController.self) else {
-            return
-        }
+        let viewController = context.componentViewController ?? superview.next(of: UIViewController.self)
 
-        let shouldIgnoreParentViewController = viewController is UINavigationController
-            || viewController is UITabBarController
-            || viewController is UISplitViewController
+        let shouldIgnoreParentViewController = viewController.map { viewController in
+            viewController is UINavigationController
+                || viewController is UITabBarController
+                || viewController is UISplitViewController
+        } ?? true
 
         hostingController.view.frame = bounds
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 
         if !shouldIgnoreParentViewController {
-            viewController.addChild(hostingController)
+            viewController?.addChild(hostingController)
         }
 
         addSubview(hostingController.view)
@@ -79,12 +79,10 @@ public final class ComponentHostingView<Content: Component>: UIView {
         if !shouldIgnoreParentViewController {
             hostingController.didMove(toParent: viewController)
         }
-
-        layoutHostingController()
     }
 
     private func resetHostingControllerIfNeeded() {
-        guard hostingController.view.superview != nil else {
+        guard hostingController.viewIfLoaded?.superview != nil else {
             return
         }
 
@@ -93,31 +91,25 @@ public final class ComponentHostingView<Content: Component>: UIView {
         hostingController.removeFromParent()
     }
 
-    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
+    private func layoutHostingController() {
+        hostingController.view.setNeedsLayout()
+        hostingController.view.layoutIfNeeded()
 
-        layoutHostingController()
+        hostingController.view.invalidateIntrinsicContentSize()
     }
 
-    public override func didMoveToWindow() {
-        super.didMoveToWindow()
+    public override func didMoveToSuperview() {
+        super.didMoveToSuperview()
 
-        if window == nil {
-            resetHostingControllerIfNeeded()
-        }
-    }
-
-    public override func willMove(toWindow window: UIWindow?) {
-        super.willMove(toWindow: window)
-
-        setupHostingControllerIfNeeded(window: window)
+        setupHostingControllerIfNeeded()
     }
 }
 
 extension ComponentHostingView: ComponentView {
 
     public func update(with content: Content, context: ComponentContext) {
-        viewController = context.componentViewController
+        self.context = context
+        self.content = content
 
         let contentContext = context
             .componentViewController(hostingController)
@@ -130,8 +122,8 @@ extension ComponentHostingView: ComponentView {
             context: contentContext
         )
 
-        if hostingController.view.superview == nil {
-            setupHostingControllerIfNeeded(window: window)
+        if hostingController.viewIfLoaded?.superview == nil {
+            setupHostingControllerIfNeeded()
         } else {
             layoutHostingController()
         }

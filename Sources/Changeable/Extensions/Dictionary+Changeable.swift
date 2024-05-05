@@ -2,5 +2,5 @@ import Foundation
 
 extension Dictionary: Changeable {
 
-    internal typealias ChangeableCopy = Self
+    public typealias ChangeableCopy = Self
 }
