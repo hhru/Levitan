@@ -43,7 +43,7 @@ extension ChangeableWrapper: Equatable where
     Wrapped: Equatable & Changeable,
     Wrapped.ChangeableCopy == Self {
 
-        public static func == (lhs: ChangeableWrapper<Wrapped>, rhs: ChangeableWrapper<Wrapped>) -> Bool {
+    public static func == (lhs: ChangeableWrapper<Wrapped>, rhs: ChangeableWrapper<Wrapped>) -> Bool {
         Wrapped(copy: lhs) == Wrapped(copy: rhs)
     }
 }
