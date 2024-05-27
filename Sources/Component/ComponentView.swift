@@ -22,3 +22,19 @@ public protocol ComponentView: UIView {
         context: ComponentContext
     )
 }
+
+extension ComponentView {
+
+    public init(
+        content: Content,
+        context: ComponentContext,
+        frame: CGRect = .zero
+    ) {
+        self.init(frame: frame)
+
+        update(
+            with: content,
+            context: context
+        )
+    }
+}
