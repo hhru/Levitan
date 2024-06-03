@@ -23,3 +23,14 @@ extension ViewAction: Equatable {
         }
     }
 }
+
+extension ViewAction: Hashable {
+
+    public func hash(into hasher: inout Hasher) {
+        if let value = wrappedValue as? Nullable, value.isNil {
+            hasher.combine(false)
+        } else {
+            hasher.combine(true)
+        }
+    }
+}
