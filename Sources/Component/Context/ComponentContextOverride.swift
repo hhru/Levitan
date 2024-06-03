@@ -2,13 +2,11 @@ import SwiftUI
 
 internal struct ComponentContextOverride {
 
-    private let storage: EnvironmentValues
-    private let keyPath: AnyKeyPath
-
     private let overrider: (_ environment: inout EnvironmentValues) -> Void
+    private let resolver: () -> Any?
 
     internal var value: Any? {
-        storage[keyPath: keyPath]
+        resolver()
     }
 
     internal init<Value>(keyPath: WritableKeyPath<EnvironmentValues, Value>, value: Value) {
@@ -16,12 +14,11 @@ internal struct ComponentContextOverride {
 
         storage[keyPath: keyPath] = value
 
-        self.storage = storage
-        self.keyPath = keyPath
-
         overrider = { values in
             values[keyPath: keyPath] = storage[keyPath: keyPath]
         }
+
+        resolver = { storage[keyPath: keyPath] }
     }
 
     internal func override(for environment: inout EnvironmentValues) {
