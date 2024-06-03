@@ -2,15 +2,25 @@ import SwiftUI
 
 internal struct ComponentContextOverride {
 
-    internal let value: Any
+    private let storage: EnvironmentValues
+    private let keyPath: AnyKeyPath
 
     private let overrider: (_ environment: inout EnvironmentValues) -> Void
 
+    internal var value: Any? {
+        storage[keyPath: keyPath]
+    }
+
     internal init<Value>(keyPath: WritableKeyPath<EnvironmentValues, Value>, value: Value) {
-        self.value = value
+        var storage = EnvironmentValues()
+
+        storage[keyPath: keyPath] = value
+
+        self.storage = storage
+        self.keyPath = keyPath
 
         overrider = { values in
-            values[keyPath: keyPath] = value
+            values[keyPath: keyPath] = storage[keyPath: keyPath]
         }
     }
 
