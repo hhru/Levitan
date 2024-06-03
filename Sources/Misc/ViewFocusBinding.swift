@@ -2,7 +2,7 @@ import Foundation
 
 // TODO: Добавить документацию
 @propertyWrapper
-public struct ViewFocusBinding<Value: Hashable>: Equatable {
+public struct ViewFocusBinding<Value: Hashable>: Hashable {
 
     @ViewBinding
     private var binding: Value

@@ -39,3 +39,10 @@ extension ViewEnvironment: Equatable where Value: Equatable {
         lhs.forcedValue == rhs.forcedValue
     }
 }
+
+extension ViewEnvironment: Hashable where Value: Hashable {
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(forcedValue)
+    }
+}

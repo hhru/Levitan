@@ -125,6 +125,13 @@ extension ViewBinding: Equatable where Value: Equatable {
     }
 }
 
+extension ViewBinding: Hashable where Value: Hashable {
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(initialValue)
+    }
+}
+
 extension ViewBinding {
 
     public static func constant(_ value: Value) -> Self {
