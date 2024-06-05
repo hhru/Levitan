@@ -13,7 +13,7 @@ extension CALayer: TokenView {
     internal var tokenViewChildren: [TokenView] {
         sublayers?.filter { sublayer in
             sublayer.tokenViewParent === self
-        } ?? .empty
+        } ?? []
     }
 
     internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme?) { }

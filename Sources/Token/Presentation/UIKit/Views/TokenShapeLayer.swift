@@ -65,7 +65,7 @@ open class TokenShapeLayer: CALayer {
     }
 
     private func updateSublayersMask() {
-        for sublayer in sublayers ?? .empty {
+        for sublayer in sublayers ?? [] {
             updateSublayerMask(sublayer: sublayer)
         }
     }

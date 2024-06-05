@@ -3,8 +3,8 @@ import Combine
 
 internal class TokenViewPayload {
 
-    internal var propertyBindings: [AnyHashable: TokenViewBinding] = .empty
-    internal var customBindings: [TokenViewBinding] = .empty
+    internal var propertyBindings: [AnyHashable: TokenViewBinding] = [:]
+    internal var customBindings: [TokenViewBinding] = []
 
     internal var themeManager: TokenThemeManager?
     internal var themeSubscription: AnyCancellable?

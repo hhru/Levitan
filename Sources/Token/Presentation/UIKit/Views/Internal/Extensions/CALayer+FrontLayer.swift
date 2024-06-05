@@ -22,7 +22,7 @@ extension CALayer {
         frontLayer.frame = bounds
 
         frontLayer.shape = maskShape
-        frontLayer.shadows = shadowsAssociation[self] ?? .empty
+        frontLayer.shadows = shadowsAssociation[self] ?? []
         frontLayer.stroke = strokeAssociation[self]
 
         addSublayer(frontLayer)

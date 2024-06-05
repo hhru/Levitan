@@ -9,7 +9,7 @@ internal final class FrontLayer: CALayer {
         }
     }
 
-    internal var shadows: [ShadowValue] = .empty {
+    internal var shadows: [ShadowValue] = [] {
         didSet { updateShadowLayers() }
     }
 
@@ -20,7 +20,7 @@ internal final class FrontLayer: CALayer {
         }
     }
 
-    private var shadowLayers: [ShadowLayer] = .empty
+    private var shadowLayers: [ShadowLayer] = []
     private var strokeLayer: StrokeLayer?
 
     internal override init() {
@@ -34,7 +34,7 @@ internal final class FrontLayer: CALayer {
             stroke = layer.stroke
         } else {
             shape = .rectangle
-            shadows = .empty
+            shadows = []
             stroke = nil
         }
 

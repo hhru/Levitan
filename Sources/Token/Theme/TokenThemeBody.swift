@@ -18,7 +18,7 @@ extension TokenThemeBody {
     }
 
     public static var additional: [TokenThemeKey: TokenThemeUnit<Self>] {
-        .empty
+        [:]
     }
 
     public static var tokens: Token<Self> {

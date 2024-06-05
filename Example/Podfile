@@ -1,0 +1,17 @@
+inhibit_all_warnings!
+
+target 'LevitanExample-iOS' do
+  platform :ios, '15.0'
+  use_frameworks!
+
+  pod 'Levitan', :path => ".."
+  pod 'SnapKit'
+end
+
+target 'LevitanExample-tvOS' do
+  platform :tvos, '15.0'
+  use_frameworks!
+
+  pod 'Levitan', :path => ".."
+  pod 'SnapKit'
+end
