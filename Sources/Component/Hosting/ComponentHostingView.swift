@@ -130,8 +130,9 @@ extension ComponentHostingView: ComponentView {
 
         let contentContext = context
             .componentViewController(hostingController)
-            .componentLayoutInvalidation { [weak hostingController] in
-                hostingController?.view.invalidateIntrinsicContentSize()
+            .componentLayoutInvalidation { [weak self] in
+                self?.hostingController.view.invalidateIntrinsicContentSize()
+                self?.invalidateIntrinsicContentSize()
             }
 
         hostingController.rootView = HostingRoot(
