@@ -108,12 +108,11 @@ public final class ComponentHostingView<Content: Component>: UIView {
     }
 
     private func layoutHostingController() {
-        invalidateIntrinsicContentSize()
-
         hostingController.view.setNeedsLayout()
         hostingController.view.layoutIfNeeded()
-
         hostingController.view.invalidateIntrinsicContentSize()
+
+        invalidateIntrinsicContentSize()
     }
 
     public override func didMoveToSuperview() {
