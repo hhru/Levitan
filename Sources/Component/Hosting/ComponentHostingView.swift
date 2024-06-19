@@ -21,6 +21,20 @@ public final class ComponentHostingView<Content: Component>: UIView {
     private var content: Content?
     private var context: ComponentContext?
 
+    public override var intrinsicContentSize: CGSize {
+        let contentSize = hostingController.view.intrinsicContentSize
+
+        let width = contentSize.width.isNormal
+            ? contentSize.width
+            : UIView.noIntrinsicMetric
+
+        let height = contentSize.height.isNormal
+            ? contentSize.height
+            : UIView.noIntrinsicMetric
+
+        return CGSize(width: width, height: height)
+    }
+
     public override init(frame: CGRect = .zero) {
         let hostingRoot = HostingRoot(
             content: nil,
@@ -79,6 +93,8 @@ public final class ComponentHostingView<Content: Component>: UIView {
         if !shouldIgnoreParentViewController {
             hostingController.didMove(toParent: viewController)
         }
+
+        invalidateIntrinsicContentSize()
     }
 
     private func resetHostingControllerIfNeeded() {
@@ -92,6 +108,8 @@ public final class ComponentHostingView<Content: Component>: UIView {
     }
 
     private func layoutHostingController() {
+        invalidateIntrinsicContentSize()
+
         hostingController.view.setNeedsLayout()
         hostingController.view.layoutIfNeeded()
 
