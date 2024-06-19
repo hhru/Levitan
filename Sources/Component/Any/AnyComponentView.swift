@@ -70,5 +70,7 @@ extension AnyComponentView: ComponentView {
                 context: context
             )
         }
+
+        invalidateIntrinsicContentSize()
     }
 }
