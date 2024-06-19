@@ -45,6 +45,12 @@ public final class ComponentHostingView<Content: Component>: UIView {
 
         super.init(frame: frame)
 
+        setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+
+        setContentHuggingPriority(.defaultLow, for: .horizontal)
+        setContentHuggingPriority(.defaultLow, for: .vertical)
+
         tokens.customBinding { view, _ in
             if let content = view.content, let context = view.context {
                 view.update(with: content, context: context)
