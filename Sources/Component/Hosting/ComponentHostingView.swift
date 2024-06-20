@@ -22,17 +22,7 @@ public final class ComponentHostingView<Content: Component>: UIView {
     private var context: ComponentContext?
 
     public override var intrinsicContentSize: CGSize {
-        let contentSize = hostingController.view.intrinsicContentSize
-
-        let width = contentSize.width.isNormal
-            ? contentSize.width
-            : UIView.noIntrinsicMetric
-
-        let height = contentSize.height.isNormal
-            ? contentSize.height
-            : UIView.noIntrinsicMetric
-
-        return CGSize(width: width, height: height)
+        hostingController.view.intrinsicContentSize
     }
 
     public override init(frame: CGRect = .zero) {
@@ -44,12 +34,6 @@ public final class ComponentHostingView<Content: Component>: UIView {
         hostingController = HostingController(rootView: hostingRoot)
 
         super.init(frame: frame)
-
-        setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-
-        setContentHuggingPriority(.defaultLow, for: .horizontal)
-        setContentHuggingPriority(.defaultLow, for: .vertical)
 
         tokens.customBinding { view, _ in
             if let content = view.content, let context = view.context {
@@ -114,8 +98,6 @@ public final class ComponentHostingView<Content: Component>: UIView {
     }
 
     private func layoutHostingController() {
-        invalidateIntrinsicContentSize()
-
         hostingController.view.setNeedsLayout()
         hostingController.view.layoutIfNeeded()
         hostingController.view.invalidateIntrinsicContentSize()
