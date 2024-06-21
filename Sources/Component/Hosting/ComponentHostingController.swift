@@ -16,12 +16,6 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
 
     internal override init(rootView: Content) {
         super.init(rootView: rootView)
-
-        if #available(iOS 16.4, tvOS 16.4, *) {
-            safeAreaRegions = []
-        } else {
-            _disableSafeArea = true
-        }
     }
 
     @available(*, unavailable)
@@ -29,8 +23,61 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
         fatalError("init(coder:) has not been implemented")
     }
 
+    /// Отключает все отступы SafeArea и клавиатуры для iOS до версии 16.4.
+    ///
+    /// Использует приватное API для отключения отступов, которое стало публичным в iOS 16.4.
+    /// Для отключения отступов от клавиатуры используется рантайм Objective-C для подмены класса для `view`:
+    /// - Если подменный класс уже зарегистрирован ранее в других экземплярах, то он устанавливается классом для `view`
+    /// - Иначе создается сабкласс, наследующий класс `view`
+    /// - В нем подменяется метод `keyboardWillShowWithNotification` на пустую реализацию
+    /// - В последнем шаге этот сабкласс регистрируется и устанавливается классом для `view`
+    private func disableSafeArea() {
+        _disableSafeArea = true
+
+        guard let viewClass = object_getClass(view) else {
+            return
+        }
+
+        let viewSubclassName = String(cString: class_getName(viewClass)).appending("_IgnoringKeyboard")
+
+        if let viewSubclass = NSClassFromString(viewSubclassName) {
+            object_setClass(view, viewSubclass)
+        } else {
+            guard let viewClassNameUTF8 = (viewSubclassName as NSString).utf8String else {
+                return
+            }
+
+            guard let viewSubclass = objc_allocateClassPair(viewClass, viewClassNameUTF8, 0) else {
+                return
+            }
+
+            let willShowKeyboardSelector = NSSelectorFromString("keyboardWillShowWithNotification:")
+            let originalWillShowKeyboardMethod = class_getInstanceMethod(viewClass, willShowKeyboardSelector)
+
+            if let originalWillShowKeyboardMethod {
+                let emptyWillShowKeyboardMethod: @convention(block) (AnyObject, AnyObject) -> Void = { _, _ in }
+
+                class_addMethod(
+                    viewSubclass,
+                    willShowKeyboardSelector,
+                    imp_implementationWithBlock(emptyWillShowKeyboardMethod),
+                    method_getTypeEncoding(originalWillShowKeyboardMethod)
+                )
+            }
+
+            objc_registerClassPair(viewSubclass)
+            object_setClass(view, viewSubclass)
+        }
+    }
+
     internal override func viewDidLoad() {
         super.viewDidLoad()
+
+        if #available(iOS 16.4, tvOS 16.4, *) {
+            safeAreaRegions = []
+        } else {
+            disableSafeArea()
+        }
 
         view.backgroundColor = .clear
     }
