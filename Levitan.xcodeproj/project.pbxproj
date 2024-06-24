@@ -561,6 +561,8 @@
 		C0E97A662BC6DF5200CF37A7 /* EnvironmentValues+ComponentLayoutInvalidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A4F2BC6DF5200CF37A7 /* EnvironmentValues+ComponentLayoutInvalidation.swift */; };
 		C0E97A672BC6DF5200CF37A7 /* EnvironmentValues+ComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A502BC6DF5200CF37A7 /* EnvironmentValues+ComponentViewController.swift */; };
 		C0E97A682BC6DF5200CF37A7 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A512BC6DF5200CF37A7 /* Component.swift */; };
+		C0F2E9B32C29B56B0047AAE4 /* ViewStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B22C29B56B0047AAE4 /* ViewStorage.swift */; };
+		C0F2E9B42C29B56B0047AAE4 /* ViewStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B22C29B56B0047AAE4 /* ViewStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -879,6 +881,7 @@
 		C0E97A692BC6DFA000CF37A7 /* .xcode-runtime-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-runtime-version"; sourceTree = "<group>"; };
 		C0E97A6A2BC6DFA000CF37A7 /* .xcode-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
 		C0E97A6B2BC6DFA000CF37A7 /* .system-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".system-version"; sourceTree = "<group>"; };
+		C0F2E9B22C29B56B0047AAE4 /* ViewStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1904,6 +1907,7 @@
 				C0E97A252BC6DF4100CF37A7 /* ViewNamespace.swift */,
 				C0E97A282BC6DF4100CF37A7 /* ViewObservedObject.swift */,
 				C0E97A212BC6DF4100CF37A7 /* ViewState.swift */,
+				C0F2E9B22C29B56B0047AAE4 /* ViewStorage.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -2352,6 +2356,7 @@
 				C0312BE72B07A36A00BC21A7 /* NSLineBreakMode+TokenTraitProvider.swift in Sources */,
 				C05CD1ED2B093732005F5499 /* CALayer+TokenView.swift in Sources */,
 				C0310C6B2B04BB4800BCA3AC /* ImageToken.swift in Sources */,
+				C0F2E9B32C29B56B0047AAE4 /* ViewStorage.swift in Sources */,
 				C05CD2202B093732005F5499 /* EnvironmentValues+TokenThemeScheme.swift in Sources */,
 				C0310C7C2B04BB4800BCA3AC /* TypographyToken.swift in Sources */,
 				C0E97A062BC6DDCC00CF37A7 /* ItemPath.swift in Sources */,
@@ -2641,6 +2646,7 @@
 				C09305372B0B803C00F6F13D /* Float+TokenValue.swift in Sources */,
 				C0081D7D2BC82A1D00BE7293 /* AnyComponent.swift in Sources */,
 				C09305412B0B804600F6F13D /* FontToken.swift in Sources */,
+				C0F2E9B42C29B56B0047AAE4 /* ViewStorage.swift in Sources */,
 				C0081DB92BC82ACD00BE7293 /* View+Extensions.swift in Sources */,
 				C09305642B0B809600F6F13D /* MaskLayer.swift in Sources */,
 				C09305402B0B804600F6F13D /* FontScaleValue.swift in Sources */,
