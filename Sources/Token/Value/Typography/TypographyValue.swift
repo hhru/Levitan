@@ -3,6 +3,7 @@ import UIKit
 public struct TypographyValue:
     TokenValue,
     DecorableByFontScale,
+    DecorableByFontSize,
     DecorableByForegroundColor,
     DecorableByBackgroundColor,
     DecorableByStroke,
@@ -206,238 +207,81 @@ public struct TypographyValue:
 
         return attributes
     }
+}
+
+extension TypographyValue: Changeable {
+
+    public init(copy: ChangeableWrapper<Self>) {
+        self.init(
+            font: copy.font,
+            foregroundColor: copy.foregroundColor,
+            backgroundColor: copy.backgroundColor,
+            stroke: copy.stroke,
+            strikethrough: copy.strikethrough,
+            underline: copy.underline,
+            letterSpacing: copy.letterSpacing,
+            paragraphSpacing: copy.paragraphSpacing,
+            paragraphFirstLineIndent: copy.paragraphFirstLineIndent,
+            paragraphOtherLineIndent: copy.paragraphOtherLineIndent,
+            lineHeight: copy.lineHeight,
+            lineBreakMode: copy.lineBreakMode,
+            alignment: copy.alignment
+        )
+    }
 
     public func fontScale(_ fontScale: FontScaleValue?) -> Self {
-        Self(
-            font: font.scale(fontScale),
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.font = font.scale(fontScale) }
+    }
+    
+    public func fontSize(_ fontSize: CGFloat) -> Self {
+        changing { $0.font = font.size(fontSize) }
     }
 
     public func foregroundColor(_ foregroundColor: ColorValue?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.foregroundColor = foregroundColor }
     }
 
     public func backgroundColor(_ backgroundColor: ColorValue?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.backgroundColor = backgroundColor }
     }
 
     public func stroke(_ stroke: TypographyStrokeValue?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.stroke = stroke }
     }
 
     public func strikethrough(_ strikethrough: TypographyLineValue?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.strikethrough = strikethrough }
     }
 
-    public func underline(_ strikethrough: TypographyLineValue?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+    public func underline(_ underline: TypographyLineValue?) -> Self {
+        changing { $0.underline = underline }
     }
 
     public func letterSpacing(_ letterSpacing: CGFloat?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.letterSpacing = letterSpacing }
     }
 
     public func paragraphSpacing(_ paragraphSpacing: CGFloat?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.paragraphSpacing = paragraphSpacing }
     }
 
     public func paragraphFirstLineIndent(_ paragraphFirstLineIndent: CGFloat?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.paragraphFirstLineIndent = paragraphFirstLineIndent }
     }
 
     public func paragraphOtherLineIndent(_ paragraphOtherLineIndent: CGFloat?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.paragraphOtherLineIndent = paragraphOtherLineIndent }
     }
 
     public func lineHeight(_ lineHeight: CGFloat?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.lineHeight = lineHeight }
     }
 
     public func lineBreakMode(_ lineBreakMode: NSLineBreakMode?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.lineBreakMode = lineBreakMode }
     }
 
     public func alignment(_ alignment: NSTextAlignment?) -> Self {
-        Self(
-            font: font,
-            foregroundColor: foregroundColor,
-            backgroundColor: backgroundColor,
-            stroke: stroke,
-            strikethrough: strikethrough,
-            underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
-        )
+        changing { $0.alignment = alignment }
     }
 }

@@ -62,21 +62,24 @@ public struct FontValue: TokenValue, Sendable {
             scale: scale
         )
     }
+}
 
-    public func size(_ size: CGFloat) -> Self {
-        Self(
-            source: source,
-            size: size,
-            scale: scale
+extension FontValue: Changeable {
+
+    public init(copy: ChangeableWrapper<Self>) {
+        self.init(
+            source: copy.source,
+            size: copy.size,
+            scale: copy.scale
         )
     }
 
+    public func size(_ size: CGFloat) -> Self {
+        changing { $0.size = size }
+    }
+
     public func scale(_ scale: FontScaleValue?) -> Self {
-        Self(
-            source: source,
-            size: size,
-            scale: scale
-        )
+        changing { $0.scale = scale }
     }
 }
 

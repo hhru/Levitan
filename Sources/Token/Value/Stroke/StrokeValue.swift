@@ -35,13 +35,20 @@ public struct StrokeValue:
         self.width = width
         self.color = color
     }
+}
+
+extension StrokeValue: Changeable {
+
+    public init(copy: ChangeableWrapper<Self>) {
+        self.init(
+            type: copy.type,
+            width: copy.width,
+            color: copy.color
+        )
+    }
 
     public func color(_ color: ColorValue?) -> Self {
-        Self(
-            type: type,
-            width: width,
-            color: color
-        )
+        changing { $0.color = color }
     }
 }
 

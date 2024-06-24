@@ -2,7 +2,7 @@ import Foundation
 
 public protocol Changeable {
 
-    associatedtype ChangeableCopy
+    associatedtype ChangeableCopy = Self
 
     var changeableCopy: ChangeableCopy { get }
 

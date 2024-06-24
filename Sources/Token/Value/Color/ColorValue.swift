@@ -151,14 +151,21 @@ public struct ColorValue:
     public init(integerLiteral hex: UInt32) {
         self.init(hex: hex)
     }
+}
+
+extension ColorValue: Changeable {
+
+    public init(copy: ChangeableWrapper<Self>) {
+        self.init(
+            red: copy.red,
+            green: copy.green,
+            blue: copy.blue,
+            alpha: copy.alpha
+        )
+    }
 
     public func alpha(_ alpha: CGFloat) -> Self {
-        Self(
-            red: red,
-            green: green,
-            blue: blue,
-            alpha: alpha
-        )
+        changing { $0.alpha = alpha }
     }
 
     public func opacity(_ opacity: CGFloat) -> Self {

@@ -59,32 +59,29 @@ public struct ImageValue:
         self.foregroundColor = foregroundColor
         self.insets = insets
     }
+}
+
+extension ImageValue: Changeable {
+
+    public init(copy: ChangeableWrapper<Self>) {
+        self.init(
+            source: copy.source,
+            resizingMode: copy.resizingMode,
+            foregroundColor: copy.foregroundColor,
+            insets: copy.insets
+        )
+    }
 
     public func resizable(_ resizingMode: ImageResizingMode?) -> Self {
-        Self(
-            source: source,
-            resizingMode: resizingMode,
-            foregroundColor: foregroundColor,
-            insets: insets
-        )
+        changing { $0.resizingMode = resizingMode }
     }
 
     public func foregroundColor(_ foregroundColor: ColorValue?) -> Self {
-        Self(
-            source: source,
-            resizingMode: resizingMode,
-            foregroundColor: foregroundColor,
-            insets: insets
-        )
+        changing { $0.foregroundColor = foregroundColor }
     }
 
     public func inset(by insets: InsetsValue) -> Self {
-        Self(
-            source: source,
-            resizingMode: resizingMode,
-            foregroundColor: foregroundColor,
-            insets: insets
-        )
+        changing { $0.insets = insets }
     }
 }
 
