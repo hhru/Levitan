@@ -563,6 +563,10 @@
 		C0E97A682BC6DF5200CF37A7 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A512BC6DF5200CF37A7 /* Component.swift */; };
 		C0F2E9B32C29B56B0047AAE4 /* ViewStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B22C29B56B0047AAE4 /* ViewStorage.swift */; };
 		C0F2E9B42C29B56B0047AAE4 /* ViewStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B22C29B56B0047AAE4 /* ViewStorage.swift */; };
+		C0F2E9BA2C29C0CE0047AAE4 /* DecorableByFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */; };
+		C0F2E9BB2C29C0CE0047AAE4 /* DecorableByFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */; };
+		C0F2E9BC2C29C0CE0047AAE4 /* FontSizeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */; };
+		C0F2E9BD2C29C0CE0047AAE4 /* FontSizeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -882,6 +886,8 @@
 		C0E97A6A2BC6DFA000CF37A7 /* .xcode-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
 		C0E97A6B2BC6DFA000CF37A7 /* .system-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".system-version"; sourceTree = "<group>"; };
 		C0F2E9B22C29B56B0047AAE4 /* ViewStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStorage.swift; sourceTree = "<group>"; };
+		C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorableByFontSize.swift; sourceTree = "<group>"; };
+		C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -969,6 +975,7 @@
 				C0310B3C2B04BB4800BCA3AC /* Division */,
 				C0310B6C2B04BB4800BCA3AC /* Duration */,
 				C0310B362B04BB4800BCA3AC /* FontScale */,
+				C0F2E9B72C29C0CE0047AAE4 /* FontSize */,
 				C0310B452B04BB4800BCA3AC /* ForegroundColor */,
 				C0310B632B04BB4800BCA3AC /* Insets */,
 				C0310B6F2B04BB4800BCA3AC /* LetterSpacing */,
@@ -2007,6 +2014,15 @@
 			path = Environment;
 			sourceTree = "<group>";
 		};
+		C0F2E9B72C29C0CE0047AAE4 /* FontSize */ = {
+			isa = PBXGroup;
+			children = (
+				C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */,
+				C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */,
+			);
+			path = FontSize;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -2301,6 +2317,7 @@
 				C05CD22C2B093732005F5499 /* TokenTheme.swift in Sources */,
 				C09305112B0B6EA900F6F13D /* TokenViewProperties+UILabel.swift in Sources */,
 				C0E979F72BC6DDCC00CF37A7 /* SectionDifferenceCalculator.swift in Sources */,
+				C0F2E9BA2C29C0CE0047AAE4 /* DecorableByFontSize.swift in Sources */,
 				C0E979FB2BC6DDCC00CF37A7 /* DifferenceCalculator.swift in Sources */,
 				C0E97A0F2BC6DDCC00CF37A7 /* CGRect+Extensions.swift in Sources */,
 				C05CD2112B093732005F5499 /* TokenViewModifier.swift in Sources */,
@@ -2404,6 +2421,7 @@
 				C05CD1F22B093732005F5499 /* StrokeLayer.swift in Sources */,
 				C0310C232B04BB4800BCA3AC /* TokenDecorator.swift in Sources */,
 				C05CD1F72B093732005F5499 /* BackLayer.swift in Sources */,
+				C0F2E9BC2C29C0CE0047AAE4 /* FontSizeDecorator.swift in Sources */,
 				C0310C7E2B04BB4800BCA3AC /* TypographyLineToken.swift in Sources */,
 				C0310C7D2B04BB4800BCA3AC /* TypographyLineValue.swift in Sources */,
 				C05CD2102B093732005F5499 /* ScaleEffectModifier.swift in Sources */,
@@ -2591,6 +2609,7 @@
 				C09305742B0B817500F6F13D /* TokenViewDSL.swift in Sources */,
 				C0081DC12BC82B0400BE7293 /* UIScreen+TraitsObservable.swift in Sources */,
 				C0081DA52BC82AB000BE7293 /* DifferenceIndicesReference.swift in Sources */,
+				C0F2E9BB2C29C0CE0047AAE4 /* DecorableByFontSize.swift in Sources */,
 				C093055F2B0B809600F6F13D /* BackLayer.swift in Sources */,
 				C09305422B0B804600F6F13D /* FontSource.swift in Sources */,
 				C09305052B0B68A800F6F13D /* TokenViewProperties+CATextLayer.swift in Sources */,
@@ -2694,6 +2713,7 @@
 				C09305482B0B805000F6F13D /* ImageToken.swift in Sources */,
 				C09305492B0B805000F6F13D /* ImageValue.swift in Sources */,
 				C04843EF2B0B4313002DF0CA /* TokenShapedModifier.swift in Sources */,
+				C0F2E9BD2C29C0CE0047AAE4 /* FontSizeDecorator.swift in Sources */,
 				C09305892B0B909000F6F13D /* DefaultTokenThemeStorage.swift in Sources */,
 				C0081D8F2BC82A2F00BE7293 /* ComponentFrame.swift in Sources */,
 				C0081DC72BC82B0900BE7293 /* ItemPath.swift in Sources */,
