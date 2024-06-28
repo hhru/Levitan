@@ -232,7 +232,7 @@ extension TypographyValue: Changeable {
     public func fontScale(_ fontScale: FontScaleValue?) -> Self {
         changing { $0.font = font.scale(fontScale) }
     }
-    
+
     public func fontSize(_ fontSize: CGFloat) -> Self {
         changing { $0.font = font.size(fontSize) }
     }
