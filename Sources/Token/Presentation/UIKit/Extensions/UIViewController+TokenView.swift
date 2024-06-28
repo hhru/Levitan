@@ -2,6 +2,10 @@ import UIKit
 
 extension UIViewController: TokenView {
 
+    internal var tokenViewRoot: TokenView? {
+        UIApplication.shared
+    }
+
     internal var tokenViewParent: TokenView? {
         viewIfLoaded?.superview
     }
@@ -10,7 +14,7 @@ extension UIViewController: TokenView {
         [viewIfLoaded].compactMap { $0 }
     }
 
-    internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme?) {
-        overrideUserInterfaceStyle = themeScheme?.uiUserInterfaceStyle ?? .unspecified
+    internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme) {
+        overrideUserInterfaceStyle = themeScheme.uiUserInterfaceStyle
     }
 }

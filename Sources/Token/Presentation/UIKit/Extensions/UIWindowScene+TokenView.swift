@@ -2,6 +2,10 @@ import UIKit
 
 extension UIWindowScene: TokenView {
 
+    internal var tokenViewRoot: TokenView? {
+        UIApplication.shared
+    }
+
     internal var tokenViewParent: TokenView? {
         var responder = self as UIResponder
 
@@ -24,7 +28,7 @@ extension UIWindowScene: TokenView {
         true
     }
 
-    internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme?) {
+    internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme) {
         for child in tokenViewChildren {
             child.overrideUserInterfaceStyle(themeScheme: themeScheme)
         }
@@ -35,7 +39,7 @@ private var tokenViewWindowScenesObservation: NSObjectProtocol?
 
 extension UIWindowScene {
 
-    internal static func observeTokenViewEvents() {
+    internal static func handleTokenViewEvents() {
         tokenViewWindowScenesObservation = NotificationCenter.default.addObserver(
             forName: UIWindowScene.didActivateNotification,
             object: nil,

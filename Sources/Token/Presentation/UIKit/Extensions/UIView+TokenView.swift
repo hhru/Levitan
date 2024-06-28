@@ -2,6 +2,10 @@ import UIKit
 
 extension UIView: TokenView {
 
+    internal var tokenViewRoot: TokenView? {
+        UIApplication.shared
+    }
+
     internal var tokenViewParent: TokenView? {
         if let next, next is UIView {
             return superview
@@ -38,8 +42,8 @@ extension UIView: TokenView {
         self is UIWindow
     }
 
-    internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme?) {
-        overrideUserInterfaceStyle = themeScheme?.uiUserInterfaceStyle ?? .unspecified
+    internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme) {
+        overrideUserInterfaceStyle = themeScheme.uiUserInterfaceStyle
     }
 }
 
@@ -47,7 +51,11 @@ private var tokenViewWindowsObservation: NSObjectProtocol?
 
 extension UIView {
 
-    internal static func observeTokenViewEvents() {
+    // До внедрения свизлинга для поддержки токенов использовался глобальный менеджер всех UI-представлений,
+    // который показал очень низкую производительность.
+    // После отказа от iOS 16, стоит рассмотреть возможность замены свизлинга
+    // на кастомизацию UITraitCollection: https://developer.apple.com/documentation/uikit/uitraitcollection#4250876
+    internal static func handleTokenViewEvents() {
         tokenViewWindowsObservation = NotificationCenter.default.addObserver(
             forName: UIWindow.didBecomeVisibleNotification,
             object: nil,
@@ -61,19 +69,19 @@ extension UIView {
         MethodSwizzler.swizzle(
             class: UIWindow.self,
             originalSelector: #selector(setter: UIWindow.windowScene),
-            swizzledSelector: #selector(UIWindow.setTokenViewWindowScene(_:))
+            swizzledSelector: #selector(UIWindow._setWindowScene(_:))
         )
 
         MethodSwizzler.swizzle(
             class: UIView.self,
             originalSelector: #selector(UIView.didMoveToSuperview),
-            swizzledSelector: #selector(UIView.tokenViewDidMoveToSuperview)
+            swizzledSelector: #selector(UIView._didMoveToSuperview)
         )
     }
 
     @objc
-    private dynamic func setTokenViewWindowScene(_ windowScene: UIWindowScene?) {
-        setTokenViewWindowScene(windowScene)
+    private dynamic func _setWindowScene(_ windowScene: UIWindowScene?) {
+        _setWindowScene(windowScene)
 
         guard !isHidden, windowScene != nil else {
             return
@@ -83,8 +91,8 @@ extension UIView {
     }
 
     @objc
-    private dynamic func tokenViewDidMoveToSuperview() {
-        tokenViewDidMoveToSuperview()
+    private dynamic func _didMoveToSuperview() {
+        _didMoveToSuperview()
 
         guard let superview, let tokenViewParent else {
             return

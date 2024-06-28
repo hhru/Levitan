@@ -2,18 +2,19 @@ import UIKit
 
 internal protocol TokenView: AnyTokenView {
 
+    var tokenViewRoot: TokenView? { get }
     var tokenViewParent: TokenView? { get }
     var tokenViewChildren: [TokenView] { get }
 
     var shouldAlwaysOverrideUserInterfaceStyle: Bool { get }
 
-    func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme?)
+    func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme)
 }
 
 private let tokenViewPayloadAssociation = {
-    UIWindowScene.observeTokenViewEvents()
-    UIView.observeTokenViewEvents()
-    CALayer.observeTokenViewEvents()
+    UIWindowScene.handleTokenViewEvents()
+    UIView.handleTokenViewEvents()
+    CALayer.handleTokenViewEvents()
 
     return ObjectAssociation<TokenViewPayload>()
 }()
