@@ -56,8 +56,8 @@ public struct ViewFocusBinding<Value: Hashable>: Hashable {
     public func equating<Wrapped: Hashable>(to value: Wrapped) -> ViewFocusBinding<Bool>
     where Value == Wrapped? {
         let focusBinding = ViewBinding<Bool>(
-            getter: { binding == value },
-            setter: { isFocused in
+            get: { binding == value },
+            set: { isFocused in
                 if isFocused {
                     binding = value
                 } else if binding == value {

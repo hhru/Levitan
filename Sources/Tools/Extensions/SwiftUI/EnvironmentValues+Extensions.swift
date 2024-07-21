@@ -63,7 +63,11 @@ extension EnvironmentValues {
     private static func userInterfaceSizeClass(
         for uiUserInterfaceSizeClass: UIUserInterfaceSizeClass
     ) -> UserInterfaceSizeClass? {
-        UserInterfaceSizeClass(uiUserInterfaceSizeClass)
+        #if os(iOS)
+            return UserInterfaceSizeClass(uiUserInterfaceSizeClass)
+        #elseif os(tvOS)
+            return .regular
+        #endif
     }
 
     private static func legibilityWeight(

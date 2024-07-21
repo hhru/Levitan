@@ -43,7 +43,6 @@
 		C0081D932BC82A3400BE7293 /* ComponentSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A432BC6DF5200CF37A7 /* ComponentSizing.swift */; };
 		C0081D942BC82A3400BE7293 /* ComponentSizingStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A422BC6DF5200CF37A7 /* ComponentSizingStrategy.swift */; };
 		C0081D952BC82A3900BE7293 /* ViewArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A202BC6DF4100CF37A7 /* ViewArrayBuilder.swift */; };
-		C0081D962BC82A3900BE7293 /* ViewObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A282BC6DF4100CF37A7 /* ViewObservedObject.swift */; };
 		C0081D972BC82A3900BE7293 /* ViewFocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A222BC6DF4100CF37A7 /* ViewFocusState.swift */; };
 		C0081D982BC82A3900BE7293 /* ViewNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A252BC6DF4100CF37A7 /* ViewNamespace.swift */; };
 		C0081D992BC82A3900BE7293 /* ViewBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A242BC6DF4100CF37A7 /* ViewBinding.swift */; };
@@ -488,6 +487,8 @@
 		C0BFF3532B10E24F0098F0B7 /* UIWindowScene+TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFF3522B10E24F0098F0B7 /* UIWindowScene+TokenView.swift */; };
 		C0BFF3542B10E24F0098F0B7 /* UIWindowScene+TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFF3522B10E24F0098F0B7 /* UIWindowScene+TokenView.swift */; };
 		C0D93EED2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93EEC2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift */; };
+		C0DB69B32C4D1986008221DB /* ViewBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB69B22C4D1986008221DB /* ViewBindable.swift */; };
+		C0DB69B42C4D1986008221DB /* ViewBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB69B22C4D1986008221DB /* ViewBindable.swift */; };
 		C0E979F62BC6DDCC00CF37A7 /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E979BA2BC6DDCC00CF37A7 /* ObjectAssociation.swift */; };
 		C0E979F72BC6DDCC00CF37A7 /* SectionDifferenceCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E979BE2BC6DDCC00CF37A7 /* SectionDifferenceCalculator.swift */; };
 		C0E979F82BC6DDCC00CF37A7 /* SectionDifferenceChangeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E979BF2BC6DDCC00CF37A7 /* SectionDifferenceChangeset.swift */; };
@@ -537,7 +538,6 @@
 		C0E97A2E2BC6DF4100CF37A7 /* ViewNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A252BC6DF4100CF37A7 /* ViewNamespace.swift */; };
 		C0E97A2F2BC6DF4100CF37A7 /* ViewFocusBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A262BC6DF4100CF37A7 /* ViewFocusBinding.swift */; };
 		C0E97A302BC6DF4100CF37A7 /* ViewAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A272BC6DF4100CF37A7 /* ViewAction.swift */; };
-		C0E97A312BC6DF4100CF37A7 /* ViewObservedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A282BC6DF4100CF37A7 /* ViewObservedObject.swift */; };
 		C0E97A522BC6DF5200CF37A7 /* ComponentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A342BC6DF5200CF37A7 /* ComponentModifier.swift */; };
 		C0E97A532BC6DF5200CF37A7 /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A352BC6DF5200CF37A7 /* ComponentFrame.swift */; };
 		C0E97A542BC6DF5200CF37A7 /* ComponentContextOverriding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A372BC6DF5200CF37A7 /* ComponentContextOverriding.swift */; };
@@ -561,8 +561,6 @@
 		C0E97A662BC6DF5200CF37A7 /* EnvironmentValues+ComponentLayoutInvalidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A4F2BC6DF5200CF37A7 /* EnvironmentValues+ComponentLayoutInvalidation.swift */; };
 		C0E97A672BC6DF5200CF37A7 /* EnvironmentValues+ComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A502BC6DF5200CF37A7 /* EnvironmentValues+ComponentViewController.swift */; };
 		C0E97A682BC6DF5200CF37A7 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E97A512BC6DF5200CF37A7 /* Component.swift */; };
-		C0F2E9B32C29B56B0047AAE4 /* ViewStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B22C29B56B0047AAE4 /* ViewStorage.swift */; };
-		C0F2E9B42C29B56B0047AAE4 /* ViewStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B22C29B56B0047AAE4 /* ViewStorage.swift */; };
 		C0F2E9BA2C29C0CE0047AAE4 /* DecorableByFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */; };
 		C0F2E9BB2C29C0CE0047AAE4 /* DecorableByFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */; };
 		C0F2E9BC2C29C0CE0047AAE4 /* FontSizeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */; };
@@ -809,6 +807,7 @@
 		C0BFF3522B10E24F0098F0B7 /* UIWindowScene+TokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindowScene+TokenView.swift"; sourceTree = "<group>"; };
 		C0C9FE8B2655DECE0074D669 /* Mintfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Mintfile; sourceTree = "<group>"; };
 		C0D93EEC2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentContext.swift"; sourceTree = "<group>"; };
+		C0DB69B22C4D1986008221DB /* ViewBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBindable.swift; sourceTree = "<group>"; };
 		C0E979BA2BC6DDCC00CF37A7 /* ObjectAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
 		C0E979BE2BC6DDCC00CF37A7 /* SectionDifferenceCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDifferenceCalculator.swift; sourceTree = "<group>"; };
 		C0E979BF2BC6DDCC00CF37A7 /* SectionDifferenceChangeset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionDifferenceChangeset.swift; sourceTree = "<group>"; };
@@ -858,7 +857,6 @@
 		C0E97A252BC6DF4100CF37A7 /* ViewNamespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewNamespace.swift; sourceTree = "<group>"; };
 		C0E97A262BC6DF4100CF37A7 /* ViewFocusBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewFocusBinding.swift; sourceTree = "<group>"; };
 		C0E97A272BC6DF4100CF37A7 /* ViewAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAction.swift; sourceTree = "<group>"; };
-		C0E97A282BC6DF4100CF37A7 /* ViewObservedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewObservedObject.swift; sourceTree = "<group>"; };
 		C0E97A342BC6DF5200CF37A7 /* ComponentModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentModifier.swift; sourceTree = "<group>"; };
 		C0E97A352BC6DF5200CF37A7 /* ComponentFrame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentFrame.swift; sourceTree = "<group>"; };
 		C0E97A372BC6DF5200CF37A7 /* ComponentContextOverriding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentContextOverriding.swift; sourceTree = "<group>"; };
@@ -885,7 +883,6 @@
 		C0E97A692BC6DFA000CF37A7 /* .xcode-runtime-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-runtime-version"; sourceTree = "<group>"; };
 		C0E97A6A2BC6DFA000CF37A7 /* .xcode-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
 		C0E97A6B2BC6DFA000CF37A7 /* .system-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".system-version"; sourceTree = "<group>"; };
-		C0F2E9B22C29B56B0047AAE4 /* ViewStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStorage.swift; sourceTree = "<group>"; };
 		C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorableByFontSize.swift; sourceTree = "<group>"; };
 		C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1907,14 +1904,13 @@
 			children = (
 				C0E97A272BC6DF4100CF37A7 /* ViewAction.swift */,
 				C0E97A202BC6DF4100CF37A7 /* ViewArrayBuilder.swift */,
+				C0DB69B22C4D1986008221DB /* ViewBindable.swift */,
 				C0E97A242BC6DF4100CF37A7 /* ViewBinding.swift */,
 				C0E97A232BC6DF4100CF37A7 /* ViewEnvironment.swift */,
 				C0E97A262BC6DF4100CF37A7 /* ViewFocusBinding.swift */,
 				C0E97A222BC6DF4100CF37A7 /* ViewFocusState.swift */,
 				C0E97A252BC6DF4100CF37A7 /* ViewNamespace.swift */,
-				C0E97A282BC6DF4100CF37A7 /* ViewObservedObject.swift */,
 				C0E97A212BC6DF4100CF37A7 /* ViewState.swift */,
-				C0F2E9B22C29B56B0047AAE4 /* ViewStorage.swift */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -2373,7 +2369,6 @@
 				C0312BE72B07A36A00BC21A7 /* NSLineBreakMode+TokenTraitProvider.swift in Sources */,
 				C05CD1ED2B093732005F5499 /* CALayer+TokenView.swift in Sources */,
 				C0310C6B2B04BB4800BCA3AC /* ImageToken.swift in Sources */,
-				C0F2E9B32C29B56B0047AAE4 /* ViewStorage.swift in Sources */,
 				C05CD2202B093732005F5499 /* EnvironmentValues+TokenThemeScheme.swift in Sources */,
 				C0310C7C2B04BB4800BCA3AC /* TypographyToken.swift in Sources */,
 				C0E97A062BC6DDCC00CF37A7 /* ItemPath.swift in Sources */,
@@ -2431,6 +2426,7 @@
 				C0310C412B04BB4800BCA3AC /* DecorableByAlignment.swift in Sources */,
 				C0E97A162BC6DDCC00CF37A7 /* RangeReplaceableCollection+Extensions.swift in Sources */,
 				C0310C3E2B04BB4800BCA3AC /* DecorableByOutsets.swift in Sources */,
+				C0DB69B32C4D1986008221DB /* ViewBindable.swift in Sources */,
 				C0E97A1A2BC6DDCC00CF37A7 /* Collection+Extensions.swift in Sources */,
 				C0310C682B04BB4800BCA3AC /* AnimationValue.swift in Sources */,
 				C05CD21C2B093732005F5499 /* ForegroundColorModifier.swift in Sources */,
@@ -2492,7 +2488,6 @@
 				C0E97A192BC6DDCC00CF37A7 /* FloatingPoint+Extensions.swift in Sources */,
 				C0E979FA2BC6DDCC00CF37A7 /* DifferenceChangeset.swift in Sources */,
 				C0E97A602BC6DF5200CF37A7 /* AnyComponent.swift in Sources */,
-				C0E97A312BC6DF4100CF37A7 /* ViewObservedObject.swift in Sources */,
 				C05CD1EB2B093732005F5499 /* UIView+TokenView.swift in Sources */,
 				C05CD1F62B093732005F5499 /* CALayer+BackLayer.swift in Sources */,
 				C05CD2272B093732005F5499 /* ColorValue+View.swift in Sources */,
@@ -2665,7 +2660,6 @@
 				C09305372B0B803C00F6F13D /* Float+TokenValue.swift in Sources */,
 				C0081D7D2BC82A1D00BE7293 /* AnyComponent.swift in Sources */,
 				C09305412B0B804600F6F13D /* FontToken.swift in Sources */,
-				C0F2E9B42C29B56B0047AAE4 /* ViewStorage.swift in Sources */,
 				C0081DB92BC82ACD00BE7293 /* View+Extensions.swift in Sources */,
 				C09305642B0B809600F6F13D /* MaskLayer.swift in Sources */,
 				C09305402B0B804600F6F13D /* FontScaleValue.swift in Sources */,
@@ -2674,7 +2668,6 @@
 				C04843B92B0B4292002DF0CA /* TokenViewBinding.swift in Sources */,
 				C09305652B0B809600F6F13D /* ShadowLayer.swift in Sources */,
 				C09305512B0B805D00F6F13D /* CapsuleShape.swift in Sources */,
-				C0081D962BC82A3900BE7293 /* ViewObservedObject.swift in Sources */,
 				C04843DA2B0B42E5002DF0CA /* DecorableByOutsets.swift in Sources */,
 				C09305362B0B803C00F6F13D /* String+TokenValue.swift in Sources */,
 				C09305182B0B75F600F6F13D /* TokenViewProperties+UISlider.swift in Sources */,
@@ -2724,6 +2717,7 @@
 				C0081D802BC82A2100BE7293 /* ComponentContext.swift in Sources */,
 				C04843FB2B0B4317002DF0CA /* AccentColorModifier.swift in Sources */,
 				C093054A2B0B805400F6F13D /* InsetsValue.swift in Sources */,
+				C0DB69B42C4D1986008221DB /* ViewBindable.swift in Sources */,
 				C04843B82B0B4292002DF0CA /* TokenViewPropertyBinding.swift in Sources */,
 				C093051E2B0B77A400F6F13D /* TokenViewProperties+UITextField.swift in Sources */,
 				C093053E2B0B804100F6F13D /* NSLineBreakMode+TokenTraitProvider.swift in Sources */,

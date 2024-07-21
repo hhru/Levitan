@@ -6,39 +6,39 @@ import Combine
 @propertyWrapper
 public struct ViewBinding<Value> {
 
-    public let getter: () -> Value
-    public let setter: (Value) -> Void
+    public let get: () -> Value
+    public let set: (Value) -> Void
 
     public let initialValue: Value
 
     public var wrappedValue: Value {
-        get { getter() }
-        nonmutating set { setter(newValue) }
+        get { get() }
+        nonmutating set { set(newValue) }
     }
 
     public var projectedValue: Binding<Value> {
-        Binding(get: getter, set: setter)
+        Binding(get: get, set: set)
     }
 
     public init(
-        getter: @escaping () -> Value,
-        setter: @escaping (Value) -> Void
+        get: @escaping () -> Value,
+        set: @escaping (Value) -> Void
     ) {
-        self.getter = getter
-        self.setter = setter
+        self.get = get
+        self.set = set
 
-        initialValue = getter()
+        initialValue = get()
     }
 
     public func equating<Wrapped: Hashable>(to value: Wrapped) -> ViewBinding<Bool>
     where Value == Wrapped? {
         ViewBinding<Bool> {
-            getter() == value
-        } setter: { newValue in
+            get() == value
+        } set: { newValue in
             if newValue {
-                setter(value)
-            } else if getter() == value {
-                setter(nil)
+                set(value)
+            } else if get() == value {
+                set(nil)
             }
         }
     }
@@ -47,8 +47,8 @@ public struct ViewBinding<Value> {
         dynamicMember keyPath: ReferenceWritableKeyPath<Value, Subject>
     ) -> ViewBinding<Subject> {
         ViewBinding<Subject>(
-            getter: { wrappedValue[keyPath: keyPath] },
-            setter: { wrappedValue[keyPath: keyPath] = $0 }
+            get: { wrappedValue[keyPath: keyPath] },
+            set: { wrappedValue[keyPath: keyPath] = $0 }
         )
     }
 
@@ -73,8 +73,8 @@ extension ViewBinding where
         dynamicMember keyPath: KeyPath<Value, Subject>
     ) -> ViewBinding<Subject> {
         ViewBinding<Subject>(
-            getter: { getter()[keyPath: keyPath] },
-            setter: { setter(getter().changing(keyPath, to: $0)) }
+            get: { get()[keyPath: keyPath] },
+            set: { set(get().changing(keyPath, to: $0)) }
         )
     }
 
@@ -82,8 +82,8 @@ extension ViewBinding where
         dynamicMember keyPath: KeyPath<Value, Subject>
     ) -> ViewBinding<Subject?> {
         ViewBinding<Subject?>(
-            getter: { getter()[keyPath: keyPath] },
-            setter: { setter(getter().changing(keyPath, to: $0 ?? "")) }
+            get: { get()[keyPath: keyPath] },
+            set: { set(get().changing(keyPath, to: $0 ?? "")) }
         )
     }
 
@@ -91,8 +91,8 @@ extension ViewBinding where
         dynamicMember keyPath: KeyPath<Value, Subject>
     ) -> ViewBinding<Subject?> {
         ViewBinding<Subject?>(
-            getter: { getter()[keyPath: keyPath] },
-            setter: { setter(getter().changing(keyPath, to: $0 ?? [])) }
+            get: { get()[keyPath: keyPath] },
+            set: { set(get().changing(keyPath, to: $0 ?? [])) }
         )
     }
 
@@ -100,8 +100,8 @@ extension ViewBinding where
         dynamicMember keyPath: KeyPath<Value, Subject>
     ) -> ViewBinding<Subject?> {
         ViewBinding<Subject?>(
-            getter: { getter()[keyPath: keyPath] },
-            setter: { setter(getter().changing(keyPath, to: $0 ?? [:])) }
+            get: { get()[keyPath: keyPath] },
+            set: { set(get().changing(keyPath, to: $0 ?? [:])) }
         )
     }
 
@@ -136,15 +136,15 @@ extension ViewBinding {
 
     public static func constant(_ value: Value) -> Self {
         ViewBinding(
-            getter: { value },
-            setter: { _ in }
+            get: { value },
+            set: { _ in }
         )
     }
 
     public static func binding(_ binding: Binding<Value>) -> Self {
         ViewBinding(
-            getter: { binding.wrappedValue },
-            setter: { binding.wrappedValue = $0 }
+            get: { binding.wrappedValue },
+            set: { binding.wrappedValue = $0 }
         )
     }
 }
