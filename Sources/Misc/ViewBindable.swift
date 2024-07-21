@@ -3,50 +3,54 @@ import Foundation
 // TODO: Добавить документацию
 @dynamicMemberLookup
 @propertyWrapper
-public struct ViewBindable<Value>: CustomStringConvertible {
+public struct ViewBindable<Value> {
 
-    private final class Storage {
-
-        fileprivate var value: Value
-
-        fileprivate init(value: Value) {
-            self.value = value
-        }
-    }
-
-    private let storage: Storage
+    private var value: Value
 
     public var wrappedValue: Value {
-        get { storage.value }
-        nonmutating set { storage.value = newValue }
+        get { value }
+        set { value = newValue }
     }
 
     public var projectedValue: Self {
         self
     }
 
-    public var description: String {
-        String(describing: wrappedValue)
+    public init(_ value: Value)
+    where Value: AnyObject {
+        self.value = value
     }
 
-    public init(_ value: Value) {
-        self.storage = Storage(value: value)
-    }
-
-    public init(wrappedValue: Value) {
+    public init(wrappedValue: Value)
+    where Value: AnyObject {
         self.init(wrappedValue)
     }
 
-    public init(projectedValue: Self) {
+    public init(projectedValue: Self)
+    where Value: AnyObject {
         self = projectedValue
     }
 
     public subscript<Subject>(
-        dynamicMember keyPath: WritableKeyPath<Value, Subject>
+        dynamicMember keyPath: ReferenceWritableKeyPath<Value, Subject>
     ) -> ViewBinding<Subject> {
         ViewBinding<Subject>(
             get: { wrappedValue[keyPath: keyPath] },
             set: { wrappedValue[keyPath: keyPath] = $0 }
         )
+    }
+}
+
+extension ViewBindable: Equatable where Value: Equatable {
+
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.wrappedValue == rhs.wrappedValue
+    }
+}
+
+extension ViewBindable: Hashable where Value: Hashable {
+
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(wrappedValue)
     }
 }

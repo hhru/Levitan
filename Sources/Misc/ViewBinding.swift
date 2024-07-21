@@ -30,6 +30,13 @@ public struct ViewBinding<Value> {
         initialValue = get()
     }
 
+    public init(projectedValue: Binding<Value>) {
+        self.init(
+            get: { projectedValue.wrappedValue },
+            set: { projectedValue.wrappedValue = $0 }
+        )
+    }
+
     public func equating<Wrapped: Hashable>(to value: Wrapped) -> ViewBinding<Bool>
     where Value == Wrapped? {
         ViewBinding<Bool> {
