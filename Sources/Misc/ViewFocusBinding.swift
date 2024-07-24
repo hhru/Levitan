@@ -35,7 +35,7 @@ public struct ViewFocusBinding<Value: Hashable>: Hashable {
         self.canUnfocus = canUnfocus
     }
 
-    internal init<Wrapped: Hashable>(binding: ViewBinding<Value>)
+    public init<Wrapped: Hashable>(binding: ViewBinding<Value>)
     where Value == Wrapped? {
         self.init(
             binding: binding,
@@ -44,7 +44,7 @@ public struct ViewFocusBinding<Value: Hashable>: Hashable {
         )
     }
 
-    internal init(binding: ViewBinding<Value>)
+    public init(binding: ViewBinding<Value>)
     where Value == Bool {
         self.init(
             binding: binding,
@@ -53,11 +53,15 @@ public struct ViewFocusBinding<Value: Hashable>: Hashable {
         )
     }
 
+    public init(projectedValue: Self) {
+        self = projectedValue
+    }
+
     public func equating<Wrapped: Hashable>(to value: Wrapped) -> ViewFocusBinding<Bool>
     where Value == Wrapped? {
         let focusBinding = ViewBinding<Bool>(
-            getter: { binding == value },
-            setter: { isFocused in
+            get: { binding == value },
+            set: { isFocused in
                 if isFocused {
                     binding = value
                 } else if binding == value {

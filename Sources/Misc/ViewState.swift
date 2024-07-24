@@ -45,6 +45,7 @@ public struct ViewState<Value>: DynamicProperty {
         nonmutating set { state.wrappedValue = newValue }
     }
 
+    // TODO: Добавить поддержку в компоненты SwiftUI и возвращать ViewBinding
     /// Байндинг для значения состояния.
     public var projectedValue: Binding<Value> {
         state.projectedValue

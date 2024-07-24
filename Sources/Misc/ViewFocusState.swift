@@ -12,6 +12,7 @@ public struct ViewFocusState<Value: Hashable>: DynamicProperty {
         nonmutating set { focusState.wrappedValue = newValue }
     }
 
+    // TODO: Перенести наработки из проекта и возвращать ViewFocusState
     public var projectedValue: FocusState<Value>.Binding {
         focusState.projectedValue
     }
