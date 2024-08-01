@@ -72,4 +72,15 @@ public struct ComponentSizing: Equatable {
             height: .fixed(height)
         )
     }
+
+    /// Создает данные для определения размеров компонента.
+    ///
+    /// - Parameters:
+    ///   - size: Фиксированные размеры компонента.
+    public init(size: CGSize) {
+        self.init(
+            width: .fixed(size.width),
+            height: .fixed(size.height)
+        )
+    }
 }

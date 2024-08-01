@@ -48,15 +48,22 @@ public struct ShadowValue:
             spread: spread
         )
     }
+}
+
+extension ShadowValue: Changeable {
+
+    public init(copy: ChangeableWrapper<Self>) {
+        self.init(
+            type: copy.type,
+            color: copy.color,
+            offset: copy.offset,
+            radius: copy.radius,
+            spread: copy.spread
+        )
+    }
 
     public func color(_ color: ColorValue?) -> Self {
-        Self(
-            type: type,
-            color: color,
-            offset: offset,
-            radius: radius,
-            spread: spread
-        )
+        changing { $0.color = color }
     }
 }
 

@@ -19,7 +19,11 @@ public struct TokenViewManager {
     }
 
     private func defaultTheme(of view: TokenView) -> TokenTheme {
-        TokenTheme(key: .default, scheme: .light)
+        if let theme = view.tokenViewRoot?.tokenViewPayloadIfExists?.theme {
+            return theme
+        }
+
+        return TokenTheme(key: .default, scheme: .light)
     }
 
     private func inheritedTheme(of view: TokenView) -> TokenTheme {

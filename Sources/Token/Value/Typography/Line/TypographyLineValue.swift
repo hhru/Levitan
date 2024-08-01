@@ -15,9 +15,19 @@ public struct TypographyLineValue:
         self.style = style
         self.color = color
     }
+}
+
+extension TypographyLineValue: Changeable {
+
+    public init(copy: ChangeableWrapper<Self>) {
+        self.init(
+            style: copy.style,
+            color: copy.color
+        )
+    }
 
     public func color(_ color: ColorValue?) -> Self {
-        Self(style: style, color: color)
+        changing { $0.color = color }
     }
 }
 

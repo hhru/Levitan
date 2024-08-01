@@ -19,6 +19,18 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         contentSize ?? super.intrinsicContentSize
     }
 
+    public override var canBecomeFirstResponder: Bool {
+        contentView.canBecomeFirstResponder
+    }
+
+    public override var canResignFirstResponder: Bool {
+        contentView.canResignFirstResponder
+    }
+
+    public override var isFirstResponder: Bool {
+        contentView.isFirstResponder
+    }
+
     public override init(frame: CGRect = .zero) {
         self.contentView = Content.UIView(frame: frame)
 
@@ -36,6 +48,24 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     @available(*, unavailable)
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    @discardableResult
+    public override func becomeFirstResponder() -> Bool {
+        contentView.becomeFirstResponder()
+    }
+
+    @discardableResult
+    public override func resignFirstResponder() -> Bool {
+        contentView.resignFirstResponder()
+    }
+
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        contentView.hitTest(point, with: event)
+    }
+
+    public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        contentView.point(inside: point, with: event)
     }
 
     private func setupContentView() {

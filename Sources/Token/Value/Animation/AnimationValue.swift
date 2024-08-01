@@ -37,12 +37,19 @@ public struct AnimationValue:
             animations: animations
         )
     }
+}
+
+extension AnimationValue: Changeable {
+
+    public init(copy: ChangeableWrapper<Self>) {
+        self.init(
+            controlPoint1: copy.controlPoint1,
+            controlPoint2: copy.controlPoint2,
+            duration: copy.duration
+        )
+    }
 
     public func duration(_ duration: Double) -> Self {
-        Self(
-            controlPoint1: controlPoint1,
-            controlPoint2: controlPoint2,
-            duration: duration
-        )
+        changing { $0.duration = duration }
     }
 }

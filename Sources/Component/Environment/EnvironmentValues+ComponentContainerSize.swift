@@ -1,11 +1,9 @@
 import SwiftUI
+import UIKit
 
 internal struct ComponentContainerSizeKey: EnvironmentKey {
 
-    internal static let defaultValue = CGSize(
-        width: CGFloat.infinity,
-        height: CGFloat.infinity
-    )
+    internal static let defaultValue = UIScreen.main.bounds.size
 }
 
 extension EnvironmentValues {
@@ -15,7 +13,7 @@ extension EnvironmentValues {
     /// Используется в качестве ограничивающих размеров для определения размеров самих компонентов
     /// при встраивании UIKit-компонента в SwiftUI-представление.
     ///
-    /// Значением по умолчанию является размер с бесконечной шириной и высотой.
+    /// Значением по умолчанию является размер основного экрана устройства.
     ///
     /// - Note: Нет необходимости самостоятельно устанавливать значение для этой переменной,
     ///         его переопределяют встроенные компоненты.

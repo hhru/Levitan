@@ -1,6 +1,5 @@
 import SwiftUI
 
-@propertyWrapper
 /// Обертка для реализации внутреннего состояния UI-компонента.
 ///
 /// Является Equatable-аналогом `State` из SwiftUI
@@ -28,12 +27,14 @@ import SwiftUI
 ///         fitting size: CGSize,
 ///         context: ComponentContext
 ///     ) -> ComponentSizing {
-///         .fixedHeight
+///         ComponentSizing(
+///             width: .fill,
+///             height: .hug
+///         )
 ///     }
 /// }
 /// ```
-///
-/// - SeeAlso: ``State``
+@propertyWrapper
 public struct ViewState<Value>: DynamicProperty {
 
     private var state: State<Value>
@@ -44,6 +45,7 @@ public struct ViewState<Value>: DynamicProperty {
         nonmutating set { state.wrappedValue = newValue }
     }
 
+    // TODO: Добавить поддержку в компоненты SwiftUI и возвращать ViewBinding
     /// Байндинг для значения состояния.
     public var projectedValue: Binding<Value> {
         state.projectedValue

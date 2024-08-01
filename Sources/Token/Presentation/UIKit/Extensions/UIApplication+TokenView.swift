@@ -2,6 +2,10 @@ import UIKit
 
 extension UIApplication: TokenView {
 
+    internal var tokenViewRoot: TokenView? {
+        nil
+    }
+
     internal var tokenViewParent: TokenView? {
         nil
     }
@@ -14,7 +18,7 @@ extension UIApplication: TokenView {
         true
     }
 
-    internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme?) {
+    internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme) {
         for child in tokenViewChildren {
             child.overrideUserInterfaceStyle(themeScheme: themeScheme)
         }

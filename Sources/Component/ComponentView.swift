@@ -25,6 +25,15 @@ public protocol ComponentView: UIView {
 
 extension ComponentView {
 
+    /// Создает UI-представление и обновляет его с заданным контентом, используя контекст при необходмости.
+    ///
+    /// - Parameters:
+    ///   - content: Контент UI-представления.
+    ///   - context: Контекст компонента.
+    ///   - frame: Начальный фрейм UI-представления.
+    ///
+    /// - SeeAlso: ``Component``
+    /// - SeeAlso: ``ComponentContext`
     public init(
         content: Content,
         context: ComponentContext,
