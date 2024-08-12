@@ -11,7 +11,7 @@ internal struct OpacityDecorator<Value: DecorableByOpacity>: TokenDecorator {
 
 extension Token where Value: DecorableByOpacity {
 
-    public func opacity(_ opacity: OpacityToken) -> Token<Value> {
+    public func opacity(_ opacity: OpacityToken) -> Self {
         decorated(by: OpacityDecorator(opacity: opacity))
     }
 }

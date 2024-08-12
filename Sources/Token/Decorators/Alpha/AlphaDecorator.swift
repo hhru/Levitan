@@ -11,7 +11,7 @@ internal struct AlphaDecorator<Value: DecorableByAlpha>: TokenDecorator {
 
 extension Token where Value: DecorableByAlpha {
 
-    public func alpha(_ alpha: CGFloat) -> Token<Value> {
+    public func alpha(_ alpha: CGFloat) -> Self {
         decorated(by: AlphaDecorator(alpha: alpha))
     }
 }

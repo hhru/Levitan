@@ -11,7 +11,7 @@ internal struct LetterSpacingDecorator<Value: DecorableByLetterSpacing>: TokenDe
 
 extension Token where Value: DecorableByLetterSpacing {
 
-    public func letterSpacing(_ letterSpacing: CGFloat?) -> Token<Value> {
+    public func letterSpacing(_ letterSpacing: CGFloat?) -> Self {
         decorated(by: LetterSpacingDecorator(letterSpacing: letterSpacing))
     }
 }

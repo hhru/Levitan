@@ -9,6 +9,22 @@ public struct AnimationValue:
     public let controlPoint2: CGPoint
     public let duration: Double
 
+    public var caTransition: CATransition {
+        let animation = CATransition()
+
+        animation.timingFunction = CAMediaTimingFunction(
+            controlPoints: Float(controlPoint1.x),
+            Float(controlPoint1.y),
+            Float(controlPoint2.x),
+            Float(controlPoint2.y)
+        )
+
+        animation.type = CATransitionType.fade
+        animation.duration = duration / 1000.0
+
+        return animation
+    }
+
     public var animation: Animation {
         .timingCurve(
             controlPoint1.x,
@@ -51,5 +67,40 @@ extension AnimationValue: Changeable {
 
     public func duration(_ duration: Double) -> Self {
         changing { $0.duration = duration }
+    }
+}
+
+extension AnimationValue {
+
+    public static func linear(duration: Double) -> Self {
+        Self(
+            controlPoint1: .zero,
+            controlPoint2: CGPoint(x: 1.0, y: 1.0),
+            duration: duration
+        )
+    }
+
+    public static func easeIn(duration: Double) -> Self {
+        Self(
+            controlPoint1: CGPoint(x: 0.42, y: .zero),
+            controlPoint2: CGPoint(x: 1.0, y: 1.0),
+            duration: duration
+        )
+    }
+
+    public static func easeOut(duration: Double) -> Self {
+        Self(
+            controlPoint1: .zero,
+            controlPoint2: CGPoint(x: 0.58, y: 1.0),
+            duration: duration
+        )
+    }
+
+    public static func easeInEaseOut(duration: Double) -> Self {
+        Self(
+            controlPoint1: CGPoint(x: 0.42, y: .zero),
+            controlPoint2: CGPoint(x: 0.58, y: 1.0),
+            duration: duration
+        )
     }
 }
