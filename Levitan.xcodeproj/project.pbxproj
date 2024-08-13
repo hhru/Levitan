@@ -603,8 +603,8 @@
 		C0EEA47A2C6AD80A0097F0C3 /* ImageValue+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44B2C6AD80A0097F0C3 /* ImageValue+TextPart.swift */; };
 		C0EEA47B2C6AD80A0097F0C3 /* TextPartState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44C2C6AD80A0097F0C3 /* TextPartState.swift */; };
 		C0EEA47C2C6AD80A0097F0C3 /* TextPartState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44C2C6AD80A0097F0C3 /* TextPartState.swift */; };
-		C0EEA47D2C6AD80A0097F0C3 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44D2C6AD80A0097F0C3 /* Text.swift */; };
-		C0EEA47E2C6AD80A0097F0C3 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44D2C6AD80A0097F0C3 /* Text.swift */; };
+		C0EEA47D2C6AD80A0097F0C3 /* Text2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44D2C6AD80A0097F0C3 /* Text2.swift */; };
+		C0EEA47E2C6AD80A0097F0C3 /* Text2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44D2C6AD80A0097F0C3 /* Text2.swift */; };
 		C0EEA47F2C6AD80A0097F0C3 /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44E2C6AD80A0097F0C3 /* TextAnimation.swift */; };
 		C0EEA4802C6AD80A0097F0C3 /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44E2C6AD80A0097F0C3 /* TextAnimation.swift */; };
 		C0EEA4842C6ADE530097F0C3 /* LineBreakModeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA4822C6ADE530097F0C3 /* LineBreakModeDecorator.swift */; };
@@ -954,7 +954,7 @@
 		C0EEA44A2C6AD80A0097F0C3 /* ImageToken+TextPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageToken+TextPart.swift"; sourceTree = "<group>"; };
 		C0EEA44B2C6AD80A0097F0C3 /* ImageValue+TextPart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageValue+TextPart.swift"; sourceTree = "<group>"; };
 		C0EEA44C2C6AD80A0097F0C3 /* TextPartState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextPartState.swift; sourceTree = "<group>"; };
-		C0EEA44D2C6AD80A0097F0C3 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		C0EEA44D2C6AD80A0097F0C3 /* Text2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text2.swift; sourceTree = "<group>"; };
 		C0EEA44E2C6AD80A0097F0C3 /* TextAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
 		C0EEA4822C6ADE530097F0C3 /* LineBreakModeDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineBreakModeDecorator.swift; sourceTree = "<group>"; };
 		C0EEA4832C6ADE530097F0C3 /* DecorableByLineBreakMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorableByLineBreakMode.swift; sourceTree = "<group>"; };
@@ -2084,7 +2084,7 @@
 				C0EEA4312C6AD80A0097F0C3 /* Decorator */,
 				C0EEA43E2C6AD80A0097F0C3 /* Environment */,
 				C0EEA4442C6AD80A0097F0C3 /* Part */,
-				C0EEA44D2C6AD80A0097F0C3 /* Text.swift */,
+				C0EEA44D2C6AD80A0097F0C3 /* Text2.swift */,
 				C0EEA44E2C6AD80A0097F0C3 /* TextAnimation.swift */,
 				C0EEA4302C6AD80A0097F0C3 /* TextBuilder.swift */,
 				C0EEA43D2C6AD80A0097F0C3 /* TextInterpolation.swift */,
@@ -2608,7 +2608,7 @@
 				C0310C6F2B04BB4800BCA3AC /* CGFloat+TokenValue.swift in Sources */,
 				C0310C502B04BB4800BCA3AC /* StrikethroughDecorator.swift in Sources */,
 				C0E97A662BC6DF5200CF37A7 /* EnvironmentValues+ComponentLayoutInvalidation.swift in Sources */,
-				C0EEA47D2C6AD80A0097F0C3 /* Text.swift in Sources */,
+				C0EEA47D2C6AD80A0097F0C3 /* Text2.swift in Sources */,
 				C0310C852B04BB4800BCA3AC /* FontSource.swift in Sources */,
 				C0E979FE2BC6DDCC00CF37A7 /* DifferenceOccurrence.swift in Sources */,
 				C0310C342B04BB4800BCA3AC /* ColorDecorator.swift in Sources */,
@@ -2925,7 +2925,7 @@
 				C04843CA2B0B42B9002DF0CA /* DecorableByInsets.swift in Sources */,
 				C093054F2B0B805800F6F13D /* ShadowType.swift in Sources */,
 				C04843E92B0B4304002DF0CA /* DecorableByStroke.swift in Sources */,
-				C0EEA47E2C6AD80A0097F0C3 /* Text.swift in Sources */,
+				C0EEA47E2C6AD80A0097F0C3 /* Text2.swift in Sources */,
 				C04843EA2B0B4307002DF0CA /* DecorableByUnderline.swift in Sources */,
 				C04843C62B0B42B2002DF0CA /* DecorableByFontScale.swift in Sources */,
 				C04843C52B0B42AD002DF0CA /* DecorableByDuration.swift in Sources */,

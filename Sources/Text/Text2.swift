@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct Text: FallbackComponent {
+public struct Text2: FallbackComponent {
 
     public typealias UIView = TextView
 
@@ -86,21 +86,21 @@ public struct Text: FallbackComponent {
     }
 }
 
-extension Text: ExpressibleByStringLiteral {
+extension Text2: ExpressibleByStringLiteral {
 
     public init(stringLiteral value: String) {
         self.init { value }
     }
 }
 
-extension Text: ExpressibleByStringInterpolation {
+extension Text2: ExpressibleByStringInterpolation {
 
     public init(stringInterpolation: TextInterpolation) {
         self.init(parts: stringInterpolation.parts)
     }
 }
 
-extension Text: TextPart {
+extension Text2: TextPart {
 
     public func attributedText(context: ComponentContext) -> NSAttributedString {
         UIView.attributedText(
@@ -110,7 +110,7 @@ extension Text: TextPart {
     }
 }
 
-extension Text: Changeable {
+extension Text2: Changeable {
 
     public init(copy: ChangeableWrapper<Self>) {
         self.init(
@@ -163,7 +163,7 @@ extension Text: Changeable {
     }
 }
 
-extension Text {
+extension Text2 {
 
     public func size(
         fitting size: CGSize,

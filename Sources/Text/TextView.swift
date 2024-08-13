@@ -2,7 +2,7 @@ import UIKit
 
 public final class TextView: UILabel {
 
-    private var content: Text?
+    private var content: Text2?
     private var context: ComponentContext?
 
     private var partThresholds: [Int] = []
@@ -243,7 +243,7 @@ extension TextView: CAAnimationDelegate {
 extension TextView: FallbackComponentView {
 
     public static func sizing(
-        for content: Text,
+        for content: Text2,
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
@@ -256,7 +256,7 @@ extension TextView: FallbackComponentView {
         return ComponentSizing(size: size)
     }
 
-    public func update(with content: Text, context: ComponentContext) {
+    public func update(with content: Text2, context: ComponentContext) {
         let typography = content.typography ?? context.textTypography
 
         let decoration = context
@@ -298,7 +298,7 @@ extension TextView: FallbackComponentView {
 extension TextView {
 
     public static func attributedText(
-        for content: Text,
+        for content: Text2,
         context: ComponentContext
     ) -> NSAttributedString {
         let typography = content.typography ?? context.textTypography
@@ -330,7 +330,7 @@ extension TextView {
     }
 
     public static func size(
-        for content: Text,
+        for content: Text2,
         fitting size: CGSize,
         context: ComponentContext
     ) -> CGSize {
