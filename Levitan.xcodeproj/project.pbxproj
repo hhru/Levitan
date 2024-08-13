@@ -607,6 +607,10 @@
 		C0EEA47E2C6AD80A0097F0C3 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44D2C6AD80A0097F0C3 /* Text.swift */; };
 		C0EEA47F2C6AD80A0097F0C3 /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44E2C6AD80A0097F0C3 /* TextAnimation.swift */; };
 		C0EEA4802C6AD80A0097F0C3 /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA44E2C6AD80A0097F0C3 /* TextAnimation.swift */; };
+		C0EEA4842C6ADE530097F0C3 /* LineBreakModeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA4822C6ADE530097F0C3 /* LineBreakModeDecorator.swift */; };
+		C0EEA4852C6ADE530097F0C3 /* LineBreakModeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA4822C6ADE530097F0C3 /* LineBreakModeDecorator.swift */; };
+		C0EEA4862C6ADE530097F0C3 /* DecorableByLineBreakMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA4832C6ADE530097F0C3 /* DecorableByLineBreakMode.swift */; };
+		C0EEA4872C6ADE530097F0C3 /* DecorableByLineBreakMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EEA4832C6ADE530097F0C3 /* DecorableByLineBreakMode.swift */; };
 		C0F2E9BA2C29C0CE0047AAE4 /* DecorableByFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */; };
 		C0F2E9BB2C29C0CE0047AAE4 /* DecorableByFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */; };
 		C0F2E9BC2C29C0CE0047AAE4 /* FontSizeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */; };
@@ -952,6 +956,8 @@
 		C0EEA44C2C6AD80A0097F0C3 /* TextPartState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextPartState.swift; sourceTree = "<group>"; };
 		C0EEA44D2C6AD80A0097F0C3 /* Text.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
 		C0EEA44E2C6AD80A0097F0C3 /* TextAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
+		C0EEA4822C6ADE530097F0C3 /* LineBreakModeDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineBreakModeDecorator.swift; sourceTree = "<group>"; };
+		C0EEA4832C6ADE530097F0C3 /* DecorableByLineBreakMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorableByLineBreakMode.swift; sourceTree = "<group>"; };
 		C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorableByFontSize.swift; sourceTree = "<group>"; };
 		C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeDecorator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1045,6 +1051,7 @@
 				C0310B452B04BB4800BCA3AC /* ForegroundColor */,
 				C0310B632B04BB4800BCA3AC /* Insets */,
 				C0310B6F2B04BB4800BCA3AC /* LetterSpacing */,
+				C0EEA4812C6ADE530097F0C3 /* LineBreakMode */,
 				C0310B512B04BB4800BCA3AC /* LineHeight */,
 				C0310B3F2B04BB4800BCA3AC /* Minus */,
 				C0310B692B04BB4800BCA3AC /* Multiplication */,
@@ -2142,6 +2149,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C0EEA4812C6ADE530097F0C3 /* LineBreakMode */ = {
+			isa = PBXGroup;
+			children = (
+				C0EEA4832C6ADE530097F0C3 /* DecorableByLineBreakMode.swift */,
+				C0EEA4822C6ADE530097F0C3 /* LineBreakModeDecorator.swift */,
+			);
+			path = LineBreakMode;
+			sourceTree = "<group>";
+		};
 		C0F2E9B72C29C0CE0047AAE4 /* FontSize */ = {
 			isa = PBXGroup;
 			children = (
@@ -2385,6 +2401,7 @@
 				C0E97A562BC6DF5200CF37A7 /* ComponentContext.swift in Sources */,
 				C0E97A572BC6DF5200CF37A7 /* FallbackComponentBody.swift in Sources */,
 				C05CD22A2B093732005F5499 /* TokenThemeView.swift in Sources */,
+				C0EEA4842C6ADE530097F0C3 /* LineBreakModeDecorator.swift in Sources */,
 				C0EEA4672C6AD80A0097F0C3 /* EnvironmentValues+TextPartState.swift in Sources */,
 				C0310C4D2B04BB4800BCA3AC /* LetterSpacingDecorator.swift in Sources */,
 				C05CD1F82B093732005F5499 /* FrontLayer.swift in Sources */,
@@ -2536,6 +2553,7 @@
 				C0310C362B04BB4800BCA3AC /* ParagraphFirstLineIndentDecorator.swift in Sources */,
 				C09305212B0B78AA00F6F13D /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C0E97A022BC6DDCC00CF37A7 /* DifferenceIndicesReference.swift in Sources */,
+				C0EEA4862C6ADE530097F0C3 /* DecorableByLineBreakMode.swift in Sources */,
 				C0EEA4512C6AD80A0097F0C3 /* TextDecorator.swift in Sources */,
 				C09305022B0B68A300F6F13D /* TokenViewProperties+CAShapeLayer.swift in Sources */,
 				C0E97A552BC6DF5200CF37A7 /* ComponentContextOverride.swift in Sources */,
@@ -2699,6 +2717,7 @@
 				C093050B2B0B6A0B00F6F13D /* TokenViewProperties+UIButton.swift in Sources */,
 				C09305522B0B805D00F6F13D /* RectangleShape.swift in Sources */,
 				C0081DA92BC82AB600BE7293 /* SectionDifferenceCalculator.swift in Sources */,
+				C0EEA4852C6ADE530097F0C3 /* LineBreakModeDecorator.swift in Sources */,
 				C0EEA4682C6AD80A0097F0C3 /* EnvironmentValues+TextPartState.swift in Sources */,
 				C04843EB2B0B4307002DF0CA /* UnderlineDecorator.swift in Sources */,
 				C04843F52B0B4317002DF0CA /* AnimationModifier.swift in Sources */,
@@ -2850,6 +2869,7 @@
 				C0081DA22BC82AB000BE7293 /* DifferenceDictionaryKey.swift in Sources */,
 				C04843E72B0B4300002DF0CA /* DecorableByStrikethrough.swift in Sources */,
 				C0081D952BC82A3900BE7293 /* ViewArrayBuilder.swift in Sources */,
+				C0EEA4872C6ADE530097F0C3 /* DecorableByLineBreakMode.swift in Sources */,
 				C09305202B0B77FB00F6F13D /* TokenViewProperties+UITextView.swift in Sources */,
 				C09305682B0B80C700F6F13D /* CALayer+FrontLayer.swift in Sources */,
 				C0EEA4522C6AD80A0097F0C3 /* TextDecorator.swift in Sources */,

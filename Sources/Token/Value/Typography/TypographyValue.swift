@@ -15,6 +15,7 @@ public struct TypographyValue:
     DecorableByStroke,
     DecorableByStrikethrough,
     DecorableByUnderline,
+    DecorableByLineBreakMode,
     Sendable {
 
     public let font: FontValue
@@ -31,6 +32,9 @@ public struct TypographyValue:
     public let stroke: TypographyStrokeValue?
     public let strikethrough: TypographyLineValue?
     public let underline: TypographyLineValue?
+
+    // TODO: Удалить после миграции в проекте
+    public let lineBreakMode: NSLineBreakMode?
 
     public var paragraphStyle: NSParagraphStyle {
         resolveParagraphStyle()
@@ -64,7 +68,8 @@ public struct TypographyValue:
         backgroundColor: ColorValue? = nil,
         stroke: TypographyStrokeValue? = nil,
         strikethrough: TypographyLineValue? = nil,
-        underline: TypographyLineValue? = nil
+        underline: TypographyLineValue? = nil,
+        lineBreakMode: NSLineBreakMode? = nil
     ) {
         self.font = font
 
@@ -80,6 +85,8 @@ public struct TypographyValue:
         self.stroke = stroke
         self.strikethrough = strikethrough
         self.underline = underline
+
+        self.lineBreakMode = lineBreakMode
     }
 
     public init(
@@ -96,7 +103,8 @@ public struct TypographyValue:
         backgroundColor: ColorValue? = nil,
         stroke: TypographyStrokeValue? = nil,
         strikethrough: TypographyLineValue? = nil,
-        underline: TypographyLineValue? = nil
+        underline: TypographyLineValue? = nil,
+        lineBreakMode: NSLineBreakMode? = nil
     ) {
         self.init(
             font: FontValue(
@@ -114,7 +122,8 @@ public struct TypographyValue:
             backgroundColor: backgroundColor,
             stroke: stroke,
             strikethrough: strikethrough,
-            underline: underline
+            underline: underline,
+            lineBreakMode: lineBreakMode
         )
     }
 
@@ -151,6 +160,10 @@ public struct TypographyValue:
 
         if let alignment {
             paragraphStyle.alignment = alignment
+        }
+
+        if let lineBreakMode {
+            paragraphStyle.lineBreakMode = lineBreakMode
         }
 
         return paragraphStyle
@@ -272,5 +285,9 @@ extension TypographyValue: Changeable {
 
     public func underline(_ underline: TypographyLineValue?) -> Self {
         changing { $0.underline = underline }
+    }
+
+    public func lineBreakMode(_ lineBreakMode: NSLineBreakMode?) -> Self {
+        changing { $0.lineBreakMode = lineBreakMode }
     }
 }
