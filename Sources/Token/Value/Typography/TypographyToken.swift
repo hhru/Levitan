@@ -16,7 +16,8 @@ extension TypographyToken {
         backgroundColor: ColorToken? = nil,
         stroke: TypographyStrokeToken? = nil,
         strikethrough: TypographyLineToken? = nil,
-        underline: TypographyLineToken? = nil
+        underline: TypographyLineToken? = nil,
+        lineBreakMode: NSLineBreakMode? = nil
     ) {
         self = Token(
             traits: [
@@ -31,7 +32,8 @@ extension TypographyToken {
                 backgroundColor,
                 stroke,
                 strikethrough,
-                underline
+                underline,
+                lineBreakMode
             ]
         ) { theme in
             Value(
@@ -46,7 +48,8 @@ extension TypographyToken {
                 backgroundColor: backgroundColor?.resolve(for: theme),
                 stroke: stroke?.resolve(for: theme),
                 strikethrough: strikethrough?.resolve(for: theme),
-                underline: underline?.resolve(for: theme)
+                underline: underline?.resolve(for: theme),
+                lineBreakMode: lineBreakMode
             )
         }
     }
@@ -68,7 +71,8 @@ extension TypographyToken {
         backgroundColor: ColorToken? = nil,
         stroke: TypographyStrokeToken? = nil,
         strikethrough: TypographyLineToken? = nil,
-        underline: TypographyLineToken? = nil
+        underline: TypographyLineToken? = nil,
+        lineBreakMode: NSLineBreakMode? = nil
     ) {
         self.init(
             font: FontToken(
@@ -86,7 +90,8 @@ extension TypographyToken {
             backgroundColor: backgroundColor,
             stroke: stroke,
             strikethrough: strikethrough,
-            underline: underline
+            underline: underline,
+            lineBreakMode: lineBreakMode
         )
     }
 }
