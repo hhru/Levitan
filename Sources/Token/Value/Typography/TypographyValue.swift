@@ -231,7 +231,8 @@ extension TypographyValue: Changeable {
             backgroundColor: copy.backgroundColor,
             stroke: copy.stroke,
             strikethrough: copy.strikethrough,
-            underline: copy.underline
+            underline: copy.underline,
+            lineBreakMode: copy.lineBreakMode
         )
     }
 
