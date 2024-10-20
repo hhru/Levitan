@@ -4,11 +4,11 @@ import Foundation
 public struct ChangeableWrapper<Wrapped> {
 
     private let wrapped: Wrapped
-    private var changes: [PartialKeyPath<Wrapped>: Any]
+    private var changes: [AnyHashable: Any]
 
     internal init(
         wrapped: Wrapped,
-        changes: [PartialKeyPath<Wrapped>: Any]
+        changes: [AnyHashable: Any]
     ) {
         self.wrapped = wrapped
         self.changes = changes
@@ -22,8 +22,8 @@ public struct ChangeableWrapper<Wrapped> {
     }
 
     public subscript<T>(dynamicMember keyPath: KeyPath<Wrapped, T>) -> T {
-        get { changes[keyPath].flatMap { $0 as? T } ?? wrapped[keyPath: keyPath] }
-        set { changes[keyPath] = newValue }
+        get { changes[keyPath as AnyHashable].flatMap { $0 as? T } ?? wrapped[keyPath: keyPath] }
+        set { changes[keyPath as AnyHashable] = newValue }
     }
 
     public subscript<T: Changeable>(dynamicMember keyPath: KeyPath<Wrapped, T>) -> T.ChangeableCopy {
