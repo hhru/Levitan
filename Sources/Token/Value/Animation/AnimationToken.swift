@@ -16,3 +16,38 @@ extension AnimationToken {
         ).token
     }
 }
+
+extension AnimationToken {
+
+    public static func linear(duration: Double) -> Self {
+        Self(
+            controlPoint1: .zero,
+            controlPoint2: CGPoint(x: 1.0, y: 1.0),
+            duration: duration
+        )
+    }
+
+    public static func easeIn(duration: Double) -> Self {
+        Self(
+            controlPoint1: CGPoint(x: 0.42, y: .zero),
+            controlPoint2: CGPoint(x: 1.0, y: 1.0),
+            duration: duration
+        )
+    }
+
+    public static func easeOut(duration: Double) -> Self {
+        Self(
+            controlPoint1: .zero,
+            controlPoint2: CGPoint(x: 0.58, y: 1.0),
+            duration: duration
+        )
+    }
+
+    public static func easeInEaseOut(duration: Double) -> Self {
+        Self(
+            controlPoint1: CGPoint(x: 0.42, y: 0.0),
+            controlPoint2: CGPoint(x: 0.58, y: 1.0),
+            duration: duration
+        )
+    }
+}

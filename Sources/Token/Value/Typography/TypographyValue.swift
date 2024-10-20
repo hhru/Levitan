@@ -4,33 +4,37 @@ public struct TypographyValue:
     TokenValue,
     DecorableByFontScale,
     DecorableByFontSize,
+    DecorableByLetterSpacing,
+    DecorableByLineHeight,
+    DecorableByParagraphSpacing,
+    DecorableByParagraphFirstLineIndent,
+    DecorableByParagraphOtherLineIndent,
+    DecorableByAlignment,
     DecorableByForegroundColor,
     DecorableByBackgroundColor,
     DecorableByStroke,
     DecorableByStrikethrough,
     DecorableByUnderline,
-    DecorableByLetterSpacing,
-    DecorableByParagraphSpacing,
-    DecorableByParagraphFirstLineIndent,
-    DecorableByParagraphOtherLineIndent,
-    DecorableByLineHeight,
     DecorableByLineBreakMode,
-    DecorableByAlignment,
     Sendable {
 
     public let font: FontValue
+
+    public let letterSpacing: CGFloat?
+    public let lineHeight: CGFloat?
+    public let paragraphSpacing: CGFloat?
+    public let paragraphFirstLineIndent: CGFloat?
+    public let paragraphOtherLineIndent: CGFloat?
+    public let alignment: NSTextAlignment?
+
     public let foregroundColor: ColorValue?
     public let backgroundColor: ColorValue?
     public let stroke: TypographyStrokeValue?
     public let strikethrough: TypographyLineValue?
     public let underline: TypographyLineValue?
-    public let letterSpacing: CGFloat?
-    public let paragraphSpacing: CGFloat?
-    public let paragraphFirstLineIndent: CGFloat?
-    public let paragraphOtherLineIndent: CGFloat?
-    public let lineHeight: CGFloat?
+
+    // TODO: Удалить после миграции в проекте
     public let lineBreakMode: NSLineBreakMode?
-    public let alignment: NSTextAlignment?
 
     public var paragraphStyle: NSParagraphStyle {
         resolveParagraphStyle()
@@ -54,50 +58,53 @@ public struct TypographyValue:
 
     public init(
         font: FontValue,
+        letterSpacing: CGFloat? = nil,
+        lineHeight: CGFloat? = nil,
+        paragraphSpacing: CGFloat? = nil,
+        paragraphFirstLineIndent: CGFloat? = nil,
+        paragraphOtherLineIndent: CGFloat? = nil,
+        alignment: NSTextAlignment? = nil,
         foregroundColor: ColorValue? = nil,
         backgroundColor: ColorValue? = nil,
         stroke: TypographyStrokeValue? = nil,
         strikethrough: TypographyLineValue? = nil,
         underline: TypographyLineValue? = nil,
-        letterSpacing: CGFloat? = nil,
-        paragraphSpacing: CGFloat? = nil,
-        paragraphFirstLineIndent: CGFloat? = nil,
-        paragraphOtherLineIndent: CGFloat? = nil,
-        lineHeight: CGFloat? = nil,
-        lineBreakMode: NSLineBreakMode? = nil,
-        alignment: NSTextAlignment? = nil
+        lineBreakMode: NSLineBreakMode? = nil
     ) {
         self.font = font
+
+        self.letterSpacing = letterSpacing
+        self.lineHeight = lineHeight
+        self.paragraphSpacing = paragraphSpacing
+        self.paragraphFirstLineIndent = paragraphFirstLineIndent
+        self.paragraphOtherLineIndent = paragraphOtherLineIndent
+        self.alignment = alignment
+
         self.foregroundColor = foregroundColor
         self.backgroundColor = backgroundColor
         self.stroke = stroke
         self.strikethrough = strikethrough
         self.underline = underline
-        self.letterSpacing = letterSpacing
-        self.paragraphSpacing = paragraphSpacing
-        self.paragraphFirstLineIndent = paragraphFirstLineIndent
-        self.paragraphOtherLineIndent = paragraphOtherLineIndent
-        self.lineHeight = lineHeight
+
         self.lineBreakMode = lineBreakMode
-        self.alignment = alignment
     }
 
     public init(
         fontWeight: String,
         fontSize: CGFloat,
         fontScale: FontScaleValue? = nil,
+        letterSpacing: CGFloat? = nil,
+        lineHeight: CGFloat? = nil,
+        paragraphSpacing: CGFloat? = nil,
+        paragraphFirstLineIndent: CGFloat? = nil,
+        paragraphOtherLineIndent: CGFloat? = nil,
+        alignment: NSTextAlignment? = nil,
         foregroundColor: ColorValue? = nil,
         backgroundColor: ColorValue? = nil,
         stroke: TypographyStrokeValue? = nil,
         strikethrough: TypographyLineValue? = nil,
         underline: TypographyLineValue? = nil,
-        letterSpacing: CGFloat? = nil,
-        paragraphSpacing: CGFloat? = nil,
-        paragraphFirstLineIndent: CGFloat? = nil,
-        paragraphOtherLineIndent: CGFloat? = nil,
-        lineHeight: CGFloat? = nil,
-        lineBreakMode: NSLineBreakMode? = nil,
-        alignment: NSTextAlignment? = nil
+        lineBreakMode: NSLineBreakMode? = nil
     ) {
         self.init(
             font: FontValue(
@@ -105,18 +112,18 @@ public struct TypographyValue:
                 size: fontSize,
                 scale: fontScale
             ),
+            letterSpacing: letterSpacing,
+            lineHeight: lineHeight,
+            paragraphSpacing: paragraphSpacing,
+            paragraphFirstLineIndent: paragraphFirstLineIndent,
+            paragraphOtherLineIndent: paragraphOtherLineIndent,
+            alignment: alignment,
             foregroundColor: foregroundColor,
             backgroundColor: backgroundColor,
             stroke: stroke,
             strikethrough: strikethrough,
             underline: underline,
-            letterSpacing: letterSpacing,
-            paragraphSpacing: paragraphSpacing,
-            paragraphFirstLineIndent: paragraphFirstLineIndent,
-            paragraphOtherLineIndent: paragraphOtherLineIndent,
-            lineHeight: lineHeight,
-            lineBreakMode: lineBreakMode,
-            alignment: alignment
+            lineBreakMode: lineBreakMode
         )
     }
 
@@ -151,12 +158,12 @@ public struct TypographyValue:
             paragraphStyle.headIndent = paragraphOtherLineIndent
         }
 
-        if let lineBreakMode {
-            paragraphStyle.lineBreakMode = lineBreakMode
-        }
-
         if let alignment {
             paragraphStyle.alignment = alignment
+        }
+
+        if let lineBreakMode {
+            paragraphStyle.lineBreakMode = lineBreakMode
         }
 
         return paragraphStyle
@@ -168,6 +175,19 @@ public struct TypographyValue:
         var attributes: [NSAttributedString.Key: Any] = [
             .font: font
         ]
+
+        if let letterSpacing {
+            attributes[.kern] = letterSpacing
+        }
+
+        if let paragraphStyle {
+            let baselineOffset = paragraphStyle.maximumLineHeight > .zero
+                ? 0.25 * (paragraphStyle.maximumLineHeight - font.lineHeight)
+                : 0.0
+
+            attributes[.baselineOffset] = baselineOffset
+            attributes[.paragraphStyle] = paragraphStyle
+        }
 
         if let foregroundColor {
             attributes[.foregroundColor] = foregroundColor.uiColor
@@ -192,19 +212,6 @@ public struct TypographyValue:
             attributes[.strikethroughColor] = underline.color?.uiColor
         }
 
-        if let letterSpacing {
-            attributes[.kern] = letterSpacing
-        }
-
-        if let paragraphStyle {
-            let baselineOffset = paragraphStyle.maximumLineHeight > .zero
-                ? 0.25 * (paragraphStyle.maximumLineHeight - font.lineHeight)
-                : 0.0
-
-            attributes[.baselineOffset] = baselineOffset
-            attributes[.paragraphStyle] = paragraphStyle
-        }
-
         return attributes
     }
 }
@@ -214,18 +221,18 @@ extension TypographyValue: Changeable {
     public init(copy: ChangeableWrapper<Self>) {
         self.init(
             font: copy.font,
+            letterSpacing: copy.letterSpacing,
+            lineHeight: copy.lineHeight,
+            paragraphSpacing: copy.paragraphSpacing,
+            paragraphFirstLineIndent: copy.paragraphFirstLineIndent,
+            paragraphOtherLineIndent: copy.paragraphOtherLineIndent,
+            alignment: copy.alignment,
             foregroundColor: copy.foregroundColor,
             backgroundColor: copy.backgroundColor,
             stroke: copy.stroke,
             strikethrough: copy.strikethrough,
             underline: copy.underline,
-            letterSpacing: copy.letterSpacing,
-            paragraphSpacing: copy.paragraphSpacing,
-            paragraphFirstLineIndent: copy.paragraphFirstLineIndent,
-            paragraphOtherLineIndent: copy.paragraphOtherLineIndent,
-            lineHeight: copy.lineHeight,
-            lineBreakMode: copy.lineBreakMode,
-            alignment: copy.alignment
+            lineBreakMode: copy.lineBreakMode
         )
     }
 
@@ -235,6 +242,30 @@ extension TypographyValue: Changeable {
 
     public func fontSize(_ fontSize: CGFloat) -> Self {
         changing { $0.font = font.size(fontSize) }
+    }
+
+    public func letterSpacing(_ letterSpacing: CGFloat?) -> Self {
+        changing { $0.letterSpacing = letterSpacing }
+    }
+
+    public func lineHeight(_ lineHeight: CGFloat?) -> Self {
+        changing { $0.lineHeight = lineHeight }
+    }
+
+    public func paragraphSpacing(_ paragraphSpacing: CGFloat?) -> Self {
+        changing { $0.paragraphSpacing = paragraphSpacing }
+    }
+
+    public func paragraphFirstLineIndent(_ paragraphFirstLineIndent: CGFloat?) -> Self {
+        changing { $0.paragraphFirstLineIndent = paragraphFirstLineIndent }
+    }
+
+    public func paragraphOtherLineIndent(_ paragraphOtherLineIndent: CGFloat?) -> Self {
+        changing { $0.paragraphOtherLineIndent = paragraphOtherLineIndent }
+    }
+
+    public func alignment(_ alignment: NSTextAlignment?) -> Self {
+        changing { $0.alignment = alignment }
     }
 
     public func foregroundColor(_ foregroundColor: ColorValue?) -> Self {
@@ -257,31 +288,7 @@ extension TypographyValue: Changeable {
         changing { $0.underline = underline }
     }
 
-    public func letterSpacing(_ letterSpacing: CGFloat?) -> Self {
-        changing { $0.letterSpacing = letterSpacing }
-    }
-
-    public func paragraphSpacing(_ paragraphSpacing: CGFloat?) -> Self {
-        changing { $0.paragraphSpacing = paragraphSpacing }
-    }
-
-    public func paragraphFirstLineIndent(_ paragraphFirstLineIndent: CGFloat?) -> Self {
-        changing { $0.paragraphFirstLineIndent = paragraphFirstLineIndent }
-    }
-
-    public func paragraphOtherLineIndent(_ paragraphOtherLineIndent: CGFloat?) -> Self {
-        changing { $0.paragraphOtherLineIndent = paragraphOtherLineIndent }
-    }
-
-    public func lineHeight(_ lineHeight: CGFloat?) -> Self {
-        changing { $0.lineHeight = lineHeight }
-    }
-
     public func lineBreakMode(_ lineBreakMode: NSLineBreakMode?) -> Self {
         changing { $0.lineBreakMode = lineBreakMode }
-    }
-
-    public func alignment(_ alignment: NSTextAlignment?) -> Self {
-        changing { $0.alignment = alignment }
     }
 }
