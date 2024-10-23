@@ -240,7 +240,7 @@ extension TextView: CAAnimationDelegate {
     }
 }
 
-extension TextView: FallbackComponentView {
+extension TextView: FallbackManualComponentView {
 
     public static func sizing(
         for content: Text2,
