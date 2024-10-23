@@ -615,6 +615,16 @@
 		C0F2E9BB2C29C0CE0047AAE4 /* DecorableByFontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */; };
 		C0F2E9BC2C29C0CE0047AAE4 /* FontSizeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */; };
 		C0F2E9BD2C29C0CE0047AAE4 /* FontSizeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */; };
+		FD4F17F32CC8FE4A005636A4 /* ManualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F17F22CC8FE4A005636A4 /* ManualComponent.swift */; };
+		FD4F17F42CC8FE51005636A4 /* ManualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F17F22CC8FE4A005636A4 /* ManualComponent.swift */; };
+		FD4F17F82CC8FEB4005636A4 /* FallbackManualComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F17F62CC8FEB4005636A4 /* FallbackManualComponentView.swift */; };
+		FD4F17F92CC8FEB4005636A4 /* FallbackManualComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F17F62CC8FEB4005636A4 /* FallbackManualComponentView.swift */; };
+		FD4F17FA2CC8FEB4005636A4 /* FallbackManualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F17F72CC8FEB4005636A4 /* FallbackManualComponent.swift */; };
+		FD4F17FB2CC8FEB4005636A4 /* FallbackManualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F17F72CC8FEB4005636A4 /* FallbackManualComponent.swift */; };
+		FD4F17FF2CC8FFB6005636A4 /* AnyManualComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F17FD2CC8FFB6005636A4 /* AnyManualComponentView.swift */; };
+		FD4F18002CC8FFB6005636A4 /* AnyManualComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F17FD2CC8FFB6005636A4 /* AnyManualComponentView.swift */; };
+		FD4F18012CC8FFB6005636A4 /* AnyManualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F17FE2CC8FFB6005636A4 /* AnyManualComponent.swift */; };
+		FD4F18022CC8FFB6005636A4 /* AnyManualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4F17FE2CC8FFB6005636A4 /* AnyManualComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -960,6 +970,11 @@
 		C0EEA4832C6ADE530097F0C3 /* DecorableByLineBreakMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorableByLineBreakMode.swift; sourceTree = "<group>"; };
 		C0F2E9B82C29C0CE0047AAE4 /* DecorableByFontSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorableByFontSize.swift; sourceTree = "<group>"; };
 		C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontSizeDecorator.swift; sourceTree = "<group>"; };
+		FD4F17F22CC8FE4A005636A4 /* ManualComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualComponent.swift; sourceTree = "<group>"; };
+		FD4F17F62CC8FEB4005636A4 /* FallbackManualComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallbackManualComponentView.swift; sourceTree = "<group>"; };
+		FD4F17F72CC8FEB4005636A4 /* FallbackManualComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FallbackManualComponent.swift; sourceTree = "<group>"; };
+		FD4F17FD2CC8FFB6005636A4 /* AnyManualComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyManualComponentView.swift; sourceTree = "<group>"; };
+		FD4F17FE2CC8FFB6005636A4 /* AnyManualComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyManualComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1986,6 +2001,7 @@
 		C0E97A322BC6DF5200CF37A7 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				FD4F17F12CC8FE18005636A4 /* Manual */,
 				C0E97A442BC6DF5200CF37A7 /* Any */,
 				C0E97A362BC6DF5200CF37A7 /* Context */,
 				C0E97A4C2BC6DF5200CF37A7 /* Environment */,
@@ -2165,6 +2181,34 @@
 				C0F2E9B92C29C0CE0047AAE4 /* FontSizeDecorator.swift */,
 			);
 			path = FontSize;
+			sourceTree = "<group>";
+		};
+		FD4F17F12CC8FE18005636A4 /* Manual */ = {
+			isa = PBXGroup;
+			children = (
+				FD4F17FC2CC8FF8E005636A4 /* Any */,
+				FD4F17F52CC8FEA0005636A4 /* Fallback */,
+				FD4F17F22CC8FE4A005636A4 /* ManualComponent.swift */,
+			);
+			path = Manual;
+			sourceTree = "<group>";
+		};
+		FD4F17F52CC8FEA0005636A4 /* Fallback */ = {
+			isa = PBXGroup;
+			children = (
+				FD4F17F72CC8FEB4005636A4 /* FallbackManualComponent.swift */,
+				FD4F17F62CC8FEB4005636A4 /* FallbackManualComponentView.swift */,
+			);
+			path = Fallback;
+			sourceTree = "<group>";
+		};
+		FD4F17FC2CC8FF8E005636A4 /* Any */ = {
+			isa = PBXGroup;
+			children = (
+				FD4F17FE2CC8FFB6005636A4 /* AnyManualComponent.swift */,
+				FD4F17FD2CC8FFB6005636A4 /* AnyManualComponentView.swift */,
+			);
+			path = Any;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2398,6 +2442,7 @@
 				C0310C3F2B04BB4800BCA3AC /* OutsetsDecorator.swift in Sources */,
 				C0E97A072BC6DDCC00CF37A7 /* TraitsObservation.swift in Sources */,
 				C0E97A182BC6DDCC00CF37A7 /* Dictionary+Extensions.swift in Sources */,
+				FD4F18012CC8FFB6005636A4 /* AnyManualComponent.swift in Sources */,
 				C0E97A562BC6DF5200CF37A7 /* ComponentContext.swift in Sources */,
 				C0E97A572BC6DF5200CF37A7 /* FallbackComponentBody.swift in Sources */,
 				C05CD22A2B093732005F5499 /* TokenThemeView.swift in Sources */,
@@ -2460,6 +2505,7 @@
 				C0E97A122BC6DDCC00CF37A7 /* NSLayoutConstraint+Extensions.swift in Sources */,
 				C0EEA4592C6AD80A0097F0C3 /* UnderlineDecorator+TextDecorator.swift in Sources */,
 				C0081D732BC82A1600BE7293 /* ChangeableWrapper.swift in Sources */,
+				FD4F17F82CC8FEB4005636A4 /* FallbackManualComponentView.swift in Sources */,
 				C0310C392B04BB4800BCA3AC /* DecorableByLineHeight.swift in Sources */,
 				C0310C6D2B04BB4800BCA3AC /* ImageResizingMode.swift in Sources */,
 				C0081D7B2BC82A1600BE7293 /* Changeable.swift in Sources */,
@@ -2553,6 +2599,7 @@
 				C0310C362B04BB4800BCA3AC /* ParagraphFirstLineIndentDecorator.swift in Sources */,
 				C09305212B0B78AA00F6F13D /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C0E97A022BC6DDCC00CF37A7 /* DifferenceIndicesReference.swift in Sources */,
+				FD4F17F32CC8FE4A005636A4 /* ManualComponent.swift in Sources */,
 				C0EEA4862C6ADE530097F0C3 /* DecorableByLineBreakMode.swift in Sources */,
 				C0EEA4512C6AD80A0097F0C3 /* TextDecorator.swift in Sources */,
 				C09305022B0B68A300F6F13D /* TokenViewProperties+CAShapeLayer.swift in Sources */,
@@ -2623,6 +2670,7 @@
 				C0310C282B04BB4800BCA3AC /* DecorableByUnderline.swift in Sources */,
 				C093057B2B0B86FB00F6F13D /* TokenViewProperties+UIControl.swift in Sources */,
 				C0E97A172BC6DDCC00CF37A7 /* Sequence+Extensions.swift in Sources */,
+				FD4F17FF2CC8FFB6005636A4 /* AnyManualComponentView.swift in Sources */,
 				C0E97A2D2BC6DF4100CF37A7 /* ViewBinding.swift in Sources */,
 				C0310C492B04BB4800BCA3AC /* DecorableByMultiplication.swift in Sources */,
 				C0310C5B2B04BB4800BCA3AC /* TokenValue.swift in Sources */,
@@ -2669,6 +2717,7 @@
 				C0310C4F2B04BB4800BCA3AC /* DecorableByStrikethrough.swift in Sources */,
 				C05CD21B2B093732005F5499 /* BackgroundColorModifier.swift in Sources */,
 				C0310C652B04BB4800BCA3AC /* ShadowToken.swift in Sources */,
+				FD4F17FA2CC8FEB4005636A4 /* FallbackManualComponent.swift in Sources */,
 				C0310C552B04BB4800BCA3AC /* GradientValue.swift in Sources */,
 				C05CD21E2B093732005F5499 /* FontModifier.swift in Sources */,
 				C0310C4A2B04BB4800BCA3AC /* DurationDecorator.swift in Sources */,
@@ -2714,6 +2763,7 @@
 				C0081D7A2BC82A1600BE7293 /* Array+Changeable.swift in Sources */,
 				C093057C2B0B86FD00F6F13D /* TokenViewProperties+UIControl.swift in Sources */,
 				C093054E2B0B805800F6F13D /* ShadowToken.swift in Sources */,
+				FD4F18022CC8FFB6005636A4 /* AnyManualComponent.swift in Sources */,
 				C093050B2B0B6A0B00F6F13D /* TokenViewProperties+UIButton.swift in Sources */,
 				C09305522B0B805D00F6F13D /* RectangleShape.swift in Sources */,
 				C0081DA92BC82AB600BE7293 /* SectionDifferenceCalculator.swift in Sources */,
@@ -2776,6 +2826,7 @@
 				C0081D7F2BC82A1D00BE7293 /* AnyComponentView.swift in Sources */,
 				C09305462B0B805000F6F13D /* ImageResizingMode.swift in Sources */,
 				C0EEA45A2C6AD80A0097F0C3 /* UnderlineDecorator+TextDecorator.swift in Sources */,
+				FD4F17F92CC8FEB4005636A4 /* FallbackManualComponentView.swift in Sources */,
 				C04843E62B0B4300002DF0CA /* StrikethroughDecorator.swift in Sources */,
 				C0081DB62BC82AC900BE7293 /* RangeReplaceableCollection+Extensions.swift in Sources */,
 				C093054B2B0B805400F6F13D /* InsetsToken.swift in Sources */,
@@ -2869,6 +2920,7 @@
 				C0081DA22BC82AB000BE7293 /* DifferenceDictionaryKey.swift in Sources */,
 				C04843E72B0B4300002DF0CA /* DecorableByStrikethrough.swift in Sources */,
 				C0081D952BC82A3900BE7293 /* ViewArrayBuilder.swift in Sources */,
+				FD4F17F42CC8FE51005636A4 /* ManualComponent.swift in Sources */,
 				C0EEA4872C6ADE530097F0C3 /* DecorableByLineBreakMode.swift in Sources */,
 				C09305202B0B77FB00F6F13D /* TokenViewProperties+UITextView.swift in Sources */,
 				C09305682B0B80C700F6F13D /* CALayer+FrontLayer.swift in Sources */,
@@ -2939,6 +2991,7 @@
 				C09305312B0B803800F6F13D /* CGFloat+TokenValue.swift in Sources */,
 				C04843E22B0B42F6002DF0CA /* DecorableByPlus.swift in Sources */,
 				C0081DAE2BC82AC500BE7293 /* CGColor+Extensions.swift in Sources */,
+				FD4F18002CC8FFB6005636A4 /* AnyManualComponentView.swift in Sources */,
 				C04843F92B0B4317002DF0CA /* BackgroundGradientModifier.swift in Sources */,
 				C04843E82B0B4304002DF0CA /* StrokeDecorator.swift in Sources */,
 				C09305452B0B804C00F6F13D /* GradientValue.swift in Sources */,
@@ -2985,6 +3038,7 @@
 				C0081DA72BC82AB300BE7293 /* ItemDifferenceChangeset.swift in Sources */,
 				C093052E2B0B803300F6F13D /* CornersToken.swift in Sources */,
 				C04843C22B0B42A9002DF0CA /* DecorableByDivision.swift in Sources */,
+				FD4F17FB2CC8FEB4005636A4 /* FallbackManualComponent.swift in Sources */,
 				C0081DB02BC82AC500BE7293 /* CGSize+Extensions.swift in Sources */,
 				C09305872B0B908C00F6F13D /* TokenThemeManager.swift in Sources */,
 				C09305842B0B908C00F6F13D /* TokenThemeBody.swift in Sources */,
