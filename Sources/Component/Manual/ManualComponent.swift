@@ -1,11 +1,3 @@
-//
-//  ManualComponent.swift
-//  Levitan iOS
-//
-//  Created by f.guliev on 23.10.2024.
-//  Copyright © 2024 HeadHunter. All rights reserved.
-//
-
 import Foundation
 
 /// Частный случай протокола `Component`, Размеры UI-компонента фиксированы и задаются вручную, пример:

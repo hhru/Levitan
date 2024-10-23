@@ -1,11 +1,7 @@
-//
-//  Created on 23.05.2023.
-//  Copyright © HeadHunter. All rights reserved.
-//
-
 import Foundation
 
-/// Частный случай `FallbackComponent` для UIKit-компонентов, который используют только стратегию с фиксированным размером.
+/// Частный случай `FallbackComponent` для UIKit-компонентов, который используют только стратегию
+/// с фиксированным размером.
 ///
 /// - SeeAlso ``FallbackComponent``
 public protocol FallbackManualComponent: ManualComponent, FallbackComponent

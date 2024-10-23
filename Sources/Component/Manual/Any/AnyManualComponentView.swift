@@ -1,8 +1,3 @@
-//
-//  Created on 11.04.2024.
-//  Copyright © HeadHunter. All rights reserved.
-//
-
 import UIKit
 
 /// UIKit-представление компонента-обертки со стертым типом.
@@ -26,6 +21,7 @@ public final class AnyManualComponentView: UIView {
         wrappedView.isFirstResponder
     }
 
+    // swiftlint:disable:next explicit_acl
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -55,6 +51,7 @@ public final class AnyManualComponentView: UIView {
     }
 
     @available(*, unavailable)
+    // swiftlint:disable:next explicit_acl
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -1,8 +1,3 @@
-//
-//  Created on 23.05.2023.
-//  Copyright © HeadHunter. All rights reserved.
-//
-
 import UIKit
 
 /// Частный случай `FallbackComponentView` для реализации UI-представления UIKit-компонентов.
