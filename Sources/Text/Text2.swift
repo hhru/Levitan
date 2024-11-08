@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct Text2: FallbackComponent {
+public struct Text2: FallbackManualComponent {
 
     public typealias UIView = TextView
 
