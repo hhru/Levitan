@@ -6,10 +6,35 @@ import Combine
 @propertyWrapper
 public struct ViewBinding<Value> {
 
-    public let get: () -> Value
-    public let set: (Value) -> Void
+    private final class Storage {
 
-    public let initialValue: Value
+        let get: () -> Value
+        let set: (Value) -> Void
+
+        lazy var initialValue = get()
+
+        init(
+            get: @escaping () -> Value,
+            set: @escaping (Value) -> Void
+        ) {
+            self.get = get
+            self.set = set
+        }
+    }
+
+    private let storage: Storage
+
+    public var get: () -> Value {
+        storage.get
+    }
+
+    public var set: (Value) -> Void {
+        storage.set
+    }
+
+    public var initialValue: Value {
+        storage.initialValue
+    }
 
     public var wrappedValue: Value {
         get { get() }
@@ -24,10 +49,10 @@ public struct ViewBinding<Value> {
         get: @escaping () -> Value,
         set: @escaping (Value) -> Void
     ) {
-        self.get = get
-        self.set = set
-
-        initialValue = get()
+        storage = Storage(
+            get: get,
+            set: set
+        )
     }
 
     public init(projectedValue: Binding<Value>) {
