@@ -276,7 +276,6 @@
 		C04844032B0B433F002DF0CA /* TokenViewPropertySubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FD92B0AA401000E599A /* TokenViewPropertySubscript.swift */; };
 		C04844042B0B433F002DF0CA /* TokenViewPropertyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FDC2B0AA981000E599A /* TokenViewPropertyKey.swift */; };
 		C057F01823CB8EEB00C2D895 /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C057F00E23CB8EEB00C2D895 /* Levitan.framework */; };
-		C057F01F23CB8EEB00C2D895 /* Levitan.h in Headers */ = {isa = PBXBuildFile; fileRef = C057F01123CB8EEB00C2D895 /* Levitan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C05CD1E62B093732005F5499 /* TokenViewPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1862B093732005F5499 /* TokenViewPayload.swift */; };
 		C05CD1E82B093732005F5499 /* TokenViewBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1892B093732005F5499 /* TokenViewBinding.swift */; };
 		C05CD1EA2B093732005F5499 /* UIApplication+TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD18C2B093732005F5499 /* UIApplication+TokenView.swift */; };
@@ -479,7 +478,6 @@
 		C09305962B0BA54200F6F13D /* TokenViewCustomBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09305952B0BA54200F6F13D /* TokenViewCustomBinding.swift */; };
 		C09305972B0BA55700F6F13D /* TokenViewCustomBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09305952B0BA54200F6F13D /* TokenViewCustomBinding.swift */; };
 		C0A01A5023CB92EB00AC2C3A /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; };
-		C0A01A5E23CB92F200AC2C3A /* Levitan.h in Headers */ = {isa = PBXBuildFile; fileRef = C057F01123CB8EEB00C2D895 /* Levitan.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C0BFF3532B10E24F0098F0B7 /* UIWindowScene+TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFF3522B10E24F0098F0B7 /* UIWindowScene+TokenView.swift */; };
 		C0BFF3542B10E24F0098F0B7 /* UIWindowScene+TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFF3522B10E24F0098F0B7 /* UIWindowScene+TokenView.swift */; };
 		C0D93EED2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93EEC2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift */; };
@@ -646,6 +644,7 @@
 
 /* Begin PBXFileReference section */
 		25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilCoalescingDecorator.swift; sourceTree = "<group>"; };
+		3BC08B222D118C2300150FAD /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		C0081D6B2BC82A1600BE7293 /* ChangeableWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeableWrapper.swift; sourceTree = "<group>"; };
 		C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Changeable.swift"; sourceTree = "<group>"; };
@@ -763,7 +762,6 @@
 		C0358FD92B0AA401000E599A /* TokenViewPropertySubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewPropertySubscript.swift; sourceTree = "<group>"; };
 		C0358FDC2B0AA981000E599A /* TokenViewPropertyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewPropertyKey.swift; sourceTree = "<group>"; };
 		C057F00E23CB8EEB00C2D895 /* Levitan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Levitan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C057F01123CB8EEB00C2D895 /* Levitan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Levitan.h; sourceTree = "<group>"; };
 		C057F01223CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C057F01723CB8EEB00C2D895 /* Levitan Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Levitan Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C057F01E23CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1520,6 +1518,7 @@
 		C057F00423CB8EEB00C2D895 = {
 			isa = PBXGroup;
 			children = (
+				3BC08B222D118C2300150FAD /* Documentation.docc */,
 				C057F01023CB8EEB00C2D895 /* Sources */,
 				C057F01B23CB8EEB00C2D895 /* Tests */,
 				C057F00F23CB8EEB00C2D895 /* Products */,
@@ -1562,7 +1561,6 @@
 				C0310B2E2B04BB4800BCA3AC /* Token */,
 				C0D403CF2B030840009306EB /* Tools */,
 				C057F01223CB8EEB00C2D895 /* Info.plist */,
-				C057F01123CB8EEB00C2D895 /* Levitan.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -2218,7 +2216,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C057F01F23CB8EEB00C2D895 /* Levitan.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2226,7 +2223,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0A01A5E23CB92F200AC2C3A /* Levitan.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
