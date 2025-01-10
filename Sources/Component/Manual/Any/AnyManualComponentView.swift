@@ -21,8 +21,7 @@ public final class AnyManualComponentView: UIView {
         wrappedView.isFirstResponder
     }
 
-    // swiftlint:disable:next explicit_acl
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
 
         addSubview(wrappedView)
@@ -51,8 +50,7 @@ public final class AnyManualComponentView: UIView {
     }
 
     @available(*, unavailable)
-    // swiftlint:disable:next explicit_acl
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

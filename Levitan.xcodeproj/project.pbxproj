@@ -338,6 +338,8 @@
 		C05CD2332B093732005F5499 /* TokenThemeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E22B093732005F5499 /* TokenThemeKey.swift */; };
 		C05CD2342B093732005F5499 /* TokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E42B093732005F5499 /* TokenThemeResolver.swift */; };
 		C05CD2352B093732005F5499 /* DefaultTokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E52B093732005F5499 /* DefaultTokenThemeResolver.swift */; };
+		C05DF3602D1EC60F0078FC64 /* ManualComponentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05DF35F2D1EC60F0078FC64 /* ManualComponentModifier.swift */; };
+		C05DF3612D1EC60F0078FC64 /* ManualComponentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05DF35F2D1EC60F0078FC64 /* ManualComponentModifier.swift */; };
 		C0855EEB2B08DF15003EBC34 /* AlphaDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0855EEA2B08DF15003EBC34 /* AlphaDecorator.swift */; };
 		C0855EED2B08DF21003EBC34 /* DecorableByAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0855EEC2B08DF21003EBC34 /* DecorableByAlpha.swift */; };
 		C09304FE2B0B689000F6F13D /* TokenViewProperties+CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1A92B093732005F5499 /* TokenViewProperties+CAGradientLayer.swift */; };
@@ -644,7 +646,6 @@
 
 /* Begin PBXFileReference section */
 		25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilCoalescingDecorator.swift; sourceTree = "<group>"; };
-		3BC08B222D118C2300150FAD /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		C0081D6B2BC82A1600BE7293 /* ChangeableWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeableWrapper.swift; sourceTree = "<group>"; };
 		C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Changeable.swift"; sourceTree = "<group>"; };
@@ -843,6 +844,7 @@
 		C05CD1E22B093732005F5499 /* TokenThemeKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenThemeKey.swift; sourceTree = "<group>"; };
 		C05CD1E42B093732005F5499 /* TokenThemeResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenThemeResolver.swift; sourceTree = "<group>"; };
 		C05CD1E52B093732005F5499 /* DefaultTokenThemeResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTokenThemeResolver.swift; sourceTree = "<group>"; };
+		C05DF35F2D1EC60F0078FC64 /* ManualComponentModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualComponentModifier.swift; sourceTree = "<group>"; };
 		C0855EEA2B08DF15003EBC34 /* AlphaDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaDecorator.swift; sourceTree = "<group>"; };
 		C0855EEC2B08DF21003EBC34 /* DecorableByAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorableByAlpha.swift; sourceTree = "<group>"; };
 		C093057A2B0B86FB00F6F13D /* TokenViewProperties+UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TokenViewProperties+UIControl.swift"; path = "Sources/Token/Presentation/UIKit/Properties/Extensions/TokenViewProperties+UIControl.swift"; sourceTree = SOURCE_ROOT; };
@@ -1518,7 +1520,6 @@
 		C057F00423CB8EEB00C2D895 = {
 			isa = PBXGroup;
 			children = (
-				3BC08B222D118C2300150FAD /* Documentation.docc */,
 				C057F01023CB8EEB00C2D895 /* Sources */,
 				C057F01B23CB8EEB00C2D895 /* Tests */,
 				C057F00F23CB8EEB00C2D895 /* Products */,
@@ -1999,12 +2000,12 @@
 		C0E97A322BC6DF5200CF37A7 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				FD4F17F12CC8FE18005636A4 /* Manual */,
 				C0E97A442BC6DF5200CF37A7 /* Any */,
 				C0E97A362BC6DF5200CF37A7 /* Context */,
 				C0E97A4C2BC6DF5200CF37A7 /* Environment */,
 				C0E97A3A2BC6DF5200CF37A7 /* Fallback */,
 				C0E97A482BC6DF5200CF37A7 /* Hosting */,
+				FD4F17F12CC8FE18005636A4 /* Manual */,
 				C0E97A332BC6DF5200CF37A7 /* Modifiers */,
 				C0E97A412BC6DF5200CF37A7 /* Sizing */,
 				C0E97A512BC6DF5200CF37A7 /* Component.swift */,
@@ -2187,6 +2188,7 @@
 				FD4F17FC2CC8FF8E005636A4 /* Any */,
 				FD4F17F52CC8FEA0005636A4 /* Fallback */,
 				FD4F17F22CC8FE4A005636A4 /* ManualComponent.swift */,
+				C05DF35F2D1EC60F0078FC64 /* ManualComponentModifier.swift */,
 			);
 			path = Manual;
 			sourceTree = "<group>";
@@ -2728,6 +2730,7 @@
 				C0E97A592BC6DF5200CF37A7 /* FallbackComponent.swift in Sources */,
 				C05CD2222B093732005F5499 /* EnvironmentValues+TokenThemeKey.swift in Sources */,
 				C0EEA44F2C6AD80A0097F0C3 /* TextBuilder.swift in Sources */,
+				C05DF3612D1EC60F0078FC64 /* ManualComponentModifier.swift in Sources */,
 				C05CD20C2B093732005F5499 /* AnyTokenView.swift in Sources */,
 				C0310C662B04BB4800BCA3AC /* ShadowType.swift in Sources */,
 				C05CD1EA2B093732005F5499 /* UIApplication+TokenView.swift in Sources */,
@@ -3049,6 +3052,7 @@
 				C0358FD62B0AA24A000E599A /* TokenViewProperties.swift in Sources */,
 				C09305612B0B809600F6F13D /* GradientLayer.swift in Sources */,
 				C0EEA4502C6AD80A0097F0C3 /* TextBuilder.swift in Sources */,
+				C05DF3602D1EC60F0078FC64 /* ManualComponentModifier.swift in Sources */,
 				C093053B2B0B803C00F6F13D /* Array+TokenValue.swift in Sources */,
 				C09305302B0B803300F6F13D /* CornersMask.swift in Sources */,
 				C04843D72B0B42DC002DF0CA /* NegationDecorator.swift in Sources */,
