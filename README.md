@@ -4,12 +4,13 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen)](https://github.com/Carthage/Carthage)
 [![SPM compatible](https://img.shields.io/badge/SPM-Compatible-brightgreen)](https://swift.org/package-manager/)
 [![Platforms](https://img.shields.io/cocoapods/p/Levitan)](https://developer.apple.com/discover/)
-[![Xcode](https://img.shields.io/badge/Xcode-14-blue)](https://developer.apple.com/xcode)
-[![Swift](https://img.shields.io/badge/Swift-5.7-orange)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-16-blue)](https://developer.apple.com/xcode)
+[![Swift](https://img.shields.io/badge/Swift-5.9-orange)](https://swift.org)
 [![License](https://img.shields.io/github/license/hhru/Levitan)](https://opensource.org/licenses/MIT)
 
 Levitan is a user interface toolkit that lets us design apps in a convenient and declarative way using SwiftUI and UIKit.
 
+Currently project is in an active development state and changes frequently.
 
 ## Contents
 - [Requirements](#requirements)
@@ -23,7 +24,7 @@ Levitan is a user interface toolkit that lets us design apps in a convenient and
 
 ## Requirements
 - iOS 14.0+
-- Xcode 15.0+
+- Xcode 16.0+
 - Swift 5.9+
 
 
