@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 extension UIWindowScene: TokenView {
@@ -51,3 +52,4 @@ extension UIWindowScene {
         }
     }
 }
+#endif

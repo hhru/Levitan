@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 /// Стратегия определения размера компонента по определенной оси.
@@ -50,3 +51,4 @@ extension ComponentSizingStrategy {
     /// или возвращать определенное значение размера в свойстве `intrinsicContentSize`.
     public static let hug = Self.hug(bounded: true)
 }
+#endif

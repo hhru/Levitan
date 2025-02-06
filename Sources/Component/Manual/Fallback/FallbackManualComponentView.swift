@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 /// Частный случай `FallbackComponentView` для реализации UI-представления UIKit-компонентов.
@@ -36,3 +37,4 @@ extension FallbackManualComponentView {
         )
     }
 }
+#endif

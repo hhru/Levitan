@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 public typealias FontScaleToken = Token<FontScaleValue>
@@ -14,3 +15,4 @@ extension FontScaleToken {
         ).token
     }
 }
+#endif

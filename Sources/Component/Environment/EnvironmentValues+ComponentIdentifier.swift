@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import SwiftUI
 
 internal struct ComponentIdentifierEnvironmentKey: EnvironmentKey {
@@ -20,3 +21,4 @@ extension EnvironmentValues {
         set { self[ComponentIdentifierEnvironmentKey.self] = newValue }
     }
 }
+#endif

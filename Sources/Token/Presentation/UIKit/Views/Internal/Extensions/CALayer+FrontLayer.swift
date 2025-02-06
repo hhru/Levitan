@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import QuartzCore
 
 private let frontLayerAssociation = ObjectAssociation<FrontLayer>()
@@ -113,3 +114,4 @@ extension CALayer {
         borderColor = stroke.color?.cgColor ?? .black
     }
 }
+#endif

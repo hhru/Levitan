@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 public protocol TextDecorator: TokenTraitProvider, Hashable {
@@ -40,3 +41,4 @@ extension Array: TextDecorator where Element: TextDecorator {
         }
     }
 }
+#endif

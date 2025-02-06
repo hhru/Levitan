@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import SwiftUI
 
 /// Контекст компонента.
@@ -190,3 +191,4 @@ extension ComponentContext {
         overrides: [:]
     )
 }
+#endif

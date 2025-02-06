@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import QuartzCore
 
 extension CALayer {
@@ -46,3 +47,4 @@ extension CALayer {
         maskLayer.frame = bounds
     }
 }
+#endif

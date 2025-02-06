@@ -1,4 +1,9 @@
+#if canImport(UIKit1)
 import UIKit
+#else
+import CoreGraphics
+#endif
+
 import SwiftUI
 
 public struct ColorValue:
@@ -30,6 +35,7 @@ public struct ColorValue:
         )
     }
 
+    #if canImport(UIKit1)
     public var uiColor: UIColor {
         UIColor(
             red: red,
@@ -38,6 +44,7 @@ public struct ColorValue:
             alpha: alpha
         )
     }
+    #endif
 
     public var cgColor: CGColor {
         CGColor(
@@ -123,6 +130,7 @@ public struct ColorValue:
         self.init(hex: UInt32(scannedValue))
     }
 
+    #if canImport(UIKit1)
     public init(uiColor: UIColor) {
         var red: CGFloat = .zero
         var green: CGFloat = .zero
@@ -147,6 +155,7 @@ public struct ColorValue:
     public init(color: Color) {
         self.init(uiColor: UIColor(color))
     }
+    #endif
 
     public init(integerLiteral hex: UInt32) {
         self.init(hex: hex)

@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import SwiftUI
 
 internal struct ComponentHostingRoot<Content: View>: View {
@@ -39,3 +40,4 @@ internal struct ComponentHostingRoot<Content: View>: View {
             .environment(\.self, contentEnvironment)
     }
 }
+#endif

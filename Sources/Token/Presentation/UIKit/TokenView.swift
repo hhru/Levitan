@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 internal protocol TokenView: AnyTokenView {
@@ -45,3 +46,4 @@ extension TokenView {
         TokenViewManager(view: self)
     }
 }
+#endif

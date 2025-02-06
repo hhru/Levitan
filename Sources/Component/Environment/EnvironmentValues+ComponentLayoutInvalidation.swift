@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import SwiftUI
 
 internal struct ComponentLayoutInvalidationEnvironmentKey: EnvironmentKey {
@@ -43,3 +44,4 @@ extension ComponentContext {
         }
     }
 }
+#endif

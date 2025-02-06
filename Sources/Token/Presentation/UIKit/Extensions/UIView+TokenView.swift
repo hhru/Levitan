@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 extension UIView: TokenView {
@@ -105,3 +106,4 @@ extension UIView {
         }
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 extension UIEdgeInsets {
@@ -19,3 +20,4 @@ extension UIEdgeInsets {
         )
     }
 }
+#endif

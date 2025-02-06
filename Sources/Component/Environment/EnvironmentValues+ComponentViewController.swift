@@ -1,4 +1,6 @@
+#if canImport(UIKit1)
 import SwiftUI
+import UIKit
 
 internal struct ComponentViewControllerEnvironmentValue {
 
@@ -30,3 +32,4 @@ extension EnvironmentValues {
         }
     }
 }
+#endif

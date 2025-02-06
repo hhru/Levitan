@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import SwiftUI
 
 extension EnvironmentValues {
@@ -13,3 +14,4 @@ extension EnvironmentValues {
         )
     }
 }
+#endif

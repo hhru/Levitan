@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 public typealias TypographyToken = Token<TypographyValue>
@@ -95,3 +96,4 @@ extension TypographyToken {
         )
     }
 }
+#endif

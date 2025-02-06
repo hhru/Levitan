@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import SwiftUI
 
 internal struct ComponentContextOverride {
@@ -25,3 +26,4 @@ internal struct ComponentContextOverride {
         overrider(&environment)
     }
 }
+#endif

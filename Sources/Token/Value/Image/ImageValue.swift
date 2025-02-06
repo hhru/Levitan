@@ -1,4 +1,7 @@
+#if canImport(UIKit1)
 import UIKit
+#endif
+
 import SwiftUI
 
 public struct ImageValue:
@@ -13,6 +16,7 @@ public struct ImageValue:
     public let foregroundColor: ColorValue?
     public let insets: InsetsValue
 
+    #if canImport(UIKit1)
     public var uiImage: UIImage {
         var uiImage = source.uiImage
 
@@ -38,6 +42,7 @@ public struct ImageValue:
 
         return uiImage
     }
+    #endif
 
     public var image: some View {
         source
@@ -87,6 +92,7 @@ extension ImageValue: Changeable {
 
 extension ImageValue {
 
+    #if canImport(UIKit1)
     public static let empty = uiImage(UIImage())
 
     public static func uiImage(
@@ -102,6 +108,7 @@ extension ImageValue {
             insets: insets
         )
     }
+    #endif
 
     public static func resource(
         name: String,

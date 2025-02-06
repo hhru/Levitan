@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 /// Частный случай протокола `Component`, Размеры UI-компонента фиксированы и задаются вручную, пример:
@@ -49,3 +50,4 @@ extension ManualComponent where UIView == ComponentHostingView<Self> {
         )
     }
 }
+#endif

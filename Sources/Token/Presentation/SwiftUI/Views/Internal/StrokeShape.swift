@@ -1,3 +1,5 @@
+#if canImport(UIKit1)
+import UIKit
 import SwiftUI
 
 internal struct StrokeShape: Shape {
@@ -34,3 +36,4 @@ internal struct StrokeShape: Shape {
         return Path(bezierPath.cgPath)
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 public struct TypographyStrokeValue:
@@ -47,3 +48,4 @@ extension TypographyStrokeValue {
         Self(width: .zero)
     }
 }
+#endif

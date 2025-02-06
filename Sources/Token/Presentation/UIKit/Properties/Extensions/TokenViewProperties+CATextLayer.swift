@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import QuartzCore
 
 extension TokenViewProperties where View: CATextLayer {
@@ -17,3 +18,4 @@ extension TokenViewProperties where View: CATextLayer {
         }
     }
 }
+#endif

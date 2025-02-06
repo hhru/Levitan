@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 public struct TypographyValue:
@@ -292,3 +293,4 @@ extension TypographyValue: Changeable {
         changing { $0.lineBreakMode = lineBreakMode }
     }
 }
+#endif

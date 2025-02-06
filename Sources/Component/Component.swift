@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import SwiftUI
 
 /// Общий протокол для всех UI-компонентов.
@@ -127,3 +128,4 @@ extension Component {
         return self == other
     }
 }
+#endif

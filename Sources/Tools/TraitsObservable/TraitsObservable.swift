@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 @objc
@@ -35,3 +36,4 @@ extension TraitsObservable {
         )
     }
 }
+#endif

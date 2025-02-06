@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 import SwiftUI
 
@@ -67,3 +68,4 @@ internal struct AnyComponentPresenter {
         updateContentViewBox(contentView, context)
     }
 }
+#endif

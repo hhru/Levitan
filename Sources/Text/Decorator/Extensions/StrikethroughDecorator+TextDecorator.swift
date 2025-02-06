@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 extension StrikethroughDecorator: TokenTraitProvider where Value == TypographyValue { }
@@ -9,3 +10,4 @@ extension Text2 {
         decorated(by: StrikethroughDecorator(strikethrough: strikethrough))
     }
 }
+#endif

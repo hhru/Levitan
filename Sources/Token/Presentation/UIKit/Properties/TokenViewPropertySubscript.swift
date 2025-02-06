@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 @dynamicMemberLookup
@@ -19,3 +20,4 @@ public struct TokenViewPropertySubscript<Value, Details: Hashable> {
         nonmutating set { bindingProvider(defaultDetails[keyPath: keyPath])?.token = newValue }
     }
 }
+#endif

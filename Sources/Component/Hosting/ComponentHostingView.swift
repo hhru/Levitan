@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 import SwiftUI
 
@@ -128,3 +129,4 @@ extension ComponentHostingView: ComponentView {
         }
     }
 }
+#endif

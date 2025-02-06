@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import QuartzCore
 
 internal final class FrontLayer: CALayer {
@@ -137,3 +138,4 @@ internal final class FrontLayer: CALayer {
         strokeLayer?.frame = bounds
     }
 }
+#endif

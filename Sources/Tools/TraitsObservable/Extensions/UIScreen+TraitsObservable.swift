@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 extension UIScreen: TraitsObservable {
@@ -20,3 +21,4 @@ extension UIScreen: TraitsObservable {
         handleTraitCollectionDidChange(previousTraitCollection)
     }
 }
+#endif

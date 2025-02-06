@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 extension UIApplication: TokenView {
@@ -24,3 +25,4 @@ extension UIApplication: TokenView {
         }
     }
 }
+#endif

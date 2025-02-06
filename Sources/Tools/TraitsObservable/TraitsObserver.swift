@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 internal final class TraitsObserver {
@@ -36,3 +37,4 @@ internal final class TraitsObserver {
         handler(observer, newTraits, previousTraits)
     }
 }
+#endif

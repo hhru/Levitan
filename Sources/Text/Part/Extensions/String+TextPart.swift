@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 extension String: TextPart {
@@ -18,3 +19,4 @@ extension String: TextPart {
         )
     }
 }
+#endif

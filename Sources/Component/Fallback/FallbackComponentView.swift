@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import SwiftUI
 
 /// Общий протокол для реализации UI-представления UIKit-компонентов.
@@ -31,3 +32,4 @@ public protocol FallbackComponentView: ComponentView {
         context: ComponentContext
     ) -> ComponentSizing
 }
+#endif

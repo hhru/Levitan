@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import SwiftUI
 
 internal struct FontModifier<Content: View>: TokenViewModifier {
@@ -20,3 +21,4 @@ extension View {
         modifier(FontModifier(font: font))
     }
 }
+#endif

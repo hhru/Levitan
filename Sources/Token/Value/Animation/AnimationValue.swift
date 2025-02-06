@@ -1,4 +1,9 @@
+#if canImport(UIKit1)
+import UIKit
+#endif
+
 import SwiftUI
+import QuartzCore
 
 public struct AnimationValue:
     TokenValue,
@@ -45,6 +50,7 @@ public struct AnimationValue:
         self.duration = duration
     }
 
+    #if canImport(UIKit1)
     public func propertyAnimator(animations: (() -> Void)? = nil) -> UIViewPropertyAnimator {
         UIViewPropertyAnimator(
             duration: duration,
@@ -53,6 +59,7 @@ public struct AnimationValue:
             animations: animations
         )
     }
+    #endif
 }
 
 extension AnimationValue: Changeable {

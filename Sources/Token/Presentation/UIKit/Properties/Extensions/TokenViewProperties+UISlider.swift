@@ -1,4 +1,4 @@
-#if os(iOS)
+#if canImport(UIKit1) && os(iOS)
 import UIKit
 
 extension TokenViewProperties where View: UISlider {

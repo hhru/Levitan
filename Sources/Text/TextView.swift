@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 public final class TextView: UILabel {
@@ -346,3 +347,4 @@ extension TextView {
         )
     }
 }
+#endif

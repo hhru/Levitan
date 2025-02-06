@@ -1,4 +1,7 @@
+#if canImport(UIKit1)
 import UIKit
+#endif
+
 import SwiftUI
 
 public typealias InsetsToken = Token<InsetsValue>
@@ -39,9 +42,11 @@ extension InsetsToken {
         )
     }
 
+    #if canImport(UIKit1)
     public init(_ uiEdgeInset: UIEdgeInsets) {
         self = InsetsValue(uiEdgeInset).token
     }
+    #endif
 
     public init(_ edgeInset: EdgeInsets) {
         self = InsetsValue(edgeInset).token

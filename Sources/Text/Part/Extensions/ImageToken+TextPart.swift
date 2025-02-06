@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 extension ImageToken: TextPart {
@@ -8,3 +9,4 @@ extension ImageToken: TextPart {
             .attributedText(context: context)
     }
 }
+#endif

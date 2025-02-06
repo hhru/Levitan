@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 internal struct LineBreakModeDecorator<Value: DecorableByLineBreakMode>: TokenDecorator {
@@ -15,3 +16,4 @@ extension Token where Value: DecorableByLineBreakMode {
         decorated(by: LineBreakModeDecorator(lineBreakMode: lineBreakMode))
     }
 }
+#endif

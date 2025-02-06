@@ -1,4 +1,7 @@
+#if canImport(UIKit1)
 import UIKit
+#endif
+
 import SwiftUI
 
 public struct InsetsValue:
@@ -22,6 +25,7 @@ public struct InsetsValue:
         top + bottom
     }
 
+    #if canImport(UIKit1)
     public var uiEdgeInsets: UIEdgeInsets {
         UIEdgeInsets(
             top: top,
@@ -30,6 +34,7 @@ public struct InsetsValue:
             right: trailing
         )
     }
+    #endif
 
     public var edgeInsets: EdgeInsets {
         EdgeInsets(
@@ -70,6 +75,7 @@ public struct InsetsValue:
         )
     }
 
+    #if canImport(UIKit1)
     public init(_ uiEdgeInset: UIEdgeInsets) {
         self.init(
             top: uiEdgeInset.top,
@@ -78,6 +84,7 @@ public struct InsetsValue:
             trailing: uiEdgeInset.right
         )
     }
+    #endif
 
     public init(_ edgeInset: EdgeInsets) {
         self.init(

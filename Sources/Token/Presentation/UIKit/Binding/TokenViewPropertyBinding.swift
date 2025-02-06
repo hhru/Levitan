@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 internal final class TokenViewPropertyBinding<Value>: TokenViewBinding {
@@ -30,3 +31,4 @@ internal final class TokenViewPropertyBinding<Value>: TokenViewBinding {
         handler(view, token?.resolve(for: theme), theme)
     }
 }
+#endif

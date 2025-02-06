@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 public final class DefaultTokenThemeResolver: TokenThemeResolver {
@@ -23,3 +24,4 @@ public final class DefaultTokenThemeResolver: TokenThemeResolver {
         )
     }
 }
+#endif

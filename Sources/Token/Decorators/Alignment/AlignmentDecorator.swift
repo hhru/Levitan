@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 internal struct AlignmentDecorator<Value: DecorableByAlignment>: TokenDecorator {
@@ -15,3 +16,4 @@ extension Token where Value: DecorableByAlignment {
         decorated(by: AlignmentDecorator(alignment: alignment))
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 public typealias TypographyLineToken = Token<TypographyLineValue>
@@ -30,3 +31,4 @@ extension TypographyLineToken {
         )
     }
 }
+#endif

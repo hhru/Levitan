@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import QuartzCore
 
 internal final class BackLayer: CALayer {
@@ -70,3 +71,4 @@ internal final class BackLayer: CALayer {
         }
     }
 }
+#endif

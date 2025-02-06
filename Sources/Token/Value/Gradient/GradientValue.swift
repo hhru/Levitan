@@ -1,4 +1,3 @@
-import UIKit
 import SwiftUI
 
 public struct GradientValue: TokenValue, Sendable {

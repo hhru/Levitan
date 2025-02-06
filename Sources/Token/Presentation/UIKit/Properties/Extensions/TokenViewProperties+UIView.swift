@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 extension TokenViewProperties where View: UIView {
@@ -77,3 +78,4 @@ extension TokenViewProperties where View: UIView {
         }
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 import Combine
 
@@ -14,3 +15,4 @@ internal class TokenViewPayload {
 
     internal var theme: TokenTheme?
 }
+#endif

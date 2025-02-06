@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import QuartzCore
 
 private let backLayerAssociation = ObjectAssociation<BackLayer>()
@@ -86,3 +87,4 @@ extension CALayer {
         setupBackLayerIfNeeded()
     }
 }
+#endif

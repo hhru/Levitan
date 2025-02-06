@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 public struct TokenViewProperty<Value, Details> {
@@ -34,3 +35,4 @@ public struct TokenViewProperty<Value, Details> {
         }
     }
 }
+#endif

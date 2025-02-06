@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 public struct TextPartState {
@@ -13,3 +14,4 @@ extension TextPartState {
         isPressed: false
     )
 }
+#endif

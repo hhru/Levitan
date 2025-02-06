@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 public final class TokenViewCustomBinding: TokenViewBinding {
@@ -26,3 +27,4 @@ public final class TokenViewCustomBinding: TokenViewBinding {
         handler(view, theme)
     }
 }
+#endif

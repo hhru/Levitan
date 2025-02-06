@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import QuartzCore
 
 extension TokenViewProperties where View: CAGradientLayer {
@@ -11,3 +12,4 @@ extension TokenViewProperties where View: CAGradientLayer {
         }
     }
 }
+#endif

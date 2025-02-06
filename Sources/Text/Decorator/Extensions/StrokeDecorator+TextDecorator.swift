@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 extension StrokeDecorator: TokenTraitProvider where Value == TypographyValue { }
@@ -9,3 +10,4 @@ extension Text2 {
         decorated(by: StrokeDecorator(stroke: stroke))
     }
 }
+#endif

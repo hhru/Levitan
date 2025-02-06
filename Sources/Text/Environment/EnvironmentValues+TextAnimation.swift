@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import SwiftUI
 
 internal struct TextAnimationKey: EnvironmentKey {
@@ -12,3 +13,4 @@ extension EnvironmentValues {
         set { self[TextAnimationKey.self] = newValue }
     }
 }
+#endif

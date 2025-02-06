@@ -1,4 +1,7 @@
+#if canImport(UIKit1)
 import UIKit
+#endif
+
 import SwiftUI
 
 public enum TokenThemeScheme: String, Sendable {
@@ -6,6 +9,7 @@ public enum TokenThemeScheme: String, Sendable {
     case light
     case dark
 
+    #if canImport(UIKit1)
     public var uiUserInterfaceStyle: UIUserInterfaceStyle {
         switch self {
         case .light:
@@ -15,6 +19,7 @@ public enum TokenThemeScheme: String, Sendable {
             return .dark
         }
     }
+    #endif
 
     public var colorScheme: ColorScheme {
         switch self {
@@ -26,6 +31,7 @@ public enum TokenThemeScheme: String, Sendable {
         }
     }
 
+    #if canImport(UIKit1)
     public init?(uiUserInterfaceStyle: UIUserInterfaceStyle) {
         switch uiUserInterfaceStyle {
         case .light:
@@ -41,6 +47,7 @@ public enum TokenThemeScheme: String, Sendable {
             return nil
         }
     }
+    #endif
 
     public init(colorScheme: ColorScheme) {
         switch colorScheme {

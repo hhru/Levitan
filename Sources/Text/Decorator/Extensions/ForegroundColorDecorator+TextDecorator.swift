@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import Foundation
 
 extension ForegroundColorDecorator: TokenTraitProvider where Value == TypographyValue { }
@@ -9,3 +10,4 @@ extension Text2 {
         decorated(by: ForegroundColorDecorator(foregroundColor: foregroundColor))
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import QuartzCore
 
 open class TokenShapeLayer: CALayer {
@@ -100,3 +101,4 @@ open class TokenShapeLayer: CALayer {
         updateSublayersMask()
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(UIKit1)
 import UIKit
 
 public struct FontScaleValue: TokenValue, Sendable {
@@ -13,3 +14,4 @@ public struct FontScaleValue: TokenValue, Sendable {
         self.maxPointSize = maxPointSize
     }
 }
+#endif
