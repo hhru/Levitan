@@ -1,5 +1,5 @@
 # Levitan
-[![Build Status](https://github.com/hhru/Levitan/workflows/CI/badge.svg?branch=main)](https://github.com/hhru/Levitan/actions)
+[![Build Status](https://github.com/hhru/Levitan/actions/workflows/swift.yml/badge.svg)](https://github.com/hhru/Levitan/actions)
 [![Cocoapods](https://img.shields.io/cocoapods/v/Levitan)](http://cocoapods.org/pods/Levitan)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen)](https://github.com/Carthage/Carthage)
 [![SPM compatible](https://img.shields.io/badge/SPM-Compatible-brightgreen)](https://swift.org/package-manager/)
