@@ -17,7 +17,7 @@ extension TokenViewProperties where View: UIControl {
     }
 }
 
-extension UIControl.State: Hashable {
+extension UIControl.State: @retroactive Hashable {
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(rawValue)
