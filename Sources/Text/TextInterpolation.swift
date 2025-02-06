@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 public struct TextInterpolation: StringInterpolationProtocol {
@@ -24,3 +25,4 @@ public struct TextInterpolation: StringInterpolationProtocol {
         parts.append(image.eraseToAnyTextPart())
     }
 }
+#endif

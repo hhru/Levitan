@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 internal struct TextTypographyKey: EnvironmentKey {
@@ -14,3 +15,4 @@ extension EnvironmentValues {
         set { self[TextTypographyKey.self] = newValue }
     }
 }
+#endif

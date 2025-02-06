@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension TokenViewProperties where View: UIActivityIndicatorView {
@@ -8,3 +9,4 @@ extension TokenViewProperties where View: UIActivityIndicatorView {
         }
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 /// Вспомогательная структура-функция для переопределения переменных контекста компонентов.
@@ -25,3 +26,4 @@ public struct ComponentContextOverriding<Value> {
         context.overrideValue(at: keyPath, with: newValue)
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 public protocol TextPart: Hashable {
@@ -26,3 +27,4 @@ extension TextPart {
         return self == other
     }
 }
+#endif

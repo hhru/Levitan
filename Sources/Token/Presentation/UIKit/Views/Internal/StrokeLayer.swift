@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 internal final class StrokeLayer: CAShapeLayer {
@@ -85,3 +86,4 @@ internal final class StrokeLayer: CAShapeLayer {
         updatePathIfPossible()
     }
 }
+#endif

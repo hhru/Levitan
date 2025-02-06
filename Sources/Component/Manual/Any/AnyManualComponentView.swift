@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 /// UIKit-представление компонента-обертки со стертым типом.
@@ -81,3 +82,4 @@ extension AnyManualComponentView: ComponentView {
         invalidateIntrinsicContentSize()
     }
 }
+#endif

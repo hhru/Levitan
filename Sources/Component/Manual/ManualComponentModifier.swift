@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 public protocol ManualComponentModifier: ComponentModifier {
@@ -24,3 +25,4 @@ extension ModifiedContent: ManualComponent where
         )
     }
 }
+#endif

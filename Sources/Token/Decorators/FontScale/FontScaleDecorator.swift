@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 internal struct FontScaleDecorator<Value: DecorableByFontScale>: TokenDecorator {
@@ -15,3 +16,4 @@ extension Token where Value: DecorableByFontScale {
         decorated(by: FontScaleDecorator(fontScale: fontScale))
     }
 }
+#endif

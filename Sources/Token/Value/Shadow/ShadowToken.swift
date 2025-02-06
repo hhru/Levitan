@@ -1,4 +1,3 @@
-import Foundation
 import CoreGraphics
 
 public typealias ShadowToken = Token<ShadowValue>

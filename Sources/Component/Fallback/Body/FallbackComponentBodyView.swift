@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 /// Технический UI-контейнер для встраивания UIKit-компонентов в SwiftUI-представление.
@@ -469,7 +470,7 @@ extension FallbackComponentBodyView {
             return nil
         }
 
-        let containerSize = context.componentContainerSize.value
+        let containerSize = context.componentContainerSize.value ?? UIScreen.main.bounds.size
 
         let fittingWidth = proposedWidth.map { proposedWidth in
             proposedWidth.isNormal
@@ -517,3 +518,4 @@ extension FallbackComponentBodyView {
         }
     }
 }
+#endif

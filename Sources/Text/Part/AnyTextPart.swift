@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 public struct AnyTextPart {
@@ -60,3 +61,4 @@ extension TextPart {
         AnyTextPart(self)
     }
 }
+#endif

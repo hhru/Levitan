@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension UIViewController: TokenView {
@@ -18,3 +19,4 @@ extension UIViewController: TokenView {
         overrideUserInterfaceStyle = themeScheme.uiUserInterfaceStyle
     }
 }
+#endif

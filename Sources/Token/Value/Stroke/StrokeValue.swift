@@ -1,4 +1,4 @@
-import UIKit
+import CoreGraphics
 
 public struct StrokeValue:
     TokenValue,

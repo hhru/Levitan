@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 /// Частный случай `FallbackComponent` для UIKit-компонентов, который используют только стратегию
@@ -20,3 +21,4 @@ extension FallbackManualComponent {
         )
     }
 }
+#endif

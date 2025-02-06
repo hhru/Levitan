@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 public protocol DecorableByUnderline {
@@ -11,3 +12,4 @@ extension DecorableByUnderline {
         underline(.single)
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 public enum FontSource: TokenTraitProvider, Sendable {
@@ -38,3 +39,4 @@ extension FontSource: Hashable {
         }
     }
 }
+#endif

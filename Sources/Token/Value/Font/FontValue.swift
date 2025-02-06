@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 import SwiftUI
 
@@ -166,3 +167,4 @@ extension FontValue {
         )
     }
 }
+#endif

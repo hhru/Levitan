@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 public typealias TypographyStrokeToken = Token<TypographyStrokeValue>
@@ -23,3 +24,4 @@ extension TypographyStrokeToken {
         Self(width: .zero)
     }
 }
+#endif

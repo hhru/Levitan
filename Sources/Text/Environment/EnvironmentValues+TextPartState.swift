@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 internal struct TextPartStateKey: EnvironmentKey {
@@ -12,3 +13,4 @@ extension EnvironmentValues {
         set { self[TextPartStateKey.self] = newValue }
     }
 }
+#endif

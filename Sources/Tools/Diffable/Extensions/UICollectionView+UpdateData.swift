@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension UICollectionView {
@@ -105,3 +106,4 @@ extension UICollectionView {
         reloadData { completion?() }
     }
 }
+#endif

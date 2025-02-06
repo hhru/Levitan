@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 public struct TokenViewManager {
@@ -229,3 +230,4 @@ public struct TokenViewManager {
         return binding
     }
 }
+#endif

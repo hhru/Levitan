@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 open class TokenShapeView: UIView {
@@ -6,3 +7,4 @@ open class TokenShapeView: UIView {
         TokenShapeLayer.self
     }
 }
+#endif

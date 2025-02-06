@@ -1,5 +1,9 @@
+#if canImport(UIKit)
 import UIKit
 import SwiftUI
+#else
+import CoreGraphics
+#endif
 
 public typealias ColorToken = Token<ColorValue>
 
@@ -47,6 +51,7 @@ extension ColorToken {
         self = value.token
     }
 
+    #if canImport(UIKit)
     public init(uiColor: UIColor) {
         self = ColorValue(uiColor: uiColor).token
     }
@@ -54,6 +59,7 @@ extension ColorToken {
     public init(color: Color) {
         self.init(uiColor: UIColor(color))
     }
+    #endif
 }
 
 extension ColorToken {

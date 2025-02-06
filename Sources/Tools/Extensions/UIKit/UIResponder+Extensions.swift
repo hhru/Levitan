@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension UIResponder {
@@ -8,3 +9,4 @@ extension UIResponder {
         } ?? next?.next(of: type)
     }
 }
+#endif

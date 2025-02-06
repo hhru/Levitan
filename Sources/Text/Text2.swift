@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 public struct Text2: FallbackManualComponent {
@@ -196,3 +197,4 @@ extension Text2 {
         ).height
     }
 }
+#endif

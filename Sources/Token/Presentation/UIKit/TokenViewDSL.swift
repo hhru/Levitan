@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 @dynamicMemberLookup
@@ -124,3 +125,4 @@ extension AnyTokenView {
         TokenViewDSL(view: self)
     }
 }
+#endif

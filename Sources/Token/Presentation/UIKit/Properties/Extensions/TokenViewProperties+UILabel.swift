@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension TokenViewProperties where View: UILabel {
@@ -42,3 +43,4 @@ extension TokenViewProperties where View: UILabel {
 //        }
 //    }
 }
+#endif

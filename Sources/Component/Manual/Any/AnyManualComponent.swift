@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 /// Компонент-обертка, по аналогии с `AnyComponent`, который стирает тип оборачиваемого компонента
@@ -76,3 +77,4 @@ extension ManualComponent {
         return AnyManualComponent(self)
     }
 }
+#endif

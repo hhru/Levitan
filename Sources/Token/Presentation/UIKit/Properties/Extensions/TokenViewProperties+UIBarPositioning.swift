@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension TokenViewProperties where View: UIBarPositioning {
@@ -45,3 +46,4 @@ extension TokenViewProperties where View: UIBarPositioning {
         }
     }
 }
+#endif

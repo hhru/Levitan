@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension TokenViewProperties where View: UIControl {
@@ -22,3 +23,4 @@ extension UIControl.State: Hashable {
         hasher.combine(rawValue)
     }
 }
+#endif

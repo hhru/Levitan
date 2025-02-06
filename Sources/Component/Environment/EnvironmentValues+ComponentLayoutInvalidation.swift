@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 internal struct ComponentLayoutInvalidationEnvironmentKey: EnvironmentKey {
@@ -32,7 +33,7 @@ extension ComponentContext {
     ///
     /// Дополнительное действие будет выполнено до выполнения уже имеющихся действий инвалидации.
     ///
-    /// - Parameter layoutInvalidation: Дополнительное действие для инвалидации лэйаута.
+    /// - Parameter invalidation: Дополнительное действие для инвалидации лэйаута.
     /// - Returns: Окружение с добавленным действием для инвалидации лэйаута.
     public func componentLayoutInvalidation(_ invalidation: @escaping () -> Void) -> Self {
         transformEnvironment(\.invalidateComponentLayout) { currentInvalidation in
@@ -43,3 +44,4 @@ extension ComponentContext {
         }
     }
 }
+#endif

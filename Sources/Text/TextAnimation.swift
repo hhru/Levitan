@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 public struct TextAnimation: Hashable {
@@ -31,3 +32,4 @@ extension TextAnimation {
         unhover: .easeInEaseOut(duration: 200)
     )
 }
+#endif

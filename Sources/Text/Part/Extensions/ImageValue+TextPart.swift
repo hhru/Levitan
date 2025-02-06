@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension ImageValue: TextPart {
@@ -31,3 +32,4 @@ extension ImageValue: TextPart {
         return NSAttributedString(attachment: attachment)
     }
 }
+#endif

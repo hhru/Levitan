@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 public protocol DecorableByStrikethrough {
@@ -11,3 +12,4 @@ extension DecorableByStrikethrough {
         strikethrough(.single)
     }
 }
+#endif

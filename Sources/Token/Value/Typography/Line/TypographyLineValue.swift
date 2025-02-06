@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 public struct TypographyLineValue:
@@ -44,3 +45,4 @@ extension TypographyLineValue {
         )
     }
 }
+#endif

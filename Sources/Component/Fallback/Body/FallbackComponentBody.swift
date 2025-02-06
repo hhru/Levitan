@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 /// SwiftUI-представление для UIKit-компонентов.
@@ -79,3 +80,4 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
         ) ?? size
     }
 }
+#endif

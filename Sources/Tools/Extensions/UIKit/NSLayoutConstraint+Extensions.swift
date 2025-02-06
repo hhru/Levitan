@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension NSLayoutConstraint {
@@ -16,3 +17,4 @@ extension NSLayoutConstraint {
         return self
     }
 }
+#endif

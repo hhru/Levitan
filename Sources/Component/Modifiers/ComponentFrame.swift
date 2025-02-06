@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 // TODO: Дополнить документацию
@@ -133,3 +134,4 @@ extension View {
         )
     }
 }
+#endif

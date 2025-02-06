@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 public struct TokenViewProperties<View: AnyTokenView> {
@@ -64,3 +65,4 @@ public struct TokenViewProperties<View: AnyTokenView> {
         }
     }
 }
+#endif
