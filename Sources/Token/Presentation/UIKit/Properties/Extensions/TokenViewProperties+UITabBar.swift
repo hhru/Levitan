@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 
 extension TokenViewProperties where View: UITabBar {

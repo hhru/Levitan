@@ -1,4 +1,4 @@
-#if canImport(UIKit1) && canImport(SafariServices)
+#if canImport(UIKit) && canImport(SafariServices)
 import SafariServices
 
 extension TokenViewProperties where View: SFSafariViewController {

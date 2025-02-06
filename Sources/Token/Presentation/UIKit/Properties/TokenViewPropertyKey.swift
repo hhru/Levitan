@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import Foundation
 
 internal struct TokenViewPropertyKey<Details> {

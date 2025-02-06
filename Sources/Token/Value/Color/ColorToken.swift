@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 import SwiftUI
 #else
@@ -51,7 +51,7 @@ extension ColorToken {
         self = value.token
     }
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public init(uiColor: UIColor) {
         self = ColorValue(uiColor: uiColor).token
     }

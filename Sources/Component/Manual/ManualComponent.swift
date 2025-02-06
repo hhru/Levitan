@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import Foundation
 
 /// Частный случай протокола `Component`, Размеры UI-компонента фиксированы и задаются вручную, пример:

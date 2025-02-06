@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import SwiftUI
 
 /// Компонент-обертка, по аналогии с `AnyComponent`, который стирает тип оборачиваемого компонента

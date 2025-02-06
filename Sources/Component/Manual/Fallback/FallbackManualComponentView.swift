@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 
 /// Частный случай `FallbackComponentView` для реализации UI-представления UIKit-компонентов.

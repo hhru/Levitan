@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -8,7 +8,7 @@ public enum ImageSource: TokenTraitProvider, Sendable {
 
     case resource(name: String, bundle: Bundle)
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     case uiImage(UIImage)
 
     public var uiImage: UIImage {
@@ -31,7 +31,7 @@ public enum ImageSource: TokenTraitProvider, Sendable {
         case let .resource(name, bundle):
             return Image(name, bundle: bundle)
 
-        #if canImport(UIKit1)
+        #if canImport(UIKit)
 
         case let .uiImage(uiImage):
             return Image(uiImage: uiImage)
@@ -47,7 +47,7 @@ extension ImageSource: Equatable {
         case let (.resource(lhsName, lhsBundle), .resource(rhsName, rhsBundle)):
             return (lhsName == rhsName) && (lhsBundle == rhsBundle)
 
-        #if canImport(UIKit1)
+        #if canImport(UIKit)
 
         case let (.uiImage(lhs), .uiImage(rhs)):
             return lhs.isEqual(rhs)
@@ -67,7 +67,7 @@ extension ImageSource: Hashable {
             hasher.combine(name)
             hasher.combine(bundle)
 
-        #if canImport(UIKit1)
+        #if canImport(UIKit)
 
         case let .uiImage(uiImage):
             hasher.combine(uiImage)

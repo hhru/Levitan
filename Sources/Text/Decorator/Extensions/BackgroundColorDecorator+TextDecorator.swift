@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import Foundation
 
 extension BackgroundColorDecorator: TokenTraitProvider where Value == TypographyValue { }

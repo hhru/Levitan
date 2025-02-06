@@ -1,4 +1,4 @@
-#if canImport(UIKit1) && os(iOS)
+#if canImport(UIKit) && os(iOS)
 import UIKit
 
 extension TokenViewProperties where View: UIToolbar {

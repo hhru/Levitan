@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 #else
 import Foundation
@@ -11,7 +11,7 @@ public struct CornersMask:
 
     public let rawValue: UInt
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     #if os(iOS) || os(tvOS)
     public var caCornerMask: CACornerMask {
         let cornerMaskMap: KeyValuePairs<Self, CACornerMask> = [

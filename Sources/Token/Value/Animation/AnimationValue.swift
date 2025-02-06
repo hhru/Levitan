@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -50,7 +50,7 @@ public struct AnimationValue:
         self.duration = duration
     }
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public func propertyAnimator(animations: (() -> Void)? = nil) -> UIViewPropertyAnimator {
         UIViewPropertyAnimator(
             duration: duration,

@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import Foundation
 
 public typealias TextBuilder = ViewArrayBuilder<any TextPart>

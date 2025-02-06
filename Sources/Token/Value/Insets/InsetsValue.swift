@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -25,7 +25,7 @@ public struct InsetsValue:
         top + bottom
     }
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public var uiEdgeInsets: UIEdgeInsets {
         UIEdgeInsets(
             top: top,
@@ -75,7 +75,7 @@ public struct InsetsValue:
         )
     }
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public init(_ uiEdgeInset: UIEdgeInsets) {
         self.init(
             top: uiEdgeInset.top,

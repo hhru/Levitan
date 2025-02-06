@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 
 /// Технический UI-контейнер для встраивания UIKit-компонентов в SwiftUI-представление.

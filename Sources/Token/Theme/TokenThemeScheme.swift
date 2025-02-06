@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -9,7 +9,7 @@ public enum TokenThemeScheme: String, Sendable {
     case light
     case dark
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public var uiUserInterfaceStyle: UIUserInterfaceStyle {
         switch self {
         case .light:
@@ -31,7 +31,7 @@ public enum TokenThemeScheme: String, Sendable {
         }
     }
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public init?(uiUserInterfaceStyle: UIUserInterfaceStyle) {
         switch uiUserInterfaceStyle {
         case .light:

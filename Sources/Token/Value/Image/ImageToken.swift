@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 #else
 import Foundation
@@ -27,7 +27,7 @@ extension ImageToken {
 
 extension ImageToken {
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public static let empty = uiImage(UIImage())
 
     public static func uiImage(

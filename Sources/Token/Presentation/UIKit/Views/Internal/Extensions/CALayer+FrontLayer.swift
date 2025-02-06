@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import QuartzCore
 
 private let frontLayerAssociation = ObjectAssociation<FrontLayer>()

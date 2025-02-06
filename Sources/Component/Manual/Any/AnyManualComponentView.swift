@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 
 /// UIKit-представление компонента-обертки со стертым типом.

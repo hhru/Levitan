@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 
 internal struct AlignmentDecorator<Value: DecorableByAlignment>: TokenDecorator {

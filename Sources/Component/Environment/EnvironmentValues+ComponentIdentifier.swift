@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import SwiftUI
 
 internal struct ComponentIdentifierEnvironmentKey: EnvironmentKey {

@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -16,7 +16,7 @@ public struct ImageValue:
     public let foregroundColor: ColorValue?
     public let insets: InsetsValue
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public var uiImage: UIImage {
         var uiImage = source.uiImage
 
@@ -92,7 +92,7 @@ extension ImageValue: Changeable {
 
 extension ImageValue {
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public static let empty = uiImage(UIImage())
 
     public static func uiImage(

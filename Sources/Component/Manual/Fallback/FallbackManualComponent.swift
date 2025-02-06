@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import Foundation
 
 /// Частный случай `FallbackComponent` для UIKit-компонентов, который используют только стратегию

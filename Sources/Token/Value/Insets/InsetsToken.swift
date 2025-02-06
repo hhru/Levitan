@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 #endif
 
@@ -42,7 +42,7 @@ extension InsetsToken {
         )
     }
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public init(_ uiEdgeInset: UIEdgeInsets) {
         self = InsetsValue(uiEdgeInset).token
     }

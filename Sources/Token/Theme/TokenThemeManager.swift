@@ -1,4 +1,4 @@
-#if canImport(UIKit1)
+#if canImport(UIKit)
 import UIKit
 #else
 import Foundation
@@ -8,7 +8,7 @@ import Combine
 
 public final class TokenThemeManager: ObservableObject {
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public static let `default` = TokenThemeManager()
     #endif
 
@@ -26,7 +26,7 @@ public final class TokenThemeManager: ObservableObject {
     @Published
     public private(set) var currentTheme: TokenTheme
 
-    #if canImport(UIKit1)
+    #if canImport(UIKit)
     public init(
         storage: TokenThemeStorage = DefaultTokenThemeStorage(),
         resolver: TokenThemeResolver = DefaultTokenThemeResolver()
