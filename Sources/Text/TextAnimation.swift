@@ -3,6 +3,8 @@ import Foundation
 
 public struct TextAnimation: Hashable {
 
+    public let update: AnimationToken?
+
     public let press: AnimationToken?
     public let unpress: AnimationToken?
 
@@ -10,11 +12,14 @@ public struct TextAnimation: Hashable {
     public let unhover: AnimationToken?
 
     public init(
+        update: AnimationToken? = nil,
         press: AnimationToken? = nil,
         unpress: AnimationToken? = nil,
         hover: AnimationToken? = nil,
         unhover: AnimationToken? = nil
     ) {
+        self.update = update
+
         self.press = press
         self.unpress = unpress
 
@@ -24,6 +29,8 @@ public struct TextAnimation: Hashable {
 }
 
 extension TextAnimation {
+
+    public static let none = Self()
 
     public static let `default` = Self(
         press: .easeInEaseOut(duration: 100),

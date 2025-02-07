@@ -13,16 +13,8 @@ public struct TextInterpolation: StringInterpolationProtocol {
         parts.append(literal.eraseToAnyTextPart())
     }
 
-    public mutating func appendInterpolation(_ image: UIImage) {
-        parts.append(image.eraseToAnyTextPart())
-    }
-
-    public mutating func appendInterpolation(_ image: ImageValue) {
-        parts.append(image.eraseToAnyTextPart())
-    }
-
-    public mutating func appendInterpolation(_ image: ImageToken) {
-        parts.append(image.eraseToAnyTextPart())
+    public mutating func appendInterpolation(_ part: any TextPart) {
+        parts.append(part.eraseToAnyTextPart())
     }
 }
 #endif

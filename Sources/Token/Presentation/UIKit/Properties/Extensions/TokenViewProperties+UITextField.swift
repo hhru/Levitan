@@ -38,12 +38,5 @@ extension TokenViewProperties where View: UITextField {
             view.disabledBackground = value?.uiImage
         }
     }
-
-// TODO: implement for text
-//    public var attributedPlaceholder: TokenViewProperty<TokenText, Void> {
-//        property { view, value, theme in
-//            view.attributedPlaceholder = value?.nsAttributedString(for: theme)
-//        }
-//    }
 }
 #endif

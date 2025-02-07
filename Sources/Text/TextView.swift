@@ -3,22 +3,29 @@ import UIKit
 
 public final class TextView: UILabel {
 
-    private var content: Text2?
+    private var content: Text?
     private var context: ComponentContext?
 
     private var partThresholds: [Int] = []
 
     private var hoveredPartIndex: Int?
     private var pressedPartIndex: Int?
-    private var animatedPartIndex: Int?
 
     private var hasTapAction = false
+
+    private lazy var operationQueue: TextOperationQueue = {
+        TextOperationQueue(layer: layer)
+    }()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
 
         tokens.customBinding { view, theme in
-            view.updateAttributedText(theme: theme)
+            view.updateAttributedText(
+                hoveredPartIndex: view.hoveredPartIndex,
+                pressedPartIndex: view.pressedPartIndex,
+                theme: theme
+            )
         }
     }
 
@@ -27,7 +34,7 @@ public final class TextView: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func updateAttributedText(theme: TokenTheme) {
+    private func updateAttributedText(hoveredPartIndex: Int?, pressedPartIndex: Int?, theme: TokenTheme) {
         let context = context?
             .tokenThemeKey(theme.key)
             .tokenThemeScheme(theme.scheme)
@@ -41,51 +48,46 @@ public final class TextView: UILabel {
         partThresholds.removeAll(keepingCapacity: true)
 
         for (partIndex, part) in content.parts.enumerated() {
-            let partState = TextPartState(
-                isHovered: partIndex == hoveredPartIndex,
-                isPressed: partIndex == pressedPartIndex
-            )
+            let partContext = context
+                .isTextPartHovered(partIndex == hoveredPartIndex)
+                .isTextPartPressed(partIndex == pressedPartIndex)
 
-            let partAttributedText = part.attributedText(
-                context: context.textPartState(partState)
-            )
+            let partAttributedText = part.attributedText(context: partContext)
 
             attributedText.append(partAttributedText)
             partThresholds.append(attributedText.length)
         }
 
         self.attributedText = attributedText
+
+        numberOfLines = context.lineLimit ?? .zero
+        lineBreakMode = content.lineBreakMode
+    }
+
+    private func updateAttributedText(hoveredPartIndex: Int?, pressedPartIndex: Int?) {
+        updateAttributedText(
+            hoveredPartIndex: hoveredPartIndex,
+            pressedPartIndex: pressedPartIndex,
+            theme: tokens.theme
+        )
     }
 
     private func updateAttributedText() {
-        updateAttributedText(theme: tokens.theme)
-    }
-
-    private func animatePressedPart() {
-        animatedPartIndex = pressedPartIndex
+        let hoveredPartIndex = hoveredPartIndex
+        let pressedPartIndex = pressedPartIndex
 
         let animation = content?.animation ?? context?.textAnimation
 
-        let partAnimation = pressedPartIndex == nil
-            ? animation?.unpress
-            : animation?.press
+        let updateAnimation = attributedText != nil && window != nil
+            ? animation?.update
+            : nil
 
-        guard let partAnimation else {
-            return updateAttributedText()
+        operationQueue.addOperation(animation: updateAnimation) {
+            self.updateAttributedText(
+                hoveredPartIndex: hoveredPartIndex,
+                pressedPartIndex: pressedPartIndex
+            )
         }
-
-        let transition = partAnimation
-            .caTransition
-            .resolve(for: tokens.theme)
-
-        transition.delegate = self
-
-        layer.add(
-            transition,
-            forKey: "text"
-        )
-
-        updateAttributedText()
     }
 
     private func updatePressedPart(index: Int?) {
@@ -95,14 +97,20 @@ public final class TextView: UILabel {
 
         pressedPartIndex = index
 
-        let isAnimating = layer.animationKeys()?.contains { key in
-            layer.animation(forKey: key)?.delegate === self
-        } ?? false
+        let hoveredPartIndex = hoveredPartIndex
+        let pressedPartIndex = pressedPartIndex
 
-        if isAnimating {
-            updateAttributedText()
-        } else {
-            animatePressedPart()
+        let animation = content?.animation ?? context?.textAnimation
+
+        let partAnimation = pressedPartIndex == nil
+            ? (window == nil ? nil : animation?.unpress)
+            : (window == nil ? nil : animation?.press)
+
+        operationQueue.addOperation(animation: partAnimation) {
+            self.updateAttributedText(
+                hoveredPartIndex: hoveredPartIndex,
+                pressedPartIndex: pressedPartIndex
+            )
         }
     }
 
@@ -170,7 +178,9 @@ public final class TextView: UILabel {
         let contentSizeCategory = traitCollection.preferredContentSizeCategory
 
         if previousContentSizeCategory != contentSizeCategory {
-            updateAttributedText()
+            if !operationQueue.isRunning {
+                updateAttributedText()
+            }
         }
     }
 
@@ -223,7 +233,7 @@ public final class TextView: UILabel {
 
         isUserInteractionEnabled = false
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+        operationQueue.addOperation {
             self.isUserInteractionEnabled = self.context?.isEnabled ?? true
 
             partTapAction?()
@@ -232,32 +242,26 @@ public final class TextView: UILabel {
     }
 }
 
-extension TextView: CAAnimationDelegate {
-
-    public func animationDidStop(_ animation: CAAnimation, finished: Bool) {
-        if animatedPartIndex != pressedPartIndex {
-            animatePressedPart()
-        }
-    }
-}
-
 extension TextView: FallbackManualComponentView {
 
-    public static func sizing(
-        for content: Text2,
+    public static func size(
+        for content: Text,
         fitting size: CGSize,
         context: ComponentContext
-    ) -> ComponentSizing {
-        let size = Self.size(
+    ) -> CGSize {
+        let attributedText = attributedText(
             for: content,
-            fitting: size,
             context: context
         )
 
-        return ComponentSizing(size: size)
+        return attributedText.size(
+            fitting: size,
+            lineLimit: content.lineLimit,
+            lineBreakMode: content.lineBreakMode
+        )
     }
 
-    public func update(with content: Text2, context: ComponentContext) {
+    public func update(with content: Text, context: ComponentContext) {
         let typography = content.typography ?? context.textTypography
 
         let decoration = context
@@ -276,9 +280,10 @@ extension TextView: FallbackManualComponentView {
         self.content = content
         self.context = context
 
+        isUserInteractionEnabled = context.isEnabled
+
         hoveredPartIndex = nil
         pressedPartIndex = nil
-        animatedPartIndex = nil
 
         if content.tapAction == nil {
             hasTapAction = content
@@ -290,16 +295,14 @@ extension TextView: FallbackManualComponentView {
 
         updateAttributedText()
 
-        isUserInteractionEnabled = context.isEnabled
-        numberOfLines = context.lineLimit ?? .zero
-        lineBreakMode = content.lineBreakMode
+        sizeToFit()
     }
 }
 
 extension TextView {
 
     public static func attributedText(
-        for content: Text2,
+        for content: Text,
         context: ComponentContext
     ) -> NSAttributedString {
         let typography = content.typography ?? context.textTypography
@@ -321,30 +324,13 @@ extension TextView {
 
         for part in content.parts {
             let partAttributedText = part.attributedText(
-                context: context.textPartState(.default)
+                context: context
             )
 
             attributedText.append(partAttributedText)
         }
 
         return attributedText
-    }
-
-    public static func size(
-        for content: Text2,
-        fitting size: CGSize,
-        context: ComponentContext
-    ) -> CGSize {
-        let attributedText = attributedText(
-            for: content,
-            context: context
-        )
-
-        return attributedText.size(
-            fitting: size,
-            lineLimit: context.lineLimit,
-            lineBreakMode: content.lineBreakMode
-        )
     }
 }
 #endif

@@ -31,12 +31,5 @@ extension TokenViewProperties where View: UITextView {
             view.typingAttributes = value?.attributes ?? [:]
         }
     }
-
-// TODO: implement for text
-//    public var text: TokenViewProperty<TokenText, Void> {
-//        property { view, value, theme in
-//            view.attributedText = value?.nsAttributedString(for: theme)
-//        }
-//    }
 }
 #endif

@@ -20,7 +20,7 @@ extension AnyTextPart: TextPart {
         wrapped.isEnabled
     }
 
-    public var tapAction: (() -> Void)? {
+    public var tapAction: (@MainActor () -> Void)? {
         wrapped.tapAction
     }
 

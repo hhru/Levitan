@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import SwiftUI
 
-public struct Text2: FallbackManualComponent {
+public struct Text: FallbackManualComponent, TokenValue {
 
     public typealias UIView = TextView
 
@@ -87,21 +87,21 @@ public struct Text2: FallbackManualComponent {
     }
 }
 
-extension Text2: ExpressibleByStringLiteral {
+extension Text: ExpressibleByStringLiteral {
 
     public init(stringLiteral value: String) {
         self.init { value }
     }
 }
 
-extension Text2: ExpressibleByStringInterpolation {
+extension Text: ExpressibleByStringInterpolation {
 
     public init(stringInterpolation: TextInterpolation) {
         self.init(parts: stringInterpolation.parts)
     }
 }
 
-extension Text2: TextPart {
+extension Text: TextPart {
 
     public func attributedText(context: ComponentContext) -> NSAttributedString {
         UIView.attributedText(
@@ -111,7 +111,7 @@ extension Text2: TextPart {
     }
 }
 
-extension Text2: Changeable {
+extension Text: Changeable {
 
     public func typography(_ typography: TypographyToken?) -> Self {
         changing { $0.typography = typography }
@@ -142,7 +142,7 @@ extension Text2: Changeable {
     }
 }
 
-extension Text2 {
+extension Text {
 
     public func size(
         fitting size: CGSize,
@@ -155,7 +155,7 @@ extension Text2 {
         )
     }
 
-    internal func width(
+    public func width(
         fitting height: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext
     ) -> CGFloat {
@@ -165,7 +165,7 @@ extension Text2 {
         ).width
     }
 
-    internal func height(
+    public func height(
         fitting width: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext
     ) -> CGFloat {
