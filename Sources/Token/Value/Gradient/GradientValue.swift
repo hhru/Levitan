@@ -1,11 +1,14 @@
 import SwiftUI
 
-public struct GradientValue: TokenValue, Sendable {
+public struct GradientValue:
+    TokenValue,
+    Changeable,
+    Sendable {
 
-    public let colors: [ColorValue]
-    public let locations: [CGFloat]?
-    public let startPoint: CGPoint
-    public let endPoint: CGPoint
+    public var colors: [ColorValue]
+    public var locations: [CGFloat]?
+    public var startPoint: CGPoint
+    public var endPoint: CGPoint
 
     public var linearGradient: LinearGradient {
         let colors = colors.map { $0.color }

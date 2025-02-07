@@ -2,14 +2,14 @@ import CoreGraphics
 
 public struct ShadowValue:
     TokenValue,
-    DecorableByColor,
+    Changeable,
     Sendable {
 
-    public let type: ShadowType
-    public let color: ColorValue?
-    public let offset: CGSize
-    public let radius: CGFloat
-    public let spread: CGFloat
+    public var type: ShadowType
+    public var color: ColorValue?
+    public var offset: CGSize
+    public var radius: CGFloat
+    public var spread: CGFloat
 
     public var isSpreaded: Bool {
         abs(spread) > .leastNonzeroMagnitude
@@ -50,17 +50,7 @@ public struct ShadowValue:
     }
 }
 
-extension ShadowValue: Changeable {
-
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            type: copy.type,
-            color: copy.color,
-            offset: copy.offset,
-            radius: copy.radius,
-            spread: copy.spread
-        )
-    }
+extension ShadowValue: DecorableByColor {
 
     public func color(_ color: ColorValue?) -> Self {
         changing { $0.color = color }

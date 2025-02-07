@@ -3,39 +3,26 @@ import UIKit
 
 public struct TypographyValue:
     TokenValue,
-    DecorableByFontScale,
-    DecorableByFontSize,
-    DecorableByLetterSpacing,
-    DecorableByLineHeight,
-    DecorableByParagraphSpacing,
-    DecorableByParagraphFirstLineIndent,
-    DecorableByParagraphOtherLineIndent,
-    DecorableByAlignment,
-    DecorableByForegroundColor,
-    DecorableByBackgroundColor,
-    DecorableByStroke,
-    DecorableByStrikethrough,
-    DecorableByUnderline,
-    DecorableByLineBreakMode,
+    Changeable,
     Sendable {
 
-    public let font: FontValue
+    public var font: FontValue
 
-    public let letterSpacing: CGFloat?
-    public let lineHeight: CGFloat?
-    public let paragraphSpacing: CGFloat?
-    public let paragraphFirstLineIndent: CGFloat?
-    public let paragraphOtherLineIndent: CGFloat?
-    public let alignment: NSTextAlignment?
+    public var letterSpacing: CGFloat?
+    public var lineHeight: CGFloat?
+    public var paragraphSpacing: CGFloat?
+    public var paragraphFirstLineIndent: CGFloat?
+    public var paragraphOtherLineIndent: CGFloat?
+    public var alignment: NSTextAlignment?
 
-    public let foregroundColor: ColorValue?
-    public let backgroundColor: ColorValue?
-    public let stroke: TypographyStrokeValue?
-    public let strikethrough: TypographyLineValue?
-    public let underline: TypographyLineValue?
+    public var foregroundColor: ColorValue?
+    public var backgroundColor: ColorValue?
+    public var stroke: TypographyStrokeValue?
+    public var strikethrough: TypographyLineValue?
+    public var underline: TypographyLineValue?
 
     // TODO: Удалить после миграции в проекте
-    public let lineBreakMode: NSLineBreakMode?
+    public var lineBreakMode: NSLineBreakMode?
 
     public var paragraphStyle: NSParagraphStyle {
         resolveParagraphStyle()
@@ -217,25 +204,21 @@ public struct TypographyValue:
     }
 }
 
-extension TypographyValue: Changeable {
-
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            font: copy.font,
-            letterSpacing: copy.letterSpacing,
-            lineHeight: copy.lineHeight,
-            paragraphSpacing: copy.paragraphSpacing,
-            paragraphFirstLineIndent: copy.paragraphFirstLineIndent,
-            paragraphOtherLineIndent: copy.paragraphOtherLineIndent,
-            alignment: copy.alignment,
-            foregroundColor: copy.foregroundColor,
-            backgroundColor: copy.backgroundColor,
-            stroke: copy.stroke,
-            strikethrough: copy.strikethrough,
-            underline: copy.underline,
-            lineBreakMode: copy.lineBreakMode
-        )
-    }
+extension TypographyValue:
+    DecorableByFontScale,
+    DecorableByFontSize,
+    DecorableByLetterSpacing,
+    DecorableByLineHeight,
+    DecorableByParagraphSpacing,
+    DecorableByParagraphFirstLineIndent,
+    DecorableByParagraphOtherLineIndent,
+    DecorableByAlignment,
+    DecorableByForegroundColor,
+    DecorableByBackgroundColor,
+    DecorableByStroke,
+    DecorableByStrikethrough,
+    DecorableByUnderline,
+    DecorableByLineBreakMode {
 
     public func fontScale(_ fontScale: FontScaleValue?) -> Self {
         changing { $0.font = font.scale(fontScale) }

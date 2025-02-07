@@ -7,12 +7,12 @@ import QuartzCore
 
 public struct AnimationValue:
     TokenValue,
-    DecorableByDuration,
+    Changeable,
     Sendable {
 
-    public let controlPoint1: CGPoint
-    public let controlPoint2: CGPoint
-    public let duration: Double
+    public var controlPoint1: CGPoint
+    public var controlPoint2: CGPoint
+    public var duration: Double
 
     public var caTransition: CATransition {
         let animation = CATransition()
@@ -62,15 +62,7 @@ public struct AnimationValue:
     #endif
 }
 
-extension AnimationValue: Changeable {
-
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            controlPoint1: copy.controlPoint1,
-            controlPoint2: copy.controlPoint2,
-            duration: copy.duration
-        )
-    }
+extension AnimationValue: DecorableByDuration {
 
     public func duration(_ duration: Double) -> Self {
         changing { $0.duration = duration }
