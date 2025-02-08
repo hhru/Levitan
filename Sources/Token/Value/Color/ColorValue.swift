@@ -8,15 +8,14 @@ import SwiftUI
 
 public struct ColorValue:
     TokenValue,
-    DecorableByOpacity,
-    DecorableByAlpha,
+    Changeable,
     ExpressibleByIntegerLiteral,
     Sendable {
 
-    public let red: CGFloat
-    public let green: CGFloat
-    public let blue: CGFloat
-    public let alpha: CGFloat
+    public var red: CGFloat
+    public var green: CGFloat
+    public var blue: CGFloat
+    public var alpha: CGFloat
 
     public var hex: UInt32 {
         UInt32(min(alpha * 255.0, 255.0))
@@ -162,16 +161,9 @@ public struct ColorValue:
     }
 }
 
-extension ColorValue: Changeable {
-
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            red: copy.red,
-            green: copy.green,
-            blue: copy.blue,
-            alpha: copy.alpha
-        )
-    }
+extension ColorValue:
+    DecorableByAlpha,
+    DecorableByOpacity {
 
     public func alpha(_ alpha: CGFloat) -> Self {
         changing { $0.alpha = alpha }

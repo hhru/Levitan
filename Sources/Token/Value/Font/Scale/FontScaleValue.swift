@@ -1,10 +1,13 @@
 #if canImport(UIKit)
 import UIKit
 
-public struct FontScaleValue: TokenValue, Sendable {
+public struct FontScaleValue:
+    TokenValue,
+    Changeable,
+    Sendable {
 
-    public let textStyle: UIFont.TextStyle
-    public let maxPointSize: CGFloat?
+    public var textStyle: UIFont.TextStyle
+    public var maxPointSize: CGFloat?
 
     public init(
         textStyle: UIFont.TextStyle,

@@ -7,17 +7,17 @@ public struct Text2: FallbackManualComponent {
 
     public let parts: [AnyTextPart]
 
-    public let typography: TypographyToken?
-    public let decoration: [AnyTextDecorator]
-    public let animation: TextAnimation?
+    public var typography: TypographyToken?
+    public var decoration: [AnyTextDecorator]
+    public var animation: TextAnimation?
 
-    public let lineLimit: Int?
-    public let lineBreakMode: NSLineBreakMode
+    public var lineLimit: Int?
+    public var lineBreakMode: NSLineBreakMode
 
-    public let isEnabled: Bool
+    public var isEnabled: Bool
 
     @ViewAction
-    public var tapAction: (() -> Void)?
+    public var tapAction: (@MainActor () -> Void)?
 
     public init(
         parts: [AnyTextPart],
@@ -27,7 +27,7 @@ public struct Text2: FallbackManualComponent {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (() -> Void)? = nil
+        tapAction: (@MainActor () -> Void)? = nil
     ) {
         self.parts = parts
 
@@ -50,7 +50,7 @@ public struct Text2: FallbackManualComponent {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (() -> Void)? = nil
+        tapAction: (@MainActor () -> Void)? = nil
     ) {
         self.init(
             parts: [content.eraseToAnyTextPart()],
@@ -71,7 +71,7 @@ public struct Text2: FallbackManualComponent {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (() -> Void)? = nil,
+        tapAction: (@MainActor () -> Void)? = nil,
         @TextBuilder content: () -> [any TextPart]
     ) {
         self.init(
@@ -113,19 +113,6 @@ extension Text2: TextPart {
 
 extension Text2: Changeable {
 
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            parts: copy.parts,
-            typography: copy.typography,
-            decoration: copy.decoration,
-            animation: copy.animation,
-            lineLimit: copy.lineLimit,
-            lineBreakMode: copy.lineBreakMode,
-            isEnabled: copy.isEnabled,
-            tapAction: copy.tapAction
-        )
-    }
-
     public func typography(_ typography: TypographyToken?) -> Self {
         changing { $0.typography = typography }
     }
@@ -150,17 +137,8 @@ extension Text2: Changeable {
         changing { $0.isEnabled = !isDisabled }
     }
 
-    public func onTap(_ tapAction: (() -> Void)?) -> Self {
-        guard let tapAction else {
-            return self
-        }
-
-        let newTapAction = { [previousTapAction = self.tapAction] in
-            previousTapAction?()
-            tapAction()
-        }
-
-        return changing { $0.tapAction = newTapAction }
+    public func onTap(_ tapAction: (@MainActor () -> Void)?) -> Self {
+        changing { $0.tapAction = tapAction }
     }
 }
 

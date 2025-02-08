@@ -2,12 +2,12 @@ import CoreGraphics
 
 public struct StrokeValue:
     TokenValue,
-    DecorableByColor,
+    Changeable,
     Sendable {
 
-    public let type: StrokeType
-    public let width: CGFloat
-    public let color: ColorValue?
+    public var type: StrokeType
+    public var width: CGFloat
+    public var color: ColorValue?
 
     public var insets: CGFloat {
         switch type {
@@ -37,15 +37,7 @@ public struct StrokeValue:
     }
 }
 
-extension StrokeValue: Changeable {
-
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            type: copy.type,
-            width: copy.width,
-            color: copy.color
-        )
-    }
+extension StrokeValue: DecorableByColor {
 
     public func color(_ color: ColorValue?) -> Self {
         changing { $0.color = color }

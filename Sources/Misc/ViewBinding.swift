@@ -76,7 +76,7 @@ public struct ViewBinding<Value> {
     }
 
     public subscript<Subject>(
-        dynamicMember keyPath: ReferenceWritableKeyPath<Value, Subject>
+        dynamicMember keyPath: WritableKeyPath<Value, Subject>
     ) -> ViewBinding<Subject> {
         ViewBinding<Subject>(
             get: { wrappedValue[keyPath: keyPath] },
@@ -84,14 +84,59 @@ public struct ViewBinding<Value> {
         )
     }
 
+    public subscript<Subject: ExpressibleByStringLiteral>(
+        dynamicMember keyPath: WritableKeyPath<Value, Subject>
+    ) -> ViewBinding<Subject?> {
+        ViewBinding<Subject?>(
+            get: { get()[keyPath: keyPath] },
+            set: { newValue in
+                var value = get()
+
+                value[keyPath: keyPath] = newValue ?? ""
+
+                set(value)
+            }
+        )
+    }
+
+    public subscript<Subject: ExpressibleByArrayLiteral>(
+        dynamicMember keyPath: WritableKeyPath<Value, Subject>
+    ) -> ViewBinding<Subject?> {
+        ViewBinding<Subject?>(
+            get: { get()[keyPath: keyPath] },
+            set: { newValue in
+                var value = get()
+
+                value[keyPath: keyPath] = newValue ?? []
+
+                set(value)
+            }
+        )
+    }
+
+    public subscript<Subject: ExpressibleByDictionaryLiteral>(
+        dynamicMember keyPath: WritableKeyPath<Value, Subject>
+    ) -> ViewBinding<Subject?> {
+        ViewBinding<Subject?>(
+            get: { get()[keyPath: keyPath] },
+            set: { newValue in
+                var value = get()
+
+                value[keyPath: keyPath] = newValue ?? [:]
+
+                set(value)
+            }
+        )
+    }
+
     public subscript<Subject: Hashable>(
-        dynamicMember keyPath: ReferenceWritableKeyPath<Value, Subject?>
+        dynamicMember keyPath: WritableKeyPath<Value, Subject?>
     ) -> ViewFocusBinding<Subject?> {
         ViewFocusBinding(binding: self[dynamicMember: keyPath])
     }
 
     public subscript(
-        dynamicMember keyPath: ReferenceWritableKeyPath<Value, Bool>
+        dynamicMember keyPath: WritableKeyPath<Value, Bool>
     ) -> ViewFocusBinding<Bool> {
         ViewFocusBinding(binding: self[dynamicMember: keyPath])
     }
@@ -99,10 +144,11 @@ public struct ViewBinding<Value> {
 
 extension ViewBinding where
     Value: Changeable,
-    Value.ChangeableCopy == ChangeableWrapper<Value> {
+    Value.ChangeableCopy == Value {
 
+    @_disfavoredOverload
     public subscript<Subject>(
-        dynamicMember keyPath: KeyPath<Value, Subject>
+        dynamicMember keyPath: WritableKeyPath<Value, Subject>
     ) -> ViewBinding<Subject> {
         ViewBinding<Subject>(
             get: { get()[keyPath: keyPath] },
@@ -110,8 +156,9 @@ extension ViewBinding where
         )
     }
 
+    @_disfavoredOverload
     public subscript<Subject: ExpressibleByStringLiteral>(
-        dynamicMember keyPath: KeyPath<Value, Subject>
+        dynamicMember keyPath: WritableKeyPath<Value, Subject>
     ) -> ViewBinding<Subject?> {
         ViewBinding<Subject?>(
             get: { get()[keyPath: keyPath] },
@@ -119,8 +166,9 @@ extension ViewBinding where
         )
     }
 
+    @_disfavoredOverload
     public subscript<Subject: ExpressibleByArrayLiteral>(
-        dynamicMember keyPath: KeyPath<Value, Subject>
+        dynamicMember keyPath: WritableKeyPath<Value, Subject>
     ) -> ViewBinding<Subject?> {
         ViewBinding<Subject?>(
             get: { get()[keyPath: keyPath] },
@@ -128,8 +176,9 @@ extension ViewBinding where
         )
     }
 
+    @_disfavoredOverload
     public subscript<Subject: ExpressibleByDictionaryLiteral>(
-        dynamicMember keyPath: KeyPath<Value, Subject>
+        dynamicMember keyPath: WritableKeyPath<Value, Subject>
     ) -> ViewBinding<Subject?> {
         ViewBinding<Subject?>(
             get: { get()[keyPath: keyPath] },
@@ -137,14 +186,16 @@ extension ViewBinding where
         )
     }
 
+    @_disfavoredOverload
     public subscript<Subject: Hashable>(
-        dynamicMember keyPath: KeyPath<Value, Subject?>
+        dynamicMember keyPath: WritableKeyPath<Value, Subject?>
     ) -> ViewFocusBinding<Subject?> {
         ViewFocusBinding(binding: self[dynamicMember: keyPath])
     }
 
+    @_disfavoredOverload
     public subscript(
-        dynamicMember keyPath: KeyPath<Value, Bool>
+        dynamicMember keyPath: WritableKeyPath<Value, Bool>
     ) -> ViewFocusBinding<Bool> {
         ViewFocusBinding(binding: self[dynamicMember: keyPath])
     }

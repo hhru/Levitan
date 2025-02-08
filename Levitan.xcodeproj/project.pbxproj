@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		25F6DC262B7387E700FBAB9C /* NilCoalescingDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */; };
-		C0081D732BC82A1600BE7293 /* ChangeableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6B2BC82A1600BE7293 /* ChangeableWrapper.swift */; };
-		C0081D742BC82A1600BE7293 /* ChangeableWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6B2BC82A1600BE7293 /* ChangeableWrapper.swift */; };
 		C0081D752BC82A1600BE7293 /* Dictionary+Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */; };
 		C0081D762BC82A1600BE7293 /* Dictionary+Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */; };
 		C0081D772BC82A1600BE7293 /* Set+Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6E2BC82A1600BE7293 /* Set+Changeable.swift */; };
@@ -92,6 +90,26 @@
 		C0081DC52BC82B0900BE7293 /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E979BA2BC6DDCC00CF37A7 /* ObjectAssociation.swift */; };
 		C0081DC62BC82B0900BE7293 /* Nullable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E979EF2BC6DDCC00CF37A7 /* Nullable.swift */; };
 		C0081DC72BC82B0900BE7293 /* ItemPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E979D12BC6DDCC00CF37A7 /* ItemPath.swift */; };
+		C00A5D0C2D55ECF20064FB3A /* TokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D002D55ECF20064FB3A /* TokenThemeResolver.swift */; };
+		C00A5D0D2D55ECF20064FB3A /* TokenThemeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D0A2D55ECF20064FB3A /* TokenThemeUnit.swift */; };
+		C00A5D0E2D55ECF20064FB3A /* TokenThemeScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D092D55ECF20064FB3A /* TokenThemeScheme.swift */; };
+		C00A5D0F2D55ECF20064FB3A /* TokenThemeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D032D55ECF20064FB3A /* TokenThemeStorage.swift */; };
+		C00A5D102D55ECF20064FB3A /* DefaultTokenThemeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D022D55ECF20064FB3A /* DefaultTokenThemeStorage.swift */; };
+		C00A5D112D55ECF20064FB3A /* TokenTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D052D55ECF20064FB3A /* TokenTheme.swift */; };
+		C00A5D122D55ECF20064FB3A /* TokenThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D082D55ECF20064FB3A /* TokenThemeManager.swift */; };
+		C00A5D132D55ECF20064FB3A /* DefaultTokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5CFF2D55ECF20064FB3A /* DefaultTokenThemeResolver.swift */; };
+		C00A5D142D55ECF20064FB3A /* TokenThemeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D072D55ECF20064FB3A /* TokenThemeKey.swift */; };
+		C00A5D152D55ECF20064FB3A /* TokenThemeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D062D55ECF20064FB3A /* TokenThemeBody.swift */; };
+		C00A5D162D55ECF20064FB3A /* TokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D002D55ECF20064FB3A /* TokenThemeResolver.swift */; };
+		C00A5D172D55ECF20064FB3A /* TokenThemeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D0A2D55ECF20064FB3A /* TokenThemeUnit.swift */; };
+		C00A5D182D55ECF20064FB3A /* TokenThemeScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D092D55ECF20064FB3A /* TokenThemeScheme.swift */; };
+		C00A5D192D55ECF20064FB3A /* TokenThemeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D032D55ECF20064FB3A /* TokenThemeStorage.swift */; };
+		C00A5D1A2D55ECF20064FB3A /* DefaultTokenThemeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D022D55ECF20064FB3A /* DefaultTokenThemeStorage.swift */; };
+		C00A5D1B2D55ECF20064FB3A /* TokenTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D052D55ECF20064FB3A /* TokenTheme.swift */; };
+		C00A5D1C2D55ECF20064FB3A /* TokenThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D082D55ECF20064FB3A /* TokenThemeManager.swift */; };
+		C00A5D1D2D55ECF20064FB3A /* DefaultTokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5CFF2D55ECF20064FB3A /* DefaultTokenThemeResolver.swift */; };
+		C00A5D1E2D55ECF20064FB3A /* TokenThemeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D072D55ECF20064FB3A /* TokenThemeKey.swift */; };
+		C00A5D1F2D55ECF20064FB3A /* TokenThemeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00A5D062D55ECF20064FB3A /* TokenThemeBody.swift */; };
 		C0310C232B04BB4800BCA3AC /* TokenDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0310B322B04BB4800BCA3AC /* TokenDecorator.swift */; };
 		C0310C242B04BB4800BCA3AC /* DecorableByNegation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0310B342B04BB4800BCA3AC /* DecorableByNegation.swift */; };
 		C0310C252B04BB4800BCA3AC /* NegationDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0310B352B04BB4800BCA3AC /* NegationDecorator.swift */; };
@@ -328,16 +346,6 @@
 		C05CD2292B093732005F5499 /* ShapeValue+Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1D62B093732005F5499 /* ShapeValue+Shape.swift */; };
 		C05CD22A2B093732005F5499 /* TokenThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1D72B093732005F5499 /* TokenThemeView.swift */; };
 		C05CD22B2B093732005F5499 /* ShadowMaskShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1D82B093732005F5499 /* ShadowMaskShape.swift */; };
-		C05CD22C2B093732005F5499 /* TokenTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1DA2B093732005F5499 /* TokenTheme.swift */; };
-		C05CD22D2B093732005F5499 /* TokenThemeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1DB2B093732005F5499 /* TokenThemeUnit.swift */; };
-		C05CD22E2B093732005F5499 /* TokenThemeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1DC2B093732005F5499 /* TokenThemeBody.swift */; };
-		C05CD22F2B093732005F5499 /* TokenThemeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1DE2B093732005F5499 /* TokenThemeStorage.swift */; };
-		C05CD2302B093732005F5499 /* DefaultTokenThemeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1DF2B093732005F5499 /* DefaultTokenThemeStorage.swift */; };
-		C05CD2312B093732005F5499 /* TokenThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E02B093732005F5499 /* TokenThemeManager.swift */; };
-		C05CD2322B093732005F5499 /* TokenThemeScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E12B093732005F5499 /* TokenThemeScheme.swift */; };
-		C05CD2332B093732005F5499 /* TokenThemeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E22B093732005F5499 /* TokenThemeKey.swift */; };
-		C05CD2342B093732005F5499 /* TokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E42B093732005F5499 /* TokenThemeResolver.swift */; };
-		C05CD2352B093732005F5499 /* DefaultTokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E52B093732005F5499 /* DefaultTokenThemeResolver.swift */; };
 		C05DF3602D1EC60F0078FC64 /* ManualComponentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05DF35F2D1EC60F0078FC64 /* ManualComponentModifier.swift */; };
 		C05DF3612D1EC60F0078FC64 /* ManualComponentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05DF35F2D1EC60F0078FC64 /* ManualComponentModifier.swift */; };
 		C0855EEB2B08DF15003EBC34 /* AlphaDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0855EEA2B08DF15003EBC34 /* AlphaDecorator.swift */; };
@@ -459,16 +467,6 @@
 		C093057B2B0B86FB00F6F13D /* TokenViewProperties+UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C093057A2B0B86FB00F6F13D /* TokenViewProperties+UIControl.swift */; };
 		C093057C2B0B86FD00F6F13D /* TokenViewProperties+UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C093057A2B0B86FB00F6F13D /* TokenViewProperties+UIControl.swift */; };
 		C093057E2B0B879500F6F13D /* TokenViewProperties+UIBarPositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C093057D2B0B879500F6F13D /* TokenViewProperties+UIBarPositioning.swift */; };
-		C09305832B0B908C00F6F13D /* TokenThemeScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E12B093732005F5499 /* TokenThemeScheme.swift */; };
-		C09305842B0B908C00F6F13D /* TokenThemeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1DC2B093732005F5499 /* TokenThemeBody.swift */; };
-		C09305852B0B908C00F6F13D /* TokenThemeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E22B093732005F5499 /* TokenThemeKey.swift */; };
-		C09305862B0B908C00F6F13D /* TokenTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1DA2B093732005F5499 /* TokenTheme.swift */; };
-		C09305872B0B908C00F6F13D /* TokenThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E02B093732005F5499 /* TokenThemeManager.swift */; };
-		C09305882B0B908C00F6F13D /* TokenThemeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1DB2B093732005F5499 /* TokenThemeUnit.swift */; };
-		C09305892B0B909000F6F13D /* DefaultTokenThemeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1DF2B093732005F5499 /* DefaultTokenThemeStorage.swift */; };
-		C093058A2B0B909000F6F13D /* TokenThemeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1DE2B093732005F5499 /* TokenThemeStorage.swift */; };
-		C093058B2B0B909400F6F13D /* TokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E42B093732005F5499 /* TokenThemeResolver.swift */; };
-		C093058C2B0B909400F6F13D /* DefaultTokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1E52B093732005F5499 /* DefaultTokenThemeResolver.swift */; };
 		C093058D2B0B90B300F6F13D /* TokenValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0310B852B04BB4800BCA3AC /* TokenValue.swift */; };
 		C093058E2B0B90BA00F6F13D /* TokenTraitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0312BD82B07563B00BC21A7 /* TokenTraitProvider.swift */; };
 		C093058F2B0B90BD00F6F13D /* TokenTrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0310BC02B04BB4800BCA3AC /* TokenTrait.swift */; };
@@ -647,11 +645,20 @@
 /* Begin PBXFileReference section */
 		25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilCoalescingDecorator.swift; sourceTree = "<group>"; };
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
-		C0081D6B2BC82A1600BE7293 /* ChangeableWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeableWrapper.swift; sourceTree = "<group>"; };
 		C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Changeable.swift"; sourceTree = "<group>"; };
 		C0081D6E2BC82A1600BE7293 /* Set+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Changeable.swift"; sourceTree = "<group>"; };
 		C0081D6F2BC82A1600BE7293 /* Array+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Changeable.swift"; sourceTree = "<group>"; };
 		C0081D702BC82A1600BE7293 /* Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Changeable.swift; sourceTree = "<group>"; };
+		C00A5CFF2D55ECF20064FB3A /* DefaultTokenThemeResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTokenThemeResolver.swift; sourceTree = "<group>"; };
+		C00A5D002D55ECF20064FB3A /* TokenThemeResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenThemeResolver.swift; sourceTree = "<group>"; };
+		C00A5D022D55ECF20064FB3A /* DefaultTokenThemeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTokenThemeStorage.swift; sourceTree = "<group>"; };
+		C00A5D032D55ECF20064FB3A /* TokenThemeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenThemeStorage.swift; sourceTree = "<group>"; };
+		C00A5D052D55ECF20064FB3A /* TokenTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenTheme.swift; sourceTree = "<group>"; };
+		C00A5D062D55ECF20064FB3A /* TokenThemeBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenThemeBody.swift; sourceTree = "<group>"; };
+		C00A5D072D55ECF20064FB3A /* TokenThemeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenThemeKey.swift; sourceTree = "<group>"; };
+		C00A5D082D55ECF20064FB3A /* TokenThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenThemeManager.swift; sourceTree = "<group>"; };
+		C00A5D092D55ECF20064FB3A /* TokenThemeScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenThemeScheme.swift; sourceTree = "<group>"; };
+		C00A5D0A2D55ECF20064FB3A /* TokenThemeUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenThemeUnit.swift; sourceTree = "<group>"; };
 		C010082725EEA6B700A2FF1A /* Levitan.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Levitan.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C0310B322B04BB4800BCA3AC /* TokenDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenDecorator.swift; sourceTree = "<group>"; };
 		C0310B342B04BB4800BCA3AC /* DecorableByNegation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecorableByNegation.swift; sourceTree = "<group>"; };
@@ -834,16 +841,6 @@
 		C05CD1D62B093732005F5499 /* ShapeValue+Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShapeValue+Shape.swift"; sourceTree = "<group>"; };
 		C05CD1D72B093732005F5499 /* TokenThemeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenThemeView.swift; sourceTree = "<group>"; };
 		C05CD1D82B093732005F5499 /* ShadowMaskShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowMaskShape.swift; sourceTree = "<group>"; };
-		C05CD1DA2B093732005F5499 /* TokenTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTheme.swift; sourceTree = "<group>"; };
-		C05CD1DB2B093732005F5499 /* TokenThemeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenThemeUnit.swift; sourceTree = "<group>"; };
-		C05CD1DC2B093732005F5499 /* TokenThemeBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenThemeBody.swift; sourceTree = "<group>"; };
-		C05CD1DE2B093732005F5499 /* TokenThemeStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenThemeStorage.swift; sourceTree = "<group>"; };
-		C05CD1DF2B093732005F5499 /* DefaultTokenThemeStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTokenThemeStorage.swift; sourceTree = "<group>"; };
-		C05CD1E02B093732005F5499 /* TokenThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenThemeManager.swift; sourceTree = "<group>"; };
-		C05CD1E12B093732005F5499 /* TokenThemeScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenThemeScheme.swift; sourceTree = "<group>"; };
-		C05CD1E22B093732005F5499 /* TokenThemeKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenThemeKey.swift; sourceTree = "<group>"; };
-		C05CD1E42B093732005F5499 /* TokenThemeResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenThemeResolver.swift; sourceTree = "<group>"; };
-		C05CD1E52B093732005F5499 /* DefaultTokenThemeResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultTokenThemeResolver.swift; sourceTree = "<group>"; };
 		C05DF35F2D1EC60F0078FC64 /* ManualComponentModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualComponentModifier.swift; sourceTree = "<group>"; };
 		C0855EEA2B08DF15003EBC34 /* AlphaDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaDecorator.swift; sourceTree = "<group>"; };
 		C0855EEC2B08DF21003EBC34 /* DecorableByAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorableByAlpha.swift; sourceTree = "<group>"; };
@@ -1024,7 +1021,6 @@
 			children = (
 				C0081D6C2BC82A1600BE7293 /* Extensions */,
 				C0081D702BC82A1600BE7293 /* Changeable.swift */,
-				C0081D6B2BC82A1600BE7293 /* ChangeableWrapper.swift */,
 			);
 			path = Changeable;
 			sourceTree = "<group>";
@@ -1039,12 +1035,45 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		C00A5D012D55ECF20064FB3A /* Resolver */ = {
+			isa = PBXGroup;
+			children = (
+				C00A5CFF2D55ECF20064FB3A /* DefaultTokenThemeResolver.swift */,
+				C00A5D002D55ECF20064FB3A /* TokenThemeResolver.swift */,
+			);
+			path = Resolver;
+			sourceTree = "<group>";
+		};
+		C00A5D042D55ECF20064FB3A /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				C00A5D022D55ECF20064FB3A /* DefaultTokenThemeStorage.swift */,
+				C00A5D032D55ECF20064FB3A /* TokenThemeStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		C00A5D0B2D55ECF20064FB3A /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				C00A5D012D55ECF20064FB3A /* Resolver */,
+				C00A5D042D55ECF20064FB3A /* Storage */,
+				C00A5D052D55ECF20064FB3A /* TokenTheme.swift */,
+				C00A5D062D55ECF20064FB3A /* TokenThemeBody.swift */,
+				C00A5D072D55ECF20064FB3A /* TokenThemeKey.swift */,
+				C00A5D082D55ECF20064FB3A /* TokenThemeManager.swift */,
+				C00A5D092D55ECF20064FB3A /* TokenThemeScheme.swift */,
+				C00A5D0A2D55ECF20064FB3A /* TokenThemeUnit.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		C0310B2E2B04BB4800BCA3AC /* Token */ = {
 			isa = PBXGroup;
 			children = (
 				C0310B2F2B04BB4800BCA3AC /* Decorators */,
 				C05CD1842B093732005F5499 /* Presentation */,
-				C05CD1D92B093732005F5499 /* Theme */,
+				C00A5D0B2D55ECF20064FB3A /* Theme */,
 				C0312BDA2B07565600BC21A7 /* Trait */,
 				C0310B7C2B04BB4800BCA3AC /* Value */,
 				C0310C212B04BB4800BCA3AC /* Token.swift */,
@@ -1754,39 +1783,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C05CD1D92B093732005F5499 /* Theme */ = {
-			isa = PBXGroup;
-			children = (
-				C05CD1E32B093732005F5499 /* Resolver */,
-				C05CD1DD2B093732005F5499 /* Storage */,
-				C05CD1DA2B093732005F5499 /* TokenTheme.swift */,
-				C05CD1DC2B093732005F5499 /* TokenThemeBody.swift */,
-				C05CD1E22B093732005F5499 /* TokenThemeKey.swift */,
-				C05CD1E02B093732005F5499 /* TokenThemeManager.swift */,
-				C05CD1E12B093732005F5499 /* TokenThemeScheme.swift */,
-				C05CD1DB2B093732005F5499 /* TokenThemeUnit.swift */,
-			);
-			path = Theme;
-			sourceTree = "<group>";
-		};
-		C05CD1DD2B093732005F5499 /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				C05CD1DF2B093732005F5499 /* DefaultTokenThemeStorage.swift */,
-				C05CD1DE2B093732005F5499 /* TokenThemeStorage.swift */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
-		C05CD1E32B093732005F5499 /* Resolver */ = {
-			isa = PBXGroup;
-			children = (
-				C05CD1E52B093732005F5499 /* DefaultTokenThemeResolver.swift */,
-				C05CD1E42B093732005F5499 /* TokenThemeResolver.swift */,
-			);
-			path = Resolver;
-			sourceTree = "<group>";
-		};
 		C0855EE92B08DF08003EBC34 /* Alpha */ = {
 			isa = PBXGroup;
 			children = (
@@ -2473,7 +2469,6 @@
 				C0312BDC2B075FB000BC21A7 /* AnimationToken.swift in Sources */,
 				C0E97A1D2BC6DDCC00CF37A7 /* Nullable.swift in Sources */,
 				C0310C262B04BB4800BCA3AC /* FontScaleDecorator.swift in Sources */,
-				C05CD2322B093732005F5499 /* TokenThemeScheme.swift in Sources */,
 				C0E97A0D2BC6DDCC00CF37A7 /* CGPoint+Extensions.swift in Sources */,
 				C05CD21A2B093732005F5499 /* TransitionModifier.swift in Sources */,
 				C0E97A2F2BC6DF4100CF37A7 /* ViewFocusBinding.swift in Sources */,
@@ -2493,7 +2488,6 @@
 				C0E97A1E2BC6DDCC00CF37A7 /* MethodSwizzler.swift in Sources */,
 				C0E97A2B2BC6DF4100CF37A7 /* ViewFocusState.swift in Sources */,
 				C0E979FD2BC6DDCC00CF37A7 /* ItemDifferenceChangeset.swift in Sources */,
-				C05CD22E2B093732005F5499 /* TokenThemeBody.swift in Sources */,
 				C0310C7B2B04BB4800BCA3AC /* TypographyValue.swift in Sources */,
 				C0310C6A2B04BB4800BCA3AC /* ImageSource.swift in Sources */,
 				C0310C702B04BB4800BCA3AC /* CGRect+TokenValue.swift in Sources */,
@@ -2502,13 +2496,11 @@
 				C05CD2122B093732005F5499 /* TokenModifiedView.swift in Sources */,
 				C0E97A122BC6DDCC00CF37A7 /* NSLayoutConstraint+Extensions.swift in Sources */,
 				C0EEA4592C6AD80A0097F0C3 /* UnderlineDecorator+TextDecorator.swift in Sources */,
-				C0081D732BC82A1600BE7293 /* ChangeableWrapper.swift in Sources */,
 				FD4F17F82CC8FEB4005636A4 /* FallbackManualComponentView.swift in Sources */,
 				C0310C392B04BB4800BCA3AC /* DecorableByLineHeight.swift in Sources */,
 				C0310C6D2B04BB4800BCA3AC /* ImageResizingMode.swift in Sources */,
 				C0081D7B2BC82A1600BE7293 /* Changeable.swift in Sources */,
 				C0310C6C2B04BB4800BCA3AC /* ImageValue.swift in Sources */,
-				C05CD22C2B093732005F5499 /* TokenTheme.swift in Sources */,
 				C0EEA4772C6AD80A0097F0C3 /* ImageToken+TextPart.swift in Sources */,
 				C09305112B0B6EA900F6F13D /* TokenViewProperties+UILabel.swift in Sources */,
 				C0E979F72BC6DDCC00CF37A7 /* SectionDifferenceCalculator.swift in Sources */,
@@ -2533,7 +2525,6 @@
 				C0310CD62B04BB4800BCA3AC /* Token.swift in Sources */,
 				C05CD2162B093732005F5499 /* AnimationModifier.swift in Sources */,
 				C09305152B0B75C800F6F13D /* TokenViewProperties+UIProgressView.swift in Sources */,
-				C05CD2302B093732005F5499 /* DefaultTokenThemeStorage.swift in Sources */,
 				C0310C7F2B04BB4800BCA3AC /* InsetsToken.swift in Sources */,
 				C0310C802B04BB4800BCA3AC /* InsetsValue.swift in Sources */,
 				C05CD1F42B093732005F5499 /* CALayer+FrontLayer.swift in Sources */,
@@ -2542,7 +2533,6 @@
 				C05CD1EE2B093732005F5499 /* TokenView.swift in Sources */,
 				C05CD2292B093732005F5499 /* ShapeValue+Shape.swift in Sources */,
 				C0E97A612BC6DF5200CF37A7 /* ComponentHostingController.swift in Sources */,
-				C05CD2312B093732005F5499 /* TokenThemeManager.swift in Sources */,
 				C0E97A152BC6DDCC00CF37A7 /* IndexPath+Extensions.swift in Sources */,
 				C09305242B0B7CE000F6F13D /* TokenViewProperties+UIView.swift in Sources */,
 				C0310C2B2B04BB4800BCA3AC /* DivisionDecorator.swift in Sources */,
@@ -2581,7 +2571,6 @@
 				C0EEA4632C6AD80A0097F0C3 /* TextInterpolation.swift in Sources */,
 				C0310C432B04BB4800BCA3AC /* ResizingModeDecorator.swift in Sources */,
 				C0310C602B04BB4800BCA3AC /* StrokeToken.swift in Sources */,
-				C05CD22D2B093732005F5499 /* TokenThemeUnit.swift in Sources */,
 				C05CD2252B093732005F5499 /* ShadowShape.swift in Sources */,
 				C0E97A0C2BC6DDCC00CF37A7 /* CGSize+Extensions.swift in Sources */,
 				C0310C402B04BB4800BCA3AC /* AlignmentDecorator.swift in Sources */,
@@ -2604,8 +2593,6 @@
 				C0E97A552BC6DF5200CF37A7 /* ComponentContextOverride.swift in Sources */,
 				C0EEA4532C6AD80A0097F0C3 /* AnyTextDecorator.swift in Sources */,
 				C09305132B0B73E900F6F13D /* TokenViewProperties+UINavigationBar.swift in Sources */,
-				C05CD22F2B093732005F5499 /* TokenThemeStorage.swift in Sources */,
-				C05CD2352B093732005F5499 /* DefaultTokenThemeResolver.swift in Sources */,
 				C05CD2212B093732005F5499 /* EnvironmentValues+TokenTheme.swift in Sources */,
 				C0E97A2C2BC6DF4100CF37A7 /* ViewEnvironment.swift in Sources */,
 				C0310C772B04BB4800BCA3AC /* Double+TokenValue.swift in Sources */,
@@ -2621,7 +2608,6 @@
 				C09305062B0B68CC00F6F13D /* TokenViewProperties+SFSafariViewController.swift in Sources */,
 				C05CD2262B093732005F5499 /* ImageValue+View.swift in Sources */,
 				C0310C782B04BB4800BCA3AC /* Set+TokenValue.swift in Sources */,
-				C05CD2342B093732005F5499 /* TokenThemeResolver.swift in Sources */,
 				C0EEA42D2C6AD7ED0097F0C3 /* NSAttributedString+Extensions.swift in Sources */,
 				C0310C752B04BB4800BCA3AC /* String+TokenValue.swift in Sources */,
 				C0EEA47B2C6AD80A0097F0C3 /* TextPartState.swift in Sources */,
@@ -2685,7 +2671,6 @@
 				C0310C2F2B04BB4800BCA3AC /* ParagraphSpacingDecorator.swift in Sources */,
 				C05CD20D2B093732005F5499 /* TokenViewManager.swift in Sources */,
 				C093051B2B0B778D00F6F13D /* TokenViewProperties+UITabBar.swift in Sources */,
-				C05CD2332B093732005F5499 /* TokenThemeKey.swift in Sources */,
 				C05CD2192B093732005F5499 /* ClipShapeModifier.swift in Sources */,
 				C0EEA4752C6AD80A0097F0C3 /* UIImage+TextPart.swift in Sources */,
 				C0358FCC2B0A6BDE000E599A /* TokenViewPropertyBinding.swift in Sources */,
@@ -2712,6 +2697,16 @@
 				C05CD20F2B093732005F5499 /* OpacityModifier.swift in Sources */,
 				C0E97A5C2BC6DF5200CF37A7 /* ComponentSizingStrategy.swift in Sources */,
 				C0310C5F2B04BB4800BCA3AC /* CornersMask.swift in Sources */,
+				C00A5D162D55ECF20064FB3A /* TokenThemeResolver.swift in Sources */,
+				C00A5D172D55ECF20064FB3A /* TokenThemeUnit.swift in Sources */,
+				C00A5D182D55ECF20064FB3A /* TokenThemeScheme.swift in Sources */,
+				C00A5D192D55ECF20064FB3A /* TokenThemeStorage.swift in Sources */,
+				C00A5D1A2D55ECF20064FB3A /* DefaultTokenThemeStorage.swift in Sources */,
+				C00A5D1B2D55ECF20064FB3A /* TokenTheme.swift in Sources */,
+				C00A5D1C2D55ECF20064FB3A /* TokenThemeManager.swift in Sources */,
+				C00A5D1D2D55ECF20064FB3A /* DefaultTokenThemeResolver.swift in Sources */,
+				C00A5D1E2D55ECF20064FB3A /* TokenThemeKey.swift in Sources */,
+				C00A5D1F2D55ECF20064FB3A /* TokenThemeBody.swift in Sources */,
 				C0310C4F2B04BB4800BCA3AC /* DecorableByStrikethrough.swift in Sources */,
 				C05CD21B2B093732005F5499 /* BackgroundColorModifier.swift in Sources */,
 				C0310C652B04BB4800BCA3AC /* ShadowToken.swift in Sources */,
@@ -2872,7 +2867,6 @@
 				C093055C2B0B807200F6F13D /* TypographyStrokeValue.swift in Sources */,
 				C09305692B0B80C900F6F13D /* CALayer+MaskLayer.swift in Sources */,
 				C093050F2B0B6E2E00F6F13D /* TokenViewProperties+UIImageView.swift in Sources */,
-				C09305852B0B908C00F6F13D /* TokenThemeKey.swift in Sources */,
 				C09305562B0B806400F6F13D /* StrokeType.swift in Sources */,
 				C04843BD2B0B429D002DF0CA /* AlphaDecorator.swift in Sources */,
 				C0081DBA2BC82AD100BE7293 /* UICollectionView+Extensions.swift in Sources */,
@@ -2931,7 +2925,6 @@
 				C09305222B0B78AB00F6F13D /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C04843DC2B0B42E9002DF0CA /* DecorableByParagraphFirstLineIndent.swift in Sources */,
 				C09305572B0B806400F6F13D /* StrokeValue.swift in Sources */,
-				C09305832B0B908C00F6F13D /* TokenThemeScheme.swift in Sources */,
 				C0081D892BC82A2800BE7293 /* FallbackComponent.swift in Sources */,
 				C093053D2B0B804100F6F13D /* NSTextAlignment+TokenTraitProvider.swift in Sources */,
 				C04843C12B0B42A6002DF0CA /* ColorDecorator.swift in Sources */,
@@ -2952,7 +2945,6 @@
 				C09305492B0B805000F6F13D /* ImageValue.swift in Sources */,
 				C04843EF2B0B4313002DF0CA /* TokenShapedModifier.swift in Sources */,
 				C0F2E9BD2C29C0CE0047AAE4 /* FontSizeDecorator.swift in Sources */,
-				C09305892B0B909000F6F13D /* DefaultTokenThemeStorage.swift in Sources */,
 				C0081D8F2BC82A2F00BE7293 /* ComponentFrame.swift in Sources */,
 				C0081DC72BC82B0900BE7293 /* ItemPath.swift in Sources */,
 				C09305762B0B817500F6F13D /* TokenView.swift in Sources */,
@@ -2981,8 +2973,6 @@
 				C04843C62B0B42B2002DF0CA /* DecorableByFontScale.swift in Sources */,
 				C04843C52B0B42AD002DF0CA /* DecorableByDuration.swift in Sources */,
 				C09305972B0BA55700F6F13D /* TokenViewCustomBinding.swift in Sources */,
-				C09305882B0B908C00F6F13D /* TokenThemeUnit.swift in Sources */,
-				C093058A2B0B909000F6F13D /* TokenThemeStorage.swift in Sources */,
 				C04843F02B0B4313002DF0CA /* TokenViewModifier.swift in Sources */,
 				C09305672B0B80C400F6F13D /* CALayer+BackLayer.swift in Sources */,
 				C093058F2B0B90BD00F6F13D /* TokenTrait.swift in Sources */,
@@ -3019,11 +3009,9 @@
 				C04843D82B0B42E1002DF0CA /* OpacityDecorator.swift in Sources */,
 				C04843FC2B0B4317002DF0CA /* BackgroundColorModifier.swift in Sources */,
 				C0EEA45C2C6AD80A0097F0C3 /* AlignmentDecorator+TextDecorator.swift in Sources */,
-				C093058C2B0B909400F6F13D /* DefaultTokenThemeResolver.swift in Sources */,
 				C09305432B0B804600F6F13D /* FontValue.swift in Sources */,
 				C09305632B0B809600F6F13D /* TokenShapeLayer.swift in Sources */,
 				C04843D42B0B42CE002DF0CA /* DecorableByMultiplication.swift in Sources */,
-				C09305862B0B908C00F6F13D /* TokenTheme.swift in Sources */,
 				C0081DAB2BC82ABC00BE7293 /* UICollectionView+UpdateData.swift in Sources */,
 				C09305472B0B805000F6F13D /* ImageSource.swift in Sources */,
 				C0081D982BC82A3900BE7293 /* ViewNamespace.swift in Sources */,
@@ -3031,6 +3019,16 @@
 				C09305142B0B73E900F6F13D /* TokenViewProperties+UINavigationBar.swift in Sources */,
 				C04843E02B0B42F1002DF0CA /* ParagraphSpacingDecorator.swift in Sources */,
 				C04843BC2B0B429D002DF0CA /* DecorableByAlpha.swift in Sources */,
+				C00A5D0C2D55ECF20064FB3A /* TokenThemeResolver.swift in Sources */,
+				C00A5D0D2D55ECF20064FB3A /* TokenThemeUnit.swift in Sources */,
+				C00A5D0E2D55ECF20064FB3A /* TokenThemeScheme.swift in Sources */,
+				C00A5D0F2D55ECF20064FB3A /* TokenThemeStorage.swift in Sources */,
+				C00A5D102D55ECF20064FB3A /* DefaultTokenThemeStorage.swift in Sources */,
+				C00A5D112D55ECF20064FB3A /* TokenTheme.swift in Sources */,
+				C00A5D122D55ECF20064FB3A /* TokenThemeManager.swift in Sources */,
+				C00A5D132D55ECF20064FB3A /* DefaultTokenThemeResolver.swift in Sources */,
+				C00A5D142D55ECF20064FB3A /* TokenThemeKey.swift in Sources */,
+				C00A5D152D55ECF20064FB3A /* TokenThemeBody.swift in Sources */,
 				C09305722B0B80F300F6F13D /* ImageValue+View.swift in Sources */,
 				C04843F32B0B4317002DF0CA /* OpacityModifier.swift in Sources */,
 				C0081DB12BC82AC500BE7293 /* CGRect+Extensions.swift in Sources */,
@@ -3039,14 +3037,11 @@
 				C04843C22B0B42A9002DF0CA /* DecorableByDivision.swift in Sources */,
 				FD4F17FB2CC8FEB4005636A4 /* FallbackManualComponent.swift in Sources */,
 				C0081DB02BC82AC500BE7293 /* CGSize+Extensions.swift in Sources */,
-				C09305872B0B908C00F6F13D /* TokenThemeManager.swift in Sources */,
-				C09305842B0B908C00F6F13D /* TokenThemeBody.swift in Sources */,
 				C0081DA42BC82AB000BE7293 /* DifferenceOccurrence.swift in Sources */,
 				C0081DAF2BC82AC500BE7293 /* CGPoint+Extensions.swift in Sources */,
 				C04843E42B0B42FA002DF0CA /* ResizingModeDecorator.swift in Sources */,
 				C09305542B0B805D00F6F13D /* ShapeToken.swift in Sources */,
 				C0081DBC2BC82AD100BE7293 /* NSLayoutConstraint+Extensions.swift in Sources */,
-				C0081D742BC82A1600BE7293 /* ChangeableWrapper.swift in Sources */,
 				C09305252B0B7CE000F6F13D /* TokenViewProperties+UIView.swift in Sources */,
 				C0081D932BC82A3400BE7293 /* ComponentSizing.swift in Sources */,
 				C0358FD62B0AA24A000E599A /* TokenViewProperties.swift in Sources */,
@@ -3057,7 +3052,6 @@
 				C09305302B0B803300F6F13D /* CornersMask.swift in Sources */,
 				C04843D72B0B42DC002DF0CA /* NegationDecorator.swift in Sources */,
 				C093056B2B0B80DC00F6F13D /* TokenThemeView.swift in Sources */,
-				C093058B2B0B909400F6F13D /* TokenThemeResolver.swift in Sources */,
 				C0081DC32BC82B0400BE7293 /* TraitsObserver.swift in Sources */,
 				C09305922B0B90DA00F6F13D /* CALayer+TokenView.swift in Sources */,
 			);
