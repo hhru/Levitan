@@ -219,66 +219,6 @@
 		C0358FD72B0AA24A000E599A /* TokenViewProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FCF2B0A7904000E599A /* TokenViewProperty.swift */; };
 		C0358FDA2B0AA401000E599A /* TokenViewPropertySubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FD92B0AA401000E599A /* TokenViewPropertySubscript.swift */; };
 		C0358FDD2B0AA981000E599A /* TokenViewPropertyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FDC2B0AA981000E599A /* TokenViewPropertyKey.swift */; };
-		C0443BE42D560F6A003BDFE8 /* TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC62D560F6A003BDFE8 /* TextDecorator.swift */; };
-		C0443BE52D560F6A003BDFE8 /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD02D560F6A003BDFE8 /* TokenViewProperties+UITextField+Text.swift */; };
-		C0443BE62D560F6A003BDFE8 /* TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BDC2D560F6A003BDFE8 /* TextPart.swift */; };
-		C0443BE72D560F6A003BDFE8 /* AnyTextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BDB2D560F6A003BDFE8 /* AnyTextPart.swift */; };
-		C0443BE82D560F6A003BDFE8 /* EnvironmentValues+TextDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC92D560F6A003BDFE8 /* EnvironmentValues+TextDecoration.swift */; };
-		C0443BE92D560F6A003BDFE8 /* String+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD82D560F6A003BDFE8 /* String+TextPart.swift */; };
-		C0443BEA2D560F6A003BDFE8 /* AlignmentDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BBE2D560F6A003BDFE8 /* AlignmentDecorator+TextDecorator.swift */; };
-		C0443BEB2D560F6A003BDFE8 /* EnvironmentValues+TextPartHovered.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BCA2D560F6A003BDFE8 /* EnvironmentValues+TextPartHovered.swift */; };
-		C0443BEC2D560F6A003BDFE8 /* TextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BE02D560F6A003BDFE8 /* TextBuilder.swift */; };
-		C0443BED2D560F6A003BDFE8 /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BDF2D560F6A003BDFE8 /* TextAnimation.swift */; };
-		C0443BEE2D560F6A003BDFE8 /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD62D560F6A003BDFE8 /* ImageToken+TextPart.swift */; };
-		C0443BEF2D560F6A003BDFE8 /* TokenViewProperties+UILabel+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BCF2D560F6A003BDFE8 /* TokenViewProperties+UILabel+Text.swift */; };
-		C0443BF02D560F6A003BDFE8 /* EnvironmentValues+TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC82D560F6A003BDFE8 /* EnvironmentValues+TextAnimation.swift */; };
-		C0443BF12D560F6A003BDFE8 /* AnyTextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC52D560F6A003BDFE8 /* AnyTextDecorator.swift */; };
-		C0443BF22D560F6A003BDFE8 /* TextOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD32D560F6A003BDFE8 /* TextOperation.swift */; };
-		C0443BF32D560F6A003BDFE8 /* TextOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD42D560F6A003BDFE8 /* TextOperationQueue.swift */; };
-		C0443BF42D560F6A003BDFE8 /* StrikethroughDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC12D560F6A003BDFE8 /* StrikethroughDecorator+TextDecorator.swift */; };
-		C0443BF52D560F6A003BDFE8 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BDE2D560F6A003BDFE8 /* Text.swift */; };
-		C0443BF62D560F6A003BDFE8 /* BackgroundColorDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BBF2D560F6A003BDFE8 /* BackgroundColorDecorator+TextDecorator.swift */; };
-		C0443BF72D560F6A003BDFE8 /* ImageValue+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD72D560F6A003BDFE8 /* ImageValue+TextPart.swift */; };
-		C0443BF82D560F6A003BDFE8 /* TokenViewProperties+UIButton+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BCE2D560F6A003BDFE8 /* TokenViewProperties+UIButton+Text.swift */; };
-		C0443BF92D560F6A003BDFE8 /* UIImage+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD92D560F6A003BDFE8 /* UIImage+TextPart.swift */; };
-		C0443BFA2D560F6A003BDFE8 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BE22D560F6A003BDFE8 /* TextView.swift */; };
-		C0443BFB2D560F6A003BDFE8 /* TextInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BE12D560F6A003BDFE8 /* TextInterpolation.swift */; };
-		C0443BFC2D560F6A003BDFE8 /* StrokeDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC22D560F6A003BDFE8 /* StrokeDecorator+TextDecorator.swift */; };
-		C0443BFD2D560F6A003BDFE8 /* EnvironmentValues+TextPartPressed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BCB2D560F6A003BDFE8 /* EnvironmentValues+TextPartPressed.swift */; };
-		C0443BFE2D560F6A003BDFE8 /* TokenViewProperties+UITextView+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD12D560F6A003BDFE8 /* TokenViewProperties+UITextView+Text.swift */; };
-		C0443BFF2D560F6A003BDFE8 /* ForegroundColorDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC02D560F6A003BDFE8 /* ForegroundColorDecorator+TextDecorator.swift */; };
-		C0443C002D560F6A003BDFE8 /* EnvironmentValues+TextTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BCC2D560F6A003BDFE8 /* EnvironmentValues+TextTypography.swift */; };
-		C0443C012D560F6A003BDFE8 /* UnderlineDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC32D560F6A003BDFE8 /* UnderlineDecorator+TextDecorator.swift */; };
-		C0443C022D560F6A003BDFE8 /* TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC62D560F6A003BDFE8 /* TextDecorator.swift */; };
-		C0443C032D560F6A003BDFE8 /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD02D560F6A003BDFE8 /* TokenViewProperties+UITextField+Text.swift */; };
-		C0443C042D560F6A003BDFE8 /* TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BDC2D560F6A003BDFE8 /* TextPart.swift */; };
-		C0443C052D560F6A003BDFE8 /* AnyTextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BDB2D560F6A003BDFE8 /* AnyTextPart.swift */; };
-		C0443C062D560F6A003BDFE8 /* EnvironmentValues+TextDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC92D560F6A003BDFE8 /* EnvironmentValues+TextDecoration.swift */; };
-		C0443C072D560F6A003BDFE8 /* String+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD82D560F6A003BDFE8 /* String+TextPart.swift */; };
-		C0443C082D560F6A003BDFE8 /* AlignmentDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BBE2D560F6A003BDFE8 /* AlignmentDecorator+TextDecorator.swift */; };
-		C0443C092D560F6A003BDFE8 /* EnvironmentValues+TextPartHovered.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BCA2D560F6A003BDFE8 /* EnvironmentValues+TextPartHovered.swift */; };
-		C0443C0A2D560F6A003BDFE8 /* TextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BE02D560F6A003BDFE8 /* TextBuilder.swift */; };
-		C0443C0B2D560F6A003BDFE8 /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BDF2D560F6A003BDFE8 /* TextAnimation.swift */; };
-		C0443C0C2D560F6A003BDFE8 /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD62D560F6A003BDFE8 /* ImageToken+TextPart.swift */; };
-		C0443C0D2D560F6A003BDFE8 /* TokenViewProperties+UILabel+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BCF2D560F6A003BDFE8 /* TokenViewProperties+UILabel+Text.swift */; };
-		C0443C0E2D560F6A003BDFE8 /* EnvironmentValues+TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC82D560F6A003BDFE8 /* EnvironmentValues+TextAnimation.swift */; };
-		C0443C0F2D560F6A003BDFE8 /* AnyTextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC52D560F6A003BDFE8 /* AnyTextDecorator.swift */; };
-		C0443C102D560F6A003BDFE8 /* TextOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD32D560F6A003BDFE8 /* TextOperation.swift */; };
-		C0443C112D560F6A003BDFE8 /* TextOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD42D560F6A003BDFE8 /* TextOperationQueue.swift */; };
-		C0443C122D560F6A003BDFE8 /* StrikethroughDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC12D560F6A003BDFE8 /* StrikethroughDecorator+TextDecorator.swift */; };
-		C0443C132D560F6A003BDFE8 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BDE2D560F6A003BDFE8 /* Text.swift */; };
-		C0443C142D560F6A003BDFE8 /* BackgroundColorDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BBF2D560F6A003BDFE8 /* BackgroundColorDecorator+TextDecorator.swift */; };
-		C0443C152D560F6A003BDFE8 /* ImageValue+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD72D560F6A003BDFE8 /* ImageValue+TextPart.swift */; };
-		C0443C162D560F6A003BDFE8 /* TokenViewProperties+UIButton+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BCE2D560F6A003BDFE8 /* TokenViewProperties+UIButton+Text.swift */; };
-		C0443C172D560F6A003BDFE8 /* UIImage+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD92D560F6A003BDFE8 /* UIImage+TextPart.swift */; };
-		C0443C182D560F6A003BDFE8 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BE22D560F6A003BDFE8 /* TextView.swift */; };
-		C0443C192D560F6A003BDFE8 /* TextInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BE12D560F6A003BDFE8 /* TextInterpolation.swift */; };
-		C0443C1A2D560F6A003BDFE8 /* StrokeDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC22D560F6A003BDFE8 /* StrokeDecorator+TextDecorator.swift */; };
-		C0443C1B2D560F6A003BDFE8 /* EnvironmentValues+TextPartPressed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BCB2D560F6A003BDFE8 /* EnvironmentValues+TextPartPressed.swift */; };
-		C0443C1C2D560F6A003BDFE8 /* TokenViewProperties+UITextView+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BD12D560F6A003BDFE8 /* TokenViewProperties+UITextView+Text.swift */; };
-		C0443C1D2D560F6A003BDFE8 /* ForegroundColorDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC02D560F6A003BDFE8 /* ForegroundColorDecorator+TextDecorator.swift */; };
-		C0443C1E2D560F6A003BDFE8 /* EnvironmentValues+TextTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BCC2D560F6A003BDFE8 /* EnvironmentValues+TextTypography.swift */; };
-		C0443C1F2D560F6A003BDFE8 /* UnderlineDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0443BC32D560F6A003BDFE8 /* UnderlineDecorator+TextDecorator.swift */; };
 		C04843B82B0B4292002DF0CA /* TokenViewPropertyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FCB2B0A6BDE000E599A /* TokenViewPropertyBinding.swift */; };
 		C04843B92B0B4292002DF0CA /* TokenViewBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1892B093732005F5499 /* TokenViewBinding.swift */; };
 		C04843BA2B0B4298002DF0CA /* AlignmentDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0310B5E2B04BB4800BCA3AC /* AlignmentDecorator.swift */; };
@@ -353,6 +293,66 @@
 		C04844012B0B431F002DF0CA /* EnvironmentValues+TokenThemeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1CD2B093732005F5499 /* EnvironmentValues+TokenThemeKey.swift */; };
 		C04844032B0B433F002DF0CA /* TokenViewPropertySubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FD92B0AA401000E599A /* TokenViewPropertySubscript.swift */; };
 		C04844042B0B433F002DF0CA /* TokenViewPropertyKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FDC2B0AA981000E599A /* TokenViewPropertyKey.swift */; };
+		C04DB76E2D5A934E00159242 /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7602D5A934E00159242 /* ImageToken+TextPart.swift */; };
+		C04DB76F2D5A934E00159242 /* TextOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75D2D5A934E00159242 /* TextOperation.swift */; };
+		C04DB7702D5A934E00159242 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76C2D5A934E00159242 /* TextView.swift */; };
+		C04DB7712D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7542D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift */; };
+		C04DB7722D5A934E00159242 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7682D5A934E00159242 /* Text.swift */; };
+		C04DB7732D5A934E00159242 /* TextInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76B2D5A934E00159242 /* TextInterpolation.swift */; };
+		C04DB7742D5A934E00159242 /* String+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7622D5A934E00159242 /* String+TextPart.swift */; };
+		C04DB7752D5A934E00159242 /* UIImage+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7632D5A934E00159242 /* UIImage+TextPart.swift */; };
+		C04DB7762D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7592D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift */; };
+		C04DB7772D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7582D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift */; };
+		C04DB7782D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7552D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift */; };
+		C04DB7792D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75A2D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift */; };
+		C04DB77A2D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75B2D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift */; };
+		C04DB77B2D5A934E00159242 /* TextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76A2D5A934E00159242 /* TextBuilder.swift */; };
+		C04DB77C2D5A934E00159242 /* AnyTextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB74F2D5A934E00159242 /* AnyTextDecorator.swift */; };
+		C04DB77D2D5A934E00159242 /* AlignmentDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7482D5A934E00159242 /* AlignmentDecorator+TextDecorator.swift */; };
+		C04DB77E2D5A934E00159242 /* UnderlineDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB74D2D5A934E00159242 /* UnderlineDecorator+TextDecorator.swift */; };
+		C04DB77F2D5A934E00159242 /* ImageValue+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7612D5A934E00159242 /* ImageValue+TextPart.swift */; };
+		C04DB7802D5A934E00159242 /* ForegroundColorDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB74A2D5A934E00159242 /* ForegroundColorDecorator+TextDecorator.swift */; };
+		C04DB7812D5A934E00159242 /* AnyTextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7652D5A934E00159242 /* AnyTextPart.swift */; };
+		C04DB7822D5A934E00159242 /* TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7662D5A934E00159242 /* TextPart.swift */; };
+		C04DB7832D5A934E00159242 /* BackgroundColorDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7492D5A934E00159242 /* BackgroundColorDecorator+TextDecorator.swift */; };
+		C04DB7842D5A934E00159242 /* TextOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75E2D5A934E00159242 /* TextOperationQueue.swift */; };
+		C04DB7852D5A934E00159242 /* EnvironmentValues+TextTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7562D5A934E00159242 /* EnvironmentValues+TextTypography.swift */; };
+		C04DB7862D5A934E00159242 /* EnvironmentValues+TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7522D5A934E00159242 /* EnvironmentValues+TextAnimation.swift */; };
+		C04DB7872D5A934E00159242 /* StrokeDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB74C2D5A934E00159242 /* StrokeDecorator+TextDecorator.swift */; };
+		C04DB7882D5A934E00159242 /* TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7502D5A934E00159242 /* TextDecorator.swift */; };
+		C04DB7892D5A934E00159242 /* EnvironmentValues+TextDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7532D5A934E00159242 /* EnvironmentValues+TextDecoration.swift */; };
+		C04DB78A2D5A934E00159242 /* StrikethroughDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB74B2D5A934E00159242 /* StrikethroughDecorator+TextDecorator.swift */; };
+		C04DB78B2D5A934E00159242 /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7692D5A934E00159242 /* TextAnimation.swift */; };
+		C04DB78C2D5A934E00159242 /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7602D5A934E00159242 /* ImageToken+TextPart.swift */; };
+		C04DB78D2D5A934E00159242 /* TextOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75D2D5A934E00159242 /* TextOperation.swift */; };
+		C04DB78E2D5A934E00159242 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76C2D5A934E00159242 /* TextView.swift */; };
+		C04DB78F2D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7542D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift */; };
+		C04DB7902D5A934E00159242 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7682D5A934E00159242 /* Text.swift */; };
+		C04DB7912D5A934E00159242 /* TextInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76B2D5A934E00159242 /* TextInterpolation.swift */; };
+		C04DB7922D5A934E00159242 /* String+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7622D5A934E00159242 /* String+TextPart.swift */; };
+		C04DB7932D5A934E00159242 /* UIImage+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7632D5A934E00159242 /* UIImage+TextPart.swift */; };
+		C04DB7942D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7592D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift */; };
+		C04DB7952D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7582D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift */; };
+		C04DB7962D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7552D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift */; };
+		C04DB7972D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75A2D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift */; };
+		C04DB7982D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75B2D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift */; };
+		C04DB7992D5A934E00159242 /* TextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76A2D5A934E00159242 /* TextBuilder.swift */; };
+		C04DB79A2D5A934E00159242 /* AnyTextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB74F2D5A934E00159242 /* AnyTextDecorator.swift */; };
+		C04DB79B2D5A934E00159242 /* AlignmentDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7482D5A934E00159242 /* AlignmentDecorator+TextDecorator.swift */; };
+		C04DB79C2D5A934E00159242 /* UnderlineDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB74D2D5A934E00159242 /* UnderlineDecorator+TextDecorator.swift */; };
+		C04DB79D2D5A934E00159242 /* ImageValue+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7612D5A934E00159242 /* ImageValue+TextPart.swift */; };
+		C04DB79E2D5A934E00159242 /* ForegroundColorDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB74A2D5A934E00159242 /* ForegroundColorDecorator+TextDecorator.swift */; };
+		C04DB79F2D5A934E00159242 /* AnyTextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7652D5A934E00159242 /* AnyTextPart.swift */; };
+		C04DB7A02D5A934E00159242 /* TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7662D5A934E00159242 /* TextPart.swift */; };
+		C04DB7A12D5A934E00159242 /* BackgroundColorDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7492D5A934E00159242 /* BackgroundColorDecorator+TextDecorator.swift */; };
+		C04DB7A22D5A934E00159242 /* TextOperationQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75E2D5A934E00159242 /* TextOperationQueue.swift */; };
+		C04DB7A32D5A934E00159242 /* EnvironmentValues+TextTypography.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7562D5A934E00159242 /* EnvironmentValues+TextTypography.swift */; };
+		C04DB7A42D5A934E00159242 /* EnvironmentValues+TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7522D5A934E00159242 /* EnvironmentValues+TextAnimation.swift */; };
+		C04DB7A52D5A934E00159242 /* StrokeDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB74C2D5A934E00159242 /* StrokeDecorator+TextDecorator.swift */; };
+		C04DB7A62D5A934E00159242 /* TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7502D5A934E00159242 /* TextDecorator.swift */; };
+		C04DB7A72D5A934E00159242 /* EnvironmentValues+TextDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7532D5A934E00159242 /* EnvironmentValues+TextDecoration.swift */; };
+		C04DB7A82D5A934E00159242 /* StrikethroughDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB74B2D5A934E00159242 /* StrikethroughDecorator+TextDecorator.swift */; };
+		C04DB7A92D5A934E00159242 /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7692D5A934E00159242 /* TextAnimation.swift */; };
 		C057F01823CB8EEB00C2D895 /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C057F00E23CB8EEB00C2D895 /* Levitan.framework */; };
 		C05CD1E62B093732005F5499 /* TokenViewPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1862B093732005F5499 /* TokenViewPayload.swift */; };
 		C05CD1E82B093732005F5499 /* TokenViewBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1892B093732005F5499 /* TokenViewBinding.swift */; };
@@ -781,36 +781,36 @@
 		C0358FCF2B0A7904000E599A /* TokenViewProperty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewProperty.swift; sourceTree = "<group>"; };
 		C0358FD92B0AA401000E599A /* TokenViewPropertySubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewPropertySubscript.swift; sourceTree = "<group>"; };
 		C0358FDC2B0AA981000E599A /* TokenViewPropertyKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewPropertyKey.swift; sourceTree = "<group>"; };
-		C0443BBE2D560F6A003BDFE8 /* AlignmentDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlignmentDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
-		C0443BBF2D560F6A003BDFE8 /* BackgroundColorDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BackgroundColorDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
-		C0443BC02D560F6A003BDFE8 /* ForegroundColorDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForegroundColorDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
-		C0443BC12D560F6A003BDFE8 /* StrikethroughDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StrikethroughDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
-		C0443BC22D560F6A003BDFE8 /* StrokeDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StrokeDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
-		C0443BC32D560F6A003BDFE8 /* UnderlineDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnderlineDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
-		C0443BC52D560F6A003BDFE8 /* AnyTextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTextDecorator.swift; sourceTree = "<group>"; };
-		C0443BC62D560F6A003BDFE8 /* TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDecorator.swift; sourceTree = "<group>"; };
-		C0443BC82D560F6A003BDFE8 /* EnvironmentValues+TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextAnimation.swift"; sourceTree = "<group>"; };
-		C0443BC92D560F6A003BDFE8 /* EnvironmentValues+TextDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextDecoration.swift"; sourceTree = "<group>"; };
-		C0443BCA2D560F6A003BDFE8 /* EnvironmentValues+TextPartHovered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextPartHovered.swift"; sourceTree = "<group>"; };
-		C0443BCB2D560F6A003BDFE8 /* EnvironmentValues+TextPartPressed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextPartPressed.swift"; sourceTree = "<group>"; };
-		C0443BCC2D560F6A003BDFE8 /* EnvironmentValues+TextTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextTypography.swift"; sourceTree = "<group>"; };
-		C0443BCE2D560F6A003BDFE8 /* TokenViewProperties+UIButton+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UIButton+Text.swift"; sourceTree = "<group>"; };
-		C0443BCF2D560F6A003BDFE8 /* TokenViewProperties+UILabel+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UILabel+Text.swift"; sourceTree = "<group>"; };
-		C0443BD02D560F6A003BDFE8 /* TokenViewProperties+UITextField+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UITextField+Text.swift"; sourceTree = "<group>"; };
-		C0443BD12D560F6A003BDFE8 /* TokenViewProperties+UITextView+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UITextView+Text.swift"; sourceTree = "<group>"; };
-		C0443BD32D560F6A003BDFE8 /* TextOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperation.swift; sourceTree = "<group>"; };
-		C0443BD42D560F6A003BDFE8 /* TextOperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationQueue.swift; sourceTree = "<group>"; };
-		C0443BD62D560F6A003BDFE8 /* ImageToken+TextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageToken+TextPart.swift"; sourceTree = "<group>"; };
-		C0443BD72D560F6A003BDFE8 /* ImageValue+TextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageValue+TextPart.swift"; sourceTree = "<group>"; };
-		C0443BD82D560F6A003BDFE8 /* String+TextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TextPart.swift"; sourceTree = "<group>"; };
-		C0443BD92D560F6A003BDFE8 /* UIImage+TextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TextPart.swift"; sourceTree = "<group>"; };
-		C0443BDB2D560F6A003BDFE8 /* AnyTextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTextPart.swift; sourceTree = "<group>"; };
-		C0443BDC2D560F6A003BDFE8 /* TextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPart.swift; sourceTree = "<group>"; };
-		C0443BDE2D560F6A003BDFE8 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
-		C0443BDF2D560F6A003BDFE8 /* TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
-		C0443BE02D560F6A003BDFE8 /* TextBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBuilder.swift; sourceTree = "<group>"; };
-		C0443BE12D560F6A003BDFE8 /* TextInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInterpolation.swift; sourceTree = "<group>"; };
-		C0443BE22D560F6A003BDFE8 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		C04DB7482D5A934E00159242 /* AlignmentDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlignmentDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
+		C04DB7492D5A934E00159242 /* BackgroundColorDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BackgroundColorDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
+		C04DB74A2D5A934E00159242 /* ForegroundColorDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForegroundColorDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
+		C04DB74B2D5A934E00159242 /* StrikethroughDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StrikethroughDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
+		C04DB74C2D5A934E00159242 /* StrokeDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StrokeDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
+		C04DB74D2D5A934E00159242 /* UnderlineDecorator+TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnderlineDecorator+TextDecorator.swift"; sourceTree = "<group>"; };
+		C04DB74F2D5A934E00159242 /* AnyTextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTextDecorator.swift; sourceTree = "<group>"; };
+		C04DB7502D5A934E00159242 /* TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDecorator.swift; sourceTree = "<group>"; };
+		C04DB7522D5A934E00159242 /* EnvironmentValues+TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextAnimation.swift"; sourceTree = "<group>"; };
+		C04DB7532D5A934E00159242 /* EnvironmentValues+TextDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextDecoration.swift"; sourceTree = "<group>"; };
+		C04DB7542D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextPartHovered.swift"; sourceTree = "<group>"; };
+		C04DB7552D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextPartPressed.swift"; sourceTree = "<group>"; };
+		C04DB7562D5A934E00159242 /* EnvironmentValues+TextTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextTypography.swift"; sourceTree = "<group>"; };
+		C04DB7582D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UIButton+Text.swift"; sourceTree = "<group>"; };
+		C04DB7592D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UILabel+Text.swift"; sourceTree = "<group>"; };
+		C04DB75A2D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UITextField+Text.swift"; sourceTree = "<group>"; };
+		C04DB75B2D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UITextView+Text.swift"; sourceTree = "<group>"; };
+		C04DB75D2D5A934E00159242 /* TextOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperation.swift; sourceTree = "<group>"; };
+		C04DB75E2D5A934E00159242 /* TextOperationQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextOperationQueue.swift; sourceTree = "<group>"; };
+		C04DB7602D5A934E00159242 /* ImageToken+TextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageToken+TextPart.swift"; sourceTree = "<group>"; };
+		C04DB7612D5A934E00159242 /* ImageValue+TextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageValue+TextPart.swift"; sourceTree = "<group>"; };
+		C04DB7622D5A934E00159242 /* String+TextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+TextPart.swift"; sourceTree = "<group>"; };
+		C04DB7632D5A934E00159242 /* UIImage+TextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+TextPart.swift"; sourceTree = "<group>"; };
+		C04DB7652D5A934E00159242 /* AnyTextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyTextPart.swift; sourceTree = "<group>"; };
+		C04DB7662D5A934E00159242 /* TextPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPart.swift; sourceTree = "<group>"; };
+		C04DB7682D5A934E00159242 /* Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Text.swift; sourceTree = "<group>"; };
+		C04DB7692D5A934E00159242 /* TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
+		C04DB76A2D5A934E00159242 /* TextBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBuilder.swift; sourceTree = "<group>"; };
+		C04DB76B2D5A934E00159242 /* TextInterpolation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInterpolation.swift; sourceTree = "<group>"; };
+		C04DB76C2D5A934E00159242 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		C057F00E23CB8EEB00C2D895 /* Levitan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Levitan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C057F01223CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C057F01723CB8EEB00C2D895 /* Levitan Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Levitan Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1554,99 +1554,6 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
-		C0443BC42D560F6A003BDFE8 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C0443BBE2D560F6A003BDFE8 /* AlignmentDecorator+TextDecorator.swift */,
-				C0443BBF2D560F6A003BDFE8 /* BackgroundColorDecorator+TextDecorator.swift */,
-				C0443BC02D560F6A003BDFE8 /* ForegroundColorDecorator+TextDecorator.swift */,
-				C0443BC12D560F6A003BDFE8 /* StrikethroughDecorator+TextDecorator.swift */,
-				C0443BC22D560F6A003BDFE8 /* StrokeDecorator+TextDecorator.swift */,
-				C0443BC32D560F6A003BDFE8 /* UnderlineDecorator+TextDecorator.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		C0443BC72D560F6A003BDFE8 /* Decorator */ = {
-			isa = PBXGroup;
-			children = (
-				C0443BC42D560F6A003BDFE8 /* Extensions */,
-				C0443BC52D560F6A003BDFE8 /* AnyTextDecorator.swift */,
-				C0443BC62D560F6A003BDFE8 /* TextDecorator.swift */,
-			);
-			path = Decorator;
-			sourceTree = "<group>";
-		};
-		C0443BCD2D560F6A003BDFE8 /* Environment */ = {
-			isa = PBXGroup;
-			children = (
-				C0443BC82D560F6A003BDFE8 /* EnvironmentValues+TextAnimation.swift */,
-				C0443BC92D560F6A003BDFE8 /* EnvironmentValues+TextDecoration.swift */,
-				C0443BCA2D560F6A003BDFE8 /* EnvironmentValues+TextPartHovered.swift */,
-				C0443BCB2D560F6A003BDFE8 /* EnvironmentValues+TextPartPressed.swift */,
-				C0443BCC2D560F6A003BDFE8 /* EnvironmentValues+TextTypography.swift */,
-			);
-			path = Environment;
-			sourceTree = "<group>";
-		};
-		C0443BD22D560F6A003BDFE8 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C0443BCE2D560F6A003BDFE8 /* TokenViewProperties+UIButton+Text.swift */,
-				C0443BCF2D560F6A003BDFE8 /* TokenViewProperties+UILabel+Text.swift */,
-				C0443BD02D560F6A003BDFE8 /* TokenViewProperties+UITextField+Text.swift */,
-				C0443BD12D560F6A003BDFE8 /* TokenViewProperties+UITextView+Text.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		C0443BD52D560F6A003BDFE8 /* Operation */ = {
-			isa = PBXGroup;
-			children = (
-				C0443BD32D560F6A003BDFE8 /* TextOperation.swift */,
-				C0443BD42D560F6A003BDFE8 /* TextOperationQueue.swift */,
-			);
-			path = Operation;
-			sourceTree = "<group>";
-		};
-		C0443BDA2D560F6A003BDFE8 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C0443BD62D560F6A003BDFE8 /* ImageToken+TextPart.swift */,
-				C0443BD72D560F6A003BDFE8 /* ImageValue+TextPart.swift */,
-				C0443BD82D560F6A003BDFE8 /* String+TextPart.swift */,
-				C0443BD92D560F6A003BDFE8 /* UIImage+TextPart.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		C0443BDD2D560F6A003BDFE8 /* Part */ = {
-			isa = PBXGroup;
-			children = (
-				C0443BDA2D560F6A003BDFE8 /* Extensions */,
-				C0443BDB2D560F6A003BDFE8 /* AnyTextPart.swift */,
-				C0443BDC2D560F6A003BDFE8 /* TextPart.swift */,
-			);
-			path = Part;
-			sourceTree = "<group>";
-		};
-		C0443BE32D560F6A003BDFE8 /* Text */ = {
-			isa = PBXGroup;
-			children = (
-				C0443BC72D560F6A003BDFE8 /* Decorator */,
-				C0443BCD2D560F6A003BDFE8 /* Environment */,
-				C0443BD22D560F6A003BDFE8 /* Extensions */,
-				C0443BD52D560F6A003BDFE8 /* Operation */,
-				C0443BDD2D560F6A003BDFE8 /* Part */,
-				C0443BDE2D560F6A003BDFE8 /* Text.swift */,
-				C0443BDF2D560F6A003BDFE8 /* TextAnimation.swift */,
-				C0443BE02D560F6A003BDFE8 /* TextBuilder.swift */,
-				C0443BE12D560F6A003BDFE8 /* TextInterpolation.swift */,
-				C0443BE22D560F6A003BDFE8 /* TextView.swift */,
-			);
-			path = Text;
-			sourceTree = "<group>";
-		};
 		C04844022B0B432C002DF0CA /* Internal */ = {
 			isa = PBXGroup;
 			children = (
@@ -1655,6 +1562,99 @@
 				C05CD1CF2B093732005F5499 /* StrokeShape.swift */,
 			);
 			path = Internal;
+			sourceTree = "<group>";
+		};
+		C04DB74E2D5A934E00159242 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C04DB7482D5A934E00159242 /* AlignmentDecorator+TextDecorator.swift */,
+				C04DB7492D5A934E00159242 /* BackgroundColorDecorator+TextDecorator.swift */,
+				C04DB74A2D5A934E00159242 /* ForegroundColorDecorator+TextDecorator.swift */,
+				C04DB74B2D5A934E00159242 /* StrikethroughDecorator+TextDecorator.swift */,
+				C04DB74C2D5A934E00159242 /* StrokeDecorator+TextDecorator.swift */,
+				C04DB74D2D5A934E00159242 /* UnderlineDecorator+TextDecorator.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C04DB7512D5A934E00159242 /* Decorator */ = {
+			isa = PBXGroup;
+			children = (
+				C04DB74E2D5A934E00159242 /* Extensions */,
+				C04DB74F2D5A934E00159242 /* AnyTextDecorator.swift */,
+				C04DB7502D5A934E00159242 /* TextDecorator.swift */,
+			);
+			path = Decorator;
+			sourceTree = "<group>";
+		};
+		C04DB7572D5A934E00159242 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				C04DB7522D5A934E00159242 /* EnvironmentValues+TextAnimation.swift */,
+				C04DB7532D5A934E00159242 /* EnvironmentValues+TextDecoration.swift */,
+				C04DB7542D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift */,
+				C04DB7552D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift */,
+				C04DB7562D5A934E00159242 /* EnvironmentValues+TextTypography.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		C04DB75C2D5A934E00159242 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C04DB7582D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift */,
+				C04DB7592D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift */,
+				C04DB75A2D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift */,
+				C04DB75B2D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C04DB75F2D5A934E00159242 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				C04DB75D2D5A934E00159242 /* TextOperation.swift */,
+				C04DB75E2D5A934E00159242 /* TextOperationQueue.swift */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		C04DB7642D5A934E00159242 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C04DB7602D5A934E00159242 /* ImageToken+TextPart.swift */,
+				C04DB7612D5A934E00159242 /* ImageValue+TextPart.swift */,
+				C04DB7622D5A934E00159242 /* String+TextPart.swift */,
+				C04DB7632D5A934E00159242 /* UIImage+TextPart.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C04DB7672D5A934E00159242 /* Part */ = {
+			isa = PBXGroup;
+			children = (
+				C04DB7642D5A934E00159242 /* Extensions */,
+				C04DB7652D5A934E00159242 /* AnyTextPart.swift */,
+				C04DB7662D5A934E00159242 /* TextPart.swift */,
+			);
+			path = Part;
+			sourceTree = "<group>";
+		};
+		C04DB76D2D5A934E00159242 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				C04DB7512D5A934E00159242 /* Decorator */,
+				C04DB7572D5A934E00159242 /* Environment */,
+				C04DB75C2D5A934E00159242 /* Extensions */,
+				C04DB75F2D5A934E00159242 /* Operation */,
+				C04DB7672D5A934E00159242 /* Part */,
+				C04DB7682D5A934E00159242 /* Text.swift */,
+				C04DB7692D5A934E00159242 /* TextAnimation.swift */,
+				C04DB76A2D5A934E00159242 /* TextBuilder.swift */,
+				C04DB76B2D5A934E00159242 /* TextInterpolation.swift */,
+				C04DB76C2D5A934E00159242 /* TextView.swift */,
+			);
+			path = Text;
 			sourceTree = "<group>";
 		};
 		C057F00423CB8EEB00C2D895 = {
@@ -1695,10 +1695,10 @@
 		C057F01023CB8EEB00C2D895 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C0443BE32D560F6A003BDFE8 /* Text */,
 				C0081D692BC82A1600BE7293 /* Changeable */,
 				C0E97A322BC6DF5200CF37A7 /* Component */,
 				C0E97A1F2BC6DF4100CF37A7 /* Misc */,
+				C04DB76D2D5A934E00159242 /* Text */,
 				C0310B2E2B04BB4800BCA3AC /* Token */,
 				C0D403CF2B030840009306EB /* Tools */,
 				C057F01223CB8EEB00C2D895 /* Info.plist */,
@@ -2610,6 +2610,36 @@
 				C0310C362B04BB4800BCA3AC /* ParagraphFirstLineIndentDecorator.swift in Sources */,
 				C09305212B0B78AA00F6F13D /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C0E97A022BC6DDCC00CF37A7 /* DifferenceIndicesReference.swift in Sources */,
+				C04DB78C2D5A934E00159242 /* ImageToken+TextPart.swift in Sources */,
+				C04DB78D2D5A934E00159242 /* TextOperation.swift in Sources */,
+				C04DB78E2D5A934E00159242 /* TextView.swift in Sources */,
+				C04DB78F2D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift in Sources */,
+				C04DB7902D5A934E00159242 /* Text.swift in Sources */,
+				C04DB7912D5A934E00159242 /* TextInterpolation.swift in Sources */,
+				C04DB7922D5A934E00159242 /* String+TextPart.swift in Sources */,
+				C04DB7932D5A934E00159242 /* UIImage+TextPart.swift in Sources */,
+				C04DB7942D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift in Sources */,
+				C04DB7952D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift in Sources */,
+				C04DB7962D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift in Sources */,
+				C04DB7972D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift in Sources */,
+				C04DB7982D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift in Sources */,
+				C04DB7992D5A934E00159242 /* TextBuilder.swift in Sources */,
+				C04DB79A2D5A934E00159242 /* AnyTextDecorator.swift in Sources */,
+				C04DB79B2D5A934E00159242 /* AlignmentDecorator+TextDecorator.swift in Sources */,
+				C04DB79C2D5A934E00159242 /* UnderlineDecorator+TextDecorator.swift in Sources */,
+				C04DB79D2D5A934E00159242 /* ImageValue+TextPart.swift in Sources */,
+				C04DB79E2D5A934E00159242 /* ForegroundColorDecorator+TextDecorator.swift in Sources */,
+				C04DB79F2D5A934E00159242 /* AnyTextPart.swift in Sources */,
+				C04DB7A02D5A934E00159242 /* TextPart.swift in Sources */,
+				C04DB7A12D5A934E00159242 /* BackgroundColorDecorator+TextDecorator.swift in Sources */,
+				C04DB7A22D5A934E00159242 /* TextOperationQueue.swift in Sources */,
+				C04DB7A32D5A934E00159242 /* EnvironmentValues+TextTypography.swift in Sources */,
+				C04DB7A42D5A934E00159242 /* EnvironmentValues+TextAnimation.swift in Sources */,
+				C04DB7A52D5A934E00159242 /* StrokeDecorator+TextDecorator.swift in Sources */,
+				C04DB7A62D5A934E00159242 /* TextDecorator.swift in Sources */,
+				C04DB7A72D5A934E00159242 /* EnvironmentValues+TextDecoration.swift in Sources */,
+				C04DB7A82D5A934E00159242 /* StrikethroughDecorator+TextDecorator.swift in Sources */,
+				C04DB7A92D5A934E00159242 /* TextAnimation.swift in Sources */,
 				FD4F17F32CC8FE4A005636A4 /* ManualComponent.swift in Sources */,
 				C0EEA4862C6ADE530097F0C3 /* DecorableByLineBreakMode.swift in Sources */,
 				C09305022B0B68A300F6F13D /* TokenViewProperties+CAShapeLayer.swift in Sources */,
@@ -2650,36 +2680,6 @@
 				C0E97A1A2BC6DDCC00CF37A7 /* Collection+Extensions.swift in Sources */,
 				C0310C682B04BB4800BCA3AC /* AnimationValue.swift in Sources */,
 				C05CD21C2B093732005F5499 /* ForegroundColorModifier.swift in Sources */,
-				C0443BE42D560F6A003BDFE8 /* TextDecorator.swift in Sources */,
-				C0443BE52D560F6A003BDFE8 /* TokenViewProperties+UITextField+Text.swift in Sources */,
-				C0443BE62D560F6A003BDFE8 /* TextPart.swift in Sources */,
-				C0443BE72D560F6A003BDFE8 /* AnyTextPart.swift in Sources */,
-				C0443BE82D560F6A003BDFE8 /* EnvironmentValues+TextDecoration.swift in Sources */,
-				C0443BE92D560F6A003BDFE8 /* String+TextPart.swift in Sources */,
-				C0443BEA2D560F6A003BDFE8 /* AlignmentDecorator+TextDecorator.swift in Sources */,
-				C0443BEB2D560F6A003BDFE8 /* EnvironmentValues+TextPartHovered.swift in Sources */,
-				C0443BEC2D560F6A003BDFE8 /* TextBuilder.swift in Sources */,
-				C0443BED2D560F6A003BDFE8 /* TextAnimation.swift in Sources */,
-				C0443BEE2D560F6A003BDFE8 /* ImageToken+TextPart.swift in Sources */,
-				C0443BEF2D560F6A003BDFE8 /* TokenViewProperties+UILabel+Text.swift in Sources */,
-				C0443BF02D560F6A003BDFE8 /* EnvironmentValues+TextAnimation.swift in Sources */,
-				C0443BF12D560F6A003BDFE8 /* AnyTextDecorator.swift in Sources */,
-				C0443BF22D560F6A003BDFE8 /* TextOperation.swift in Sources */,
-				C0443BF32D560F6A003BDFE8 /* TextOperationQueue.swift in Sources */,
-				C0443BF42D560F6A003BDFE8 /* StrikethroughDecorator+TextDecorator.swift in Sources */,
-				C0443BF52D560F6A003BDFE8 /* Text.swift in Sources */,
-				C0443BF62D560F6A003BDFE8 /* BackgroundColorDecorator+TextDecorator.swift in Sources */,
-				C0443BF72D560F6A003BDFE8 /* ImageValue+TextPart.swift in Sources */,
-				C0443BF82D560F6A003BDFE8 /* TokenViewProperties+UIButton+Text.swift in Sources */,
-				C0443BF92D560F6A003BDFE8 /* UIImage+TextPart.swift in Sources */,
-				C0443BFA2D560F6A003BDFE8 /* TextView.swift in Sources */,
-				C0443BFB2D560F6A003BDFE8 /* TextInterpolation.swift in Sources */,
-				C0443BFC2D560F6A003BDFE8 /* StrokeDecorator+TextDecorator.swift in Sources */,
-				C0443BFD2D560F6A003BDFE8 /* EnvironmentValues+TextPartPressed.swift in Sources */,
-				C0443BFE2D560F6A003BDFE8 /* TokenViewProperties+UITextView+Text.swift in Sources */,
-				C0443BFF2D560F6A003BDFE8 /* ForegroundColorDecorator+TextDecorator.swift in Sources */,
-				C0443C002D560F6A003BDFE8 /* EnvironmentValues+TextTypography.swift in Sources */,
-				C0443C012D560F6A003BDFE8 /* UnderlineDecorator+TextDecorator.swift in Sources */,
 				C0310C322B04BB4800BCA3AC /* StrokeDecorator.swift in Sources */,
 				C09305102B0B6E2E00F6F13D /* TokenViewProperties+UIImageView.swift in Sources */,
 				C0310C5E2B04BB4800BCA3AC /* CornersValue.swift in Sources */,
@@ -2937,6 +2937,36 @@
 				C09305182B0B75F600F6F13D /* TokenViewProperties+UISlider.swift in Sources */,
 				C0081D9E2BC82A6000BE7293 /* NilCoalescingDecorator.swift in Sources */,
 				C0081DB42BC82AC900BE7293 /* Collection+Extensions.swift in Sources */,
+				C04DB76E2D5A934E00159242 /* ImageToken+TextPart.swift in Sources */,
+				C04DB76F2D5A934E00159242 /* TextOperation.swift in Sources */,
+				C04DB7702D5A934E00159242 /* TextView.swift in Sources */,
+				C04DB7712D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift in Sources */,
+				C04DB7722D5A934E00159242 /* Text.swift in Sources */,
+				C04DB7732D5A934E00159242 /* TextInterpolation.swift in Sources */,
+				C04DB7742D5A934E00159242 /* String+TextPart.swift in Sources */,
+				C04DB7752D5A934E00159242 /* UIImage+TextPart.swift in Sources */,
+				C04DB7762D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift in Sources */,
+				C04DB7772D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift in Sources */,
+				C04DB7782D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift in Sources */,
+				C04DB7792D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift in Sources */,
+				C04DB77A2D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift in Sources */,
+				C04DB77B2D5A934E00159242 /* TextBuilder.swift in Sources */,
+				C04DB77C2D5A934E00159242 /* AnyTextDecorator.swift in Sources */,
+				C04DB77D2D5A934E00159242 /* AlignmentDecorator+TextDecorator.swift in Sources */,
+				C04DB77E2D5A934E00159242 /* UnderlineDecorator+TextDecorator.swift in Sources */,
+				C04DB77F2D5A934E00159242 /* ImageValue+TextPart.swift in Sources */,
+				C04DB7802D5A934E00159242 /* ForegroundColorDecorator+TextDecorator.swift in Sources */,
+				C04DB7812D5A934E00159242 /* AnyTextPart.swift in Sources */,
+				C04DB7822D5A934E00159242 /* TextPart.swift in Sources */,
+				C04DB7832D5A934E00159242 /* BackgroundColorDecorator+TextDecorator.swift in Sources */,
+				C04DB7842D5A934E00159242 /* TextOperationQueue.swift in Sources */,
+				C04DB7852D5A934E00159242 /* EnvironmentValues+TextTypography.swift in Sources */,
+				C04DB7862D5A934E00159242 /* EnvironmentValues+TextAnimation.swift in Sources */,
+				C04DB7872D5A934E00159242 /* StrokeDecorator+TextDecorator.swift in Sources */,
+				C04DB7882D5A934E00159242 /* TextDecorator.swift in Sources */,
+				C04DB7892D5A934E00159242 /* EnvironmentValues+TextDecoration.swift in Sources */,
+				C04DB78A2D5A934E00159242 /* StrikethroughDecorator+TextDecorator.swift in Sources */,
+				C04DB78B2D5A934E00159242 /* TextAnimation.swift in Sources */,
 				C04843D32B0B42CA002DF0CA /* DecorableByMinus.swift in Sources */,
 				C093053C2B0B804100F6F13D /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */,
 				C093053A2B0B803C00F6F13D /* Int+TokenValue.swift in Sources */,
@@ -2977,36 +3007,6 @@
 				C09305762B0B817500F6F13D /* TokenView.swift in Sources */,
 				C09305942B0B90E700F6F13D /* TokenViewProperties+UIBarPositioning.swift in Sources */,
 				C04843F72B0B4317002DF0CA /* PaddingModifier.swift in Sources */,
-				C0443C022D560F6A003BDFE8 /* TextDecorator.swift in Sources */,
-				C0443C032D560F6A003BDFE8 /* TokenViewProperties+UITextField+Text.swift in Sources */,
-				C0443C042D560F6A003BDFE8 /* TextPart.swift in Sources */,
-				C0443C052D560F6A003BDFE8 /* AnyTextPart.swift in Sources */,
-				C0443C062D560F6A003BDFE8 /* EnvironmentValues+TextDecoration.swift in Sources */,
-				C0443C072D560F6A003BDFE8 /* String+TextPart.swift in Sources */,
-				C0443C082D560F6A003BDFE8 /* AlignmentDecorator+TextDecorator.swift in Sources */,
-				C0443C092D560F6A003BDFE8 /* EnvironmentValues+TextPartHovered.swift in Sources */,
-				C0443C0A2D560F6A003BDFE8 /* TextBuilder.swift in Sources */,
-				C0443C0B2D560F6A003BDFE8 /* TextAnimation.swift in Sources */,
-				C0443C0C2D560F6A003BDFE8 /* ImageToken+TextPart.swift in Sources */,
-				C0443C0D2D560F6A003BDFE8 /* TokenViewProperties+UILabel+Text.swift in Sources */,
-				C0443C0E2D560F6A003BDFE8 /* EnvironmentValues+TextAnimation.swift in Sources */,
-				C0443C0F2D560F6A003BDFE8 /* AnyTextDecorator.swift in Sources */,
-				C0443C102D560F6A003BDFE8 /* TextOperation.swift in Sources */,
-				C0443C112D560F6A003BDFE8 /* TextOperationQueue.swift in Sources */,
-				C0443C122D560F6A003BDFE8 /* StrikethroughDecorator+TextDecorator.swift in Sources */,
-				C0443C132D560F6A003BDFE8 /* Text.swift in Sources */,
-				C0443C142D560F6A003BDFE8 /* BackgroundColorDecorator+TextDecorator.swift in Sources */,
-				C0443C152D560F6A003BDFE8 /* ImageValue+TextPart.swift in Sources */,
-				C0443C162D560F6A003BDFE8 /* TokenViewProperties+UIButton+Text.swift in Sources */,
-				C0443C172D560F6A003BDFE8 /* UIImage+TextPart.swift in Sources */,
-				C0443C182D560F6A003BDFE8 /* TextView.swift in Sources */,
-				C0443C192D560F6A003BDFE8 /* TextInterpolation.swift in Sources */,
-				C0443C1A2D560F6A003BDFE8 /* StrokeDecorator+TextDecorator.swift in Sources */,
-				C0443C1B2D560F6A003BDFE8 /* EnvironmentValues+TextPartPressed.swift in Sources */,
-				C0443C1C2D560F6A003BDFE8 /* TokenViewProperties+UITextView+Text.swift in Sources */,
-				C0443C1D2D560F6A003BDFE8 /* ForegroundColorDecorator+TextDecorator.swift in Sources */,
-				C0443C1E2D560F6A003BDFE8 /* EnvironmentValues+TextTypography.swift in Sources */,
-				C0443C1F2D560F6A003BDFE8 /* UnderlineDecorator+TextDecorator.swift in Sources */,
 				C04843BF2B0B42A2002DF0CA /* DecorableByBackgroundColor.swift in Sources */,
 				C0081D802BC82A2100BE7293 /* ComponentContext.swift in Sources */,
 				C04843FB2B0B4317002DF0CA /* AccentColorModifier.swift in Sources */,
