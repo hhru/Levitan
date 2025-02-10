@@ -91,11 +91,9 @@ public struct ComponentContext {
     internal let overrides: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride]
 
     internal func resolveValue<Value>(at keyPath: KeyPath<EnvironmentValues, Value>) -> Value {
-        if let value = overrides[keyPath].flatMap({ $0.value as? Value }) {
-            return value
-        }
-
-        let environment = environment ?? .default
+        let environment = overrides
+            .values
+            .reduce(into: environment ?? .default) { $1.override(for: &$0) }
 
         return environment[keyPath: keyPath]
     }
