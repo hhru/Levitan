@@ -20,12 +20,14 @@ public final class TextView: UILabel {
     public override init(frame: CGRect) {
         super.init(frame: frame)
 
+        #if os(iOS)
         let hoverGestureRecognizer = UIHoverGestureRecognizer(
             target: self,
             action: #selector(onHoverGesture(recognizer:))
         )
 
         addGestureRecognizer(hoverGestureRecognizer)
+        #endif
 
         tokens.customBinding { view, theme in
             view.updateAttributedText(
@@ -200,6 +202,7 @@ public final class TextView: UILabel {
             : nil
     }
 
+    #if os(iOS)
     @objc
     private func onHoverGesture(recognizer: UIHoverGestureRecognizer) {
         switch recognizer.state {
@@ -213,6 +216,7 @@ public final class TextView: UILabel {
             updateHoveredPart(index: nil)
         }
     }
+    #endif
 
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
