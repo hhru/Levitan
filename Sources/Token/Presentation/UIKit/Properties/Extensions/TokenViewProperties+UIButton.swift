@@ -26,15 +26,5 @@ extension TokenViewProperties where View: UIButton {
             view.setBackgroundImage(value?.uiImage, for: details.state)
         }
     }
-
-// TODO: implement for text
-//    public var title: TokenViewProperty<TokenText, Void> {
-//        property(defaultDetails: .normal) { view, value, details, theme in
-//            view.setAttributedTitle(
-//                value?.nsAttributedString(for: theme),
-//                for: .details.state
-//            )
-//        }
-//    }
 }
 #endif
