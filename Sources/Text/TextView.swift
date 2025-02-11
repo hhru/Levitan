@@ -20,6 +20,13 @@ public final class TextView: UILabel {
     public override init(frame: CGRect) {
         super.init(frame: frame)
 
+        let hoverGestureRecognizer = UIHoverGestureRecognizer(
+            target: self,
+            action: #selector(onHoverGesture(recognizer:))
+        )
+
+        addGestureRecognizer(hoverGestureRecognizer)
+
         tokens.customBinding { view, theme in
             view.updateAttributedText(
                 hoveredPartIndex: view.hoveredPartIndex,
@@ -90,6 +97,30 @@ public final class TextView: UILabel {
         }
     }
 
+    private func updateHoveredPart(index: Int?) {
+        guard hoveredPartIndex != index else {
+            return
+        }
+
+        hoveredPartIndex = index
+
+        let hoveredPartIndex = hoveredPartIndex
+        let pressedPartIndex = pressedPartIndex
+
+        let animation = content?.animation ?? context?.textAnimation
+
+        let partAnimation = pressedPartIndex == nil
+            ? (window == nil ? nil : animation?.unhover)
+            : (window == nil ? nil : animation?.hover)
+
+        operationQueue.addOperation(animation: partAnimation) {
+            self.updateAttributedText(
+                hoveredPartIndex: hoveredPartIndex,
+                pressedPartIndex: pressedPartIndex
+            )
+        }
+    }
+
     private func updatePressedPart(index: Int?) {
         guard pressedPartIndex != index else {
             return
@@ -114,7 +145,7 @@ public final class TextView: UILabel {
         }
     }
 
-    private func touchCharacterIndex(touchLocation: CGPoint) -> Int? {
+    private func gestureCharacterIndex(location: CGPoint) -> Int? {
         guard let attributedText else {
             return nil
         }
@@ -139,26 +170,24 @@ public final class TextView: UILabel {
             y: 0.5 * (size.height - textBounds.size.height) - textBounds.origin.y
         )
 
-        let touchTextLocation = CGPoint(
-            x: touchLocation.x - textOffset.x,
-            y: touchLocation.y - textOffset.y
+        let gestureTextLocation = CGPoint(
+            x: location.x - textOffset.x,
+            y: location.y - textOffset.y
         )
 
         return layoutManager.characterIndex(
-            for: touchTextLocation,
+            for: gestureTextLocation,
             in: textContainer,
             fractionOfDistanceBetweenInsertionPoints: nil
         )
     }
 
-    private func touchPartIndex(touch: UITouch) -> Int? {
-        let touchLocation = touch.location(in: self)
-
-        guard bounds.contains(touchLocation) else {
+    private func gesturePartIndex(location: CGPoint) -> Int? {
+        guard bounds.contains(location) else {
             return nil
         }
 
-        guard let characterIndex = touchCharacterIndex(touchLocation: touchLocation) else {
+        guard let characterIndex = gestureCharacterIndex(location: location) else {
             return nil
         }
 
@@ -169,6 +198,20 @@ public final class TextView: UILabel {
         return content?.parts[partIndex].isEnabled == true
             ? partIndex
             : nil
+    }
+
+    @objc
+    private func onHoverGesture(recognizer: UIHoverGestureRecognizer) {
+        switch recognizer.state {
+        case .began, .changed:
+            updateHoveredPart(index: gesturePartIndex(location: recognizer.location(in: self)))
+
+        case .ended, .cancelled, .failed, .possible:
+            updateHoveredPart(index: nil)
+
+        @unknown default:
+            updateHoveredPart(index: nil)
+        }
     }
 
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -191,7 +234,7 @@ public final class TextView: UILabel {
             return
         }
 
-        updatePressedPart(index: touchPartIndex(touch: touch))
+        updatePressedPart(index: gesturePartIndex(location: touch.location(in: self)))
     }
 
     public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -201,7 +244,7 @@ public final class TextView: UILabel {
             return updatePressedPart(index: nil)
         }
 
-        updatePressedPart(index: touchPartIndex(touch: touch))
+        updatePressedPart(index: gesturePartIndex(location: touch.location(in: self)))
     }
 
     public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
