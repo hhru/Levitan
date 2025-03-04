@@ -47,7 +47,7 @@ public final class ComponentHostingView<Content: View>: UIView {
     private func setupHostingControllerIfNeeded() {
         resetHostingControllerIfNeeded()
 
-        guard let superview, let context else {
+        guard let content, let context, let superview, window != nil else {
             return
         }
 
@@ -80,12 +80,22 @@ public final class ComponentHostingView<Content: View>: UIView {
         if !shouldIgnoreParentViewController {
             hostingController.didMove(toParent: viewController)
         }
+
+        updateHostingController(
+            content: content,
+            context: context
+        )
     }
 
     private func resetHostingControllerIfNeeded() {
         guard hostingController.viewIfLoaded?.superview != nil else {
             return
         }
+
+        hostingController.rootView = HostingRoot(
+            content: nil,
+            context: nil
+        )
 
         hostingController.willMove(toParent: nil)
         hostingController.view.removeFromSuperview()
@@ -98,8 +108,27 @@ public final class ComponentHostingView<Content: View>: UIView {
         hostingController.view.invalidateIntrinsicContentSize()
     }
 
+    private func updateHostingController(content: Content, context: ComponentContext) {
+        let contentContext = context
+            .componentViewController(hostingController)
+            .componentLayoutInvalidation { [weak hostingController] in
+                hostingController?.view.invalidateIntrinsicContentSize()
+            }
+
+        hostingController.rootView = HostingRoot(
+            content: content,
+            context: contentContext
+        )
+    }
+
     public override func didMoveToSuperview() {
         super.didMoveToSuperview()
+
+        setupHostingControllerIfNeeded()
+    }
+
+    public override func didMoveToWindow() {
+        super.didMoveToWindow()
 
         setupHostingControllerIfNeeded()
     }
@@ -111,20 +140,14 @@ extension ComponentHostingView: ComponentView {
         self.context = context
         self.content = content
 
-        let contentContext = context
-            .componentViewController(hostingController)
-            .componentLayoutInvalidation { [weak hostingController] in
-                hostingController?.view.invalidateIntrinsicContentSize()
-            }
-
-        hostingController.rootView = HostingRoot(
-            content: content,
-            context: contentContext
-        )
-
         if hostingController.viewIfLoaded?.superview == nil {
             setupHostingControllerIfNeeded()
         } else {
+            updateHostingController(
+                content: content,
+                context: context
+            )
+
             layoutHostingController()
         }
     }
