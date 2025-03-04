@@ -22,6 +22,8 @@ public final class ComponentHostingView<Content: View>: UIView {
     private var content: Content?
     private var context: ComponentContext?
 
+    private let fallbackComponentViewCache = FallbackComponentViewCache()
+
     public override init(frame: CGRect = .zero) {
         let hostingRoot = HostingRoot(
             content: nil,
@@ -47,7 +49,7 @@ public final class ComponentHostingView<Content: View>: UIView {
     private func setupHostingControllerIfNeeded() {
         resetHostingControllerIfNeeded()
 
-        guard let content, let context, let superview, window != nil else {
+        guard let context, let superview else {
             return
         }
 
@@ -80,11 +82,6 @@ public final class ComponentHostingView<Content: View>: UIView {
         if !shouldIgnoreParentViewController {
             hostingController.didMove(toParent: viewController)
         }
-
-        updateHostingController(
-            content: content,
-            context: context
-        )
     }
 
     private func resetHostingControllerIfNeeded() {
@@ -108,8 +105,17 @@ public final class ComponentHostingView<Content: View>: UIView {
         hostingController.view.invalidateIntrinsicContentSize()
     }
 
-    private func updateHostingController(content: Content, context: ComponentContext) {
-        let contentContext = context
+    private func updateHostingController() {
+        let content = window == nil
+            ? nil
+            : content
+
+        let context = window == nil
+            ? nil
+            : context
+
+        let contentContext = context?
+            .fallbackComponentViewCache(fallbackComponentViewCache)
             .componentViewController(hostingController)
             .componentLayoutInvalidation { [weak hostingController] in
                 hostingController?.view.invalidateIntrinsicContentSize()
@@ -130,7 +136,7 @@ public final class ComponentHostingView<Content: View>: UIView {
     public override func didMoveToWindow() {
         super.didMoveToWindow()
 
-        setupHostingControllerIfNeeded()
+        updateHostingController()
     }
 }
 
@@ -140,14 +146,11 @@ extension ComponentHostingView: ComponentView {
         self.context = context
         self.content = content
 
+        updateHostingController()
+
         if hostingController.viewIfLoaded?.superview == nil {
             setupHostingControllerIfNeeded()
         } else {
-            updateHostingController(
-                content: content,
-                context: context
-            )
-
             layoutHostingController()
         }
     }

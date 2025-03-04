@@ -10,14 +10,27 @@ import SwiftUI
 /// - SeeAlso: ``FallbackComponent``
 /// - SeeAlso: ``FallbackComponentView``
 /// - SeeAlso: ``ComponentContext``
-public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresentable {
+public struct FallbackComponentBody<Content: FallbackComponent> {
+
+    public let content: Content
+}
+
+extension FallbackComponentBody: UIViewRepresentable {
 
     public typealias UIView = FallbackComponentBodyView<Content>
 
-    public let content: Content
+    public static func dismantleUIView(_ view: UIView, coordinator: Coordinator) {
+        view.dismantle()
+    }
 
     public func makeUIView(context: Context) -> UIView {
-        FallbackComponentBodyView<Content>()
+        let cache = context.environment.fallbackComponentViewCache
+
+        guard let view = cache.restoreView(for: Content.self) else {
+            return UIView()
+        }
+
+        return view
     }
 
     public func updateUIView(_ view: UIView, context: Context) {

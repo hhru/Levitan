@@ -37,3 +37,9 @@ extension ViewFocusState: Equatable where Value: Equatable {
         true
     }
 }
+
+@available(iOS 15.0, tvOS 15.0, *)
+extension ViewFocusState: Hashable where Value: Hashable {
+
+    public func hash(into hasher: inout Hasher) { }
+}
