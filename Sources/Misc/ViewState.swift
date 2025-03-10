@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 /// Обертка для реализации внутреннего состояния UI-компонента.
@@ -100,3 +101,4 @@ extension ViewState: Hashable where Value: Hashable {
 
     public func hash(into hasher: inout Hasher) { }
 }
+#endif

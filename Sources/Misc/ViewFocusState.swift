@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 // TODO: Добавить документацию
@@ -43,3 +44,4 @@ extension ViewFocusState: Hashable where Value: Hashable {
 
     public func hash(into hasher: inout Hasher) { }
 }
+#endif

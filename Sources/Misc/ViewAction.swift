@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 /// Обертка для замыканий в UI-компонентах.
@@ -72,3 +73,4 @@ extension ViewAction: Hashable {
         }
     }
 }
+#endif
