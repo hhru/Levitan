@@ -23,6 +23,8 @@ internal struct ComponentHostingRoot<Content: View>: View {
     }
 
     internal var body: some View {
+        let componentIdentifier = context?.componentIdentifier
+
         let componentView = context?
             .componentViewController?
             .view
@@ -31,6 +33,7 @@ internal struct ComponentHostingRoot<Content: View>: View {
         let theme = componentView?.tokens.theme
 
         content?
+            .iflet(componentIdentifier) { $0.id($1) }
             .iflet(theme) { $0.tokenThemeKey($1.key) }
             .iflet(theme) { $0.tokenThemeScheme($1.scheme) }
             .iflet(themeManager) { $0.tokenThemeManager($1) }
