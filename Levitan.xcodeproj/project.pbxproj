@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12D4B0CF2D8A328C001C2852 /* StrokeLineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D4B0CE2D8A328C001C2852 /* StrokeLineStyle.swift */; };
+		12D4B0D02D8A328C001C2852 /* StrokeLineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D4B0CE2D8A328C001C2852 /* StrokeLineStyle.swift */; };
 		25F6DC262B7387E700FBAB9C /* NilCoalescingDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */; };
 		C0081D752BC82A1600BE7293 /* Dictionary+Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */; };
 		C0081D762BC82A1600BE7293 /* Dictionary+Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */; };
@@ -655,6 +657,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12D4B0CE2D8A328C001C2852 /* StrokeLineStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeLineStyle.swift; sourceTree = "<group>"; };
 		25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilCoalescingDecorator.swift; sourceTree = "<group>"; };
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Changeable.swift"; sourceTree = "<group>"; };
@@ -1395,6 +1398,7 @@
 		C0310B8B2B04BB4800BCA3AC /* Stroke */ = {
 			isa = PBXGroup;
 			children = (
+				12D4B0CE2D8A328C001C2852 /* StrokeLineStyle.swift */,
 				C0310B8C2B04BB4800BCA3AC /* StrokeToken.swift */,
 				C0310B8E2B04BB4800BCA3AC /* StrokeType.swift */,
 				C0310B8D2B04BB4800BCA3AC /* StrokeValue.swift */,
@@ -2495,6 +2499,7 @@
 				C0310C712B04BB4800BCA3AC /* CGPoint+TokenValue.swift in Sources */,
 				C0312BD92B07563B00BC21A7 /* TokenTraitProvider.swift in Sources */,
 				C09305042B0B68A800F6F13D /* TokenViewProperties+CATextLayer.swift in Sources */,
+				12D4B0D02D8A328C001C2852 /* StrokeLineStyle.swift in Sources */,
 				C0310C352B04BB4800BCA3AC /* DecorableByColor.swift in Sources */,
 				C0E97A0B2BC6DDCC00CF37A7 /* TraitsObserver.swift in Sources */,
 				C0310C332B04BB4800BCA3AC /* DecorableByStroke.swift in Sources */,
@@ -2822,6 +2827,7 @@
 				C04843EC2B0B430A002DF0CA /* TokenDecorator.swift in Sources */,
 				C093056F2B0B80F300F6F13D /* ShapeValue+Shape.swift in Sources */,
 				C0081DC52BC82B0900BE7293 /* ObjectAssociation.swift in Sources */,
+				12D4B0CF2D8A328C001C2852 /* StrokeLineStyle.swift in Sources */,
 				C04844032B0B433F002DF0CA /* TokenViewPropertySubscript.swift in Sources */,
 				C04843E52B0B42FA002DF0CA /* DecorableByResizingMode.swift in Sources */,
 				C0358FD72B0AA24A000E599A /* TokenViewProperty.swift in Sources */,
