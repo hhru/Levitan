@@ -1,4 +1,5 @@
 import CoreGraphics
+import SwiftUI
 
 public struct StrokeValue:
     TokenValue,
@@ -8,17 +9,18 @@ public struct StrokeValue:
     public var type: StrokeType
     public var width: CGFloat
     public var color: ColorValue?
+    public var style: StrokeLineStyle
 
     public var insets: CGFloat {
         switch type {
         case .inside:
-            return .zero
+            return width * 0.5
 
         case .outside:
-            return -width
+            return -width * 0.5
 
         case .center:
-            return -width * 0.5
+            return .zero
         }
     }
 
@@ -29,11 +31,13 @@ public struct StrokeValue:
     public init(
         type: StrokeType,
         width: CGFloat,
-        color: ColorValue? = nil
+        color: ColorValue? = nil,
+        style: StrokeLineStyle = .default
     ) {
         self.type = type
         self.width = width
         self.color = color
+        self.style = style
     }
 }
 
@@ -52,34 +56,40 @@ extension StrokeValue {
 
     public static func inside(
         width: CGFloat,
-        color: ColorValue? = nil
+        color: ColorValue? = nil,
+        style: StrokeLineStyle = .default
     ) -> Self {
         Self(
             type: .inside,
             width: width,
-            color: color
+            color: color,
+            style: style
         )
     }
 
     public static func outside(
         width: CGFloat,
-        color: ColorValue? = nil
+        color: ColorValue? = nil,
+        style: StrokeLineStyle = .default
     ) -> Self {
         Self(
             type: .outside,
             width: width,
-            color: color
+            color: color,
+            style: style
         )
     }
 
     public static func center(
         width: CGFloat,
-        color: ColorValue? = nil
+        color: ColorValue? = nil,
+        style: StrokeLineStyle = .default
     ) -> Self {
         Self(
             type: .center,
             width: width,
-            color: color
+            color: color,
+            style: style
         )
     }
 }
