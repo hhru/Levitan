@@ -39,5 +39,4 @@ internal struct StrokeShape: Shape {
             )
     }
 }
-
 #endif
