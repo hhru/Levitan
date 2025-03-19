@@ -58,24 +58,20 @@ internal final class StrokeLayer: CAShapeLayer {
         }
 
         let insets = stroke.insets
-
         let externalPath = shapePath(insets: insets)
-        let internalPath = shapePath(insets: insets + stroke.width)
 
-        if #available(iOS 16.0, tvOS 16.0, *) {
-            path = externalPath.subtracting(internalPath)
-        } else {
-            let bezierPath = UIBezierPath()
-
-            bezierPath.append(UIBezierPath(cgPath: externalPath))
-            bezierPath.append(UIBezierPath(cgPath: internalPath).reversing())
-
-            path = bezierPath.cgPath
-        }
+        path = externalPath
     }
 
     private func updateStroke() {
-        fillColor = stroke.color?.cgColor
+        fillColor = UIColor.clear.cgColor
+        strokeColor = stroke.color?.cgColor
+        lineWidth = stroke.width
+        lineCap = stroke.style.caLineCap
+        lineJoin = stroke.style.caLineJoin
+        miterLimit = stroke.style.miterLimit
+        lineDashPhase = stroke.style.dashPhase
+        lineDashPattern = stroke.style.dash.map { NSNumber(value: $0) }
 
         updatePathIfPossible()
     }

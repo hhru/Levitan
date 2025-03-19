@@ -10,6 +10,28 @@ public struct StrokeLineStyle: TokenTraitProvider, Hashable, Sendable {
     public var dash: [CGFloat]
     public var dashPhase: CGFloat
 
+    public var caLineCap: CAShapeLayerLineCap {
+        switch lineCap {
+        case .butt:
+            CAShapeLayerLineCap.butt
+        case .round:
+            CAShapeLayerLineCap.round
+        case .square:
+            CAShapeLayerLineCap.square
+        }
+    }
+
+    public var caLineJoin: CAShapeLayerLineJoin {
+        switch lineJoin {
+        case .miter:
+            CAShapeLayerLineJoin.miter
+        case .round:
+            CAShapeLayerLineJoin.round
+        case .bevel:
+            CAShapeLayerLineJoin.bevel
+        }
+    }
+
     public init(
         lineCap: CGLineCap = .butt,
         lineJoin: CGLineJoin = .miter,

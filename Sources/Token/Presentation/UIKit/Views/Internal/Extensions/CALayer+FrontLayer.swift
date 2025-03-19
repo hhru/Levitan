@@ -102,16 +102,7 @@ extension CALayer {
             return resetStroke()
         }
 
-        guard stroke.type == .inside else {
-            return setupFrontLayerIfNeeded()
-        }
-
-        guard maskShape == .rectangle else {
-            return setupFrontLayerIfNeeded()
-        }
-
-        borderWidth = stroke.width
-        borderColor = stroke.color?.cgColor ?? .black
+        setupFrontLayerIfNeeded()
     }
 }
 #endif
