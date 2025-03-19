@@ -14,10 +14,15 @@ public struct StrokeLineStyle: TokenTraitProvider, Hashable, Sendable {
         switch lineCap {
         case .butt:
             CAShapeLayerLineCap.butt
+
         case .round:
             CAShapeLayerLineCap.round
+
         case .square:
             CAShapeLayerLineCap.square
+
+        @unknown default:
+            CAShapeLayerLineCap.butt
         }
     }
 
@@ -25,10 +30,15 @@ public struct StrokeLineStyle: TokenTraitProvider, Hashable, Sendable {
         switch lineJoin {
         case .miter:
             CAShapeLayerLineJoin.miter
+
         case .round:
             CAShapeLayerLineJoin.round
+
         case .bevel:
             CAShapeLayerLineJoin.bevel
+
+        @unknown default:
+            CAShapeLayerLineJoin.miter
         }
     }
 
