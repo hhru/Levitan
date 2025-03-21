@@ -18,25 +18,39 @@ internal struct StrokeShape: Shape {
         return path.copy(using: &translation) ?? path
     }
 
-    private func generatePath(in rect: CGRect) -> Path {
+    private func generateSolidPath(in rect: CGRect) -> CGPath {
         let insets = stroke.insets
-        let externalPath = path(in: rect, insets: insets)
 
-        return Path(externalPath)
+        let externalPath = path(in: rect, insets: insets)
+        let internalPath = path(in: rect, insets: insets + stroke.width)
+
+        if #available(iOS 16.0, tvOS 16.0, *) {
+            return externalPath.subtracting(internalPath)
+        }
+
+        let bezierPath = UIBezierPath()
+
+        bezierPath.append(UIBezierPath(cgPath: externalPath))
+        bezierPath.append(UIBezierPath(cgPath: internalPath).reversing())
+
+        return bezierPath.cgPath
+    }
+
+    private func generateDashedPath(in rect: CGRect) -> CGPath {
+        let externalPath = path(in: rect, insets: stroke.insets)
+
+        return externalPath
+            .copy(dashingWithPhase: stroke.style.dashPhase, lengths: stroke.style.dash)
+            .copy(
+                strokingWithWidth: stroke.width,
+                lineCap: stroke.style.lineCap,
+                lineJoin: stroke.style.lineJoin,
+                miterLimit: stroke.style.miterLimit
+            )
     }
 
     internal func path(in rect: CGRect) -> Path {
-        generatePath(in: rect)
-            .strokedPath(
-                StrokeStyle(
-                    lineWidth: stroke.width,
-                    lineCap: stroke.style.lineCap,
-                    lineJoin: stroke.style.lineJoin,
-                    miterLimit: stroke.style.miterLimit,
-                    dash: stroke.style.dash,
-                    dashPhase: stroke.style.dashPhase
-                )
-            )
+        Path(stroke.isDashed ? generateDashedPath(in: rect) : generateSolidPath(in: rect))
     }
 }
 #endif

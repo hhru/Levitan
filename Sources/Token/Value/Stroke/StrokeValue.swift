@@ -14,14 +14,35 @@ public struct StrokeValue:
     public var insets: CGFloat {
         switch type {
         case .inside:
-            return width * 0.5
+            return isDashed ? width * 0.5 : .zero
 
         case .outside:
-            return -width * 0.5
+            return isDashed ? -width * 0.5 : -width
 
         case .center:
+            return isDashed ? .zero : -width * 0.5
+        }
+    }
+
+    public var shapeInsets: CGFloat {
+        guard !isDashed else {
             return .zero
         }
+
+        switch type {
+        case .inside:
+            return .zero
+
+        case .outside:
+            return -width
+
+        case .center:
+            return -width * 0.5
+        }
+    }
+
+    public var isDashed: Bool {
+        !style.dash.isEmpty
     }
 
     public var isZero: Bool {

@@ -151,7 +151,7 @@ internal final class ShadowLayer: CALayer {
             return
         }
 
-        let insets = stroke?.insets ?? .zero
+        let insets = stroke?.shapeInsets ?? .zero
 
         switch shadow.type {
         case .drop:
