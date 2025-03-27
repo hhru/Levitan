@@ -31,5 +31,11 @@ extension TokenViewProperties where View: UITextView {
             view.typingAttributes = value?.attributes ?? [:]
         }
     }
+
+    public var linkTextAttributes: TokenViewProperty<TypographyValue, Void> {
+        property { view, value in
+            view.linkTextAttributes = value?.attributes ?? [:]
+        }
+    }
 }
 #endif
