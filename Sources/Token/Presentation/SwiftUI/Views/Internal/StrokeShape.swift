@@ -18,14 +18,14 @@ internal struct StrokeShape: Shape {
         return path.copy(using: &translation) ?? path
     }
 
-    internal func path(in rect: CGRect) -> Path {
+    private func generateSolidPath(in rect: CGRect) -> CGPath {
         let insets = stroke.insets
 
         let externalPath = path(in: rect, insets: insets)
         let internalPath = path(in: rect, insets: insets + stroke.width)
 
         if #available(iOS 16.0, tvOS 16.0, *) {
-            return Path(externalPath.subtracting(internalPath))
+            return externalPath.subtracting(internalPath)
         }
 
         let bezierPath = UIBezierPath()
@@ -33,7 +33,24 @@ internal struct StrokeShape: Shape {
         bezierPath.append(UIBezierPath(cgPath: externalPath))
         bezierPath.append(UIBezierPath(cgPath: internalPath).reversing())
 
-        return Path(bezierPath.cgPath)
+        return bezierPath.cgPath
+    }
+
+    private func generateDashedPath(in rect: CGRect) -> CGPath {
+        let externalPath = path(in: rect, insets: stroke.insets)
+
+        return externalPath
+            .copy(dashingWithPhase: stroke.style.dashPhase, lengths: stroke.style.dash)
+            .copy(
+                strokingWithWidth: stroke.width,
+                lineCap: stroke.style.lineCap,
+                lineJoin: stroke.style.lineJoin,
+                miterLimit: stroke.style.miterLimit
+            )
+    }
+
+    internal func path(in rect: CGRect) -> Path {
+        Path(stroke.isDashed ? generateDashedPath(in: rect) : generateSolidPath(in: rect))
     }
 }
 #endif

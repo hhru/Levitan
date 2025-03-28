@@ -52,13 +52,7 @@ internal final class StrokeLayer: CAShapeLayer {
         shape.path(size: bounds.size, insets: insets)
     }
 
-    private func updatePathIfPossible() {
-        guard !bounds.isEmpty else {
-            return
-        }
-
-        let insets = stroke.insets
-
+    private func setupSolidStrokeShape(insets: CGFloat) {
         let externalPath = shapePath(insets: insets)
         let internalPath = shapePath(insets: insets + stroke.width)
 
@@ -72,6 +66,31 @@ internal final class StrokeLayer: CAShapeLayer {
 
             path = bezierPath.cgPath
         }
+    }
+
+    private func setupDashedStrokeShape(insets: CGFloat) {
+        let externalPath = shapePath(insets: insets)
+
+        path = externalPath
+            .copy(dashingWithPhase: stroke.style.dashPhase, lengths: stroke.style.dash)
+            .copy(
+                strokingWithWidth: stroke.width,
+                lineCap: stroke.style.lineCap,
+                lineJoin: stroke.style.lineJoin,
+                miterLimit: stroke.style.miterLimit
+            )
+    }
+
+    private func updatePathIfPossible() {
+        guard !bounds.isEmpty else {
+            return
+        }
+
+        guard stroke.isDashed else {
+            return setupSolidStrokeShape(insets: stroke.insets)
+        }
+
+        setupDashedStrokeShape(insets: stroke.insets)
     }
 
     private func updateStroke() {
