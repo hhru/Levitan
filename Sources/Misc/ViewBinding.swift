@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 import Combine
 
@@ -231,3 +232,4 @@ extension ViewBinding {
         )
     }
 }
+#endif

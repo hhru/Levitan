@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 // TODO: Добавить документацию
@@ -86,3 +87,4 @@ extension ViewFocusBinding where Value == Bool {
         canUnfocus: true
     )
 }
+#endif
