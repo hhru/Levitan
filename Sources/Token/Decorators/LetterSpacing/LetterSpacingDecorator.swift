@@ -1,4 +1,5 @@
 import CoreGraphics
+import Foundation
 
 internal struct LetterSpacingDecorator<Value: DecorableByLetterSpacing>: TokenDecorator {
 

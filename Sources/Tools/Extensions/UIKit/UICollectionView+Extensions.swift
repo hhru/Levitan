@@ -7,8 +7,8 @@ extension UICollectionView {
         let insets = adjustedContentInset
 
         return CGSize(
-            width: max(frame.width - insets.horizontal, .zero),
-            height: max(frame.height - insets.vertical, .zero)
+            width: max(bounds.width - insets.horizontal, .zero),
+            height: max(bounds.height - insets.vertical, .zero)
         )
     }
 

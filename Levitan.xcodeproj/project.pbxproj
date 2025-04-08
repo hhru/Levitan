@@ -408,6 +408,164 @@
 		C05CD22B2B093732005F5499 /* ShadowMaskShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1D82B093732005F5499 /* ShadowMaskShape.swift */; };
 		C05DF3602D1EC60F0078FC64 /* ManualComponentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05DF35F2D1EC60F0078FC64 /* ManualComponentModifier.swift */; };
 		C05DF3612D1EC60F0078FC64 /* ManualComponentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05DF35F2D1EC60F0078FC64 /* ManualComponentModifier.swift */; };
+		C06D89EA2DA5CEDF00697E50 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A42DA5CEDF00697E50 /* ListItem.swift */; };
+		C06D89EB2DA5CEDF00697E50 /* AnyCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89882DA5CEDF00697E50 /* AnyCollectionViewLayout.swift */; };
+		C06D89EC2DA5CEDF00697E50 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89DF2DA5CEDF00697E50 /* CollectionViewLayout.swift */; };
+		C06D89ED2DA5CEDF00697E50 /* ListSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BB2DA5CEDF00697E50 /* ListSectionBuilder.swift */; };
+		C06D89EE2DA5CEDF00697E50 /* ListLayoutScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B72DA5CEDF00697E50 /* ListLayoutScrollAnchor.swift */; };
+		C06D89EF2DA5CEDF00697E50 /* ListContainerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D899B2DA5CEDF00697E50 /* ListContainerHeaderView.swift */; };
+		C06D89F02DA5CEDF00697E50 /* VerticalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89DA2DA5CEDF00697E50 /* VerticalList.swift */; };
+		C06D89F12DA5CEDF00697E50 /* ListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E62DA5CEDF00697E50 /* ListBuilder.swift */; };
+		C06D89F22DA5CEDF00697E50 /* ListContainerFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89972DA5CEDF00697E50 /* ListContainerFooter.swift */; };
+		C06D89F32DA5CEDF00697E50 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A32DA5CEDF00697E50 /* ListCell.swift */; };
+		C06D89F42DA5CEDF00697E50 /* AnyListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C62DA5CEDF00697E50 /* AnyListHeader.swift */; };
+		C06D89F52DA5CEDF00697E50 /* ListLayoutState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B12DA5CEDF00697E50 /* ListLayoutState.swift */; };
+		C06D89F62DA5CEDF00697E50 /* VerticalListMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89DC2DA5CEDF00697E50 /* VerticalListMetrics.swift */; };
+		C06D89F72DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D42DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorItem.swift */; };
+		C06D89F82DA5CEDF00697E50 /* CollectionViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89892DA5CEDF00697E50 /* CollectionViewLayoutAttributes.swift */; };
+		C06D89F92DA5CEDF00697E50 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89CD2DA5CEDF00697E50 /* ListRow.swift */; };
+		C06D89FA2DA5CEDF00697E50 /* CollectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D898E2DA5CEDF00697E50 /* CollectionViewState.swift */; };
+		C06D89FB2DA5CEDF00697E50 /* ListLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89AD2DA5CEDF00697E50 /* ListLayoutItem.swift */; };
+		C06D89FC2DA5CEDF00697E50 /* CollectionViewStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D898F2DA5CEDF00697E50 /* CollectionViewStateManager.swift */; };
+		C06D89FD2DA5CEDF00697E50 /* ListContainerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89982DA5CEDF00697E50 /* ListContainerFooterView.swift */; };
+		C06D89FE2DA5CEDF00697E50 /* CollectionViewDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89942DA5CEDF00697E50 /* CollectionViewDelegateManager.swift */; };
+		C06D89FF2DA5CEDF00697E50 /* CollectionViewLayoutInvalidationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D898B2DA5CEDF00697E50 /* CollectionViewLayoutInvalidationContext.swift */; };
+		C06D8A002DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D32DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorAxis.swift */; };
+		C06D8A012DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D22DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchor.swift */; };
+		C06D8A022DA5CEDF00697E50 /* AnyListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C72DA5CEDF00697E50 /* AnyListHeaderView.swift */; };
+		C06D8A032DA5CEDF00697E50 /* CollectionViewLayoutSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D898C2DA5CEDF00697E50 /* CollectionViewLayoutSizing.swift */; };
+		C06D8A042DA5CEDF00697E50 /* ListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C42DA5CEDF00697E50 /* ListFooterView.swift */; };
+		C06D8A052DA5CEDF00697E50 /* VerticalListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89DD2DA5CEDF00697E50 /* VerticalListSection.swift */; };
+		C06D8A062DA5CEDF00697E50 /* ListSectionPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BF2DA5CEDF00697E50 /* ListSectionPredicate.swift */; };
+		C06D8A072DA5CEDF00697E50 /* ListContainerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D899A2DA5CEDF00697E50 /* ListContainerHeader.swift */; };
+		C06D8A082DA5CEDF00697E50 /* ListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C32DA5CEDF00697E50 /* ListFooter.swift */; };
+		C06D8A092DA5CEDF00697E50 /* ListLayoutSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B02DA5CEDF00697E50 /* ListLayoutSize.swift */; };
+		C06D8A0A2DA5CEDF00697E50 /* CollectionViewLayoutStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E22DA5CEDF00697E50 /* CollectionViewLayoutStateManager.swift */; };
+		C06D8A0B2DA5CEDF00697E50 /* ListLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89AF2DA5CEDF00697E50 /* ListLayoutSection.swift */; };
+		C06D8A0C2DA5CEDF00697E50 /* ListLayoutPinnedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B62DA5CEDF00697E50 /* ListLayoutPinnedViews.swift */; };
+		C06D8A0D2DA5CEDF00697E50 /* ListSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BC2DA5CEDF00697E50 /* ListSectionFooter.swift */; };
+		C06D8A0E2DA5CEDF00697E50 /* ListLayoutOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89AE2DA5CEDF00697E50 /* ListLayoutOrigin.swift */; };
+		C06D8A0F2DA5CEDF00697E50 /* AnyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A12DA5CEDF00697E50 /* AnyListCell.swift */; };
+		C06D8A102DA5CEDF00697E50 /* CollectionViewInconsistentSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89862DA5CEDF00697E50 /* CollectionViewInconsistentSupplementaryView.swift */; };
+		C06D8A112DA5CEDF00697E50 /* ListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C92DA5CEDF00697E50 /* ListHeaderView.swift */; };
+		C06D8A122DA5CEDF00697E50 /* CollectionViewInconsistentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89852DA5CEDF00697E50 /* CollectionViewInconsistentCell.swift */; };
+		C06D8A132DA5CEDF00697E50 /* CollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D898A2DA5CEDF00697E50 /* CollectionViewLayoutDelegate.swift */; };
+		C06D8A142DA5CEDF00697E50 /* ListLayoutDefaultAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A92DA5CEDF00697E50 /* ListLayoutDefaultAppearance.swift */; };
+		C06D8A152DA5CEDF00697E50 /* ListLayoutMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B52DA5CEDF00697E50 /* ListLayoutMetrics.swift */; };
+		C06D8A162DA5CEDF00697E50 /* ListColumnSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D82DA5CEDF00697E50 /* ListColumnSize.swift */; };
+		C06D8A172DA5CEDF00697E50 /* VerticalListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89DB2DA5CEDF00697E50 /* VerticalListLayout.swift */; };
+		C06D8A182DA5CEDF00697E50 /* ListItemPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A52DA5CEDF00697E50 /* ListItemPredicate.swift */; };
+		C06D8A192DA5CEDF00697E50 /* ListHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D02DA5CEDF00697E50 /* ListHorizontalLayout.swift */; };
+		C06D8A1A2DA5CEDF00697E50 /* ListHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89822DA5CEDF00697E50 /* ListHorizontalAlignment.swift */; };
+		C06D8A1B2DA5CEDF00697E50 /* ListLayoutHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89AC2DA5CEDF00697E50 /* ListLayoutHeader.swift */; };
+		C06D8A1C2DA5CEDF00697E50 /* ListContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D899D2DA5CEDF00697E50 /* ListContainerCell.swift */; };
+		C06D8A1D2DA5CEDF00697E50 /* ListUpdateStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E72DA5CEDF00697E50 /* ListUpdateStrategy.swift */; };
+		C06D8A1E2DA5CEDF00697E50 /* ListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C82DA5CEDF00697E50 /* ListHeader.swift */; };
+		C06D8A1F2DA5CEDF00697E50 /* CollectionViewLayoutUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E32DA5CEDF00697E50 /* CollectionViewLayoutUpdateManager.swift */; };
+		C06D8A202DA5CEDF00697E50 /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BA2DA5CEDF00697E50 /* ListSection.swift */; };
+		C06D8A212DA5CEDF00697E50 /* ListLayoutAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A72DA5CEDF00697E50 /* ListLayoutAppearance.swift */; };
+		C06D8A222DA5CEDF00697E50 /* ListVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89832DA5CEDF00697E50 /* ListVerticalAlignment.swift */; };
+		C06D8A232DA5CEDF00697E50 /* CollectionViewLayoutScrollSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D52DA5CEDF00697E50 /* CollectionViewLayoutScrollSnapshot.swift */; };
+		C06D8A242DA5CEDF00697E50 /* AnyListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C22DA5CEDF00697E50 /* AnyListFooterView.swift */; };
+		C06D8A252DA5CEDF00697E50 /* CollectionViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89912DA5CEDF00697E50 /* CollectionViewUpdate.swift */; };
+		C06D8A262DA5CEDF00697E50 /* ListContainerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D899E2DA5CEDF00697E50 /* ListContainerItem.swift */; };
+		C06D8A272DA5CEDF00697E50 /* CollectionViewUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89922DA5CEDF00697E50 /* CollectionViewUpdateManager.swift */; };
+		C06D8A282DA5CEDF00697E50 /* ListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BD2DA5CEDF00697E50 /* ListSectionHeader.swift */; };
+		C06D8A292DA5CEDF00697E50 /* ListLayoutFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89AB2DA5CEDF00697E50 /* ListLayoutFooter.swift */; };
+		C06D8A2A2DA5CEDF00697E50 /* AnyListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C12DA5CEDF00697E50 /* AnyListFooter.swift */; };
+		C06D8A2B2DA5CEDF00697E50 /* ListLayoutContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B42DA5CEDF00697E50 /* ListLayoutContext.swift */; };
+		C06D8A2C2DA5CEDF00697E50 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E82DA5CEDF00697E50 /* ListView.swift */; };
+		C06D8A2D2DA5CEDF00697E50 /* CollectionViewLayoutBoundsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E02DA5CEDF00697E50 /* CollectionViewLayoutBoundsProvider.swift */; };
+		C06D8A2E2DA5CEDF00697E50 /* ListRowSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89CE2DA5CEDF00697E50 /* ListRowSize.swift */; };
+		C06D8A2F2DA5CEDF00697E50 /* ListSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BE2DA5CEDF00697E50 /* ListSectionItem.swift */; };
+		C06D8A302DA5CEDF00697E50 /* ListLayoutCustomAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A82DA5CEDF00697E50 /* ListLayoutCustomAppearance.swift */; };
+		C06D8A312DA5CEDF00697E50 /* AnyListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A22DA5CEDF00697E50 /* AnyListItem.swift */; };
+		C06D8A322DA5CEDF00697E50 /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89952DA5CEDF00697E50 /* CollectionViewManager.swift */; };
+		C06D8A332DA5CEDF00697E50 /* ListLayoutScrollAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B82DA5CEDF00697E50 /* ListLayoutScrollAxis.swift */; };
+		C06D8A342DA5CEDF00697E50 /* CollectionViewLayoutScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E12DA5CEDF00697E50 /* CollectionViewLayoutScrollManager.swift */; };
+		C06D8A352DA5CEDF00697E50 /* ListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B32DA5CEDF00697E50 /* ListLayout.swift */; };
+		C06D8A362DA5CEDF00697E50 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E52DA5CEDF00697E50 /* List.swift */; };
+		C06D8A372DA5CEDF00697E50 /* ListColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D72DA5CEDF00697E50 /* ListColumn.swift */; };
+		C06D8A382DA5CEDF00697E50 /* AnyListSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89CB2DA5CEDF00697E50 /* AnyListSupplementaryView.swift */; };
+		C06D8A392DA5CEDF00697E50 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A42DA5CEDF00697E50 /* ListItem.swift */; };
+		C06D8A3A2DA5CEDF00697E50 /* AnyCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89882DA5CEDF00697E50 /* AnyCollectionViewLayout.swift */; };
+		C06D8A3B2DA5CEDF00697E50 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89DF2DA5CEDF00697E50 /* CollectionViewLayout.swift */; };
+		C06D8A3C2DA5CEDF00697E50 /* ListSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BB2DA5CEDF00697E50 /* ListSectionBuilder.swift */; };
+		C06D8A3D2DA5CEDF00697E50 /* ListLayoutScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B72DA5CEDF00697E50 /* ListLayoutScrollAnchor.swift */; };
+		C06D8A3E2DA5CEDF00697E50 /* ListContainerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D899B2DA5CEDF00697E50 /* ListContainerHeaderView.swift */; };
+		C06D8A3F2DA5CEDF00697E50 /* VerticalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89DA2DA5CEDF00697E50 /* VerticalList.swift */; };
+		C06D8A402DA5CEDF00697E50 /* ListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E62DA5CEDF00697E50 /* ListBuilder.swift */; };
+		C06D8A412DA5CEDF00697E50 /* ListContainerFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89972DA5CEDF00697E50 /* ListContainerFooter.swift */; };
+		C06D8A422DA5CEDF00697E50 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A32DA5CEDF00697E50 /* ListCell.swift */; };
+		C06D8A432DA5CEDF00697E50 /* AnyListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C62DA5CEDF00697E50 /* AnyListHeader.swift */; };
+		C06D8A442DA5CEDF00697E50 /* ListLayoutState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B12DA5CEDF00697E50 /* ListLayoutState.swift */; };
+		C06D8A452DA5CEDF00697E50 /* VerticalListMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89DC2DA5CEDF00697E50 /* VerticalListMetrics.swift */; };
+		C06D8A462DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D42DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorItem.swift */; };
+		C06D8A472DA5CEDF00697E50 /* CollectionViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89892DA5CEDF00697E50 /* CollectionViewLayoutAttributes.swift */; };
+		C06D8A482DA5CEDF00697E50 /* ListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89CD2DA5CEDF00697E50 /* ListRow.swift */; };
+		C06D8A492DA5CEDF00697E50 /* CollectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D898E2DA5CEDF00697E50 /* CollectionViewState.swift */; };
+		C06D8A4A2DA5CEDF00697E50 /* ListLayoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89AD2DA5CEDF00697E50 /* ListLayoutItem.swift */; };
+		C06D8A4B2DA5CEDF00697E50 /* CollectionViewStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D898F2DA5CEDF00697E50 /* CollectionViewStateManager.swift */; };
+		C06D8A4C2DA5CEDF00697E50 /* ListContainerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89982DA5CEDF00697E50 /* ListContainerFooterView.swift */; };
+		C06D8A4D2DA5CEDF00697E50 /* CollectionViewDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89942DA5CEDF00697E50 /* CollectionViewDelegateManager.swift */; };
+		C06D8A4E2DA5CEDF00697E50 /* CollectionViewLayoutInvalidationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D898B2DA5CEDF00697E50 /* CollectionViewLayoutInvalidationContext.swift */; };
+		C06D8A4F2DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D32DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorAxis.swift */; };
+		C06D8A502DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D22DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchor.swift */; };
+		C06D8A512DA5CEDF00697E50 /* AnyListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C72DA5CEDF00697E50 /* AnyListHeaderView.swift */; };
+		C06D8A522DA5CEDF00697E50 /* CollectionViewLayoutSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D898C2DA5CEDF00697E50 /* CollectionViewLayoutSizing.swift */; };
+		C06D8A532DA5CEDF00697E50 /* ListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C42DA5CEDF00697E50 /* ListFooterView.swift */; };
+		C06D8A542DA5CEDF00697E50 /* VerticalListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89DD2DA5CEDF00697E50 /* VerticalListSection.swift */; };
+		C06D8A552DA5CEDF00697E50 /* ListSectionPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BF2DA5CEDF00697E50 /* ListSectionPredicate.swift */; };
+		C06D8A562DA5CEDF00697E50 /* ListContainerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D899A2DA5CEDF00697E50 /* ListContainerHeader.swift */; };
+		C06D8A572DA5CEDF00697E50 /* ListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C32DA5CEDF00697E50 /* ListFooter.swift */; };
+		C06D8A582DA5CEDF00697E50 /* ListLayoutSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B02DA5CEDF00697E50 /* ListLayoutSize.swift */; };
+		C06D8A592DA5CEDF00697E50 /* CollectionViewLayoutStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E22DA5CEDF00697E50 /* CollectionViewLayoutStateManager.swift */; };
+		C06D8A5A2DA5CEDF00697E50 /* ListLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89AF2DA5CEDF00697E50 /* ListLayoutSection.swift */; };
+		C06D8A5B2DA5CEDF00697E50 /* ListLayoutPinnedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B62DA5CEDF00697E50 /* ListLayoutPinnedViews.swift */; };
+		C06D8A5C2DA5CEDF00697E50 /* ListSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BC2DA5CEDF00697E50 /* ListSectionFooter.swift */; };
+		C06D8A5D2DA5CEDF00697E50 /* ListLayoutOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89AE2DA5CEDF00697E50 /* ListLayoutOrigin.swift */; };
+		C06D8A5E2DA5CEDF00697E50 /* AnyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A12DA5CEDF00697E50 /* AnyListCell.swift */; };
+		C06D8A5F2DA5CEDF00697E50 /* CollectionViewInconsistentSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89862DA5CEDF00697E50 /* CollectionViewInconsistentSupplementaryView.swift */; };
+		C06D8A602DA5CEDF00697E50 /* ListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C92DA5CEDF00697E50 /* ListHeaderView.swift */; };
+		C06D8A612DA5CEDF00697E50 /* CollectionViewInconsistentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89852DA5CEDF00697E50 /* CollectionViewInconsistentCell.swift */; };
+		C06D8A622DA5CEDF00697E50 /* CollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D898A2DA5CEDF00697E50 /* CollectionViewLayoutDelegate.swift */; };
+		C06D8A632DA5CEDF00697E50 /* ListLayoutDefaultAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A92DA5CEDF00697E50 /* ListLayoutDefaultAppearance.swift */; };
+		C06D8A642DA5CEDF00697E50 /* ListLayoutMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B52DA5CEDF00697E50 /* ListLayoutMetrics.swift */; };
+		C06D8A652DA5CEDF00697E50 /* ListColumnSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D82DA5CEDF00697E50 /* ListColumnSize.swift */; };
+		C06D8A662DA5CEDF00697E50 /* VerticalListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89DB2DA5CEDF00697E50 /* VerticalListLayout.swift */; };
+		C06D8A672DA5CEDF00697E50 /* ListItemPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A52DA5CEDF00697E50 /* ListItemPredicate.swift */; };
+		C06D8A682DA5CEDF00697E50 /* ListHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D02DA5CEDF00697E50 /* ListHorizontalLayout.swift */; };
+		C06D8A692DA5CEDF00697E50 /* ListHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89822DA5CEDF00697E50 /* ListHorizontalAlignment.swift */; };
+		C06D8A6A2DA5CEDF00697E50 /* ListLayoutHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89AC2DA5CEDF00697E50 /* ListLayoutHeader.swift */; };
+		C06D8A6B2DA5CEDF00697E50 /* ListContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D899D2DA5CEDF00697E50 /* ListContainerCell.swift */; };
+		C06D8A6C2DA5CEDF00697E50 /* ListUpdateStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E72DA5CEDF00697E50 /* ListUpdateStrategy.swift */; };
+		C06D8A6D2DA5CEDF00697E50 /* ListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C82DA5CEDF00697E50 /* ListHeader.swift */; };
+		C06D8A6E2DA5CEDF00697E50 /* CollectionViewLayoutUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E32DA5CEDF00697E50 /* CollectionViewLayoutUpdateManager.swift */; };
+		C06D8A6F2DA5CEDF00697E50 /* ListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BA2DA5CEDF00697E50 /* ListSection.swift */; };
+		C06D8A702DA5CEDF00697E50 /* ListLayoutAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A72DA5CEDF00697E50 /* ListLayoutAppearance.swift */; };
+		C06D8A712DA5CEDF00697E50 /* ListVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89832DA5CEDF00697E50 /* ListVerticalAlignment.swift */; };
+		C06D8A722DA5CEDF00697E50 /* CollectionViewLayoutScrollSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D52DA5CEDF00697E50 /* CollectionViewLayoutScrollSnapshot.swift */; };
+		C06D8A732DA5CEDF00697E50 /* AnyListFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C22DA5CEDF00697E50 /* AnyListFooterView.swift */; };
+		C06D8A742DA5CEDF00697E50 /* CollectionViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89912DA5CEDF00697E50 /* CollectionViewUpdate.swift */; };
+		C06D8A752DA5CEDF00697E50 /* ListContainerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D899E2DA5CEDF00697E50 /* ListContainerItem.swift */; };
+		C06D8A762DA5CEDF00697E50 /* CollectionViewUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89922DA5CEDF00697E50 /* CollectionViewUpdateManager.swift */; };
+		C06D8A772DA5CEDF00697E50 /* ListSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BD2DA5CEDF00697E50 /* ListSectionHeader.swift */; };
+		C06D8A782DA5CEDF00697E50 /* ListLayoutFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89AB2DA5CEDF00697E50 /* ListLayoutFooter.swift */; };
+		C06D8A792DA5CEDF00697E50 /* AnyListFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89C12DA5CEDF00697E50 /* AnyListFooter.swift */; };
+		C06D8A7A2DA5CEDF00697E50 /* ListLayoutContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B42DA5CEDF00697E50 /* ListLayoutContext.swift */; };
+		C06D8A7B2DA5CEDF00697E50 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E82DA5CEDF00697E50 /* ListView.swift */; };
+		C06D8A7C2DA5CEDF00697E50 /* CollectionViewLayoutBoundsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E02DA5CEDF00697E50 /* CollectionViewLayoutBoundsProvider.swift */; };
+		C06D8A7D2DA5CEDF00697E50 /* ListRowSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89CE2DA5CEDF00697E50 /* ListRowSize.swift */; };
+		C06D8A7E2DA5CEDF00697E50 /* ListSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89BE2DA5CEDF00697E50 /* ListSectionItem.swift */; };
+		C06D8A7F2DA5CEDF00697E50 /* ListLayoutCustomAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A82DA5CEDF00697E50 /* ListLayoutCustomAppearance.swift */; };
+		C06D8A802DA5CEDF00697E50 /* AnyListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89A22DA5CEDF00697E50 /* AnyListItem.swift */; };
+		C06D8A812DA5CEDF00697E50 /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89952DA5CEDF00697E50 /* CollectionViewManager.swift */; };
+		C06D8A822DA5CEDF00697E50 /* ListLayoutScrollAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B82DA5CEDF00697E50 /* ListLayoutScrollAxis.swift */; };
+		C06D8A832DA5CEDF00697E50 /* CollectionViewLayoutScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E12DA5CEDF00697E50 /* CollectionViewLayoutScrollManager.swift */; };
+		C06D8A842DA5CEDF00697E50 /* ListLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89B32DA5CEDF00697E50 /* ListLayout.swift */; };
+		C06D8A852DA5CEDF00697E50 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89E52DA5CEDF00697E50 /* List.swift */; };
+		C06D8A862DA5CEDF00697E50 /* ListColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89D72DA5CEDF00697E50 /* ListColumn.swift */; };
+		C06D8A872DA5CEDF00697E50 /* AnyListSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06D89CB2DA5CEDF00697E50 /* AnyListSupplementaryView.swift */; };
 		C0855EEB2B08DF15003EBC34 /* AlphaDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0855EEA2B08DF15003EBC34 /* AlphaDecorator.swift */; };
 		C0855EED2B08DF21003EBC34 /* DecorableByAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0855EEC2B08DF21003EBC34 /* DecorableByAlpha.swift */; };
 		C09304FE2B0B689000F6F13D /* TokenViewProperties+CAGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1A92B093732005F5499 /* TokenViewProperties+CAGradientLayer.swift */; };
@@ -884,6 +1042,85 @@
 		C05CD1D72B093732005F5499 /* TokenThemeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenThemeView.swift; sourceTree = "<group>"; };
 		C05CD1D82B093732005F5499 /* ShadowMaskShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowMaskShape.swift; sourceTree = "<group>"; };
 		C05DF35F2D1EC60F0078FC64 /* ManualComponentModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualComponentModifier.swift; sourceTree = "<group>"; };
+		C06D89822DA5CEDF00697E50 /* ListHorizontalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHorizontalAlignment.swift; sourceTree = "<group>"; };
+		C06D89832DA5CEDF00697E50 /* ListVerticalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVerticalAlignment.swift; sourceTree = "<group>"; };
+		C06D89852DA5CEDF00697E50 /* CollectionViewInconsistentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewInconsistentCell.swift; sourceTree = "<group>"; };
+		C06D89862DA5CEDF00697E50 /* CollectionViewInconsistentSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewInconsistentSupplementaryView.swift; sourceTree = "<group>"; };
+		C06D89882DA5CEDF00697E50 /* AnyCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyCollectionViewLayout.swift; sourceTree = "<group>"; };
+		C06D89892DA5CEDF00697E50 /* CollectionViewLayoutAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutAttributes.swift; sourceTree = "<group>"; };
+		C06D898A2DA5CEDF00697E50 /* CollectionViewLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutDelegate.swift; sourceTree = "<group>"; };
+		C06D898B2DA5CEDF00697E50 /* CollectionViewLayoutInvalidationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutInvalidationContext.swift; sourceTree = "<group>"; };
+		C06D898C2DA5CEDF00697E50 /* CollectionViewLayoutSizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutSizing.swift; sourceTree = "<group>"; };
+		C06D898E2DA5CEDF00697E50 /* CollectionViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewState.swift; sourceTree = "<group>"; };
+		C06D898F2DA5CEDF00697E50 /* CollectionViewStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewStateManager.swift; sourceTree = "<group>"; };
+		C06D89912DA5CEDF00697E50 /* CollectionViewUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewUpdate.swift; sourceTree = "<group>"; };
+		C06D89922DA5CEDF00697E50 /* CollectionViewUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewUpdateManager.swift; sourceTree = "<group>"; };
+		C06D89942DA5CEDF00697E50 /* CollectionViewDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegateManager.swift; sourceTree = "<group>"; };
+		C06D89952DA5CEDF00697E50 /* CollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewManager.swift; sourceTree = "<group>"; };
+		C06D89972DA5CEDF00697E50 /* ListContainerFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContainerFooter.swift; sourceTree = "<group>"; };
+		C06D89982DA5CEDF00697E50 /* ListContainerFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContainerFooterView.swift; sourceTree = "<group>"; };
+		C06D899A2DA5CEDF00697E50 /* ListContainerHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContainerHeader.swift; sourceTree = "<group>"; };
+		C06D899B2DA5CEDF00697E50 /* ListContainerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContainerHeaderView.swift; sourceTree = "<group>"; };
+		C06D899D2DA5CEDF00697E50 /* ListContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContainerCell.swift; sourceTree = "<group>"; };
+		C06D899E2DA5CEDF00697E50 /* ListContainerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListContainerItem.swift; sourceTree = "<group>"; };
+		C06D89A12DA5CEDF00697E50 /* AnyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyListCell.swift; sourceTree = "<group>"; };
+		C06D89A22DA5CEDF00697E50 /* AnyListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyListItem.swift; sourceTree = "<group>"; };
+		C06D89A32DA5CEDF00697E50 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		C06D89A42DA5CEDF00697E50 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		C06D89A52DA5CEDF00697E50 /* ListItemPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemPredicate.swift; sourceTree = "<group>"; };
+		C06D89A72DA5CEDF00697E50 /* ListLayoutAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutAppearance.swift; sourceTree = "<group>"; };
+		C06D89A82DA5CEDF00697E50 /* ListLayoutCustomAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutCustomAppearance.swift; sourceTree = "<group>"; };
+		C06D89A92DA5CEDF00697E50 /* ListLayoutDefaultAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutDefaultAppearance.swift; sourceTree = "<group>"; };
+		C06D89AB2DA5CEDF00697E50 /* ListLayoutFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutFooter.swift; sourceTree = "<group>"; };
+		C06D89AC2DA5CEDF00697E50 /* ListLayoutHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutHeader.swift; sourceTree = "<group>"; };
+		C06D89AD2DA5CEDF00697E50 /* ListLayoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutItem.swift; sourceTree = "<group>"; };
+		C06D89AE2DA5CEDF00697E50 /* ListLayoutOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutOrigin.swift; sourceTree = "<group>"; };
+		C06D89AF2DA5CEDF00697E50 /* ListLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutSection.swift; sourceTree = "<group>"; };
+		C06D89B02DA5CEDF00697E50 /* ListLayoutSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutSize.swift; sourceTree = "<group>"; };
+		C06D89B12DA5CEDF00697E50 /* ListLayoutState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutState.swift; sourceTree = "<group>"; };
+		C06D89B32DA5CEDF00697E50 /* ListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayout.swift; sourceTree = "<group>"; };
+		C06D89B42DA5CEDF00697E50 /* ListLayoutContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutContext.swift; sourceTree = "<group>"; };
+		C06D89B52DA5CEDF00697E50 /* ListLayoutMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutMetrics.swift; sourceTree = "<group>"; };
+		C06D89B62DA5CEDF00697E50 /* ListLayoutPinnedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutPinnedViews.swift; sourceTree = "<group>"; };
+		C06D89B72DA5CEDF00697E50 /* ListLayoutScrollAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutScrollAnchor.swift; sourceTree = "<group>"; };
+		C06D89B82DA5CEDF00697E50 /* ListLayoutScrollAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLayoutScrollAxis.swift; sourceTree = "<group>"; };
+		C06D89BA2DA5CEDF00697E50 /* ListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSection.swift; sourceTree = "<group>"; };
+		C06D89BB2DA5CEDF00697E50 /* ListSectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionBuilder.swift; sourceTree = "<group>"; };
+		C06D89BC2DA5CEDF00697E50 /* ListSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionFooter.swift; sourceTree = "<group>"; };
+		C06D89BD2DA5CEDF00697E50 /* ListSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionHeader.swift; sourceTree = "<group>"; };
+		C06D89BE2DA5CEDF00697E50 /* ListSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionItem.swift; sourceTree = "<group>"; };
+		C06D89BF2DA5CEDF00697E50 /* ListSectionPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionPredicate.swift; sourceTree = "<group>"; };
+		C06D89C12DA5CEDF00697E50 /* AnyListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyListFooter.swift; sourceTree = "<group>"; };
+		C06D89C22DA5CEDF00697E50 /* AnyListFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyListFooterView.swift; sourceTree = "<group>"; };
+		C06D89C32DA5CEDF00697E50 /* ListFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFooter.swift; sourceTree = "<group>"; };
+		C06D89C42DA5CEDF00697E50 /* ListFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFooterView.swift; sourceTree = "<group>"; };
+		C06D89C62DA5CEDF00697E50 /* AnyListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyListHeader.swift; sourceTree = "<group>"; };
+		C06D89C72DA5CEDF00697E50 /* AnyListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyListHeaderView.swift; sourceTree = "<group>"; };
+		C06D89C82DA5CEDF00697E50 /* ListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeader.swift; sourceTree = "<group>"; };
+		C06D89C92DA5CEDF00697E50 /* ListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHeaderView.swift; sourceTree = "<group>"; };
+		C06D89CB2DA5CEDF00697E50 /* AnyListSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyListSupplementaryView.swift; sourceTree = "<group>"; };
+		C06D89CD2DA5CEDF00697E50 /* ListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRow.swift; sourceTree = "<group>"; };
+		C06D89CE2DA5CEDF00697E50 /* ListRowSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowSize.swift; sourceTree = "<group>"; };
+		C06D89D02DA5CEDF00697E50 /* ListHorizontalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListHorizontalLayout.swift; sourceTree = "<group>"; };
+		C06D89D22DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollAnchor.swift; sourceTree = "<group>"; };
+		C06D89D32DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollAnchorAxis.swift; sourceTree = "<group>"; };
+		C06D89D42DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollAnchorItem.swift; sourceTree = "<group>"; };
+		C06D89D52DA5CEDF00697E50 /* CollectionViewLayoutScrollSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollSnapshot.swift; sourceTree = "<group>"; };
+		C06D89D72DA5CEDF00697E50 /* ListColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListColumn.swift; sourceTree = "<group>"; };
+		C06D89D82DA5CEDF00697E50 /* ListColumnSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListColumnSize.swift; sourceTree = "<group>"; };
+		C06D89DA2DA5CEDF00697E50 /* VerticalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalList.swift; sourceTree = "<group>"; };
+		C06D89DB2DA5CEDF00697E50 /* VerticalListLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListLayout.swift; sourceTree = "<group>"; };
+		C06D89DC2DA5CEDF00697E50 /* VerticalListMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListMetrics.swift; sourceTree = "<group>"; };
+		C06D89DD2DA5CEDF00697E50 /* VerticalListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalListSection.swift; sourceTree = "<group>"; };
+		C06D89DF2DA5CEDF00697E50 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
+		C06D89E02DA5CEDF00697E50 /* CollectionViewLayoutBoundsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutBoundsProvider.swift; sourceTree = "<group>"; };
+		C06D89E12DA5CEDF00697E50 /* CollectionViewLayoutScrollManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollManager.swift; sourceTree = "<group>"; };
+		C06D89E22DA5CEDF00697E50 /* CollectionViewLayoutStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutStateManager.swift; sourceTree = "<group>"; };
+		C06D89E32DA5CEDF00697E50 /* CollectionViewLayoutUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutUpdateManager.swift; sourceTree = "<group>"; };
+		C06D89E52DA5CEDF00697E50 /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		C06D89E62DA5CEDF00697E50 /* ListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBuilder.swift; sourceTree = "<group>"; };
+		C06D89E72DA5CEDF00697E50 /* ListUpdateStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUpdateStrategy.swift; sourceTree = "<group>"; };
+		C06D89E82DA5CEDF00697E50 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		C0855EEA2B08DF15003EBC34 /* AlphaDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlphaDecorator.swift; sourceTree = "<group>"; };
 		C0855EEC2B08DF21003EBC34 /* DecorableByAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorableByAlpha.swift; sourceTree = "<group>"; };
 		C093057A2B0B86FB00F6F13D /* TokenViewProperties+UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TokenViewProperties+UIControl.swift"; path = "Sources/Token/Presentation/UIKit/Properties/Extensions/TokenViewProperties+UIControl.swift"; sourceTree = SOURCE_ROOT; };
@@ -1695,6 +1932,7 @@
 		C057F01023CB8EEB00C2D895 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C06D89E92DA5CEDF00697E50 /* List */,
 				C0081D692BC82A1600BE7293 /* Changeable */,
 				C0E97A322BC6DF5200CF37A7 /* Component */,
 				C0E97A1F2BC6DF4100CF37A7 /* Misc */,
@@ -1892,6 +2130,292 @@
 				C05CD1D62B093732005F5499 /* ShapeValue+Shape.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C06D89842DA5CEDF00697E50 /* Alignment */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89822DA5CEDF00697E50 /* ListHorizontalAlignment.swift */,
+				C06D89832DA5CEDF00697E50 /* ListVerticalAlignment.swift */,
+			);
+			path = Alignment;
+			sourceTree = "<group>";
+		};
+		C06D89872DA5CEDF00697E50 /* Inconsistent */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89852DA5CEDF00697E50 /* CollectionViewInconsistentCell.swift */,
+				C06D89862DA5CEDF00697E50 /* CollectionViewInconsistentSupplementaryView.swift */,
+			);
+			path = Inconsistent;
+			sourceTree = "<group>";
+		};
+		C06D898D2DA5CEDF00697E50 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C06D8A972DA64EC800697E50 /* WIP */,
+				C06D89882DA5CEDF00697E50 /* AnyCollectionViewLayout.swift */,
+				C06D89892DA5CEDF00697E50 /* CollectionViewLayoutAttributes.swift */,
+				C06D898A2DA5CEDF00697E50 /* CollectionViewLayoutDelegate.swift */,
+				C06D898B2DA5CEDF00697E50 /* CollectionViewLayoutInvalidationContext.swift */,
+				C06D898C2DA5CEDF00697E50 /* CollectionViewLayoutSizing.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		C06D89902DA5CEDF00697E50 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				C06D898E2DA5CEDF00697E50 /* CollectionViewState.swift */,
+				C06D898F2DA5CEDF00697E50 /* CollectionViewStateManager.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		C06D89932DA5CEDF00697E50 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89912DA5CEDF00697E50 /* CollectionViewUpdate.swift */,
+				C06D89922DA5CEDF00697E50 /* CollectionViewUpdateManager.swift */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
+		C06D89962DA5CEDF00697E50 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89872DA5CEDF00697E50 /* Inconsistent */,
+				C06D898D2DA5CEDF00697E50 /* Layout */,
+				C06D89902DA5CEDF00697E50 /* State */,
+				C06D89932DA5CEDF00697E50 /* Update */,
+				C06D89942DA5CEDF00697E50 /* CollectionViewDelegateManager.swift */,
+				C06D89952DA5CEDF00697E50 /* CollectionViewManager.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		C06D89992DA5CEDF00697E50 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89972DA5CEDF00697E50 /* ListContainerFooter.swift */,
+				C06D89982DA5CEDF00697E50 /* ListContainerFooterView.swift */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
+		C06D899C2DA5CEDF00697E50 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				C06D899A2DA5CEDF00697E50 /* ListContainerHeader.swift */,
+				C06D899B2DA5CEDF00697E50 /* ListContainerHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		C06D899F2DA5CEDF00697E50 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				C06D899D2DA5CEDF00697E50 /* ListContainerCell.swift */,
+				C06D899E2DA5CEDF00697E50 /* ListContainerItem.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		C06D89A02DA5CEDF00697E50 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89992DA5CEDF00697E50 /* Footer */,
+				C06D899C2DA5CEDF00697E50 /* Header */,
+				C06D899F2DA5CEDF00697E50 /* Item */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		C06D89A62DA5CEDF00697E50 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89A12DA5CEDF00697E50 /* AnyListCell.swift */,
+				C06D89A22DA5CEDF00697E50 /* AnyListItem.swift */,
+				C06D89A32DA5CEDF00697E50 /* ListCell.swift */,
+				C06D89A42DA5CEDF00697E50 /* ListItem.swift */,
+				C06D89A52DA5CEDF00697E50 /* ListItemPredicate.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		C06D89AA2DA5CEDF00697E50 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89A72DA5CEDF00697E50 /* ListLayoutAppearance.swift */,
+				C06D89A82DA5CEDF00697E50 /* ListLayoutCustomAppearance.swift */,
+				C06D89A92DA5CEDF00697E50 /* ListLayoutDefaultAppearance.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		C06D89B22DA5CEDF00697E50 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89AB2DA5CEDF00697E50 /* ListLayoutFooter.swift */,
+				C06D89AC2DA5CEDF00697E50 /* ListLayoutHeader.swift */,
+				C06D89AD2DA5CEDF00697E50 /* ListLayoutItem.swift */,
+				C06D89AE2DA5CEDF00697E50 /* ListLayoutOrigin.swift */,
+				C06D89AF2DA5CEDF00697E50 /* ListLayoutSection.swift */,
+				C06D89B02DA5CEDF00697E50 /* ListLayoutSize.swift */,
+				C06D89B12DA5CEDF00697E50 /* ListLayoutState.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		C06D89B92DA5CEDF00697E50 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89E42DA5CEDF00697E50 /* WIP */,
+				C06D89AA2DA5CEDF00697E50 /* Appearance */,
+				C06D89B22DA5CEDF00697E50 /* State */,
+				C06D89B32DA5CEDF00697E50 /* ListLayout.swift */,
+				C06D89B42DA5CEDF00697E50 /* ListLayoutContext.swift */,
+				C06D89B52DA5CEDF00697E50 /* ListLayoutMetrics.swift */,
+				C06D89B62DA5CEDF00697E50 /* ListLayoutPinnedViews.swift */,
+				C06D89B72DA5CEDF00697E50 /* ListLayoutScrollAnchor.swift */,
+				C06D89B82DA5CEDF00697E50 /* ListLayoutScrollAxis.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		C06D89C02DA5CEDF00697E50 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89BA2DA5CEDF00697E50 /* ListSection.swift */,
+				C06D89BB2DA5CEDF00697E50 /* ListSectionBuilder.swift */,
+				C06D89BC2DA5CEDF00697E50 /* ListSectionFooter.swift */,
+				C06D89BD2DA5CEDF00697E50 /* ListSectionHeader.swift */,
+				C06D89BE2DA5CEDF00697E50 /* ListSectionItem.swift */,
+				C06D89BF2DA5CEDF00697E50 /* ListSectionPredicate.swift */,
+			);
+			path = Section;
+			sourceTree = "<group>";
+		};
+		C06D89C52DA5CEDF00697E50 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89C12DA5CEDF00697E50 /* AnyListFooter.swift */,
+				C06D89C22DA5CEDF00697E50 /* AnyListFooterView.swift */,
+				C06D89C32DA5CEDF00697E50 /* ListFooter.swift */,
+				C06D89C42DA5CEDF00697E50 /* ListFooterView.swift */,
+			);
+			path = Footer;
+			sourceTree = "<group>";
+		};
+		C06D89CA2DA5CEDF00697E50 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89C62DA5CEDF00697E50 /* AnyListHeader.swift */,
+				C06D89C72DA5CEDF00697E50 /* AnyListHeaderView.swift */,
+				C06D89C82DA5CEDF00697E50 /* ListHeader.swift */,
+				C06D89C92DA5CEDF00697E50 /* ListHeaderView.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		C06D89CC2DA5CEDF00697E50 /* Supplementary */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89C52DA5CEDF00697E50 /* Footer */,
+				C06D89CA2DA5CEDF00697E50 /* Header */,
+				C06D89CB2DA5CEDF00697E50 /* AnyListSupplementaryView.swift */,
+			);
+			path = Supplementary;
+			sourceTree = "<group>";
+		};
+		C06D89CF2DA5CEDF00697E50 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89CD2DA5CEDF00697E50 /* ListRow.swift */,
+				C06D89CE2DA5CEDF00697E50 /* ListRowSize.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		C06D89D12DA5CEDF00697E50 /* Horizontal */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89CF2DA5CEDF00697E50 /* Row */,
+				C06D89D02DA5CEDF00697E50 /* ListHorizontalLayout.swift */,
+			);
+			path = Horizontal;
+			sourceTree = "<group>";
+		};
+		C06D89D62DA5CEDF00697E50 /* Scroll */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89D22DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchor.swift */,
+				C06D89D32DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorAxis.swift */,
+				C06D89D42DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorItem.swift */,
+				C06D89D52DA5CEDF00697E50 /* CollectionViewLayoutScrollSnapshot.swift */,
+			);
+			path = Scroll;
+			sourceTree = "<group>";
+		};
+		C06D89D92DA5CEDF00697E50 /* Column */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89D72DA5CEDF00697E50 /* ListColumn.swift */,
+				C06D89D82DA5CEDF00697E50 /* ListColumnSize.swift */,
+			);
+			path = Column;
+			sourceTree = "<group>";
+		};
+		C06D89DE2DA5CEDF00697E50 /* Vertical */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89D92DA5CEDF00697E50 /* Column */,
+				C06D89DA2DA5CEDF00697E50 /* VerticalList.swift */,
+				C06D89DB2DA5CEDF00697E50 /* VerticalListLayout.swift */,
+				C06D89DC2DA5CEDF00697E50 /* VerticalListMetrics.swift */,
+				C06D89DD2DA5CEDF00697E50 /* VerticalListSection.swift */,
+			);
+			path = Vertical;
+			sourceTree = "<group>";
+		};
+		C06D89E42DA5CEDF00697E50 /* WIP */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89DE2DA5CEDF00697E50 /* Vertical */,
+				C06D89D12DA5CEDF00697E50 /* Horizontal */,
+			);
+			path = WIP;
+			sourceTree = "<group>";
+		};
+		C06D89E92DA5CEDF00697E50 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89842DA5CEDF00697E50 /* Alignment */,
+				C06D89962DA5CEDF00697E50 /* CollectionView */,
+				C06D89A02DA5CEDF00697E50 /* Containers */,
+				C06D89A62DA5CEDF00697E50 /* Item */,
+				C06D89B92DA5CEDF00697E50 /* Layout */,
+				C06D89C02DA5CEDF00697E50 /* Section */,
+				C06D89CC2DA5CEDF00697E50 /* Supplementary */,
+				C06D89E52DA5CEDF00697E50 /* List.swift */,
+				C06D89E62DA5CEDF00697E50 /* ListBuilder.swift */,
+				C06D89E72DA5CEDF00697E50 /* ListUpdateStrategy.swift */,
+				C06D89E82DA5CEDF00697E50 /* ListView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		C06D8A972DA64EC800697E50 /* WIP */ = {
+			isa = PBXGroup;
+			children = (
+				C06D89D62DA5CEDF00697E50 /* Scroll */,
+				C06D89DF2DA5CEDF00697E50 /* CollectionViewLayout.swift */,
+				C06D89E02DA5CEDF00697E50 /* CollectionViewLayoutBoundsProvider.swift */,
+				C06D89E12DA5CEDF00697E50 /* CollectionViewLayoutScrollManager.swift */,
+				C06D89E22DA5CEDF00697E50 /* CollectionViewLayoutStateManager.swift */,
+				C06D89E32DA5CEDF00697E50 /* CollectionViewLayoutUpdateManager.swift */,
+			);
+			path = WIP;
 			sourceTree = "<group>";
 		};
 		C0855EE92B08DF08003EBC34 /* Alpha */ = {
@@ -2667,6 +3191,85 @@
 				C0310C232B04BB4800BCA3AC /* TokenDecorator.swift in Sources */,
 				C05CD1F72B093732005F5499 /* BackLayer.swift in Sources */,
 				C0F2E9BC2C29C0CE0047AAE4 /* FontSizeDecorator.swift in Sources */,
+				C06D89EA2DA5CEDF00697E50 /* ListItem.swift in Sources */,
+				C06D89EB2DA5CEDF00697E50 /* AnyCollectionViewLayout.swift in Sources */,
+				C06D89EC2DA5CEDF00697E50 /* CollectionViewLayout.swift in Sources */,
+				C06D89ED2DA5CEDF00697E50 /* ListSectionBuilder.swift in Sources */,
+				C06D89EE2DA5CEDF00697E50 /* ListLayoutScrollAnchor.swift in Sources */,
+				C06D89EF2DA5CEDF00697E50 /* ListContainerHeaderView.swift in Sources */,
+				C06D89F02DA5CEDF00697E50 /* VerticalList.swift in Sources */,
+				C06D89F12DA5CEDF00697E50 /* ListBuilder.swift in Sources */,
+				C06D89F22DA5CEDF00697E50 /* ListContainerFooter.swift in Sources */,
+				C06D89F32DA5CEDF00697E50 /* ListCell.swift in Sources */,
+				C06D89F42DA5CEDF00697E50 /* AnyListHeader.swift in Sources */,
+				C06D89F52DA5CEDF00697E50 /* ListLayoutState.swift in Sources */,
+				C06D89F62DA5CEDF00697E50 /* VerticalListMetrics.swift in Sources */,
+				C06D89F72DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorItem.swift in Sources */,
+				C06D89F82DA5CEDF00697E50 /* CollectionViewLayoutAttributes.swift in Sources */,
+				C06D89F92DA5CEDF00697E50 /* ListRow.swift in Sources */,
+				C06D89FA2DA5CEDF00697E50 /* CollectionViewState.swift in Sources */,
+				C06D89FB2DA5CEDF00697E50 /* ListLayoutItem.swift in Sources */,
+				C06D89FC2DA5CEDF00697E50 /* CollectionViewStateManager.swift in Sources */,
+				C06D89FD2DA5CEDF00697E50 /* ListContainerFooterView.swift in Sources */,
+				C06D89FE2DA5CEDF00697E50 /* CollectionViewDelegateManager.swift in Sources */,
+				C06D89FF2DA5CEDF00697E50 /* CollectionViewLayoutInvalidationContext.swift in Sources */,
+				C06D8A002DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */,
+				C06D8A012DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchor.swift in Sources */,
+				C06D8A022DA5CEDF00697E50 /* AnyListHeaderView.swift in Sources */,
+				C06D8A032DA5CEDF00697E50 /* CollectionViewLayoutSizing.swift in Sources */,
+				C06D8A042DA5CEDF00697E50 /* ListFooterView.swift in Sources */,
+				C06D8A052DA5CEDF00697E50 /* VerticalListSection.swift in Sources */,
+				C06D8A062DA5CEDF00697E50 /* ListSectionPredicate.swift in Sources */,
+				C06D8A072DA5CEDF00697E50 /* ListContainerHeader.swift in Sources */,
+				C06D8A082DA5CEDF00697E50 /* ListFooter.swift in Sources */,
+				C06D8A092DA5CEDF00697E50 /* ListLayoutSize.swift in Sources */,
+				C06D8A0A2DA5CEDF00697E50 /* CollectionViewLayoutStateManager.swift in Sources */,
+				C06D8A0B2DA5CEDF00697E50 /* ListLayoutSection.swift in Sources */,
+				C06D8A0C2DA5CEDF00697E50 /* ListLayoutPinnedViews.swift in Sources */,
+				C06D8A0D2DA5CEDF00697E50 /* ListSectionFooter.swift in Sources */,
+				C06D8A0E2DA5CEDF00697E50 /* ListLayoutOrigin.swift in Sources */,
+				C06D8A0F2DA5CEDF00697E50 /* AnyListCell.swift in Sources */,
+				C06D8A102DA5CEDF00697E50 /* CollectionViewInconsistentSupplementaryView.swift in Sources */,
+				C06D8A112DA5CEDF00697E50 /* ListHeaderView.swift in Sources */,
+				C06D8A122DA5CEDF00697E50 /* CollectionViewInconsistentCell.swift in Sources */,
+				C06D8A132DA5CEDF00697E50 /* CollectionViewLayoutDelegate.swift in Sources */,
+				C06D8A142DA5CEDF00697E50 /* ListLayoutDefaultAppearance.swift in Sources */,
+				C06D8A152DA5CEDF00697E50 /* ListLayoutMetrics.swift in Sources */,
+				C06D8A162DA5CEDF00697E50 /* ListColumnSize.swift in Sources */,
+				C06D8A172DA5CEDF00697E50 /* VerticalListLayout.swift in Sources */,
+				C06D8A182DA5CEDF00697E50 /* ListItemPredicate.swift in Sources */,
+				C06D8A192DA5CEDF00697E50 /* ListHorizontalLayout.swift in Sources */,
+				C06D8A1A2DA5CEDF00697E50 /* ListHorizontalAlignment.swift in Sources */,
+				C06D8A1B2DA5CEDF00697E50 /* ListLayoutHeader.swift in Sources */,
+				C06D8A1C2DA5CEDF00697E50 /* ListContainerCell.swift in Sources */,
+				C06D8A1D2DA5CEDF00697E50 /* ListUpdateStrategy.swift in Sources */,
+				C06D8A1E2DA5CEDF00697E50 /* ListHeader.swift in Sources */,
+				C06D8A1F2DA5CEDF00697E50 /* CollectionViewLayoutUpdateManager.swift in Sources */,
+				C06D8A202DA5CEDF00697E50 /* ListSection.swift in Sources */,
+				C06D8A212DA5CEDF00697E50 /* ListLayoutAppearance.swift in Sources */,
+				C06D8A222DA5CEDF00697E50 /* ListVerticalAlignment.swift in Sources */,
+				C06D8A232DA5CEDF00697E50 /* CollectionViewLayoutScrollSnapshot.swift in Sources */,
+				C06D8A242DA5CEDF00697E50 /* AnyListFooterView.swift in Sources */,
+				C06D8A252DA5CEDF00697E50 /* CollectionViewUpdate.swift in Sources */,
+				C06D8A262DA5CEDF00697E50 /* ListContainerItem.swift in Sources */,
+				C06D8A272DA5CEDF00697E50 /* CollectionViewUpdateManager.swift in Sources */,
+				C06D8A282DA5CEDF00697E50 /* ListSectionHeader.swift in Sources */,
+				C06D8A292DA5CEDF00697E50 /* ListLayoutFooter.swift in Sources */,
+				C06D8A2A2DA5CEDF00697E50 /* AnyListFooter.swift in Sources */,
+				C06D8A2B2DA5CEDF00697E50 /* ListLayoutContext.swift in Sources */,
+				C06D8A2C2DA5CEDF00697E50 /* ListView.swift in Sources */,
+				C06D8A2D2DA5CEDF00697E50 /* CollectionViewLayoutBoundsProvider.swift in Sources */,
+				C06D8A2E2DA5CEDF00697E50 /* ListRowSize.swift in Sources */,
+				C06D8A2F2DA5CEDF00697E50 /* ListSectionItem.swift in Sources */,
+				C06D8A302DA5CEDF00697E50 /* ListLayoutCustomAppearance.swift in Sources */,
+				C06D8A312DA5CEDF00697E50 /* AnyListItem.swift in Sources */,
+				C06D8A322DA5CEDF00697E50 /* CollectionViewManager.swift in Sources */,
+				C06D8A332DA5CEDF00697E50 /* ListLayoutScrollAxis.swift in Sources */,
+				C06D8A342DA5CEDF00697E50 /* CollectionViewLayoutScrollManager.swift in Sources */,
+				C06D8A352DA5CEDF00697E50 /* ListLayout.swift in Sources */,
+				C06D8A362DA5CEDF00697E50 /* List.swift in Sources */,
+				C06D8A372DA5CEDF00697E50 /* ListColumn.swift in Sources */,
+				C06D8A382DA5CEDF00697E50 /* AnyListSupplementaryView.swift in Sources */,
 				C0310C7E2B04BB4800BCA3AC /* TypographyLineToken.swift in Sources */,
 				C0310C7D2B04BB4800BCA3AC /* TypographyLineValue.swift in Sources */,
 				C05CD2102B093732005F5499 /* ScaleEffectModifier.swift in Sources */,
@@ -2994,6 +3597,85 @@
 				C04843C72B0B42B2002DF0CA /* FontScaleDecorator.swift in Sources */,
 				C04844002B0B431F002DF0CA /* EnvironmentValues+TokenTheme.swift in Sources */,
 				C09305072B0B68CC00F6F13D /* TokenViewProperties+SFSafariViewController.swift in Sources */,
+				C06D8A392DA5CEDF00697E50 /* ListItem.swift in Sources */,
+				C06D8A3A2DA5CEDF00697E50 /* AnyCollectionViewLayout.swift in Sources */,
+				C06D8A3B2DA5CEDF00697E50 /* CollectionViewLayout.swift in Sources */,
+				C06D8A3C2DA5CEDF00697E50 /* ListSectionBuilder.swift in Sources */,
+				C06D8A3D2DA5CEDF00697E50 /* ListLayoutScrollAnchor.swift in Sources */,
+				C06D8A3E2DA5CEDF00697E50 /* ListContainerHeaderView.swift in Sources */,
+				C06D8A3F2DA5CEDF00697E50 /* VerticalList.swift in Sources */,
+				C06D8A402DA5CEDF00697E50 /* ListBuilder.swift in Sources */,
+				C06D8A412DA5CEDF00697E50 /* ListContainerFooter.swift in Sources */,
+				C06D8A422DA5CEDF00697E50 /* ListCell.swift in Sources */,
+				C06D8A432DA5CEDF00697E50 /* AnyListHeader.swift in Sources */,
+				C06D8A442DA5CEDF00697E50 /* ListLayoutState.swift in Sources */,
+				C06D8A452DA5CEDF00697E50 /* VerticalListMetrics.swift in Sources */,
+				C06D8A462DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorItem.swift in Sources */,
+				C06D8A472DA5CEDF00697E50 /* CollectionViewLayoutAttributes.swift in Sources */,
+				C06D8A482DA5CEDF00697E50 /* ListRow.swift in Sources */,
+				C06D8A492DA5CEDF00697E50 /* CollectionViewState.swift in Sources */,
+				C06D8A4A2DA5CEDF00697E50 /* ListLayoutItem.swift in Sources */,
+				C06D8A4B2DA5CEDF00697E50 /* CollectionViewStateManager.swift in Sources */,
+				C06D8A4C2DA5CEDF00697E50 /* ListContainerFooterView.swift in Sources */,
+				C06D8A4D2DA5CEDF00697E50 /* CollectionViewDelegateManager.swift in Sources */,
+				C06D8A4E2DA5CEDF00697E50 /* CollectionViewLayoutInvalidationContext.swift in Sources */,
+				C06D8A4F2DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */,
+				C06D8A502DA5CEDF00697E50 /* CollectionViewLayoutScrollAnchor.swift in Sources */,
+				C06D8A512DA5CEDF00697E50 /* AnyListHeaderView.swift in Sources */,
+				C06D8A522DA5CEDF00697E50 /* CollectionViewLayoutSizing.swift in Sources */,
+				C06D8A532DA5CEDF00697E50 /* ListFooterView.swift in Sources */,
+				C06D8A542DA5CEDF00697E50 /* VerticalListSection.swift in Sources */,
+				C06D8A552DA5CEDF00697E50 /* ListSectionPredicate.swift in Sources */,
+				C06D8A562DA5CEDF00697E50 /* ListContainerHeader.swift in Sources */,
+				C06D8A572DA5CEDF00697E50 /* ListFooter.swift in Sources */,
+				C06D8A582DA5CEDF00697E50 /* ListLayoutSize.swift in Sources */,
+				C06D8A592DA5CEDF00697E50 /* CollectionViewLayoutStateManager.swift in Sources */,
+				C06D8A5A2DA5CEDF00697E50 /* ListLayoutSection.swift in Sources */,
+				C06D8A5B2DA5CEDF00697E50 /* ListLayoutPinnedViews.swift in Sources */,
+				C06D8A5C2DA5CEDF00697E50 /* ListSectionFooter.swift in Sources */,
+				C06D8A5D2DA5CEDF00697E50 /* ListLayoutOrigin.swift in Sources */,
+				C06D8A5E2DA5CEDF00697E50 /* AnyListCell.swift in Sources */,
+				C06D8A5F2DA5CEDF00697E50 /* CollectionViewInconsistentSupplementaryView.swift in Sources */,
+				C06D8A602DA5CEDF00697E50 /* ListHeaderView.swift in Sources */,
+				C06D8A612DA5CEDF00697E50 /* CollectionViewInconsistentCell.swift in Sources */,
+				C06D8A622DA5CEDF00697E50 /* CollectionViewLayoutDelegate.swift in Sources */,
+				C06D8A632DA5CEDF00697E50 /* ListLayoutDefaultAppearance.swift in Sources */,
+				C06D8A642DA5CEDF00697E50 /* ListLayoutMetrics.swift in Sources */,
+				C06D8A652DA5CEDF00697E50 /* ListColumnSize.swift in Sources */,
+				C06D8A662DA5CEDF00697E50 /* VerticalListLayout.swift in Sources */,
+				C06D8A672DA5CEDF00697E50 /* ListItemPredicate.swift in Sources */,
+				C06D8A682DA5CEDF00697E50 /* ListHorizontalLayout.swift in Sources */,
+				C06D8A692DA5CEDF00697E50 /* ListHorizontalAlignment.swift in Sources */,
+				C06D8A6A2DA5CEDF00697E50 /* ListLayoutHeader.swift in Sources */,
+				C06D8A6B2DA5CEDF00697E50 /* ListContainerCell.swift in Sources */,
+				C06D8A6C2DA5CEDF00697E50 /* ListUpdateStrategy.swift in Sources */,
+				C06D8A6D2DA5CEDF00697E50 /* ListHeader.swift in Sources */,
+				C06D8A6E2DA5CEDF00697E50 /* CollectionViewLayoutUpdateManager.swift in Sources */,
+				C06D8A6F2DA5CEDF00697E50 /* ListSection.swift in Sources */,
+				C06D8A702DA5CEDF00697E50 /* ListLayoutAppearance.swift in Sources */,
+				C06D8A712DA5CEDF00697E50 /* ListVerticalAlignment.swift in Sources */,
+				C06D8A722DA5CEDF00697E50 /* CollectionViewLayoutScrollSnapshot.swift in Sources */,
+				C06D8A732DA5CEDF00697E50 /* AnyListFooterView.swift in Sources */,
+				C06D8A742DA5CEDF00697E50 /* CollectionViewUpdate.swift in Sources */,
+				C06D8A752DA5CEDF00697E50 /* ListContainerItem.swift in Sources */,
+				C06D8A762DA5CEDF00697E50 /* CollectionViewUpdateManager.swift in Sources */,
+				C06D8A772DA5CEDF00697E50 /* ListSectionHeader.swift in Sources */,
+				C06D8A782DA5CEDF00697E50 /* ListLayoutFooter.swift in Sources */,
+				C06D8A792DA5CEDF00697E50 /* AnyListFooter.swift in Sources */,
+				C06D8A7A2DA5CEDF00697E50 /* ListLayoutContext.swift in Sources */,
+				C06D8A7B2DA5CEDF00697E50 /* ListView.swift in Sources */,
+				C06D8A7C2DA5CEDF00697E50 /* CollectionViewLayoutBoundsProvider.swift in Sources */,
+				C06D8A7D2DA5CEDF00697E50 /* ListRowSize.swift in Sources */,
+				C06D8A7E2DA5CEDF00697E50 /* ListSectionItem.swift in Sources */,
+				C06D8A7F2DA5CEDF00697E50 /* ListLayoutCustomAppearance.swift in Sources */,
+				C06D8A802DA5CEDF00697E50 /* AnyListItem.swift in Sources */,
+				C06D8A812DA5CEDF00697E50 /* CollectionViewManager.swift in Sources */,
+				C06D8A822DA5CEDF00697E50 /* ListLayoutScrollAxis.swift in Sources */,
+				C06D8A832DA5CEDF00697E50 /* CollectionViewLayoutScrollManager.swift in Sources */,
+				C06D8A842DA5CEDF00697E50 /* ListLayout.swift in Sources */,
+				C06D8A852DA5CEDF00697E50 /* List.swift in Sources */,
+				C06D8A862DA5CEDF00697E50 /* ListColumn.swift in Sources */,
+				C06D8A872DA5CEDF00697E50 /* AnyListSupplementaryView.swift in Sources */,
 				C09305382B0B803C00F6F13D /* Set+TokenValue.swift in Sources */,
 				C09305712B0B80F300F6F13D /* ColorValue+View.swift in Sources */,
 				C0EEA42E2C6AD7ED0097F0C3 /* NSAttributedString+Extensions.swift in Sources */,

@@ -3,6 +3,7 @@ import UIKit
 import SwiftUI
 #else
 import CoreGraphics
+import Foundation
 #endif
 
 public typealias ColorToken = Token<ColorValue>

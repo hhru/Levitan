@@ -145,4 +145,18 @@ internal final class DifferenceCalculator {
             stageSections: stageSections
         )
     }
+
+    internal func calculateDifference<Section: DiffableSection>(
+        sourceSections: [Section],
+        targetSections: [Section]
+    ) async -> [DifferenceChangeset<Section>] {
+        let task = Task.detached(priority: .userInitiated) {
+            self.calculateDifference(
+                sourceSections: sourceSections,
+                targetSections: targetSections
+            )
+        }
+
+        return await task.value
+    }
 }

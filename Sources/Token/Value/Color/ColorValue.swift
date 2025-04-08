@@ -2,6 +2,7 @@
 import UIKit
 #else
 import CoreGraphics
+import Foundation
 #endif
 
 import SwiftUI

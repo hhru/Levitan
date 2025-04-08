@@ -1,4 +1,5 @@
 import CoreGraphics
+import Foundation
 
 extension CGRect:
     TokenValue,
