@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 internal struct ShadowModifier<Content: View>: TokenShapedModifier {
@@ -147,3 +148,4 @@ extension TokenShapedView {
         )
     }
 }
+#endif

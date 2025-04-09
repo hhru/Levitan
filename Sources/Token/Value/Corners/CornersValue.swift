@@ -2,14 +2,15 @@ import Foundation
 
 public struct CornersValue:
     TokenValue,
+    Changeable,
     ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral,
     Sendable {
 
-    public let topLeft: CGFloat
-    public let topRight: CGFloat
-    public let bottomLeft: CGFloat
-    public let bottomRight: CGFloat
+    public var topLeft: CGFloat
+    public var topRight: CGFloat
+    public var bottomLeft: CGFloat
+    public var bottomRight: CGFloat
 
     public var isRectangular: Bool {
         topLeft == .zero

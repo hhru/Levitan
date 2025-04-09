@@ -1,4 +1,8 @@
+#if canImport(UIKit)
 import UIKit
+#else
+import Foundation
+#endif
 
 public typealias ImageToken = Token<ImageValue>
 
@@ -23,6 +27,7 @@ extension ImageToken {
 
 extension ImageToken {
 
+    #if canImport(UIKit)
     public static let empty = uiImage(UIImage())
 
     public static func uiImage(
@@ -38,6 +43,7 @@ extension ImageToken {
             insets: insets
         )
     }
+    #endif
 
     public static func resource(
         name: String,

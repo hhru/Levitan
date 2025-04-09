@@ -11,17 +11,20 @@ public protocol Changeable {
 
 extension Changeable where ChangeableCopy == Self {
 
-    public var changeableCopy: ChangeableCopy { self }
+    public var changeableCopy: ChangeableCopy {
+        self
+    }
 
     public init(copy: ChangeableCopy) {
         self = copy
     }
-}
 
-extension Changeable where ChangeableCopy == ChangeableWrapper<Self> {
+    public func changing<Value>(_ keypath: WritableKeyPath<Self, Value>, to value: Value) -> Self {
+        var copy = self.changeableCopy
 
-    public func changing<T>(_ keypath: KeyPath<Self, T>, to value: T) -> Self {
-        Self(copy: ChangeableWrapper(wrapped: self, changes: [keypath: value]))
+        copy[keyPath: keypath] = value
+
+        return Self(copy: copy)
     }
 }
 

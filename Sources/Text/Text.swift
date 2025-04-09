@@ -1,22 +1,23 @@
+#if canImport(UIKit)
 import SwiftUI
 
-public struct Text2: FallbackManualComponent {
+public struct Text: FallbackManualComponent, TokenValue {
 
     public typealias UIView = TextView
 
     public let parts: [AnyTextPart]
 
-    public let typography: TypographyToken?
-    public let decoration: [AnyTextDecorator]
-    public let animation: TextAnimation?
+    public var typography: TypographyToken?
+    public var decoration: [AnyTextDecorator]
+    public var animation: TextAnimation?
 
-    public let lineLimit: Int?
-    public let lineBreakMode: NSLineBreakMode
+    public var lineLimit: Int?
+    public var lineBreakMode: NSLineBreakMode
 
-    public let isEnabled: Bool
+    public var isEnabled: Bool
 
     @ViewAction
-    public var tapAction: (() -> Void)?
+    public var tapAction: (@MainActor () -> Void)?
 
     public init(
         parts: [AnyTextPart],
@@ -26,7 +27,7 @@ public struct Text2: FallbackManualComponent {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (() -> Void)? = nil
+        tapAction: (@MainActor () -> Void)? = nil
     ) {
         self.parts = parts
 
@@ -49,7 +50,7 @@ public struct Text2: FallbackManualComponent {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (() -> Void)? = nil
+        tapAction: (@MainActor () -> Void)? = nil
     ) {
         self.init(
             parts: [content.eraseToAnyTextPart()],
@@ -70,7 +71,7 @@ public struct Text2: FallbackManualComponent {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (() -> Void)? = nil,
+        tapAction: (@MainActor () -> Void)? = nil,
         @TextBuilder content: () -> [any TextPart]
     ) {
         self.init(
@@ -86,21 +87,21 @@ public struct Text2: FallbackManualComponent {
     }
 }
 
-extension Text2: ExpressibleByStringLiteral {
+extension Text: ExpressibleByStringLiteral {
 
     public init(stringLiteral value: String) {
         self.init { value }
     }
 }
 
-extension Text2: ExpressibleByStringInterpolation {
+extension Text: ExpressibleByStringInterpolation {
 
     public init(stringInterpolation: TextInterpolation) {
         self.init(parts: stringInterpolation.parts)
     }
 }
 
-extension Text2: TextPart {
+extension Text: TextPart {
 
     public func attributedText(context: ComponentContext) -> NSAttributedString {
         UIView.attributedText(
@@ -110,20 +111,7 @@ extension Text2: TextPart {
     }
 }
 
-extension Text2: Changeable {
-
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            parts: copy.parts,
-            typography: copy.typography,
-            decoration: copy.decoration,
-            animation: copy.animation,
-            lineLimit: copy.lineLimit,
-            lineBreakMode: copy.lineBreakMode,
-            isEnabled: copy.isEnabled,
-            tapAction: copy.tapAction
-        )
-    }
+extension Text: Changeable {
 
     public func typography(_ typography: TypographyToken?) -> Self {
         changing { $0.typography = typography }
@@ -149,21 +137,12 @@ extension Text2: Changeable {
         changing { $0.isEnabled = !isDisabled }
     }
 
-    public func onTap(_ tapAction: (() -> Void)?) -> Self {
-        guard let tapAction else {
-            return self
-        }
-
-        let newTapAction = { [previousTapAction = self.tapAction] in
-            previousTapAction?()
-            tapAction()
-        }
-
-        return changing { $0.tapAction = newTapAction }
+    public func onTap(_ tapAction: (@MainActor () -> Void)?) -> Self {
+        changing { $0.tapAction = tapAction }
     }
 }
 
-extension Text2 {
+extension Text {
 
     public func size(
         fitting size: CGSize,
@@ -176,7 +155,7 @@ extension Text2 {
         )
     }
 
-    internal func width(
+    public func width(
         fitting height: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext
     ) -> CGFloat {
@@ -186,7 +165,7 @@ extension Text2 {
         ).width
     }
 
-    internal func height(
+    public func height(
         fitting width: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext
     ) -> CGFloat {
@@ -196,3 +175,4 @@ extension Text2 {
         ).height
     }
 }
+#endif

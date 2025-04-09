@@ -310,7 +310,7 @@ file_name:
   excluded:
     - main.swift
   prefix_pattern: ''
-  suffix_pattern: '[+][A-z][A-z]+'
+  suffix_pattern: '([+][A-z][A-z]+)+'
   nested_type_separator: ''
 
 file_types_order:

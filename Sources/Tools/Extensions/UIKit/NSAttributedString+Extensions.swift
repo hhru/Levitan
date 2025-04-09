@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension NSAttributedString {
@@ -58,3 +59,4 @@ extension NSAttributedString {
         ).height
     }
 }
+#endif

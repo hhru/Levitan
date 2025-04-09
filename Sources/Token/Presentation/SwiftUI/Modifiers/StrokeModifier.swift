@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 internal struct StrokeModifier<Content: View>: TokenShapedModifier {
@@ -65,3 +66,4 @@ extension TokenShapedView {
         )
     }
 }
+#endif

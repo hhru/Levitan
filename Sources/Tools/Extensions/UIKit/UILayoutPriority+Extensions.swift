@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension UILayoutPriority {
@@ -6,3 +7,4 @@ extension UILayoutPriority {
         Self(rawValue: required.rawValue - 1)
     }
 }
+#endif

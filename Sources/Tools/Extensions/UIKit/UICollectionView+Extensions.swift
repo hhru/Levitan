@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension UICollectionView {
@@ -32,3 +33,4 @@ extension UICollectionView {
         DispatchQueue.main.async(execute: completion)
     }
 }
+#endif

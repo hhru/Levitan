@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 import UIKit
 
@@ -82,3 +83,4 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
         view.backgroundColor = .clear
     }
 }
+#endif

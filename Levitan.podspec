@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "Levitan"
-  spec.version = "1.0.0"
+  spec.version = "1.0.0-alpha.1"
   spec.summary = "A user interface toolkit that lets us design apps in a convenient and declarative way using SwiftUI and UIKit."
 
   spec.homepage = "https://github.com/hhru/Levitan"

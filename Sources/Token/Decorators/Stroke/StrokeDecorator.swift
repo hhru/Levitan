@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 internal struct StrokeDecorator<Value: DecorableByStroke>: TokenDecorator {
@@ -15,3 +16,4 @@ extension Token where Value: DecorableByStroke {
         decorated(by: StrokeDecorator(stroke: stroke))
     }
 }
+#endif

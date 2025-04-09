@@ -53,14 +53,14 @@ public struct ViewState<Value>: DynamicProperty {
 
     /// Создает состояние с начальным значением.
     ///
-    /// - Parameter wrappedValue: Начальное значение.
+    /// - Parameter value: Начальное значение.
     public init(wrappedValue value: Value) {
         state = State(wrappedValue: value)
     }
 
     /// Создает состояние с начальным значением.
     ///
-    /// - Parameter initialValue: Начальное значение
+    /// - Parameter value: Начальное значение
     public init(initialValue value: Value) {
         self.init(wrappedValue: value)
     }

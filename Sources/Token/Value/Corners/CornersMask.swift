@@ -1,4 +1,8 @@
+#if canImport(UIKit)
 import UIKit
+#else
+import Foundation
+#endif
 
 public struct CornersMask:
     OptionSet,
@@ -7,6 +11,7 @@ public struct CornersMask:
 
     public let rawValue: UInt
 
+    #if canImport(UIKit)
     #if os(iOS) || os(tvOS)
     public var caCornerMask: CACornerMask {
         let cornerMaskMap: KeyValuePairs<Self, CACornerMask> = [
@@ -40,6 +45,7 @@ public struct CornersMask:
                 result.insert(corner.value)
             }
     }
+    #endif
 
     public init(rawValue: UInt) {
         self.rawValue = rawValue

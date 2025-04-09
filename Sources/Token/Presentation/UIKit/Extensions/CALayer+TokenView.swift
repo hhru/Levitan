@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import QuartzCore
 
 extension CALayer: TokenView {
@@ -123,3 +124,4 @@ extension CALayer {
         }
     }
 }
+#endif

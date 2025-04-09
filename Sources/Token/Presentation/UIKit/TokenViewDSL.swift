@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 @dynamicMemberLookup
@@ -41,6 +42,47 @@ public struct TokenViewDSL<View: AnyTokenView> {
         view.tokenViewManager.customBinding(handler: handler)
     }
 
+    public subscript<Value>(
+        dynamicMember keyPath: PropertyPath<Value, Void>
+    ) -> Token<Value>? {
+        get { propertyBinding(at: keyPath).token }
+        nonmutating set { propertyBinding(at: keyPath).token = newValue }
+    }
+
+    public subscript<Value: Hashable>(
+        dynamicMember keyPath: PropertyPath<Value, Void>
+    ) -> Value? {
+        get { self[dynamicMember: keyPath]?.resolve(for: theme) }
+        nonmutating set { self[dynamicMember: keyPath] = newValue.map { .value($0) } }
+    }
+
+    public subscript<Value, Details: Hashable>(
+        dynamicMember keyPath: PropertyPath<Value, Details>
+    ) -> Token<Value>? {
+        get { propertyBinding(at: keyPath).token }
+        nonmutating set { propertyBinding(at: keyPath).token = newValue }
+    }
+
+    public subscript<Value: Hashable, Details: Hashable>(
+        dynamicMember keyPath: PropertyPath<Value, Details>
+    ) -> Value? {
+        get { self[dynamicMember: keyPath]?.resolve(for: theme) }
+        nonmutating set { self[dynamicMember: keyPath] = newValue.map { .value($0) } }
+    }
+
+    public subscript<Value, Details: Hashable>(
+        dynamicMember keyPath: PropertyPath<Value, Details>
+    ) -> TokenViewPropertySubscript<Value, Details> {
+        TokenViewPropertySubscript(
+            property: viewProperties[keyPath: keyPath],
+            keyPath: keyPath,
+            view: view
+        )
+    }
+}
+
+extension TokenViewDSL {
+
     private func propertyBinding<Value>(
         at keyPath: PropertyPath<Value, Void>
     ) -> TokenViewPropertyBinding<Value> {
@@ -73,49 +115,6 @@ public struct TokenViewDSL<View: AnyTokenView> {
                 property.handler(view, value, details, theme)
             }
     }
-
-    private func propertySubscript<Value, Details: Hashable>(
-        at keyPath: PropertyPath<Value, Details>
-    ) -> TokenViewPropertySubscript<Value, Details> {
-        let property = viewProperties[keyPath: keyPath]
-
-        return TokenViewPropertySubscript(
-            defaultDetails: property.defaultDetails
-        ) { [weak view] details in
-            let keyPath = property.overloadingKeyPath ?? keyPath
-
-            let propertyKey = TokenViewPropertyKey(
-                keyPath: keyPath,
-                details: details
-            )
-
-            return view?
-                .tokenViewManager
-                .propertyBinding(at: propertyKey) { view, value, theme in
-                    property.handler(view, value, details, theme)
-                }
-        }
-    }
-
-    public subscript<Value>(
-        dynamicMember keyPath: PropertyPath<Value, Void>
-    ) -> Token<Value>? {
-        get { propertyBinding(at: keyPath).token }
-        nonmutating set { propertyBinding(at: keyPath).token = newValue }
-    }
-
-    public subscript<Value, Details: Hashable>(
-        dynamicMember keyPath: PropertyPath<Value, Details>
-    ) -> Token<Value>? {
-        get { propertyBinding(at: keyPath).token }
-        nonmutating set { propertyBinding(at: keyPath).token = newValue }
-    }
-
-    public subscript<Value, Details: Hashable>(
-        dynamicMember keyPath: PropertyPath<Value, Details>
-    ) -> TokenViewPropertySubscript<Value, Details> {
-        propertySubscript(at: keyPath)
-    }
 }
 
 extension AnyTokenView {
@@ -124,3 +123,4 @@ extension AnyTokenView {
         TokenViewDSL(view: self)
     }
 }
+#endif

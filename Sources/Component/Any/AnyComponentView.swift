@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 import SwiftUI
 
@@ -74,3 +75,4 @@ extension AnyComponentView: ComponentView {
         invalidateIntrinsicContentSize()
     }
 }
+#endif

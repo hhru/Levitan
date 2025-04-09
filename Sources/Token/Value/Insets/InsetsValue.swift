@@ -1,18 +1,20 @@
+#if canImport(UIKit)
 import UIKit
+#endif
+
 import SwiftUI
 
 public struct InsetsValue:
     TokenValue,
-    DecorableByPlus,
-    DecorableByMinus,
+    Changeable,
     ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral,
     Sendable {
 
-    public let top: CGFloat
-    public let leading: CGFloat
-    public let bottom: CGFloat
-    public let trailing: CGFloat
+    public var top: CGFloat
+    public var leading: CGFloat
+    public var bottom: CGFloat
+    public var trailing: CGFloat
 
     public var horizontal: CGFloat {
         leading + trailing
@@ -22,6 +24,7 @@ public struct InsetsValue:
         top + bottom
     }
 
+    #if canImport(UIKit)
     public var uiEdgeInsets: UIEdgeInsets {
         UIEdgeInsets(
             top: top,
@@ -30,6 +33,7 @@ public struct InsetsValue:
             right: trailing
         )
     }
+    #endif
 
     public var edgeInsets: EdgeInsets {
         EdgeInsets(
@@ -70,6 +74,7 @@ public struct InsetsValue:
         )
     }
 
+    #if canImport(UIKit)
     public init(_ uiEdgeInset: UIEdgeInsets) {
         self.init(
             top: uiEdgeInset.top,
@@ -78,6 +83,7 @@ public struct InsetsValue:
             trailing: uiEdgeInset.right
         )
     }
+    #endif
 
     public init(_ edgeInset: EdgeInsets) {
         self.init(
@@ -97,15 +103,9 @@ public struct InsetsValue:
     }
 }
 
-extension InsetsValue {
-
-    public static var zero: Self {
-        all(.zero)
-    }
-
-    public static func all(_ value: CGFloat) -> Self {
-        Self(all: value)
-    }
+extension InsetsValue:
+    DecorableByPlus,
+    DecorableByMinus {
 
     public static func + (lhs: Self, rhs: Self) -> Self {
         Self(
@@ -123,5 +123,16 @@ extension InsetsValue {
             bottom: lhs.bottom - rhs.bottom,
             trailing: lhs.trailing - rhs.trailing
         )
+    }
+}
+
+extension InsetsValue {
+
+    public static var zero: Self {
+        all(.zero)
+    }
+
+    public static func all(_ value: CGFloat) -> Self {
+        Self(all: value)
     }
 }

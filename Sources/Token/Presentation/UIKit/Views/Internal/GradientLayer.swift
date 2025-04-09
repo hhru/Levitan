@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import QuartzCore
 
 internal final class GradientLayer: CAGradientLayer {
@@ -40,3 +41,4 @@ internal final class GradientLayer: CAGradientLayer {
         endPoint = gradient.endPoint
     }
 }
+#endif

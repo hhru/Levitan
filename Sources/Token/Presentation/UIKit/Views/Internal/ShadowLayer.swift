@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 internal final class ShadowLayer: CALayer {
@@ -176,3 +177,4 @@ internal final class ShadowLayer: CALayer {
         updateShadowPathIfPossible()
     }
 }
+#endif

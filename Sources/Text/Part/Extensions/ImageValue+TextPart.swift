@@ -1,16 +1,18 @@
+#if canImport(UIKit)
 import UIKit
 
 extension ImageValue: TextPart {
 
     public func attributedText(context: ComponentContext) -> NSAttributedString {
-        let typography = context
+        let contextTypography = context
             .textTypography
             .resolve(for: context.tokenTheme)
 
-        let foregroundColor = context
+        let typography = context
             .textDecoration
-            .decorate(typography: typography, context: context)
-            .foregroundColor
+            .decorate(typography: contextTypography, context: context)
+
+        let foregroundColor = typography.foregroundColor
 
         let uiImage = self
             .foregroundColor(self.foregroundColor ?? foregroundColor)
@@ -25,9 +27,21 @@ extension ImageValue: TextPart {
             x: .zero,
             y: (capHeight - imageHeight) * 0.5,
             width: uiImage.size.width,
-            height: uiImage.size.height
+            height: imageHeight
         )
 
-        return NSAttributedString(attachment: attachment)
+        let separator = NSAttributedString(
+            string: "\u{001D}",
+            attributes: typography.attributes
+        )
+
+        let attributedString = NSMutableAttributedString()
+
+        attributedString.append(separator)
+        attributedString.append(NSAttributedString(attachment: attachment))
+        attributedString.append(separator)
+
+        return attributedString
     }
 }
+#endif

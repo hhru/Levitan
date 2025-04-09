@@ -1,9 +1,16 @@
+#if canImport(UIKit)
 import UIKit
+#else
+import Foundation
+#endif
+
 import Combine
 
 public final class TokenThemeManager: ObservableObject {
 
+    #if canImport(UIKit)
     public static let `default` = TokenThemeManager()
+    #endif
 
     private let storage: TokenThemeStorage
     private let resolver: TokenThemeResolver
@@ -19,6 +26,7 @@ public final class TokenThemeManager: ObservableObject {
     @Published
     public private(set) var currentTheme: TokenTheme
 
+    #if canImport(UIKit)
     public init(
         storage: TokenThemeStorage = DefaultTokenThemeStorage(),
         resolver: TokenThemeResolver = DefaultTokenThemeResolver()
@@ -39,6 +47,20 @@ public final class TokenThemeManager: ObservableObject {
             }
         }
     }
+    #else
+    public init(
+        storage: TokenThemeStorage = DefaultTokenThemeStorage(),
+        resolver: TokenThemeResolver
+    ) {
+        self.storage = storage
+        self.resolver = resolver
+
+        currentTheme = resolver.resolveTheme(
+            selectedKey: storage.restoreSelectedThemeKey(),
+            selectedScheme: storage.restoreSelectedThemeScheme()
+        )
+    }
+    #endif
 
     private func updateCurrentTheme() {
         let theme = resolver.resolveTheme(

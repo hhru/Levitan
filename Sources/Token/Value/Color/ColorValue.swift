@@ -1,17 +1,21 @@
+#if canImport(UIKit)
 import UIKit
+#else
+import CoreGraphics
+#endif
+
 import SwiftUI
 
 public struct ColorValue:
     TokenValue,
-    DecorableByOpacity,
-    DecorableByAlpha,
+    Changeable,
     ExpressibleByIntegerLiteral,
     Sendable {
 
-    public let red: CGFloat
-    public let green: CGFloat
-    public let blue: CGFloat
-    public let alpha: CGFloat
+    public var red: CGFloat
+    public var green: CGFloat
+    public var blue: CGFloat
+    public var alpha: CGFloat
 
     public var hex: UInt32 {
         UInt32(min(alpha * 255.0, 255.0))
@@ -30,6 +34,7 @@ public struct ColorValue:
         )
     }
 
+    #if canImport(UIKit)
     public var uiColor: UIColor {
         UIColor(
             red: red,
@@ -38,6 +43,7 @@ public struct ColorValue:
             alpha: alpha
         )
     }
+    #endif
 
     public var cgColor: CGColor {
         CGColor(
@@ -123,6 +129,7 @@ public struct ColorValue:
         self.init(hex: UInt32(scannedValue))
     }
 
+    #if canImport(UIKit)
     public init(uiColor: UIColor) {
         var red: CGFloat = .zero
         var green: CGFloat = .zero
@@ -147,22 +154,16 @@ public struct ColorValue:
     public init(color: Color) {
         self.init(uiColor: UIColor(color))
     }
+    #endif
 
     public init(integerLiteral hex: UInt32) {
         self.init(hex: hex)
     }
 }
 
-extension ColorValue: Changeable {
-
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            red: copy.red,
-            green: copy.green,
-            blue: copy.blue,
-            alpha: copy.alpha
-        )
-    }
+extension ColorValue:
+    DecorableByAlpha,
+    DecorableByOpacity {
 
     public func alpha(_ alpha: CGFloat) -> Self {
         changing { $0.alpha = alpha }

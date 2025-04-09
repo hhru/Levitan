@@ -1,18 +1,20 @@
+#if canImport(UIKit)
 import UIKit
+#endif
+
 import SwiftUI
 
 public struct ImageValue:
     TokenValue,
-    DecorableByResizingMode,
-    DecorableByForegroundColor,
-    DecorableByInsets,
+    Changeable,
     Sendable {
 
-    public let source: ImageSource
-    public let resizingMode: ImageResizingMode?
-    public let foregroundColor: ColorValue?
-    public let insets: InsetsValue
+    public var source: ImageSource
+    public var resizingMode: ImageResizingMode?
+    public var foregroundColor: ColorValue?
+    public var insets: InsetsValue
 
+    #if canImport(UIKit)
     public var uiImage: UIImage {
         var uiImage = source.uiImage
 
@@ -38,6 +40,7 @@ public struct ImageValue:
 
         return uiImage
     }
+    #endif
 
     public var image: some View {
         source
@@ -61,16 +64,10 @@ public struct ImageValue:
     }
 }
 
-extension ImageValue: Changeable {
-
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            source: copy.source,
-            resizingMode: copy.resizingMode,
-            foregroundColor: copy.foregroundColor,
-            insets: copy.insets
-        )
-    }
+extension ImageValue:
+    DecorableByResizingMode,
+    DecorableByForegroundColor,
+    DecorableByInsets {
 
     public func resizable(_ resizingMode: ImageResizingMode?) -> Self {
         changing { $0.resizingMode = resizingMode }
@@ -87,6 +84,7 @@ extension ImageValue: Changeable {
 
 extension ImageValue {
 
+    #if canImport(UIKit)
     public static let empty = uiImage(UIImage())
 
     public static func uiImage(
@@ -102,6 +100,7 @@ extension ImageValue {
             insets: insets
         )
     }
+    #endif
 
     public static func resource(
         name: String,

@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 internal struct TokenViewPropertyKey<Details> {
@@ -8,3 +9,4 @@ internal struct TokenViewPropertyKey<Details> {
 
 extension TokenViewPropertyKey: Equatable where Details: Equatable { }
 extension TokenViewPropertyKey: Hashable where Details: Hashable { }
+#endif

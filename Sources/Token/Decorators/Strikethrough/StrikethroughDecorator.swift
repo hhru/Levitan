@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 internal struct StrikethroughDecorator<Value: DecorableByStrikethrough>: TokenDecorator {
@@ -15,3 +16,4 @@ extension Token where Value: DecorableByStrikethrough {
         decorated(by: StrikethroughDecorator(strikethrough: strikethrough))
     }
 }
+#endif

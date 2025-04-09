@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 public protocol DecorableByStroke {
@@ -11,3 +12,4 @@ extension DecorableByStroke {
         stroke(1.0)
     }
 }
+#endif
