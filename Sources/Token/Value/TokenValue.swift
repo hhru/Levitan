@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol TokenValue: Hashable, TokenTraitProvider { }
+public protocol TokenValue: Hashable, Sendable, TokenTraitProvider { }
 
 extension TokenValue {
 

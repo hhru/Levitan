@@ -1,6 +1,6 @@
 import Foundation
 
-internal struct DivisionDecorator<Value: DecorableByDivision>: TokenDecorator {
+internal struct DivisionDecorator<Value: DecorableByDivision & TokenValue>: TokenDecorator {
 
     internal let other: Token<Value>
 
@@ -9,7 +9,7 @@ internal struct DivisionDecorator<Value: DecorableByDivision>: TokenDecorator {
     }
 }
 
-extension Token where Value: DecorableByDivision {
+extension Token where Value: DecorableByDivision & TokenValue {
 
     public static func / (lhs: Self, rhs: Self) -> Self {
         lhs.decorated(by: DivisionDecorator(other: rhs))
