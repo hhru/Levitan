@@ -6,6 +6,7 @@ private let frontLayerAssociation = ObjectAssociation<FrontLayer>()
 private let shadowsAssociation = ObjectAssociation<[ShadowValue]>()
 private let strokeAssociation = ObjectAssociation<StrokeValue>()
 
+@MainActor
 extension CALayer {
 
     internal var frontLayer: FrontLayer? {

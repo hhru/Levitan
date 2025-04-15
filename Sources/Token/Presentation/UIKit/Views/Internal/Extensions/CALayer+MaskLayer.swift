@@ -1,6 +1,7 @@
 #if canImport(UIKit)
 import QuartzCore
 
+@MainActor
 extension CALayer {
 
     internal var maskLayer: MaskLayer? {

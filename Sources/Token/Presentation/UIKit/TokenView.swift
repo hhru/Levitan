@@ -13,9 +13,11 @@ internal protocol TokenView: AnyTokenView {
 }
 
 private let tokenViewPayloadAssociation = {
-    UIWindowScene.handleTokenViewEvents()
-    UIView.handleTokenViewEvents()
-    CALayer.handleTokenViewEvents()
+    Task { @MainActor in
+        UIWindowScene.handleTokenViewEvents()
+        UIView.handleTokenViewEvents()
+        CALayer.handleTokenViewEvents()
+    }
 
     return ObjectAssociation<TokenViewPayload>()
 }()

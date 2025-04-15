@@ -6,6 +6,7 @@ private let backLayerAssociation = ObjectAssociation<BackLayer>()
 private let shapeColorAssociation = ObjectAssociation<ColorValue>()
 private let gradientsAssociation = ObjectAssociation<[GradientValue]>()
 
+@MainActor
 extension CALayer {
 
     internal var backLayer: BackLayer? {
