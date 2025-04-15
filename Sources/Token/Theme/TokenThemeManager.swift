@@ -45,6 +45,7 @@ public final class TokenThemeManager: ObservableObject {
 
         Task { @MainActor in
             let traitsObservation = UIScreen.main.traitsObservation
+
             traitsObservation.registerObserver(self) { manager, traits, previousTraits in
                 if traits.userInterfaceStyle != previousTraits?.userInterfaceStyle {
                     manager.updateCurrentTheme()

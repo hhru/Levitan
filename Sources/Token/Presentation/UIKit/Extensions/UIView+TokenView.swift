@@ -59,7 +59,6 @@ extension UIView {
     // После отказа от iOS 16, стоит рассмотреть возможность замены свизлинга
     // на кастомизацию UITraitCollection: https://developer.apple.com/documentation/uikit/uitraitcollection#4250876
     internal static func handleTokenViewEvents() {
-
         tokenViewWindowsObservation = NotificationCenter.default.publisher(
             for: UIWindow.didBecomeVisibleNotification
         )

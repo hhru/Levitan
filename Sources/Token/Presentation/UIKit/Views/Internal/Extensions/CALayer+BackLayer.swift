@@ -1,9 +1,12 @@
 #if canImport(UIKit)
 import QuartzCore
 
+@MainActor
 private let backLayerAssociation = ObjectAssociation<BackLayer>()
 
+@MainActor
 private let shapeColorAssociation = ObjectAssociation<ColorValue>()
+@MainActor
 private let gradientsAssociation = ObjectAssociation<[GradientValue]>()
 
 @MainActor
