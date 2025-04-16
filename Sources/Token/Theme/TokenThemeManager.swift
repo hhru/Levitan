@@ -43,13 +43,11 @@ public final class TokenThemeManager: ObservableObject {
             selectedScheme: storage.restoreSelectedThemeScheme()
         )
 
-        Task { @MainActor in
-            let traitsObservation = UIScreen.main.traitsObservation
+        let traitsObservation = UIScreen.main.traitsObservation
 
-            traitsObservation.registerObserver(self) { manager, traits, previousTraits in
-                if traits.userInterfaceStyle != previousTraits?.userInterfaceStyle {
-                    manager.updateCurrentTheme()
-                }
+        traitsObservation.registerObserver(self) { manager, traits, previousTraits in
+            if traits.userInterfaceStyle != previousTraits?.userInterfaceStyle {
+                manager.updateCurrentTheme()
             }
         }
     }
