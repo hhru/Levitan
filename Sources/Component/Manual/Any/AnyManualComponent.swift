@@ -62,7 +62,7 @@ public struct AnyManualComponent: ManualComponent {
 
 extension AnyManualComponent: Equatable {
 
-    public static func == (lhs: Self, rhs: Self) -> Bool {
+    public nonisolated static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.wrapped == rhs.wrapped
     }
 }
