@@ -24,6 +24,7 @@ extension CALayer: TokenView {
     internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme) { }
 }
 
+@MainActor
 extension CALayer {
 
     internal static func handleTokenViewEvents() {
