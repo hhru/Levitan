@@ -1,15 +1,11 @@
 #if canImport(UIKit)
 import QuartzCore
 
-@MainActor
 private let frontLayerAssociation = ObjectAssociation<FrontLayer>()
 
-@MainActor
 private let shadowsAssociation = ObjectAssociation<[ShadowValue]>()
-@MainActor
 private let strokeAssociation = ObjectAssociation<StrokeValue>()
 
-@MainActor
 extension CALayer {
 
     internal var frontLayer: FrontLayer? {
