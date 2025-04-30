@@ -120,7 +120,7 @@ public protocol Component: View, Equatable {
 
 extension Component {
 
-    internal func isEqual(to other: any Component) -> Bool {
+    internal nonisolated func isEqual(to other: any Component) -> Bool {
         guard let other = other as? Self else {
             return false
         }
