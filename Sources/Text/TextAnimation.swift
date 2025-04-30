@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-public struct TextAnimation: Hashable {
+public struct TextAnimation: Hashable, Sendable {
 
     public let update: AnimationToken?
 
@@ -30,13 +30,17 @@ public struct TextAnimation: Hashable {
 
 extension TextAnimation {
 
-    public static let none = Self()
+    public static var none: Self {
+        Self()
+    }
 
-    public static let `default` = Self(
-        press: .easeInEaseOut(duration: 100),
-        unpress: .easeInEaseOut(duration: 200),
-        hover: .easeInEaseOut(duration: 100),
-        unhover: .easeInEaseOut(duration: 200)
-    )
+    public static var `default`: Self {
+        Self(
+            press: .easeInEaseOut(duration: 100),
+            unpress: .easeInEaseOut(duration: 200),
+            hover: .easeInEaseOut(duration: 100),
+            unhover: .easeInEaseOut(duration: 200)
+        )
+    }
 }
 #endif
