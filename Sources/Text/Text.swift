@@ -5,21 +5,37 @@ public struct Text: FallbackManualComponent, TokenValue {
 
     public typealias UIView = TextView
 
-    public let parts: [AnyTextPart]
+    nonisolated private var content: TextContent
 
-    public var typography: TypographyToken?
-    public var decoration: [AnyTextDecorator]
-    public var animation: TextAnimation?
+    public var parts: [AnyTextPart] {
+        content.parts
+    }
 
-    public var lineLimit: Int?
-    public var lineBreakMode: NSLineBreakMode
+    public var typography: TypographyToken? {
+        content.typography
+    }
 
-    public var isEnabled: Bool
+    public var decoration: [AnyTextDecorator] {
+        content.decoration
+    }
 
-    @ViewAction
-    public var tapAction: (@MainActor () -> Void)?
+    public var animation: TextAnimation?{
+        content.animation
+    }
 
-    public init(
+    public var lineLimit: Int? {
+        content.lineLimit
+    }
+
+    public var lineBreakMode: NSLineBreakMode {
+        content.lineBreakMode
+    }
+
+    nonisolated public var isEnabled: Bool {
+        content.isEnabled
+    }
+
+    nonisolated public init(
         parts: [AnyTextPart],
         typography: TypographyToken? = nil,
         decoration: [AnyTextDecorator] = [],
@@ -29,17 +45,16 @@ public struct Text: FallbackManualComponent, TokenValue {
         isEnabled: Bool = true,
         tapAction: (@MainActor () -> Void)? = nil
     ) {
-        self.parts = parts
-
-        self.typography = typography
-        self.decoration = decoration
-        self.animation = animation
-
-        self.lineLimit = lineLimit
-        self.lineBreakMode = lineBreakMode
-
-        self.isEnabled = isEnabled
-        self.tapAction = tapAction
+        self.content = TextContent(
+            parts: parts,
+            typography: typography,
+            decoration: decoration,
+            animation: animation,
+            lineLimit: lineLimit,
+            lineBreakMode: lineBreakMode,
+            isEnabled: isEnabled,
+            tapAction: tapAction
+        )
     }
 
     public init(
@@ -64,7 +79,7 @@ public struct Text: FallbackManualComponent, TokenValue {
         )
     }
 
-    public init(
+    nonisolated public init(
         typography: TypographyToken? = nil,
         decoration: [AnyTextDecorator] = [],
         animation: TextAnimation? = nil,
@@ -89,14 +104,14 @@ public struct Text: FallbackManualComponent, TokenValue {
 
 extension Text: ExpressibleByStringLiteral {
 
-    public init(stringLiteral value: String) {
+    nonisolated public init(stringLiteral value: String) {
         self.init { value }
     }
 }
 
 extension Text: ExpressibleByStringInterpolation {
 
-    public init(stringInterpolation: TextInterpolation) {
+    nonisolated public init(stringInterpolation: TextInterpolation) {
         self.init(parts: stringInterpolation.parts)
     }
 }
@@ -114,31 +129,31 @@ extension Text: TextPart {
 extension Text: Changeable {
 
     public func typography(_ typography: TypographyToken?) -> Self {
-        changing { $0.typography = typography }
+        changing { $0.content.typography = typography }
     }
 
     public func decorated<Decorator: TextDecorator>(by decorator: Decorator) -> Self {
-        changing { $0.decoration.append(decorator.eraseToAnyTextDecorator()) }
+        changing { $0.content.decoration.append(decorator.eraseToAnyTextDecorator()) }
     }
 
     public func animation(_ animation: TextAnimation) -> Self {
-        changing { $0.animation = animation }
+        changing { $0.content.animation = animation }
     }
 
     public func lineLimit(_ lineLimit: Int?) -> Self {
-        changing { $0.lineLimit = lineLimit }
+        changing { $0.content.lineLimit = lineLimit }
     }
 
     public func lineBreakMode(_ lineBreakMode: NSLineBreakMode) -> Self {
-        changing { $0.lineBreakMode = lineBreakMode }
+        changing { $0.content.lineBreakMode = lineBreakMode }
     }
 
     public func disabled(_ isDisabled: Bool = true) -> Self {
-        changing { $0.isEnabled = !isDisabled }
+        changing { $0.content.isEnabled = !isDisabled }
     }
 
     public func onTap(_ tapAction: (@MainActor () -> Void)?) -> Self {
-        changing { $0.tapAction = tapAction }
+        changing { $0.content.tapAction = tapAction }
     }
 }
 

@@ -72,12 +72,11 @@ internal class TextOperationQueue: NSObject {
     }
 }
 
-extension TextOperationQueue: CAAnimationDelegate {
+@MainActor
+extension TextOperationQueue: @preconcurrency CAAnimationDelegate {
 
     public func animationDidStop(_ animation: CAAnimation, finished: Bool) {
-        Task { @MainActor in
-            performNextOperation()
-        }
+        performNextOperation()
     }
 }
 #endif
