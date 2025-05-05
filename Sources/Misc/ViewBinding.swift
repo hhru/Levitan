@@ -43,10 +43,7 @@ public struct ViewBinding<Value> {
 
     @MainActor
     public var projectedValue: Binding<Value> {
-        Binding(
-            get: { @Sendable in get() },
-            set: { @Sendable in set($0) }
-        )
+        Binding(get: { get() }, set: { set($0) })
     }
 
     public init(
