@@ -138,8 +138,7 @@ where Value: ExpressibleByStringLiteral & TokenValue {
 }
 
 extension Token: ExpressibleByArrayLiteral
-where Value: RangeReplaceableCollection & Hashable,
-      Value.Element: Hashable {
+where Value: RangeReplaceableCollection & Hashable, Value.Element: Hashable {
 
     public init(arrayLiteral elements: Token<Value.Element>...) {
         let traits = elements.map { TokenTrait($0.traits) }

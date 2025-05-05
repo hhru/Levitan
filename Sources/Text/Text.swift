@@ -19,7 +19,7 @@ public struct Text: FallbackManualComponent, TokenValue {
         content.decoration
     }
 
-    public var animation: TextAnimation?{
+    public var animation: TextAnimation? {
         content.animation
     }
 
