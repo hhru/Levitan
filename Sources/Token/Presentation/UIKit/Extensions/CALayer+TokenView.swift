@@ -24,7 +24,6 @@ extension CALayer: TokenView {
     internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme) { }
 }
 
-@MainActor
 extension CALayer {
 
     internal static func handleTokenViewEvents() {
@@ -67,9 +66,7 @@ extension CALayer {
             _addSublayer(layer)
         }
 
-        if layer.tokenViewParent === self {
-            layer.tokenViewManager.updateTheme()
-        }
+        scheduleThemeUpdate(for: layer)
     }
 
     @objc
@@ -82,9 +79,7 @@ extension CALayer {
             _insertSublayer(layer, at: index)
         }
 
-        if layer.tokenViewParent === self {
-            layer.tokenViewManager.updateTheme()
-        }
+        scheduleThemeUpdate(for: layer)
     }
 
     @objc
@@ -95,9 +90,7 @@ extension CALayer {
             _insertSublayer(layer, above: sublayer)
         }
 
-        if layer.tokenViewParent === self {
-            layer.tokenViewManager.updateTheme()
-        }
+        scheduleThemeUpdate(for: layer)
     }
 
     @objc
@@ -108,9 +101,7 @@ extension CALayer {
             _insertSublayer(layer, below: sublayer)
         }
 
-        if layer.tokenViewParent === self {
-            layer.tokenViewManager.updateTheme()
-        }
+        scheduleThemeUpdate(for: layer)
     }
 
     @objc
@@ -126,3 +117,24 @@ extension CALayer {
     }
 }
 #endif
+
+extension CALayer {
+
+    @objc
+    func scheduleThemeUpdate(for layer: CALayer) {
+      perform(
+        #selector(updateTheme(_:)),
+        on: Thread.main,
+        with: layer,
+        waitUntilDone: false
+      )
+    }
+
+    @MainActor
+    @objc
+    private func updateTheme(_ layer: CALayer) {
+        if layer.tokenViewParent === self {
+            layer.tokenViewManager.updateTheme()
+        }
+    }
+}
