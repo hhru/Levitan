@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 internal struct TextContent: Sendable, Hashable {
@@ -16,3 +17,4 @@ internal struct TextContent: Sendable, Hashable {
     @ViewAction
     internal var tapAction: (@MainActor () -> Void)?
 }
+#endif
