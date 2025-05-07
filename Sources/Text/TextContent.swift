@@ -1,18 +1,20 @@
+#if canImport(UIKit)
 import SwiftUI
 
 internal struct TextContent: Sendable, Hashable {
 
-    let parts: [AnyTextPart]
+    internal let parts: [AnyTextPart]
 
-    var typography: TypographyToken?
-    var decoration: [AnyTextDecorator]
-    var animation: TextAnimation?
+    internal var typography: TypographyToken?
+    internal var decoration: [AnyTextDecorator]
+    internal var animation: TextAnimation?
 
-    var lineLimit: Int?
-    var lineBreakMode: NSLineBreakMode
+    internal var lineLimit: Int?
+    internal var lineBreakMode: NSLineBreakMode
 
-    var isEnabled: Bool
+    internal var isEnabled: Bool
 
     @ViewAction
-    var tapAction: (@MainActor () -> Void)?
+    internal var tapAction: (@MainActor () -> Void)?
 }
+#endif

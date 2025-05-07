@@ -52,6 +52,7 @@ public final class TokenThemeManager: ObservableObject {
         }
     }
     #else
+    @MainActor
     public init(
         storage: TokenThemeStorage = DefaultTokenThemeStorage(),
         resolver: TokenThemeResolver

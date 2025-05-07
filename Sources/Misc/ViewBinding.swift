@@ -41,8 +41,9 @@ public struct ViewBinding<Value> {
         nonmutating set { set(newValue) }
     }
 
+    @MainActor
     public var projectedValue: Binding<Value> {
-        Binding(get: get, set: set)
+        Binding(get: { get() }, set: { set($0) })
     }
 
     public init(
@@ -231,3 +232,5 @@ extension ViewBinding {
         )
     }
 }
+
+extension ViewBinding: @unchecked Sendable where Value: Sendable {}

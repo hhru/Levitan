@@ -1,6 +1,8 @@
+import Foundation
+
 #if canImport(UIKit)
 internal struct AnyComponentContent: @unchecked Sendable {
 
-    let wrapped: any Component
+    internal let wrapped: any Component
 }
 #endif
