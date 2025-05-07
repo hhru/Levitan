@@ -7,7 +7,7 @@ internal struct StrokeModifier<Content: View>: TokenShapedModifier {
     internal let shape: ShapeToken?
 
     internal var shapeInsets: SpacingToken? {
-        stroke?.insets
+        stroke?.shapeInsets
     }
 
     @ViewBuilder
