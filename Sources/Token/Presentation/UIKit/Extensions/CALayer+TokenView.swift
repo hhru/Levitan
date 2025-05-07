@@ -121,7 +121,7 @@ extension CALayer {
 extension CALayer {
 
     @objc
-    func scheduleThemeUpdate(for layer: CALayer) {
+    private func scheduleThemeUpdate(for layer: CALayer) {
       perform(
         #selector(updateTheme(_:)),
         on: Thread.main,
