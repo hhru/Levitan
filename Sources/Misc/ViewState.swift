@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 /// Обертка для реализации внутреннего состояния UI-компонента.
@@ -37,25 +38,35 @@ import SwiftUI
 @propertyWrapper
 public struct ViewState<Value>: DynamicProperty {
 
-    private var state: State<Value>
+    private var environment = Environment(\.componentIdentifier)
+    private var state = State<[AnyHashable?: Value]>(wrappedValue: [:])
+
+    private var initialValue: Value
+
+    private var identifier: AnyHashable? {
+        environment.wrappedValue
+    }
 
     /// Текущее значение, на которое ссылается переменная состояния.
     public var wrappedValue: Value {
-        get { state.wrappedValue }
-        nonmutating set { state.wrappedValue = newValue }
+        get { state.wrappedValue[identifier] ?? initialValue }
+        nonmutating set { state.wrappedValue[identifier] = newValue }
     }
 
     // TODO: Добавить поддержку в компоненты SwiftUI и возвращать ViewBinding
     /// Байндинг для значения состояния.
     public var projectedValue: Binding<Value> {
-        state.projectedValue
+        Binding(
+            get: { wrappedValue },
+            set: { wrappedValue = $0 }
+        )
     }
 
     /// Создает состояние с начальным значением.
     ///
     /// - Parameter value: Начальное значение.
     public init(wrappedValue value: Value) {
-        state = State(wrappedValue: value)
+        initialValue = value
     }
 
     /// Создает состояние с начальным значением.
@@ -66,6 +77,7 @@ public struct ViewState<Value>: DynamicProperty {
     }
 
     public mutating func update() {
+        environment.update()
         state.update()
     }
 }
@@ -84,3 +96,9 @@ extension ViewState: Equatable where Value: Equatable {
         true
     }
 }
+
+extension ViewState: Hashable where Value: Hashable {
+
+    public func hash(into hasher: inout Hasher) { }
+}
+#endif

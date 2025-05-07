@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 // TODO: Добавить документацию
@@ -54,3 +55,4 @@ extension ViewBindable: Hashable where Value: Hashable {
         hasher.combine(wrappedValue)
     }
 }
+#endif
