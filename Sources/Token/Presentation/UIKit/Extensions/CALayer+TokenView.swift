@@ -60,17 +60,59 @@ extension CALayer {
 
     @objc
     private dynamic func _addSublayer(_ layer: CALayer) {
+        performOnMain(#selector(addSublayerOnMain(_:)), layer)
+    }
+
+    @objc
+    private dynamic func _insertSublayer(_ layer: CALayer, at index: UInt32) {
+        performOnMain(#selector(insertSublayerOnMain(_:)), LayerAndIndex(layer, index))
+    }
+
+    @objc
+    private dynamic func _insertSublayer(_ layer: CALayer, above sublayer: CALayer?) {
+        performOnMain(#selector(insertSublayerAboveOnMain(_:)), LayerPair(layer, sublayer))
+    }
+
+    @objc
+    private dynamic func _insertSublayer(_ layer: CALayer, below sublayer: CALayer?) {
+        performOnMain(#selector(insertSublayerBelowOnMain(_:)), LayerPair(layer, sublayer))
+    }
+
+    @objc
+    private dynamic func _layoutSublayers() {
+        performOnMain(#selector(layoutSublayersOnMain), nil)
+    }
+
+    private func performOnMain(_ selector: Selector, _ object: Any?) {
+        if Thread.isMainThread {
+            perform(selector, with: object)
+        } else {
+            perform(
+                selector,
+                on: Thread.main,
+                with: object,
+                waitUntilDone: false
+            )
+        }
+    }
+
+    @MainActor
+    @objc
+    private func addSublayerOnMain(_ layer: CALayer) {
         if let frontLayer {
             _insertSublayer(layer, below: frontLayer)
         } else {
             _addSublayer(layer)
         }
-
-        scheduleThemeUpdate(for: layer)
+        applyThemeIfNeeded(for: layer)
     }
 
+    @MainActor
     @objc
-    private dynamic func _insertSublayer(_ layer: CALayer, at index: UInt32) {
+    private func insertSublayerOnMain(_ box: LayerAndIndex) {
+        let layer = box.layer
+        let index = box.index
+
         if let frontLayer, index == sublayers?.count ?? .zero {
             _insertSublayer(layer, below: frontLayer)
         } else if let backLayer, index == .zero {
@@ -79,33 +121,42 @@ extension CALayer {
             _insertSublayer(layer, at: index)
         }
 
-        scheduleThemeUpdate(for: layer)
+        applyThemeIfNeeded(for: layer)
     }
 
+    @MainActor
     @objc
-    private dynamic func _insertSublayer(_ layer: CALayer, above sublayer: CALayer?) {
+    private func insertSublayerAboveOnMain(_ pair: LayerPair) {
+        let layer = pair.layer
+        let sublayer = pair.sublayer
+
         if let frontLayer, frontLayer === sublayer {
             _insertSublayer(layer, below: frontLayer)
         } else {
             _insertSublayer(layer, above: sublayer)
         }
 
-        scheduleThemeUpdate(for: layer)
+        applyThemeIfNeeded(for: layer)
     }
 
+    @MainActor
     @objc
-    private dynamic func _insertSublayer(_ layer: CALayer, below sublayer: CALayer?) {
+    private func insertSublayerBelowOnMain(_ pair: LayerPair) {
+        let layer = pair.layer
+        let sublayer = pair.sublayer
+
         if let backLayer, backLayer === sublayer {
             _insertSublayer(layer, above: backLayer)
         } else {
             _insertSublayer(layer, below: sublayer)
         }
 
-        scheduleThemeUpdate(for: layer)
+        applyThemeIfNeeded(for: layer)
     }
 
+    @MainActor
     @objc
-    private dynamic func _layoutSublayers() {
+    private func layoutSublayersOnMain(_: Any?) {
         _layoutSublayers()
 
         frontLayer?.frame = bounds
@@ -115,26 +166,36 @@ extension CALayer {
             maskLayer?.frame = bounds
         }
     }
-}
-#endif
-
-extension CALayer {
-
-    @objc
-    private func scheduleThemeUpdate(for layer: CALayer) {
-      perform(
-        #selector(updateTheme(_:)),
-        on: Thread.main,
-        with: layer,
-        waitUntilDone: false
-      )
-    }
 
     @MainActor
-    @objc
-    private func updateTheme(_ layer: CALayer) {
+    private func applyThemeIfNeeded(for layer: CALayer) {
         if layer.tokenViewParent === self {
             layer.tokenViewManager.updateTheme()
         }
     }
 }
+
+@objc
+private final class LayerAndIndex: NSObject {
+
+    let layer: CALayer
+    let index: UInt32
+
+    init(_ layer: CALayer, _ index: UInt32) {
+        self.layer = layer
+        self.index = index
+    }
+}
+
+@objc
+private final class LayerPair: NSObject {
+
+    let layer: CALayer
+    let sublayer: CALayer?
+
+    init(_ layer: CALayer, _ sublayer: CALayer?) {
+        self.layer = layer
+        self.sublayer = sublayer
+    }
+}
+#endif
