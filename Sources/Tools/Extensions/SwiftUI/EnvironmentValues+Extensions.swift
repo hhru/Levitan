@@ -2,6 +2,7 @@
 import UIKit
 import SwiftUI
 
+@MainActor
 extension EnvironmentValues {
 
     internal static let `default` = Self.default(for: UIScreen.main.traitCollection)
