@@ -8,6 +8,7 @@ public struct TokenViewPropertySubscript<Value, Details: Hashable> {
     internal let keyPath: AnyKeyPath
     internal let view: AnyTokenView
 
+    @MainActor
     private func propertyBinding(detailsKeyPath: KeyPath<Details, Details>) -> TokenViewPropertyBinding<Value> {
         let details = property.defaultDetails[keyPath: detailsKeyPath]
         let keyPath = property.overloadingKeyPath ?? keyPath
@@ -24,13 +25,15 @@ public struct TokenViewPropertySubscript<Value, Details: Hashable> {
             }
     }
 
+    @MainActor
     public subscript(dynamicMember keyPath: KeyPath<Details, Details>) -> Token<Value>? {
         get { propertyBinding(detailsKeyPath: keyPath).token }
         nonmutating set { propertyBinding(detailsKeyPath: keyPath).token = newValue }
     }
 
+    @MainActor
     public subscript(dynamicMember keyPath: KeyPath<Details, Details>) -> Value?
-    where Value: Hashable {
+    where Value: Hashable & Sendable {
         get { self[dynamicMember: keyPath]?.resolve(for: view.tokenViewManager.theme) }
         nonmutating set { self[dynamicMember: keyPath] = newValue.map { .value($0) } }
     }

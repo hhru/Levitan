@@ -1,6 +1,6 @@
 import Foundation
 
-internal struct MinusDecorator<Value: DecorableByMinus>: TokenDecorator {
+internal struct MinusDecorator<Value: DecorableByMinus & TokenValue>: TokenDecorator {
 
     internal let other: Token<Value>
 
@@ -9,7 +9,7 @@ internal struct MinusDecorator<Value: DecorableByMinus>: TokenDecorator {
     }
 }
 
-extension Token: DecorableByMinus where Value: DecorableByMinus {
+extension Token: DecorableByMinus where Value: DecorableByMinus & TokenValue {
 
     public static func - (lhs: Self, rhs: Self) -> Self {
         lhs.decorated(by: MinusDecorator(other: rhs))

@@ -1,6 +1,7 @@
 import CoreGraphics
 
 extension CGRect:
+    @retroactive @unchecked Sendable,
     TokenValue,
     DecorableByInsets,
     DecorableByOutsets {

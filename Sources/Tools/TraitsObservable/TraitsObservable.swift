@@ -7,6 +7,7 @@ internal protocol TraitsObservable: UITraitEnvironment {
     static var swizzleTraitCollectionDidChangeMethod: () -> Void { get }
 }
 
+@MainActor
 private let traitsObservationAssociation = ObjectAssociation<TraitsObservation>()
 
 extension TraitsObservable {

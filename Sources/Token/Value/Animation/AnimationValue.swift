@@ -51,6 +51,7 @@ public struct AnimationValue:
     }
 
     #if canImport(UIKit)
+    @MainActor
     public func propertyAnimator(animations: (() -> Void)? = nil) -> UIViewPropertyAnimator {
         UIViewPropertyAnimator(
             duration: duration,
