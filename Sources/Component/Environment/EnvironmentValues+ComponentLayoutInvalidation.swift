@@ -3,7 +3,7 @@ import SwiftUI
 
 internal struct ComponentLayoutInvalidationEnvironmentKey: EnvironmentKey {
 
-    internal static let defaultValue =  { @MainActor in }
+    internal static let defaultValue = { @MainActor in }
 }
 
 extension EnvironmentValues {
