@@ -1,5 +1,6 @@
 import SwiftUI
 
+@MainActor
 public protocol TokenViewModifier {
 
     associatedtype Content: View

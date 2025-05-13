@@ -1,6 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
+@MainActor
 @dynamicMemberLookup
 public struct TokenViewDSL<View: AnyTokenView> {
 
@@ -49,7 +50,7 @@ public struct TokenViewDSL<View: AnyTokenView> {
         nonmutating set { propertyBinding(at: keyPath).token = newValue }
     }
 
-    public subscript<Value: Hashable>(
+    public subscript<Value: Hashable & Sendable>(
         dynamicMember keyPath: PropertyPath<Value, Void>
     ) -> Value? {
         get { self[dynamicMember: keyPath]?.resolve(for: theme) }
@@ -63,7 +64,7 @@ public struct TokenViewDSL<View: AnyTokenView> {
         nonmutating set { propertyBinding(at: keyPath).token = newValue }
     }
 
-    public subscript<Value: Hashable, Details: Hashable>(
+    public subscript<Value: Hashable & Sendable, Details: Hashable>(
         dynamicMember keyPath: PropertyPath<Value, Details>
     ) -> Value? {
         get { self[dynamicMember: keyPath]?.resolve(for: theme) }
