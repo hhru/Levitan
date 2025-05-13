@@ -80,9 +80,11 @@ public struct ViewFocusBinding<Value: Hashable>: Hashable {
 
 extension ViewFocusBinding where Value == Bool {
 
-    public static let unfocusable = Self(
-        binding: .constant(false),
-        canFocus: false,
-        canUnfocus: true
-    )
+    public static var unfocusable: Self {
+        Self(
+            binding: .constant(false),
+            canFocus: false,
+            canUnfocus: true
+        )
+    }
 }
