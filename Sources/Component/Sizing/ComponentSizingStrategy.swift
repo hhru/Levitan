@@ -49,6 +49,8 @@ extension ComponentSizingStrategy {
     /// Чтобы система смогла определить собственный размер компонента,
     /// рекомендуется "замыкать" констрейнты в UIKit-представлении по соответствующей оси
     /// или возвращать определенное значение размера в свойстве `intrinsicContentSize`.
-    public static let hug = Self.hug(bounded: true)
+    public static var hug: Self {
+        hug(bounded: true)
+    }
 }
 #endif

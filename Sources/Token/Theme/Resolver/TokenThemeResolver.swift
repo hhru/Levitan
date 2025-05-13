@@ -1,5 +1,6 @@
 import Foundation
 
+@MainActor
 public protocol TokenThemeResolver {
 
     func resolveTheme(

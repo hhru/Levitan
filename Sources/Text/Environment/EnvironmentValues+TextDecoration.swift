@@ -3,7 +3,9 @@ import SwiftUI
 
 internal struct TextDecorationKey: EnvironmentKey {
 
-    internal static let defaultValue: [AnyTextDecorator] = []
+    internal static var defaultValue: [AnyTextDecorator] {
+        []
+    }
 }
 
 extension EnvironmentValues {

@@ -12,6 +12,7 @@ internal protocol TokenView: AnyTokenView {
     func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme)
 }
 
+@MainActor
 private let tokenViewPayloadAssociation = {
     UIWindowScene.handleTokenViewEvents()
     UIView.handleTokenViewEvents()

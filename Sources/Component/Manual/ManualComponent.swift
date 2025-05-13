@@ -27,6 +27,9 @@ import Foundation
 /// - SeeAlso: ``AnyManualComponent``
 public protocol ManualComponent: Component {
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     func size(
         fitting size: CGSize,
         context: ComponentContext
@@ -35,6 +38,9 @@ public protocol ManualComponent: Component {
 
 extension ManualComponent where UIView == ComponentHostingView<Self> {
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     public func sizing(
         fitting size: CGSize,
         context: ComponentContext

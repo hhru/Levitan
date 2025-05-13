@@ -58,7 +58,7 @@ extension UICollectionView {
         shouldInterrupt: ((DifferenceChangeset<Section>) -> Bool)? = nil,
         updateSections: ([Section]) -> Void,
         updateCells: (_ indexPaths: [IndexPath]) -> Void,
-        completion: (() -> Void)? = nil
+        completion: (@Sendable () -> Void)? = nil
     ) {
         guard let lastChangeset = changesets.last else {
             completion?()
@@ -100,7 +100,7 @@ extension UICollectionView {
     internal func reloadData<Section: DiffableSection>(
         using changeset: DifferenceChangeset<Section>,
         updateSections: ([Section]) -> Void,
-        completion: (() -> Void)? = nil
+        completion: (@Sendable () -> Void)? = nil
     ) {
         updateSections(changeset.sections)
         reloadData { completion?() }

@@ -1,6 +1,7 @@
 import CoreGraphics
 
 extension CGSize:
+    @retroactive @unchecked Sendable,
     TokenValue,
     DecorableByInsets,
     DecorableByOutsets {
