@@ -1,6 +1,30 @@
 #if canImport(UIKit)
 import QuartzCore
 
+@objc
+private final class LayerAndIndex: NSObject {
+
+    let layer: CALayer
+    let index: UInt32
+
+    init(_ layer: CALayer, _ index: UInt32) {
+        self.layer = layer
+        self.index = index
+    }
+}
+
+@objc
+private final class LayerPair: NSObject {
+
+    let layer: CALayer
+    let sublayer: CALayer?
+
+    init(_ layer: CALayer, _ sublayer: CALayer?) {
+        self.layer = layer
+        self.sublayer = sublayer
+    }
+}
+
 extension CALayer: TokenView {
 
     internal var tokenViewRoot: TokenView? {
@@ -172,30 +196,6 @@ extension CALayer {
         if layer.tokenViewParent === self {
             layer.tokenViewManager.updateTheme()
         }
-    }
-}
-
-@objc
-private final class LayerAndIndex: NSObject {
-
-    let layer: CALayer
-    let index: UInt32
-
-    init(_ layer: CALayer, _ index: UInt32) {
-        self.layer = layer
-        self.index = index
-    }
-}
-
-@objc
-private final class LayerPair: NSObject {
-
-    let layer: CALayer
-    let sublayer: CALayer?
-
-    init(_ layer: CALayer, _ sublayer: CALayer?) {
-        self.layer = layer
-        self.sublayer = sublayer
     }
 }
 #endif
