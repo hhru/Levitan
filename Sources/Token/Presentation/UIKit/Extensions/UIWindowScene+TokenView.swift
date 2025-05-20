@@ -1,4 +1,5 @@
 #if canImport(UIKit)
+import Combine
 import UIKit
 
 extension UIWindowScene: TokenView {
@@ -36,18 +37,23 @@ extension UIWindowScene: TokenView {
     }
 }
 
-private var tokenViewWindowScenesObservation: NSObjectProtocol?
+@MainActor
+private var tokenViewWindowScenesObservation: AnyCancellable?
 
 extension UIWindowScene {
 
     internal static func handleTokenViewEvents() {
-        tokenViewWindowScenesObservation = NotificationCenter.default.addObserver(
-            forName: UIWindowScene.didActivateNotification,
-            object: nil,
-            queue: nil
-        ) { notification in
-            if let tokenView = notification.object as? TokenView {
+        tokenViewWindowScenesObservation = NotificationCenter.default.publisher(
+            for: UIWindowScene.didActivateNotification
+        )
+        .compactMap { $0.object as? TokenView }
+        .sink { tokenView in
+            if Thread.isMainThread {
                 tokenView.tokenViewManager.updateTheme()
+            } else {
+                Task { @MainActor in
+                    tokenView.tokenViewManager.updateTheme()
+                }
             }
         }
     }

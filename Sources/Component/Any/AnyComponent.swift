@@ -33,15 +33,13 @@ public struct AnyComponent: Component {
     /// - SeeAlso: ``AnyComponentView``
     public typealias UIView = AnyComponentView
 
-    /// Оборачиваемый компонент со стертым типом.
-    public let wrapped: any Component
-
     /// SwiftUI-представление компонента.
     ///
     /// Для отображения компонента со стертым типом в SwiftUI его тип так же стирается,
     /// используя `AnyView`.
     public let body: AnyView
 
+    internal let content: AnyComponentContent
     internal let presenter: AnyComponentPresenter
 
     private init(
@@ -49,7 +47,7 @@ public struct AnyComponent: Component {
         body: AnyView,
         presenter: AnyComponentPresenter
     ) {
-        self.wrapped = wrapped
+        self.content = AnyComponentContent(wrapped: wrapped)
         self.body = body
         self.presenter = presenter
     }
@@ -69,7 +67,7 @@ public struct AnyComponent: Component {
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
-        wrapped.sizing(
+        content.wrapped.sizing(
             fitting: size,
             context: context
         )
@@ -78,16 +76,16 @@ public struct AnyComponent: Component {
 
 extension AnyComponent: Equatable {
 
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        if lhs.wrapped.isEqual(to: rhs.wrapped) {
+    public nonisolated static func == (lhs: Self, rhs: Self) -> Bool {
+        if lhs.content.wrapped.isEqual(to: rhs.content.wrapped) {
             return true
         }
 
-        if let lhs = lhs.wrapped as? AnyComponent {
+        if let lhs = lhs.content.wrapped as? AnyComponent {
             return lhs == rhs
         }
 
-        if let rhs = rhs.wrapped as? AnyComponent {
+        if let rhs = rhs.content.wrapped as? AnyComponent {
             return lhs == rhs
         }
 

@@ -8,6 +8,7 @@ internal struct ShadowModifier<Content: View>: TokenShapedModifier {
     internal let shape: ShapeToken?
     internal let shapeInsets: SpacingToken?
 
+    @MainActor
     private func dropShadowBody(
         content: Content,
         shadow: ShadowValue,
@@ -43,6 +44,7 @@ internal struct ShadowModifier<Content: View>: TokenShapedModifier {
         return content.background(background)
     }
 
+    @MainActor
     private func innerShadowBody(
         content: Content,
         shadow: ShadowValue,

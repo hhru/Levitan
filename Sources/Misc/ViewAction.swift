@@ -49,6 +49,8 @@ public struct ViewAction<Value> {
     }
 }
 
+extension ViewAction: Sendable where Value: Sendable { }
+
 extension ViewAction: Equatable {
 
     public static func == (lhs: Self, rhs: Self) -> Bool {

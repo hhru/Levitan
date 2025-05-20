@@ -14,3 +14,5 @@ public struct TokenThemeUnit<Body: TokenThemeBody> {
         self.init(light: single, dark: single)
     }
 }
+
+extension TokenThemeUnit: Sendable where Body: Sendable { }

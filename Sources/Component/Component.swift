@@ -112,6 +112,9 @@ public protocol Component: View, Equatable {
     ///
     /// - SeeAlso: ``ComponentSizing``
     /// - SeeAlso: ``ComponentContext``
+    #if swift(<6.0)
+    @MainActor
+    #endif
     func sizing(
         fitting size: CGSize,
         context: ComponentContext
@@ -120,7 +123,7 @@ public protocol Component: View, Equatable {
 
 extension Component {
 
-    internal func isEqual(to other: any Component) -> Bool {
+    internal nonisolated func isEqual(to other: any Component) -> Bool {
         guard let other = other as? Self else {
             return false
         }

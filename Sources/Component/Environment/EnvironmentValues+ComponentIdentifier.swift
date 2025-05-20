@@ -3,7 +3,7 @@ import SwiftUI
 
 internal struct ComponentIdentifierEnvironmentKey: EnvironmentKey {
 
-    internal static let defaultValue: AnyHashable? = nil
+    internal static var defaultValue: AnyHashable? { nil }
 }
 
 extension EnvironmentValues {
