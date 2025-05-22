@@ -25,8 +25,8 @@ internal class TextOperationQueue: NSObject {
     private func performOperation(_ operation: TextOperation) {
         let transition = operation
             .animation?
-            .caTransition
             .resolve(for: layer.tokens.theme)
+            .caTransition
 
         if let transition {
             transition.delegate = self

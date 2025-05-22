@@ -76,16 +76,16 @@ extension Token where Value: Hashable & Sendable {
 
 extension Token where Value: Sendable {
 
-    public subscript<Nested>(
-        dynamicMember relativePath: KeyPath<Value, Nested> & Sendable
+    public subscript<Nested: Sendable>(
+        dynamicMember relativePath: KeyPath<Value, Nested>
     ) -> Token<Nested> {
         Token<Nested>(traits: traits.appending(TokenTrait(relativePath))) { theme in
             resolve(for: theme)[keyPath: relativePath]
         }
     }
 
-    public subscript<Nested>(
-        dynamicMember relativePath: KeyPath<Value, Token<Nested>> & Sendable
+    public subscript<Nested: Sendable>(
+        dynamicMember relativePath: KeyPath<Value, Token<Nested>>
     ) -> Token<Nested> {
         Token<Nested>(traits: traits.appending(TokenTrait(relativePath))) { theme in
             resolve(for: theme)[keyPath: relativePath].resolve(for: theme)
@@ -148,3 +148,5 @@ where Value: RangeReplaceableCollection & Hashable, Value.Element: Hashable {
         }
     }
 }
+
+extension KeyPath: @unchecked @retroactive Sendable where Root: Sendable, Value: Sendable {}
