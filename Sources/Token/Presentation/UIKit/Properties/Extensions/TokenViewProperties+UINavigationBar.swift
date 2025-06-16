@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension TokenViewProperties where View: UINavigationBar {
@@ -52,3 +53,4 @@ extension TokenViewProperties where View: UINavigationBar {
 
     // TODO: implement for appearance
 }
+#endif

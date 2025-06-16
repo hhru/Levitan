@@ -1,5 +1,5 @@
 PODS:
-  - Levitan (1.0.0)
+  - Levitan (1.0.0-alpha.1)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: ".."
 
 SPEC CHECKSUMS:
-  Levitan: 167f041c1a28902e829b3134525bd8a67694c8e2
+  Levitan: 1b4a167f5ac91efcf6ad282ad30d9bb55dff0377
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
 PODFILE CHECKSUM: b30f6f39508f1f6d238c16600c243a7cb55d3b9c
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.16.2

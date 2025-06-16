@@ -45,22 +45,6 @@ public struct Token<Value>: TokenTraitProvider, Sendable {
     public func resolve(for theme: TokenTheme) -> Value {
         resolver(theme)
     }
-
-    public subscript<Nested>(
-        dynamicMember relativePath: KeyPath<Value, Nested>
-    ) -> Token<Nested> {
-        Token<Nested>(traits: traits.appending(TokenTrait(relativePath))) { theme in
-            resolve(for: theme)[keyPath: relativePath]
-        }
-    }
-
-    public subscript<Nested>(
-        dynamicMember relativePath: KeyPath<Value, Token<Nested>>
-    ) -> Token<Nested> {
-        Token<Nested>(traits: traits.appending(TokenTrait(relativePath))) { theme in
-            resolve(for: theme)[keyPath: relativePath].resolve(for: theme)
-        }
-    }
 }
 
 extension Token: Equatable {
@@ -81,7 +65,7 @@ extension Token: Hashable {
     }
 }
 
-extension Token where Value: Hashable {
+extension Token where Value: Hashable & Sendable {
 
     public static func value(_ value: Value) -> Self {
         Self(traits: [TokenTrait(value)]) { _ in
@@ -90,8 +74,27 @@ extension Token where Value: Hashable {
     }
 }
 
+extension Token where Value: Sendable {
+
+    public subscript<Nested>(
+        dynamicMember relativePath: KeyPath<Value, Nested> & Sendable
+    ) -> Token<Nested> {
+        Token<Nested>(traits: traits.appending(TokenTrait(relativePath))) { theme in
+            resolve(for: theme)[keyPath: relativePath]
+        }
+    }
+
+    public subscript<Nested>(
+        dynamicMember relativePath: KeyPath<Value, Token<Nested>> & Sendable
+    ) -> Token<Nested> {
+        Token<Nested>(traits: traits.appending(TokenTrait(relativePath))) { theme in
+            resolve(for: theme)[keyPath: relativePath].resolve(for: theme)
+        }
+    }
+}
+
 extension Token: ExpressibleByFloatLiteral
-where Value: ExpressibleByFloatLiteral & Hashable {
+where Value: ExpressibleByFloatLiteral & TokenValue {
 
     public init(floatLiteral value: Value.FloatLiteralType) {
         self = .value(Value(floatLiteral: value))
@@ -99,7 +102,7 @@ where Value: ExpressibleByFloatLiteral & Hashable {
 }
 
 extension Token: ExpressibleByIntegerLiteral
-where Value: ExpressibleByIntegerLiteral & Hashable {
+where Value: ExpressibleByIntegerLiteral & TokenValue {
 
     public static var zero: Self {
         .value(0)
@@ -111,7 +114,7 @@ where Value: ExpressibleByIntegerLiteral & Hashable {
 }
 
 extension Token: ExpressibleByUnicodeScalarLiteral
-where Value: ExpressibleByUnicodeScalarLiteral & Hashable {
+where Value: ExpressibleByUnicodeScalarLiteral & TokenValue {
 
     public init(unicodeScalarLiteral value: Value.UnicodeScalarLiteralType) {
         self = .value(Value(unicodeScalarLiteral: value))
@@ -119,7 +122,7 @@ where Value: ExpressibleByUnicodeScalarLiteral & Hashable {
 }
 
 extension Token: ExpressibleByExtendedGraphemeClusterLiteral
-where Value: ExpressibleByExtendedGraphemeClusterLiteral & Hashable {
+where Value: ExpressibleByExtendedGraphemeClusterLiteral & TokenValue {
 
     public init(extendedGraphemeClusterLiteral value: Value.ExtendedGraphemeClusterLiteralType) {
         self = .value(Value(extendedGraphemeClusterLiteral: value))
@@ -127,7 +130,7 @@ where Value: ExpressibleByExtendedGraphemeClusterLiteral & Hashable {
 }
 
 extension Token: ExpressibleByStringLiteral
-where Value: ExpressibleByStringLiteral & Hashable {
+where Value: ExpressibleByStringLiteral & TokenValue {
 
     public init(stringLiteral value: Value.StringLiteralType) {
         self = .value(Value(stringLiteral: value))
@@ -135,7 +138,7 @@ where Value: ExpressibleByStringLiteral & Hashable {
 }
 
 extension Token: ExpressibleByArrayLiteral
-where Value: RangeReplaceableCollection & Hashable {
+where Value: RangeReplaceableCollection & Hashable, Value.Element: Hashable {
 
     public init(arrayLiteral elements: Token<Value.Element>...) {
         let traits = elements.map { TokenTrait($0.traits) }

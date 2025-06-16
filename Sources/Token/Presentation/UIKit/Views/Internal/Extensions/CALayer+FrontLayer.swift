@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import QuartzCore
 
 private let frontLayerAssociation = ObjectAssociation<FrontLayer>()
@@ -11,6 +12,9 @@ extension CALayer {
         frontLayerAssociation[self]
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func setupFrontLayerIfNeeded() {
         guard frontLayer == nil else {
             return
@@ -33,6 +37,9 @@ extension CALayer {
         resetStroke()
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func updateFrontLayerIfNeeded() {
         if let shadows = shadowsAssociation[self] {
             updateShadows(shadows)
@@ -55,6 +62,9 @@ extension CALayer {
         borderColor = .black
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func updateShadows(_ shadows: [ShadowValue]) {
         shadowsAssociation[self] = shadows
 
@@ -87,6 +97,9 @@ extension CALayer {
         shadowOpacity = Float(shadow.color?.alpha ?? .zero)
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func updateStroke(_ stroke: StrokeValue?) {
         strokeAssociation[self] = stroke
 
@@ -113,3 +126,4 @@ extension CALayer {
         borderColor = stroke.color?.cgColor ?? .black
     }
 }
+#endif

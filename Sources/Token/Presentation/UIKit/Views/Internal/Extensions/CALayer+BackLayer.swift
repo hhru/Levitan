@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import QuartzCore
 
 private let backLayerAssociation = ObjectAssociation<BackLayer>()
@@ -11,6 +12,9 @@ extension CALayer {
         backLayerAssociation[self]
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func setupBackLayerIfNeeded() {
         guard backLayer == nil else {
             return
@@ -32,6 +36,9 @@ extension CALayer {
         resetGradients()
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func updateBackLayerIfNeeded() {
         if let shapeColor = shapeColorAssociation[self] {
             updateShapeColor(shapeColor)
@@ -48,6 +55,9 @@ extension CALayer {
 
     internal func resetGradients() { }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func updateShapeColor(_ shapeColor: ColorValue?) {
         shapeColorAssociation[self] = shapeColor
 
@@ -69,6 +79,9 @@ extension CALayer {
         backgroundColor = shapeColor.cgColor
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func updateGradients(_ gradients: [GradientValue]) {
         gradientsAssociation[self] = gradients
 
@@ -86,3 +99,4 @@ extension CALayer {
         setupBackLayerIfNeeded()
     }
 }
+#endif

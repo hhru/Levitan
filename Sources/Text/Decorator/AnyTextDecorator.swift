@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 public struct AnyTextDecorator: TextDecorator {
@@ -55,3 +56,4 @@ extension TextDecorator {
         AnyTextDecorator(self)
     }
 }
+#endif

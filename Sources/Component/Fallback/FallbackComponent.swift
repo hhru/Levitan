@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 import SwiftUI
 
@@ -99,3 +100,4 @@ extension FallbackComponent {
         )
     }
 }
+#endif

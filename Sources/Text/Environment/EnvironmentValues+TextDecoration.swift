@@ -1,8 +1,11 @@
+#if canImport(UIKit)
 import SwiftUI
 
 internal struct TextDecorationKey: EnvironmentKey {
 
-    internal static let defaultValue: [AnyTextDecorator] = []
+    internal static var defaultValue: [AnyTextDecorator] {
+        []
+    }
 }
 
 extension EnvironmentValues {
@@ -12,3 +15,4 @@ extension EnvironmentValues {
         set { self[TextDecorationKey.self] = newValue }
     }
 }
+#endif

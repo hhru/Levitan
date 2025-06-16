@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 import SwiftUI
 
@@ -11,7 +12,7 @@ import SwiftUI
 /// - SeeAlso: ``Component``
 /// - SeeAlso: ``ComponentView``
 /// - SeeAlso: ``ComponentContext``
-public final class ComponentHostingView<Content: Component>: UIView {
+public final class ComponentHostingView<Content: View>: UIView {
 
     private typealias HostingRoot = ComponentHostingRoot<Content>
     private typealias HostingController = ComponentHostingController<HostingRoot>
@@ -113,7 +114,9 @@ extension ComponentHostingView: ComponentView {
         let contentContext = context
             .componentViewController(hostingController)
             .componentLayoutInvalidation { [weak hostingController] in
-                hostingController?.view.invalidateIntrinsicContentSize()
+                Task { @MainActor in
+                    hostingController?.view.invalidateIntrinsicContentSize()
+                }
             }
 
         hostingController.rootView = HostingRoot(
@@ -128,3 +131,4 @@ extension ComponentHostingView: ComponentView {
         }
     }
 }
+#endif

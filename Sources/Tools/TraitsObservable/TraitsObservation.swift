@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 internal final class TraitsObservation {
@@ -48,3 +49,4 @@ internal final class TraitsObservation {
             .filter { $0 !== observer }
     }
 }
+#endif

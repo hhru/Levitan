@@ -1,11 +1,15 @@
+#if canImport(UIKit)
 import UIKit
 import SwiftUI
 
-public struct FontValue: TokenValue, Sendable {
+public struct FontValue:
+    TokenValue,
+    Changeable,
+    Sendable {
 
     public let source: FontSource
-    public let size: CGFloat
-    public let scale: FontScaleValue?
+    public var size: CGFloat
+    public var scale: FontScaleValue?
 
     public var uiFont: UIFont {
         let uiFont: UIFont
@@ -64,15 +68,7 @@ public struct FontValue: TokenValue, Sendable {
     }
 }
 
-extension FontValue: Changeable {
-
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            source: copy.source,
-            size: copy.size,
-            scale: copy.scale
-        )
-    }
+extension FontValue {
 
     public func size(_ size: CGFloat) -> Self {
         changing { $0.size = size }
@@ -166,3 +162,4 @@ extension FontValue {
         )
     }
 }
+#endif

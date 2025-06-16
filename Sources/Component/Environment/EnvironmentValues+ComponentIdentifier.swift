@@ -1,8 +1,9 @@
+#if canImport(UIKit)
 import SwiftUI
 
 internal struct ComponentIdentifierEnvironmentKey: EnvironmentKey {
 
-    internal static let defaultValue: AnyHashable? = nil
+    internal static var defaultValue: AnyHashable? { nil }
 }
 
 extension EnvironmentValues {
@@ -20,3 +21,4 @@ extension EnvironmentValues {
         set { self[ComponentIdentifierEnvironmentKey.self] = newValue }
     }
 }
+#endif

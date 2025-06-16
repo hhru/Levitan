@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import QuartzCore
 
 internal final class MaskLayer: CAShapeLayer {
@@ -43,3 +44,4 @@ internal final class MaskLayer: CAShapeLayer {
         updatePathIfPossible()
     }
 }
+#endif

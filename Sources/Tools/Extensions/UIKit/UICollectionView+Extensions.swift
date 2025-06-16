@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension UICollectionView {
@@ -26,9 +27,10 @@ extension UICollectionView {
         (indexPath.section < numberOfSections) && (indexPath.item < numberOfItems(inSection: indexPath.section))
     }
 
-    internal func reloadData(completion: @escaping () -> Void) {
+    internal func reloadData(completion: @escaping @Sendable () -> Void) {
         reloadData()
 
         DispatchQueue.main.async(execute: completion)
     }
 }
+#endif

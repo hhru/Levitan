@@ -1,14 +1,15 @@
+#if canImport(UIKit)
 import UIKit
 
 public struct TypographyStrokeValue:
     TokenValue,
-    DecorableByColor,
+    Changeable,
     ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral,
     Sendable {
 
-    public let width: CGFloat
-    public let color: ColorValue?
+    public var width: CGFloat
+    public var color: ColorValue?
 
     public init(
         width: CGFloat,
@@ -27,14 +28,7 @@ public struct TypographyStrokeValue:
     }
 }
 
-extension TypographyStrokeValue: Changeable {
-
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            width: copy.width,
-            color: copy.color
-        )
-    }
+extension TypographyStrokeValue: DecorableByColor {
 
     public func color(_ color: ColorValue?) -> Self {
         changing { $0.color = color }
@@ -47,3 +41,4 @@ extension TypographyStrokeValue {
         Self(width: .zero)
     }
 }
+#endif

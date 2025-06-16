@@ -1,5 +1,7 @@
+#if canImport(UIKit)
 import Foundation
 
+@MainActor
 public struct TokenViewProperties<View: AnyTokenView> {
 
     public func property<Value, Details: Hashable>(
@@ -64,3 +66,4 @@ public struct TokenViewProperties<View: AnyTokenView> {
         }
     }
 }
+#endif

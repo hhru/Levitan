@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 import SwiftUI
 
@@ -13,6 +14,7 @@ internal struct AnyComponentPresenter {
         _ context: ComponentContext
     ) -> UIView?
 
+    @MainActor
     internal init<Content: Component>(content: Content)
     where Content.UIView.Content == Content {
         makeContentViewBox = { containerView, context in
@@ -67,3 +69,4 @@ internal struct AnyComponentPresenter {
         updateContentViewBox(contentView, context)
     }
 }
+#endif

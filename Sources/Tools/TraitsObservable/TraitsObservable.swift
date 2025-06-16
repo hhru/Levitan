@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 @objc
@@ -6,6 +7,7 @@ internal protocol TraitsObservable: UITraitEnvironment {
     static var swizzleTraitCollectionDidChangeMethod: () -> Void { get }
 }
 
+@MainActor
 private let traitsObservationAssociation = ObjectAssociation<TraitsObservation>()
 
 extension TraitsObservable {
@@ -35,3 +37,4 @@ extension TraitsObservable {
         )
     }
 }
+#endif

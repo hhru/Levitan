@@ -1,15 +1,16 @@
 # Levitan
-[![Build Status](https://github.com/hhru/Levitan/workflows/CI/badge.svg?branch=main)](https://github.com/hhru/Levitan/actions)
+[![Build Status](https://github.com/hhru/Levitan/actions/workflows/swift.yml/badge.svg)](https://github.com/hhru/Levitan/actions)
 [![Cocoapods](https://img.shields.io/cocoapods/v/Levitan)](http://cocoapods.org/pods/Levitan)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen)](https://github.com/Carthage/Carthage)
 [![SPM compatible](https://img.shields.io/badge/SPM-Compatible-brightgreen)](https://swift.org/package-manager/)
 [![Platforms](https://img.shields.io/cocoapods/p/Levitan)](https://developer.apple.com/discover/)
-[![Xcode](https://img.shields.io/badge/Xcode-14-blue)](https://developer.apple.com/xcode)
-[![Swift](https://img.shields.io/badge/Swift-5.7-orange)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-16-blue)](https://developer.apple.com/xcode)
+[![Swift](https://img.shields.io/badge/Swift-5.9-orange)](https://swift.org)
 [![License](https://img.shields.io/github/license/hhru/Levitan)](https://opensource.org/licenses/MIT)
 
 Levitan is a user interface toolkit that lets us design apps in a convenient and declarative way using SwiftUI and UIKit.
 
+Currently project is in an active development state and changes frequently.
 
 ## Contents
 - [Requirements](#requirements)
@@ -23,7 +24,7 @@ Levitan is a user interface toolkit that lets us design apps in a convenient and
 
 ## Requirements
 - iOS 14.0+
-- Xcode 15.0+
+- Xcode 16.0+
 - Swift 5.9+
 
 
@@ -34,7 +35,7 @@ The [Swift Package Manager](https://swift.org/package-manager/) is a tool for ma
 To integrate Levitan into your Xcode project using Swift Package Manager,
 add the following as a dependency to your `Package.swift`:
 ``` swift
-.package(url: "https://github.com/almazrafi/Levitan.git", from: "1.0.0")
+.package(url: "https://github.com/almazrafi/Levitan.git", from: "1.0.0-alpha.1")
 ```
 and then specify `"Levitan"` as a dependency of the Target in which you wish to use Levitan.
 
@@ -49,7 +50,7 @@ let package = Package(
         .library(name: "MyPackage", targets: ["MyPackage"])
     ],
     dependencies: [
-        .package(url: "https://github.com/almazrafi/Levitan.git", from: "1.0.0")
+        .package(url: "https://github.com/almazrafi/Levitan.git", from: "1.0.0-alpha.1")
     ],
     targets: [
         .target(name: "MyPackage", dependencies: ["Levitan"])
@@ -66,7 +67,7 @@ $ brew install carthage
 
 To integrate Levitan into your Xcode project using Carthage, specify it in your `Cartfile`:
 ``` ogdl
-github "almazrafi/Levitan" ~> 1.0.0
+github "almazrafi/Levitan" ~> 1.0.0-alpha.1
 ```
 
 Finally run `carthage update` to build the framework and drag the built `Levitan.framework` into your Xcode project.
@@ -83,7 +84,7 @@ platform :ios, '14.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'Levitan'
+    pod 'Levitan', '~> 1.0.0-alpha.1'
 end
 ```
 

@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension TokenViewProperties where View: UILabel {
@@ -31,14 +32,5 @@ extension TokenViewProperties where View: UILabel {
             view.font = value?.uiFont
         }
     }
-
-// TODO: implement for text
-//    public var text: TokenViewProperty<TokenText> {
-//        property { view, value, theme in
-//            let attributedString = value?.nsAttributedString(for: theme)
-//
-//            label.text = attributedString?.string
-//            label.attributedText = attributedString
-//        }
-//    }
 }
+#endif

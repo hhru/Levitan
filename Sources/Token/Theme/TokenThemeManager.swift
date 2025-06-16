@@ -1,9 +1,19 @@
+#if canImport(UIKit)
 import UIKit
+#else
+import Foundation
+#endif
+
 import Combine
 
 public final class TokenThemeManager: ObservableObject {
 
-    public static let `default` = TokenThemeManager()
+    #if canImport(UIKit)
+    @MainActor
+    public static var `default`: TokenThemeManager {
+        TokenThemeManager()
+    }
+    #endif
 
     private let storage: TokenThemeStorage
     private let resolver: TokenThemeResolver
@@ -19,14 +29,16 @@ public final class TokenThemeManager: ObservableObject {
     @Published
     public private(set) var currentTheme: TokenTheme
 
+    #if canImport(UIKit)
+    @MainActor
     public init(
         storage: TokenThemeStorage = DefaultTokenThemeStorage(),
-        resolver: TokenThemeResolver = DefaultTokenThemeResolver()
+        resolver: TokenThemeResolver? = nil
     ) {
         self.storage = storage
-        self.resolver = resolver
+        self.resolver = resolver ?? DefaultTokenThemeResolver()
 
-        currentTheme = resolver.resolveTheme(
+        currentTheme = self.resolver.resolveTheme(
             selectedKey: storage.restoreSelectedThemeKey(),
             selectedScheme: storage.restoreSelectedThemeScheme()
         )
@@ -39,7 +51,23 @@ public final class TokenThemeManager: ObservableObject {
             }
         }
     }
+    #else
+    @MainActor
+    public init(
+        storage: TokenThemeStorage = DefaultTokenThemeStorage(),
+        resolver: TokenThemeResolver
+    ) {
+        self.storage = storage
+        self.resolver = resolver
 
+        currentTheme = resolver.resolveTheme(
+            selectedKey: storage.restoreSelectedThemeKey(),
+            selectedScheme: storage.restoreSelectedThemeScheme()
+        )
+    }
+    #endif
+
+    @MainActor
     private func updateCurrentTheme() {
         let theme = resolver.resolveTheme(
             selectedKey: selectedThemeKey,
@@ -51,6 +79,7 @@ public final class TokenThemeManager: ObservableObject {
         }
     }
 
+    @MainActor
     public func selectTheme(key: TokenThemeKey) {
         storage.storeSelectedThemeKey(key)
         storage.storeSelectedThemeScheme(currentTheme.scheme)
@@ -58,6 +87,7 @@ public final class TokenThemeManager: ObservableObject {
         updateCurrentTheme()
     }
 
+    @MainActor
     public func selectTheme(scheme: TokenThemeScheme?) {
         storage.storeSelectedThemeKey(currentTheme.key)
         storage.storeSelectedThemeScheme(scheme)
@@ -65,6 +95,7 @@ public final class TokenThemeManager: ObservableObject {
         updateCurrentTheme()
     }
 
+    @MainActor
     public func selectTheme(
         key: TokenThemeKey,
         scheme: TokenThemeScheme?

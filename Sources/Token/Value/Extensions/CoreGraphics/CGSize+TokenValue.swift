@@ -1,6 +1,7 @@
 import CoreGraphics
 
 extension CGSize:
+    @retroactive @unchecked Sendable,
     TokenValue,
     DecorableByInsets,
     DecorableByOutsets {
@@ -20,7 +21,7 @@ extension CGSize:
     }
 }
 
-extension CGSize: Hashable {
+extension CGSize: @retroactive Hashable {
 
     public func hash(into hasher: inout Hasher) {
         hasher.combine(width)

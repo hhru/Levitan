@@ -1,9 +1,10 @@
-// swift-tools-version:5.7
+// swift-tools-version: 6.0
 import PackageDescription
 
 let package = Package(
     name: "Levitan",
     platforms: [
+        .macOS(.v12),
         .iOS(.v14),
         .tvOS(.v14)
     ],
@@ -11,18 +12,25 @@ let package = Package(
         .library(
             name: "Levitan",
             targets: ["Levitan"]
-        )
+        ),
+        .library(
+            name: "LevitanDynamic",
+            type: .dynamic,
+            targets: ["Levitan"]
+        ),
     ],
     targets: [
         .target(
             name: "Levitan",
-            path: "Sources"
+            path: "Sources",
+            exclude: ["Info.plist"]
         ),
         .testTarget(
             name: "LevitanTests",
             dependencies: ["Levitan"],
-            path: "Tests"
+            path: "Tests",
+            exclude: ["Info.plist"]
         )
     ],
-    swiftLanguageVersions: [.v5]
+    swiftLanguageModes: [.v6]
 )

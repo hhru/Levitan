@@ -1,10 +1,12 @@
+#if canImport(UIKit)
 import Foundation
 
-public protocol TextPart: Hashable {
+public protocol TextPart: Hashable, Sendable {
 
     var isEnabled: Bool { get }
-    var tapAction: (() -> Void)? { get }
+    var tapAction: (@MainActor () -> Void)? { get }
 
+    @MainActor
     func attributedText(context: ComponentContext) -> NSAttributedString
 }
 
@@ -14,7 +16,7 @@ extension TextPart {
         true
     }
 
-    public var tapAction: (() -> Void)? {
+    public var tapAction: (@MainActor () -> Void)? {
         nil
     }
 
@@ -26,3 +28,4 @@ extension TextPart {
         return self == other
     }
 }
+#endif

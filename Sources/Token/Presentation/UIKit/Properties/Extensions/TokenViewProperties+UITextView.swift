@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension TokenViewProperties where View: UITextView {
@@ -31,10 +32,10 @@ extension TokenViewProperties where View: UITextView {
         }
     }
 
-// TODO: implement for text
-//    public var text: TokenViewProperty<TokenText, Void> {
-//        property { view, value, theme in
-//            view.attributedText = value?.nsAttributedString(for: theme)
-//        }
-//    }
+    public var linkTextAttributes: TokenViewProperty<TypographyValue, Void> {
+        property { view, value in
+            view.linkTextAttributes = value?.attributes ?? [:]
+        }
+    }
 }
+#endif

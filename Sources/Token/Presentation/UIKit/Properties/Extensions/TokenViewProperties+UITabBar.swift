@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension TokenViewProperties where View: UITabBar {
@@ -34,3 +35,4 @@ extension TokenViewProperties where View: UITabBar {
 
     // TODO: implement for appearance
 }
+#endif

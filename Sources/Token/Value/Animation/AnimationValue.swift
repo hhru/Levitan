@@ -1,13 +1,18 @@
+#if canImport(UIKit)
+import UIKit
+#endif
+
 import SwiftUI
+import QuartzCore
 
 public struct AnimationValue:
     TokenValue,
-    DecorableByDuration,
+    Changeable,
     Sendable {
 
-    public let controlPoint1: CGPoint
-    public let controlPoint2: CGPoint
-    public let duration: Double
+    public var controlPoint1: CGPoint
+    public var controlPoint2: CGPoint
+    public var duration: Double
 
     public var caTransition: CATransition {
         let animation = CATransition()
@@ -45,6 +50,8 @@ public struct AnimationValue:
         self.duration = duration
     }
 
+    #if canImport(UIKit)
+    @MainActor
     public func propertyAnimator(animations: (() -> Void)? = nil) -> UIViewPropertyAnimator {
         UIViewPropertyAnimator(
             duration: duration,
@@ -53,17 +60,10 @@ public struct AnimationValue:
             animations: animations
         )
     }
+    #endif
 }
 
-extension AnimationValue: Changeable {
-
-    public init(copy: ChangeableWrapper<Self>) {
-        self.init(
-            controlPoint1: copy.controlPoint1,
-            controlPoint2: copy.controlPoint2,
-            duration: copy.duration
-        )
-    }
+extension AnimationValue: DecorableByDuration {
 
     public func duration(_ duration: Double) -> Self {
         changing { $0.duration = duration }

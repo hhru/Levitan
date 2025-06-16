@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 /// Данные для определения размеров компонента.
@@ -84,3 +85,4 @@ public struct ComponentSizing: Equatable {
         )
     }
 }
+#endif

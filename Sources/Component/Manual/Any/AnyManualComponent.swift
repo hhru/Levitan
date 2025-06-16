@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 /// Компонент-обертка, по аналогии с `AnyComponent`, который стирает тип оборачиваемого компонента
@@ -61,7 +62,7 @@ public struct AnyManualComponent: ManualComponent {
 
 extension AnyManualComponent: Equatable {
 
-    public static func == (lhs: Self, rhs: Self) -> Bool {
+    public nonisolated static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.wrapped == rhs.wrapped
     }
 }
@@ -76,3 +77,4 @@ extension ManualComponent {
         return AnyManualComponent(self)
     }
 }
+#endif

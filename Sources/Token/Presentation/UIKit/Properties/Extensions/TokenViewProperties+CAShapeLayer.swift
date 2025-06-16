@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import QuartzCore
 
 extension TokenViewProperties where View: CAShapeLayer {
@@ -20,3 +21,4 @@ extension TokenViewProperties where View: CAShapeLayer {
         }
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 extension UIImage: TextPart {
@@ -6,3 +7,4 @@ extension UIImage: TextPart {
         ImageValue(source: .uiImage(self)).attributedText(context: context)
     }
 }
+#endif

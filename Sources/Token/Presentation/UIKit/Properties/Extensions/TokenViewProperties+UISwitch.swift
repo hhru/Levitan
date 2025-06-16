@@ -1,4 +1,4 @@
-#if os(iOS)
+#if canImport(UIKit) && os(iOS)
 import UIKit
 
 extension TokenViewProperties where View: UISwitch {

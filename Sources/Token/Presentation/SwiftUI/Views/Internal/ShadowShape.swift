@@ -1,3 +1,5 @@
+#if canImport(UIKit)
+import UIKit
 import SwiftUI
 
 internal struct ShadowShape: Shape {
@@ -68,3 +70,4 @@ internal struct ShadowShape: Shape {
         }
     }
 }
+#endif

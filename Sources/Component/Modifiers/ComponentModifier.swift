@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 // TODO: Дополнить документацию
@@ -51,3 +52,4 @@ extension ModifiedContent: Component where
         )
     }
 }
+#endif

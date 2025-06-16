@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 internal struct UnderlineDecorator<Value: DecorableByUnderline>: TokenDecorator {
@@ -15,3 +16,4 @@ extension Token where Value: DecorableByUnderline {
         decorated(by: UnderlineDecorator(underline: underline))
     }
 }
+#endif

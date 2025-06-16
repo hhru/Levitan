@@ -1,4 +1,7 @@
+#if canImport(UIKit)
 import UIKit
+#endif
+
 import SwiftUI
 
 public enum ImageResizingMode: TokenTraitProvider, Sendable {
@@ -6,6 +9,7 @@ public enum ImageResizingMode: TokenTraitProvider, Sendable {
     case tile
     case stretch
 
+    #if canImport(UIKit)
     public var uiResizingMode: UIImage.ResizingMode {
         switch self {
         case .tile:
@@ -15,6 +19,7 @@ public enum ImageResizingMode: TokenTraitProvider, Sendable {
             return .stretch
         }
     }
+    #endif
 
     public var resizingMode: Image.ResizingMode {
         switch self {

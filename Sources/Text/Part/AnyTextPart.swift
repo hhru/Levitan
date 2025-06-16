@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 public struct AnyTextPart {
@@ -19,7 +20,7 @@ extension AnyTextPart: TextPart {
         wrapped.isEnabled
     }
 
-    public var tapAction: (() -> Void)? {
+    public var tapAction: (@MainActor () -> Void)? {
         wrapped.tapAction
     }
 
@@ -60,3 +61,4 @@ extension TextPart {
         AnyTextPart(self)
     }
 }
+#endif

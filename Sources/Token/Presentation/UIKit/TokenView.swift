@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 internal protocol TokenView: AnyTokenView {
@@ -11,6 +12,7 @@ internal protocol TokenView: AnyTokenView {
     func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme)
 }
 
+@MainActor
 private let tokenViewPayloadAssociation = {
     UIWindowScene.handleTokenViewEvents()
     UIView.handleTokenViewEvents()
@@ -45,3 +47,4 @@ extension TokenView {
         TokenViewManager(view: self)
     }
 }
+#endif
