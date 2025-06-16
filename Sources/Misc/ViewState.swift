@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 /// Обертка для реализации внутреннего состояния UI-компонента.
@@ -84,3 +85,4 @@ extension ViewState: Equatable where Value: Equatable {
         true
     }
 }
+#endif

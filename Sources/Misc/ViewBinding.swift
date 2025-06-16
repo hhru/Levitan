@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 import Combine
 
@@ -233,4 +234,5 @@ extension ViewBinding {
     }
 }
 
-extension ViewBinding: @unchecked Sendable where Value: Sendable {}
+extension ViewBinding: @unchecked Sendable where Value: Sendable { }
+#endif
