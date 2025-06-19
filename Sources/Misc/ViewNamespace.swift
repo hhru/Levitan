@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 /// Обертка для создания пространства имен с постоянным идентификатором UI-компонента,
@@ -41,3 +42,4 @@ extension ViewNamespace: Equatable {
         true
     }
 }
+#endif

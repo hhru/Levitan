@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		25F6DC262B7387E700FBAB9C /* NilCoalescingDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */; };
+		C0039EF42E00AD8E00C2B2C3 /* FallbackComponentSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0039EF02E00AD8E00C2B2C3 /* FallbackComponentSizeCache.swift */; };
+		C0039EF52E00AD8E00C2B2C3 /* EnvironmentValues+FallbackComponentSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0039EEF2E00AD8E00C2B2C3 /* EnvironmentValues+FallbackComponentSizeCache.swift */; };
+		C0039EF62E00AD8E00C2B2C3 /* FallbackComponentSizeCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0039EF12E00AD8E00C2B2C3 /* FallbackComponentSizeCacheKey.swift */; };
+		C0039EF72E00AD8E00C2B2C3 /* FallbackComponentSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0039EF02E00AD8E00C2B2C3 /* FallbackComponentSizeCache.swift */; };
+		C0039EF82E00AD8E00C2B2C3 /* EnvironmentValues+FallbackComponentSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0039EEF2E00AD8E00C2B2C3 /* EnvironmentValues+FallbackComponentSizeCache.swift */; };
+		C0039EF92E00AD8E00C2B2C3 /* FallbackComponentSizeCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0039EF12E00AD8E00C2B2C3 /* FallbackComponentSizeCacheKey.swift */; };
+		C0039EFB2E00ADA300C2B2C3 /* FallbackComponentBodySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0039EFA2E00ADA300C2B2C3 /* FallbackComponentBodySize.swift */; };
+		C0039EFC2E00ADA300C2B2C3 /* FallbackComponentBodySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0039EFA2E00ADA300C2B2C3 /* FallbackComponentBodySize.swift */; };
 		C0081D752BC82A1600BE7293 /* Dictionary+Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */; };
 		C0081D762BC82A1600BE7293 /* Dictionary+Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */; };
 		C0081D772BC82A1600BE7293 /* Set+Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0081D6E2BC82A1600BE7293 /* Set+Changeable.swift */; };
@@ -661,6 +669,10 @@
 /* Begin PBXFileReference section */
 		25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NilCoalescingDecorator.swift; sourceTree = "<group>"; };
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
+		C0039EEF2E00AD8E00C2B2C3 /* EnvironmentValues+FallbackComponentSizeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+FallbackComponentSizeCache.swift"; sourceTree = "<group>"; };
+		C0039EF02E00AD8E00C2B2C3 /* FallbackComponentSizeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentSizeCache.swift; sourceTree = "<group>"; };
+		C0039EF12E00AD8E00C2B2C3 /* FallbackComponentSizeCacheKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentSizeCacheKey.swift; sourceTree = "<group>"; };
+		C0039EFA2E00ADA300C2B2C3 /* FallbackComponentBodySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBodySize.swift; sourceTree = "<group>"; };
 		C0081D6D2BC82A1600BE7293 /* Dictionary+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Changeable.swift"; sourceTree = "<group>"; };
 		C0081D6E2BC82A1600BE7293 /* Set+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Set+Changeable.swift"; sourceTree = "<group>"; };
 		C0081D6F2BC82A1600BE7293 /* Array+Changeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Changeable.swift"; sourceTree = "<group>"; };
@@ -1038,6 +1050,16 @@
 				25F6DC252B7387E700FBAB9C /* NilCoalescingDecorator.swift */,
 			);
 			path = NilCoalescing;
+			sourceTree = "<group>";
+		};
+		C0039EF32E00AD8E00C2B2C3 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				C0039EEF2E00AD8E00C2B2C3 /* EnvironmentValues+FallbackComponentSizeCache.swift */,
+				C0039EF02E00AD8E00C2B2C3 /* FallbackComponentSizeCache.swift */,
+				C0039EF12E00AD8E00C2B2C3 /* FallbackComponentSizeCacheKey.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		C0081D692BC82A1600BE7293 /* Changeable */ = {
@@ -2151,6 +2173,7 @@
 			isa = PBXGroup;
 			children = (
 				C0E97A3B2BC6DF5200CF37A7 /* Body */,
+				C0039EF32E00AD8E00C2B2C3 /* Cache */,
 				C0E97A3E2BC6DF5200CF37A7 /* FallbackComponent.swift */,
 				C0E97A3F2BC6DF5200CF37A7 /* FallbackComponentView.swift */,
 			);
@@ -2161,6 +2184,7 @@
 			isa = PBXGroup;
 			children = (
 				C0E97A3C2BC6DF5200CF37A7 /* FallbackComponentBody.swift */,
+				C0039EFA2E00ADA300C2B2C3 /* FallbackComponentBodySize.swift */,
 				C0E97A3D2BC6DF5200CF37A7 /* FallbackComponentBodyView.swift */,
 			);
 			path = Body;
@@ -2357,7 +2381,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1640;
 				ORGANIZATIONNAME = HeadHunter;
 				TargetAttributes = {
 					C057F00D23CB8EEB00C2D895 = {
@@ -2546,6 +2570,7 @@
 				C09305112B0B6EA900F6F13D /* TokenViewProperties+UILabel.swift in Sources */,
 				C0E979F72BC6DDCC00CF37A7 /* SectionDifferenceCalculator.swift in Sources */,
 				C0F2E9BA2C29C0CE0047AAE4 /* DecorableByFontSize.swift in Sources */,
+				C0039EFC2E00ADA300C2B2C3 /* FallbackComponentBodySize.swift in Sources */,
 				C0E979FB2BC6DDCC00CF37A7 /* DifferenceCalculator.swift in Sources */,
 				C0E97A0F2BC6DDCC00CF37A7 /* CGRect+Extensions.swift in Sources */,
 				C05CD2112B093732005F5499 /* TokenViewModifier.swift in Sources */,
@@ -2732,6 +2757,9 @@
 				C05CD2192B093732005F5499 /* ClipShapeModifier.swift in Sources */,
 				C0358FCC2B0A6BDE000E599A /* TokenViewPropertyBinding.swift in Sources */,
 				C05CD2132B093732005F5499 /* TokenShapedView.swift in Sources */,
+				C0039EF42E00AD8E00C2B2C3 /* FallbackComponentSizeCache.swift in Sources */,
+				C0039EF52E00AD8E00C2B2C3 /* EnvironmentValues+FallbackComponentSizeCache.swift in Sources */,
+				C0039EF62E00AD8E00C2B2C3 /* FallbackComponentSizeCacheKey.swift in Sources */,
 				C0E97A292BC6DF4100CF37A7 /* ViewArrayBuilder.swift in Sources */,
 				C0310C572B04BB4800BCA3AC /* CustomShape.swift in Sources */,
 				C0E97A622BC6DF5200CF37A7 /* ComponentHostingView.swift in Sources */,
@@ -2875,6 +2903,7 @@
 				C0081DB62BC82AC900BE7293 /* RangeReplaceableCollection+Extensions.swift in Sources */,
 				C093054B2B0B805400F6F13D /* InsetsToken.swift in Sources */,
 				C09304FF2B0B689200F6F13D /* TokenViewProperties+CAGradientLayer.swift in Sources */,
+				C0039EFB2E00ADA300C2B2C3 /* FallbackComponentBodySize.swift in Sources */,
 				C09305732B0B817500F6F13D /* TokenViewPayload.swift in Sources */,
 				C09305932B0B90DA00F6F13D /* UIApplication+TokenView.swift in Sources */,
 				C09305742B0B817500F6F13D /* TokenViewDSL.swift in Sources */,
@@ -3061,6 +3090,9 @@
 				C0081D912BC82A3400BE7293 /* Component.swift in Sources */,
 				C0081D8E2BC82A2C00BE7293 /* ComponentHostingView.swift in Sources */,
 				C0081D9C2BC82A3900BE7293 /* ViewState.swift in Sources */,
+				C0039EF72E00AD8E00C2B2C3 /* FallbackComponentSizeCache.swift in Sources */,
+				C0039EF82E00AD8E00C2B2C3 /* EnvironmentValues+FallbackComponentSizeCache.swift in Sources */,
+				C0039EF92E00AD8E00C2B2C3 /* FallbackComponentSizeCacheKey.swift in Sources */,
 				C0081DBE2BC82AD100BE7293 /* UIResponder+Extensions.swift in Sources */,
 				C04843C02B0B42A6002DF0CA /* DecorableByColor.swift in Sources */,
 				C04843D62B0B42DC002DF0CA /* DecorableByNegation.swift in Sources */,
@@ -3336,7 +3368,6 @@
 		C057F02623CB8EEB00C2D895 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -3354,7 +3385,6 @@
 		C057F02723CB8EEB00C2D895 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -3433,7 +3463,6 @@
 		C0A01A5C23CB92EB00AC2C3A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -3452,7 +3481,6 @@
 		C0A01A5D23CB92EB00AC2C3A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/Info.plist;
