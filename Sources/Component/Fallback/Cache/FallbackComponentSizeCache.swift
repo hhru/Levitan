@@ -10,7 +10,7 @@ public final class FallbackComponentSizeCache {
 
     internal func resetSize<Content: Equatable>(for content: Content) {
         sizes = sizes.filter { key, _ in
-            content == key.content as? Content
+            content != key.content as? Content
         }
     }
 
