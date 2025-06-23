@@ -67,7 +67,9 @@ public final class TextView: UILabel {
             partThresholds.append(attributedText.length)
         }
 
-        self.attributedText = attributedText
+        if self.attributedText != attributedText {
+            self.attributedText = attributedText
+        }
 
         numberOfLines = context.lineLimit ?? .zero
         lineBreakMode = content.lineBreakMode
