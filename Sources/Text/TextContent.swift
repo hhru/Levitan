@@ -15,6 +15,6 @@ internal struct TextContent: Sendable, Hashable {
     internal var isEnabled: Bool
 
     @ViewAction
-    internal var tapAction: (@MainActor () -> Void)?
+    internal var tapAction: (@Sendable @MainActor () -> Void)?
 }
 #endif

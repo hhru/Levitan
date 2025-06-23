@@ -2,9 +2,9 @@ import CoreGraphics
 
 extension CGSize:
     @retroactive @unchecked Sendable,
-    TokenValue,
-    DecorableByInsets,
-    DecorableByOutsets {
+    TokenValue { }
+
+extension CGSize: DecorableByInsets {
 
     public func inset(by insets: InsetsValue) -> Self {
         Self(
@@ -12,6 +12,9 @@ extension CGSize:
             height: height - insets.vertical
         )
     }
+}
+
+extension CGSize: DecorableByOutsets {
 
     public func outset(by outsets: InsetsValue) -> Self {
         Self(

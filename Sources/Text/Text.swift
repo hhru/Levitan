@@ -5,37 +5,37 @@ public struct Text: FallbackManualComponent, TokenValue {
 
     public typealias UIView = TextView
 
-    nonisolated private var content: TextContent
+    private nonisolated var content: TextContent
 
-    public var parts: [AnyTextPart] {
+    public nonisolated var parts: [AnyTextPart] {
         content.parts
     }
 
-    public var typography: TypographyToken? {
+    public nonisolated var typography: TypographyToken? {
         content.typography
     }
 
-    public var decoration: [AnyTextDecorator] {
+    public nonisolated var decoration: [AnyTextDecorator] {
         content.decoration
     }
 
-    public var animation: TextAnimation? {
+    public nonisolated var animation: TextAnimation? {
         content.animation
     }
 
-    public var lineLimit: Int? {
+    public nonisolated var lineLimit: Int? {
         content.lineLimit
     }
 
-    public var lineBreakMode: NSLineBreakMode {
+    public nonisolated var lineBreakMode: NSLineBreakMode {
         content.lineBreakMode
     }
 
-    nonisolated public var isEnabled: Bool {
+    public nonisolated var isEnabled: Bool {
         content.isEnabled
     }
 
-    nonisolated public init(
+    public nonisolated init(
         parts: [AnyTextPart],
         typography: TypographyToken? = nil,
         decoration: [AnyTextDecorator] = [],
@@ -43,7 +43,7 @@ public struct Text: FallbackManualComponent, TokenValue {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (@MainActor () -> Void)? = nil
+        tapAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
         self.content = TextContent(
             parts: parts,
@@ -57,7 +57,7 @@ public struct Text: FallbackManualComponent, TokenValue {
         )
     }
 
-    public init(
+    public nonisolated init(
         _ content: any TextPart,
         typography: TypographyToken? = nil,
         decoration: [AnyTextDecorator] = [],
@@ -65,7 +65,7 @@ public struct Text: FallbackManualComponent, TokenValue {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (@MainActor () -> Void)? = nil
+        tapAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
         self.init(
             parts: [content.eraseToAnyTextPart()],
@@ -79,14 +79,14 @@ public struct Text: FallbackManualComponent, TokenValue {
         )
     }
 
-    nonisolated public init(
+    public nonisolated init(
         typography: TypographyToken? = nil,
         decoration: [AnyTextDecorator] = [],
         animation: TextAnimation? = nil,
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (@MainActor () -> Void)? = nil,
+        tapAction: (@Sendable @MainActor () -> Void)? = nil,
         @TextBuilder content: () -> [any TextPart]
     ) {
         self.init(
@@ -104,14 +104,14 @@ public struct Text: FallbackManualComponent, TokenValue {
 
 extension Text: ExpressibleByStringLiteral {
 
-    nonisolated public init(stringLiteral value: String) {
+    public nonisolated init(stringLiteral value: String) {
         self.init { value }
     }
 }
 
 extension Text: ExpressibleByStringInterpolation {
 
-    nonisolated public init(stringInterpolation: TextInterpolation) {
+    public nonisolated init(stringInterpolation: TextInterpolation) {
         self.init(parts: stringInterpolation.parts)
     }
 }
@@ -128,31 +128,31 @@ extension Text: TextPart {
 
 extension Text: Changeable {
 
-    public func typography(_ typography: TypographyToken?) -> Self {
+    public nonisolated func typography(_ typography: TypographyToken?) -> Self {
         changing { $0.content.typography = typography }
     }
 
-    public func decorated<Decorator: TextDecorator>(by decorator: Decorator) -> Self {
+    public nonisolated func decorated<Decorator: TextDecorator>(by decorator: Decorator) -> Self {
         changing { $0.content.decoration.append(decorator.eraseToAnyTextDecorator()) }
     }
 
-    public func animation(_ animation: TextAnimation) -> Self {
+    public nonisolated func animation(_ animation: TextAnimation) -> Self {
         changing { $0.content.animation = animation }
     }
 
-    public func lineLimit(_ lineLimit: Int?) -> Self {
+    public nonisolated func lineLimit(_ lineLimit: Int?) -> Self {
         changing { $0.content.lineLimit = lineLimit }
     }
 
-    public func lineBreakMode(_ lineBreakMode: NSLineBreakMode) -> Self {
+    public nonisolated func lineBreakMode(_ lineBreakMode: NSLineBreakMode) -> Self {
         changing { $0.content.lineBreakMode = lineBreakMode }
     }
 
-    public func disabled(_ isDisabled: Bool = true) -> Self {
+    public nonisolated func disabled(_ isDisabled: Bool = true) -> Self {
         changing { $0.content.isEnabled = !isDisabled }
     }
 
-    public func onTap(_ tapAction: (@MainActor () -> Void)?) -> Self {
+    public nonisolated func onTap(_ tapAction: (@Sendable @MainActor () -> Void)?) -> Self {
         changing { $0.content.tapAction = tapAction }
     }
 }

@@ -12,6 +12,7 @@ private let traitsObservationAssociation = ObjectAssociation<TraitsObservation>(
 
 extension TraitsObservable {
 
+    @MainActor
     internal var traitsObservation: TraitsObservation {
         if let observation = traitsObservationAssociation[self] {
             return observation
@@ -26,6 +27,7 @@ extension TraitsObservable {
         return observation
     }
 
+    @MainActor
     internal func handleTraitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         guard traitsObservationAssociation[self] != nil else {
             return

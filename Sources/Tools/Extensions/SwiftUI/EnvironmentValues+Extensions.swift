@@ -2,11 +2,12 @@
 import UIKit
 import SwiftUI
 
-@MainActor
 extension EnvironmentValues {
 
+    @MainActor
     internal static let `default` = Self.default(for: UIScreen.main.traitCollection)
 
+    @MainActor
     internal static func `default`(for traitCollection: UITraitCollection) -> Self {
         var environment = EnvironmentValues()
 
@@ -25,6 +26,7 @@ extension EnvironmentValues {
         return environment
     }
 
+    @MainActor
     private static func colorScheme(
         for uiUserInterfaceStyle: UIUserInterfaceStyle,
         defaultValue: ColorScheme? = nil
@@ -44,6 +46,7 @@ extension EnvironmentValues {
         )
     }
 
+    @MainActor
     private static func layoutDirection(
         for uiLayoutDirection: UITraitEnvironmentLayoutDirection,
         defaultValue: LayoutDirection? = nil
@@ -63,6 +66,7 @@ extension EnvironmentValues {
         )
     }
 
+    @MainActor
     private static func userInterfaceSizeClass(
         for uiUserInterfaceSizeClass: UIUserInterfaceSizeClass
     ) -> UserInterfaceSizeClass? {
@@ -73,12 +77,14 @@ extension EnvironmentValues {
         #endif
     }
 
+    @MainActor
     private static func legibilityWeight(
         for uiLegibilityWeight: UILegibilityWeight
     ) -> LegibilityWeight? {
         LegibilityWeight(uiLegibilityWeight)
     }
 
+    @MainActor
     private static func sizeCategory(
         for uiSizeCategory: UIContentSizeCategory,
         defaultValue: ContentSizeCategory? = nil
@@ -98,6 +104,7 @@ extension EnvironmentValues {
         )
     }
 
+    @MainActor
     @available(iOS 15.0, tvOS 15.0, *)
     private static func dynamicTypeSize(
         for uiSizeCategory: UIContentSizeCategory,

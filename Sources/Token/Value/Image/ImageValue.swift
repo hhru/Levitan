@@ -42,7 +42,6 @@ public struct ImageValue:
     }
     #endif
 
-    @MainActor
     public var image: some View {
         source
             .image

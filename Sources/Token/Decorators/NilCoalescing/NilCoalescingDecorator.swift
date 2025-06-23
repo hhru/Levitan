@@ -1,6 +1,6 @@
 import Foundation
 
-internal struct NilCoalescingDecorator<Value: TokenValue>: TokenDecorator {
+internal struct NilCoalescingDecorator<Value>: TokenDecorator {
 
     internal let defaultValue: Token<Value>
 
@@ -9,7 +9,7 @@ internal struct NilCoalescingDecorator<Value: TokenValue>: TokenDecorator {
     }
 }
 
-extension Token where Value: TokenValue {
+extension Token {
 
     public static func ?? (
         optional: Token<Value?>,

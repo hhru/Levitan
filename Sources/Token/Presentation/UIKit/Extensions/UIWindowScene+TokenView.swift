@@ -43,19 +43,11 @@ private var tokenViewWindowScenesObservation: AnyCancellable?
 extension UIWindowScene {
 
     internal static func handleTokenViewEvents() {
-        tokenViewWindowScenesObservation = NotificationCenter.default.publisher(
-            for: UIWindowScene.didActivateNotification
-        )
-        .compactMap { $0.object as? TokenView }
-        .sink { tokenView in
-            if Thread.isMainThread {
-                tokenView.tokenViewManager.updateTheme()
-            } else {
-                Task { @MainActor in
-                    tokenView.tokenViewManager.updateTheme()
-                }
-            }
-        }
+        tokenViewWindowScenesObservation = NotificationCenter
+            .default
+            .publisher(for: UIWindowScene.didActivateNotification)
+            .compactMap { $0.object as? TokenView }
+            .sink { $0.tokenViewManager.updateTheme() }
     }
 }
 #endif
