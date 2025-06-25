@@ -1,6 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
+@MainActor
 internal protocol TokenView: AnyTokenView {
 
     var tokenViewRoot: TokenView? { get }

@@ -1,6 +1,7 @@
 #if canImport(UIKit)
 import QuartzCore
 
+@MainActor
 internal class TextOperationQueue: NSObject {
 
     private var operations: [TextOperation] = []
@@ -21,7 +22,6 @@ internal class TextOperationQueue: NSObject {
         self.layer = layer
     }
 
-    @MainActor
     private func performOperation(_ operation: TextOperation) {
         let transition = operation
             .animation?
@@ -44,7 +44,6 @@ internal class TextOperationQueue: NSObject {
         performNextOperation()
     }
 
-    @MainActor
     private func performNextOperation() {
         guard !operations.isEmpty else {
             return
@@ -53,7 +52,6 @@ internal class TextOperationQueue: NSObject {
         performOperation(operations.removeFirst())
     }
 
-    @MainActor
     internal func addOperation(animation: AnimationToken? = nil, _ action: @escaping () -> Void) {
         let operation = TextOperation(
             animation: animation,
@@ -72,7 +70,6 @@ internal class TextOperationQueue: NSObject {
     }
 }
 
-@MainActor
 extension TextOperationQueue: @preconcurrency CAAnimationDelegate {
 
     public func animationDidStop(_ animation: CAAnimation, finished: Bool) {

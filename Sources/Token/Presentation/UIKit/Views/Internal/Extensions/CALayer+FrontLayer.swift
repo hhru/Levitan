@@ -50,6 +50,9 @@ extension CALayer {
         }
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func resetShadow() {
         shadowColor = .black
         shadowOffset = CGSize(width: .zero, height: -3.0)
@@ -57,6 +60,9 @@ extension CALayer {
         shadowOpacity = .zero
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func resetStroke() {
         borderWidth = .zero
         borderColor = .black

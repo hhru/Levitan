@@ -49,10 +49,16 @@ extension CALayer {
         }
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func resetShapeColor() {
         backgroundColor = nil
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func resetGradients() { }
 
     #if swift(<6.0)

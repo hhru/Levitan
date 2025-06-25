@@ -1,6 +1,6 @@
 import Foundation
 
-internal struct MultiplicationDecorator<Value: DecorableByMultiplication & TokenValue>: TokenDecorator {
+internal struct MultiplicationDecorator<Value: DecorableByMultiplication>: TokenDecorator {
 
     internal let other: Token<Value>
 
@@ -9,7 +9,7 @@ internal struct MultiplicationDecorator<Value: DecorableByMultiplication & Token
     }
 }
 
-extension Token: DecorableByMultiplication where Value: DecorableByMultiplication & TokenValue {
+extension Token: DecorableByMultiplication where Value: DecorableByMultiplication {
 
     public static func * (lhs: Self, rhs: Self) -> Self {
         lhs.decorated(by: MultiplicationDecorator(other: rhs))
