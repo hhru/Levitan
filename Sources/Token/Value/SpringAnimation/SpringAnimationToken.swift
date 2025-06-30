@@ -1,8 +1,8 @@
 import Foundation
 
-public typealias InterpolatingSpringAnimationToken = Token<InterpolatingSpringAnimation>
+public typealias SpringAnimationToken = Token<SpringAnimation>
 
-extension InterpolatingSpringAnimationToken {
+extension SpringAnimationToken {
 
     public init(
         mass: Double = 1.0,

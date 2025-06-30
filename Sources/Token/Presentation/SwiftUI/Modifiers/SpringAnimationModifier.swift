@@ -1,8 +1,8 @@
 import SwiftUI
 
-internal struct InterpolatingSpringAnimationModifier<Content: View, Value: Equatable>: TokenViewModifier {
+internal struct SpringAnimationModifier<Content: View, Value: Equatable>: TokenViewModifier {
 
-    internal let animation: InterpolatingSpringAnimationToken?
+    internal let animation: SpringAnimationToken?
     internal let value: Value
 
     internal func body(content: Content, theme: TokenTheme) -> some View {
@@ -15,12 +15,12 @@ internal struct InterpolatingSpringAnimationModifier<Content: View, Value: Equat
 
 extension View {
 
-    public func interpolatingSpringAnimation<Value: Equatable>(
-        _ animation: InterpolatingSpringAnimationToken?,
+    public func springAnimation<Value: Equatable>(
+        _ animation: SpringAnimationToken?,
         value: Value
     ) -> some View {
         modifier(
-            InterpolatingSpringAnimationModifier(
+            SpringAnimationModifier(
                 animation: animation,
                 value: value
             )

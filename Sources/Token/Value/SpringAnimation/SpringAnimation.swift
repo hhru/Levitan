@@ -1,7 +1,7 @@
 import SwiftUI
 import QuartzCore
 
-public struct InterpolatingSpringAnimation:
+public struct SpringAnimation:
     TokenValue,
     Changeable,
     Sendable {
@@ -14,7 +14,7 @@ public struct InterpolatingSpringAnimation:
     public var duration: Double
 
     private var caAnimation: CASpringAnimation {
-        let caAnimation = CASpringAnimation(keyPath: "InterpolatingSpringAnimation.caAnimation")
+        let caAnimation = CASpringAnimation(keyPath: "SpringAnimation.caAnimation")
         caAnimation.mass = mass
         caAnimation.damping = damping
         caAnimation.stiffness = stiffness
