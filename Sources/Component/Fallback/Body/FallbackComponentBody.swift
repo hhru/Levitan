@@ -17,7 +17,7 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
     public let content: Content
 
     public func makeUIView(context: Context) -> UIView {
-        FallbackComponentBodyView<Content>()
+        UIView()
     }
 
     public func updateUIView(_ view: UIView, context: Context) {

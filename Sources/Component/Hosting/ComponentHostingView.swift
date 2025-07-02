@@ -93,9 +93,14 @@ public final class ComponentHostingView<Content: View>: UIView {
     }
 
     private func layoutHostingController() {
+        guard superview != nil else {
+            return
+        }
+
+        hostingController.view.invalidateIntrinsicContentSize()
+
         hostingController.view.setNeedsLayout()
         hostingController.view.layoutIfNeeded()
-        hostingController.view.invalidateIntrinsicContentSize()
     }
 
     public override func didMoveToSuperview() {
