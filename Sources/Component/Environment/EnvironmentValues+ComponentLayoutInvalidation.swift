@@ -35,7 +35,6 @@ extension ComponentContext {
     ///
     /// - Parameter invalidation: Дополнительное действие для инвалидации лэйаута.
     /// - Returns: Окружение с добавленным действием для инвалидации лэйаута.
-    @MainActor
     public func componentLayoutInvalidation(_ invalidation: @escaping @MainActor () -> Void) -> Self {
         transformEnvironment(\.invalidateComponentLayout) { currentInvalidation in
             currentInvalidation = { [currentInvalidation] in

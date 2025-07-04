@@ -112,9 +112,7 @@ public protocol Component: View, Equatable {
     ///
     /// - SeeAlso: ``ComponentSizing``
     /// - SeeAlso: ``ComponentContext``
-    #if swift(<6.0)
     @MainActor
-    #endif
     func sizing(
         fitting size: CGSize,
         context: ComponentContext

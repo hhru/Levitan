@@ -8,6 +8,7 @@ import Foundation
 ///
 /// - SeeAlso: ``ComponentSizing``
 /// - SeeAlso: ``Component``
+@frozen
 public enum ComponentSizingStrategy: Equatable {
 
     /// Компонент имеет фиксированный размер.

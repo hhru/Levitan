@@ -59,8 +59,8 @@ public final class ComponentHostingView<Content: View>: UIView {
                 || viewController is UISplitViewController
         } ?? true
 
-        hostingController.view.frame = bounds
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        hostingController.view.frame = bounds
 
         if !shouldIgnoreParentViewController {
             viewController?.addChild(hostingController)
@@ -119,9 +119,7 @@ extension ComponentHostingView: ComponentView {
         let contentContext = context
             .componentViewController(hostingController)
             .componentLayoutInvalidation { [weak hostingController] in
-                Task { @MainActor in
-                    hostingController?.view.invalidateIntrinsicContentSize()
-                }
+                hostingController?.view.invalidateIntrinsicContentSize()
             }
 
         hostingController.rootView = HostingRoot(

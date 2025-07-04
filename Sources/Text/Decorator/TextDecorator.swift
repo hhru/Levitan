@@ -3,7 +3,6 @@ import Foundation
 
 public protocol TextDecorator: TokenTraitProvider, Hashable, Sendable {
 
-    @MainActor
     func decorate(
         typography: TypographyValue,
         context: ComponentContext
@@ -15,7 +14,6 @@ extension TextDecorator where
     Input == TypographyValue,
     Output == TypographyValue {
 
-    @MainActor
     public func decorate(typography: TypographyValue, context: ComponentContext) -> TypographyValue {
         decorate(typography, theme: context.tokenTheme)
     }

@@ -14,7 +14,7 @@ internal struct ComponentHostingRoot<Content: View>: View {
             return environment
         }
 
-        let environment = context.environment ?? environment
+        let environment = context.hostingEnvironment ?? environment
 
         return context
             .overrides

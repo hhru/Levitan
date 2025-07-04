@@ -4,6 +4,7 @@ import UIKit
 
 import SwiftUI
 
+@frozen
 public enum TokenThemeScheme: String, Sendable {
 
     case light
