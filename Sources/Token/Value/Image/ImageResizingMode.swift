@@ -4,6 +4,7 @@ import UIKit
 
 import SwiftUI
 
+@frozen
 public enum ImageResizingMode: TokenTraitProvider, Sendable {
 
     case tile

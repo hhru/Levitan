@@ -1,5 +1,6 @@
 import CoreGraphics
 
+@frozen
 public enum ShapeValue: TokenValue, Sendable {
 
     case custom(CustomShape)

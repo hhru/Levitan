@@ -350,7 +350,7 @@ extension TextView: FallbackManualComponentView {
 
 extension TextView {
 
-    public static func attributedText(
+    public nonisolated static func attributedText(
         for content: Text,
         context: ComponentContext
     ) -> NSAttributedString {

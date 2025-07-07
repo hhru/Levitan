@@ -33,10 +33,10 @@ public final class TokenThemeManager: ObservableObject {
     @MainActor
     public init(
         storage: TokenThemeStorage = DefaultTokenThemeStorage(),
-        resolver: TokenThemeResolver? = nil
+        resolver: TokenThemeResolver = DefaultTokenThemeResolver()
     ) {
         self.storage = storage
-        self.resolver = resolver ?? DefaultTokenThemeResolver()
+        self.resolver = resolver
 
         currentTheme = self.resolver.resolveTheme(
             selectedKey: storage.restoreSelectedThemeKey(),

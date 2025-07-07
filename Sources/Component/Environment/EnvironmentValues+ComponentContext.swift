@@ -9,7 +9,8 @@ extension EnvironmentValues {
     /// например, чтобы определить их размер.
     public var componentContext: ComponentContext {
         ComponentContext(
-            environment: self,
+            hostingEnvironment: self,
+            defaultEnvironment: self,
             overrides: [:]
         )
     }
