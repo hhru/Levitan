@@ -87,14 +87,17 @@ import SwiftUI
 @dynamicMemberLookup
 public struct ComponentContext {
 
-    internal let environment: EnvironmentValues?
+    internal let hostingEnvironment: EnvironmentValues?
+    internal let defaultEnvironment: EnvironmentValues
+
     internal let overrides: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride]
 
-    @MainActor
     internal func resolveValue<Value>(at keyPath: KeyPath<EnvironmentValues, Value>) -> Value {
         let environment = overrides
             .values
-            .reduce(into: environment ?? .default) { $1.override(for: &$0) }
+            .reduce(into: hostingEnvironment ?? defaultEnvironment) { environment, override in
+                override.override(for: &environment)
+            }
 
         return environment[keyPath: keyPath]
     }
@@ -111,7 +114,8 @@ public struct ComponentContext {
         let overrides = overrides.updatingValue(override, forKey: keyPath)
 
         return Self(
-            environment: environment,
+            hostingEnvironment: hostingEnvironment,
+            defaultEnvironment: defaultEnvironment,
             overrides: overrides
         )
     }
@@ -122,7 +126,6 @@ public struct ComponentContext {
     ///   - keyPath: Ключ переменной окружения.
     ///   - transform: Замыкание, трасформирующее текущее значение переменной окружения.
     /// - Returns: Окружение с переопределенной переменной.
-    @MainActor
     public func transformEnvironment<Value>(
         _ keyPath: WritableKeyPath<EnvironmentValues, Value>,
         transform: @escaping (inout Value) -> Void
@@ -140,7 +143,6 @@ public struct ComponentContext {
     ///   - keyPath: Ключ переменной окружения.
     ///   - value: Новое значение переменной.
     /// - Returns: Окружение с переопределенной переменной.
-    @MainActor
     public func environment<Value>(
         _ keyPath: WritableKeyPath<EnvironmentValues, Value>,
         _ value: Value
@@ -155,7 +157,6 @@ public struct ComponentContext {
     ///
     /// - Parameter isDisabled: новое значение.
     /// - Returns: Окружение с переопределенной переменной.
-    @MainActor
     public func disabled(_ isDisabled: Bool = true) -> Self {
         self.isEnabled(!isDisabled && self.isEnabled)
     }
@@ -164,7 +165,6 @@ public struct ComponentContext {
     ///
     /// - Parameter keyPath: Ключ переменной окружения.
     /// - Returns: Значение переменной окружения.
-    @MainActor
     public subscript<Value>(dynamicMember keyPath: KeyPath<EnvironmentValues, Value>) -> Value {
         resolveValue(at: keyPath)
     }
@@ -189,9 +189,11 @@ extension ComponentContext {
     ///
     /// Рекомендуется использовать в корневом UIKit-компоненте.
     /// Но также допускается использование по месту для обнуления контекста или в целях миграции.
+    @MainActor
     public static var `default`: ComponentContext {
         Self(
-            environment: nil,
+            hostingEnvironment: nil,
+            defaultEnvironment: .default,
             overrides: [:]
         )
     }

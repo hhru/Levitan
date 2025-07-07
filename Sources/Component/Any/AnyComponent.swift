@@ -33,22 +33,18 @@ public struct AnyComponent: Component {
     /// - SeeAlso: ``AnyComponentView``
     public typealias UIView = AnyComponentView
 
-    /// SwiftUI-представление компонента.
-    ///
-    /// Для отображения компонента со стертым типом в SwiftUI его тип так же стирается,
-    /// используя `AnyView`.
     public let body: AnyView
 
     internal let content: AnyComponentContent
     internal let presenter: AnyComponentPresenter
 
     private init(
-        wrapped: any Component,
         body: AnyView,
+        content: AnyComponentContent,
         presenter: AnyComponentPresenter
     ) {
-        self.content = AnyComponentContent(wrapped: wrapped)
         self.body = body
+        self.content = content
         self.presenter = presenter
     }
 
@@ -57,8 +53,8 @@ public struct AnyComponent: Component {
     /// - Parameter wrapped: Оборачиваемый компонент.
     public init<Wrapped: Component>(_ wrapped: Wrapped) {
         self.init(
-            wrapped: wrapped,
             body: AnyView(wrapped),
+            content: AnyComponentContent(wrapped: wrapped),
             presenter: AnyComponentPresenter(content: wrapped)
         )
     }

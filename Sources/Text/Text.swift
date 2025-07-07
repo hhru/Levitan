@@ -118,7 +118,7 @@ extension Text: ExpressibleByStringInterpolation {
 
 extension Text: TextPart {
 
-    public func attributedText(context: ComponentContext) -> NSAttributedString {
+    public nonisolated func attributedText(context: ComponentContext) -> NSAttributedString {
         UIView.attributedText(
             for: self,
             context: context
