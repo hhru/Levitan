@@ -1,7 +1,7 @@
 import SwiftUI
 import QuartzCore
 
-public struct SpringAnimation:
+public struct SpringAnimationValue:
     TokenValue,
     Changeable,
     Sendable {

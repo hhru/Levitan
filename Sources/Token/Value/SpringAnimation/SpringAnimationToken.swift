@@ -1,6 +1,6 @@
 import Foundation
 
-public typealias SpringAnimationToken = Token<SpringAnimation>
+public typealias SpringAnimationToken = Token<SpringAnimationValue>
 
 extension SpringAnimationToken {
 
