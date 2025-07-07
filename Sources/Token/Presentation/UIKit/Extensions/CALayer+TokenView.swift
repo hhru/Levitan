@@ -3,11 +3,11 @@ import QuartzCore
 
 extension CALayer: TokenView {
 
-    internal var tokenViewRoot: TokenView? {
+    internal nonisolated var tokenViewRoot: TokenView? {
         nil
     }
 
-    internal var tokenViewParent: TokenView? {
+    internal nonisolated var tokenViewParent: TokenView? {
         if let view = delegate as? TokenView {
             return view
         }
@@ -15,13 +15,13 @@ extension CALayer: TokenView {
         return superlayer
     }
 
-    internal var tokenViewChildren: [TokenView] {
+    internal nonisolated var tokenViewChildren: [TokenView] {
         sublayers?.filter { sublayer in
             sublayer.tokenViewParent === self
         } ?? []
     }
 
-    internal func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme) { }
+    internal nonisolated func overrideUserInterfaceStyle(themeScheme: TokenThemeScheme) { }
 }
 
 extension CALayer {
@@ -58,6 +58,25 @@ extension CALayer {
         )
     }
 
+    private func updateThemeOnMainThread(layer: CALayer) {
+        if Thread.isMainThread {
+            perform(#selector(updateTheme), with: layer)
+        } else {
+            perform(
+                #selector(updateTheme),
+                on: Thread.main,
+                with: layer,
+                waitUntilDone: false
+            )
+        }
+    }
+
+    @MainActor
+    @objc
+    private dynamic func updateTheme() {
+        tokenViewManager.updateTheme()
+    }
+
     @objc
     private dynamic func _addSublayer(_ layer: CALayer) {
         if let frontLayer {
@@ -67,7 +86,7 @@ extension CALayer {
         }
 
         if layer.tokenViewParent === self {
-            layer.tokenViewManager.updateTheme()
+            updateThemeOnMainThread(layer: layer)
         }
     }
 
@@ -82,7 +101,7 @@ extension CALayer {
         }
 
         if layer.tokenViewParent === self {
-            layer.tokenViewManager.updateTheme()
+            updateThemeOnMainThread(layer: layer)
         }
     }
 
@@ -95,7 +114,7 @@ extension CALayer {
         }
 
         if layer.tokenViewParent === self {
-            layer.tokenViewManager.updateTheme()
+            updateThemeOnMainThread(layer: layer)
         }
     }
 
@@ -108,7 +127,7 @@ extension CALayer {
         }
 
         if layer.tokenViewParent === self {
-            layer.tokenViewManager.updateTheme()
+            updateThemeOnMainThread(layer: layer)
         }
     }
 

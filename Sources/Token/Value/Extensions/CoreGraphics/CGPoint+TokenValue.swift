@@ -1,6 +1,8 @@
 import CoreGraphics
 
-extension CGPoint: TokenValue { }
+extension CGPoint:
+    @retroactive @unchecked Sendable,
+    TokenValue { }
 
 extension CGPoint: @retroactive Hashable {
 

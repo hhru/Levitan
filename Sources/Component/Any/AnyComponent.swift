@@ -33,24 +33,18 @@ public struct AnyComponent: Component {
     /// - SeeAlso: ``AnyComponentView``
     public typealias UIView = AnyComponentView
 
-    /// Оборачиваемый компонент со стертым типом.
-    public let wrapped: any Component
-
-    /// SwiftUI-представление компонента.
-    ///
-    /// Для отображения компонента со стертым типом в SwiftUI его тип так же стирается,
-    /// используя `AnyView`.
     public let body: AnyView
 
+    internal let content: AnyComponentContent
     internal let presenter: AnyComponentPresenter
 
     private init(
-        wrapped: any Component,
         body: AnyView,
+        content: AnyComponentContent,
         presenter: AnyComponentPresenter
     ) {
-        self.wrapped = wrapped
         self.body = body
+        self.content = content
         self.presenter = presenter
     }
 
@@ -59,8 +53,8 @@ public struct AnyComponent: Component {
     /// - Parameter wrapped: Оборачиваемый компонент.
     public init<Wrapped: Component>(_ wrapped: Wrapped) {
         self.init(
-            wrapped: wrapped,
             body: AnyView(wrapped),
+            content: AnyComponentContent(wrapped: wrapped),
             presenter: AnyComponentPresenter(content: wrapped)
         )
     }
@@ -69,7 +63,7 @@ public struct AnyComponent: Component {
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
-        wrapped.sizing(
+        content.wrapped.sizing(
             fitting: size,
             context: context
         )
@@ -78,16 +72,16 @@ public struct AnyComponent: Component {
 
 extension AnyComponent: Equatable {
 
-    public static func == (lhs: Self, rhs: Self) -> Bool {
-        if lhs.wrapped.isEqual(to: rhs.wrapped) {
+    public nonisolated static func == (lhs: Self, rhs: Self) -> Bool {
+        if lhs.content.wrapped.isEqual(to: rhs.content.wrapped) {
             return true
         }
 
-        if let lhs = lhs.wrapped as? AnyComponent {
+        if let lhs = lhs.content.wrapped as? AnyComponent {
             return lhs == rhs
         }
 
-        if let rhs = rhs.wrapped as? AnyComponent {
+        if let rhs = rhs.content.wrapped as? AnyComponent {
             return lhs == rhs
         }
 

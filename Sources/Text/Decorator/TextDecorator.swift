@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-public protocol TextDecorator: TokenTraitProvider, Hashable {
+public protocol TextDecorator: TokenTraitProvider, Hashable, Sendable {
 
     func decorate(
         typography: TypographyValue,

@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 // TODO: Добавить документацию
@@ -46,3 +47,4 @@ extension ViewEnvironment: Hashable where Value: Hashable {
         hasher.combine(forcedValue)
     }
 }
+#endif

@@ -59,8 +59,8 @@ public final class ComponentHostingView<Content: View>: UIView {
                 || viewController is UISplitViewController
         } ?? true
 
-        hostingController.view.frame = bounds
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        hostingController.view.frame = bounds
 
         if !shouldIgnoreParentViewController {
             viewController?.addChild(hostingController)
@@ -93,9 +93,14 @@ public final class ComponentHostingView<Content: View>: UIView {
     }
 
     private func layoutHostingController() {
+        guard superview != nil else {
+            return
+        }
+
+        hostingController.view.invalidateIntrinsicContentSize()
+
         hostingController.view.setNeedsLayout()
         hostingController.view.layoutIfNeeded()
-        hostingController.view.invalidateIntrinsicContentSize()
     }
 
     public override func didMoveToSuperview() {

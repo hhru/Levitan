@@ -17,16 +17,13 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
     public let content: Content
 
     public func makeUIView(context: Context) -> UIView {
-        FallbackComponentBodyView<Content>()
+        UIView()
     }
 
     public func updateUIView(_ view: UIView, context: Context) {
-        let environment = context.environment
-
-        let context = ComponentContext(
-            environment: environment,
-            overrides: [:]
-        )
+        let context = context
+            .environment
+            .componentContext
 
         view.update(
             with: content,

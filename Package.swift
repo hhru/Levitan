@@ -32,5 +32,5 @@ let package = Package(
             exclude: ["Info.plist"]
         )
     ],
-    swiftLanguageModes: [.v5]
+    swiftLanguageModes: [.v6]
 )

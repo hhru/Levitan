@@ -1,4 +1,5 @@
 #if canImport(UIKit)
+import Combine
 import UIKit
 
 extension UIView: TokenView {
@@ -48,7 +49,8 @@ extension UIView: TokenView {
     }
 }
 
-private var tokenViewWindowsObservation: NSObjectProtocol?
+@MainActor
+private var tokenViewWindowsObservation: AnyCancellable?
 
 extension UIView {
 
@@ -57,15 +59,11 @@ extension UIView {
     // После отказа от iOS 16, стоит рассмотреть возможность замены свизлинга
     // на кастомизацию UITraitCollection: https://developer.apple.com/documentation/uikit/uitraitcollection#4250876
     internal static func handleTokenViewEvents() {
-        tokenViewWindowsObservation = NotificationCenter.default.addObserver(
-            forName: UIWindow.didBecomeVisibleNotification,
-            object: nil,
-            queue: nil
-        ) { notification in
-            if let tokenView = notification.object as? TokenView {
-                tokenView.tokenViewManager.updateTheme()
-            }
-        }
+        tokenViewWindowsObservation = NotificationCenter
+            .default
+            .publisher(for: UIWindow.didBecomeVisibleNotification)
+            .compactMap { $0.object as? TokenView }
+            .sink { $0.tokenViewManager.updateTheme() }
 
         MethodSwizzler.swizzle(
             class: UIWindow.self,

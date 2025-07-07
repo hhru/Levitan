@@ -4,6 +4,7 @@ import UIKit
 
 import SwiftUI
 
+@frozen
 public enum ImageSource: TokenTraitProvider, Sendable {
 
     case resource(name: String, bundle: Bundle)

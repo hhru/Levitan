@@ -1,6 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
+@MainActor
 public struct TokenViewManager {
 
     internal let view: TokenView

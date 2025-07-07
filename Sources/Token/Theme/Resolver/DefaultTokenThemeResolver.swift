@@ -3,6 +3,7 @@ import UIKit
 
 public final class DefaultTokenThemeResolver: TokenThemeResolver {
 
+    @MainActor
     private var systemThemeScheme: TokenThemeScheme {
         let uiUserInterfaceStyle = UIScreen
             .main

@@ -2,6 +2,7 @@
 import UIKit
 import SwiftUI
 
+@MainActor
 internal struct AnyComponentPresenter {
 
     private let makeContentViewBox: (
@@ -19,9 +20,10 @@ internal struct AnyComponentPresenter {
         makeContentViewBox = { containerView, context in
             let contentView = Content.UIView(frame: containerView.bounds)
 
-            containerView.addSubview(contentView)
-
             contentView.translatesAutoresizingMaskIntoConstraints = false
+            contentView.frame = containerView.bounds
+
+            containerView.addSubview(contentView)
 
             let constraints = [
                 contentView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),

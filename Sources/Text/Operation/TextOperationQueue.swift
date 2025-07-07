@@ -1,6 +1,7 @@
 #if canImport(UIKit)
 import QuartzCore
 
+@MainActor
 internal class TextOperationQueue: NSObject {
 
     private var operations: [TextOperation] = []
@@ -69,7 +70,7 @@ internal class TextOperationQueue: NSObject {
     }
 }
 
-extension TextOperationQueue: CAAnimationDelegate {
+extension TextOperationQueue: @preconcurrency CAAnimationDelegate {
 
     public func animationDidStop(_ animation: CAAnimation, finished: Bool) {
         performNextOperation()

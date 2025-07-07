@@ -87,13 +87,17 @@ import SwiftUI
 @dynamicMemberLookup
 public struct ComponentContext {
 
-    internal let environment: EnvironmentValues?
+    internal let hostingEnvironment: EnvironmentValues?
+    internal let defaultEnvironment: EnvironmentValues
+
     internal let overrides: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride]
 
     internal func resolveValue<Value>(at keyPath: KeyPath<EnvironmentValues, Value>) -> Value {
         let environment = overrides
             .values
-            .reduce(into: environment ?? .default) { $1.override(for: &$0) }
+            .reduce(into: hostingEnvironment ?? defaultEnvironment) { environment, override in
+                override.override(for: &environment)
+            }
 
         return environment[keyPath: keyPath]
     }
@@ -110,7 +114,8 @@ public struct ComponentContext {
         let overrides = overrides.updatingValue(override, forKey: keyPath)
 
         return Self(
-            environment: environment,
+            hostingEnvironment: hostingEnvironment,
+            defaultEnvironment: defaultEnvironment,
             overrides: overrides
         )
     }
@@ -184,9 +189,13 @@ extension ComponentContext {
     ///
     /// Рекомендуется использовать в корневом UIKit-компоненте.
     /// Но также допускается использование по месту для обнуления контекста или в целях миграции.
-    public static let `default` = Self(
-        environment: nil,
-        overrides: [:]
-    )
+    @MainActor
+    public static var `default`: ComponentContext {
+        Self(
+            hostingEnvironment: nil,
+            defaultEnvironment: .default,
+            overrides: [:]
+        )
+    }
 }
 #endif

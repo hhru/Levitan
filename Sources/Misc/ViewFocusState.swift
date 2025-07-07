@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import SwiftUI
 
 // TODO: Добавить документацию
@@ -37,3 +38,4 @@ extension ViewFocusState: Equatable where Value: Equatable {
         true
     }
 }
+#endif

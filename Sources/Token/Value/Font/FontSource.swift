@@ -1,6 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
+@frozen
 public enum FontSource: TokenTraitProvider, Sendable {
 
     case uiFont(

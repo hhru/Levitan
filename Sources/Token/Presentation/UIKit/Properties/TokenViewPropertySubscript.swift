@@ -1,6 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
+@MainActor
 @dynamicMemberLookup
 public struct TokenViewPropertySubscript<Value, Details: Hashable> {
 
@@ -30,7 +31,7 @@ public struct TokenViewPropertySubscript<Value, Details: Hashable> {
     }
 
     public subscript(dynamicMember keyPath: KeyPath<Details, Details>) -> Value?
-    where Value: Hashable {
+    where Value: Hashable & Sendable {
         get { self[dynamicMember: keyPath]?.resolve(for: view.tokenViewManager.theme) }
         nonmutating set { self[dynamicMember: keyPath] = newValue.map { .value($0) } }
     }

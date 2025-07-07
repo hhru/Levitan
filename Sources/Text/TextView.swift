@@ -67,7 +67,9 @@ public final class TextView: UILabel {
             partThresholds.append(attributedText.length)
         }
 
-        self.attributedText = attributedText
+        if self.attributedText != attributedText {
+            self.attributedText = attributedText
+        }
 
         numberOfLines = context.lineLimit ?? .zero
         lineBreakMode = content.lineBreakMode
@@ -348,7 +350,7 @@ extension TextView: FallbackManualComponentView {
 
 extension TextView {
 
-    public static func attributedText(
+    public nonisolated static func attributedText(
         for content: Text,
         context: ComponentContext
     ) -> NSAttributedString {

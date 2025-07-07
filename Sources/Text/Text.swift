@@ -5,21 +5,37 @@ public struct Text: FallbackManualComponent, TokenValue {
 
     public typealias UIView = TextView
 
-    public let parts: [AnyTextPart]
+    private nonisolated var content: TextContent
 
-    public var typography: TypographyToken?
-    public var decoration: [AnyTextDecorator]
-    public var animation: TextAnimation?
+    public nonisolated var parts: [AnyTextPart] {
+        content.parts
+    }
 
-    public var lineLimit: Int?
-    public var lineBreakMode: NSLineBreakMode
+    public nonisolated var typography: TypographyToken? {
+        content.typography
+    }
 
-    public var isEnabled: Bool
+    public nonisolated var decoration: [AnyTextDecorator] {
+        content.decoration
+    }
 
-    @ViewAction
-    public var tapAction: (@MainActor () -> Void)?
+    public nonisolated var animation: TextAnimation? {
+        content.animation
+    }
 
-    public init(
+    public nonisolated var lineLimit: Int? {
+        content.lineLimit
+    }
+
+    public nonisolated var lineBreakMode: NSLineBreakMode {
+        content.lineBreakMode
+    }
+
+    public nonisolated var isEnabled: Bool {
+        content.isEnabled
+    }
+
+    public nonisolated init(
         parts: [AnyTextPart],
         typography: TypographyToken? = nil,
         decoration: [AnyTextDecorator] = [],
@@ -27,22 +43,21 @@ public struct Text: FallbackManualComponent, TokenValue {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (@MainActor () -> Void)? = nil
+        tapAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
-        self.parts = parts
-
-        self.typography = typography
-        self.decoration = decoration
-        self.animation = animation
-
-        self.lineLimit = lineLimit
-        self.lineBreakMode = lineBreakMode
-
-        self.isEnabled = isEnabled
-        self.tapAction = tapAction
+        self.content = TextContent(
+            parts: parts,
+            typography: typography,
+            decoration: decoration,
+            animation: animation,
+            lineLimit: lineLimit,
+            lineBreakMode: lineBreakMode,
+            isEnabled: isEnabled,
+            tapAction: tapAction
+        )
     }
 
-    public init(
+    public nonisolated init(
         _ content: any TextPart,
         typography: TypographyToken? = nil,
         decoration: [AnyTextDecorator] = [],
@@ -50,7 +65,7 @@ public struct Text: FallbackManualComponent, TokenValue {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (@MainActor () -> Void)? = nil
+        tapAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
         self.init(
             parts: [content.eraseToAnyTextPart()],
@@ -64,14 +79,14 @@ public struct Text: FallbackManualComponent, TokenValue {
         )
     }
 
-    public init(
+    public nonisolated init(
         typography: TypographyToken? = nil,
         decoration: [AnyTextDecorator] = [],
         animation: TextAnimation? = nil,
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (@MainActor () -> Void)? = nil,
+        tapAction: (@Sendable @MainActor () -> Void)? = nil,
         @TextBuilder content: () -> [any TextPart]
     ) {
         self.init(
@@ -89,21 +104,21 @@ public struct Text: FallbackManualComponent, TokenValue {
 
 extension Text: ExpressibleByStringLiteral {
 
-    public init(stringLiteral value: String) {
+    public nonisolated init(stringLiteral value: String) {
         self.init { value }
     }
 }
 
 extension Text: ExpressibleByStringInterpolation {
 
-    public init(stringInterpolation: TextInterpolation) {
+    public nonisolated init(stringInterpolation: TextInterpolation) {
         self.init(parts: stringInterpolation.parts)
     }
 }
 
 extension Text: TextPart {
 
-    public func attributedText(context: ComponentContext) -> NSAttributedString {
+    public nonisolated func attributedText(context: ComponentContext) -> NSAttributedString {
         UIView.attributedText(
             for: self,
             context: context
@@ -113,32 +128,32 @@ extension Text: TextPart {
 
 extension Text: Changeable {
 
-    public func typography(_ typography: TypographyToken?) -> Self {
-        changing { $0.typography = typography }
+    public nonisolated func typography(_ typography: TypographyToken?) -> Self {
+        changing { $0.content.typography = typography }
     }
 
-    public func decorated<Decorator: TextDecorator>(by decorator: Decorator) -> Self {
-        changing { $0.decoration.append(decorator.eraseToAnyTextDecorator()) }
+    public nonisolated func decorated<Decorator: TextDecorator>(by decorator: Decorator) -> Self {
+        changing { $0.content.decoration.append(decorator.eraseToAnyTextDecorator()) }
     }
 
-    public func animation(_ animation: TextAnimation) -> Self {
-        changing { $0.animation = animation }
+    public nonisolated func animation(_ animation: TextAnimation) -> Self {
+        changing { $0.content.animation = animation }
     }
 
-    public func lineLimit(_ lineLimit: Int?) -> Self {
-        changing { $0.lineLimit = lineLimit }
+    public nonisolated func lineLimit(_ lineLimit: Int?) -> Self {
+        changing { $0.content.lineLimit = lineLimit }
     }
 
-    public func lineBreakMode(_ lineBreakMode: NSLineBreakMode) -> Self {
-        changing { $0.lineBreakMode = lineBreakMode }
+    public nonisolated func lineBreakMode(_ lineBreakMode: NSLineBreakMode) -> Self {
+        changing { $0.content.lineBreakMode = lineBreakMode }
     }
 
-    public func disabled(_ isDisabled: Bool = true) -> Self {
-        changing { $0.isEnabled = !isDisabled }
+    public nonisolated func disabled(_ isDisabled: Bool = true) -> Self {
+        changing { $0.content.isEnabled = !isDisabled }
     }
 
-    public func onTap(_ tapAction: (@MainActor () -> Void)?) -> Self {
-        changing { $0.tapAction = tapAction }
+    public nonisolated func onTap(_ tapAction: (@Sendable @MainActor () -> Void)?) -> Self {
+        changing { $0.content.tapAction = tapAction }
     }
 }
 

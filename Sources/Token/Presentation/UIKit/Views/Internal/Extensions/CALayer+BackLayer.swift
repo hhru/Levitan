@@ -12,6 +12,9 @@ extension CALayer {
         backLayerAssociation[self]
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func setupBackLayerIfNeeded() {
         guard backLayer == nil else {
             return
@@ -33,6 +36,9 @@ extension CALayer {
         resetGradients()
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func updateBackLayerIfNeeded() {
         if let shapeColor = shapeColorAssociation[self] {
             updateShapeColor(shapeColor)
@@ -43,12 +49,21 @@ extension CALayer {
         }
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func resetShapeColor() {
         backgroundColor = nil
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func resetGradients() { }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func updateShapeColor(_ shapeColor: ColorValue?) {
         shapeColorAssociation[self] = shapeColor
 
@@ -70,6 +85,9 @@ extension CALayer {
         backgroundColor = shapeColor.cgColor
     }
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func updateGradients(_ gradients: [GradientValue]) {
         gradientsAssociation[self] = gradients
 
