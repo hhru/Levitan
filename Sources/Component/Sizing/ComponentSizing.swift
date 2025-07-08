@@ -85,6 +85,4 @@ public struct ComponentSizing: Equatable, Sendable {
         )
     }
 }
-
-extension ComponentSizing: Sendable { }
 #endif
