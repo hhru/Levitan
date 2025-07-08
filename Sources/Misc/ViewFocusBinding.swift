@@ -89,4 +89,6 @@ extension ViewFocusBinding where Value == Bool {
         )
     }
 }
+
+extension ViewFocusBinding: Sendable where Value: Sendable { }
 #endif

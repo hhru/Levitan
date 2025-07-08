@@ -85,4 +85,6 @@ extension ViewState: Equatable where Value: Equatable {
         true
     }
 }
+
+extension ViewState: Sendable where Value: Sendable { }
 #endif

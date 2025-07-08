@@ -8,7 +8,7 @@ import Foundation
 ///
 /// - SeeAlso: ``ComponentSizingStrategy``
 /// - SeeAlso: ``Component``
-public struct ComponentSizing: Equatable {
+public struct ComponentSizing: Equatable, Sendable {
 
     /// Стратегия определения ширины компонента.
     public let width: ComponentSizingStrategy
