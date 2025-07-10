@@ -15,7 +15,6 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     private var context: ComponentContext?
 
     private var contentSize: FallbackComponentBodySize?
-    private var componentIdentifier: AnyHashable?
 
     public override var intrinsicContentSize: CGSize {
         contentSize?.intrinsic ?? super.intrinsicContentSize
@@ -560,10 +559,6 @@ extension FallbackComponentBodyView {
             return contentSize?.extrinsic
         }
 
-        if let componentIdentifier, componentIdentifier != context.componentIdentifier.value {
-            return contentSize?.extrinsic
-        }
-
         let containerSize = context.componentContainerSize ?? UIScreen.main.bounds.size
 
         let fittingWidth = proposedWidth.map { proposedWidth in
@@ -597,12 +592,6 @@ extension FallbackComponentBodyView {
     }
 
     internal func update(with content: Content, context: ComponentContext) {
-        let newComponentIdentifier = context.componentIdentifier.value
-
-        if let componentIdentifier, componentIdentifier != newComponentIdentifier {
-            return
-        }
-
         let cache = context.fallbackComponentSizeCache.value
 
         let contentContext = context.componentLayoutInvalidation { [weak cache] in
@@ -611,8 +600,6 @@ extension FallbackComponentBodyView {
 
         self.content = content
         self.context = contentContext
-
-        componentIdentifier = newComponentIdentifier
 
         tokens.themeKey(context.tokenThemeKey)
         tokens.themeScheme(context.tokenThemeScheme)
