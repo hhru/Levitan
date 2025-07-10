@@ -210,7 +210,9 @@ extension ComponentHostingView: ComponentView {
             .componentAppearanceObservatory?
             .observe(by: self)
 
-        appearanceState = appearanceObserverToken == nil
+        if !appearanceState {
+            appearanceState = appearanceObserverToken == nil
+        }
 
         updateHostingController(with: content, context: context)
     }
