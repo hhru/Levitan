@@ -2,19 +2,14 @@
 import SwiftUI
 import UIKit
 
-internal struct ComponentViewControllerEnvironmentValue {
-
-    internal private(set) weak var viewController: UIViewController?
-}
-
 internal struct ComponentViewControllerEnvironmentKey: EnvironmentKey {
 
-    internal static let defaultValue = ComponentViewControllerEnvironmentValue()
+    internal static let defaultValue: @Sendable @MainActor () -> UIViewController? = { nil }
 }
 
 extension EnvironmentValues {
 
-    /// Ближайший экземпляр `UIViewController` в окружении.
+    /// Замыкание, который предоставляет ближайший экземпляр `UIViewController` в окружении.
     ///
     /// Используется для встраивания SwiftUI-компонентов в UIKit-представление через `UIHostingController`.
     /// Поэтому рекомендуется переопределять этот параметр в каждом экземпляре `UIViewController`,
@@ -22,13 +17,29 @@ extension EnvironmentValues {
     ///
     /// Если ближайший экземпляр `UIViewController` не определен,
     /// то система попытается самостоятельно найти его по цепочке `UIResponder`.
-    public var componentViewController: UIViewController? {
-        get { self[ComponentViewControllerEnvironmentKey.self].viewController }
+    public var componentViewControllerProvider: @Sendable @MainActor () -> UIViewController? {
+        get { self[ComponentViewControllerEnvironmentKey.self] }
+        set { self[ComponentViewControllerEnvironmentKey.self] = newValue }
+    }
+}
 
-        set {
-            self[ComponentViewControllerEnvironmentKey.self] = ComponentViewControllerEnvironmentValue(
-                viewController: newValue
-            )
+extension ComponentContext {
+
+    /// Возвращает ближайший экземпляр `UIViewController` в окружении
+    /// для встраивания SwiftUI-компонентов в UIKit-представление через `UIHostingController`.
+    @MainActor
+    public var componentViewController: UIViewController? {
+        self.componentViewControllerProvider()
+    }
+
+    /// Устанавливает ближайший экземпляр `UIViewController` в окружении
+    /// для встраивания SwiftUI-компонентов в UIKit-представление через `UIHostingController`.
+    ///
+    /// - Parameter viewController: Экземпляр `UIViewController`.
+    /// - Returns: Окружение с переопределенным экземпляром `UIViewController`.
+    public func componentViewController(_ viewController: UIViewController?) -> Self {
+        self.componentViewControllerProvider { [weak viewController] in
+            viewController
         }
     }
 }
