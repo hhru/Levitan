@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-public final class ComponentAppearanceObserverToken {
+public final class ComponentSuperviewObserverToken {
 
     private let cancellation: () -> Void
 

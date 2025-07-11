@@ -22,8 +22,9 @@ public final class ComponentHostingView<Content: View>: UIView {
     private var content: Content?
     private var context: ComponentContext?
 
-    private var appearanceObserverToken: ComponentAppearanceObserverToken?
-    private var appearanceState = false
+    private var superviewObserverToken: ComponentSuperviewObserverToken?
+
+    private var isSuperviewVisible = false
 
     public override init(frame: CGRect = .zero) {
         super.init(frame: frame)
@@ -70,7 +71,7 @@ public final class ComponentHostingView<Content: View>: UIView {
     private func setupHostingControllerIfNeeded(_ hostingController: HostingController) {
         self.hostingController = hostingController
 
-        guard let context, let superview, window != nil, appearanceState else {
+        guard let context, let superview, window != nil, isSuperviewVisible else {
             return
         }
 
@@ -142,7 +143,7 @@ public final class ComponentHostingView<Content: View>: UIView {
 
     private func updateHostingController(with content: Content, context: ComponentContext) {
         let context = context
-            .componentAppearanceObservatory(nil)
+            .componentSuperviewObservatory(nil)
             .componentViewControllerProvider { [weak self] in
                 self?.hostingController
             }
@@ -206,22 +207,22 @@ extension ComponentHostingView: ComponentView {
         self.context = context
         self.content = content
 
-        appearanceObserverToken = context
-            .componentAppearanceObservatory?
+        superviewObserverToken = context
+            .componentSuperviewObservatory?
             .observe(by: self)
 
-        if !appearanceState {
-            appearanceState = appearanceObserverToken == nil
+        if !isSuperviewVisible {
+            isSuperviewVisible = superviewObserverToken == nil
         }
 
         updateHostingController(with: content, context: context)
     }
 }
 
-extension ComponentHostingView: ComponentAppearanceObserver {
+extension ComponentHostingView: ComponentSuperviewObserver {
 
-    public func onAppear() {
-        appearanceState = true
+    public func onSuperviewAppear() {
+        isSuperviewVisible = true
 
         if let hostingController {
             setupHostingControllerIfNeeded(hostingController)
@@ -230,8 +231,8 @@ extension ComponentHostingView: ComponentAppearanceObserver {
         }
     }
 
-    public func onDisappear() {
-        appearanceState = false
+    public func onSuperviewDisappear() {
+        isSuperviewVisible = false
 
         guard let hostingController else {
             return
