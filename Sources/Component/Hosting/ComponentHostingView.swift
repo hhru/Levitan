@@ -183,8 +183,10 @@ public final class ComponentHostingView<Content: View>: UIView {
     public override func didMoveToSuperview() {
         super.didMoveToSuperview()
 
-        if let hostingController, superview == nil {
-            resetHostingControllerIfNeeded(hostingController)
+        if superview == nil {
+            if let hostingController {
+                resetHostingControllerIfNeeded(hostingController)
+            }
         } else if let content, let context {
             updateHostingController(with: content, context: context)
         }
@@ -193,8 +195,10 @@ public final class ComponentHostingView<Content: View>: UIView {
     public override func didMoveToWindow() {
         super.didMoveToWindow()
 
-        if let hostingController, window == nil {
-            resetHostingControllerIfNeeded(hostingController)
+        if window == nil {
+            if let hostingController {
+                resetHostingControllerIfNeeded(hostingController)
+            }
         } else if let content, let context {
             updateHostingController(with: content, context: context)
         }
@@ -211,9 +215,7 @@ extension ComponentHostingView: ComponentView {
             .componentSuperviewObservatory?
             .observe(by: self)
 
-        if !isSuperviewVisible {
-            isSuperviewVisible = superviewObserverToken == nil
-        }
+        isSuperviewVisible = true
 
         updateHostingController(with: content, context: context)
     }
