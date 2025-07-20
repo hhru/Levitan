@@ -3,17 +3,13 @@ import SwiftUI
 
 internal struct ComponentHostingRoot<Content: View>: View {
 
-    internal var content: Content?
-    internal var context: ComponentContext?
+    internal var content: Content
+    internal var context: ComponentContext
 
     @Environment(\.self)
     private var environment: EnvironmentValues
 
     private var contentEnvironment: EnvironmentValues {
-        guard let context else {
-            return environment
-        }
-
         let environment = context.hostingEnvironment ?? environment
 
         return context
@@ -32,7 +28,7 @@ internal struct ComponentHostingRoot<Content: View>: View {
         let themeManager = componentView?.tokens.themeManager
         let theme = componentView?.tokens.theme
 
-        content?
+        content
             .iflet(theme) { $0.tokenThemeKey($1.key) }
             .iflet(theme) { $0.tokenThemeScheme($1.scheme) }
             .iflet(themeManager) { $0.tokenThemeManager($1) }
