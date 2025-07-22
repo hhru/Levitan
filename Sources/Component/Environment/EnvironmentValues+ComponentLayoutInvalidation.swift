@@ -3,7 +3,7 @@ import SwiftUI
 
 internal struct ComponentLayoutInvalidationEnvironmentKey: EnvironmentKey {
 
-    internal static let defaultValue = { @MainActor in }
+    internal static let defaultValue: @Sendable @MainActor () -> Void = { }
 }
 
 extension EnvironmentValues {
@@ -21,7 +21,7 @@ extension EnvironmentValues {
     /// - Warning: Не рекомендуется вызывать инвалидацию при изменении внешнего состояния,
     ///            переданного через байндинги или через ручное связывание замыканиями.
     ///            Компонент должен выполнять это действие только, если изменилось его собственное состояние.
-    public internal(set) var invalidateComponentLayout: @MainActor () -> Void {
+    public internal(set) var invalidateComponentLayout: @Sendable @MainActor () -> Void {
         get { self[ComponentLayoutInvalidationEnvironmentKey.self] }
         set { self[ComponentLayoutInvalidationEnvironmentKey.self] = newValue }
     }
@@ -35,7 +35,7 @@ extension ComponentContext {
     ///
     /// - Parameter invalidation: Дополнительное действие для инвалидации лэйаута.
     /// - Returns: Окружение с добавленным действием для инвалидации лэйаута.
-    public func componentLayoutInvalidation(_ invalidation: @escaping @MainActor () -> Void) -> Self {
+    public func componentLayoutInvalidation(_ invalidation: @escaping @Sendable @MainActor () -> Void) -> Self {
         transformEnvironment(\.invalidateComponentLayout) { currentInvalidation in
             currentInvalidation = { [currentInvalidation] in
                 invalidation()

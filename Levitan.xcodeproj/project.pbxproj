@@ -221,6 +221,16 @@
 		C0312BE72B07A36A00BC21A7 /* NSLineBreakMode+TokenTraitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0312BE62B07A36A00BC21A7 /* NSLineBreakMode+TokenTraitProvider.swift */; };
 		C0312BE92B07A39000BC21A7 /* NSTextAlignment+TokenTraitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0312BE82B07A39000BC21A7 /* NSTextAlignment+TokenTraitProvider.swift */; };
 		C0312BF02B07B05600BC21A7 /* ShapeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0312BEF2B07B05600BC21A7 /* ShapeToken.swift */; };
+		C031C6AF2E2045A5009C7CC0 /* ComponentSuperviewObserverStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031C6AC2E2045A5009C7CC0 /* ComponentSuperviewObserverStorage.swift */; };
+		C031C6B02E2045A5009C7CC0 /* ComponentSuperviewObservatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031C6AA2E2045A5009C7CC0 /* ComponentSuperviewObservatory.swift */; };
+		C031C6B12E2045A5009C7CC0 /* EnvironmentValues+ComponentSuperviewObservatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031C6AE2E2045A5009C7CC0 /* EnvironmentValues+ComponentSuperviewObservatory.swift */; };
+		C031C6B22E2045A5009C7CC0 /* ComponentSuperviewObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031C6AB2E2045A5009C7CC0 /* ComponentSuperviewObserver.swift */; };
+		C031C6B32E2045A5009C7CC0 /* ComponentSuperviewObserverToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031C6AD2E2045A5009C7CC0 /* ComponentSuperviewObserverToken.swift */; };
+		C031C6B42E2045A5009C7CC0 /* ComponentSuperviewObserverStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031C6AC2E2045A5009C7CC0 /* ComponentSuperviewObserverStorage.swift */; };
+		C031C6B52E2045A5009C7CC0 /* ComponentSuperviewObservatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031C6AA2E2045A5009C7CC0 /* ComponentSuperviewObservatory.swift */; };
+		C031C6B62E2045A5009C7CC0 /* EnvironmentValues+ComponentSuperviewObservatory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031C6AE2E2045A5009C7CC0 /* EnvironmentValues+ComponentSuperviewObservatory.swift */; };
+		C031C6B72E2045A5009C7CC0 /* ComponentSuperviewObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031C6AB2E2045A5009C7CC0 /* ComponentSuperviewObserver.swift */; };
+		C031C6B82E2045A5009C7CC0 /* ComponentSuperviewObserverToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C031C6AD2E2045A5009C7CC0 /* ComponentSuperviewObserverToken.swift */; };
 		C0358FCC2B0A6BDE000E599A /* TokenViewPropertyBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FCB2B0A6BDE000E599A /* TokenViewPropertyBinding.swift */; };
 		C0358FD02B0A7904000E599A /* TokenViewProperty.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0358FCF2B0A7904000E599A /* TokenViewProperty.swift */; };
 		C0358FD62B0AA24A000E599A /* TokenViewProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CD1B12B093732005F5499 /* TokenViewProperties.swift */; };
@@ -791,6 +801,11 @@
 		C0312BE62B07A36A00BC21A7 /* NSLineBreakMode+TokenTraitProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLineBreakMode+TokenTraitProvider.swift"; sourceTree = "<group>"; };
 		C0312BE82B07A39000BC21A7 /* NSTextAlignment+TokenTraitProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextAlignment+TokenTraitProvider.swift"; sourceTree = "<group>"; };
 		C0312BEF2B07B05600BC21A7 /* ShapeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeToken.swift; sourceTree = "<group>"; };
+		C031C6AA2E2045A5009C7CC0 /* ComponentSuperviewObservatory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSuperviewObservatory.swift; sourceTree = "<group>"; };
+		C031C6AB2E2045A5009C7CC0 /* ComponentSuperviewObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSuperviewObserver.swift; sourceTree = "<group>"; };
+		C031C6AC2E2045A5009C7CC0 /* ComponentSuperviewObserverStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSuperviewObserverStorage.swift; sourceTree = "<group>"; };
+		C031C6AD2E2045A5009C7CC0 /* ComponentSuperviewObserverToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSuperviewObserverToken.swift; sourceTree = "<group>"; };
+		C031C6AE2E2045A5009C7CC0 /* EnvironmentValues+ComponentSuperviewObservatory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentSuperviewObservatory.swift"; sourceTree = "<group>"; };
 		C0358DE02B0A20AD000E599A /* TokenViewProperties+UIProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UIProgressView.swift"; sourceTree = "<group>"; };
 		C0358DE22B0A2151000E599A /* TokenViewProperties+UISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UISlider.swift"; sourceTree = "<group>"; };
 		C0358FCB2B0A6BDE000E599A /* TokenViewPropertyBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewPropertyBinding.swift; sourceTree = "<group>"; };
@@ -1112,6 +1127,18 @@
 				C00A5D0A2D55ECF20064FB3A /* TokenThemeUnit.swift */,
 			);
 			path = Theme;
+			sourceTree = "<group>";
+		};
+		C025CFE92E1FA78200202B98 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				C031C6AA2E2045A5009C7CC0 /* ComponentSuperviewObservatory.swift */,
+				C031C6AB2E2045A5009C7CC0 /* ComponentSuperviewObserver.swift */,
+				C031C6AC2E2045A5009C7CC0 /* ComponentSuperviewObserverStorage.swift */,
+				C031C6AD2E2045A5009C7CC0 /* ComponentSuperviewObserverToken.swift */,
+				C031C6AE2E2045A5009C7CC0 /* EnvironmentValues+ComponentSuperviewObservatory.swift */,
+			);
+			path = Appearance;
 			sourceTree = "<group>";
 		};
 		C0310B2E2B04BB4800BCA3AC /* Token */ = {
@@ -2137,6 +2164,7 @@
 			isa = PBXGroup;
 			children = (
 				C0E97A442BC6DF5200CF37A7 /* Any */,
+				C025CFE92E1FA78200202B98 /* Appearance */,
 				C0E97A362BC6DF5200CF37A7 /* Context */,
 				C0E97A4C2BC6DF5200CF37A7 /* Environment */,
 				C0E97A3A2BC6DF5200CF37A7 /* Fallback */,
@@ -2644,6 +2672,11 @@
 				C0310C362B04BB4800BCA3AC /* ParagraphFirstLineIndentDecorator.swift in Sources */,
 				C09305212B0B78AA00F6F13D /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C0E97A022BC6DDCC00CF37A7 /* DifferenceIndicesReference.swift in Sources */,
+				C031C6B42E2045A5009C7CC0 /* ComponentSuperviewObserverStorage.swift in Sources */,
+				C031C6B52E2045A5009C7CC0 /* ComponentSuperviewObservatory.swift in Sources */,
+				C031C6B62E2045A5009C7CC0 /* EnvironmentValues+ComponentSuperviewObservatory.swift in Sources */,
+				C031C6B72E2045A5009C7CC0 /* ComponentSuperviewObserver.swift in Sources */,
+				C031C6B82E2045A5009C7CC0 /* ComponentSuperviewObserverToken.swift in Sources */,
 				C04DB78C2D5A934E00159242 /* ImageToken+TextPart.swift in Sources */,
 				C04DB78D2D5A934E00159242 /* TextOperation.swift in Sources */,
 				C04DB78E2D5A934E00159242 /* TextView.swift in Sources */,
@@ -2977,6 +3010,11 @@
 				C09305182B0B75F600F6F13D /* TokenViewProperties+UISlider.swift in Sources */,
 				C0081D9E2BC82A6000BE7293 /* NilCoalescingDecorator.swift in Sources */,
 				C0081DB42BC82AC900BE7293 /* Collection+Extensions.swift in Sources */,
+				C031C6AF2E2045A5009C7CC0 /* ComponentSuperviewObserverStorage.swift in Sources */,
+				C031C6B02E2045A5009C7CC0 /* ComponentSuperviewObservatory.swift in Sources */,
+				C031C6B12E2045A5009C7CC0 /* EnvironmentValues+ComponentSuperviewObservatory.swift in Sources */,
+				C031C6B22E2045A5009C7CC0 /* ComponentSuperviewObserver.swift in Sources */,
+				C031C6B32E2045A5009C7CC0 /* ComponentSuperviewObserverToken.swift in Sources */,
 				C04DB76E2D5A934E00159242 /* ImageToken+TextPart.swift in Sources */,
 				C04DB76F2D5A934E00159242 /* TextOperation.swift in Sources */,
 				C04DB7702D5A934E00159242 /* TextView.swift in Sources */,

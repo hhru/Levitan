@@ -17,25 +17,19 @@ public final class ComponentHostingView<Content: View>: UIView {
     private typealias HostingRoot = ComponentHostingRoot<Content>
     private typealias HostingController = ComponentHostingController<HostingRoot>
 
-    private let hostingController: HostingController
+    private var hostingController: HostingController?
+    private var hostingRoot: HostingRoot?
 
-    private var content: Content?
-    private var context: ComponentContext?
+    private var componentViewControllerProvider: (() -> UIViewController?)?
+    private var superviewObserverToken: ComponentSuperviewObserverToken?
+
+    private var isSuperviewVisible = false
 
     public override init(frame: CGRect = .zero) {
-        let hostingRoot = HostingRoot(
-            content: nil,
-            context: nil
-        )
-
-        hostingController = HostingController(rootView: hostingRoot)
-
         super.init(frame: frame)
 
         tokens.customBinding { view, _ in
-            if let content = view.content, let context = view.context {
-                view.update(with: content, context: context)
-            }
+            view.updateHostingControllerIfNeeded()
         }
     }
 
@@ -44,26 +38,15 @@ public final class ComponentHostingView<Content: View>: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupHostingControllerIfNeeded() {
-        resetHostingControllerIfNeeded()
-
-        guard let superview, let context else {
-            return
-        }
-
-        let viewController = context.componentViewController ?? superview.next(of: UIViewController.self)
-
-        let shouldIgnoreParentViewController = viewController.map { viewController in
-            viewController is UINavigationController
-                || viewController is UITabBarController
-                || viewController is UISplitViewController
-        } ?? true
-
+    private func setupHostingController(
+        _ hostingController: HostingController,
+        parentViewController: UIViewController?
+    ) {
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         hostingController.view.frame = bounds
 
-        if !shouldIgnoreParentViewController {
-            viewController?.addChild(hostingController)
+        if let parentViewController {
+            parentViewController.addChild(hostingController)
         }
 
         addSubview(hostingController.view)
@@ -77,25 +60,93 @@ public final class ComponentHostingView<Content: View>: UIView {
 
         NSLayoutConstraint.activate(constraints)
 
-        if !shouldIgnoreParentViewController {
-            hostingController.didMove(toParent: viewController)
+        if let parentViewController {
+            hostingController.didMove(toParent: parentViewController)
         }
     }
 
-    private func resetHostingControllerIfNeeded() {
+    private func setupHostingControllerIfNeeded(
+        _ hostingController: HostingController,
+        superview: UIView
+    ) {
+        let nearestViewController = componentViewControllerProvider?()
+            ?? superview.next(of: UIViewController.self)
+
+        let shouldIgnoreParentViewController = nearestViewController.map { viewController in
+            viewController is UINavigationController
+                || viewController is UITabBarController
+                || viewController is UISplitViewController
+        } ?? true
+
+        let parentViewController = shouldIgnoreParentViewController
+            ? nil
+            : nearestViewController
+
+        if hostingController.view.superview != nil {
+            if hostingController.parent === parentViewController {
+                return
+            }
+
+            resetHostingController(hostingController)
+        }
+
+        setupHostingController(
+            hostingController,
+            parentViewController: parentViewController
+        )
+    }
+
+    private func setupHostingControllerIfNeeded(with hostingRoot: HostingRoot) {
+        guard let superview, window != nil, isSuperviewVisible else {
+            return
+        }
+
+        if let hostingController {
+            return setupHostingControllerIfNeeded(
+                hostingController,
+                superview: superview
+            )
+        }
+
+        let hostingController = HostingController(rootView: hostingRoot)
+
+        setupHostingControllerIfNeeded(
+            hostingController,
+            superview: superview
+        )
+
+        self.hostingController = hostingController
+    }
+
+    private func resetHostingController(_ hostingController: HostingController) {
+        hostingController.beginAppearanceTransition(false, animated: false)
+
+        if hostingController.parent == nil {
+            hostingController.view.removeFromSuperview()
+        } else {
+            hostingController.willMove(toParent: nil)
+            hostingController.view.removeFromSuperview()
+            hostingController.removeFromParent()
+        }
+
+        hostingController.endAppearanceTransition()
+    }
+
+    private func resetHostingControllerIfNeeded(_ hostingController: HostingController) {
+        self.hostingController = nil
+
         guard hostingController.viewIfLoaded?.superview != nil else {
             return
         }
 
-        hostingController.willMove(toParent: nil)
-        hostingController.view.removeFromSuperview()
-        hostingController.removeFromParent()
+        resetHostingController(hostingController)
     }
 
-    private func layoutHostingController() {
-        guard superview != nil else {
-            return
-        }
+    private func updateHostingController(
+        _ hostingController: HostingController,
+        with hostingRoot: HostingRoot
+    ) {
+        hostingController.rootView = hostingRoot
 
         hostingController.view.invalidateIntrinsicContentSize()
 
@@ -103,35 +154,110 @@ public final class ComponentHostingView<Content: View>: UIView {
         hostingController.view.layoutIfNeeded()
     }
 
+    private func updateHostingControllerIfNeeded() {
+        guard let hostingController, let hostingRoot else {
+            return
+        }
+
+        updateHostingController(
+            hostingController,
+            with: hostingRoot
+        )
+    }
+
     public override func didMoveToSuperview() {
         super.didMoveToSuperview()
 
-        setupHostingControllerIfNeeded()
+        if superview == nil {
+            if let hostingController {
+                resetHostingControllerIfNeeded(hostingController)
+            }
+        } else if let hostingRoot {
+            setupHostingControllerIfNeeded(with: hostingRoot)
+        }
+    }
+
+    public override func didMoveToWindow() {
+        super.didMoveToWindow()
+
+        if window == nil {
+            if let hostingController {
+                resetHostingControllerIfNeeded(hostingController)
+            }
+        } else if let hostingRoot {
+            setupHostingControllerIfNeeded(with: hostingRoot)
+        }
     }
 }
 
 extension ComponentHostingView: ComponentView {
 
     public func update(with content: Content, context: ComponentContext) {
-        self.context = context
-        self.content = content
+        let previousIdentifier = hostingRoot?.context.componentIdentifier.value
+        let newIdentifier = context.componentIdentifier.value
 
-        let contentContext = context
-            .componentViewController(hostingController)
-            .componentLayoutInvalidation { [weak hostingController] in
-                hostingController?.view.invalidateIntrinsicContentSize()
+        componentViewControllerProvider = context.componentViewControllerProvider
+
+        superviewObserverToken = context
+            .componentSuperviewObservatory?
+            .observe(by: self)
+
+        isSuperviewVisible = true
+
+        let context = context
+            .componentSuperviewObservatory(nil)
+            .componentViewControllerProvider { [weak self] in
+                self?.hostingController
+            }
+            .componentLayoutInvalidation { [weak self] in
+                self?
+                    .hostingController?
+                    .view
+                    .invalidateIntrinsicContentSize()
             }
 
-        hostingController.rootView = HostingRoot(
+        let hostingRoot = HostingRoot(
             content: content,
-            context: contentContext
+            context: context
         )
 
-        if hostingController.viewIfLoaded?.superview == nil {
-            setupHostingControllerIfNeeded()
-        } else {
-            layoutHostingController()
+        self.hostingRoot = hostingRoot
+
+        if let hostingController {
+            if previousIdentifier != newIdentifier {
+                resetHostingControllerIfNeeded(hostingController)
+            } else {
+                return updateHostingController(
+                    hostingController,
+                    with: hostingRoot
+                )
+            }
         }
+
+        setupHostingControllerIfNeeded(with: hostingRoot)
+    }
+}
+
+extension ComponentHostingView: ComponentSuperviewObserver {
+
+    public func onSuperviewAppear() {
+        isSuperviewVisible = true
+
+        guard let hostingRoot, hostingController == nil else {
+            return
+        }
+
+        setupHostingControllerIfNeeded(with: hostingRoot)
+    }
+
+    public func onSuperviewDisappear() {
+        isSuperviewVisible = false
+
+        guard let hostingController else {
+            return
+        }
+
+        resetHostingControllerIfNeeded(hostingController)
     }
 }
 #endif
