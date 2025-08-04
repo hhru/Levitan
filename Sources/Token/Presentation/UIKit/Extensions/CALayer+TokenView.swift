@@ -62,7 +62,7 @@ extension CALayer {
         performSelector(
             onMainThread: #selector(updateTheme),
             with: nil,
-            waitUntilDone: false
+            waitUntilDone: true
         )
     }
 
