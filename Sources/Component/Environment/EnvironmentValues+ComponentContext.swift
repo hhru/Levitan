@@ -8,11 +8,7 @@ extension EnvironmentValues {
     /// Позволяет получить в SwiftUI-представлениях контекст компонентов,
     /// например, чтобы определить их размер.
     public var componentContext: ComponentContext {
-        ComponentContext(
-            hostingEnvironment: self,
-            defaultEnvironment: self,
-            overrides: [:]
-        )
+        ComponentContext(environment: self)
     }
 }
 #endif
