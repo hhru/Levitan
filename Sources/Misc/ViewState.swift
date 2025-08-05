@@ -86,5 +86,10 @@ extension ViewState: Equatable where Value: Equatable {
     }
 }
 
+extension ViewState: Hashable where Value: Hashable {
+
+    public func hash(into hasher: inout Hasher) { }
+}
+
 extension ViewState: Sendable where Value: Sendable { }
 #endif
