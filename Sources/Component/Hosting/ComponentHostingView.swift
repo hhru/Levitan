@@ -128,8 +128,6 @@ public final class ComponentHostingView<Content: View>: UIView {
             hostingController.view.removeFromSuperview()
             hostingController.removeFromParent()
         }
-
-        hostingController.endAppearanceTransition()
     }
 
     private func resetHostingControllerIfNeeded(_ hostingController: HostingController) {
