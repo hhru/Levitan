@@ -5,7 +5,9 @@ import SwiftUI
 extension EnvironmentValues {
 
     @MainActor
-    internal static let `default` = Self.default(for: UIScreen.main.traitCollection)
+    internal static var `default`: Self {
+        Self.default(for: UIScreen.main.traitCollection)
+    }
 
     @MainActor
     internal static func `default`(for traitCollection: UITraitCollection) -> Self {

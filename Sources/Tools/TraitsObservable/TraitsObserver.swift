@@ -1,6 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
+@MainActor
 internal final class TraitsObserver {
 
     internal private(set) weak var observer: AnyObject?

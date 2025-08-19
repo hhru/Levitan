@@ -87,19 +87,41 @@ import SwiftUI
 @dynamicMemberLookup
 public struct ComponentContext {
 
-    internal let hostingEnvironment: EnvironmentValues?
-    internal let defaultEnvironment: EnvironmentValues
+    private let currentEnvironment: EnvironmentValues
+    private let hostingEnvironment: EnvironmentValues?
 
-    internal let overrides: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride]
+    private let overrides: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride]
+
+    private init(
+        currentEnvironment: EnvironmentValues,
+        hostingEnvironment: EnvironmentValues?,
+        overrides: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride]
+    ) {
+        self.currentEnvironment = currentEnvironment
+        self.hostingEnvironment = hostingEnvironment
+
+        self.overrides = overrides
+    }
+
+    internal init(environment: EnvironmentValues) {
+        self.currentEnvironment = environment
+        self.hostingEnvironment = environment
+
+        self.overrides = [:]
+    }
+
+    internal func hostingEnvironment(defaultEnvironment: EnvironmentValues) -> EnvironmentValues {
+        if hostingEnvironment != nil {
+            return currentEnvironment
+        }
+
+        return overrides
+            .values
+            .reduce(into: defaultEnvironment) { $1.override(for: &$0) }
+    }
 
     internal func resolveValue<Value>(at keyPath: KeyPath<EnvironmentValues, Value>) -> Value {
-        let environment = overrides
-            .values
-            .reduce(into: hostingEnvironment ?? defaultEnvironment) { environment, override in
-                override.override(for: &environment)
-            }
-
-        return environment[keyPath: keyPath]
+        currentEnvironment[keyPath: keyPath]
     }
 
     internal func overrideValue<Value>(
@@ -111,12 +133,14 @@ public struct ComponentContext {
             value: newValue
         )
 
-        let overrides = overrides.updatingValue(override, forKey: keyPath)
+        var currentEnvironment = currentEnvironment
+
+        override.override(for: &currentEnvironment)
 
         return Self(
+            currentEnvironment: currentEnvironment,
             hostingEnvironment: hostingEnvironment,
-            defaultEnvironment: defaultEnvironment,
-            overrides: overrides
+            overrides: overrides.updatingValue(override, forKey: keyPath)
         )
     }
 
@@ -192,8 +216,8 @@ extension ComponentContext {
     @MainActor
     public static var `default`: ComponentContext {
         Self(
+            currentEnvironment: .default,
             hostingEnvironment: nil,
-            defaultEnvironment: .default,
             overrides: [:]
         )
     }

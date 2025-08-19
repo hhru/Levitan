@@ -9,17 +9,8 @@ internal struct ComponentHostingRoot<Content: View>: View {
     @Environment(\.self)
     private var environment: EnvironmentValues
 
-    private var contentEnvironment: EnvironmentValues {
-        let environment = context.hostingEnvironment ?? environment
-
-        return context
-            .overrides
-            .values
-            .reduce(into: environment) { $1.override(for: &$0) }
-    }
-
     internal var body: some View {
-        let contentEnvironment = contentEnvironment
+        let contentEnvironment = context.hostingEnvironment(defaultEnvironment: environment)
 
         let componentView = contentEnvironment
             .componentViewControllerProvider()?
