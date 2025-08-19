@@ -70,4 +70,11 @@ internal struct AnyComponentPresenter {
         updateContentViewBox(contentView, context)
     }
 }
+
+extension Component {
+
+    internal func eraseToAnyComponentPresenter() -> AnyComponentPresenter {
+        AnyComponentPresenter(content: self)
+    }
+}
 #endif
