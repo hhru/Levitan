@@ -73,6 +73,9 @@ internal struct AnyComponentPresenter {
 
 extension Component {
 
+    #if swift(<6.0)
+    @MainActor
+    #endif
     internal func eraseToAnyComponentPresenter() -> AnyComponentPresenter {
         AnyComponentPresenter(content: self)
     }

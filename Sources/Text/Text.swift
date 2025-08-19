@@ -15,7 +15,7 @@ public struct Text: TokenValue, Sendable {
     public var isEnabled: Bool
 
     @ViewAction
-    public var tapAction: (@MainActor () -> Void)?
+    public var tapAction: (@Sendable @MainActor () -> Void)?
 
     public init(
         parts: [AnyTextPart],
@@ -25,7 +25,7 @@ public struct Text: TokenValue, Sendable {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (@MainActor () -> Void)? = nil
+        tapAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
         self.parts = parts
 
