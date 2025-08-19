@@ -1,6 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
+@MainActor
 @objc
 internal protocol TraitsObservable: UITraitEnvironment {
 

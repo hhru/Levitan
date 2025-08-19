@@ -59,16 +59,11 @@ extension CALayer {
     }
 
     private func updateThemeOnMainThread(layer: CALayer) {
-        if Thread.isMainThread {
-            perform(#selector(updateTheme), with: layer)
-        } else {
-            perform(
-                #selector(updateTheme),
-                on: Thread.main,
-                with: layer,
-                waitUntilDone: false
-            )
-        }
+        performSelector(
+            onMainThread: #selector(updateTheme),
+            with: nil,
+            waitUntilDone: true
+        )
     }
 
     @MainActor
