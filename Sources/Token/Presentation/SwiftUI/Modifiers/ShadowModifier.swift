@@ -138,7 +138,7 @@ extension View {
 
 extension TokenShapedView {
 
-    public func shadow(_ shadow: ShadowToken?) -> some TokenShapedView {
+    public nonisolated func shadow(_ shadow: ShadowToken?) -> some TokenShapedView {
         modifier(
             ShadowModifier(
                 shadow: shadow,

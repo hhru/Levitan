@@ -18,40 +18,52 @@ import SwiftUI
 ///
 /// - SeeAlso: ``ManualComponent``
 /// - SeeAlso: ``AnyComponentView``
-public struct AnyManualComponent: ManualComponent {
+public struct AnyManualComponent {
+
+    private let wrapped: any ManualComponent
+
+    /// Создает обертку со стертым типом компонента.
+    ///
+    /// - Parameter wrapped: Оборачиваемый компонент.
+    public init<Wrapped: ManualComponent>(_ wrapped: Wrapped) {
+        self.wrapped = wrapped
+    }
+}
+
+extension AnyManualComponent {
+
+    @MainActor
+    internal var content: AnyComponent {
+        wrapped.eraseToAnyComponent()
+    }
+}
+
+extension AnyManualComponent: ManualComponent {
 
     public typealias UIView = AnyManualComponentView
 
-    public let wrapped: AnyComponent
-    public let sizeBox: (CGSize, ComponentContext) -> CGSize
-
     public var body: some View {
-        wrapped.body
-    }
-
-    public init<Wrapped: ManualComponent>(_ wrapped: Wrapped) {
-        self.wrapped = wrapped.eraseToAnyComponent()
-
-        sizeBox = { size, context in
-            wrapped.size(
-                fitting: size,
-                context: context
-            )
-        }
+        wrapped.eraseToAnyView()
     }
 
     public func size(
         fitting size: CGSize,
         context: ComponentContext
     ) -> CGSize {
-        sizeBox(size, context)
+        wrapped.size(
+            fitting: size,
+            context: context
+        )
     }
 
     public func sizing(
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
-        let size = sizeBox(size, context)
+        let size = wrapped.size(
+            fitting: size,
+            context: context
+        )
 
         return ComponentSizing(
             width: .fixed(size.width),
@@ -62,14 +74,26 @@ public struct AnyManualComponent: ManualComponent {
 
 extension AnyManualComponent: Equatable {
 
-    public nonisolated static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.wrapped == rhs.wrapped
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        if lhs.wrapped.isEqual(to: rhs.wrapped) {
+            return true
+        }
+
+        if let lhs = lhs.wrapped as? Self {
+            return lhs == rhs
+        }
+
+        if let rhs = rhs.wrapped as? Self {
+            return lhs == rhs
+        }
+
+        return false
     }
 }
 
 extension ManualComponent {
 
-    public func eraseToAnyManualComponent() -> AnyManualComponent {
+    public nonisolated func eraseToAnyManualComponent() -> AnyManualComponent {
         if let component = self as? AnyManualComponent {
             return component
         }

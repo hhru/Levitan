@@ -3,9 +3,7 @@ import SwiftUI
 
 internal struct TextTypographyKey: EnvironmentKey {
 
-    internal static let defaultValue = TypographyToken(
-        font: .system(size: 17.0)
-    )
+    internal static let defaultValue = TypographyToken(font: .system(size: 17.0))
 }
 
 extension EnvironmentValues {

@@ -128,5 +128,9 @@ extension Component {
 
         return self == other
     }
+
+    internal func eraseToAnyView() -> AnyView {
+        AnyView(self)
+    }
 }
 #endif

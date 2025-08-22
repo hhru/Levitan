@@ -16,7 +16,7 @@ internal struct OpacityModifier<Content: View>: TokenViewModifier {
 
 extension View {
 
-    public func opacity(_ opacity: OpacityToken?) -> some View {
+    public nonisolated func opacity(_ opacity: OpacityToken?) -> some View {
         modifier(OpacityModifier(opacity: opacity))
     }
 }

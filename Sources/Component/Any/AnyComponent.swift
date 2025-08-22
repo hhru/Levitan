@@ -23,7 +23,7 @@ import SwiftUI
 ///
 /// - SeeAlso: ``Component``
 /// - SeeAlso: ``AnyComponentView``
-public struct AnyComponent: Component {
+public struct AnyComponent {
 
     /// UIKit-представление компонента для использования в UIKit-контейнере.
     ///
@@ -33,37 +33,35 @@ public struct AnyComponent: Component {
     /// - SeeAlso: ``AnyComponentView``
     public typealias UIView = AnyComponentView
 
-    public let body: AnyView
-
-    internal let content: AnyComponentContent
-    internal let presenter: AnyComponentPresenter
-
-    private init(
-        body: AnyView,
-        content: AnyComponentContent,
-        presenter: AnyComponentPresenter
-    ) {
-        self.body = body
-        self.content = content
-        self.presenter = presenter
-    }
+    private let wrapped: any Component
 
     /// Создает обертку со стертым типом компонента.
     ///
     /// - Parameter wrapped: Оборачиваемый компонент.
     public init<Wrapped: Component>(_ wrapped: Wrapped) {
-        self.init(
-            body: AnyView(wrapped),
-            content: AnyComponentContent(wrapped: wrapped),
-            presenter: AnyComponentPresenter(content: wrapped)
-        )
+        self.wrapped = wrapped
+    }
+}
+
+extension AnyComponent {
+
+    @MainActor
+    internal var presenter: AnyComponentPresenter {
+        wrapped.eraseToAnyComponentPresenter()
+    }
+}
+
+extension AnyComponent: Component {
+
+    public var body: AnyView {
+        wrapped.eraseToAnyView()
     }
 
     public func sizing(
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
-        content.wrapped.sizing(
+        wrapped.sizing(
             fitting: size,
             context: context
         )
@@ -72,16 +70,16 @@ public struct AnyComponent: Component {
 
 extension AnyComponent: Equatable {
 
-    public nonisolated static func == (lhs: Self, rhs: Self) -> Bool {
-        if lhs.content.wrapped.isEqual(to: rhs.content.wrapped) {
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        if lhs.wrapped.isEqual(to: rhs.wrapped) {
             return true
         }
 
-        if let lhs = lhs.content.wrapped as? AnyComponent {
+        if let lhs = lhs.wrapped as? Self {
             return lhs == rhs
         }
 
-        if let rhs = rhs.content.wrapped as? AnyComponent {
+        if let rhs = rhs.wrapped as? Self {
             return lhs == rhs
         }
 
@@ -96,7 +94,7 @@ extension Component {
     /// - Returns: Обертка со стертым типом компонента.
     ///
     /// - SeeAlso: `AnyComponent`
-    public func eraseToAnyComponent() -> AnyComponent {
+    public nonisolated func eraseToAnyComponent() -> AnyComponent {
         if let component = self as? AnyComponent {
             return component
         }

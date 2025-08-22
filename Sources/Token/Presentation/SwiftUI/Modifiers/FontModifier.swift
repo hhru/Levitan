@@ -17,7 +17,7 @@ internal struct FontModifier<Content: View>: TokenViewModifier {
 
 extension View {
 
-    public func font(_ font: FontToken?) -> some View {
+    public nonisolated func font(_ font: FontToken?) -> some View {
         modifier(FontModifier(font: font))
     }
 }

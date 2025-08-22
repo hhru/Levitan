@@ -77,7 +77,7 @@ public final class AnyManualComponentView: UIView {
 extension AnyManualComponentView: ComponentView {
 
     public func update(with content: AnyManualComponent, context: ComponentContext) {
-        wrappedView.update(with: content.wrapped, context: context)
+        wrappedView.update(with: content.content, context: context)
 
         invalidateIntrinsicContentSize()
     }
