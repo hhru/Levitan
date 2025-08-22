@@ -17,7 +17,7 @@ internal struct ScaleEffectModifier<Content: View>: TokenViewModifier {
 
 extension View {
 
-    public func scaleEffect(
+    public nonisolated func scaleEffect(
         _ scaling: ScalingToken?,
         anchor: UnitPoint = .center
     ) -> some View {

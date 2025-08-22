@@ -2,8 +2,8 @@ import SwiftUI
 
 public protocol TokenShapedView: View {
 
-    var shape: ShapeToken? { get }
-    var shapeInsets: SpacingToken? { get }
+    nonisolated var shape: ShapeToken? { get }
+    nonisolated var shapeInsets: SpacingToken? { get }
 }
 
 extension TokenModifiedView: TokenShapedView

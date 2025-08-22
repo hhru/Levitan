@@ -11,7 +11,7 @@ internal struct BackgroundColorModifier<Content: View>: TokenViewModifier {
 
 extension View {
 
-    public func backgroundColor(_ color: ColorToken?) -> some View {
+    public nonisolated func backgroundColor(_ color: ColorToken?) -> some View {
         modifier(BackgroundColorModifier(color: color))
     }
 }

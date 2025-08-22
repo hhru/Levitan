@@ -16,11 +16,11 @@ internal struct PaddingModifier<Content: View>: TokenViewModifier {
 
 extension View {
 
-    public func padding(_ insets: InsetsToken?) -> some View {
+    public nonisolated func padding(_ insets: InsetsToken?) -> some View {
         modifier(PaddingModifier(insets: insets))
     }
 
-    public func padding(all spacing: SpacingToken?) -> some View {
+    public nonisolated func padding(all spacing: SpacingToken?) -> some View {
         padding(spacing.map(InsetsToken.init(all:)))
     }
 }

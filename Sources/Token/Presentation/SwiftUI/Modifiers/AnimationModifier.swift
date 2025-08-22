@@ -15,7 +15,7 @@ internal struct AnimationModifier<Content: View, Value: Equatable>: TokenViewMod
 
 extension View {
 
-    public func animation<Value: Equatable>(
+    public nonisolated func animation<Value: Equatable>(
         _ animation: AnimationToken?,
         value: Value
     ) -> some View {

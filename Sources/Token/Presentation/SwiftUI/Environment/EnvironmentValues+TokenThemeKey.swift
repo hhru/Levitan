@@ -15,7 +15,7 @@ extension EnvironmentValues {
 
 extension View {
 
-    public func tokenThemeKey(_ themeKey: TokenThemeKey) -> some View {
+    public nonisolated func tokenThemeKey(_ themeKey: TokenThemeKey) -> some View {
         environment(\.tokenThemeKey, themeKey)
     }
 }
