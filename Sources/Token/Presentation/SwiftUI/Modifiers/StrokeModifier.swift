@@ -30,7 +30,7 @@ internal struct StrokeModifier<Content: View>: TokenShapedModifier {
 
 extension View {
 
-    public func stroke(
+    public nonisolated func stroke(
         _ stroke: StrokeToken?,
         shape: ShapeToken? = nil
     ) -> some TokenShapedView {
@@ -42,7 +42,7 @@ extension View {
         )
     }
 
-    public func stroke(
+    public nonisolated func stroke(
         _ stroke: StrokeToken?,
         corners: CornersToken
     ) -> some TokenShapedView {
@@ -57,7 +57,7 @@ extension View {
 
 extension TokenShapedView {
 
-    public func stroke(_ stroke: StrokeToken?) -> some TokenShapedView {
+    public nonisolated func stroke(_ stroke: StrokeToken?) -> some TokenShapedView {
         modifier(
             StrokeModifier(
                 stroke: stroke,

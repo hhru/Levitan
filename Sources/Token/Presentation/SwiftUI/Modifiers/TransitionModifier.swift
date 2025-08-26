@@ -17,7 +17,7 @@ internal struct TransitionModifier<Content: View>: TokenViewModifier {
 
 extension View {
 
-    public func transition(
+    public nonisolated func transition(
         _ transition: AnyTransition,
         animation: AnimationToken?
     ) -> some View {

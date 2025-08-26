@@ -30,17 +30,13 @@ public struct TextAnimation: Hashable, Sendable {
 
 extension TextAnimation {
 
-    public static var none: Self {
-        Self()
-    }
+    public static let none = Self()
 
-    public static var `default`: Self {
-        Self(
-            press: .easeInEaseOut(duration: 100),
-            unpress: .easeInEaseOut(duration: 200),
-            hover: .easeInEaseOut(duration: 100),
-            unhover: .easeInEaseOut(duration: 200)
-        )
-    }
+    public static let `default` = Self(
+        press: .easeInEaseOut(duration: 100),
+        unpress: .easeInEaseOut(duration: 200),
+        hover: .easeInEaseOut(duration: 100),
+        unhover: .easeInEaseOut(duration: 200)
+    )
 }
 #endif

@@ -11,7 +11,7 @@ internal struct AccentColorModifier<Content: View>: TokenViewModifier {
 
 extension View {
 
-    public func accentColor(_ color: ColorToken?) -> some View {
+    public nonisolated func accentColor(_ color: ColorToken?) -> some View {
         modifier(AccentColorModifier(color: color))
     }
 }

@@ -10,7 +10,7 @@ public protocol TokenViewModifier {
 
 extension View {
 
-    public func modifier<Modifier: TokenViewModifier>(
+    public nonisolated func modifier<Modifier: TokenViewModifier>(
         _ modifier: Modifier
     ) -> TokenModifiedView<Modifier> where Modifier.Content == Self {
         TokenModifiedView(

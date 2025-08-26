@@ -11,7 +11,7 @@ internal struct ForegroundColorModifier<Content: View>: TokenViewModifier {
 
 extension View {
 
-    public func foregroundColor(_ color: ColorToken?) -> some View {
+    public nonisolated func foregroundColor(_ color: ColorToken?) -> some View {
         modifier(ForegroundColorModifier(color: color))
     }
 }
