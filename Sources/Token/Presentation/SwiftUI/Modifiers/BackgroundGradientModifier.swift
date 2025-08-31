@@ -16,7 +16,7 @@ internal struct BackgroundGradientModifier<Content: View>: TokenViewModifier {
 
 extension View {
 
-    public func backgroundGradient(_ gradient: GradientToken?) -> some View {
+    public nonisolated func backgroundGradient(_ gradient: GradientToken?) -> some View {
         modifier(BackgroundGradientModifier(gradient: gradient))
     }
 }

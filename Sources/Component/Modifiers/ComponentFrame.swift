@@ -102,7 +102,7 @@ extension View {
     /// - SeeAlso: ``ComponentFrame``
     /// - SeeAlso: ``ComponentSizing``
     /// - SeeAlso: ``ComponentSizingStrategy``
-    public func frame(
+    public nonisolated func frame(
         sizing: ComponentSizing,
         alignment: Alignment = .topLeading
     ) -> ModifiedContent<Self, ComponentFrame> {
@@ -120,7 +120,7 @@ extension View {
     /// - SeeAlso: ``ComponentFrame``
     /// - SeeAlso: ``ComponentSizing``
     /// - SeeAlso: ``ComponentSizingStrategy``
-    public func frame(
+    public nonisolated func frame(
         width: ComponentSizingStrategy = .hug(bounded: true),
         height: ComponentSizingStrategy = .hug(bounded: true),
         alignment: Alignment = .topLeading

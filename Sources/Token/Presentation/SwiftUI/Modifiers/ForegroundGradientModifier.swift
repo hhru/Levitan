@@ -18,7 +18,7 @@ internal struct ForegroundGradientModifier<Content: View>: TokenViewModifier {
 extension View {
 
     @available(iOS 15.0, tvOS 15.0, *)
-    public func foregroundGradient(_ gradient: GradientToken?) -> some View {
+    public nonisolated func foregroundGradient(_ gradient: GradientToken?) -> some View {
         modifier(ForegroundGradientModifier(gradient: gradient))
     }
 }

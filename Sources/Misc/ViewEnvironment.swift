@@ -5,10 +5,8 @@ import SwiftUI
 @propertyWrapper
 public struct ViewEnvironment<Value>: DynamicProperty {
 
-    private let keyPath: KeyPath<EnvironmentValues, Value>
-    private var forcedValue: Value?
-
     private var environment: Environment<Value>
+    private var forcedValue: Value?
 
     public var wrappedValue: Value {
         forcedValue ?? environment.wrappedValue
@@ -23,7 +21,6 @@ public struct ViewEnvironment<Value>: DynamicProperty {
         _ keyPath: KeyPath<EnvironmentValues, Value>,
         forcedValue: Value? = nil
     ) {
-        self.keyPath = keyPath
         self.forcedValue = forcedValue
 
         environment = Environment(keyPath)
@@ -33,6 +30,8 @@ public struct ViewEnvironment<Value>: DynamicProperty {
         environment.update()
     }
 }
+
+extension ViewEnvironment: Sendable where Value: Sendable { }
 
 extension ViewEnvironment: Equatable where Value: Equatable {
 

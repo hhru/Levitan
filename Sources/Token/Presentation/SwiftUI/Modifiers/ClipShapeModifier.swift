@@ -20,15 +20,15 @@ internal struct ClipShapeModifier<Content: View>: TokenShapedModifier {
 
 extension View {
 
-    public func clipShape(_ shape: ShapeToken?) -> some TokenShapedView {
+    public nonisolated func clipShape(_ shape: ShapeToken?) -> some TokenShapedView {
         modifier(ClipShapeModifier(shape: shape))
     }
 
-    public func corners(_ corners: CornersToken?) -> some TokenShapedView {
+    public nonisolated func corners(_ corners: CornersToken?) -> some TokenShapedView {
         clipShape(corners.map { .rectangle(corners: $0) })
     }
 
-    public func corners(
+    public nonisolated func corners(
         radius: CornerRadiusToken?,
         mask: CornersMask = .all
     ) -> some TokenShapedView {

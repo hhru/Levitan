@@ -10,7 +10,7 @@ extension EnvironmentValues {
 
 extension View {
 
-    public func tokenThemeScheme(_ themeScheme: TokenThemeScheme) -> some View {
+    public nonisolated func tokenThemeScheme(_ themeScheme: TokenThemeScheme) -> some View {
         environment(\.tokenThemeScheme, themeScheme)
     }
 }

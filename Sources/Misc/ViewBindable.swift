@@ -42,6 +42,8 @@ public struct ViewBindable<Value> {
     }
 }
 
+extension ViewBindable: Sendable where Value: Sendable { }
+
 extension ViewBindable: Equatable where Value: Equatable {
 
     public static func == (lhs: Self, rhs: Self) -> Bool {

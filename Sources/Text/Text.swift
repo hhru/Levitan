@@ -1,41 +1,23 @@
 #if canImport(UIKit)
 import SwiftUI
 
-public struct Text: FallbackManualComponent, TokenValue {
+public struct Text: TokenValue, Sendable {
 
-    public typealias UIView = TextView
+    public let parts: [AnyTextPart]
 
-    private nonisolated var content: TextContent
+    public var typography: TypographyToken?
+    public var decoration: [AnyTextDecorator]
+    public var animation: TextAnimation?
 
-    public nonisolated var parts: [AnyTextPart] {
-        content.parts
-    }
+    public var lineLimit: Int?
+    public var lineBreakMode: NSLineBreakMode
 
-    public nonisolated var typography: TypographyToken? {
-        content.typography
-    }
+    public var isEnabled: Bool
 
-    public nonisolated var decoration: [AnyTextDecorator] {
-        content.decoration
-    }
+    @ViewAction
+    public var tapAction: (@Sendable @MainActor () -> Void)?
 
-    public nonisolated var animation: TextAnimation? {
-        content.animation
-    }
-
-    public nonisolated var lineLimit: Int? {
-        content.lineLimit
-    }
-
-    public nonisolated var lineBreakMode: NSLineBreakMode {
-        content.lineBreakMode
-    }
-
-    public nonisolated var isEnabled: Bool {
-        content.isEnabled
-    }
-
-    public nonisolated init(
+    public init(
         parts: [AnyTextPart],
         typography: TypographyToken? = nil,
         decoration: [AnyTextDecorator] = [],
@@ -45,19 +27,21 @@ public struct Text: FallbackManualComponent, TokenValue {
         isEnabled: Bool = true,
         tapAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
-        self.content = TextContent(
-            parts: parts,
-            typography: typography,
-            decoration: decoration,
-            animation: animation,
-            lineLimit: lineLimit,
-            lineBreakMode: lineBreakMode,
-            isEnabled: isEnabled,
-            tapAction: tapAction
-        )
+        self.parts = parts
+
+        self.typography = typography
+        self.decoration = decoration
+        self.animation = animation
+
+        self.lineLimit = lineLimit
+        self.lineBreakMode = lineBreakMode
+
+        self.isEnabled = isEnabled
+
+        self.tapAction = tapAction
     }
 
-    public nonisolated init(
+    public init(
         _ content: any TextPart,
         typography: TypographyToken? = nil,
         decoration: [AnyTextDecorator] = [],
@@ -79,7 +63,7 @@ public struct Text: FallbackManualComponent, TokenValue {
         )
     }
 
-    public nonisolated init(
+    public init(
         typography: TypographyToken? = nil,
         decoration: [AnyTextDecorator] = [],
         animation: TextAnimation? = nil,
@@ -104,21 +88,26 @@ public struct Text: FallbackManualComponent, TokenValue {
 
 extension Text: ExpressibleByStringLiteral {
 
-    public nonisolated init(stringLiteral value: String) {
+    public init(stringLiteral value: String) {
         self.init { value }
     }
 }
 
 extension Text: ExpressibleByStringInterpolation {
 
-    public nonisolated init(stringInterpolation: TextInterpolation) {
+    public init(stringInterpolation: TextInterpolation) {
         self.init(parts: stringInterpolation.parts)
     }
 }
 
+extension Text: FallbackManualComponent {
+
+    public typealias UIView = TextView
+}
+
 extension Text: TextPart {
 
-    public nonisolated func attributedText(context: ComponentContext) -> NSAttributedString {
+    public func attributedText(context: ComponentContext) -> NSAttributedString {
         UIView.attributedText(
             for: self,
             context: context
@@ -128,48 +117,38 @@ extension Text: TextPart {
 
 extension Text: Changeable {
 
-    public nonisolated func typography(_ typography: TypographyToken?) -> Self {
-        changing { $0.content.typography = typography }
+    public func typography(_ typography: TypographyToken?) -> Self {
+        changing { $0.typography = typography }
     }
 
-    public nonisolated func decorated<Decorator: TextDecorator>(by decorator: Decorator) -> Self {
-        changing { $0.content.decoration.append(decorator.eraseToAnyTextDecorator()) }
+    public func decorated<Decorator: TextDecorator>(by decorator: Decorator) -> Self {
+        changing { $0.decoration.append(decorator.eraseToAnyTextDecorator()) }
     }
 
-    public nonisolated func animation(_ animation: TextAnimation) -> Self {
-        changing { $0.content.animation = animation }
+    public func animation(_ animation: TextAnimation) -> Self {
+        changing { $0.animation = animation }
     }
 
-    public nonisolated func lineLimit(_ lineLimit: Int?) -> Self {
-        changing { $0.content.lineLimit = lineLimit }
+    public func lineLimit(_ lineLimit: Int?) -> Self {
+        changing { $0.lineLimit = lineLimit }
     }
 
-    public nonisolated func lineBreakMode(_ lineBreakMode: NSLineBreakMode) -> Self {
-        changing { $0.content.lineBreakMode = lineBreakMode }
+    public func lineBreakMode(_ lineBreakMode: NSLineBreakMode) -> Self {
+        changing { $0.lineBreakMode = lineBreakMode }
     }
 
-    public nonisolated func disabled(_ isDisabled: Bool = true) -> Self {
-        changing { $0.content.isEnabled = !isDisabled }
+    public func disabled(_ isDisabled: Bool = true) -> Self {
+        changing { $0.isEnabled = !isDisabled }
     }
 
-    public nonisolated func onTap(_ tapAction: (@Sendable @MainActor () -> Void)?) -> Self {
-        changing { $0.content.tapAction = tapAction }
+    public func onTap(_ tapAction: (@Sendable @MainActor () -> Void)?) -> Self {
+        changing { $0.tapAction = tapAction }
     }
 }
 
 extension Text {
 
-    public func size(
-        fitting size: CGSize,
-        context: ComponentContext
-    ) -> CGSize {
-        UIView.size(
-            for: self,
-            fitting: size,
-            context: context
-        )
-    }
-
+    @MainActor
     public func width(
         fitting height: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext
@@ -180,6 +159,7 @@ extension Text {
         ).width
     }
 
+    @MainActor
     public func height(
         fitting width: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext

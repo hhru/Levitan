@@ -70,4 +70,14 @@ internal struct AnyComponentPresenter {
         updateContentViewBox(contentView, context)
     }
 }
+
+extension Component {
+
+    #if swift(<6.0)
+    @MainActor
+    #endif
+    internal func eraseToAnyComponentPresenter() -> AnyComponentPresenter {
+        AnyComponentPresenter(content: self)
+    }
+}
 #endif
