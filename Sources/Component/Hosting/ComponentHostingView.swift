@@ -38,6 +38,18 @@ public final class ComponentHostingView<Content: View>: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        hostingController?.view.hitTest(point, with: event)
+    }
+
+    public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        if super.point(inside: point, with: event) {
+            return true
+        }
+
+        return hostingController?.view.point(inside: point, with: event) ?? false
+    }
+
     private func setupHostingController(
         _ hostingController: HostingController,
         parentViewController: UIViewController?
