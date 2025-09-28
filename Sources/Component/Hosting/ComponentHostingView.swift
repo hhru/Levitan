@@ -39,26 +39,25 @@ public final class ComponentHostingView<Content: View>: UIView {
     }
 
     public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        super
-            .hitTest(point, with: event)
-            .flatMap { $0 === self ? nil : $0 }
-    }
+           hostingController?.view.hitTest(point, with: event)
+       }
 
-    public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        if super.point(inside: point, with: event) {
-            return true
-        }
+       public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+           guard hostingController?.view.point(inside: point, with: event) ?? false else {
+               return false
+           }
+           let hostingSubviews = hostingController?.view.subviews ?? []
 
-        for subview in subviews {
-            let subviewPoint = subview.convert(point, from: self)
+           for subview in hostingSubviews {
+               let subviewPoint = subview.convert(point, from: self)
 
-            if subview.point(inside: subviewPoint, with: event) {
-                return true
-            }
-        }
-
-        return false
-    }
+               if subview.point(inside: subviewPoint, with: event) {
+                   return true
+               }
+           }
+   
+           return false
+       }
 
     private func setupHostingController(
         _ hostingController: HostingController,
