@@ -314,14 +314,12 @@
 		C04DB76E2D5A934E00159242 /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7602D5A934E00159242 /* ImageToken+TextPart.swift */; };
 		C04DB76F2D5A934E00159242 /* TextOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75D2D5A934E00159242 /* TextOperation.swift */; };
 		C04DB7702D5A934E00159242 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76C2D5A934E00159242 /* TextView.swift */; };
-		C04DB7712D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7542D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift */; };
 		C04DB7722D5A934E00159242 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7682D5A934E00159242 /* Text.swift */; };
 		C04DB7732D5A934E00159242 /* TextInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76B2D5A934E00159242 /* TextInterpolation.swift */; };
 		C04DB7742D5A934E00159242 /* String+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7622D5A934E00159242 /* String+TextPart.swift */; };
 		C04DB7752D5A934E00159242 /* UIImage+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7632D5A934E00159242 /* UIImage+TextPart.swift */; };
 		C04DB7762D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7592D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift */; };
 		C04DB7772D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7582D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift */; };
-		C04DB7782D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7552D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift */; };
 		C04DB7792D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75A2D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift */; };
 		C04DB77A2D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75B2D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift */; };
 		C04DB77B2D5A934E00159242 /* TextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76A2D5A934E00159242 /* TextBuilder.swift */; };
@@ -344,14 +342,12 @@
 		C04DB78C2D5A934E00159242 /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7602D5A934E00159242 /* ImageToken+TextPart.swift */; };
 		C04DB78D2D5A934E00159242 /* TextOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75D2D5A934E00159242 /* TextOperation.swift */; };
 		C04DB78E2D5A934E00159242 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76C2D5A934E00159242 /* TextView.swift */; };
-		C04DB78F2D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7542D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift */; };
 		C04DB7902D5A934E00159242 /* Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7682D5A934E00159242 /* Text.swift */; };
 		C04DB7912D5A934E00159242 /* TextInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76B2D5A934E00159242 /* TextInterpolation.swift */; };
 		C04DB7922D5A934E00159242 /* String+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7622D5A934E00159242 /* String+TextPart.swift */; };
 		C04DB7932D5A934E00159242 /* UIImage+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7632D5A934E00159242 /* UIImage+TextPart.swift */; };
 		C04DB7942D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7592D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift */; };
 		C04DB7952D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7582D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift */; };
-		C04DB7962D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB7552D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift */; };
 		C04DB7972D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75A2D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift */; };
 		C04DB7982D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB75B2D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift */; };
 		C04DB7992D5A934E00159242 /* TextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04DB76A2D5A934E00159242 /* TextBuilder.swift */; };
@@ -558,6 +554,18 @@
 		C0A01A5023CB92EB00AC2C3A /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; };
 		C0BFF3532B10E24F0098F0B7 /* UIWindowScene+TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFF3522B10E24F0098F0B7 /* UIWindowScene+TokenView.swift */; };
 		C0BFF3542B10E24F0098F0B7 /* UIWindowScene+TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BFF3522B10E24F0098F0B7 /* UIWindowScene+TokenView.swift */; };
+		C0CC313B2EF1422F009818C0 /* TextContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC313A2EF1422F009818C0 /* TextContext.swift */; };
+		C0CC313C2EF1422F009818C0 /* TextLayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC31382EF1422F009818C0 /* TextLayoutProvider.swift */; };
+		C0CC313D2EF1422F009818C0 /* TextCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC31352EF1422F009818C0 /* TextCacheKey.swift */; };
+		C0CC313E2EF1422F009818C0 /* TextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC31372EF1422F009818C0 /* TextLayout.swift */; };
+		C0CC313F2EF1422F009818C0 /* TextCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC31342EF1422F009818C0 /* TextCache.swift */; };
+		C0CC31402EF1422F009818C0 /* TextContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC313A2EF1422F009818C0 /* TextContext.swift */; };
+		C0CC31412EF1422F009818C0 /* TextLayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC31382EF1422F009818C0 /* TextLayoutProvider.swift */; };
+		C0CC31422EF1422F009818C0 /* TextCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC31352EF1422F009818C0 /* TextCacheKey.swift */; };
+		C0CC31432EF1422F009818C0 /* TextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC31372EF1422F009818C0 /* TextLayout.swift */; };
+		C0CC31442EF1422F009818C0 /* TextCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC31342EF1422F009818C0 /* TextCache.swift */; };
+		C0CC31462EF14282009818C0 /* EnvironmentValues+TextCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC31452EF14282009818C0 /* EnvironmentValues+TextCache.swift */; };
+		C0CC31472EF14282009818C0 /* EnvironmentValues+TextCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CC31452EF14282009818C0 /* EnvironmentValues+TextCache.swift */; };
 		C0D93EED2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D93EEC2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift */; };
 		C0DB69B32C4D1986008221DB /* ViewBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB69B22C4D1986008221DB /* ViewBindable.swift */; };
 		C0DB69B42C4D1986008221DB /* ViewBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DB69B22C4D1986008221DB /* ViewBindable.swift */; };
@@ -818,8 +826,6 @@
 		C04DB7502D5A934E00159242 /* TextDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDecorator.swift; sourceTree = "<group>"; };
 		C04DB7522D5A934E00159242 /* EnvironmentValues+TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextAnimation.swift"; sourceTree = "<group>"; };
 		C04DB7532D5A934E00159242 /* EnvironmentValues+TextDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextDecoration.swift"; sourceTree = "<group>"; };
-		C04DB7542D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextPartHovered.swift"; sourceTree = "<group>"; };
-		C04DB7552D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextPartPressed.swift"; sourceTree = "<group>"; };
 		C04DB7562D5A934E00159242 /* EnvironmentValues+TextTypography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextTypography.swift"; sourceTree = "<group>"; };
 		C04DB7582D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UIButton+Text.swift"; sourceTree = "<group>"; };
 		C04DB7592D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TokenViewProperties+UILabel+Text.swift"; sourceTree = "<group>"; };
@@ -930,6 +936,12 @@
 		C0A01A6523CB9B1600AC2C3A /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		C0BFF3522B10E24F0098F0B7 /* UIWindowScene+TokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindowScene+TokenView.swift"; sourceTree = "<group>"; };
 		C0C9FE8B2655DECE0074D669 /* Mintfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Mintfile; sourceTree = "<group>"; };
+		C0CC31342EF1422F009818C0 /* TextCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCache.swift; sourceTree = "<group>"; };
+		C0CC31352EF1422F009818C0 /* TextCacheKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCacheKey.swift; sourceTree = "<group>"; };
+		C0CC31372EF1422F009818C0 /* TextLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLayout.swift; sourceTree = "<group>"; };
+		C0CC31382EF1422F009818C0 /* TextLayoutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLayoutProvider.swift; sourceTree = "<group>"; };
+		C0CC313A2EF1422F009818C0 /* TextContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextContext.swift; sourceTree = "<group>"; };
+		C0CC31452EF14282009818C0 /* EnvironmentValues+TextCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+TextCache.swift"; sourceTree = "<group>"; };
 		C0D93EEC2BC8149500DF85A0 /* EnvironmentValues+ComponentContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentContext.swift"; sourceTree = "<group>"; };
 		C0DB69B22C4D1986008221DB /* ViewBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBindable.swift; sourceTree = "<group>"; };
 		C0E979BA2BC6DDCC00CF37A7 /* ObjectAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
@@ -1639,10 +1651,9 @@
 		C04DB7572D5A934E00159242 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				C0CC31452EF14282009818C0 /* EnvironmentValues+TextCache.swift */,
 				C04DB7522D5A934E00159242 /* EnvironmentValues+TextAnimation.swift */,
 				C04DB7532D5A934E00159242 /* EnvironmentValues+TextDecoration.swift */,
-				C04DB7542D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift */,
-				C04DB7552D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift */,
 				C04DB7562D5A934E00159242 /* EnvironmentValues+TextTypography.swift */,
 			);
 			path = Environment;
@@ -1692,14 +1703,17 @@
 		C04DB76D2D5A934E00159242 /* Text */ = {
 			isa = PBXGroup;
 			children = (
+				C0CC31362EF1422F009818C0 /* Cache */,
 				C04DB7512D5A934E00159242 /* Decorator */,
 				C04DB7572D5A934E00159242 /* Environment */,
 				C04DB75C2D5A934E00159242 /* Extensions */,
+				C0CC31392EF1422F009818C0 /* Layout */,
 				C04DB75F2D5A934E00159242 /* Operation */,
 				C04DB7672D5A934E00159242 /* Part */,
 				C04DB7682D5A934E00159242 /* Text.swift */,
 				C04DB7692D5A934E00159242 /* TextAnimation.swift */,
 				C04DB76A2D5A934E00159242 /* TextBuilder.swift */,
+				C0CC313A2EF1422F009818C0 /* TextContext.swift */,
 				C04DB76B2D5A934E00159242 /* TextInterpolation.swift */,
 				C04DB76C2D5A934E00159242 /* TextView.swift */,
 			);
@@ -1974,6 +1988,24 @@
 				C0358FCB2B0A6BDE000E599A /* TokenViewPropertyBinding.swift */,
 			);
 			path = Binding;
+			sourceTree = "<group>";
+		};
+		C0CC31362EF1422F009818C0 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC31342EF1422F009818C0 /* TextCache.swift */,
+				C0CC31352EF1422F009818C0 /* TextCacheKey.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		C0CC31392EF1422F009818C0 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				C0CC31372EF1422F009818C0 /* TextLayout.swift */,
+				C0CC31382EF1422F009818C0 /* TextLayoutProvider.swift */,
+			);
+			path = Layout;
 			sourceTree = "<group>";
 		};
 		C0D403CF2B030840009306EB /* Tools */ = {
@@ -2663,6 +2695,7 @@
 				C0310C362B04BB4800BCA3AC /* ParagraphFirstLineIndentDecorator.swift in Sources */,
 				C09305212B0B78AA00F6F13D /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C0E97A022BC6DDCC00CF37A7 /* DifferenceIndicesReference.swift in Sources */,
+				C0CC31472EF14282009818C0 /* EnvironmentValues+TextCache.swift in Sources */,
 				C031C6B42E2045A5009C7CC0 /* ComponentSuperviewObserverStorage.swift in Sources */,
 				C031C6B52E2045A5009C7CC0 /* ComponentSuperviewObservatory.swift in Sources */,
 				C031C6B62E2045A5009C7CC0 /* EnvironmentValues+ComponentSuperviewObservatory.swift in Sources */,
@@ -2671,14 +2704,12 @@
 				C04DB78C2D5A934E00159242 /* ImageToken+TextPart.swift in Sources */,
 				C04DB78D2D5A934E00159242 /* TextOperation.swift in Sources */,
 				C04DB78E2D5A934E00159242 /* TextView.swift in Sources */,
-				C04DB78F2D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift in Sources */,
 				C04DB7902D5A934E00159242 /* Text.swift in Sources */,
 				C04DB7912D5A934E00159242 /* TextInterpolation.swift in Sources */,
 				C04DB7922D5A934E00159242 /* String+TextPart.swift in Sources */,
 				C04DB7932D5A934E00159242 /* UIImage+TextPart.swift in Sources */,
 				C04DB7942D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift in Sources */,
 				C04DB7952D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift in Sources */,
-				C04DB7962D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift in Sources */,
 				C04DB7972D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift in Sources */,
 				C04DB7982D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift in Sources */,
 				C04DB7992D5A934E00159242 /* TextBuilder.swift in Sources */,
@@ -2796,6 +2827,11 @@
 				C0312BE52B07A0B600BC21A7 /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */,
 				C05CD2282B093732005F5499 /* GradientValue+View.swift in Sources */,
 				C0081D792BC82A1600BE7293 /* Array+Changeable.swift in Sources */,
+				C0CC313B2EF1422F009818C0 /* TextContext.swift in Sources */,
+				C0CC313C2EF1422F009818C0 /* TextLayoutProvider.swift in Sources */,
+				C0CC313D2EF1422F009818C0 /* TextCacheKey.swift in Sources */,
+				C0CC313E2EF1422F009818C0 /* TextLayout.swift in Sources */,
+				C0CC313F2EF1422F009818C0 /* TextCache.swift in Sources */,
 				C0E97A192BC6DDCC00CF37A7 /* FloatingPoint+Extensions.swift in Sources */,
 				C0E979FA2BC6DDCC00CF37A7 /* DifferenceChangeset.swift in Sources */,
 				C0E97A602BC6DF5200CF37A7 /* AnyComponent.swift in Sources */,
@@ -2999,6 +3035,7 @@
 				C09305182B0B75F600F6F13D /* TokenViewProperties+UISlider.swift in Sources */,
 				C0081D9E2BC82A6000BE7293 /* NilCoalescingDecorator.swift in Sources */,
 				C0081DB42BC82AC900BE7293 /* Collection+Extensions.swift in Sources */,
+				C0CC31462EF14282009818C0 /* EnvironmentValues+TextCache.swift in Sources */,
 				C031C6AF2E2045A5009C7CC0 /* ComponentSuperviewObserverStorage.swift in Sources */,
 				C031C6B02E2045A5009C7CC0 /* ComponentSuperviewObservatory.swift in Sources */,
 				C031C6B12E2045A5009C7CC0 /* EnvironmentValues+ComponentSuperviewObservatory.swift in Sources */,
@@ -3007,14 +3044,12 @@
 				C04DB76E2D5A934E00159242 /* ImageToken+TextPart.swift in Sources */,
 				C04DB76F2D5A934E00159242 /* TextOperation.swift in Sources */,
 				C04DB7702D5A934E00159242 /* TextView.swift in Sources */,
-				C04DB7712D5A934E00159242 /* EnvironmentValues+TextPartHovered.swift in Sources */,
 				C04DB7722D5A934E00159242 /* Text.swift in Sources */,
 				C04DB7732D5A934E00159242 /* TextInterpolation.swift in Sources */,
 				C04DB7742D5A934E00159242 /* String+TextPart.swift in Sources */,
 				C04DB7752D5A934E00159242 /* UIImage+TextPart.swift in Sources */,
 				C04DB7762D5A934E00159242 /* TokenViewProperties+UILabel+Text.swift in Sources */,
 				C04DB7772D5A934E00159242 /* TokenViewProperties+UIButton+Text.swift in Sources */,
-				C04DB7782D5A934E00159242 /* EnvironmentValues+TextPartPressed.swift in Sources */,
 				C04DB7792D5A934E00159242 /* TokenViewProperties+UITextField+Text.swift in Sources */,
 				C04DB77A2D5A934E00159242 /* TokenViewProperties+UITextView+Text.swift in Sources */,
 				C04DB77B2D5A934E00159242 /* TextBuilder.swift in Sources */,
@@ -3132,6 +3167,11 @@
 				C04843F42B0B4317002DF0CA /* ShadowModifier.swift in Sources */,
 				C04843D82B0B42E1002DF0CA /* OpacityDecorator.swift in Sources */,
 				C04843FC2B0B4317002DF0CA /* BackgroundColorModifier.swift in Sources */,
+				C0CC31402EF1422F009818C0 /* TextContext.swift in Sources */,
+				C0CC31412EF1422F009818C0 /* TextLayoutProvider.swift in Sources */,
+				C0CC31422EF1422F009818C0 /* TextCacheKey.swift in Sources */,
+				C0CC31432EF1422F009818C0 /* TextLayout.swift in Sources */,
+				C0CC31442EF1422F009818C0 /* TextCache.swift in Sources */,
 				C09305432B0B804600F6F13D /* FontValue.swift in Sources */,
 				C09305632B0B809600F6F13D /* TokenShapeLayer.swift in Sources */,
 				C04843D42B0B42CE002DF0CA /* DecorableByMultiplication.swift in Sources */,

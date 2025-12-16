@@ -4,7 +4,8 @@ import UIKit
 public final class TextView: UILabel {
 
     private var content: Text?
-    private var context: ComponentContext?
+    private var context: TextContext?
+    private var cache: TextCache?
 
     private var partThresholds: [Int] = []
 
@@ -44,34 +45,23 @@ public final class TextView: UILabel {
     }
 
     private func updateAttributedText(hoveredPartIndex: Int?, pressedPartIndex: Int?, theme: TokenTheme) {
-        let context = context?
-            .tokenThemeKey(theme.key)
-            .tokenThemeScheme(theme.scheme)
-
-        guard let content, let context else {
+        guard let content, let context = context?.tokenTheme(theme) else {
             return
         }
 
-        let attributedText = NSMutableAttributedString()
+        let layout = TextLayoutProvider.shared.textLayout(
+            for: content,
+            context: context,
+            cache: cache
+        )
 
-        partThresholds.removeAll(keepingCapacity: true)
+        partThresholds = layout.partThresholds
 
-        for (partIndex, part) in content.parts.enumerated() {
-            let partContext = context
-                .isTextPartHovered(partIndex == hoveredPartIndex)
-                .isTextPartPressed(partIndex == pressedPartIndex)
-
-            let partAttributedText = part.attributedText(context: partContext)
-
-            attributedText.append(partAttributedText)
-            partThresholds.append(attributedText.length)
+        if attributedText != layout.attributedText {
+            attributedText = layout.attributedText
         }
 
-        if self.attributedText != attributedText {
-            self.attributedText = attributedText
-        }
-
-        numberOfLines = context.lineLimit ?? .zero
+        numberOfLines = content.lineLimit ?? .zero
         lineBreakMode = content.lineBreakMode
     }
 
@@ -87,7 +77,7 @@ public final class TextView: UILabel {
         let hoveredPartIndex = hoveredPartIndex
         let pressedPartIndex = pressedPartIndex
 
-        let animation = content?.animation ?? context?.textAnimation
+        let animation = context?.animation
 
         let updateAnimation = attributedText != nil && window != nil
             ? animation?.update
@@ -111,7 +101,7 @@ public final class TextView: UILabel {
         let hoveredPartIndex = hoveredPartIndex
         let pressedPartIndex = pressedPartIndex
 
-        let animation = content?.animation ?? context?.textAnimation
+        let animation = context?.animation
 
         let partAnimation = pressedPartIndex == nil
             ? (window == nil ? nil : animation?.unhover)
@@ -135,7 +125,7 @@ public final class TextView: UILabel {
         let hoveredPartIndex = hoveredPartIndex
         let pressedPartIndex = pressedPartIndex
 
-        let animation = content?.animation ?? context?.textAnimation
+        let animation = context?.animation
 
         let partAnimation = pressedPartIndex == nil
             ? (window == nil ? nil : animation?.unpress)
@@ -293,7 +283,7 @@ public final class TextView: UILabel {
 
 extension TextView: FallbackManualComponentView {
 
-    public static func size(
+    public nonisolated static func size(
         for content: Text,
         fitting size: CGSize,
         context: ComponentContext
@@ -311,23 +301,15 @@ extension TextView: FallbackManualComponentView {
     }
 
     public func update(with content: Text, context: ComponentContext) {
-        let typography = content.typography ?? context.textTypography
+        let cache = context.textCache.value
 
-        let decoration = context
-            .textDecoration
-            .appending(contentsOf: content.decoration)
-
-        let animation = content.animation ?? context.textAnimation
-
-        let context = context
-            .textTypography(typography)
-            .textDecoration(decoration)
-            .textAnimation(animation)
-            .lineLimit(content.lineLimit)
-            .disabled(!content.isEnabled)
+        let context = TextLayoutProvider
+            .shared
+            .textContext(for: content, context: context)
 
         self.content = content
         self.context = context
+        self.cache = cache
 
         isUserInteractionEnabled = context.isEnabled
 
@@ -354,32 +336,45 @@ extension TextView {
         for content: Text,
         context: ComponentContext
     ) -> NSAttributedString {
-        let typography = content.typography ?? context.textTypography
+        let cache = context.textCache.value
+
+        let context = TextLayoutProvider
+            .shared
+            .textContext(for: content, context: context)
+
+        return TextLayoutProvider
+            .shared
+            .textLayout(for: content, context: context, cache: cache)
+            .attributedText
+    }
+
+    public nonisolated static func attributedText(
+        for content: Text,
+        context: TextContext
+    ) -> NSAttributedString {
+        let typography = content.typography ?? context.typography
 
         let decoration = context
-            .textDecoration
+            .decoration
             .appending(contentsOf: content.decoration)
 
-        let animation = content.animation ?? context.textAnimation
+        let animation = content.animation ?? context.animation
+        let isEnabled = content.isEnabled && context.isEnabled
 
-        let context = context
-            .textTypography(typography)
-            .textDecoration(decoration)
-            .textAnimation(animation)
-            .lineLimit(content.lineLimit)
-            .disabled(!content.isEnabled)
+        let context = TextContext(
+            typography: typography,
+            decoration: decoration,
+            animation: animation,
+            isEnabled: isEnabled,
+            isHovered: context.isHovered,
+            isPressed: context.isPressed,
+            tokenTheme: context.tokenTheme
+        )
 
-        let attributedText = NSMutableAttributedString()
-
-        for part in content.parts {
-            let partAttributedText = part.attributedText(
-                context: context
-            )
-
-            attributedText.append(partAttributedText)
-        }
-
-        return attributedText
+        return TextLayoutProvider
+            .shared
+            .textLayout(for: content, context: context)
+            .attributedText
     }
 }
 #endif

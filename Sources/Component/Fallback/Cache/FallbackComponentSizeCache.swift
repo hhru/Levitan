@@ -38,30 +38,5 @@ public final class FallbackComponentSizeCache {
 
         sizes[key] = size
     }
-
-    internal func resolveSize<Content: Equatable>(
-        for content: Content,
-        fitting fittingSize: CGSize,
-        using closure: () -> FallbackComponentBodySize
-    ) -> FallbackComponentBodySize {
-        let cacheSize = restoreSize(
-            for: content,
-            fitting: fittingSize
-        )
-
-        if let size = cacheSize {
-            return size
-        }
-
-        let size = closure()
-
-        storeSize(
-            size,
-            for: content,
-            fitting: fittingSize
-        )
-
-        return size
-    }
 }
 #endif

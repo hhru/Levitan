@@ -107,7 +107,7 @@ extension Text: FallbackManualComponent {
 
 extension Text: TextPart {
 
-    public func attributedText(context: ComponentContext) -> NSAttributedString {
+    public func attributedText(context: TextContext) -> NSAttributedString {
         UIView.attributedText(
             for: self,
             context: context
@@ -148,15 +148,24 @@ extension Text: Changeable {
 
 extension Text {
 
+    public func attributedText(context: ComponentContext) -> NSAttributedString {
+        UIView.attributedText(
+            for: self,
+            context: context
+        )
+    }
+
     @MainActor
     public func width(
         fitting height: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext
     ) -> CGFloat {
-        size(
+        let size = size(
             fitting: CGSize(width: .greatestFiniteMagnitude, height: height),
             context: context
-        ).width
+        )
+
+        return size.width
     }
 
     @MainActor
@@ -164,10 +173,12 @@ extension Text {
         fitting width: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext
     ) -> CGFloat {
-        size(
+        let size = size(
             fitting: CGSize(width: width, height: .greatestFiniteMagnitude),
             context: context
-        ).height
+        )
+
+        return size.height
     }
 }
 #endif

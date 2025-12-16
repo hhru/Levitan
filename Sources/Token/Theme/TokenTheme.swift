@@ -1,6 +1,6 @@
 import Foundation
 
-public struct TokenTheme: Equatable, Sendable {
+public struct TokenTheme: Hashable, Sendable {
 
     public let key: TokenThemeKey
     public let scheme: TokenThemeScheme

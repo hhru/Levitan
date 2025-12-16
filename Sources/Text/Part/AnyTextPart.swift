@@ -24,7 +24,7 @@ extension AnyTextPart: TextPart {
         wrapped.tapAction
     }
 
-    public func attributedText(context: ComponentContext) -> NSAttributedString {
+    public func attributedText(context: TextContext) -> NSAttributedString {
         wrapped.attributedText(context: context)
     }
 }
