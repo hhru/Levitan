@@ -311,7 +311,7 @@ file_name:
     - main.swift
   prefix_pattern: ''
   suffix_pattern: '([+][A-z][A-z]+)+'
-  nested_type_separator: ''
+  nested_type_separator: '.'
 
 file_types_order:
   order:

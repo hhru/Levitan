@@ -37,7 +37,7 @@ extension ComponentContext {
     ///
     /// - Parameter viewController: Экземпляр `UIViewController`.
     /// - Returns: Окружение с переопределенным экземпляром `UIViewController`.
-    public func componentViewController(_ viewController: UIViewController?) -> Self {
+    public func componentViewController(_ viewController: UIViewController?) -> ComponentContext {
         self.componentViewControllerProvider { [weak viewController] in
             viewController
         }

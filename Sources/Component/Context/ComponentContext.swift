@@ -85,64 +85,88 @@ import SwiftUI
 /// - SeeAlso: ``ComponentContextOverriding``
 /// - SeeAlso: ``ViewEnvironment``
 @dynamicMemberLookup
-public struct ComponentContext {
+public final class ComponentContext {
 
-    private let currentEnvironment: EnvironmentValues
-    private let hostingEnvironment: EnvironmentValues?
+    internal let environment: EnvironmentValues
 
-    private let overrides: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride]
+    internal let defaults: [PartialKeyPath<EnvironmentValues>: Any]
+    internal var values: [PartialKeyPath<EnvironmentValues>: ComponentContextValue]
 
-    private init(
-        currentEnvironment: EnvironmentValues,
-        hostingEnvironment: EnvironmentValues?,
-        overrides: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride]
+    internal init(
+        environment: EnvironmentValues,
+        defaults: [PartialKeyPath<EnvironmentValues>: Any] = [:],
+        values: [PartialKeyPath<EnvironmentValues>: ComponentContextValue] = [:]
     ) {
-        self.currentEnvironment = currentEnvironment
-        self.hostingEnvironment = hostingEnvironment
-
-        self.overrides = overrides
+        self.environment = environment
+        self.defaults = defaults
+        self.values = values
     }
 
-    internal init(environment: EnvironmentValues) {
-        self.currentEnvironment = environment
-        self.hostingEnvironment = environment
+    internal convenience init(traits: UITraitCollection) {
+        var defaults: [PartialKeyPath<EnvironmentValues>: Any?] = [
+            \.displayScale: traits.displayScale,
+            \.colorScheme: ColorScheme(traits.userInterfaceStyle),
+            \.colorSchemeContrast: ColorSchemeContrast(traits.accessibilityContrast),
+            \.layoutDirection: LayoutDirection(traits.layoutDirection),
+            \.horizontalSizeClass: UserInterfaceSizeClass(traits.horizontalSizeClass),
+            \.verticalSizeClass: UserInterfaceSizeClass(traits.verticalSizeClass),
+            \.sizeCategory: ContentSizeCategory(traits.preferredContentSizeCategory),
+            \.legibilityWeight: LegibilityWeight(traits.legibilityWeight)
+        ]
 
-        self.overrides = [:]
-    }
-
-    internal func hostingEnvironment(defaultEnvironment: EnvironmentValues) -> EnvironmentValues {
-        if hostingEnvironment != nil {
-            return currentEnvironment
+        if #available(iOS 17.0, tvOS 17.0, *) {
+            defaults[\.allowedDynamicRange] = Image.DynamicRange(traits.imageDynamicRange)
         }
 
-        return overrides
-            .values
-            .reduce(into: defaultEnvironment) { $1.override(for: &$0) }
+        if #available(iOS 15.0, tvOS 15.0, *) {
+            defaults[\.dynamicTypeSize] = DynamicTypeSize(traits.preferredContentSizeCategory)
+        }
+
+        self.init(
+            environment: EnvironmentValues(),
+            defaults: defaults.compactMapValues { $0 },
+            values: [:]
+        )
+    }
+
+    internal func resolveEnvironment(_ environment: EnvironmentValues) -> EnvironmentValues {
+        values.values.reduce(into: environment) { environment, value in
+            value.overrider?(&environment)
+        }
     }
 
     internal func resolveValue<Value>(at keyPath: KeyPath<EnvironmentValues, Value>) -> Value {
-        currentEnvironment[keyPath: keyPath]
+        if let value = values[keyPath]?.value as? Value {
+            return value
+        }
+
+        let value = defaults[keyPath].flatMap { value in
+            value as? Value
+        } ?? environment[keyPath: keyPath]
+
+        values[keyPath] = ComponentContextValue(value, at: keyPath)
+
+        return value
     }
 
     internal func overrideValue<Value>(
         at keyPath: WritableKeyPath<EnvironmentValues, Value>,
         with newValue: Value
     ) -> Self {
-        let override = ComponentContextOverride(
-            keyPath: keyPath,
-            value: newValue
+        let values = values.updatingValue(
+            ComponentContextValue(newValue, at: keyPath),
+            forKey: keyPath
         )
-
-        var currentEnvironment = currentEnvironment
-
-        override.override(for: &currentEnvironment)
 
         return Self(
-            currentEnvironment: currentEnvironment,
-            hostingEnvironment: hostingEnvironment,
-            overrides: overrides.updatingValue(override, forKey: keyPath)
+            environment: environment,
+            defaults: defaults,
+            values: values
         )
     }
+}
+
+extension ComponentContext {
 
     /// Переопределяет переменную с заданным ключом, используя замыкание для модификации его значения.
     ///
@@ -181,7 +205,7 @@ public struct ComponentContext {
     ///
     /// - Parameter isDisabled: новое значение.
     /// - Returns: Окружение с переопределенной переменной.
-    public func disabled(_ isDisabled: Bool = true) -> Self {
+    public func disabled(_ isDisabled: Bool = true) -> ComponentContext {
         self.isEnabled(!isDisabled && self.isEnabled)
     }
 
@@ -214,12 +238,8 @@ extension ComponentContext {
     /// Рекомендуется использовать в корневом UIKit-компоненте.
     /// Но также допускается использование по месту для обнуления контекста или в целях миграции.
     @MainActor
-    public static var `default`: ComponentContext {
-        Self(
-            currentEnvironment: .default,
-            hostingEnvironment: nil,
-            overrides: [:]
-        )
+    public static var `default`: Self {
+        Self(traits: UIScreen.main.traitCollection)
     }
 }
 #endif

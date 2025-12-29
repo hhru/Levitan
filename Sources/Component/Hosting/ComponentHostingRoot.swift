@@ -10,7 +10,7 @@ internal struct ComponentHostingRoot<Content: View>: View {
     private var environment: EnvironmentValues
 
     internal var body: some View {
-        let contentEnvironment = context.hostingEnvironment(defaultEnvironment: environment)
+        let contentEnvironment = context.resolveEnvironment(environment)
 
         let componentView = contentEnvironment
             .componentViewControllerProvider()?
