@@ -11,7 +11,7 @@ readonly hosting_base_path="Levitan"
 
 readonly project="Levitan.xcodeproj"
 readonly scheme="Levitan Documentation"
-readonly destination="platform=iOS Simulator,name=iPhone 16"
+readonly destination="platform=iOS Simulator,name=iPhone 11"
 
 source "${helpers_path}/script-paths.sh"
 
