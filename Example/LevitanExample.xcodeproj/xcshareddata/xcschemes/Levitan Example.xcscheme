@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "2610"
+   LastUpgradeVersion = "1620"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,24 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0A01A4623CB92EB00AC2C3A"
-               BuildableName = "Levitan.framework"
-               BlueprintName = "Levitan tvOS"
-               ReferencedContainer = "container:Levitan.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0A01A4E23CB92EB00AC2C3A"
-               BuildableName = "LevitanTests.xctest"
-               BlueprintName = "Levitan Tests tvOS"
-               ReferencedContainer = "container:Levitan.xcodeproj">
+               BlueprintIdentifier = "C017D13225FBAD0F008B90C0"
+               BuildableName = "LevitanExample.app"
+               BlueprintName = "Levitan Example"
+               ReferencedContainer = "container:LevitanExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,33 +26,23 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES"
-      onlyGenerateCoverageForSpecifiedTargets = "YES">
-      <CodeCoverageTargets>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C0A01A4623CB92EB00AC2C3A"
-            BuildableName = "Levitan.framework"
-            BlueprintName = "Levitan tvOS"
-            ReferencedContainer = "container:Levitan.xcodeproj">
-         </BuildableReference>
-      </CodeCoverageTargets>
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/TestPlans/TestPlan-tvOS.xctestplan"
+            reference = "container:Tests/TestPlan.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference
-            skipped = "NO">
+            skipped = "NO"
+            parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0A01A4E23CB92EB00AC2C3A"
-               BuildableName = "LevitanTests.xctest"
-               BlueprintName = "Levitan Tests tvOS"
-               ReferencedContainer = "container:Levitan.xcodeproj">
+               BlueprintIdentifier = "C0E4DA792DCA804000BAE067"
+               BuildableName = "LevitanExampleTests.xctest"
+               BlueprintName = "Levitan Example Tests"
+               ReferencedContainer = "container:LevitanExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -81,6 +57,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C017D13225FBAD0F008B90C0"
+            BuildableName = "LevitanExample.app"
+            BlueprintName = "Levitan Example"
+            ReferencedContainer = "container:LevitanExample.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -88,15 +74,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C0A01A4623CB92EB00AC2C3A"
-            BuildableName = "Levitan.framework"
-            BlueprintName = "Levitan tvOS"
-            ReferencedContainer = "container:Levitan.xcodeproj">
+            BlueprintIdentifier = "C017D13225FBAD0F008B90C0"
+            BuildableName = "LevitanExample.app"
+            BlueprintName = "Levitan Example"
+            ReferencedContainer = "container:LevitanExample.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
