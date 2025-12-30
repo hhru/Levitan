@@ -2,81 +2,81 @@ import UIKit
 import SwiftUI
 import Levitan
 
-//class MyComponentView: UIView {
-//
-//    let titleLabel = UILabel()
-//    let tagsView = UIStackView()
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//
-//        setupTitleLabel()
-//        setupTagsView()
-//    }
-//
-//    @available(*, unavailable)
-//    public required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//    func setupTitleLabel() {
-//        addSubview(titleLabel)
-//
-//        titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
-//        titleLabel.textAlignment = .center
-//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-//
-//        let constraints = [
-//            titleLabel.topAnchor.constraint(equalTo: topAnchor),
-//            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
-//        ]
-//
-//        NSLayoutConstraint.activate(constraints)
-//    }
-//
-//    func setupTagsView() {
-//        addSubview(tagsView)
-//
-//        tagsView.alignment = .center
-//        tagsView.axis = .horizontal
-//        tagsView.spacing = 8
-//        tagsView.translatesAutoresizingMaskIntoConstraints = false
-//
-//        let constraints = [
-//            tagsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
-//            tagsView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            tagsView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            tagsView.bottomAnchor.constraint(equalTo: bottomAnchor)
-//        ]
-//
-//        NSLayoutConstraint.activate(constraints)
-//    }
-//
-//    func updateTitle(with title: String) {
-//        titleLabel.text = title
-//    }
-//
-//    func updateTags(with tags: [String]) {
-//        tagsView
-//            .arrangedSubviews
-//            .forEach { $0.removeFromSuperview() }
-//
-//        tags.forEach { tag in
-//            let tagLabel = UILabel()
-//
-//            tagLabel.font = .preferredFont(forTextStyle: .title2)
-//            tagLabel.text = tag
-//
-//            tagsView.addArrangedSubview(tagLabel)
-//        }
-//    }
-//}
+class MyComponentView: UIView {
+
+    let titleLabel = UILabel()
+    let tagsView = UIStackView()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        setupTitleLabel()
+        setupTagsView()
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func setupTitleLabel() {
+        addSubview(titleLabel)
+
+        titleLabel.font = .preferredFont(forTextStyle: .largeTitle)
+        titleLabel.textAlignment = .center
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            titleLabel.topAnchor.constraint(equalTo: topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    func setupTagsView() {
+        addSubview(tagsView)
+
+        tagsView.alignment = .center
+        tagsView.axis = .horizontal
+        tagsView.spacing = 8
+        tagsView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            tagsView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            tagsView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tagsView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tagsView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    func updateTitle(with title: String) {
+        titleLabel.text = title
+    }
+
+    func updateTags(with tags: [String]) {
+        tagsView
+            .arrangedSubviews
+            .forEach { $0.removeFromSuperview() }
+
+        tags.forEach { tag in
+            let tagLabel = UILabel()
+
+            tagLabel.font = .preferredFont(forTextStyle: .title2)
+            tagLabel.text = tag
+
+            tagsView.addArrangedSubview(tagLabel)
+        }
+    }
+}
 
 class ViewController: UIViewController {
 
 //    let listView = VerticalList.UIView()
-//    let componentView = MyComponentView()
+    let componentView = MyComponentView()
 //
 //    var list = VerticalList.empty {
 //        didSet { listView.update(with: list, context: context) }
@@ -98,17 +98,22 @@ class ViewController: UIViewController {
 //            make.edges.equalToSuperview()
 //        }
 //    }
-//
-//    private func setupComponentView() {
-//        view.addSubview(componentView)
-//
-//        componentView.snp.makeConstraints { make in
-//            make.center.equalToSuperview()
-//            make.leading.greaterThanOrEqualToSuperview()
-//            make.trailing.lessThanOrEqualToSuperview()
-//        }
-//    }
-//
+
+    private func setupComponentView() {
+        view.addSubview(componentView)
+
+        componentView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            componentView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            componentView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            componentView.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor),
+            componentView.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
 //    private func testUpdateWithoutChanges() {
 //        list = VerticalList {
 //            ListSection(
@@ -457,17 +462,17 @@ class ViewController: UIViewController {
 //            .insets(all: 16.0)
 //        }
 //    }
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        view.tokens.themeScheme(nil)
-//
-//        setupComponentView()
-//
-//        componentView.updateTitle(with: "UIKit")
-//        componentView.updateTags(with: ["Hello", "World"])
-//
-////        testSwiftUIItemReloading()
-//    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.tokens.themeScheme(nil)
+
+        setupComponentView()
+
+        componentView.updateTitle(with: "UIKit")
+        componentView.updateTags(with: ["Hello", "World"])
+
+//        testSwiftUIItemReloading()
+    }
 }
