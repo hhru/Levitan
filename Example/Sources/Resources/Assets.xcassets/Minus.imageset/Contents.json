@@ -1,7 +1,8 @@
 {
   "images" : [
     {
-      "idiom" : "tv"
+      "filename" : "icon.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
