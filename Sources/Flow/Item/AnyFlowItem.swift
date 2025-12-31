@@ -1,11 +1,11 @@
 #if canImport(UIKit)
 import UIKit
 
-public struct AnyFlowItem {
+public struct AnyFlowItem: Sendable {
 
     internal let wrapped: any FlowItem
     internal let cellType: AnyFlowCell.Type
-    internal let differenceIdentifier: AnyHashable
+    internal let identifier: FlowIdentifier
 
     private let updateCellBox: @MainActor(
         _ cell: UICollectionViewCell,
@@ -20,16 +20,14 @@ public struct AnyFlowItem {
     private let isContentEqualBox: @Sendable (_ other: Self) -> Bool
 
     public init<Wrapped: FlowItem>(_ wrapped: Wrapped) {
-        nonisolated(unsafe) let wrapped = wrapped
-
         self.wrapped = wrapped
 
         cellType = Wrapped.Cell.self
 
-        differenceIdentifier = [
-            ObjectIdentifier(Wrapped.self),
-            wrapped.identifier
-        ]
+        identifier = FlowIdentifier(
+            wrapped.identifier,
+            traits: ObjectIdentifier(Wrapped.self)
+        )
 
         updateCellBox = { cell, context in
             if let cell = cell as? Wrapped.Cell {
@@ -71,6 +69,10 @@ public struct AnyFlowItem {
 }
 
 extension AnyFlowItem: Diffable {
+
+    internal var differenceIdentifier: AnyHashable {
+        identifier
+    }
 
     internal func isContentEqual(to other: Self) -> Bool {
         isContentEqualBox(other)

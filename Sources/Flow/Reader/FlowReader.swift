@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-public struct FlowReader<Layout: FlowLayout> {
+public struct FlowReader<Layout: FlowLayout>: Sendable {
 
     internal let viewContent: @Sendable (_ proxy: FlowReaderProxy<Layout>) -> Flow<Layout>
     internal let layoutContent: Flow<Layout>

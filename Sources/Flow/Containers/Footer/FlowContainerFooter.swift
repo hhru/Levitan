@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-public struct FlowContainerFooter<Content: Component> {
+public struct FlowContainerFooter<Content: Component>: @unchecked Sendable {
 
     public let content: Content
 

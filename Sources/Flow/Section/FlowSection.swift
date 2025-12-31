@@ -1,9 +1,9 @@
 #if canImport(UIKit)
 import Foundation
 
-public struct FlowSection<Layout: FlowLayout>: Equatable {
+public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
 
-    public let identifier: AnyHashable
+    public let identifier: FlowIdentifier
     public let items: [AnyFlowItem]
 
     public var header: AnyFlowHeader?
@@ -12,13 +12,13 @@ public struct FlowSection<Layout: FlowLayout>: Equatable {
     public var metrics: Layout.Metrics
 
     private init(
-        identifier: AnyHashable,
+        identifier: some Hashable & Sendable,
         items: [AnyFlowItem],
         header: AnyFlowHeader?,
         footer: AnyFlowFooter?,
         metrics: Layout.Metrics = .default
     ) {
-        self.identifier = identifier
+        self.identifier = FlowIdentifier(identifier)
         self.items = items
 
         self.header = header
@@ -27,7 +27,7 @@ public struct FlowSection<Layout: FlowLayout>: Equatable {
     }
 
     public init(
-        identifier: AnyHashable,
+        identifier: some Hashable & Sendable,
         items: [any FlowItem],
         header: (any FlowHeader)? = nil,
         footer: (any FlowFooter)? = nil,
@@ -75,7 +75,7 @@ public struct FlowSection<Layout: FlowLayout>: Equatable {
     }
 
     public init(
-        identifier: AnyHashable,
+        identifier: some Hashable & Sendable,
         @FlowSectionBuilder items: () -> [any FlowItem]
     ) {
         self.init(

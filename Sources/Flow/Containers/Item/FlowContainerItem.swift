@@ -1,10 +1,10 @@
 #if canImport(UIKit)
 import Foundation
 
-public struct FlowContainerItem<Content: Component> {
+public struct FlowContainerItem<Content: Component>: @unchecked Sendable {
 
+    public let identifier: FlowIdentifier
     public let content: Content
-    public let identifier: AnyHashable
 
     public var accessibilityIdentifier: String?
 
@@ -21,17 +21,17 @@ public struct FlowContainerItem<Content: Component> {
     public var disappearAction: (@MainActor () -> Void)?
 
     public init(
+        identifier: some Hashable & Sendable,
         content: Content,
-        identifier: AnyHashable,
         accessibilityIdentifier: String? = nil,
         selectAction: (@MainActor (_ deselection: Deselection) -> Void)? = nil,
         deselectAction: (@MainActor () -> Void)? = nil,
         appearAction: (@MainActor () -> Void)? = nil,
         disappearAction: (@MainActor () -> Void)? = nil
     ) {
+        self.identifier = FlowIdentifier(identifier)
         self.content = content
 
-        self.identifier = identifier
         self.accessibilityIdentifier = accessibilityIdentifier
 
         self.selectAction = selectAction
@@ -121,10 +121,10 @@ extension FlowContainerItem: Changeable {
 
 extension Component {
 
-    public func flowItem(identifier: AnyHashable) -> FlowContainerItem<Self> {
+    public func flowItem(identifier: some Hashable & Sendable) -> FlowContainerItem<Self> {
         FlowContainerItem(
-            content: self,
-            identifier: identifier
+            identifier: identifier,
+            content: self
         )
     }
 
