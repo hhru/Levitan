@@ -16,7 +16,7 @@ public struct AnyFlowHeader {
         _ context: ComponentContext
     ) -> ComponentSizing
 
-    private let isEqualBox: (_ other: Self) -> Bool
+    private let isEqualBox: @Sendable (_ other: Self) -> Bool
 
     public init<Wrapped: FlowHeader>(_ wrapped: Wrapped) {
         nonisolated(unsafe) let wrapped = wrapped

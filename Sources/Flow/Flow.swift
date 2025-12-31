@@ -2,7 +2,7 @@
 import Foundation
 
 // TODO: Реализовать честное соответствие Sendable
-public struct Flow<Layout: FlowLayout>: @unchecked Sendable {
+public struct Flow<Layout: FlowLayout> {
 
     public typealias Section = FlowSection<Layout>
 

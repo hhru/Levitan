@@ -16,7 +16,7 @@ public struct AnyFlowFooter {
         _ context: ComponentContext
     ) -> ComponentSizing
 
-    private let isEqualBox: (_ other: Self) -> Bool
+    private let isEqualBox: @Sendable (_ other: Self) -> Bool
 
     public init<Wrapped: FlowFooter>(_ wrapped: Wrapped) {
         nonisolated(unsafe) let wrapped = wrapped

@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
-public struct AnyFlowItem: Diffable {
+public struct AnyFlowItem {
 
     internal let wrapped: any FlowItem
     internal let cellType: AnyFlowCell.Type
@@ -17,7 +17,7 @@ public struct AnyFlowItem: Diffable {
         _ context: ComponentContext
     ) -> ComponentSizing
 
-    private let isContentEqualBox: (_ other: Self) -> Bool
+    private let isContentEqualBox: @Sendable (_ other: Self) -> Bool
 
     public init<Wrapped: FlowItem>(_ wrapped: Wrapped) {
         nonisolated(unsafe) let wrapped = wrapped
@@ -53,10 +53,6 @@ public struct AnyFlowItem: Diffable {
         }
     }
 
-    internal func isContentEqual(to other: Self) -> Bool {
-        isContentEqualBox(other)
-    }
-
     @MainActor
     internal func updateCell(
         _ cell: UICollectionViewCell,
@@ -71,6 +67,13 @@ public struct AnyFlowItem: Diffable {
         context: ComponentContext
     ) -> ComponentSizing {
         sizingBox(size, context)
+    }
+}
+
+extension AnyFlowItem: Diffable {
+
+    internal func isContentEqual(to other: Self) -> Bool {
+        isContentEqualBox(other)
     }
 }
 

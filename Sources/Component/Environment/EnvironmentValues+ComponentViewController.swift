@@ -4,7 +4,7 @@ import UIKit
 
 internal struct ComponentViewControllerEnvironmentKey: EnvironmentKey {
 
-    internal static let defaultValue: @Sendable @MainActor () -> UIViewController? = { nil }
+    internal static let defaultValue: @MainActor () -> UIViewController? = { nil }
 }
 
 extension EnvironmentValues {
@@ -17,7 +17,7 @@ extension EnvironmentValues {
     ///
     /// Если ближайший экземпляр `UIViewController` не определен,
     /// то система попытается самостоятельно найти его по цепочке `UIResponder`.
-    public var componentViewControllerProvider: @Sendable @MainActor () -> UIViewController? {
+    public var componentViewControllerProvider: @MainActor () -> UIViewController? {
         get { self[ComponentViewControllerEnvironmentKey.self] }
         set { self[ComponentViewControllerEnvironmentKey.self] = newValue }
     }
