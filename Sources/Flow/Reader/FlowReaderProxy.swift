@@ -26,12 +26,12 @@ extension FlowReaderProxy {
     @MainActor
     public func scrollToItem(
         at indexPath: IndexPath,
-        at position: UICollectionView.ScrollPosition?,
+        anchor: FlowScrollAnchor? = nil,
         animated: Bool = true
     ) {
         flowView?.scrollToItem(
             at: indexPath,
-            at: position,
+            anchor: anchor,
             animated: animated
         )
     }
@@ -39,12 +39,12 @@ extension FlowReaderProxy {
     @MainActor
     public func scrollToItem(
         where predicate: FlowItemPredicate,
-        at position: UICollectionView.ScrollPosition?,
+        anchor: FlowScrollAnchor? = nil,
         animated: Bool = true
     ) {
         flowView?.scrollToItem(
             where: predicate,
-            at: position,
+            anchor: anchor,
             animated: animated
         )
     }
@@ -52,12 +52,12 @@ extension FlowReaderProxy {
     @MainActor
     public func scrollToNextItem(
         after predicate: FlowItemPredicate,
-        at position: UICollectionView.ScrollPosition?,
+        anchor: FlowScrollAnchor? = nil,
         animated: Bool = true
     ) {
         flowView?.scrollToNextItem(
             after: predicate,
-            at: position,
+            anchor: anchor,
             animated: animated
         )
     }

@@ -1246,6 +1246,9 @@
 		C0E821D22F05409000051412 /* VerticalFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821D12F05408B00051412 /* VerticalFlowReader.swift */; };
 		C0E821D32F05409000051412 /* VerticalFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821D12F05408B00051412 /* VerticalFlowReader.swift */; };
 		C0E821D42F05409000051412 /* VerticalFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821D12F05408B00051412 /* VerticalFlowReader.swift */; };
+		C0E821DA2F05580B00051412 /* FlowScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821D92F05580200051412 /* FlowScrollAnchor.swift */; };
+		C0E821DB2F05580B00051412 /* FlowScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821D92F05580200051412 /* FlowScrollAnchor.swift */; };
+		C0E821DC2F05580B00051412 /* FlowScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821D92F05580200051412 /* FlowScrollAnchor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1740,6 +1743,7 @@
 		C0E821C92F053EA000051412 /* FlowReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowReaderView.swift; sourceTree = "<group>"; };
 		C0E821CD2F053EB800051412 /* FlowReaderProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowReaderProxy.swift; sourceTree = "<group>"; };
 		C0E821D12F05408B00051412 /* VerticalFlowReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalFlowReader.swift; sourceTree = "<group>"; };
+		C0E821D92F05580200051412 /* FlowScrollAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowScrollAnchor.swift; sourceTree = "<group>"; };
 		C0E97A692BC6DFA000CF37A7 /* .xcode-runtime-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-runtime-version"; sourceTree = "<group>"; };
 		C0E97A6A2BC6DFA000CF37A7 /* .xcode-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
 		C0E97A6B2BC6DFA000CF37A7 /* .system-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".system-version"; sourceTree = "<group>"; };
@@ -1800,6 +1804,7 @@
 				C009748E2F03DE2F00BC7680 /* Supplementary */,
 				C009756B2F05262500BC7680 /* Flow.swift */,
 				C009750C2F051A1B00BC7680 /* FlowBuilder.swift */,
+				C0E821D92F05580200051412 /* FlowScrollAnchor.swift */,
 				C00974FC2F04712200BC7680 /* FlowUpdateStrategy.swift */,
 				C009756F2F05266700BC7680 /* FlowView.swift */,
 			);
@@ -3894,6 +3899,7 @@
 				C02C8CE32F0266B400A2FE9F /* ViewBinding.swift in Sources */,
 				C02C8CE42F0266B400A2FE9F /* EnvironmentValues+TextDecoration.swift in Sources */,
 				C02C8CE52F0266B400A2FE9F /* InsetsEdge.swift in Sources */,
+				C0E821DB2F05580B00051412 /* FlowScrollAnchor.swift in Sources */,
 				C00974902F03DE3800BC7680 /* AnyFlowSupplementaryView.swift in Sources */,
 				C02C8CE62F0266B400A2FE9F /* FallbackManualComponent.swift in Sources */,
 				C00974FF2F04712500BC7680 /* FlowUpdateStrategy.swift in Sources */,
@@ -4319,6 +4325,7 @@
 				C02C8A4D2F0266B400A2FE9F /* ViewBinding.swift in Sources */,
 				C02C8A4E2F0266B400A2FE9F /* EnvironmentValues+TextDecoration.swift in Sources */,
 				C02C8A4F2F0266B400A2FE9F /* InsetsEdge.swift in Sources */,
+				C0E821DA2F05580B00051412 /* FlowScrollAnchor.swift in Sources */,
 				C00974912F03DE3800BC7680 /* AnyFlowSupplementaryView.swift in Sources */,
 				C02C8A502F0266B400A2FE9F /* FallbackManualComponent.swift in Sources */,
 				C00974FD2F04712500BC7680 /* FlowUpdateStrategy.swift in Sources */,
@@ -4690,6 +4697,7 @@
 				C02C8B6B2F0266B400A2FE9F /* TextView.swift in Sources */,
 				C02C8B6C2F0266B400A2FE9F /* FallbackComponentBody.swift in Sources */,
 				C00974722F03D2A100BC7680 /* FlowVerticalAlignment.swift in Sources */,
+				C0E821DC2F05580B00051412 /* FlowScrollAnchor.swift in Sources */,
 				C02C8B6D2F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */,
 				C00975832F052FDD00BC7680 /* FlowHorizontalLayout.swift in Sources */,
 				C02C8B6E2F0266B400A2FE9F /* RectangleShape.swift in Sources */,

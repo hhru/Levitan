@@ -156,7 +156,7 @@ public final class FlowView<Layout: FlowLayout>: UIView {
 
     public func scrollToItem(
         at indexPath: IndexPath,
-        at position: UICollectionView.ScrollPosition?,
+        anchor: FlowScrollAnchor? = nil,
         animated: Bool = true
     ) {
         guard collectionView.containsIndexPath(indexPath) else {
@@ -165,10 +165,10 @@ public final class FlowView<Layout: FlowLayout>: UIView {
 
         collectionView.layoutIfNeeded()
 
-        if let position {
+        if let anchor {
             return collectionView.scrollToItem(
                 at: indexPath,
-                at: position,
+                at: anchor.position,
                 animated: animated
             )
         }
@@ -189,7 +189,7 @@ public final class FlowView<Layout: FlowLayout>: UIView {
 
     public func scrollToItem(
         where predicate: FlowItemPredicate,
-        at position: UICollectionView.ScrollPosition?,
+        anchor: FlowScrollAnchor? = nil,
         animated: Bool = true
     ) {
         guard let indexPath = collectionViewManager.itemIndexPath(where: predicate) else {
@@ -198,14 +198,14 @@ public final class FlowView<Layout: FlowLayout>: UIView {
 
         scrollToItem(
             at: indexPath,
-            at: position,
+            anchor: anchor,
             animated: animated
         )
     }
 
     public func scrollToNextItem(
         after predicate: FlowItemPredicate,
-        at position: UICollectionView.ScrollPosition?,
+        anchor: FlowScrollAnchor? = nil,
         animated: Bool = true
     ) {
         guard let indexPath = collectionViewManager.nextItemIndexPath(after: predicate) else {
@@ -214,7 +214,7 @@ public final class FlowView<Layout: FlowLayout>: UIView {
 
         scrollToItem(
             at: indexPath,
-            at: position,
+            anchor: anchor,
             animated: animated
         )
     }
@@ -229,7 +229,7 @@ public final class FlowView<Layout: FlowLayout>: UIView {
 
         scrollToItem(
             at: indexPath,
-            at: .top,
+            anchor: .top,
             animated: animated
         )
     }
@@ -244,7 +244,7 @@ public final class FlowView<Layout: FlowLayout>: UIView {
 
         scrollToItem(
             at: indexPath,
-            at: .top,
+            anchor: .top,
             animated: animated
         )
     }
