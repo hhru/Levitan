@@ -76,8 +76,7 @@ public struct ComponentSizing: Equatable, Sendable {
 
     /// Создает данные для определения размеров компонента.
     ///
-    /// - Parameters:
-    ///   - size: Фиксированные размеры компонента.
+    /// - Parameter size: Фиксированные размеры компонента.
     public init(size: CGSize) {
         self.init(
             width: .fixed(size.width),
