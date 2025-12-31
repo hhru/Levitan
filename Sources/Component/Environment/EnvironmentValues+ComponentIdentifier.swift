@@ -3,7 +3,7 @@ import SwiftUI
 
 internal struct ComponentIdentifierEnvironmentKey: EnvironmentKey {
 
-    internal static var defaultValue: AnyHashable? { nil }
+    internal static var defaultValue: ComponentIdentifier? { nil }
 }
 
 extension EnvironmentValues {
@@ -16,7 +16,7 @@ extension EnvironmentValues {
     ///
     /// - Note: Является техническим значением окружения и не должно использоваться в обычных компонентах,
     ///         его переопределяют встроенные компоненты.
-    public var componentIdentifier: AnyHashable? {
+    public var componentIdentifier: ComponentIdentifier? {
         get { self[ComponentIdentifierEnvironmentKey.self] }
         set { self[ComponentIdentifierEnvironmentKey.self] = newValue }
     }

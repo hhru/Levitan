@@ -9,6 +9,6 @@ public protocol FlowItem: Equatable, Sendable {
 
     typealias Deselection = Cell.Deselection
 
-    var identifier: FlowIdentifier { get }
+    var identifier: ComponentIdentifier { get }
 }
 #endif

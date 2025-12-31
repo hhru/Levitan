@@ -206,7 +206,9 @@ extension ComponentContext {
     /// - Parameter isDisabled: новое значение.
     /// - Returns: Окружение с переопределенной переменной.
     public func disabled(_ isDisabled: Bool = true) -> ComponentContext {
-        self.isEnabled(!isDisabled && self.isEnabled)
+        transformEnvironment(\.isEnabled) { isEnabled in
+            isEnabled = isEnabled && !isDisabled
+        }
     }
 
     /// Извлекает значение для заданного ключа переменной окружения.

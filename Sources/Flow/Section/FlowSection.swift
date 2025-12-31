@@ -3,7 +3,7 @@ import Foundation
 
 public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
 
-    public let identifier: FlowIdentifier
+    public let identifier: ComponentIdentifier
     public let items: [AnyFlowItem]
 
     public var header: AnyFlowHeader?
@@ -18,7 +18,7 @@ public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
         footer: AnyFlowFooter?,
         metrics: Layout.Metrics = .default
     ) {
-        self.identifier = FlowIdentifier(identifier)
+        self.identifier = ComponentIdentifier(identifier)
         self.items = items
 
         self.header = header

@@ -5,7 +5,7 @@ public struct AnyFlowItem: Sendable {
 
     internal let wrapped: any FlowItem
     internal let cellType: AnyFlowCell.Type
-    internal let identifier: FlowIdentifier
+    internal let identifier: ComponentIdentifier
 
     private let updateCellBox: @MainActor(
         _ cell: UICollectionViewCell,
@@ -24,10 +24,9 @@ public struct AnyFlowItem: Sendable {
 
         cellType = Wrapped.Cell.self
 
-        identifier = FlowIdentifier(
-            wrapped.identifier,
-            traits: ObjectIdentifier(Wrapped.self)
-        )
+        identifier = wrapped
+            .identifier
+            .traits(ObjectIdentifier(Wrapped.self))
 
         updateCellBox = { cell, context in
             if let cell = cell as? Wrapped.Cell {

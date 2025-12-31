@@ -219,7 +219,7 @@ extension CollectionViewStateManager {
         }
 
         let headerContext = context
-            .componentIdentifier(FlowIdentifier(section.identifier, traits: "Header"))
+            .componentIdentifier(ComponentIdentifier(section.identifier, traits: "Header"))
             .componentLayoutInvalidation { [weak self] in
                 self?.invalidateHeadersLayout(at: [indexPath])
             }
@@ -237,7 +237,7 @@ extension CollectionViewStateManager {
         }
 
         let footerContext = context
-            .componentIdentifier(FlowIdentifier(section.identifier, traits: "Footer"))
+            .componentIdentifier(ComponentIdentifier(section.identifier, traits: "Footer"))
             .componentLayoutInvalidation { [weak self] in
                 self?.invalidateFootersLayout(at: [indexPath])
             }

@@ -2,6 +2,8 @@ import UIKit
 import SwiftUI
 import Levitan
 
+// swiftlint:disable all
+
 class ViewController: UIViewController {
 
     let flowView = VerticalFlow.UIView()
@@ -390,3 +392,5 @@ class ViewController: UIViewController {
         testSwiftUIItemReloading()
     }
 }
+
+// swiftlint:enable all

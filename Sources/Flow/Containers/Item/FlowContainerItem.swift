@@ -3,7 +3,7 @@ import Foundation
 
 public struct FlowContainerItem<Content: Component>: @unchecked Sendable {
 
-    public let identifier: FlowIdentifier
+    public let identifier: ComponentIdentifier
     public let content: Content
 
     public var accessibilityIdentifier: String?
@@ -29,7 +29,7 @@ public struct FlowContainerItem<Content: Component>: @unchecked Sendable {
         appearAction: (@MainActor () -> Void)? = nil,
         disappearAction: (@MainActor () -> Void)? = nil
     ) {
-        self.identifier = FlowIdentifier(identifier)
+        self.identifier = ComponentIdentifier(identifier)
         self.content = content
 
         self.accessibilityIdentifier = accessibilityIdentifier
