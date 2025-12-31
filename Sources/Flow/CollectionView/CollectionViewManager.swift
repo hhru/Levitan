@@ -53,7 +53,7 @@ internal final class CollectionViewManager<Layout: FlowLayout> {
             .map { IndexPath(section: $0) }
     }
 
-    internal func nextSectionIndexPath(where predicate: FlowSectionPredicate<Layout>) -> IndexPath? {
+    internal func nextSectionIndexPath(after predicate: FlowSectionPredicate<Layout>) -> IndexPath? {
         guard let index = sections.firstIndex(where: { predicate($0) }) else {
             return nil
         }

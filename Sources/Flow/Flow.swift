@@ -1,7 +1,8 @@
 #if canImport(UIKit)
-import UIKit
+import Foundation
 
-public struct Flow<Layout: FlowLayout> {
+// TODO: Реализовать честное соответствие Sendable
+public struct Flow<Layout: FlowLayout>: @unchecked Sendable {
 
     public typealias Section = FlowSection<Layout>
 

@@ -1234,6 +1234,18 @@
 		C0D2270F2DCCC26C0075DB31 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C092753A2DCAA00200BBC858 /* XCTest.framework */; platformFilter = ios; };
 		C0D227132DCCC26C0075DB31 /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C092753A2DCAA00200BBC858 /* XCTest.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C0D227282DCCD63C0075DB31 /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = C0D227252DCCD0FC0075DB31 /* Documentation.docc */; };
+		C0E821C62F053E2000051412 /* FlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821C52F053E1D00051412 /* FlowReader.swift */; };
+		C0E821C72F053E2000051412 /* FlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821C52F053E1D00051412 /* FlowReader.swift */; };
+		C0E821C82F053E2000051412 /* FlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821C52F053E1D00051412 /* FlowReader.swift */; };
+		C0E821CA2F053EA700051412 /* FlowReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821C92F053EA000051412 /* FlowReaderView.swift */; };
+		C0E821CB2F053EA700051412 /* FlowReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821C92F053EA000051412 /* FlowReaderView.swift */; };
+		C0E821CC2F053EA700051412 /* FlowReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821C92F053EA000051412 /* FlowReaderView.swift */; };
+		C0E821CE2F053EBB00051412 /* FlowReaderProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821CD2F053EB800051412 /* FlowReaderProxy.swift */; };
+		C0E821CF2F053EBB00051412 /* FlowReaderProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821CD2F053EB800051412 /* FlowReaderProxy.swift */; };
+		C0E821D02F053EBB00051412 /* FlowReaderProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821CD2F053EB800051412 /* FlowReaderProxy.swift */; };
+		C0E821D22F05409000051412 /* VerticalFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821D12F05408B00051412 /* VerticalFlowReader.swift */; };
+		C0E821D32F05409000051412 /* VerticalFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821D12F05408B00051412 /* VerticalFlowReader.swift */; };
+		C0E821D42F05409000051412 /* VerticalFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821D12F05408B00051412 /* VerticalFlowReader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1724,6 +1736,10 @@
 		C0D226F62DCC26C70075DB31 /* Package@swift-5.9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-5.9.swift"; sourceTree = "<group>"; };
 		C0D227172DCCC26C0075DB31 /* LevitanDocumentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LevitanDocumentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D227252DCCD0FC0075DB31 /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
+		C0E821C52F053E1D00051412 /* FlowReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowReader.swift; sourceTree = "<group>"; };
+		C0E821C92F053EA000051412 /* FlowReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowReaderView.swift; sourceTree = "<group>"; };
+		C0E821CD2F053EB800051412 /* FlowReaderProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowReaderProxy.swift; sourceTree = "<group>"; };
+		C0E821D12F05408B00051412 /* VerticalFlowReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalFlowReader.swift; sourceTree = "<group>"; };
 		C0E97A692BC6DFA000CF37A7 /* .xcode-runtime-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-runtime-version"; sourceTree = "<group>"; };
 		C0E97A6A2BC6DFA000CF37A7 /* .xcode-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
 		C0E97A6B2BC6DFA000CF37A7 /* .system-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".system-version"; sourceTree = "<group>"; };
@@ -1779,6 +1795,7 @@
 				C00975A62F05324D00BC7680 /* Containers */,
 				C00974742F03D31800BC7680 /* Item */,
 				C00974B92F03E96C00BC7680 /* Layout */,
+				C0E821C42F053E1900051412 /* Reader */,
 				C00974792F03D38100BC7680 /* Section */,
 				C009748E2F03DE2F00BC7680 /* Supplementary */,
 				C009756B2F05262500BC7680 /* Flow.swift */,
@@ -1971,6 +1988,7 @@
 			children = (
 				C00975552F0523C900BC7680 /* Column */,
 				C009757D2F052FCB00BC7680 /* VerticalFlow.swift */,
+				C0E821D12F05408B00051412 /* VerticalFlowReader.swift */,
 				C00975622F05246000BC7680 /* VerticalFlowLayout.swift */,
 				C009755E2F05240B00BC7680 /* VerticalFlowMetrics.swift */,
 				C00975672F0525ED00BC7680 /* VerticalFlowSection.swift */,
@@ -3359,6 +3377,16 @@
 			path = TestPlans;
 			sourceTree = "<group>";
 		};
+		C0E821C42F053E1900051412 /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				C0E821C52F053E1D00051412 /* FlowReader.swift */,
+				C0E821CD2F053EB800051412 /* FlowReaderProxy.swift */,
+				C0E821C92F053EA000051412 /* FlowReaderView.swift */,
+			);
+			path = Reader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3607,6 +3635,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E821CC2F053EA700051412 /* FlowReaderView.swift in Sources */,
 				C02C8C142F0266B400A2FE9F /* Diffable.swift in Sources */,
 				C02C8C152F0266B400A2FE9F /* OutsetsDecorator.swift in Sources */,
 				C00975282F051C0800BC7680 /* FlowLayoutCustomAppearance.swift in Sources */,
@@ -3733,6 +3762,7 @@
 				C009750B2F0514B300BC7680 /* CollectionViewManager.swift in Sources */,
 				C02C8C7B2F0266B400A2FE9F /* ShadowMaskShape.swift in Sources */,
 				C02C8C7C2F0266B400A2FE9F /* StrikethroughDecorator.swift in Sources */,
+				C0E821CE2F053EBB00051412 /* FlowReaderProxy.swift in Sources */,
 				C02C8C7D2F0266B400A2FE9F /* DecorableByParagraphOtherLineIndent.swift in Sources */,
 				C00974D32F03F0BC00BC7680 /* CollectionViewInconsistentCell.swift in Sources */,
 				C02C8C7E2F0266B400A2FE9F /* CGColor+Extensions.swift in Sources */,
@@ -3757,6 +3787,7 @@
 				C009754E2F051FD200BC7680 /* FlowLayoutState.swift in Sources */,
 				C02C8C8C2F0266B400A2FE9F /* TypographyStrokeValue.swift in Sources */,
 				C02C8C8D2F0266B400A2FE9F /* ComponentSuperviewObserverToken.swift in Sources */,
+				C0E821C62F053E2000051412 /* FlowReader.swift in Sources */,
 				C02C8C8E2F0266B400A2FE9F /* EnvironmentValues+ComponentLayoutInvalidation.swift in Sources */,
 				C02C8C8F2F0266B400A2FE9F /* LineBreakModeDecorator.swift in Sources */,
 				C02C8C902F0266B400A2FE9F /* View+Extensions.swift in Sources */,
@@ -3987,6 +4018,7 @@
 				C02C8D492F0266B400A2FE9F /* ViewAction.swift in Sources */,
 				C02C8D4A2F0266B400A2FE9F /* PaddingModifier.swift in Sources */,
 				C00974882F03D44400BC7680 /* FlowCell.swift in Sources */,
+				C0E821D32F05409000051412 /* VerticalFlowReader.swift in Sources */,
 				C00974FA2F0470FE00BC7680 /* CollectionViewUpdate.swift in Sources */,
 				C02C8D4B2F0266B400A2FE9F /* GradientLayer.swift in Sources */,
 				C02C8D4C2F0266B400A2FE9F /* AnyTextDecorator.swift in Sources */,
@@ -4028,6 +4060,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0E821CA2F053EA700051412 /* FlowReaderView.swift in Sources */,
 				C02C897E2F0266B400A2FE9F /* Diffable.swift in Sources */,
 				C02C897F2F0266B400A2FE9F /* OutsetsDecorator.swift in Sources */,
 				C00975272F051C0800BC7680 /* FlowLayoutCustomAppearance.swift in Sources */,
@@ -4154,6 +4187,7 @@
 				C00975092F0514B300BC7680 /* CollectionViewManager.swift in Sources */,
 				C02C89E52F0266B400A2FE9F /* ShadowMaskShape.swift in Sources */,
 				C02C89E62F0266B400A2FE9F /* StrikethroughDecorator.swift in Sources */,
+				C0E821D02F053EBB00051412 /* FlowReaderProxy.swift in Sources */,
 				C02C89E72F0266B400A2FE9F /* DecorableByParagraphOtherLineIndent.swift in Sources */,
 				C00974D12F03F0BC00BC7680 /* CollectionViewInconsistentCell.swift in Sources */,
 				C02C89E82F0266B400A2FE9F /* CGColor+Extensions.swift in Sources */,
@@ -4178,6 +4212,7 @@
 				C009754D2F051FD200BC7680 /* FlowLayoutState.swift in Sources */,
 				C02C89F62F0266B400A2FE9F /* TypographyStrokeValue.swift in Sources */,
 				C02C89F72F0266B400A2FE9F /* ComponentSuperviewObserverToken.swift in Sources */,
+				C0E821C82F053E2000051412 /* FlowReader.swift in Sources */,
 				C02C89F82F0266B400A2FE9F /* EnvironmentValues+ComponentLayoutInvalidation.swift in Sources */,
 				C02C89F92F0266B400A2FE9F /* LineBreakModeDecorator.swift in Sources */,
 				C02C89FA2F0266B400A2FE9F /* View+Extensions.swift in Sources */,
@@ -4408,6 +4443,7 @@
 				C02C8AB32F0266B400A2FE9F /* ViewAction.swift in Sources */,
 				C02C8AB42F0266B400A2FE9F /* PaddingModifier.swift in Sources */,
 				C00974892F03D44400BC7680 /* FlowCell.swift in Sources */,
+				C0E821D22F05409000051412 /* VerticalFlowReader.swift in Sources */,
 				C00974F92F0470FE00BC7680 /* CollectionViewUpdate.swift in Sources */,
 				C02C8AB52F0266B400A2FE9F /* GradientLayer.swift in Sources */,
 				C02C8AB62F0266B400A2FE9F /* AnyTextDecorator.swift in Sources */,
@@ -4496,6 +4532,7 @@
 				C02C8AEE2F0266B400A2FE9F /* TokenShapeView.swift in Sources */,
 				C02C8AEF2F0266B400A2FE9F /* TokenViewPropertySubscript.swift in Sources */,
 				C02C8AF02F0266B400A2FE9F /* TokenThemeKey.swift in Sources */,
+				C0E821CB2F053EA700051412 /* FlowReaderView.swift in Sources */,
 				C02C8AF12F0266B400A2FE9F /* UIResponder+Extensions.swift in Sources */,
 				C02C8AF22F0266B400A2FE9F /* AnyComponent.swift in Sources */,
 				C02C8AF32F0266B400A2FE9F /* UILayoutPriority+Extensions.swift in Sources */,
@@ -4577,8 +4614,10 @@
 				C009757F2F052FCF00BC7680 /* VerticalFlow.swift in Sources */,
 				C02C8B2B2F0266B400A2FE9F /* CornersToken.swift in Sources */,
 				C02C8B2C2F0266B400A2FE9F /* ViewFocusState.swift in Sources */,
+				C0E821CF2F053EBB00051412 /* FlowReaderProxy.swift in Sources */,
 				C02C8B2D2F0266B400A2FE9F /* Token.swift in Sources */,
 				C02C8B2E2F0266B400A2FE9F /* TextOperation.swift in Sources */,
+				C0E821D42F05409000051412 /* VerticalFlowReader.swift in Sources */,
 				C02C8B2F2F0266B400A2FE9F /* StrokeValue.swift in Sources */,
 				C02C8B302F0266B400A2FE9F /* ShadowMaskShape.swift in Sources */,
 				C02C8B312F0266B400A2FE9F /* StrikethroughDecorator.swift in Sources */,
@@ -4602,6 +4641,7 @@
 				C02C8B402F0266B400A2FE9F /* ViewNamespace.swift in Sources */,
 				C02C8B412F0266B400A2FE9F /* TypographyStrokeValue.swift in Sources */,
 				C02C8B422F0266B400A2FE9F /* ComponentSuperviewObserverToken.swift in Sources */,
+				C0E821C72F053E2000051412 /* FlowReader.swift in Sources */,
 				C02C8B432F0266B400A2FE9F /* EnvironmentValues+ComponentLayoutInvalidation.swift in Sources */,
 				C02C8B442F0266B400A2FE9F /* LineBreakModeDecorator.swift in Sources */,
 				C02C8B452F0266B400A2FE9F /* View+Extensions.swift in Sources */,

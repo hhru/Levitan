@@ -3,8 +3,6 @@ import UIKit
 
 public final class FlowView<Layout: FlowLayout>: UIView {
 
-    public typealias Content = Flow<Layout>
-
     private var context: ComponentContext?
 
     private let collectionView: UICollectionView
@@ -90,73 +88,8 @@ public final class FlowView<Layout: FlowLayout>: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupCollectionView() {
-        addSubview(collectionView)
-
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-
-        let constraints = [
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ]
-
-        NSLayoutConstraint.activate(constraints)
-    }
-
-    private func updateContentInsets(with contentInsets: UIEdgeInsets) {
-        guard collectionView.contentInset != contentInsets else {
-            return
-        }
-
-        collectionView.contentInset = contentInsets
-
-        collectionView.horizontalScrollIndicatorInsets.left = contentInsets.left
-        collectionView.horizontalScrollIndicatorInsets.right = contentInsets.right
-
-        collectionView.verticalScrollIndicatorInsets.top = contentInsets.top
-        collectionView.verticalScrollIndicatorInsets.bottom = contentInsets.bottom
-
-        context?.invalidateComponentLayout()
-    }
-
-    private func updateScrollIndicator(with content: Content) {
-        if content.isScrollIndicatorVisible {
-            collectionView.showsHorizontalScrollIndicator = collectionViewLayout
-                .layout
-                .scrollAxis
-                .contains(.horizontal)
-
-            collectionView.showsVerticalScrollIndicator = collectionViewLayout
-                .layout
-                .scrollAxis
-                .contains(.vertical)
-        } else {
-            collectionView.showsHorizontalScrollIndicator = false
-            collectionView.showsVerticalScrollIndicator = false
-        }
-    }
-
-    private func updateScrollBouncing(with content: Content) {
-        if content.isScrollAlwaysBouncing {
-            collectionView.alwaysBounceHorizontal = collectionViewLayout
-                .layout
-                .scrollAxis
-                .contains(.horizontal)
-
-            collectionView.alwaysBounceVertical = collectionViewLayout
-                .layout
-                .scrollAxis
-                .contains(.vertical)
-        } else {
-            collectionView.alwaysBounceHorizontal = false
-            collectionView.alwaysBounceVertical = false
-        }
-    }
-
     public func update(
-        with content: Content,
+        with content: Flow<Layout>,
         context: ComponentContext,
         completion: (() -> Void)?
     ) {
@@ -195,7 +128,7 @@ public final class FlowView<Layout: FlowLayout>: UIView {
         collectionView.reloadData()
     }
 
-    public func scrollToTop(animated: Bool) {
+    public func scrollToTop(animated: Bool = true) {
         collectionView.layoutIfNeeded()
 
         let contentOffset = CGPoint(
@@ -206,7 +139,7 @@ public final class FlowView<Layout: FlowLayout>: UIView {
         collectionView.setContentOffset(contentOffset, animated: animated)
     }
 
-    public func scrollToBottom(animated: Bool) {
+    public func scrollToBottom(animated: Bool = true) {
         collectionView.layoutIfNeeded()
 
         let bottomOffset = collectionView.contentSize.height
@@ -221,55 +154,71 @@ public final class FlowView<Layout: FlowLayout>: UIView {
         collectionView.setContentOffset(contentOffset, animated: animated)
     }
 
-    // TODO: Добавить скролл до следующего элемента после найденного
     public func scrollToItem(
-        where predicate: FlowItemPredicate,
-        at position: UICollectionView.ScrollPosition,
+        at indexPath: IndexPath,
+        at position: UICollectionView.ScrollPosition?,
         animated: Bool = true
     ) {
-        guard let indexPath = collectionViewManager.itemIndexPath(where: predicate) else {
-            return
-        }
-
         guard collectionView.containsIndexPath(indexPath) else {
             return
         }
 
         collectionView.layoutIfNeeded()
 
+        if let position {
+            return collectionView.scrollToItem(
+                at: indexPath,
+                at: position,
+                animated: animated
+            )
+        }
+
+        if let cell = collectionView.cellForItem(at: indexPath) {
+            return collectionView.scrollRectToVisible(
+                cell.frame,
+                animated: animated
+            )
+        }
+
         collectionView.scrollToItem(
             at: indexPath,
-            at: position,
+            at: [.centeredHorizontally, .centeredVertically],
             animated: animated
         )
     }
 
     public func scrollToItem(
         where predicate: FlowItemPredicate,
+        at position: UICollectionView.ScrollPosition?,
         animated: Bool = true
     ) {
         guard let indexPath = collectionViewManager.itemIndexPath(where: predicate) else {
             return
         }
 
-        guard collectionView.containsIndexPath(indexPath) else {
+        scrollToItem(
+            at: indexPath,
+            at: position,
+            animated: animated
+        )
+    }
+
+    public func scrollToNextItem(
+        after predicate: FlowItemPredicate,
+        at position: UICollectionView.ScrollPosition?,
+        animated: Bool = true
+    ) {
+        guard let indexPath = collectionViewManager.nextItemIndexPath(after: predicate) else {
             return
         }
 
-        collectionView.layoutIfNeeded()
-
-        if let cell = collectionView.cellForItem(at: indexPath) {
-            collectionView.scrollRectToVisible(cell.frame, animated: animated)
-        } else {
-            collectionView.scrollToItem(
-                at: indexPath,
-                at: [.centeredHorizontally, .centeredVertically],
-                animated: animated
-            )
-        }
+        scrollToItem(
+            at: indexPath,
+            at: position,
+            animated: animated
+        )
     }
 
-    // TODO: Добавить скролл до следующей секции после найденной
     public func scrollToSection(
         where predicate: FlowSectionPredicate<Layout>,
         animated: Bool = true
@@ -278,52 +227,58 @@ public final class FlowView<Layout: FlowLayout>: UIView {
             return
         }
 
-        guard collectionView.containsIndexPath(indexPath) else {
-            return
-        }
-
-        collectionView.layoutIfNeeded()
-
-        collectionView.scrollToItem(
+        scrollToItem(
             at: indexPath,
             at: .top,
             animated: animated
         )
     }
 
-    @discardableResult
-    public func focusItem(where predicate: FlowItemPredicate) -> Bool {
-        guard let indexPath = collectionViewManager.itemIndexPath(where: predicate) else {
-            return false
+    public func scrollToNextSection(
+        after predicate: FlowSectionPredicate<Layout>,
+        animated: Bool = true
+    ) {
+        guard let indexPath = collectionViewManager.nextSectionIndexPath(after: predicate) else {
+            return
         }
 
-        return collectionView
-            .cellForItem(at: indexPath)?
-            .becomeFirstResponder() ?? false
+        scrollToItem(
+            at: indexPath,
+            at: .top,
+            animated: animated
+        )
     }
 
-    @discardableResult
-    public func focusNextItem(after predicate: FlowItemPredicate) -> Bool {
+    public func focusItem(where predicate: FlowItemPredicate) {
+        guard let indexPath = collectionViewManager.itemIndexPath(where: predicate) else {
+            return
+        }
+
+        collectionView
+            .cellForItem(at: indexPath)?
+            .becomeFirstResponder()
+    }
+
+    public func focusNextItem(after predicate: FlowItemPredicate) {
         guard let indexPath = collectionViewManager.nextItemIndexPath(after: predicate) else {
             return unfocusItem(where: predicate)
         }
 
-        return collectionView.cellForItem(at: indexPath).map { cell in
-            cell.canBecomeFirstResponder
-                ? cell.becomeFirstResponder()
-                : unfocusItem(where: predicate)
-        } ?? false
+        if let cell = collectionView.cellForItem(at: indexPath), cell.canBecomeFirstResponder {
+            cell.becomeFirstResponder()
+        } else {
+            unfocusItem(where: predicate)
+        }
     }
 
-    @discardableResult
-    public func unfocusItem(where predicate: FlowItemPredicate) -> Bool {
+    public func unfocusItem(where predicate: FlowItemPredicate) {
         guard let indexPath = collectionViewManager.itemIndexPath(where: predicate) else {
-            return false
+            return
         }
 
-        return collectionView
+        collectionView
             .cellForItem(at: indexPath)?
-            .resignFirstResponder() ?? false
+            .resignFirstResponder()
     }
 
     public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -337,10 +292,78 @@ public final class FlowView<Layout: FlowLayout>: UIView {
     }
 }
 
+extension FlowView {
+
+    private func setupCollectionView() {
+        addSubview(collectionView)
+
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    private func updateContentInsets(with contentInsets: UIEdgeInsets) {
+        guard collectionView.contentInset != contentInsets else {
+            return
+        }
+
+        collectionView.contentInset = contentInsets
+
+        collectionView.horizontalScrollIndicatorInsets.left = contentInsets.left
+        collectionView.horizontalScrollIndicatorInsets.right = contentInsets.right
+
+        collectionView.verticalScrollIndicatorInsets.top = contentInsets.top
+        collectionView.verticalScrollIndicatorInsets.bottom = contentInsets.bottom
+
+        context?.invalidateComponentLayout()
+    }
+
+    private func updateScrollIndicator(with content: Flow<Layout>) {
+        if content.isScrollIndicatorVisible {
+            collectionView.showsHorizontalScrollIndicator = collectionViewLayout
+                .layout
+                .scrollAxis
+                .contains(.horizontal)
+
+            collectionView.showsVerticalScrollIndicator = collectionViewLayout
+                .layout
+                .scrollAxis
+                .contains(.vertical)
+        } else {
+            collectionView.showsHorizontalScrollIndicator = false
+            collectionView.showsVerticalScrollIndicator = false
+        }
+    }
+
+    private func updateScrollBouncing(with content: Flow<Layout>) {
+        if content.isScrollAlwaysBouncing {
+            collectionView.alwaysBounceHorizontal = collectionViewLayout
+                .layout
+                .scrollAxis
+                .contains(.horizontal)
+
+            collectionView.alwaysBounceVertical = collectionViewLayout
+                .layout
+                .scrollAxis
+                .contains(.vertical)
+        } else {
+            collectionView.alwaysBounceHorizontal = false
+            collectionView.alwaysBounceVertical = false
+        }
+    }
+}
+
 extension FlowView: FallbackComponentView {
 
     public static func sizing(
-        for content: Content,
+        for content: Flow<Layout>,
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
@@ -350,7 +373,7 @@ extension FlowView: FallbackComponentView {
         )
     }
 
-    public func update(with content: Content, context: ComponentContext) {
+    public func update(with content: Flow<Layout>, context: ComponentContext) {
         update(with: content, context: context, completion: nil)
     }
 }
