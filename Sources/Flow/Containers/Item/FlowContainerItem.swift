@@ -121,15 +121,15 @@ extension FlowContainerItem: Changeable {
 
 extension Component {
 
-    public func listItem(identifier: AnyHashable) -> FlowContainerItem<Self> {
+    public func flowItem(identifier: AnyHashable) -> FlowContainerItem<Self> {
         FlowContainerItem(
             content: self,
             identifier: identifier
         )
     }
 
-    public func listItem(file: String = #fileID, line: Int = #line) -> FlowContainerItem<Self> {
-        listItem(identifier: "\(file):\(line)")
+    public func flowItem(file: String = #fileID, line: Int = #line) -> FlowContainerItem<Self> {
+        flowItem(identifier: "\(file):\(line)")
     }
 }
 #endif

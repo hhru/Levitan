@@ -11,6 +11,8 @@
 		C00974602F03CEEE00BC7680 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009745C2F03CEEE00BC7680 /* AppDelegate.swift */; };
 		C00974612F03CEEE00BC7680 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009745E2F03CEEE00BC7680 /* ViewController.swift */; };
 		C00974692F03D08E00BC7680 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00974672F03D08E00BC7680 /* Main.storyboard */; };
+		C00975C52F05397C00BC7680 /* Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00975C22F05397C00BC7680 /* Bar.swift */; };
+		C00975C62F05397C00BC7680 /* Foo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00975C32F05397C00BC7680 /* Foo.swift */; };
 		C017D14025FBAD11008B90C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C017D13F25FBAD11008B90C0 /* Assets.xcassets */; };
 		C017D14325FBAD11008B90C0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C017D14125FBAD11008B90C0 /* Launch.storyboard */; };
 		C03F80F62F026A820097B7A3 /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C0ABEF2F02695100C6E122 /* Levitan.framework */; };
@@ -74,6 +76,8 @@
 		C009745D2F03CEEE00BC7680 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C009745E2F03CEEE00BC7680 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C00974682F03D08E00BC7680 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C00975C22F05397C00BC7680 /* Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bar.swift; sourceTree = "<group>"; };
+		C00975C32F05397C00BC7680 /* Foo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foo.swift; sourceTree = "<group>"; };
 		C017D13325FBAD0F008B90C0 /* LevitanExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevitanExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C017D13F25FBAD11008B90C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C017D14225FBAD11008B90C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
@@ -100,6 +104,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C00975C42F05397C00BC7680 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C00975C22F05397C00BC7680 /* Bar.swift */,
+				C00975C32F05397C00BC7680 /* Foo.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		C017D12A25FBAD0F008B90C0 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +134,7 @@
 		C017D13525FBAD0F008B90C0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				C00975C42F05397C00BC7680 /* Components */,
 				C0DA318025FBB1E1009A9CB8 /* Resources */,
 				C009745C2F03CEEE00BC7680 /* AppDelegate.swift */,
 				C009745D2F03CEEE00BC7680 /* SceneDelegate.swift */,
@@ -293,6 +307,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C009745F2F03CEEE00BC7680 /* SceneDelegate.swift in Sources */,
+				C00975C52F05397C00BC7680 /* Bar.swift in Sources */,
+				C00975C62F05397C00BC7680 /* Foo.swift in Sources */,
 				C00974602F03CEEE00BC7680 /* AppDelegate.swift in Sources */,
 				C00974612F03CEEE00BC7680 /* ViewController.swift in Sources */,
 			);

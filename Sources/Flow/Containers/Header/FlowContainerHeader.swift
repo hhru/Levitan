@@ -68,7 +68,7 @@ extension FlowContainerHeader: Changeable {
 
 extension Component {
 
-    public func listHeader() -> FlowContainerHeader<Self> {
+    public func flowHeader() -> FlowContainerHeader<Self> {
         FlowContainerHeader(content: self)
     }
 }

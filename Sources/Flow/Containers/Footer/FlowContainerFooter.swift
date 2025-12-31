@@ -68,7 +68,7 @@ extension FlowContainerFooter: Changeable {
 
 extension Component {
 
-    public func listFooter() -> FlowContainerFooter<Self> {
+    public func flowFooter() -> FlowContainerFooter<Self> {
         FlowContainerFooter(content: self)
     }
 }

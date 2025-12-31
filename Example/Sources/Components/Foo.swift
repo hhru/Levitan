@@ -32,10 +32,16 @@ final class FooView: UIView {
         addSubview(label)
 
         label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
 
-        label.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(16)
-        }
+        let constraints = [
+            label.leadingAnchor.constraint(equalTo: leadingAnchor),
+            label.topAnchor.constraint(equalTo: topAnchor),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
     }
 }
 
