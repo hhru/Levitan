@@ -7,7 +7,7 @@ extension UICollectionView {
         _ changeset: DifferenceChangeset<Section>,
         updateSections: ([Section]) -> Void,
         updateCells: (_ indexPaths: [IndexPath]) -> Void,
-        completion: (() -> Void)? = nil
+        completion: (@MainActor () -> Void)? = nil
     ) {
         let updates = {
             updateSections(changeset.sections)
@@ -49,7 +49,9 @@ extension UICollectionView {
         }
 
         performBatchUpdates(updates) { _ in
-            DispatchQueue.main.async { completion?() }
+            Task { @MainActor in
+                completion?()
+            }
         }
     }
 
@@ -58,7 +60,7 @@ extension UICollectionView {
         shouldInterrupt: ((DifferenceChangeset<Section>) -> Bool)? = nil,
         updateSections: ([Section]) -> Void,
         updateCells: (_ indexPaths: [IndexPath]) -> Void,
-        completion: (@Sendable () -> Void)? = nil
+        completion: (@MainActor () -> Void)? = nil
     ) {
         guard let lastChangeset = changesets.last else {
             completion?()
@@ -100,10 +102,10 @@ extension UICollectionView {
     internal func reloadData<Section: DiffableSection>(
         using changeset: DifferenceChangeset<Section>,
         updateSections: ([Section]) -> Void,
-        completion: (@Sendable () -> Void)? = nil
+        completion: (@MainActor () -> Void)? = nil
     ) {
         updateSections(changeset.sections)
-        reloadData { completion?() }
+        reloadData(completion: completion)
     }
 }
 #endif
