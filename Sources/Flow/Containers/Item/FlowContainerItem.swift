@@ -127,9 +127,5 @@ extension Component {
             content: self
         )
     }
-
-    public func flowItem(file: String = #fileID, line: Int = #line) -> FlowContainerItem<Self> {
-        flowItem(identifier: "\(file):\(line)")
-    }
 }
 #endif

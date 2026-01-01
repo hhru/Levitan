@@ -138,7 +138,10 @@ public struct Flow<Layout: FlowLayout>: Sendable {
         layout: Layout = .default
     ) {
         self.init(
-            section: Section(items: items),
+            section: Section(
+                identifier: items.first?.identifier,
+                items: items
+            ),
             layout: layout
         )
     }
@@ -148,7 +151,7 @@ public struct Flow<Layout: FlowLayout>: Sendable {
         layout: Layout = .default
     ) {
         self.init(
-            section: Section(item: item),
+            items: [item],
             layout: layout
         )
     }

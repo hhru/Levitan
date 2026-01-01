@@ -43,23 +43,6 @@ public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
     }
 
     public init(
-        identifierFile: String = #fileID,
-        identifierLine: Int = #line,
-        items: [any FlowItem],
-        header: (any FlowHeader)? = nil,
-        footer: (any FlowFooter)? = nil,
-        metrics: Layout.Metrics = .default
-    ) {
-        self.init(
-            identifier: "\(identifierFile):\(identifierLine)",
-            items: items.map { $0.eraseToAnyItem() },
-            header: header?.eraseToAnyHeader(),
-            footer: footer?.eraseToAnyFooter(),
-            metrics: metrics
-        )
-    }
-
-    public init(
         item: any FlowItem,
         header: (any FlowHeader)? = nil,
         footer: (any FlowFooter)? = nil,
@@ -80,18 +63,6 @@ public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
     ) {
         self.init(
             identifier: identifier,
-            items: items()
-        )
-    }
-
-    public init(
-        identifierFile: String = #fileID,
-        identifierLine: Int = #line,
-        @FlowSectionBuilder items: () -> [any FlowItem]
-    ) {
-        self.init(
-            identifierFile: identifierFile,
-            identifierLine: identifierLine,
             items: items()
         )
     }
