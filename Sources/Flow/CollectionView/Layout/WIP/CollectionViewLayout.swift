@@ -610,7 +610,7 @@ extension CollectionViewLayout: AnyCollectionViewLayout {
             .currentState?
             .item(at: indexPath)?
             .size?
-            .value ?? containerSize
+            .actualValue ?? containerSize
     }
 
     internal func headerContainerSize(at indexPath: IndexPath) -> CGSize {
@@ -618,7 +618,7 @@ extension CollectionViewLayout: AnyCollectionViewLayout {
             .currentState?
             .header(at: indexPath.section)?
             .size?
-            .value ?? containerSize
+            .actualValue ?? containerSize
     }
 
     internal func footerContainerSize(at indexPath: IndexPath) -> CGSize {
@@ -626,7 +626,7 @@ extension CollectionViewLayout: AnyCollectionViewLayout {
             .currentState?
             .footer(at: indexPath.section)?
             .size?
-            .value ?? containerSize
+            .actualValue ?? containerSize
     }
 }
 

@@ -288,6 +288,11 @@ extension TextView: FallbackManualComponentView {
         fitting size: CGSize,
         context: ComponentContext
     ) -> CGSize {
+        let size = CGSize(
+            width: size.width,
+            height: .greatestFiniteMagnitude
+        )
+
         let attributedText = attributedText(
             for: content,
             context: context

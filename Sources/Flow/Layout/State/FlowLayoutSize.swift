@@ -22,6 +22,26 @@ public enum FlowLayoutSize: Sendable {
         }
     }
 
+    public var actualValue: CGSize? {
+        switch self {
+        case let .actual(size):
+            return size
+
+        case .estimated:
+            return nil
+        }
+    }
+
+    public var estimatedValue: CGSize? {
+        switch self {
+        case .actual:
+            return nil
+
+        case let .estimated(size, _, _):
+            return size
+        }
+    }
+
     public var isActual: Bool {
         switch self {
         case .actual:
