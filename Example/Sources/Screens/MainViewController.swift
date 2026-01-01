@@ -4,7 +4,7 @@ import Levitan
 
 // swiftlint:disable all
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     let flowView = VerticalFlow.UIView()
 
