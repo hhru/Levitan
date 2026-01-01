@@ -16,7 +16,6 @@ class MainViewController: UIViewController {
         ComponentContext
             .default
             .componentViewController(self)
-            .componentContainerSize(view.bounds.size)
     }
 
     private func setupFlowView() {
