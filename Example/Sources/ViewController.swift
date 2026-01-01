@@ -389,7 +389,7 @@ class ViewController: UIViewController {
         view.tokens.themeScheme(nil)
 
         setupFlowView()
-        testSwiftUIItemReloading()
+        testSectionReloading()
     }
 }
 

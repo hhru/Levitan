@@ -190,9 +190,9 @@
 		C009757E2F052FCF00BC7680 /* VerticalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009757D2F052FCB00BC7680 /* VerticalFlow.swift */; };
 		C009757F2F052FCF00BC7680 /* VerticalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009757D2F052FCB00BC7680 /* VerticalFlow.swift */; };
 		C00975802F052FCF00BC7680 /* VerticalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009757D2F052FCB00BC7680 /* VerticalFlow.swift */; };
-		C00975822F052FDD00BC7680 /* FlowHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00975812F052FDA00BC7680 /* FlowHorizontalLayout.swift */; };
-		C00975832F052FDD00BC7680 /* FlowHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00975812F052FDA00BC7680 /* FlowHorizontalLayout.swift */; };
-		C00975842F052FDD00BC7680 /* FlowHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00975812F052FDA00BC7680 /* FlowHorizontalLayout.swift */; };
+		C00975822F052FDD00BC7680 /* HorizontalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00975812F052FDA00BC7680 /* HorizontalFlowLayout.swift */; };
+		C00975832F052FDD00BC7680 /* HorizontalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00975812F052FDA00BC7680 /* HorizontalFlowLayout.swift */; };
+		C00975842F052FDD00BC7680 /* HorizontalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00975812F052FDA00BC7680 /* HorizontalFlowLayout.swift */; };
 		C00975872F05303300BC7680 /* CollectionViewLayoutScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00975862F05303300BC7680 /* CollectionViewLayoutScrollAnchor.swift */; };
 		C00975882F05303300BC7680 /* CollectionViewLayoutScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00975862F05303300BC7680 /* CollectionViewLayoutScrollAnchor.swift */; };
 		C00975892F05303300BC7680 /* CollectionViewLayoutScrollAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00975862F05303300BC7680 /* CollectionViewLayoutScrollAnchor.swift */; };
@@ -1252,6 +1252,18 @@
 		C0E821E22F0567FC00051412 /* ComponentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821E12F0567F800051412 /* ComponentIdentifier.swift */; };
 		C0E821E32F0567FC00051412 /* ComponentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821E12F0567F800051412 /* ComponentIdentifier.swift */; };
 		C0E821E42F0567FC00051412 /* ComponentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821E12F0567F800051412 /* ComponentIdentifier.swift */; };
+		C0E821EF2F0652CF00051412 /* HorizontalFlowMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821EE2F0652C200051412 /* HorizontalFlowMetrics.swift */; };
+		C0E821F02F0652CF00051412 /* HorizontalFlowMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821EE2F0652C200051412 /* HorizontalFlowMetrics.swift */; };
+		C0E821F12F0652CF00051412 /* HorizontalFlowMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821EE2F0652C200051412 /* HorizontalFlowMetrics.swift */; };
+		C0E821F32F0653CA00051412 /* HorizontalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821F22F0653C500051412 /* HorizontalFlow.swift */; };
+		C0E821F42F0653CA00051412 /* HorizontalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821F22F0653C500051412 /* HorizontalFlow.swift */; };
+		C0E821F52F0653CA00051412 /* HorizontalFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821F22F0653C500051412 /* HorizontalFlow.swift */; };
+		C0E821F72F06540A00051412 /* HorizontalFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821F62F06540400051412 /* HorizontalFlowReader.swift */; };
+		C0E821F82F06540A00051412 /* HorizontalFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821F62F06540400051412 /* HorizontalFlowReader.swift */; };
+		C0E821F92F06540A00051412 /* HorizontalFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821F62F06540400051412 /* HorizontalFlowReader.swift */; };
+		C0E821FB2F06545000051412 /* HorizontalFlowSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821FA2F06544A00051412 /* HorizontalFlowSection.swift */; };
+		C0E821FC2F06545000051412 /* HorizontalFlowSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821FA2F06544A00051412 /* HorizontalFlowSection.swift */; };
+		C0E821FD2F06545000051412 /* HorizontalFlowSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821FA2F06544A00051412 /* HorizontalFlowSection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1369,7 +1381,7 @@
 		C00975752F052F9C00BC7680 /* FlowRowSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowRowSize.swift; sourceTree = "<group>"; };
 		C00975792F052FB200BC7680 /* FlowRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowRow.swift; sourceTree = "<group>"; };
 		C009757D2F052FCB00BC7680 /* VerticalFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalFlow.swift; sourceTree = "<group>"; };
-		C00975812F052FDA00BC7680 /* FlowHorizontalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowHorizontalLayout.swift; sourceTree = "<group>"; };
+		C00975812F052FDA00BC7680 /* HorizontalFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalFlowLayout.swift; sourceTree = "<group>"; };
 		C00975862F05303300BC7680 /* CollectionViewLayoutScrollAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollAnchor.swift; sourceTree = "<group>"; };
 		C009758A2F05304E00BC7680 /* CollectionViewLayoutScrollAnchorAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollAnchorAxis.swift; sourceTree = "<group>"; };
 		C009758E2F05305D00BC7680 /* CollectionViewLayoutScrollAnchorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutScrollAnchorItem.swift; sourceTree = "<group>"; };
@@ -1748,6 +1760,10 @@
 		C0E821D12F05408B00051412 /* VerticalFlowReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalFlowReader.swift; sourceTree = "<group>"; };
 		C0E821D92F05580200051412 /* FlowScrollAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowScrollAnchor.swift; sourceTree = "<group>"; };
 		C0E821E12F0567F800051412 /* ComponentIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentIdentifier.swift; sourceTree = "<group>"; };
+		C0E821EE2F0652C200051412 /* HorizontalFlowMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalFlowMetrics.swift; sourceTree = "<group>"; };
+		C0E821F22F0653C500051412 /* HorizontalFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalFlow.swift; sourceTree = "<group>"; };
+		C0E821F62F06540400051412 /* HorizontalFlowReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalFlowReader.swift; sourceTree = "<group>"; };
+		C0E821FA2F06544A00051412 /* HorizontalFlowSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalFlowSection.swift; sourceTree = "<group>"; };
 		C0E97A692BC6DFA000CF37A7 /* .xcode-runtime-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-runtime-version"; sourceTree = "<group>"; };
 		C0E97A6A2BC6DFA000CF37A7 /* .xcode-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
 		C0E97A6B2BC6DFA000CF37A7 /* .system-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".system-version"; sourceTree = "<group>"; };
@@ -2018,7 +2034,11 @@
 			isa = PBXGroup;
 			children = (
 				C00975742F052F9500BC7680 /* Row */,
-				C00975812F052FDA00BC7680 /* FlowHorizontalLayout.swift */,
+				C0E821F22F0653C500051412 /* HorizontalFlow.swift */,
+				C00975812F052FDA00BC7680 /* HorizontalFlowLayout.swift */,
+				C0E821EE2F0652C200051412 /* HorizontalFlowMetrics.swift */,
+				C0E821F62F06540400051412 /* HorizontalFlowReader.swift */,
+				C0E821FA2F06544A00051412 /* HorizontalFlowSection.swift */,
 			);
 			path = Horizontal;
 			sourceTree = "<group>";
@@ -3701,6 +3721,7 @@
 				C02C8C3F2F0266B400A2FE9F /* AnyComponentPresenter.swift in Sources */,
 				C02C8C402F0266B400A2FE9F /* TextBuilder.swift in Sources */,
 				C02C8C412F0266B400A2FE9F /* AlignmentDecorator+TextDecorator.swift in Sources */,
+				C0E821F42F0653CA00051412 /* HorizontalFlow.swift in Sources */,
 				C02C8C422F0266B400A2FE9F /* FallbackManualComponentView.swift in Sources */,
 				C00975642F05246300BC7680 /* VerticalFlowLayout.swift in Sources */,
 				C02C8C432F0266B400A2FE9F /* CALayer+MaskLayer.swift in Sources */,
@@ -3793,7 +3814,7 @@
 				C02C8C892F0266B400A2FE9F /* Array+TokenValue.swift in Sources */,
 				C02C8C8A2F0266B400A2FE9F /* SpringAnimationValue.swift in Sources */,
 				C02C8C8B2F0266B400A2FE9F /* ViewNamespace.swift in Sources */,
-				C00975842F052FDD00BC7680 /* FlowHorizontalLayout.swift in Sources */,
+				C00975842F052FDD00BC7680 /* HorizontalFlowLayout.swift in Sources */,
 				C009754E2F051FD200BC7680 /* FlowLayoutState.swift in Sources */,
 				C02C8C8C2F0266B400A2FE9F /* TypographyStrokeValue.swift in Sources */,
 				C02C8C8D2F0266B400A2FE9F /* ComponentSuperviewObserverToken.swift in Sources */,
@@ -3878,6 +3899,7 @@
 				C02C8CCA2F0266B400A2FE9F /* ComponentSuperviewObserverStorage.swift in Sources */,
 				C02C8CCB2F0266B400A2FE9F /* EnvironmentValues+TextTypography.swift in Sources */,
 				C02C8CCC2F0266B400A2FE9F /* NSLayoutConstraint+Extensions.swift in Sources */,
+				C0E821F92F06540A00051412 /* HorizontalFlowReader.swift in Sources */,
 				C02C8CCD2F0266B400A2FE9F /* FrontLayer.swift in Sources */,
 				C02C8CCE2F0266B400A2FE9F /* UIScreen+TraitsObservable.swift in Sources */,
 				C02C8CCF2F0266B400A2FE9F /* RangeReplaceableCollection+Extensions.swift in Sources */,
@@ -4002,6 +4024,7 @@
 				C02C8D312F0266B400A2FE9F /* SpringAnimationToken.swift in Sources */,
 				C02C8D322F0266B400A2FE9F /* TokenViewProperties+UIView.swift in Sources */,
 				C02C8D332F0266B400A2FE9F /* ShapeToken.swift in Sources */,
+				C0E821F12F0652CF00051412 /* HorizontalFlowMetrics.swift in Sources */,
 				C00975462F051E1F00BC7680 /* FlowLayoutAppearance.swift in Sources */,
 				C02C8D342F0266B400A2FE9F /* StrokeDecorator+TextDecorator.swift in Sources */,
 				C02C8D352F0266B400A2FE9F /* EnvironmentValues+ComponentIdentifier.swift in Sources */,
@@ -4038,6 +4061,7 @@
 				C02C8D4E2F0266B400A2FE9F /* ColorValue+View.swift in Sources */,
 				C02C8D4F2F0266B400A2FE9F /* TokenViewProperties+UIActivityIndicatorView.swift in Sources */,
 				C02C8D502F0266B400A2FE9F /* DefaultTokenThemeStorage.swift in Sources */,
+				C0E821FC2F06545000051412 /* HorizontalFlowSection.swift in Sources */,
 				C02C8D512F0266B400A2FE9F /* DecorableByForegroundColor.swift in Sources */,
 				C02C8D522F0266B400A2FE9F /* DifferenceIndicesReference.swift in Sources */,
 				C02C8D532F0266B400A2FE9F /* TraitsObservation.swift in Sources */,
@@ -4128,6 +4152,7 @@
 				C02C89A92F0266B400A2FE9F /* AnyComponentPresenter.swift in Sources */,
 				C02C89AA2F0266B400A2FE9F /* TextBuilder.swift in Sources */,
 				C02C89AB2F0266B400A2FE9F /* AlignmentDecorator+TextDecorator.swift in Sources */,
+				C0E821F32F0653CA00051412 /* HorizontalFlow.swift in Sources */,
 				C02C89AC2F0266B400A2FE9F /* FallbackManualComponentView.swift in Sources */,
 				C00975652F05246300BC7680 /* VerticalFlowLayout.swift in Sources */,
 				C02C89AD2F0266B400A2FE9F /* CALayer+MaskLayer.swift in Sources */,
@@ -4220,7 +4245,7 @@
 				C02C89F32F0266B400A2FE9F /* Array+TokenValue.swift in Sources */,
 				C02C89F42F0266B400A2FE9F /* SpringAnimationValue.swift in Sources */,
 				C02C89F52F0266B400A2FE9F /* ViewNamespace.swift in Sources */,
-				C00975822F052FDD00BC7680 /* FlowHorizontalLayout.swift in Sources */,
+				C00975822F052FDD00BC7680 /* HorizontalFlowLayout.swift in Sources */,
 				C009754D2F051FD200BC7680 /* FlowLayoutState.swift in Sources */,
 				C02C89F62F0266B400A2FE9F /* TypographyStrokeValue.swift in Sources */,
 				C02C89F72F0266B400A2FE9F /* ComponentSuperviewObserverToken.swift in Sources */,
@@ -4305,6 +4330,7 @@
 				C02C8A342F0266B400A2FE9F /* ComponentSuperviewObserverStorage.swift in Sources */,
 				C02C8A352F0266B400A2FE9F /* EnvironmentValues+TextTypography.swift in Sources */,
 				C02C8A362F0266B400A2FE9F /* NSLayoutConstraint+Extensions.swift in Sources */,
+				C0E821F82F06540A00051412 /* HorizontalFlowReader.swift in Sources */,
 				C02C8A372F0266B400A2FE9F /* FrontLayer.swift in Sources */,
 				C02C8A382F0266B400A2FE9F /* UIScreen+TraitsObservable.swift in Sources */,
 				C02C8A392F0266B400A2FE9F /* RangeReplaceableCollection+Extensions.swift in Sources */,
@@ -4429,6 +4455,7 @@
 				C02C8A9B2F0266B400A2FE9F /* SpringAnimationToken.swift in Sources */,
 				C02C8A9C2F0266B400A2FE9F /* TokenViewProperties+UIView.swift in Sources */,
 				C02C8A9D2F0266B400A2FE9F /* ShapeToken.swift in Sources */,
+				C0E821EF2F0652CF00051412 /* HorizontalFlowMetrics.swift in Sources */,
 				C00975442F051E1F00BC7680 /* FlowLayoutAppearance.swift in Sources */,
 				C02C8A9E2F0266B400A2FE9F /* StrokeDecorator+TextDecorator.swift in Sources */,
 				C02C8A9F2F0266B400A2FE9F /* EnvironmentValues+ComponentIdentifier.swift in Sources */,
@@ -4465,6 +4492,7 @@
 				C02C8AB82F0266B400A2FE9F /* ColorValue+View.swift in Sources */,
 				C02C8AB92F0266B400A2FE9F /* TokenViewProperties+UIActivityIndicatorView.swift in Sources */,
 				C02C8ABA2F0266B400A2FE9F /* DefaultTokenThemeStorage.swift in Sources */,
+				C0E821FB2F06545000051412 /* HorizontalFlowSection.swift in Sources */,
 				C02C8ABB2F0266B400A2FE9F /* DecorableByForegroundColor.swift in Sources */,
 				C02C8ABC2F0266B400A2FE9F /* DifferenceIndicesReference.swift in Sources */,
 				C02C8ABD2F0266B400A2FE9F /* TraitsObservation.swift in Sources */,
@@ -4640,6 +4668,7 @@
 				C02C8B332F0266B400A2FE9F /* CGColor+Extensions.swift in Sources */,
 				C02C8B342F0266B400A2FE9F /* AnimationModifier.swift in Sources */,
 				C02C8B352F0266B400A2FE9F /* TokenThemeManager.swift in Sources */,
+				C0E821F72F06540A00051412 /* HorizontalFlowReader.swift in Sources */,
 				C02C8B362F0266B400A2FE9F /* ComponentHostingController.swift in Sources */,
 				C00975312F051C5E00BC7680 /* FlowLayoutOrigin.swift in Sources */,
 				C02C8B372F0266B400A2FE9F /* ComponentView.swift in Sources */,
@@ -4707,7 +4736,7 @@
 				C00974722F03D2A100BC7680 /* FlowVerticalAlignment.swift in Sources */,
 				C0E821DC2F05580B00051412 /* FlowScrollAnchor.swift in Sources */,
 				C02C8B6D2F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */,
-				C00975832F052FDD00BC7680 /* FlowHorizontalLayout.swift in Sources */,
+				C00975832F052FDD00BC7680 /* HorizontalFlowLayout.swift in Sources */,
 				C02C8B6E2F0266B400A2FE9F /* RectangleShape.swift in Sources */,
 				C02C8B6F2F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */,
 				C02C8B702F0266B400A2FE9F /* DecorableByBackgroundColor.swift in Sources */,
@@ -4852,6 +4881,7 @@
 				C02C8BE22F0266B400A2FE9F /* TokenViewProperties+UITextField.swift in Sources */,
 				C02C8BE32F0266B400A2FE9F /* ShadowValue.swift in Sources */,
 				C00974AF2F03E19900BC7680 /* AnyFlowFooterView.swift in Sources */,
+				C0E821F02F0652CF00051412 /* HorizontalFlowMetrics.swift in Sources */,
 				C02C8BE42F0266B400A2FE9F /* String+TokenValue.swift in Sources */,
 				C02C8BE52F0266B400A2FE9F /* ColorDecorator.swift in Sources */,
 				C02C8BE62F0266B400A2FE9F /* SpringAnimationToken.swift in Sources */,
@@ -4866,7 +4896,9 @@
 				C02C8BEF2F0266B400A2FE9F /* TokenThemeResolver.swift in Sources */,
 				C009750A2F0514B300BC7680 /* CollectionViewManager.swift in Sources */,
 				C02C8BF02F0266B400A2FE9F /* FallbackComponentBodySize.swift in Sources */,
+				C0E821FD2F06545000051412 /* HorizontalFlowSection.swift in Sources */,
 				C02C8BF12F0266B400A2FE9F /* DecorableByOpacity.swift in Sources */,
+				C0E821F52F0653CA00051412 /* HorizontalFlow.swift in Sources */,
 				C00974A62F03E07F00BC7680 /* AnyFlowHeader.swift in Sources */,
 				C009752B2F051C3400BC7680 /* FlowLayoutItem.swift in Sources */,
 				C02C8BF22F0266B400A2FE9F /* DifferenceChangeset.swift in Sources */,

@@ -1,15 +1,15 @@
 #if canImport(UIKit)
 import UIKit
 
-public typealias VerticalFlowSection = FlowSection<VerticalFlowLayout>
+public typealias HorizontalFlowSection = FlowSection<HorizontalFlowLayout>
 
-extension VerticalFlowSection {
+extension HorizontalFlowSection {
 
-    public func columns(_ columns: [FlowColumn]?) -> Self {
-        changing { $0.metrics.columns = columns }
+    public func rows(_ rows: [FlowRow]?) -> Self {
+        changing { $0.metrics.rows = rows }
     }
 
-    public func alignment(_ alignment: FlowHorizontalAlignment) -> Self {
+    public func alignment(_ alignment: FlowVerticalAlignment) -> Self {
         changing { $0.metrics.alignment = alignment }
     }
 

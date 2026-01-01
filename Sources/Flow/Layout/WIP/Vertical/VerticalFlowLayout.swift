@@ -366,12 +366,12 @@ extension VerticalFlowLayout: FlowLayout {
 
 extension VerticalFlowLayout: Changeable {
 
-    public func appearance(_ appearance: FlowLayoutAppearance) -> Self {
-        changing { $0.appearance = appearance }
-    }
-
     public func metrics(_ metrics: VerticalFlowMetrics) -> Self {
         changing { $0.metrics = metrics }
+    }
+
+    public func appearance(_ appearance: FlowLayoutAppearance) -> Self {
+        changing { $0.appearance = appearance }
     }
 
     public func scrollAnchor(_ scrollAnchor: FlowLayoutScrollAnchor) -> Self {

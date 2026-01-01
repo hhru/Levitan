@@ -1,11 +1,11 @@
 #if canImport(UIKit)
 import UIKit
 
-public typealias VerticalFlow = Flow<VerticalFlowLayout>
+public typealias HorizontalFlow = Flow<HorizontalFlowLayout>
 
-extension VerticalFlow {
+extension HorizontalFlow {
 
-    public func metrics(_ metrics: VerticalFlowMetrics) -> Self {
+    public func metrics(_ metrics: HorizontalFlowMetrics) -> Self {
         changing { $0.layout.metrics = metrics }
     }
 
@@ -17,11 +17,11 @@ extension VerticalFlow {
         changing { $0.layout.scrollAnchor = scrollAnchor }
     }
 
-    public func columns(_ columns: [FlowColumn]?) -> Self {
-        changing { $0.layout.metrics.columns = columns }
+    public func rows(_ rows: [FlowRow]?) -> Self {
+        changing { $0.layout.metrics.rows = rows }
     }
 
-    public func alignment(_ alignment: FlowHorizontalAlignment) -> Self {
+    public func alignment(_ alignment: FlowVerticalAlignment) -> Self {
         changing { $0.layout.metrics.alignment = alignment }
     }
 
