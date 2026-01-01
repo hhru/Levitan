@@ -559,7 +559,9 @@ extension FallbackComponentBodyView {
             return contentSize?.extrinsic
         }
 
-        let containerSize = context.componentContainerSize ?? UIScreen.main.bounds.size
+        let containerSize = context.componentContainerSize
+            ?? context.componentViewController?.view.bounds.size
+            ?? UIScreen.main.bounds.size
 
         let fittingWidth = proposedWidth.map { proposedWidth in
             proposedWidth.isNormal
