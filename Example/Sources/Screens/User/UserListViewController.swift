@@ -30,6 +30,7 @@ final class UserListViewController: UIViewController {
         let context = ComponentContext
             .default
             .componentViewController(self)
+            .fallbackComponentSizeCache(FallbackComponentSizeCache())
 
         let items = users.map { user in
             Cell(

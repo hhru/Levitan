@@ -50,7 +50,7 @@ extension Cell: Component {
     }
 
     func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
-        ComponentSizing(width: .fill, height: .hug)
+        ComponentSizing(width: .fill, height: .hug(forced: true))
     }
 }
 
@@ -64,7 +64,7 @@ extension Cell: Component {
         title: "Title",
         subtitle: "Subtitle",
         action: CellAction(
-            title: "Action",
+            title: "Edit",
             action: { print("Action tapped") }
         ),
         divider: CellDivider(),
