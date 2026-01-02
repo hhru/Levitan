@@ -367,10 +367,8 @@ extension FlowView: FallbackComponentView {
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
-        ComponentSizing(
-            width: .fill,
-            height: .hug(bounded: true)
-        )
+        // TODO: Вычислять размер из лэйаута
+        ComponentSizing(width: .fill, height: .hug)
     }
 
     public func update(with content: Flow<Layout>, context: ComponentContext) {

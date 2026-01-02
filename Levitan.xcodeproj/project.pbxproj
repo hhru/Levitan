@@ -1231,6 +1231,9 @@
 		C043A2BE2DCE37D700F6C58A /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; };
 		C043A2BF2DCE37D700F6C58A /* Levitan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C057F01823CB8EEB00C2D895 /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C057F00E23CB8EEB00C2D895 /* Levitan.framework */; };
+		C0C8A8E22F07B972001651F6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8E12F07B96D001651F6 /* UIView+Extensions.swift */; };
+		C0C8A8E32F07B972001651F6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8E12F07B96D001651F6 /* UIView+Extensions.swift */; };
+		C0C8A8E42F07B972001651F6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8E12F07B96D001651F6 /* UIView+Extensions.swift */; };
 		C0D2270F2DCCC26C0075DB31 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C092753A2DCAA00200BBC858 /* XCTest.framework */; platformFilter = ios; };
 		C0D227132DCCC26C0075DB31 /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C092753A2DCAA00200BBC858 /* XCTest.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C0D227282DCCD63C0075DB31 /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = C0D227252DCCD0FC0075DB31 /* Documentation.docc */; };
@@ -1750,6 +1753,7 @@
 		C0A01A6523CB9B1600AC2C3A /* Gemfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		C0C3C59E2DD5E6E90058A201 /* TestPlan-iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "TestPlan-iOS.xctestplan"; sourceTree = "<group>"; };
 		C0C3C5A02DD5E7260058A201 /* TestPlan-tvOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "TestPlan-tvOS.xctestplan"; sourceTree = "<group>"; };
+		C0C8A8E12F07B96D001651F6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		C0C9FE8B2655DECE0074D669 /* Mintfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Mintfile; sourceTree = "<group>"; };
 		C0D226F62DCC26C70075DB31 /* Package@swift-5.9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-5.9.swift"; sourceTree = "<group>"; };
 		C0D227172DCCC26C0075DB31 /* LevitanDocumentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LevitanDocumentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3274,6 +3278,7 @@
 				C02C896D2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift */,
 				C02C896E2F0266B400A2FE9F /* UILayoutPriority+Extensions.swift */,
 				C02C896F2F0266B400A2FE9F /* UIResponder+Extensions.swift */,
+				C0C8A8E12F07B96D001651F6 /* UIView+Extensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -3829,6 +3834,7 @@
 				C02C8C932F0266B400A2FE9F /* FallbackComponentBodyView.swift in Sources */,
 				C02C8C942F0266B400A2FE9F /* DifferenceOccurrence.swift in Sources */,
 				C02C8C952F0266B400A2FE9F /* DifferenceStageSections.swift in Sources */,
+				C0C8A8E32F07B972001651F6 /* UIView+Extensions.swift in Sources */,
 				C02C8C962F0266B400A2FE9F /* ResizingModeDecorator.swift in Sources */,
 				C00974C42F03ED7100BC7680 /* FlowSectionBuilder.swift in Sources */,
 				C02C8C972F0266B400A2FE9F /* SectionDifferenceChangeset.swift in Sources */,
@@ -4260,6 +4266,7 @@
 				C02C89FD2F0266B400A2FE9F /* FallbackComponentBodyView.swift in Sources */,
 				C02C89FE2F0266B400A2FE9F /* DifferenceOccurrence.swift in Sources */,
 				C02C89FF2F0266B400A2FE9F /* DifferenceStageSections.swift in Sources */,
+				C0C8A8E22F07B972001651F6 /* UIView+Extensions.swift in Sources */,
 				C02C8A002F0266B400A2FE9F /* ResizingModeDecorator.swift in Sources */,
 				C00974C62F03ED7100BC7680 /* FlowSectionBuilder.swift in Sources */,
 				C02C8A012F0266B400A2FE9F /* SectionDifferenceChangeset.swift in Sources */,
@@ -4627,6 +4634,7 @@
 				C02C8B162F0266B400A2FE9F /* TypographyLineToken.swift in Sources */,
 				C02C8B172F0266B400A2FE9F /* BackgroundGradientModifier.swift in Sources */,
 				C02C8B182F0266B400A2FE9F /* TokenTrait.swift in Sources */,
+				C0C8A8E42F07B972001651F6 /* UIView+Extensions.swift in Sources */,
 				C02C8B192F0266B400A2FE9F /* MethodSwizzler.swift in Sources */,
 				C02C8B1A2F0266B400A2FE9F /* AccentColorModifier.swift in Sources */,
 				C02C8B1B2F0266B400A2FE9F /* Set+Changeable.swift in Sources */,

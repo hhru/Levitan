@@ -45,7 +45,7 @@ extension ChatOutgoingMessage: Component {
     }
 
     func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
-        ComponentSizing(width: .fill, height: .hug)
+        ComponentSizing(width: .fill, height: .hug(forced: true))
     }
 }
 

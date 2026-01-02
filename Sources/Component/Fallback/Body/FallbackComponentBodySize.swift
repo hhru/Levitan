@@ -3,17 +3,14 @@ import CoreFoundation
 
 internal struct FallbackComponentBodySize {
 
-    internal let intrinsic: CGSize
     internal let extrinsic: CGSize
+    internal let intrinsic: CGSize
 }
 
 extension FallbackComponentBodySize {
 
     internal init(size: CGSize) {
-        self.init(
-            intrinsic: size,
-            extrinsic: size
-        )
+        self.init(extrinsic: size, intrinsic: size)
     }
 
     internal init(width: CGFloat, height: CGFloat) {

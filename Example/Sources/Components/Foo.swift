@@ -54,7 +54,7 @@ extension FooView: FallbackComponentView {
     ) -> ComponentSizing {
         ComponentSizing(
             width: .fill,
-            height: .hug(bounded: true)
+            height: .hug
         )
     }
 

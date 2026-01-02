@@ -43,9 +43,9 @@ extension ComponentFrame: ComponentModifier {
         case let (.fixed(width), .fixed(height)):
             content.frame(width: width, height: height, alignment: alignment)
 
-        case let (.fixed(width), .hug(isHeightBounded)):
+        case let (.fixed(width), .hug(isHeightForced)):
             content
-                .fixedSize(horizontal: false, vertical: !isHeightBounded)
+                .fixedSize(horizontal: false, vertical: isHeightForced)
                 .frame(width: width, alignment: alignment)
 
         case let (.fixed(width), .fill):
@@ -53,17 +53,17 @@ extension ComponentFrame: ComponentModifier {
                 .frame(maxHeight: .infinity, alignment: alignment)
                 .frame(width: width, alignment: alignment)
 
-        case let (.hug(isWidthBounded), .hug(isHeightBounded)):
-            content.fixedSize(horizontal: !isWidthBounded, vertical: !isHeightBounded)
+        case let (.hug(isWidthForced), .hug(isHeightForced)):
+            content.fixedSize(horizontal: isWidthForced, vertical: isHeightForced)
 
-        case let (.hug(isWidthBounded), .fixed(height)):
+        case let (.hug(isWidthForced), .fixed(height)):
             content
-                .fixedSize(horizontal: !isWidthBounded, vertical: false)
+                .fixedSize(horizontal: isWidthForced, vertical: false)
                 .frame(height: height, alignment: alignment)
 
-        case let (.hug(isWidthBounded), .fill):
+        case let (.hug(isWidthForced), .fill):
             content
-                .fixedSize(horizontal: !isWidthBounded, vertical: false)
+                .fixedSize(horizontal: isWidthForced, vertical: false)
                 .frame(maxHeight: .infinity, alignment: alignment)
 
         case (.fill, .fill):
@@ -74,9 +74,9 @@ extension ComponentFrame: ComponentModifier {
                 .frame(maxWidth: .infinity, alignment: alignment)
                 .frame(height: height, alignment: alignment)
 
-        case let (.fill, .hug(isHeightBounded)):
+        case let (.fill, .hug(isHeightForced)):
             content
-                .fixedSize(horizontal: false, vertical: !isHeightBounded)
+                .fixedSize(horizontal: false, vertical: isHeightForced)
                 .frame(maxWidth: .infinity, alignment: alignment)
         }
     }
@@ -121,8 +121,8 @@ extension View {
     /// - SeeAlso: ``ComponentSizing``
     /// - SeeAlso: ``ComponentSizingStrategy``
     public nonisolated func frame(
-        width: ComponentSizingStrategy = .hug(bounded: true),
-        height: ComponentSizingStrategy = .hug(bounded: true),
+        width: ComponentSizingStrategy = .hug,
+        height: ComponentSizingStrategy = .hug,
         alignment: Alignment = .topLeading
     ) -> ModifiedContent<Self, ComponentFrame> {
         frame(

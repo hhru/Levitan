@@ -288,21 +288,28 @@ extension TextView: FallbackManualComponentView {
         fitting size: CGSize,
         context: ComponentContext
     ) -> CGSize {
-        let size = CGSize(
-            width: size.width,
-            height: .greatestFiniteMagnitude
-        )
+        let maxWidth = size.width.isZero
+            ? 2.0
+            : size.width
+
+        let maxHeight = maxWidth.isNormal
+            ? .infinity
+            : size.height.nonZero ?? .infinity
+
+        let maxSize = CGSize(width: maxWidth, height: maxHeight)
 
         let attributedText = attributedText(
             for: content,
             context: context
         )
 
-        return attributedText.size(
-            fitting: size,
+        let textSize = attributedText.size(
+            fitting: maxSize,
             lineLimit: content.lineLimit,
             lineBreakMode: content.lineBreakMode
         )
+
+        return textSize
     }
 
     public func update(with content: Text, context: ComponentContext) {

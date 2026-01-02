@@ -16,7 +16,7 @@ struct Bar: Component {
     func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
         ComponentSizing(
             width: .fill,
-            height: .hug(bounded: true)
+            height: .hug
         )
     }
 }

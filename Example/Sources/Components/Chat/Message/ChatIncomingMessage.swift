@@ -15,7 +15,7 @@ struct ChatIncomingMessage: Equatable, Sendable {
     private var isPressed = false
 }
 
-extension ChatIncomingMessage: View {
+extension ChatIncomingMessage: Component {
 
     var body: some View {
         HStack(spacing: .zero) {
@@ -42,6 +42,10 @@ extension ChatIncomingMessage: View {
 
             Spacer(minLength: 32.0)
         }
+    }
+
+    func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
+        ComponentSizing(width: .fill, height: .hug(forced: true))
     }
 }
 

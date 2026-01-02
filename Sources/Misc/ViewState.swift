@@ -24,14 +24,8 @@ import SwiftUI
 ///         TextField("Text", text: $text)
 ///     }
 ///
-///     func sizing(
-///         fitting size: CGSize,
-///         context: ComponentContext
-///     ) -> ComponentSizing {
-///         ComponentSizing(
-///             width: .fill,
-///             height: .hug
-///         )
+///     func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
+///         ComponentSizing(width: .fill, height: .hug)
 ///     }
 /// }
 /// ```

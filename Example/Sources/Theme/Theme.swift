@@ -27,4 +27,3 @@ final class Theme: TokenThemeBody, Sendable {
         self.animations = animations
     }
 }
-

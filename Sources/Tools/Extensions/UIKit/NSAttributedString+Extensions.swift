@@ -14,7 +14,7 @@ extension NSAttributedString {
             return .zero
         }
 
-        guard size.width > .leastNonzeroMagnitude, size.height > .leastNonzeroMagnitude else {
+        guard size.width >= .zero, size.height >= .zero else {
             return .zero
         }
 

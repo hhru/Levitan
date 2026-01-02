@@ -101,68 +101,43 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         fixedWidth: CGFloat,
         fixedHeight: CGFloat
     ) -> FallbackComponentBodySize {
-        FallbackComponentBodySize(
-            width: fixedWidth,
-            height: fixedHeight
+        let size = contentView.sizeWithFixedWidthAndFixedHeight(
+            fixedWidth: fixedWidth,
+            fixedHeight: fixedHeight
         )
+
+        return FallbackComponentBodySize(size: size)
     }
 
     private func sizeWithFixedWidthAndHuggingHeight(
         fixedWidth: CGFloat,
         proposedHeight: CGFloat?
     ) -> FallbackComponentBodySize {
-        let targetSize = CGSize(
-            width: fixedWidth,
-            height: UIView.layoutFittingCompressedSize.height
+        let size = contentView.sizeWithFixedWidthAndHuggingHeight(
+            fixedWidth: fixedWidth,
+            proposedHeight: proposedHeight
         )
 
-        let systemLayoutSize = contentView.systemLayoutSizeFitting(
-            targetSize,
-            withHorizontalFittingPriority: .almostRequired,
-            verticalFittingPriority: .fittingSizeLevel
-        )
-
-        let height = proposedHeight?.nonZero.map { proposedHeight in
-            min(systemLayoutSize.height, proposedHeight)
-        } ?? systemLayoutSize.height
-
-        return FallbackComponentBodySize(
-            width: fixedWidth,
-            height: height
-        )
+        return FallbackComponentBodySize(size: size)
     }
 
     private func sizeWithFixedWidthAndFillingHeight(
         fixedWidth: CGFloat,
         proposedHeight: CGFloat?
     ) -> FallbackComponentBodySize {
+        let extrinsicSize = contentView.sizeWithFixedWidthAndFillingHeight(
+            fixedWidth: fixedWidth,
+            proposedHeight: proposedHeight
+        )
+
         let intrinsicSize = CGSize(
             width: fixedWidth,
             height: UIView.noIntrinsicMetric
         )
 
-        let extrinsicSize: CGSize
-
-        switch proposedHeight?.nonZero {
-        case nil:
-            let targetSize = CGSize(
-                width: fixedWidth,
-                height: UIView.layoutFittingCompressedSize.height
-            )
-
-            extrinsicSize = contentView.systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .almostRequired,
-                verticalFittingPriority: .fittingSizeLevel
-            )
-
-        case let height?:
-            extrinsicSize = CGSize(width: fixedWidth, height: height)
-        }
-
         return FallbackComponentBodySize(
-            intrinsic: intrinsicSize,
-            extrinsic: extrinsicSize
+            extrinsic: extrinsicSize,
+            intrinsic: intrinsicSize
         )
     }
 
@@ -170,47 +145,10 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         proposedWidth: CGFloat?,
         proposedHeight: CGFloat?
     ) -> FallbackComponentBodySize {
-        var size = contentView.systemLayoutSizeFitting(
-            UIView.layoutFittingCompressedSize,
-            withHorizontalFittingPriority: .fittingSizeLevel,
-            verticalFittingPriority: .fittingSizeLevel
+        let size = contentView.sizeWithHuggingWidthAndHuggingHeight(
+            proposedWidth: proposedWidth,
+            proposedHeight: proposedHeight
         )
-
-        if let proposedWidth = proposedWidth?.nonZero, proposedWidth < size.width {
-            let targetSize = CGSize(
-                width: proposedWidth,
-                height: UIView.layoutFittingCompressedSize.height
-            )
-
-            let systemLayoutSize = contentView.systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .almostRequired,
-                verticalFittingPriority: .fittingSizeLevel
-            )
-
-            let height = proposedHeight?.nonZero.map { proposedHeight in
-                min(systemLayoutSize.height, proposedHeight)
-            } ?? systemLayoutSize.height
-
-            size = CGSize(width: proposedWidth, height: height)
-        } else if let proposedHeight = proposedHeight?.nonZero, proposedHeight < size.height {
-            let targetSize = CGSize(
-                width: UIView.layoutFittingCompressedSize.width,
-                height: proposedHeight
-            )
-
-            let systemLayoutSize = contentView.systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .fittingSizeLevel,
-                verticalFittingPriority: .almostRequired
-            )
-
-            let width = proposedWidth?.nonZero.map { proposedWidth in
-                min(systemLayoutSize.width, proposedWidth)
-            } ?? systemLayoutSize.width
-
-            size = CGSize(width: width, height: proposedHeight)
-        }
 
         return FallbackComponentBodySize(size: size)
     }
@@ -219,73 +157,22 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         proposedWidth: CGFloat?,
         fixedHeight: CGFloat
     ) -> FallbackComponentBodySize {
-        let targetSize = CGSize(
-            width: UIView.layoutFittingCompressedSize.width,
-            height: fixedHeight
+        let size = contentView.sizeWithHuggingWidthAndFixedHeight(
+            proposedWidth: proposedWidth,
+            fixedHeight: fixedHeight
         )
 
-        let systemLayoutSize = contentView.systemLayoutSizeFitting(
-            targetSize,
-            withHorizontalFittingPriority: .fittingSizeLevel,
-            verticalFittingPriority: .almostRequired
-        )
-
-        let width = proposedWidth?.nonZero.map { proposedWidth in
-            min(systemLayoutSize.width, proposedWidth)
-        } ?? systemLayoutSize.width
-
-        return FallbackComponentBodySize(
-            width: width,
-            height: fixedHeight
-        )
+        return FallbackComponentBodySize(size: size)
     }
 
     private func sizeWithHuggingWidthAndFillingHeight(
         proposedWidth: CGFloat?,
         proposedHeight: CGFloat?
     ) -> FallbackComponentBodySize {
-        let targetHeight = proposedHeight?.nonZero.map { proposedHeight in
-            proposedHeight.isInfinite
-                ? UIView.layoutFittingExpandedSize.height
-                : proposedHeight
-        } ?? UIView.layoutFittingCompressedSize.height
-
-        let targetSize = CGSize(
-            width: UIView.layoutFittingCompressedSize.width,
-            height: targetHeight
+        let extrinsicSize = contentView.sizeWithHuggingWidthAndFillingHeight(
+            proposedWidth: proposedWidth,
+            proposedHeight: proposedHeight
         )
-
-        let systemLayoutSize = contentView.systemLayoutSizeFitting(
-            targetSize,
-            withHorizontalFittingPriority: .fittingSizeLevel,
-            verticalFittingPriority: proposedHeight?.isNormal == true
-                ? .almostRequired
-                : .fittingSizeLevel
-        )
-
-        let extrinsicSize: CGSize
-
-        if let proposedWidth = proposedWidth?.nonZero, proposedWidth < systemLayoutSize.width {
-            if let proposedHeight = proposedHeight?.nonZero {
-                extrinsicSize = CGSize(width: proposedWidth, height: proposedHeight)
-            } else {
-                let systemLayoutSize = contentView.systemLayoutSizeFitting(
-                    CGSize(width: proposedWidth, height: targetHeight),
-                    withHorizontalFittingPriority: .almostRequired,
-                    verticalFittingPriority: .fittingSizeLevel
-                )
-
-                extrinsicSize = CGSize(
-                    width: proposedWidth,
-                    height: systemLayoutSize.height
-                )
-            }
-        } else {
-            extrinsicSize = CGSize(
-                width: systemLayoutSize.width,
-                height: proposedHeight?.nonZero ?? systemLayoutSize.height
-            )
-        }
 
         let intrinsicSize = CGSize(
             width: extrinsicSize.width,
@@ -293,8 +180,8 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         )
 
         return FallbackComponentBodySize(
-            intrinsic: intrinsicSize,
-            extrinsic: extrinsicSize
+            extrinsic: extrinsicSize,
+            intrinsic: intrinsicSize
         )
     }
 
@@ -302,62 +189,19 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         proposedWidth: CGFloat?,
         proposedHeight: CGFloat?
     ) -> FallbackComponentBodySize {
+        let extrinsicSize = contentView.sizeWithFillingWidthAndFillingHeight(
+            proposedWidth: proposedWidth,
+            proposedHeight: proposedHeight
+        )
+
         let intrinsicSize = CGSize(
             width: UIView.noIntrinsicMetric,
             height: UIView.noIntrinsicMetric
         )
 
-        let extrinsicSize: CGSize
-
-        switch (proposedWidth?.nonZero, proposedHeight?.nonZero) {
-        case (nil, nil):
-            extrinsicSize = contentView.systemLayoutSizeFitting(
-                UIView.layoutFittingCompressedSize,
-                withHorizontalFittingPriority: .fittingSizeLevel,
-                verticalFittingPriority: .fittingSizeLevel
-            )
-
-        case let (width?, nil):
-            let targetSize = CGSize(
-                width: width,
-                height: UIView.layoutFittingCompressedSize.height
-            )
-
-            let systemLayoutSize = contentView.systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .almostRequired,
-                verticalFittingPriority: .fittingSizeLevel
-            )
-
-            extrinsicSize = CGSize(
-                width: width,
-                height: systemLayoutSize.height
-            )
-
-        case let (nil, height?):
-            let targetSize = CGSize(
-                width: UIView.layoutFittingCompressedSize.width,
-                height: height
-            )
-
-            let systemLayoutSize = contentView.systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .fittingSizeLevel,
-                verticalFittingPriority: .almostRequired
-            )
-
-            extrinsicSize = CGSize(
-                width: systemLayoutSize.width,
-                height: height
-            )
-
-        case let (width?, height?):
-            extrinsicSize = CGSize(width: width, height: height)
-        }
-
         return FallbackComponentBodySize(
-            intrinsic: intrinsicSize,
-            extrinsic: extrinsicSize
+            extrinsic: extrinsicSize,
+            intrinsic: intrinsicSize
         )
     }
 
@@ -365,33 +209,19 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         proposedWidth: CGFloat?,
         fixedHeight: CGFloat
     ) -> FallbackComponentBodySize {
+        let extrinsicSize = contentView.sizeWithFillingWidthAndFixedHeight(
+            proposedWidth: proposedWidth,
+            fixedHeight: fixedHeight
+        )
+
         let intrinsicSize = CGSize(
             width: UIView.noIntrinsicMetric,
             height: fixedHeight
         )
 
-        let extrinsicSize: CGSize
-
-        switch proposedWidth?.nonZero {
-        case nil:
-            let targetSize = CGSize(
-                width: UIView.layoutFittingCompressedSize.width,
-                height: fixedHeight
-            )
-
-            extrinsicSize = contentView.systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .fittingSizeLevel,
-                verticalFittingPriority: .almostRequired
-            )
-
-        case let width?:
-            extrinsicSize = CGSize(width: width, height: fixedHeight)
-        }
-
         return FallbackComponentBodySize(
-            intrinsic: intrinsicSize,
-            extrinsic: extrinsicSize
+            extrinsic: extrinsicSize,
+            intrinsic: intrinsicSize
         )
     }
 
@@ -399,48 +229,10 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         proposedWidth: CGFloat?,
         proposedHeight: CGFloat?
     ) -> FallbackComponentBodySize {
-        let targetWidth = proposedWidth?.nonZero.map { proposedWidth in
-            proposedWidth.isInfinite
-                ? UIView.layoutFittingExpandedSize.width
-                : proposedWidth
-        } ?? UIView.layoutFittingCompressedSize.width
-
-        let targetSize = CGSize(
-            width: targetWidth,
-            height: UIView.layoutFittingCompressedSize.height
+        let extrinsicSize = contentView.sizeWithFillingWidthAndHuggingHeight(
+            proposedWidth: proposedWidth,
+            proposedHeight: proposedHeight
         )
-
-        let systemLayoutSize = contentView.systemLayoutSizeFitting(
-            targetSize,
-            withHorizontalFittingPriority: proposedWidth?.isNormal == true
-                ? .almostRequired
-                : .fittingSizeLevel,
-            verticalFittingPriority: .fittingSizeLevel
-        )
-
-        let extrinsicSize: CGSize
-
-        if let proposedHeight = proposedHeight?.nonZero, proposedHeight < systemLayoutSize.height {
-            if let proposedWidth = proposedWidth?.nonZero {
-                extrinsicSize = CGSize(width: proposedWidth, height: proposedHeight)
-            } else {
-                let systemLayoutSize = contentView.systemLayoutSizeFitting(
-                    CGSize(width: targetWidth, height: proposedHeight),
-                    withHorizontalFittingPriority: .fittingSizeLevel,
-                    verticalFittingPriority: .almostRequired
-                )
-
-                extrinsicSize = CGSize(
-                    width: systemLayoutSize.width,
-                    height: proposedHeight
-                )
-            }
-        } else {
-            extrinsicSize = CGSize(
-                width: proposedWidth?.nonZero ?? systemLayoutSize.width,
-                height: systemLayoutSize.height
-            )
-        }
 
         let intrinsicSize = CGSize(
             width: UIView.noIntrinsicMetric,
@@ -448,8 +240,8 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         )
 
         return FallbackComponentBodySize(
-            intrinsic: intrinsicSize,
-            extrinsic: extrinsicSize
+            extrinsic: extrinsicSize,
+            intrinsic: intrinsicSize
         )
     }
 
@@ -465,10 +257,10 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
                 fixedHeight: fixedHeight
             )
 
-        case let (.fixed(fixedWidth), .hug(isHeightBounded)):
+        case let (.fixed(fixedWidth), .hug(isHeightForced)):
             sizeWithFixedWidthAndHuggingHeight(
                 fixedWidth: fixedWidth,
-                proposedHeight: isHeightBounded ? proposedHeight : nil
+                proposedHeight: isHeightForced ? nil : proposedHeight
             )
 
         case let (.fixed(fixedWidth), .fill):
@@ -477,21 +269,21 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
                 proposedHeight: proposedHeight
             )
 
-        case let (.hug(isWidthBounded), .hug(isHeightBounded)):
+        case let (.hug(isWidthForced), .hug(isHeightForced)):
             sizeWithHuggingWidthAndHuggingHeight(
-                proposedWidth: isWidthBounded ? proposedWidth : nil,
-                proposedHeight: isHeightBounded ? proposedHeight : nil
+                proposedWidth: isWidthForced ? nil : proposedWidth,
+                proposedHeight: isHeightForced ? nil : proposedHeight
             )
 
-        case let (.hug(isWidthBounded), .fixed(fixedHeight)):
+        case let (.hug(isWidthForced), .fixed(fixedHeight)):
             sizeWithHuggingWidthAndFixedHeight(
-                proposedWidth: isWidthBounded ? proposedWidth : nil,
+                proposedWidth: isWidthForced ? nil : proposedWidth,
                 fixedHeight: fixedHeight
             )
 
-        case let (.hug(isWidthBounded), .fill):
+        case let (.hug(isWidthForced), .fill):
             sizeWithHuggingWidthAndFillingHeight(
-                proposedWidth: isWidthBounded ? proposedWidth : nil,
+                proposedWidth: isWidthForced ? nil : proposedWidth,
                 proposedHeight: proposedHeight
             )
 
@@ -507,10 +299,10 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
                 fixedHeight: fixedHeight
             )
 
-        case let (.fill, .hug(isHeightBounded)):
+        case let (.fill, .hug(isHeightForced)):
             sizeWithFillingWidthAndHuggingHeight(
                 proposedWidth: proposedWidth,
-                proposedHeight: isHeightBounded ? proposedHeight : nil
+                proposedHeight: isHeightForced ? nil : proposedHeight
             )
         }
     }
@@ -563,21 +355,9 @@ extension FallbackComponentBodyView {
             ?? context.componentViewController?.view.bounds.size
             ?? UIScreen.main.bounds.size
 
-        let fittingWidth = proposedWidth.map { proposedWidth in
-            proposedWidth.isNormal
-                ? proposedWidth
-                : containerSize.width
-        } ?? containerSize.width
-
-        let fittingHeight = proposedHeight.map { proposedHeight in
-            proposedHeight.isNormal
-                ? proposedHeight
-                : containerSize.height
-        } ?? containerSize.height
-
         let fittingSize = CGSize(
-            width: fittingWidth,
-            height: fittingHeight
+            width: proposedWidth ?? containerSize.width,
+            height: proposedHeight ?? containerSize.height
         )
 
         let size = size(

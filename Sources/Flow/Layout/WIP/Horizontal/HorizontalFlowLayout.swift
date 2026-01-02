@@ -32,7 +32,7 @@ extension HorizontalFlowLayout: FlowLayout {
         context: FlowLayoutContext
     ) -> Bool {
         // TODO: реализовать по аналогии с VerticalFlowLayout
-        return true
+        true
     }
 }
 
