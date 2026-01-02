@@ -136,7 +136,7 @@ public final class ComponentContext {
     }
 
     internal func resolveValue<Value>(at keyPath: KeyPath<EnvironmentValues, Value>) -> Value {
-        if let value = values[keyPath]?.value as? Value {
+        if let value = values[keyPath].flatMap({ $0.value as? Value }) {
             return value
         }
 
