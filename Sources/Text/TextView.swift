@@ -281,7 +281,24 @@ public final class TextView: UILabel {
     }
 }
 
-extension TextView: FallbackManualComponentView {
+extension TextView: FallbackComponentView {
+
+    public nonisolated static func sizing(
+        for content: Text,
+        fitting size: CGSize,
+        context: ComponentContext
+    ) -> ComponentSizing {
+        let size = Self.size(
+            for: content,
+            fitting: size,
+            context: context
+        )
+
+        return ComponentSizing(
+            width: .fixed(size.width),
+            height: .fixed(size.height)
+        )
+    }
 
     public nonisolated static func size(
         for content: Text,

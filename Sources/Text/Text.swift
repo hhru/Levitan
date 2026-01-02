@@ -100,7 +100,7 @@ extension Text: ExpressibleByStringInterpolation {
     }
 }
 
-extension Text: FallbackManualComponent {
+extension Text: FallbackComponent {
 
     public typealias UIView = TextView
 }
@@ -155,7 +155,17 @@ extension Text {
         )
     }
 
-    @MainActor
+    public func size(
+        fitting size: CGSize,
+        context: ComponentContext
+    ) -> CGSize {
+        UIView.size(
+            for: self,
+            fitting: size,
+            context: context
+        )
+    }
+
     public func width(
         fitting height: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext
@@ -168,7 +178,6 @@ extension Text {
         return size.width
     }
 
-    @MainActor
     public func height(
         fitting width: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext

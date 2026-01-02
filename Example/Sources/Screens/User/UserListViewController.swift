@@ -64,11 +64,9 @@ final class UserListViewController: UIViewController {
     }
 
     private func onUserActionTap() {
-
     }
 
     private func onUserTap() {
-
     }
 
     override func viewDidLoad() {
