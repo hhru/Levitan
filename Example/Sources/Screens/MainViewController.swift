@@ -4,6 +4,103 @@ import Levitan
 
 // swiftlint:disable all
 
+struct Bar: Component {
+
+    let title: String
+    let color: Color
+
+    var body: some SwiftUI.View {
+        Text(title)
+            .font(.title)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(color)
+    }
+
+    func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
+        ComponentSizing(
+            width: .fill,
+            height: .hug
+        )
+    }
+}
+
+struct Foo: FallbackComponent {
+
+    typealias UIView = FooView
+
+    let title: String
+    let color: UIColor
+}
+
+final class FooView: UIView {
+
+    private let label = UILabel()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        tokens.stroke = .inside(width: 1.0, color: 0x000000FF)
+
+        setupLabel()
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setupLabel() {
+        addSubview(label)
+
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            label.leadingAnchor.constraint(equalTo: leadingAnchor),
+            label.topAnchor.constraint(equalTo: topAnchor),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+}
+
+extension FooView: FallbackComponentView {
+
+    static func sizing(
+        for content: Foo,
+        fitting size: CGSize,
+        context: ComponentContext
+    ) -> ComponentSizing {
+        ComponentSizing(
+            width: .fill,
+            height: .hug
+        )
+    }
+
+    func update(with content: Foo, context: ComponentContext) {
+        label.attributedText = NSAttributedString(
+            string: content.title,
+            attributes: [.font: UIFont.preferredFont(forTextStyle: .title1)]
+        )
+
+        backgroundColor = content.color
+    }
+}
+
+
+extension Token where Value == ThemeTypographies {
+
+    subscript(dynamicMember relativePath: KeyPath<Value, TypographyToken> & Sendable) -> TypographyToken {
+        Token<TypographyValue>(trait: relativePath) { theme in
+            resolve(for: theme)[keyPath: relativePath]
+                .resolve(for: theme)
+                .fontScale(FontScaleValue(textStyle: .title2))
+        }
+    }
+}
+
 class MainViewController: UIViewController {
 
     let flowView = VerticalFlow.UIView()

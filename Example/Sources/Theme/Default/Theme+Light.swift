@@ -16,6 +16,10 @@ extension Theme {
                 accent: 0x0070FFFF,
                 contrast: 0xFFFFFFFF
             ),
+            tag: ThemeColors.Tag(
+                label: 0x000000FF,
+                background: 0xF1F4F9FF
+            ),
             chat: ThemeColors.Chat(
                 incomingMessage: 0xF8F8F8FF,
                 outgoingMessage: 0x0070FFFF

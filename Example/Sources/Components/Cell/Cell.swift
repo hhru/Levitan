@@ -7,7 +7,7 @@ struct Cell: Equatable, Sendable {
     let title: String
     let subtitle: String
     let action: CellAction?
-    let divider: CellDivider?
+    let divider: Bool
 
     @ViewAction
     var tapAction: (@MainActor () -> Void)?
@@ -35,11 +35,13 @@ extension Cell: Component {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                    action?.layoutPriority(1)
+                    action?.layoutPriority(1.0)
                 }
                 .padding([.vertical, .trailing], 16.0)
 
-                divider
+                if divider {
+                    CellDivider()
+                }
             }
             .padding(.leading, 16)
         }
@@ -69,7 +71,7 @@ extension Cell: Component {
             title: "Edit",
             action: { print("Action tapped") }
         ),
-        divider: CellDivider(),
+        divider: true,
         tapAction: { print("Tapped") }
     )
 }

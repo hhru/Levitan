@@ -21,7 +21,7 @@ extension ChatOutgoingMessage: Component {
         HStack(spacing: .zero) {
             Spacer(minLength: 32.0)
 
-            ChatMessage(
+            ChatMessageContent(
                 text: text,
                 textColor: Colors.text.contrast,
                 time: time,
@@ -51,7 +51,10 @@ extension ChatOutgoingMessage: Component {
 
 #Preview {
     ChatOutgoingMessage(
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nPhasellus id varius sem, at aliquam metus.",
+        text: """
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+            Phasellus id varius sem, at aliquam metus.
+            """,
         time: Date(),
         isLast: true,
         tapAction: { print("Tapped") }

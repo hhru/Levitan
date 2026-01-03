@@ -1,7 +1,7 @@
 import Levitan
 import SwiftUI
 
-struct ChatMessage: Equatable, Sendable {
+struct ChatMessageContent: Equatable, Sendable {
 
     let text: String
     let textColor: ColorToken
@@ -10,7 +10,7 @@ struct ChatMessage: Equatable, Sendable {
     let timeColor: ColorToken
 }
 
-extension ChatMessage: View {
+extension ChatMessageContent: View {
 
     var body: some View {
         VStack(alignment: .trailing, spacing: 2.0) {
@@ -28,8 +28,11 @@ extension ChatMessage: View {
 }
 
 #Preview {
-    ChatMessage(
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id varius sem, at aliquam metus.",
+    ChatMessageContent(
+        text: """
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+            Phasellus id varius sem, at aliquam metus.
+            """,
         textColor: Colors.text.contrast,
         time: Date(),
         timeColor: Colors.text.contrast

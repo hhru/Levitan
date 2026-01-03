@@ -19,7 +19,7 @@ extension ChatIncomingMessage: Component {
 
     var body: some View {
         HStack(spacing: .zero) {
-            ChatMessage(
+            ChatMessageContent(
                 text: text,
                 textColor: Colors.text.primary,
                 time: time,
@@ -51,7 +51,10 @@ extension ChatIncomingMessage: Component {
 
 #Preview {
     ChatIncomingMessage(
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id varius sem, at aliquam metus.",
+        text: """
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+            Phasellus id varius sem, at aliquam metus.
+            """,
         time: Date(),
         isLast: true,
         tapAction: { print("Tapped") }

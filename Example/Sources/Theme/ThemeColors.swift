@@ -15,6 +15,7 @@ struct ThemeColors: Sendable {
     }
 
     struct Text: Sendable {
+
         /// Ligth: #000000
         /// Dark: #FFFFFF
         let primary: ColorValue
@@ -36,7 +37,19 @@ struct ThemeColors: Sendable {
         let contrast: ColorValue
     }
 
+    struct Tag: Sendable {
+
+        /// Ligth: #000000
+        /// Dark: #FFFFFF
+        let label: ColorValue
+
+        /// Ligth: #F1F4F9
+        /// Dark: #303030
+        let background: ColorValue
+    }
+
     struct Chat: Sendable {
+
         /// Ligth: #F8F8F8
         /// Dark: #262626
         let incomingMessage: ColorValue
@@ -48,6 +61,7 @@ struct ThemeColors: Sendable {
 
     let background: Background
     let text: Text
+    let tag: Tag
     let chat: Chat
 
     /// Ligth: #DCE3EB
