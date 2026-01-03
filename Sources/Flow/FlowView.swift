@@ -35,14 +35,14 @@ public final class FlowView<Layout: FlowLayout>: UIView {
         set { collectionView.contentInsetAdjustmentBehavior = newValue }
     }
 
-    public var contentOffset: CGPoint {
-        get { collectionView.contentOffset }
-        set { collectionView.contentOffset = newValue }
-    }
-
     public var contentInsets: UIEdgeInsets {
         get { collectionView.contentInset }
         set { updateContentInsets(with: newValue) }
+    }
+
+    public var contentOffset: CGPoint {
+        get { collectionView.contentOffset }
+        set { collectionView.contentOffset = newValue }
     }
 
     public var contentSize: CGSize {

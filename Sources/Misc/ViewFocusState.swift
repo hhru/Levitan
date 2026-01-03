@@ -2,7 +2,6 @@
 import SwiftUI
 
 // TODO: Добавить документацию
-@available(iOS 15.0, tvOS 15.0, *)
 @propertyWrapper
 public struct ViewFocusState<Value: Hashable>: DynamicProperty {
 
@@ -31,7 +30,6 @@ public struct ViewFocusState<Value: Hashable>: DynamicProperty {
     }
 }
 
-@available(iOS 15.0, tvOS 15.0, *)
 extension ViewFocusState: Equatable where Value: Equatable {
 
     public static func == (lhs: Self, rhs: Self) -> Bool {
@@ -39,7 +37,6 @@ extension ViewFocusState: Equatable where Value: Equatable {
     }
 }
 
-@available(iOS 15.0, tvOS 15.0, *)
 extension ViewFocusState: Hashable where Value: Hashable {
 
     public func hash(into hasher: inout Hasher) { }
