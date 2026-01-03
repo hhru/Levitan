@@ -1,6 +1,9 @@
 import SwiftUI
 
-internal struct ClipShapeModifier<Content: View>: TokenShapedModifier {
+internal struct ClipShapeModifier<Content: View>:
+    TokenShapedModifier,
+    Equatable,
+    Sendable {
 
     internal let shape: ShapeToken?
 

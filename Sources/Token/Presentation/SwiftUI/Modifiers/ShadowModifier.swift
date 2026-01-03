@@ -1,7 +1,10 @@
 #if canImport(UIKit)
 import SwiftUI
 
-internal struct ShadowModifier<Content: View>: TokenShapedModifier {
+internal struct ShadowModifier<Content: View>:
+    TokenShapedModifier,
+    Equatable,
+    Sendable {
 
     internal let shadow: ShadowToken?
 

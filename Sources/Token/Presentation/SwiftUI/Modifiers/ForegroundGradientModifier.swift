@@ -1,7 +1,9 @@
 import SwiftUI
 
-@available(iOS 15.0, tvOS 15.0, *)
-internal struct ForegroundGradientModifier<Content: View>: TokenViewModifier {
+internal struct ForegroundGradientModifier<Content: View>:
+    TokenViewModifier,
+    Equatable,
+    Sendable {
 
     internal let gradient: GradientToken?
 
@@ -17,7 +19,6 @@ internal struct ForegroundGradientModifier<Content: View>: TokenViewModifier {
 
 extension View {
 
-    @available(iOS 15.0, tvOS 15.0, *)
     public nonisolated func foregroundGradient(_ gradient: GradientToken?) -> some View {
         modifier(ForegroundGradientModifier(gradient: gradient))
     }

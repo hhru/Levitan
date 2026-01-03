@@ -1,6 +1,9 @@
 import SwiftUI
 
-internal struct OpacityModifier<Content: View>: TokenViewModifier {
+internal struct OpacityModifier<Content: View>:
+    TokenViewModifier,
+    Equatable,
+    Sendable {
 
     internal let opacity: OpacityToken?
 

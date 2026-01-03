@@ -1,6 +1,9 @@
 import SwiftUI
 
-internal struct ScaleEffectModifier<Content: View>: TokenViewModifier {
+internal struct ScaleEffectModifier<Content: View>:
+    TokenViewModifier,
+    Equatable,
+    Sendable {
 
     internal let scaling: ScalingToken?
     internal let anchor: UnitPoint

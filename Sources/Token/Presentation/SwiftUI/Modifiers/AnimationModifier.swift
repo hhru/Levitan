@@ -1,6 +1,8 @@
 import SwiftUI
 
-internal struct AnimationModifier<Content: View, Value: Equatable>: TokenViewModifier {
+internal struct AnimationModifier<Content: View, Value: Equatable>:
+    TokenViewModifier,
+    Equatable {
 
     internal let animation: AnimationToken?
     internal let value: Value
@@ -12,6 +14,8 @@ internal struct AnimationModifier<Content: View, Value: Equatable>: TokenViewMod
         )
     }
 }
+
+extension AnimationModifier: Sendable where Value: Sendable { }
 
 extension View {
 

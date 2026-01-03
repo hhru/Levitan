@@ -1,6 +1,9 @@
 import SwiftUI
 
-internal struct BackgroundGradientModifier<Content: View>: TokenViewModifier {
+internal struct BackgroundGradientModifier<Content: View>:
+    TokenViewModifier,
+    Equatable,
+    Sendable {
 
     internal let gradient: GradientToken?
 

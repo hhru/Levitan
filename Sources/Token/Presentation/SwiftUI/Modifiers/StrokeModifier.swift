@@ -1,7 +1,10 @@
 #if canImport(UIKit)
 import SwiftUI
 
-internal struct StrokeModifier<Content: View>: TokenShapedModifier {
+internal struct StrokeModifier<Content: View>:
+    TokenShapedModifier,
+    Equatable,
+    Sendable {
 
     internal let stroke: StrokeToken?
     internal let shape: ShapeToken?

@@ -17,7 +17,7 @@ internal struct TransitionSpringModifier<Content: View>: TokenViewModifier {
 
 extension View {
 
-    public func transitionSpring(
+    public nonisolated func transitionSpring(
         _ transition: AnyTransition,
         animation: SpringAnimationToken?
     ) -> some View {

@@ -1,6 +1,9 @@
 import SwiftUI
 
-internal struct PaddingModifier<Content: View>: TokenViewModifier {
+internal struct PaddingModifier<Content: View>:
+    TokenViewModifier,
+    Equatable,
+    Sendable {
 
     internal let insets: InsetsToken?
 
@@ -18,6 +21,26 @@ extension View {
 
     public nonisolated func padding(_ insets: InsetsToken?) -> some View {
         modifier(PaddingModifier(insets: insets))
+    }
+
+    public nonisolated func padding(
+        top: SpacingToken = .zero,
+        leading: SpacingToken = .zero,
+        bottom: SpacingToken = .zero,
+        trailing: SpacingToken = .zero
+    ) -> some View {
+        padding(
+            InsetsToken(
+                top: top,
+                leading: leading,
+                bottom: bottom,
+                trailing: trailing
+            )
+        )
+    }
+
+    public nonisolated func padding(_ edge: InsetsEdge, _ value: SpacingToken) -> some View {
+        padding(InsetsToken(edge, value))
     }
 
     public nonisolated func padding(all spacing: SpacingToken?) -> some View {

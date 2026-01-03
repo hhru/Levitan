@@ -1,6 +1,9 @@
 import SwiftUI
 
-internal struct BackgroundColorModifier<Content: View>: TokenViewModifier {
+internal struct BackgroundColorModifier<Content: View>:
+    TokenViewModifier,
+    Equatable,
+    Sendable {
 
     internal let color: ColorToken?
 
