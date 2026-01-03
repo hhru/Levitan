@@ -10,8 +10,10 @@ internal struct ClipShapeModifier<Content: View>:
     internal var shapeInsets: SpacingToken? {
         nil
     }
+}
 
-    @ViewBuilder
+extension ClipShapeModifier: TokenViewModifier {
+
     internal func body(content: Content, theme: TokenTheme) -> some View {
         if let shape = shape?.resolve(for: theme) {
             content.clipShape(shape)
@@ -23,18 +25,18 @@ internal struct ClipShapeModifier<Content: View>:
 
 extension View {
 
-    public nonisolated func clipShape(_ shape: ShapeToken?) -> some TokenShapedView {
+    public nonisolated func clipShape(_ shape: ShapeToken?) -> some View & TokenShapedView {
         modifier(ClipShapeModifier(shape: shape))
     }
 
-    public nonisolated func corners(_ corners: CornersToken?) -> some TokenShapedView {
+    public nonisolated func corners(_ corners: CornersToken?) -> some View & TokenShapedView {
         clipShape(corners.map { .rectangle(corners: $0) })
     }
 
     public nonisolated func corners(
         radius: CornerRadiusToken?,
         mask: CornersMask = .all
-    ) -> some TokenShapedView {
+    ) -> some View & TokenShapedView {
         corners(radius.map { CornersToken(radius: $0, mask: mask) })
     }
 }

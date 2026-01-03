@@ -12,8 +12,10 @@ internal struct StrokeModifier<Content: View>:
     internal var shapeInsets: SpacingToken? {
         stroke?.insets
     }
+}
 
-    @ViewBuilder
+extension StrokeModifier: TokenViewModifier {
+
     internal func body(content: Content, theme: TokenTheme) -> some View {
         if let stroke = stroke?.resolve(for: theme) {
             let shape = shape?.resolve(for: theme) ?? .rectangle
@@ -36,7 +38,7 @@ extension View {
     public nonisolated func stroke(
         _ stroke: StrokeToken?,
         shape: ShapeToken? = nil
-    ) -> some TokenShapedView {
+    ) -> some View & TokenShapedView {
         modifier(
             StrokeModifier(
                 stroke: stroke,
@@ -48,7 +50,7 @@ extension View {
     public nonisolated func stroke(
         _ stroke: StrokeToken?,
         corners: CornersToken
-    ) -> some TokenShapedView {
+    ) -> some View & TokenShapedView {
         modifier(
             StrokeModifier(
                 stroke: stroke,
@@ -58,9 +60,9 @@ extension View {
     }
 }
 
-extension TokenShapedView {
+extension View where Self: TokenShapedView {
 
-    public nonisolated func stroke(_ stroke: StrokeToken?) -> some TokenShapedView {
+    public nonisolated func stroke(_ stroke: StrokeToken?) -> some View & TokenShapedView {
         modifier(
             StrokeModifier(
                 stroke: stroke,

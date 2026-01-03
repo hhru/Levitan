@@ -4,12 +4,45 @@ import SwiftUI
 internal struct ShadowModifier<Content: View>:
     TokenShapedModifier,
     Equatable,
-    Sendable {
+        Sendable {
 
     internal let shadow: ShadowToken?
 
     internal let shape: ShapeToken?
     internal let shapeInsets: SpacingToken?
+}
+
+extension ShadowModifier: TokenViewModifier {
+
+    internal func body(content: Content, theme: TokenTheme) -> some View {
+        if let shadow = shadow?.resolve(for: theme), !shadow.isClear {
+            let shape = shape?.resolve(for: theme) ?? .rectangle
+            let shapeInsets = shapeInsets?.resolve(for: theme) ?? .zero
+
+            switch shadow.type {
+            case .drop:
+                dropShadowBody(
+                    content: content,
+                    shadow: shadow,
+                    shape: shape,
+                    shapeInsets: shapeInsets
+                )
+
+            case .inner:
+                innerShadowBody(
+                    content: content,
+                    shadow: shadow,
+                    shape: shape,
+                    shapeInsets: shapeInsets
+                )
+            }
+        } else {
+            content
+        }
+    }
+}
+
+extension ShadowModifier {
 
     private func dropShadowBody(
         content: Content,
@@ -80,43 +113,15 @@ internal struct ShadowModifier<Content: View>:
 
         return content.overlay(overlay)
     }
-
-    @ViewBuilder
-    internal func body(content: Content, theme: TokenTheme) -> some View {
-        if let shadow = shadow?.resolve(for: theme), !shadow.isClear {
-            let shape = shape?.resolve(for: theme) ?? .rectangle
-            let shapeInsets = shapeInsets?.resolve(for: theme) ?? .zero
-
-            switch shadow.type {
-            case .drop:
-                dropShadowBody(
-                    content: content,
-                    shadow: shadow,
-                    shape: shape,
-                    shapeInsets: shapeInsets
-                )
-
-            case .inner:
-                innerShadowBody(
-                    content: content,
-                    shadow: shadow,
-                    shape: shape,
-                    shapeInsets: shapeInsets
-                )
-            }
-        } else {
-            content
-        }
-    }
 }
 
 extension View {
 
-    public func shadow(
+    public nonisolated func shadow(
         _ shadow: ShadowToken?,
         shape: ShapeToken? = nil,
         shapeInsets: SpacingToken? = nil
-    ) -> some TokenShapedView {
+    ) -> some View & TokenShapedView {
         modifier(
             ShadowModifier(
                 shadow: shadow,
@@ -126,11 +131,11 @@ extension View {
         )
     }
 
-    public func shadow(
+    public nonisolated func shadow(
         _ shadow: ShadowToken?,
         corners: CornersToken,
         shapeInsets: SpacingToken? = nil
-    ) -> some TokenShapedView {
+    ) -> some View & TokenShapedView {
         self.shadow(
             shadow,
             shape: .rectangle(corners: corners),
@@ -139,9 +144,9 @@ extension View {
     }
 }
 
-extension TokenShapedView {
+extension View where Self: TokenShapedView {
 
-    public nonisolated func shadow(_ shadow: ShadowToken?) -> some TokenShapedView {
+    public nonisolated func shadow(_ shadow: ShadowToken?) -> some View & TokenShapedView {
         modifier(
             ShadowModifier(
                 shadow: shadow,

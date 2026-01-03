@@ -1,10 +1,12 @@
 import SwiftUI
 
+@MainActor
 public protocol TokenViewModifier {
 
     associatedtype Content: View
     associatedtype Body: View
 
+    @ViewBuilder
     func body(content: Content, theme: TokenTheme) -> Body
 }
 

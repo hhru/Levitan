@@ -1,11 +1,14 @@
 import SwiftUI
 
-internal struct SpringAnimationModifier<Content: View, Value: Equatable>:
-    TokenViewModifier,
-    Equatable {
+internal struct SpringAnimationModifier<Content: View, Value: Equatable>: Equatable {
 
     internal let animation: SpringAnimationToken?
     internal let value: Value
+}
+
+extension SpringAnimationModifier: Sendable where Value: Sendable { }
+
+extension SpringAnimationModifier: TokenViewModifier {
 
     internal func body(content: Content, theme: TokenTheme) -> some View {
         content.animation(
@@ -14,8 +17,6 @@ internal struct SpringAnimationModifier<Content: View, Value: Equatable>:
         )
     }
 }
-
-extension SpringAnimationModifier: Sendable where Value: Sendable { }
 
 extension View {
 

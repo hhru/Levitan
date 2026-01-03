@@ -1,13 +1,12 @@
 import SwiftUI
 
-internal struct OpacityModifier<Content: View>:
-    TokenViewModifier,
-    Equatable,
-    Sendable {
+internal struct OpacityModifier<Content: View>: Equatable, Sendable {
 
     internal let opacity: OpacityToken?
+}
 
-    @ViewBuilder
+extension OpacityModifier: TokenViewModifier {
+
     internal func body(content: Content, theme: TokenTheme) -> some View {
         if let opacity = opacity?.resolve(for: theme) {
             content.opacity(opacity)

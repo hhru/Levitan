@@ -1,11 +1,11 @@
 import SwiftUI
 
-internal struct ForegroundColorModifier<Content: View>:
-    TokenViewModifier,
-    Equatable,
-    Sendable {
+internal struct ForegroundColorModifier<Content: View>: Equatable, Sendable {
 
     internal let color: ColorToken?
+}
+
+extension ForegroundColorModifier: TokenViewModifier {
 
     internal func body(content: Content, theme: TokenTheme) -> some View {
         content.foregroundColor(color?.resolve(for: theme).color)

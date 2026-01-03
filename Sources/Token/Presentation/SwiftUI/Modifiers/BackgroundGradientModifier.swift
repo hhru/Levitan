@@ -1,13 +1,12 @@
 import SwiftUI
 
-internal struct BackgroundGradientModifier<Content: View>:
-    TokenViewModifier,
-    Equatable,
-    Sendable {
+internal struct BackgroundGradientModifier<Content: View>: Equatable, Sendable {
 
     internal let gradient: GradientToken?
+}
 
-    @ViewBuilder
+extension BackgroundGradientModifier: TokenViewModifier {
+
     internal func body(content: Content, theme: TokenTheme) -> some View {
         if let gradient = gradient?.linearGradient.resolve(for: theme) {
             content.background(gradient)

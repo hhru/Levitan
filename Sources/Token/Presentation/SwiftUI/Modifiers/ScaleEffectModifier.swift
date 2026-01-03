@@ -1,14 +1,13 @@
 import SwiftUI
 
-internal struct ScaleEffectModifier<Content: View>:
-    TokenViewModifier,
-    Equatable,
-    Sendable {
+internal struct ScaleEffectModifier<Content: View>: Equatable, Sendable {
 
     internal let scaling: ScalingToken?
     internal let anchor: UnitPoint
+}
 
-    @ViewBuilder
+extension ScaleEffectModifier: TokenViewModifier {
+
     internal func body(content: Content, theme: TokenTheme) -> some View {
         if let scaling = scaling?.resolve(for: theme) {
             content.scaleEffect(scaling, anchor: anchor)

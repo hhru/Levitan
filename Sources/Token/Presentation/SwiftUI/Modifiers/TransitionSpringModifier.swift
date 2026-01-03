@@ -1,11 +1,13 @@
 import SwiftUI
 
-internal struct TransitionSpringModifier<Content: View>: TokenViewModifier {
+internal struct TransitionSpringModifier<Content: View> {
 
     internal let transition: AnyTransition
     internal let animation: SpringAnimationToken?
+}
 
-    @ViewBuilder
+extension TransitionSpringModifier: TokenViewModifier {
+
     internal func body(content: Content, theme: TokenTheme) -> some View {
         if let animation = animation?.resolve(for: theme) {
             content.transition(transition.animation(animation.animation))

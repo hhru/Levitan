@@ -1,13 +1,12 @@
 import SwiftUI
 
-internal struct PaddingModifier<Content: View>:
-    TokenViewModifier,
-    Equatable,
-    Sendable {
+internal struct PaddingModifier<Content: View>: Equatable, Sendable {
 
     internal let insets: InsetsToken?
+}
 
-    @ViewBuilder
+extension PaddingModifier: TokenViewModifier {
+
     internal func body(content: Content, theme: TokenTheme) -> some View {
         if let insets = insets?.resolve(for: theme) {
             content.padding(insets.edgeInsets)
