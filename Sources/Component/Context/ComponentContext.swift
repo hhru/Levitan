@@ -85,83 +85,45 @@ import SwiftUI
 /// - SeeAlso: ``ComponentContextOverriding``
 /// - SeeAlso: ``ViewEnvironment``
 @dynamicMemberLookup
-public final class ComponentContext {
+public struct ComponentContext {
 
     internal let environment: EnvironmentValues
-
-    internal let defaults: [PartialKeyPath<EnvironmentValues>: Any]
-    internal var values: [PartialKeyPath<EnvironmentValues>: ComponentContextValue]
+    internal let overrides: [ComponentContextOverride]
 
     internal init(
         environment: EnvironmentValues,
-        defaults: [PartialKeyPath<EnvironmentValues>: Any] = [:],
-        values: [PartialKeyPath<EnvironmentValues>: ComponentContextValue] = [:]
+        overrides: [ComponentContextOverride] = []
     ) {
         self.environment = environment
-        self.defaults = defaults
-        self.values = values
-    }
-
-    internal convenience init(traits: UITraitCollection) {
-        var defaults: [PartialKeyPath<EnvironmentValues>: Any?] = [
-            \.displayScale: traits.displayScale,
-            \.colorScheme: ColorScheme(traits.userInterfaceStyle),
-            \.colorSchemeContrast: ColorSchemeContrast(traits.accessibilityContrast),
-            \.layoutDirection: LayoutDirection(traits.layoutDirection),
-            \.horizontalSizeClass: UserInterfaceSizeClass(traits.horizontalSizeClass),
-            \.verticalSizeClass: UserInterfaceSizeClass(traits.verticalSizeClass),
-            \.sizeCategory: ContentSizeCategory(traits.preferredContentSizeCategory),
-            \.legibilityWeight: LegibilityWeight(traits.legibilityWeight)
-        ]
-
-        if #available(iOS 17.0, tvOS 17.0, *) {
-            defaults[\.allowedDynamicRange] = Image.DynamicRange(traits.imageDynamicRange)
-        }
-
-        if #available(iOS 15.0, tvOS 15.0, *) {
-            defaults[\.dynamicTypeSize] = DynamicTypeSize(traits.preferredContentSizeCategory)
-        }
-
-        self.init(
-            environment: EnvironmentValues(),
-            defaults: defaults.compactMapValues { $0 },
-            values: [:]
-        )
+        self.overrides = overrides
     }
 
     internal func resolveEnvironment(_ environment: EnvironmentValues) -> EnvironmentValues {
-        values.values.reduce(into: environment) { environment, value in
-            value.overrider?(&environment)
+        overrides.reduce(into: environment) { environment, value in
+            value.override(for: &environment)
         }
     }
 
     internal func resolveValue<Value>(at keyPath: KeyPath<EnvironmentValues, Value>) -> Value {
-        if let value = values[keyPath].flatMap({ $0.value as? Value }) {
-            return value
-        }
-
-        let value = defaults[keyPath].flatMap { value in
-            value as? Value
-        } ?? environment[keyPath: keyPath]
-
-        values[keyPath] = ComponentContextValue(value, at: keyPath)
-
-        return value
+        environment[keyPath: keyPath]
     }
 
     internal func overrideValue<Value>(
         at keyPath: WritableKeyPath<EnvironmentValues, Value>,
         with newValue: Value
     ) -> Self {
-        let values = values.updatingValue(
-            ComponentContextValue(newValue, at: keyPath),
-            forKey: keyPath
+        let override = ComponentContextOverride(
+            keyPath: keyPath,
+            value: newValue
         )
+
+        var environment = environment
+
+        environment[keyPath: keyPath] = newValue
 
         return Self(
             environment: environment,
-            defaults: defaults,
-            values: values
+            overrides: overrides.appending(override)
         )
     }
 }
@@ -241,7 +203,7 @@ extension ComponentContext {
     /// Но также допускается использование по месту для обнуления контекста или в целях миграции.
     @MainActor
     public static var `default`: Self {
-        Self(traits: UIScreen.main.traitCollection)
+        Self(environment: .default)
     }
 }
 #endif

@@ -49,6 +49,9 @@ open class AnyFlowSupplementaryView: UICollectionReusableView {
 
         return layoutAttributes
     }
+}
+
+extension AnyFlowSupplementaryView {
 
     private func size(for sizing: CollectionViewLayoutSizing) -> CGSize {
         switch (sizing.width, sizing.height) {

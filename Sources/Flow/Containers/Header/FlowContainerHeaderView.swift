@@ -1,8 +1,6 @@
 #if canImport(UIKit)
 import UIKit
 
-// TODO: реализовать поддержку appear и disappear для HostingView
-// TODO: реализовать вызов appear и disappear относительно наличия window
 public final class FlowContainerHeaderView<Content: Component>: AnyFlowSupplementaryView {
 
     private let contentView: Content.UIView

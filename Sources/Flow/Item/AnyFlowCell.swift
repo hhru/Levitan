@@ -54,6 +54,9 @@ open class AnyFlowCell: UICollectionViewCell {
 
         return layoutAttributes
     }
+}
+
+extension AnyFlowCell {
 
     private func size(for sizing: CollectionViewLayoutSizing) -> CGSize {
         switch (sizing.width, sizing.height) {

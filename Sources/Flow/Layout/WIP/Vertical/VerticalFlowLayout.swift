@@ -68,7 +68,7 @@ public struct VerticalFlowLayout {
             width: metrics.estimatedWidth
                 ?? containerSize.width,
             height: metrics.estimatedHeight
-                ?? 20.0
+                ?? 40.0
         )
 
         return context.itemSize(

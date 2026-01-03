@@ -47,6 +47,8 @@ extension Cell: Component {
         .contentShape(Rectangle())
         .onTap(tapAction)
         .onPress { isPressed = $0 && tapAction != nil }
+        .onAppear { print(Self.self, "onAppear", title) }
+        .onDisappear { print(Self.self, "onDisappear", title) }
     }
 
     func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {

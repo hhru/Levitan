@@ -24,6 +24,21 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
         fatalError("init(coder:) has not been implemented")
     }
 
+    internal override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if #available(iOS 16.4, tvOS 16.4, *) {
+            safeAreaRegions = []
+        } else {
+            disableSafeArea()
+        }
+
+        view.backgroundColor = .clear
+    }
+}
+
+extension ComponentHostingController {
+
     /// Отключает все отступы SafeArea и клавиатуры для iOS до версии 16.4.
     ///
     /// Использует приватное API для отключения отступов, которое стало публичным в iOS 16.4.
@@ -69,18 +84,6 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
             objc_registerClassPair(viewSubclass)
             object_setClass(view, viewSubclass)
         }
-    }
-
-    internal override func viewDidLoad() {
-        super.viewDidLoad()
-
-        if #available(iOS 16.4, tvOS 16.4, *) {
-            safeAreaRegions = []
-        } else {
-            disableSafeArea()
-        }
-
-        view.backgroundColor = .clear
     }
 }
 #endif

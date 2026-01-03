@@ -320,13 +320,11 @@ extension TextView: FallbackComponentView {
             context: context
         )
 
-        let textSize = attributedText.size(
+        return attributedText.size(
             fitting: maxSize,
             lineLimit: content.lineLimit,
             lineBreakMode: content.lineBreakMode
         )
-
-        return textSize
     }
 
     public func update(with content: Text, context: ComponentContext) {
@@ -335,6 +333,10 @@ extension TextView: FallbackComponentView {
         let context = TextLayoutProvider
             .shared
             .textContext(for: content, context: context)
+
+        guard self.content != content || self.context != context else {
+            return
+        }
 
         self.content = content
         self.context = context
