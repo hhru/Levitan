@@ -1,7 +1,7 @@
 import Levitan
 import SwiftUI
 
-struct CardHeader: Equatable, Sendable {
+struct CardHeader: Hashable, Sendable {
 
     let title: String
 

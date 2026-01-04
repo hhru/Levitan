@@ -1,3 +1,4 @@
+import Levitan
 import SwiftUI
 
 struct PressedEffectModifier: Equatable, Sendable {
@@ -8,7 +9,7 @@ struct PressedEffectModifier: Equatable, Sendable {
 
 extension PressedEffectModifier: ViewModifier {
 
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         content
             .scaleEffect(isPressed ? 0.95 : 1.0, anchor: anchor)
             .animation(
@@ -20,9 +21,30 @@ extension PressedEffectModifier: ViewModifier {
     }
 }
 
+extension PressedEffectModifier: ComponentModifier {
+
+    func sizing<Content: Component>(
+        content: Content,
+        fitting size: CGSize,
+        context: ComponentContext
+    ) -> ComponentSizing {
+        content.sizing(
+            fitting: size,
+            context: context
+        )
+    }
+}
+
 extension View {
 
     nonisolated func pressedEffect(_ isPressed: Bool, anchor: UnitPoint = .center) -> some View {
+        modifier(PressedEffectModifier(isPressed: isPressed, anchor: anchor))
+    }
+}
+
+extension Component {
+
+    nonisolated func pressedEffect(_ isPressed: Bool, anchor: UnitPoint = .center) -> some Component {
         modifier(PressedEffectModifier(isPressed: isPressed, anchor: anchor))
     }
 }

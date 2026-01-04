@@ -7,6 +7,10 @@ struct Card<Content: View> {
     let header: CardHeader?
 }
 
+extension Card: Equatable where Content: Equatable { }
+extension Card: Hashable where Content: Hashable { }
+extension Card: Sendable where Content: Sendable { }
+
 extension Card: View {
 
     var body: some View {
@@ -22,9 +26,6 @@ extension Card: View {
         .frame(maxWidth: .infinity)
     }
 }
-
-extension Card: Equatable where Content: Equatable { }
-extension Card: Sendable where Content: Sendable { }
 
 extension Card: Component where Content: Component {
 
