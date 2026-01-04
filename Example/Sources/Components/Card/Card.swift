@@ -22,17 +22,19 @@ extension Card: View {
                 .clipShape(.rounded(radius: 20.0))
                 .stroke(Strokes.stroke1.color(Colors.stroke))
         }
+        .frame(maxWidth: .infinity)
     }
 }
 
 extension Card: Component where Content: Component {
 
-    func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
+    func sizing(
+        fitting size: CGSize,
+        context: ComponentContext
+    ) -> ComponentSizing {
         ComponentSizing(
             width: .fill,
-            height: content
-                .sizing(fitting: size, context: context)
-                .height
+            height: .hug
         )
     }
 }
