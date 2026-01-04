@@ -184,6 +184,9 @@ extension View {
             alignment: alignment
         )
     }
+}
+
+extension View where Self: Equatable {
 
     /// Помещает UI-представление в контейнер с заданными размерами и выравниванием.
     ///

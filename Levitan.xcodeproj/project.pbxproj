@@ -2243,7 +2243,6 @@
 		C02C87FD2F0266B400A2FE9F /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				C0C8B8AC2F09BF2D0029D19F /* Frame */,
 				C02C87CC2F0266B400A2FE9F /* Any */,
 				C02C87D62F0266B400A2FE9F /* Context */,
 				C02C87DC2F0266B400A2FE9F /* Environment */,
@@ -3424,13 +3423,6 @@
 				C0C8B8702F09A3B20029D19F /* ComponentTokenModifier.swift */,
 			);
 			path = Token;
-			sourceTree = "<group>";
-		};
-		C0C8B8AC2F09BF2D0029D19F /* Frame */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Frame;
 			sourceTree = "<group>";
 		};
 		C0C8B8B52F09CA620029D19F /* Padding */ = {
