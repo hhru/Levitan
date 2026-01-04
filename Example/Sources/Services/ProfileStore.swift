@@ -21,19 +21,27 @@ extension ProfileStore {
         profileSubject.eraseToAnyPublisher()
     }
 
+    func updateProfile(with profile: Profile) {
+        Task {
+            try? await Task.sleep(nanoseconds: 1_000_000_000)
+
+            profileSubject.send(profile)
+        }
+    }
+
     func updateProfilePhoneNumber(with phoneNumber: String?) {
-        profileSubject.send(profile.changing { $0.phoneNumber = phoneNumber })
+        updateProfile(with: profile.changing { $0.phoneNumber = phoneNumber })
     }
 
     func updateProfileEmailAddress(with emailAddress: String?) {
-        profileSubject.send(profile.changing { $0.emailAddress = emailAddress })
+        updateProfile(with: profile.changing { $0.emailAddress = emailAddress })
     }
 
     func updateProfileSkills(with skills: [String]) {
-        profileSubject.send(profile.changing { $0.skills = skills })
+        updateProfile(with: profile.changing { $0.skills = skills })
     }
 
     func updateProfileAboutMe(with aboutMe: String) {
-        profileSubject.send(profile.changing { $0.aboutMe = aboutMe })
+        updateProfile(with: profile.changing { $0.aboutMe = aboutMe })
     }
 }

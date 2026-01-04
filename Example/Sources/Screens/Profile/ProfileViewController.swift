@@ -61,18 +61,6 @@ extension ProfileViewController {
             context: context
         )
     }
-
-    private func onEditContactsTap() {
-        // TODO: реализовать
-    }
-
-    private func onEditSkillsTap() {
-        // TODO: реализовать
-    }
-
-    private func onEditAboutMeTap() {
-        // TODO: реализовать
-    }
 }
 
 extension ProfileViewController {
@@ -131,9 +119,16 @@ extension ProfileViewController {
         )
 
         return VerticalFlow {
-            profile.skills.map { skill in
-                Tag(label: skill)
-                    .flowItem(identifier: skill)
+            if profile.skills.isEmpty {
+                Text("No skills added yet.")
+                    .typography(Typographies.paragraph2)
+                    .foregroundColor(Colors.text.secondary)
+                    .flowItem(identifier: "empty")
+            } else {
+                profile.skills.map { skill in
+                    Tag(label: skill)
+                        .flowItem(identifier: skill)
+                }
             }
         }
         .horizontalSpacing(8.0)
@@ -147,9 +142,18 @@ extension ProfileViewController {
         let header = CardHeader(
             title: "About me",
             editAction: { [weak self] in
-                self?.onEditAboutMeTap()
+                self?.onEditAboutMeTap(profile: profile)
             }
         )
+
+        if profile.aboutMe.isEmpty {
+            return Text("No bio added yet.")
+                .typography(Typographies.paragraph2)
+                .foregroundColor(Colors.text.secondary)
+                .card(header: header)
+                .padding(top: 24.0, leading: 16.0, trailing: 16.0)
+                .flowItem(identifier: #function)
+        }
 
         return Levitan.Text(profile.aboutMe)
             .typography(Typographies.paragraph2)
@@ -157,5 +161,111 @@ extension ProfileViewController {
             .card(header: header)
             .padding(top: 24.0, leading: 16.0, trailing: 16.0)
             .flowItem(identifier: #function)
+    }
+}
+
+extension ProfileViewController {
+
+    private func onEditContactsTap() {
+        var actions: [ActionSheetAction] = []
+
+        if profileStore.profile.phoneNumber == nil {
+            let action = ActionSheetAction(title: "Add phone number") {
+                self.profileStore.updateProfilePhoneNumber(with: Profile.default.phoneNumber)
+            }
+
+            actions.append(action)
+        } else {
+            let action = ActionSheetAction(title: "Remove phone number", style: .destructive) {
+                self.profileStore.updateProfilePhoneNumber(with: nil)
+            }
+
+            actions.append(action)
+        }
+
+        if profileStore.profile.emailAddress == nil {
+            let action = ActionSheetAction(title: "Add email address") {
+                self.profileStore.updateProfileEmailAddress(with: Profile.default.emailAddress)
+            }
+
+            actions.append(action)
+        } else {
+            let action = ActionSheetAction(title: "Remove email address", style: .destructive) {
+                self.profileStore.updateProfileEmailAddress(with: nil)
+            }
+
+            actions.append(action)
+        }
+
+        actions.append(.cancel(title: "Cancel"))
+
+        let actionSheet = ActionSheet(
+            title: "Contacts",
+            tintColor: UIColor(named: "AccentColor"),
+            actions: actions
+        )
+
+        showActionSheet(actionSheet)
+    }
+
+    private func onEditSkillsTap() {
+        let skills = profileStore.profile.skills.joined(separator: ", ")
+
+        let textField = AlertTextField(
+            text: skills,
+            placeholder: "Skills separated by commas"
+        )
+
+        let saveAction = AlertAction(title: "Save") { texts in
+            let newSkills = texts
+                .first?
+                .components(separatedBy: ",")
+                .map { $0.trimmingCharacters(in: .whitespaces) } ?? []
+
+            self.profileStore.updateProfileSkills(with: newSkills)
+        }
+
+        let resetAction = AlertAction(title: "Reset", style: .destructive) {
+            self.profileStore.updateProfileSkills(with: [])
+        }
+
+        let cancelAction = AlertAction.cancel(title: "Cancel")
+
+        let alert = Alert(
+            title: "Skills",
+            tintColor: UIColor(named: "AccentColor"),
+            textFields: [textField],
+            actions: [saveAction, resetAction, cancelAction]
+        )
+
+        showAlert(alert)
+    }
+
+    private func onEditAboutMeTap(profile: Profile) {
+        let aboutMe = profileStore.profile.aboutMe
+
+        let textField = AlertTextField(
+            text: aboutMe,
+            placeholder: "About me"
+        )
+
+        let saveAction = AlertAction(title: "Save") { texts in
+            self.profileStore.updateProfileAboutMe(with: texts.first ?? "")
+        }
+
+        let resetAction = AlertAction(title: "Reset", style: .destructive) {
+            self.profileStore.updateProfileAboutMe(with: "")
+        }
+
+        let cancelAction = AlertAction.cancel(title: "Cancel")
+
+        let alert = Alert(
+            title: "About Me",
+            tintColor: UIColor(named: "AccentColor"),
+            textFields: [textField],
+            actions: [saveAction, resetAction, cancelAction]
+        )
+
+        showAlert(alert)
     }
 }
