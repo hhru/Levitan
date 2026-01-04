@@ -1,14 +1,39 @@
 #if canImport(UIKit)
-import Foundation
+import SwiftUI
 
-extension PaddingModifier: ComponentTokenModifier
-where Content: Component {
+public struct ComponentPadding<Content: View> {
 
-    internal func sizing(
+    public let content: Content
+    public let insets: InsetsToken?
+
+    public init(
         content: Content,
-        fitting size: CGSize,
-        context: ComponentContext
-    ) -> ComponentSizing {
+        insets: InsetsToken?
+    ) {
+        self.content = content
+        self.insets = insets
+    }
+}
+
+extension ComponentPadding: Equatable where Content: Equatable { }
+extension ComponentPadding: Sendable where Content: Sendable { }
+
+extension ComponentPadding: View {
+
+    public var body: some View {
+        if let insets {
+            content.padding(insets)
+        } else {
+            content
+        }
+    }
+}
+
+extension ComponentPadding: Component where Content: Component {
+
+    public typealias UIView = ComponentPaddingView<Content>
+
+    public func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
         let sizing = content.sizing(
             fitting: size,
             context: context
@@ -46,7 +71,7 @@ where Content: Component {
 extension Component {
 
     public nonisolated func padding(_ insets: InsetsToken?) -> some Component {
-        modifier(PaddingModifier(insets: insets))
+        ComponentPadding(content: self, insets: insets)
     }
 
     public nonisolated func padding(
