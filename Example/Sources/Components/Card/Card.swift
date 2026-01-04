@@ -17,7 +17,7 @@ extension Card: View {
             header
 
             content
-                .padding(16.0)
+                .padding(20.0)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .clipShape(.rounded(radius: 20.0))
                 .stroke(Strokes.stroke1.color(Colors.stroke))

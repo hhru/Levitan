@@ -21,6 +21,14 @@ extension ProfileStore {
         profileSubject.eraseToAnyPublisher()
     }
 
+    func updateProfilePhoneNumber(with phoneNumber: String?) {
+        profileSubject.send(profile.changing { $0.phoneNumber = phoneNumber })
+    }
+
+    func updateProfileEmailAddress(with emailAddress: String?) {
+        profileSubject.send(profile.changing { $0.emailAddress = emailAddress })
+    }
+
     func updateProfileSkills(with skills: [String]) {
         profileSubject.send(profile.changing { $0.skills = skills })
     }

@@ -7,8 +7,8 @@ struct Profile: Hashable, Changeable {
     var name: String
     var position: String
 
-    var phoneNumber: String
-    var emailAddress: String
+    var phoneNumber: String?
+    var emailAddress: String?
 
     var skills: [String]
     var aboutMe: String

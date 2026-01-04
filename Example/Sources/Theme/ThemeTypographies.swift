@@ -3,6 +3,12 @@ import Levitan
 
 struct ThemeTypographies: Sendable {
 
+    let title3 = TypographyToken(
+        font: .system(weight: .semibold, size: 28.0),
+        letterSpacing: -0.35,
+        lineHeight: 40.0
+    )
+
     let title4 = TypographyToken(
         font: .system(weight: .semibold, size: 22.0),
         letterSpacing: -0.16,
