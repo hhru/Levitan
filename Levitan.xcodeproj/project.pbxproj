@@ -1144,6 +1144,9 @@
 		C043A2BE2DCE37D700F6C58A /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; };
 		C043A2BF2DCE37D700F6C58A /* Levitan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C057F01823CB8EEB00C2D895 /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C057F00E23CB8EEB00C2D895 /* Levitan.framework */; };
+		C06A6D3D2F0AE42E007F606E /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D3C2F0AE42B007F606E /* ComponentFrame.swift */; };
+		C06A6D3E2F0AE42E007F606E /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D3C2F0AE42B007F606E /* ComponentFrame.swift */; };
+		C06A6D3F2F0AE42E007F606E /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D3C2F0AE42B007F606E /* ComponentFrame.swift */; };
 		C0946A3B2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */; };
 		C0946A3C2F0A676900BA7CD3 /* FlowVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A3A2F0A676900BA7CD3 /* FlowVerticalAlignment.swift */; };
 		C0946A3D2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */; };
@@ -1243,9 +1246,6 @@
 		C0C8B89D2F09B2F30029D19F /* StrokeModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B89C2F09B2EB0029D19F /* StrokeModifier+ComponentTokenModifier.swift */; };
 		C0C8B89E2F09B2F30029D19F /* StrokeModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B89C2F09B2EB0029D19F /* StrokeModifier+ComponentTokenModifier.swift */; };
 		C0C8B89F2F09B2F30029D19F /* StrokeModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B89C2F09B2EB0029D19F /* StrokeModifier+ComponentTokenModifier.swift */; };
-		C0C8B8AE2F09BF390029D19F /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8AD2F09BF330029D19F /* ComponentFrame.swift */; };
-		C0C8B8AF2F09BF390029D19F /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8AD2F09BF330029D19F /* ComponentFrame.swift */; };
-		C0C8B8B02F09BF390029D19F /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8AD2F09BF330029D19F /* ComponentFrame.swift */; };
 		C0C8B8B72F09CA770029D19F /* ComponentPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8B62F09CA690029D19F /* ComponentPadding.swift */; };
 		C0C8B8B82F09CA770029D19F /* ComponentPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8B62F09CA690029D19F /* ComponentPadding.swift */; };
 		C0C8B8B92F09CA770029D19F /* ComponentPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8B62F09CA690029D19F /* ComponentPadding.swift */; };
@@ -1726,6 +1726,7 @@
 		C057F01223CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C057F01723CB8EEB00C2D895 /* LevitanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LevitanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C057F01E23CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C06A6D3C2F0AE42B007F606E /* ComponentFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFrame.swift; sourceTree = "<group>"; };
 		C09275362DCA9FFA00BBC858 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/AppleTVOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C092753A2DCAA00200BBC858 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowHorizontalAlignment.swift; sourceTree = "<group>"; };
@@ -1775,7 +1776,6 @@
 		C0C8B8942F09AFCA0029D19F /* ShadowModifier+ComponentTokenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShadowModifier+ComponentTokenModifier.swift"; sourceTree = "<group>"; };
 		C0C8B8982F09B2BB0029D19F /* SpringAnimationModifier+ComponentTokenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpringAnimationModifier+ComponentTokenModifier.swift"; sourceTree = "<group>"; };
 		C0C8B89C2F09B2EB0029D19F /* StrokeModifier+ComponentTokenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StrokeModifier+ComponentTokenModifier.swift"; sourceTree = "<group>"; };
-		C0C8B8AD2F09BF330029D19F /* ComponentFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFrame.swift; sourceTree = "<group>"; };
 		C0C8B8B62F09CA690029D19F /* ComponentPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPadding.swift; sourceTree = "<group>"; };
 		C0C8B8BA2F09CBA80029D19F /* ComponentPaddingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPaddingView.swift; sourceTree = "<group>"; };
 		C0C9FE8B2655DECE0074D669 /* Mintfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Mintfile; sourceTree = "<group>"; };
@@ -2224,9 +2224,9 @@
 		C02C87F72F0266B400A2FE9F /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				C0C8B86F2F09A3AB0029D19F /* Token */,
-				C0C8B8AD2F09BF330029D19F /* ComponentFrame.swift */,
+				C0C8B81E2F0983DC0029D19F /* Extensions */,
 				C02C87F62F0266B400A2FE9F /* ComponentModifier.swift */,
+				C0C8B8702F09A3B20029D19F /* ComponentTokenModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -2252,6 +2252,7 @@
 				C0C8B8B52F09CA620029D19F /* Padding */,
 				C02C87FA2F0266B400A2FE9F /* Sizing */,
 				C02C87FB2F0266B400A2FE9F /* Component.swift */,
+				C06A6D3C2F0AE42B007F606E /* ComponentFrame.swift */,
 				C0E821E12F0567F800051412 /* ComponentIdentifier.swift */,
 				C02C87FC2F0266B400A2FE9F /* ComponentView.swift */,
 			);
@@ -3416,15 +3417,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C0C8B86F2F09A3AB0029D19F /* Token */ = {
-			isa = PBXGroup;
-			children = (
-				C0C8B81E2F0983DC0029D19F /* Extensions */,
-				C0C8B8702F09A3B20029D19F /* ComponentTokenModifier.swift */,
-			);
-			path = Token;
-			sourceTree = "<group>";
-		};
 		C0C8B8B52F09CA620029D19F /* Padding */ = {
 			isa = PBXGroup;
 			children = (
@@ -3919,6 +3911,7 @@
 				C0946A3B2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */,
 				C0946A3C2F0A676900BA7CD3 /* FlowVerticalAlignment.swift in Sources */,
 				C00974B32F03E51100BC7680 /* FlowFooter.swift in Sources */,
+				C06A6D3E2F0AE42E007F606E /* ComponentFrame.swift in Sources */,
 				C00975412F051DDF00BC7680 /* FlowLayoutDefaultAppearance.swift in Sources */,
 				C02C8CC22F0266B400A2FE9F /* PlusDecorator.swift in Sources */,
 				C02C8CC32F0266B400A2FE9F /* TokenDecorator.swift in Sources */,
@@ -4027,7 +4020,6 @@
 				C009752F2F051C5E00BC7680 /* FlowLayoutOrigin.swift in Sources */,
 				C00975BF2F0533F000BC7680 /* FlowContainerFooterView.swift in Sources */,
 				C02C8D1A2F0266B400A2FE9F /* Float+TokenValue.swift in Sources */,
-				C0C8B8B02F09BF390029D19F /* ComponentFrame.swift in Sources */,
 				C02C8D1B2F0266B400A2FE9F /* TokenValue.swift in Sources */,
 				C02C8D1C2F0266B400A2FE9F /* StrokeDecorator.swift in Sources */,
 				C02C8D1D2F0266B400A2FE9F /* DurationDecorator.swift in Sources */,
@@ -4357,6 +4349,7 @@
 				C0946A3F2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */,
 				C0946A402F0A676900BA7CD3 /* FlowVerticalAlignment.swift in Sources */,
 				C00974B42F03E51100BC7680 /* FlowFooter.swift in Sources */,
+				C06A6D3F2F0AE42E007F606E /* ComponentFrame.swift in Sources */,
 				C00975402F051DDF00BC7680 /* FlowLayoutDefaultAppearance.swift in Sources */,
 				C02C8A2C2F0266B400A2FE9F /* PlusDecorator.swift in Sources */,
 				C02C8A2D2F0266B400A2FE9F /* TokenDecorator.swift in Sources */,
@@ -4465,7 +4458,6 @@
 				C00975302F051C5E00BC7680 /* FlowLayoutOrigin.swift in Sources */,
 				C00975C02F0533F000BC7680 /* FlowContainerFooterView.swift in Sources */,
 				C02C8A842F0266B400A2FE9F /* Float+TokenValue.swift in Sources */,
-				C0C8B8AF2F09BF390029D19F /* ComponentFrame.swift in Sources */,
 				C02C8A852F0266B400A2FE9F /* TokenValue.swift in Sources */,
 				C02C8A862F0266B400A2FE9F /* StrokeDecorator.swift in Sources */,
 				C02C8A872F0266B400A2FE9F /* DurationDecorator.swift in Sources */,
@@ -4797,7 +4789,6 @@
 				C02C8B742F0266B400A2FE9F /* Int+TokenValue.swift in Sources */,
 				C02C8B752F0266B400A2FE9F /* ShadowShape.swift in Sources */,
 				C02C8B762F0266B400A2FE9F /* InsetsDecorator.swift in Sources */,
-				C0C8B8AE2F09BF390029D19F /* ComponentFrame.swift in Sources */,
 				C02C8B772F0266B400A2FE9F /* PlusDecorator.swift in Sources */,
 				C02C8B782F0266B400A2FE9F /* TokenDecorator.swift in Sources */,
 				C02C8B792F0266B400A2FE9F /* ObjectAssociation.swift in Sources */,
@@ -4898,6 +4889,7 @@
 				C02C8BCB2F0266B400A2FE9F /* TokenViewPropertyKey.swift in Sources */,
 				C02C8BCC2F0266B400A2FE9F /* UIView+TraitsObservable.swift in Sources */,
 				C009749E2F03E01F00BC7680 /* FlowHeader.swift in Sources */,
+				C06A6D3D2F0AE42E007F606E /* ComponentFrame.swift in Sources */,
 				C02C8BCD2F0266B400A2FE9F /* TokenThemeStorage.swift in Sources */,
 				C02C8BCE2F0266B400A2FE9F /* NilCoalescingDecorator.swift in Sources */,
 				C02C8BCF2F0266B400A2FE9F /* Float+TokenValue.swift in Sources */,
