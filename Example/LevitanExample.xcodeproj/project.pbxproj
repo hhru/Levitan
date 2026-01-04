@@ -17,6 +17,11 @@
 		C03F80F72F026A820097B7A3 /* Levitan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0C0ABEF2F02695100C6E122 /* Levitan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C06A6D382F0ACF99007F606E /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D372F0ACF94007F606E /* ProfileHeader.swift */; };
 		C06A6D3B2F0AD6D4007F606E /* ProfileContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D3A2F0AD6D0007F606E /* ProfileContact.swift */; };
+		C06A6D442F0B0092007F606E /* ActionSheetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D432F0B0091007F606E /* ActionSheetAction.swift */; };
+		C06A6D472F0B0108007F606E /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D462F0B0107007F606E /* ActionSheet.swift */; };
+		C06A6D4A2F0B0505007F606E /* AlertTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D492F0B04F7007F606E /* AlertTextField.swift */; };
+		C06A6D4E2F0B0568007F606E /* AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D4D2F0B0567007F606E /* AlertAction.swift */; };
+		C06A6D502F0B05E0007F606E /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D4F2F0B05E0007F606E /* Alert.swift */; };
 		C0C8A89C2F066ACB001651F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89B2F066ACA001651F6 /* User.swift */; };
 		C0C8A89E2F066C17001651F6 /* ThemeTypographies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */; };
 		C0C8A8A32F066CD9001651F6 /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8A22F066CD1001651F6 /* ThemeColors.swift */; };
@@ -110,6 +115,11 @@
 		C017D14425FBAD11008B90C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C06A6D372F0ACF94007F606E /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		C06A6D3A2F0AD6D0007F606E /* ProfileContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContact.swift; sourceTree = "<group>"; };
+		C06A6D432F0B0091007F606E /* ActionSheetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetAction.swift; sourceTree = "<group>"; };
+		C06A6D462F0B0107007F606E /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
+		C06A6D492F0B04F7007F606E /* AlertTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTextField.swift; sourceTree = "<group>"; };
+		C06A6D4D2F0B0567007F606E /* AlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAction.swift; sourceTree = "<group>"; };
+		C06A6D4F2F0B05E0007F606E /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C0C8A89B2F066ACA001651F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTypographies.swift; sourceTree = "<group>"; };
 		C0C8A8A22F066CD1001651F6 /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
@@ -203,6 +213,7 @@
 				C0E8221D2F0661E600051412 /* Screens */,
 				C0C8B8122F096BA20029D19F /* Services */,
 				C0C8A89F2F066C7B001651F6 /* Theme */,
+				C06A6D412F0B007E007F606E /* Tools */,
 				C017D14425FBAD11008B90C0 /* Info.plist */,
 			);
 			path = Sources;
@@ -224,6 +235,34 @@
 				C06A6D372F0ACF94007F606E /* ProfileHeader.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		C06A6D412F0B007E007F606E /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				C06A6D452F0B00FB007F606E /* ActionSheet */,
+				C06A6D482F0B02EF007F606E /* Alert */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		C06A6D452F0B00FB007F606E /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+				C06A6D462F0B0107007F606E /* ActionSheet.swift */,
+				C06A6D432F0B0091007F606E /* ActionSheetAction.swift */,
+			);
+			path = ActionSheet;
+			sourceTree = "<group>";
+		};
+		C06A6D482F0B02EF007F606E /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				C06A6D4F2F0B05E0007F606E /* Alert.swift */,
+				C06A6D4D2F0B0567007F606E /* AlertAction.swift */,
+				C06A6D492F0B04F7007F606E /* AlertTextField.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		C0C0ABE72F02695100C6E122 /* Products */ = {
@@ -519,7 +558,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0E822032F065FFF00051412 /* AvatarSize.swift in Sources */,
+				C06A6D442F0B0092007F606E /* ActionSheetAction.swift in Sources */,
 				C0C8A8D52F06B918001651F6 /* UserListViewController.swift in Sources */,
+				C06A6D472F0B0108007F606E /* ActionSheet.swift in Sources */,
+				C06A6D4A2F0B0505007F606E /* AlertTextField.swift in Sources */,
 				C0E822012F065FEB00051412 /* Avatar.swift in Sources */,
 				C0C8A8AE2F067562001651F6 /* Tappable.swift in Sources */,
 				C0C8A8C52F06A9FA001651F6 /* ChatIncomingMessage.swift in Sources */,
@@ -533,6 +575,8 @@
 				C009745F2F03CEEE00BC7680 /* SceneDelegate.swift in Sources */,
 				C0C8A8BF2F06A386001651F6 /* Theme+Dark.swift in Sources */,
 				C0C8A8A52F066F21001651F6 /* Theme.swift in Sources */,
+				C06A6D502F0B05E0007F606E /* Alert.swift in Sources */,
+				C06A6D4E2F0B0568007F606E /* AlertAction.swift in Sources */,
 				C0C8A8C72F06AECA001651F6 /* ChatOutgoingMessage.swift in Sources */,
 				C0C8B81A2F0971BE0029D19F /* CardHeader.swift in Sources */,
 				C0C8B8112F0947B10029D19F /* ProfileViewController.swift in Sources */,
