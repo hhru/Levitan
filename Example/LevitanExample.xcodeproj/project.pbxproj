@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C009745F2F03CEEE00BC7680 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009745D2F03CEEE00BC7680 /* SceneDelegate.swift */; };
 		C00974602F03CEEE00BC7680 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009745C2F03CEEE00BC7680 /* AppDelegate.swift */; };
-		C00974612F03CEEE00BC7680 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009745E2F03CEEE00BC7680 /* MainViewController.swift */; };
+		C00974612F03CEEE00BC7680 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009745E2F03CEEE00BC7680 /* DebugViewController.swift */; };
 		C00974692F03D08E00BC7680 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00974672F03D08E00BC7680 /* Main.storyboard */; };
 		C017D14025FBAD11008B90C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C017D13F25FBAD11008B90C0 /* Assets.xcassets */; };
 		C017D14325FBAD11008B90C0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C017D14125FBAD11008B90C0 /* Launch.storyboard */; };
@@ -100,7 +100,7 @@
 /* Begin PBXFileReference section */
 		C009745C2F03CEEE00BC7680 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C009745D2F03CEEE00BC7680 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C009745E2F03CEEE00BC7680 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C009745E2F03CEEE00BC7680 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
 		C00974682F03D08E00BC7680 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C017D13325FBAD0F008B90C0 /* LevitanExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevitanExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C017D13F25FBAD11008B90C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -190,7 +190,6 @@
 		C017D13525FBAD0F008B90C0 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				C0C8B8122F096BA20029D19F /* Services */,
 				C0C8A8A62F067106001651F6 /* App */,
 				C00975C42F05397C00BC7680 /* Components */,
 				C0C8A8C12F06A8B2001651F6 /* Extensions */,
@@ -198,6 +197,7 @@
 				C0C8A8C82F06B0DE001651F6 /* Modifiers */,
 				C0DA318025FBB1E1009A9CB8 /* Resources */,
 				C0E8221D2F0661E600051412 /* Screens */,
+				C0C8B8122F096BA20029D19F /* Services */,
 				C0C8A89F2F066C7B001651F6 /* Theme */,
 				C017D14425FBAD11008B90C0 /* Info.plist */,
 			);
@@ -300,14 +300,6 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		C0C8A8D32F06B910001651F6 /* User */ = {
-			isa = PBXGroup;
-			children = (
-				C0C8A8D42F06B914001651F6 /* UserListViewController.swift */,
-			);
-			path = User;
-			sourceTree = "<group>";
-		};
 		C0C8B80E2F09479F0029D19F /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,14 +307,6 @@
 				C0C8B8192F0971BC0029D19F /* CardHeader.swift */,
 			);
 			path = Card;
-			sourceTree = "<group>";
-		};
-		C0C8B80F2F0947A70029D19F /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				C0C8B8102F0947AC0029D19F /* ProfileViewController.swift */,
-			);
-			path = Profile;
 			sourceTree = "<group>";
 		};
 		C0C8B8122F096BA20029D19F /* Services */ = {
@@ -355,9 +339,9 @@
 		C0E8221D2F0661E600051412 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C0C8B80F2F0947A70029D19F /* Profile */,
-				C0C8A8D32F06B910001651F6 /* User */,
-				C009745E2F03CEEE00BC7680 /* MainViewController.swift */,
+				C0C8A8D42F06B914001651F6 /* UserListViewController.swift */,
+				C0C8B8102F0947AC0029D19F /* ProfileViewController.swift */,
+				C009745E2F03CEEE00BC7680 /* DebugViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -538,7 +522,7 @@
 				C00974602F03CEEE00BC7680 /* AppDelegate.swift in Sources */,
 				C0C8A8B82F06A14B001651F6 /* PressedEffectModifier.swift in Sources */,
 				C0E822222F06635F00051412 /* CellDivider.swift in Sources */,
-				C00974612F03CEEE00BC7680 /* MainViewController.swift in Sources */,
+				C00974612F03CEEE00BC7680 /* DebugViewController.swift in Sources */,
 				C0C8A89C2F066ACB001651F6 /* User.swift in Sources */,
 				C0C8A8BD2F06A36A001651F6 /* Theme+Light.swift in Sources */,
 				C0C8A8C32F06A8BE001651F6 /* DateFormatter+Extensions.swift in Sources */,

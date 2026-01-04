@@ -101,7 +101,7 @@ extension Token where Value == ThemeTypographies {
     }
 }
 
-class MainViewController: UIViewController {
+class DebugViewController: UIViewController {
 
     let flowView = VerticalFlow.UIView()
 
