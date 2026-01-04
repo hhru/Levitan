@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import SwiftUI
 
-internal struct FontModifier<Content: View>: Equatable, Sendable {
+internal struct FontModifier<Content: View>: Hashable, Sendable {
 
     internal let font: FontToken?
 }

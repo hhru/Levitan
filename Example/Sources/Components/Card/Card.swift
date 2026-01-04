@@ -8,7 +8,6 @@ struct Card<Content: View> {
 }
 
 extension Card: Equatable where Content: Equatable { }
-extension Card: Hashable where Content: Hashable { }
 extension Card: Sendable where Content: Sendable { }
 
 extension Card: View {

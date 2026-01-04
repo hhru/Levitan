@@ -1,6 +1,6 @@
 import SwiftUI
 
-internal struct PaddingModifier<Content: View>: Equatable, Sendable {
+internal struct PaddingModifier<Content: View>: Hashable, Sendable {
 
     internal let insets: InsetsToken?
 }

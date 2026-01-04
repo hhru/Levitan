@@ -1,7 +1,7 @@
 import Levitan
 import SwiftUI
 
-struct TappableArea<Content: View> {
+struct Tappable<Content: View> {
 
     let content: Content
 
@@ -12,14 +12,13 @@ struct TappableArea<Content: View> {
     var pressAction: (@MainActor (_ isPressed: Bool) -> Void)?
 }
 
-extension TappableArea: Equatable where Content: Equatable { }
-extension TappableArea: Hashable where Content: Hashable { }
-extension TappableArea: Sendable where Content: Sendable { }
+extension Tappable: Equatable where Content: Equatable { }
+extension Tappable: Sendable where Content: Sendable { }
 
-extension TappableArea: View {
+extension Tappable: View {
 
     public var body: some View {
-        let buttonStyle = TappableAreaButtonStyle { isPressed in
+        let buttonStyle = TappableButtonStyle { isPressed in
             pressAction?(isPressed)
         }
 
@@ -31,7 +30,7 @@ extension TappableArea: View {
     }
 }
 
-extension TappableArea: Changeable {
+extension Tappable: Changeable {
 
     func onTap(_ tapAction: (@MainActor () -> Void)?) -> Self {
         guard let tapAction else {
@@ -70,10 +69,7 @@ extension TappableArea: Changeable {
 
 extension View {
 
-    nonisolated func onTap(_ tapAction: (@MainActor () -> Void)?) -> TappableArea<Self> {
-        TappableArea(
-            content: self,
-            tapAction: tapAction
-        )
+    nonisolated func onTap(_ tapAction: (@MainActor () -> Void)?) -> Tappable<Self> {
+        Tappable(content: self, tapAction: tapAction)
     }
 }

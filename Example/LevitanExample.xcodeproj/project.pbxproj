@@ -20,8 +20,8 @@
 		C0C8A8A32F066CD9001651F6 /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8A22F066CD1001651F6 /* ThemeColors.swift */; };
 		C0C8A8A52F066F21001651F6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8A42F066F1E001651F6 /* Theme.swift */; };
 		C0C8A8A82F067350001651F6 /* CellAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8A72F06734A001651F6 /* CellAction.swift */; };
-		C0C8A8AC2F06754C001651F6 /* TappableAreaButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8AB2F067548001651F6 /* TappableAreaButtonStyle.swift */; };
-		C0C8A8AE2F067562001651F6 /* TappableArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8AD2F067560001651F6 /* TappableArea.swift */; };
+		C0C8A8AC2F06754C001651F6 /* TappableButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8AB2F067548001651F6 /* TappableButtonStyle.swift */; };
+		C0C8A8AE2F067562001651F6 /* Tappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8AD2F067560001651F6 /* Tappable.swift */; };
 		C0C8A8B42F068F3E001651F6 /* ChatMessageContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8B32F068F3C001651F6 /* ChatMessageContent.swift */; };
 		C0C8A8B82F06A14B001651F6 /* PressedEffectModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8B72F06A141001651F6 /* PressedEffectModifier.swift */; };
 		C0C8A8BA2F06A1A7001651F6 /* ThemeAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8B92F06A1A3001651F6 /* ThemeAnimations.swift */; };
@@ -111,8 +111,8 @@
 		C0C8A8A22F066CD1001651F6 /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
 		C0C8A8A42F066F1E001651F6 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C0C8A8A72F06734A001651F6 /* CellAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellAction.swift; sourceTree = "<group>"; };
-		C0C8A8AB2F067548001651F6 /* TappableAreaButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappableAreaButtonStyle.swift; sourceTree = "<group>"; };
-		C0C8A8AD2F067560001651F6 /* TappableArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappableArea.swift; sourceTree = "<group>"; };
+		C0C8A8AB2F067548001651F6 /* TappableButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TappableButtonStyle.swift; sourceTree = "<group>"; };
+		C0C8A8AD2F067560001651F6 /* Tappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tappable.swift; sourceTree = "<group>"; };
 		C0C8A8B32F068F3C001651F6 /* ChatMessageContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageContent.swift; sourceTree = "<group>"; };
 		C0C8A8B72F06A141001651F6 /* PressedEffectModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressedEffectModifier.swift; sourceTree = "<group>"; };
 		C0C8A8B92F06A1A3001651F6 /* ThemeAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAnimations.swift; sourceTree = "<group>"; };
@@ -250,8 +250,8 @@
 		C0C8A8AA2F067537001651F6 /* Tappable */ = {
 			isa = PBXGroup;
 			children = (
-				C0C8A8AD2F067560001651F6 /* TappableArea.swift */,
-				C0C8A8AB2F067548001651F6 /* TappableAreaButtonStyle.swift */,
+				C0C8A8AD2F067560001651F6 /* Tappable.swift */,
+				C0C8A8AB2F067548001651F6 /* TappableButtonStyle.swift */,
 			);
 			path = Tappable;
 			sourceTree = "<group>";
@@ -499,7 +499,7 @@
 				C0E822032F065FFF00051412 /* AvatarSize.swift in Sources */,
 				C0C8A8D52F06B918001651F6 /* UserListViewController.swift in Sources */,
 				C0E822012F065FEB00051412 /* Avatar.swift in Sources */,
-				C0C8A8AE2F067562001651F6 /* TappableArea.swift in Sources */,
+				C0C8A8AE2F067562001651F6 /* Tappable.swift in Sources */,
 				C0C8A8C52F06A9FA001651F6 /* ChatIncomingMessage.swift in Sources */,
 				C0C8B8162F096BC80029D19F /* ProfileStore.swift in Sources */,
 				C0C8B81D2F097A7D0029D19F /* Tag.swift in Sources */,
@@ -513,7 +513,7 @@
 				C0C8A8C72F06AECA001651F6 /* ChatOutgoingMessage.swift in Sources */,
 				C0C8B81A2F0971BE0029D19F /* CardHeader.swift in Sources */,
 				C0C8B8112F0947B10029D19F /* ProfileViewController.swift in Sources */,
-				C0C8A8AC2F06754C001651F6 /* TappableAreaButtonStyle.swift in Sources */,
+				C0C8A8AC2F06754C001651F6 /* TappableButtonStyle.swift in Sources */,
 				C0C8A8A82F067350001651F6 /* CellAction.swift in Sources */,
 				C0C8A8A32F066CD9001651F6 /* ThemeColors.swift in Sources */,
 				C0C8B80D2F09406F0029D19F /* Profile.swift in Sources */,

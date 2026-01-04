@@ -1,8 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-extension ForegroundGradientModifier: ComponentTokenModifier
-where Content: Component { }
+extension ForegroundGradientModifier: ComponentTokenModifier where Content: Component { }
 
 extension Component {
 

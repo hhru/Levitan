@@ -20,11 +20,17 @@ public struct TokenModifiedView<Modifier: TokenViewModifier> {
     }
 }
 
-extension TokenModifiedView: Equatable
-where Content: Equatable, Modifier: Equatable { }
+extension TokenModifiedView: Equatable where
+    Content: Equatable,
+    Modifier: Equatable { }
 
-extension TokenModifiedView: Sendable
-where Content: Sendable, Modifier: Sendable { }
+extension TokenModifiedView: Hashable where
+    Content: Hashable,
+    Modifier: Hashable { }
+
+extension TokenModifiedView: Sendable where
+    Content: Sendable,
+    Modifier: Sendable { }
 
 extension TokenModifiedView: View {
 

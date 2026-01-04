@@ -2,7 +2,7 @@ import SwiftUI
 
 internal struct ClipShapeModifier<Content: View>:
     TokenShapedModifier,
-    Equatable,
+    Hashable,
     Sendable {
 
     internal let shape: ShapeToken?

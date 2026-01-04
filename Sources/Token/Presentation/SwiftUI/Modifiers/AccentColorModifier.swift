@@ -1,6 +1,6 @@
 import SwiftUI
 
-internal struct AccentColorModifier<Content: View>: Equatable, Sendable {
+internal struct AccentColorModifier<Content: View>: Hashable, Sendable {
 
     internal let color: ColorToken?
 }

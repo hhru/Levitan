@@ -1,8 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-extension BackgroundColorModifier: ComponentTokenModifier
-where Content: Component { }
+extension BackgroundColorModifier: ComponentTokenModifier where Content: Component { }
 
 extension Component {
 

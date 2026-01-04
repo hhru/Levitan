@@ -3,7 +3,7 @@ import SwiftUI
 
 internal struct StrokeModifier<Content: View>:
     TokenShapedModifier,
-    Equatable,
+    Hashable,
     Sendable {
 
     internal let stroke: StrokeToken?

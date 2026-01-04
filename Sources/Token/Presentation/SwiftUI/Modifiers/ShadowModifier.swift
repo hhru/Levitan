@@ -3,8 +3,8 @@ import SwiftUI
 
 internal struct ShadowModifier<Content: View>:
     TokenShapedModifier,
-    Equatable,
-        Sendable {
+    Hashable,
+    Sendable {
 
     internal let shadow: ShadowToken?
 

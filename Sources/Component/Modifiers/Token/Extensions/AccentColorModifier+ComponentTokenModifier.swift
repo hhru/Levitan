@@ -1,8 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-extension AccentColorModifier: ComponentTokenModifier
-where Content: Component { }
+extension AccentColorModifier: ComponentTokenModifier where Content: Component { }
 
 extension Component {
 

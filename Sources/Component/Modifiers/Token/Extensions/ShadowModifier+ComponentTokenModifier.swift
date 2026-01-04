@@ -1,8 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-extension ShadowModifier: ComponentTokenModifier
-where Content: Component { }
+extension ShadowModifier: ComponentTokenModifier where Content: Component { }
 
 extension Component {
 

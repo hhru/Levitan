@@ -6,8 +6,7 @@ public protocol TokenShapedView {
     var shapeInsets: SpacingToken? { get }
 }
 
-extension TokenModifiedView: TokenShapedView
-where Modifier: TokenShapedModifier {
+extension TokenModifiedView: TokenShapedView where Modifier: TokenShapedModifier {
 
     public var shape: ShapeToken? {
         modifier.shape

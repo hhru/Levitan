@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct TappableAreaButtonStyle: ButtonStyle {
+struct TappableButtonStyle: ButtonStyle {
 
     var pressAction: @MainActor (_ isPressed: Bool) -> Void
 

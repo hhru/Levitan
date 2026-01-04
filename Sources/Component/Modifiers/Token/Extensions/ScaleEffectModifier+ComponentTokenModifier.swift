@@ -1,8 +1,7 @@
 #if canImport(UIKit)
 import SwiftUI
 
-extension ScaleEffectModifier: ComponentTokenModifier
-where Content: Component { }
+extension ScaleEffectModifier: ComponentTokenModifier where Content: Component { }
 
 extension Component {
 

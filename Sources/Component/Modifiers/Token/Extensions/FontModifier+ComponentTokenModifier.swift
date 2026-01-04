@@ -1,8 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-extension FontModifier: ComponentTokenModifier
-where Content: Component { }
+extension FontModifier: ComponentTokenModifier where Content: Component { }
 
 extension Component {
 
