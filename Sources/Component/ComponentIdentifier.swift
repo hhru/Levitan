@@ -6,6 +6,8 @@ import Foundation
 /// Используется в качестве Sendable-идентификатора для встраивания SwiftUI-компонентов,
 /// чтобы при переиспользовании родительского контейнера (например, reusable-ячейки)
 /// компонент имел свое уникальное внешнее SwiftUI-хранилище данных.
+///
+/// - SeeAlso: ``Component``
 public struct ComponentIdentifier: Hashable, @unchecked Sendable {
 
     /// Значение идентификатора.

@@ -1,11 +1,20 @@
 #if canImport(UIKit)
 import UIKit
 
+/// UIKit-представление контейнера для добавления отступов.
+///
+/// Используется только при встраивании контейнера в другое UIKit-представление
+/// для минимизации лишних UI-представлений в иерархии.
+///
+/// - SeeAlso: ``ComponentPadding``
+/// - SeeAlso: ``Component``
 public final class ComponentPaddingView<Content: Component>: UIView {
 
     private let contentView = Content.UIView()
-    private var contentViewConstraints: [NSLayoutConstraint] = []
-    private var contentInsets: InsetsToken?
+
+    private var contentConstraints: [NSLayoutConstraint] = []
+    private var contentInsetsToken: InsetsToken?
+    private var contentInsetsValue: InsetsValue?
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -13,7 +22,9 @@ public final class ComponentPaddingView<Content: Component>: UIView {
         setupContentView()
 
         tokens.customBinding { view, theme in
-            view.layoutContentView(theme: theme)
+            if let insetsValue = view.contentInsetsToken?.resolve(for: theme) {
+                view.layoutContentViewIfNeeded(insetsValue: insetsValue)
+            }
         }
     }
 
@@ -28,33 +39,61 @@ public final class ComponentPaddingView<Content: Component>: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    private func layoutContentView(theme: TokenTheme) {
-        NSLayoutConstraint.deactivate(contentViewConstraints)
+    private func layoutContentView(insetsValue: InsetsValue) {
+        NSLayoutConstraint.deactivate(contentConstraints)
 
-        let insets = contentInsets?.resolve(for: theme) ?? .zero
-
-        contentViewConstraints = [
-            contentView.topAnchor.constraint(equalTo: topAnchor, constant: insets.top),
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets.leading),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -insets.bottom),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets.trailing)
+        contentConstraints = [
+            contentView.topAnchor.constraint(
+                equalTo: topAnchor,
+                constant: insetsValue.top
+            ),
+            contentView.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: insetsValue.leading
+            ),
+            contentView.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -insetsValue.bottom
+            ),
+            contentView.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -insetsValue.trailing
+            )
         ]
 
-        NSLayoutConstraint.activate(contentViewConstraints)
+        NSLayoutConstraint.activate(contentConstraints)
+    }
+
+    private func layoutContentViewIfNeeded(insetsValue: InsetsValue) {
+        guard contentInsetsValue != insetsValue else {
+            return
+        }
+
+        contentInsetsValue = insetsValue
+
+        layoutContentView(insetsValue: insetsValue)
+    }
+
+    private func layoutContentViewIfNeeded(insetsToken: InsetsToken) {
+        guard contentInsetsToken != insetsToken else {
+            return
+        }
+
+        contentInsetsToken = insetsToken
+
+        layoutContentViewIfNeeded(insetsValue: insetsToken.resolve(for: tokens.theme))
     }
 }
 
 extension ComponentPaddingView: ComponentView {
 
     public func update(with content: ComponentPadding<Content>, context: ComponentContext) {
-        contentInsets = content.insets
+        layoutContentViewIfNeeded(insetsToken: content.insets ?? .zero)
 
         contentView.update(
             with: content.content,
             context: context
         )
-
-        layoutContentView(theme: tokens.theme)
     }
 }
 #endif

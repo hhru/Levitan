@@ -6,6 +6,7 @@ internal struct AnimationModifier<Content: View, Value: Equatable>: Equatable {
     internal let value: Value
 }
 
+extension AnimationModifier: Hashable where Value: Hashable { }
 extension AnimationModifier: Sendable where Value: Sendable { }
 
 extension AnimationModifier: TokenViewModifier {

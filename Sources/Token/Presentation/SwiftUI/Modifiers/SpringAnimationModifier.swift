@@ -6,6 +6,7 @@ internal struct SpringAnimationModifier<Content: View, Value: Equatable>: Equata
     internal let value: Value
 }
 
+extension SpringAnimationModifier: Hashable where Value: Hashable { }
 extension SpringAnimationModifier: Sendable where Value: Sendable { }
 
 extension SpringAnimationModifier: TokenViewModifier {

@@ -1,17 +1,15 @@
 #if canImport(UIKit)
 import SwiftUI
 
-// TODO: Дополнить документацию
-
-/// Данные для определения размеров и положения компонента в контейнере.
+/// Данные для определения размеров и положения UI-представления в контейнере.
 ///
-/// Также реализует протокол `ComponentModifier`
-/// и может быть использован для модификации любых SwiftUI-представлений.
+/// Также реализует протоколы `ViewModifier` и `ComponentModifier`
+/// и может быть использован для модификации компонентов.
 ///
-/// - SeeAlso: ``ComponentSizing``
 /// - SeeAlso: ``ComponentModifier``
+/// - SeeAlso: ``ComponentSizing``
 /// - SeeAlso: ``Component``
-public struct ComponentFrame {
+public struct ComponentFrame: Equatable, Sendable {
 
     /// Данные для определения размеров.
     public let sizing: ComponentSizing
@@ -22,21 +20,21 @@ public struct ComponentFrame {
     /// когда размер контейнера совпадает с размером контента.
     public let alignment: Alignment
 
-    /// Данные для определения размеров и положения компонента в контейнере.
+    /// Создает данные для определения размеров и положения UI-представления в контейнере.
     ///
     /// - Parameters:
     ///   - sizing: Данные для определения размеров.
     ///   - alignment: Выравнивание относительно контейнера.
     public init(
         sizing: ComponentSizing,
-        alignment: Alignment
+        alignment: Alignment = .center
     ) {
         self.sizing = sizing
         self.alignment = alignment
     }
 }
 
-extension ComponentFrame: ComponentModifier {
+extension ComponentFrame: ViewModifier {
 
     public func body(content: Content) -> some View {
         switch (sizing.width, sizing.height) {
@@ -80,6 +78,9 @@ extension ComponentFrame: ComponentModifier {
                 .frame(maxWidth: .infinity, alignment: alignment)
         }
     }
+}
+
+extension ComponentFrame: ComponentModifier {
 
     public func sizing<Content: Component>(
         content: Content,
@@ -92,12 +93,12 @@ extension ComponentFrame: ComponentModifier {
 
 extension View {
 
-    /// Помещает UI-представление в невидимый контейнер с заданными размерами и выравниванием.
+    /// Помещает UI-представление в контейнер с заданными размерами и выравниванием.
     ///
     /// - Parameters:
-    ///   - sizing: Данные для определения итоговых размеров.
-    ///   - alignment: Выравнивание контента относительно контейнера.
-    /// - Returns: Контейнер для расположения контента с заданными размерами.
+    ///   - sizing: Данные для определения размеров.
+    ///   - alignment: Выравнивание относительно контейнера.
+    /// - Returns: Контейнер для переопределения размеров и положения UI-представления.
     ///
     /// - SeeAlso: ``ComponentFrame``
     /// - SeeAlso: ``ComponentSizing``
@@ -109,13 +110,13 @@ extension View {
         modifier(ComponentFrame(sizing: sizing, alignment: alignment))
     }
 
-    /// Помещает UI-представление в невидимый контейнер с заданными размерами и выравниванием.
+    /// Помещает UI-представление в контейнер с заданными размерами и выравниванием.
     ///
     /// - Parameters:
     ///   - width: Стратегия определения ширины компонента.
     ///   - height: Стратегия определения высоты компонента.
     ///   - alignment: Выравнивание контента относительно контейнера.
-    /// - Returns: Контейнер для расположения контента с заданными размерами.
+    /// - Returns: Контейнер для переопределения размеров и положения UI-представления.
     ///
     /// - SeeAlso: ``ComponentFrame``
     /// - SeeAlso: ``ComponentSizing``
@@ -123,6 +124,82 @@ extension View {
     public nonisolated func frame(
         width: ComponentSizingStrategy = .hug,
         height: ComponentSizingStrategy = .hug,
+        alignment: Alignment = .topLeading
+    ) -> ModifiedContent<Self, ComponentFrame> {
+        frame(
+            sizing: ComponentSizing(
+                width: width,
+                height: height
+            ),
+            alignment: alignment
+        )
+    }
+
+    /// Помещает UI-представление в контейнер с заданными размерами и выравниванием.
+    ///
+    /// - Parameters:
+    ///   - width: Фиксированная ширина компонента.
+    ///   - height: Стратегия определения высоты компонента.
+    ///   - alignment: Выравнивание контента относительно контейнера.
+    /// - Returns: Контейнер для переопределения размеров и положения UI-представления.
+    ///
+    /// - SeeAlso: ``ComponentFrame``
+    /// - SeeAlso: ``ComponentSizing``
+    /// - SeeAlso: ``ComponentSizingStrategy``
+    public nonisolated func frame(
+        width: CGFloat,
+        height: ComponentSizingStrategy = .hug,
+        alignment: Alignment = .topLeading
+    ) -> ModifiedContent<Self, ComponentFrame> {
+        frame(
+            sizing: ComponentSizing(
+                width: width,
+                height: height
+            ),
+            alignment: alignment
+        )
+    }
+
+    /// Помещает UI-представление в контейнер с заданными размерами и выравниванием.
+    ///
+    /// - Parameters:
+    ///   - width: Стратегия определения ширины компонента.
+    ///   - height: Фиксированная высота компонента.
+    ///   - alignment: Выравнивание контента относительно контейнера.
+    /// - Returns: Контейнер для переопределения размеров и положения UI-представления.
+    ///
+    /// - SeeAlso: ``ComponentFrame``
+    /// - SeeAlso: ``ComponentSizing``
+    /// - SeeAlso: ``ComponentSizingStrategy``
+    public nonisolated func frame(
+        width: ComponentSizingStrategy = .hug,
+        height: CGFloat,
+        alignment: Alignment = .topLeading
+    ) -> ModifiedContent<Self, ComponentFrame> {
+        frame(
+            sizing: ComponentSizing(
+                width: width,
+                height: height
+            ),
+            alignment: alignment
+        )
+    }
+
+    /// Помещает UI-представление в контейнер с заданными размерами и выравниванием.
+    ///
+    /// - Parameters:
+    ///   - width: Фиксированная ширина компонента.
+    ///   - height: Фиксированная высота компонента.
+    ///   - alignment: Выравнивание контента относительно контейнера.
+    /// - Returns: Контейнер для переопределения размеров и положения UI-представления.
+    ///
+    ///
+    /// - SeeAlso: ``ComponentFrame``
+    /// - SeeAlso: ``ComponentSizing``
+    /// - SeeAlso: ``ComponentSizingStrategy``
+    public nonisolated func frame(
+        width: CGFloat,
+        height: CGFloat,
         alignment: Alignment = .topLeading
     ) -> ModifiedContent<Self, ComponentFrame> {
         frame(

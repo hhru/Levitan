@@ -2,7 +2,7 @@
 import CoreGraphics
 import Foundation
 
-public struct FlowLayoutScrollAnchor: Equatable, Sendable {
+public struct FlowLayoutScrollAnchor: Hashable, Sendable {
 
     public let x: CGFloat
     public let y: CGFloat

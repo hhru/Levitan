@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-public struct FlowLayoutScrollAxis: OptionSet, Sendable {
+public struct FlowLayoutScrollAxis: OptionSet, Hashable, Sendable {
 
     public let rawValue: UInt
 

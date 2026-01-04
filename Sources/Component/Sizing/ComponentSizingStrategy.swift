@@ -10,7 +10,7 @@ import Foundation
 /// - SeeAlso: ``ComponentSizing``
 /// - SeeAlso: ``Component``
 @frozen
-public enum ComponentSizingStrategy: Equatable, Sendable {
+public enum ComponentSizingStrategy: Hashable, Sendable {
 
     /// Компонент имеет фиксированный размер.
     ///

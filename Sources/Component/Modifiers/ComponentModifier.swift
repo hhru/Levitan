@@ -1,16 +1,54 @@
 #if canImport(UIKit)
 import SwiftUI
 
-// TODO: Дополнить документацию
-
-/// Модификатор, который может быть применен к UI-компонентам для изменения их представления или поведения.
-///
-/// Позволяет реализовать переиспользуемые сущности для модификации любых SwiftUI-представлений,
-/// даже если они не соответствуют протоколу `Component`.
+/// Модификатор, который может быть применен к компонентам
+/// для изменения их представления или поведения.
 ///
 /// Кроме стандартных полей протокола `ViewModifier` из SwiftUI,
 /// протокол `ComponentModifier` требует реализацию метода `sizing(content:fitting:context:)`,
-/// сохраняя возможность встраивать компонент в Lazy-контейнер (например, коллекцию).
+/// сохраняя возможность встраивать компонент в Lazy-контейнер (например, коллекцию), например:
+///
+/// ``` swift
+/// struct PressedEffectModifier: ComponentModifier {
+///
+///     let isPressed: Bool
+///     let anchor: UnitPoint
+///
+///     func body(content: Content) -> some View {
+///         content
+///             .scaleEffect(isPressed ? 0.95 : 1.0, anchor: anchor)
+///             .animation(.easeInOut(duration: 0.2), value: isPressed)
+///     }
+///
+///     func sizing<Content: Component>(
+///         content: Content,
+///         fitting size: CGSize,
+///         context: ComponentContext
+///     ) -> ComponentSizing {
+///         // Модификатор не влияет на размеры компонента,
+///         // поэтому возвращает данные контента как есть
+///         content.sizing(
+///             fitting: size,
+///             context: context
+///         )
+///     }
+/// }
+///
+/// extension Component {
+///
+///     nonisolated func pressedEffect(
+///         _ isPressed: Bool,
+///         anchor: UnitPoint = .center
+///     ) -> some Component {
+///         modifier(
+///             PressedEffectModifier(
+///                 isPressed: isPressed,
+///                 anchor: anchor
+///             )
+///         )
+///     }
+/// }
+/// ```
 ///
 /// - SeeAlso: ``Component``
 public protocol ComponentModifier: ViewModifier, Equatable {

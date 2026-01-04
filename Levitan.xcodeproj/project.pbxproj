@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C009746D2F03D27900BC7680 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009746C2F03D26F00BC7680 /* FlowHorizontalAlignment.swift */; };
-		C009746E2F03D27900BC7680 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009746C2F03D26F00BC7680 /* FlowHorizontalAlignment.swift */; };
-		C009746F2F03D27900BC7680 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009746C2F03D26F00BC7680 /* FlowHorizontalAlignment.swift */; };
-		C00974712F03D2A100BC7680 /* FlowVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00974702F03D29C00BC7680 /* FlowVerticalAlignment.swift */; };
-		C00974722F03D2A100BC7680 /* FlowVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00974702F03D29C00BC7680 /* FlowVerticalAlignment.swift */; };
-		C00974732F03D2A100BC7680 /* FlowVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00974702F03D29C00BC7680 /* FlowVerticalAlignment.swift */; };
 		C009747B2F03D38E00BC7680 /* AnyFlowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009747A2F03D38B00BC7680 /* AnyFlowItem.swift */; };
 		C009747C2F03D38E00BC7680 /* AnyFlowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009747A2F03D38B00BC7680 /* AnyFlowItem.swift */; };
 		C009747D2F03D38E00BC7680 /* AnyFlowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009747A2F03D38B00BC7680 /* AnyFlowItem.swift */; };
@@ -315,7 +309,6 @@
 		C02C89D52F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89102F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift */; };
 		C02C89D62F0266B400A2FE9F /* ImageResizingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C891D2F0266B400A2FE9F /* ImageResizingMode.swift */; };
 		C02C89D72F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88252F0266B400A2FE9F /* ImageToken+TextPart.swift */; };
-		C02C89D82F0266B400A2FE9F /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87F52F0266B400A2FE9F /* ComponentFrame.swift */; };
 		C02C89D92F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E32F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift */; };
 		C02C89DA2F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88162F0266B400A2FE9F /* EnvironmentValues+TextCache.swift */; };
 		C02C89DB2F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BA2F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift */; };
@@ -620,7 +613,6 @@
 		C02C8B202F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89102F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift */; };
 		C02C8B212F0266B400A2FE9F /* ImageResizingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C891D2F0266B400A2FE9F /* ImageResizingMode.swift */; };
 		C02C8B222F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88252F0266B400A2FE9F /* ImageToken+TextPart.swift */; };
-		C02C8B232F0266B400A2FE9F /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87F52F0266B400A2FE9F /* ComponentFrame.swift */; };
 		C02C8B242F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E32F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift */; };
 		C02C8B252F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88162F0266B400A2FE9F /* EnvironmentValues+TextCache.swift */; };
 		C02C8B262F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BA2F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift */; };
@@ -925,7 +917,6 @@
 		C02C8C6B2F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89102F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift */; };
 		C02C8C6C2F0266B400A2FE9F /* ImageResizingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C891D2F0266B400A2FE9F /* ImageResizingMode.swift */; };
 		C02C8C6D2F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88252F0266B400A2FE9F /* ImageToken+TextPart.swift */; };
-		C02C8C6E2F0266B400A2FE9F /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87F52F0266B400A2FE9F /* ComponentFrame.swift */; };
 		C02C8C6F2F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E32F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift */; };
 		C02C8C702F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88162F0266B400A2FE9F /* EnvironmentValues+TextCache.swift */; };
 		C02C8C712F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BA2F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift */; };
@@ -1153,6 +1144,12 @@
 		C043A2BE2DCE37D700F6C58A /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; };
 		C043A2BF2DCE37D700F6C58A /* Levitan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C057F01823CB8EEB00C2D895 /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C057F00E23CB8EEB00C2D895 /* Levitan.framework */; };
+		C0946A3B2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */; };
+		C0946A3C2F0A676900BA7CD3 /* FlowVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A3A2F0A676900BA7CD3 /* FlowVerticalAlignment.swift */; };
+		C0946A3D2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */; };
+		C0946A3E2F0A676900BA7CD3 /* FlowVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A3A2F0A676900BA7CD3 /* FlowVerticalAlignment.swift */; };
+		C0946A3F2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */; };
+		C0946A402F0A676900BA7CD3 /* FlowVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A3A2F0A676900BA7CD3 /* FlowVerticalAlignment.swift */; };
 		C0C8A8E22F07B972001651F6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8E12F07B96D001651F6 /* UIView+Extensions.swift */; };
 		C0C8A8E32F07B972001651F6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8E12F07B96D001651F6 /* UIView+Extensions.swift */; };
 		C0C8A8E42F07B972001651F6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8E12F07B96D001651F6 /* UIView+Extensions.swift */; };
@@ -1234,9 +1231,6 @@
 		C0C8B8892F09AEF40029D19F /* OpacityModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8882F09AEED0029D19F /* OpacityModifier+ComponentTokenModifier.swift */; };
 		C0C8B88A2F09AEF40029D19F /* OpacityModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8882F09AEED0029D19F /* OpacityModifier+ComponentTokenModifier.swift */; };
 		C0C8B88B2F09AEF40029D19F /* OpacityModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8882F09AEED0029D19F /* OpacityModifier+ComponentTokenModifier.swift */; };
-		C0C8B88D2F09AF1C0029D19F /* PaddingModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B88C2F09AF130029D19F /* PaddingModifier+ComponentTokenModifier.swift */; };
-		C0C8B88E2F09AF1C0029D19F /* PaddingModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B88C2F09AF130029D19F /* PaddingModifier+ComponentTokenModifier.swift */; };
-		C0C8B88F2F09AF1C0029D19F /* PaddingModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B88C2F09AF130029D19F /* PaddingModifier+ComponentTokenModifier.swift */; };
 		C0C8B8912F09AFA30029D19F /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8902F09AF9B0029D19F /* ScaleEffectModifier+ComponentTokenModifier.swift */; };
 		C0C8B8922F09AFA30029D19F /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8902F09AF9B0029D19F /* ScaleEffectModifier+ComponentTokenModifier.swift */; };
 		C0C8B8932F09AFA30029D19F /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8902F09AF9B0029D19F /* ScaleEffectModifier+ComponentTokenModifier.swift */; };
@@ -1249,6 +1243,15 @@
 		C0C8B89D2F09B2F30029D19F /* StrokeModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B89C2F09B2EB0029D19F /* StrokeModifier+ComponentTokenModifier.swift */; };
 		C0C8B89E2F09B2F30029D19F /* StrokeModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B89C2F09B2EB0029D19F /* StrokeModifier+ComponentTokenModifier.swift */; };
 		C0C8B89F2F09B2F30029D19F /* StrokeModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B89C2F09B2EB0029D19F /* StrokeModifier+ComponentTokenModifier.swift */; };
+		C0C8B8AE2F09BF390029D19F /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8AD2F09BF330029D19F /* ComponentFrame.swift */; };
+		C0C8B8AF2F09BF390029D19F /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8AD2F09BF330029D19F /* ComponentFrame.swift */; };
+		C0C8B8B02F09BF390029D19F /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8AD2F09BF330029D19F /* ComponentFrame.swift */; };
+		C0C8B8B72F09CA770029D19F /* ComponentPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8B62F09CA690029D19F /* ComponentPadding.swift */; };
+		C0C8B8B82F09CA770029D19F /* ComponentPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8B62F09CA690029D19F /* ComponentPadding.swift */; };
+		C0C8B8B92F09CA770029D19F /* ComponentPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8B62F09CA690029D19F /* ComponentPadding.swift */; };
+		C0C8B8BB2F09CBAA0029D19F /* ComponentPaddingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8BA2F09CBA80029D19F /* ComponentPaddingView.swift */; };
+		C0C8B8BC2F09CBAA0029D19F /* ComponentPaddingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8BA2F09CBA80029D19F /* ComponentPaddingView.swift */; };
+		C0C8B8BD2F09CBAA0029D19F /* ComponentPaddingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8BA2F09CBA80029D19F /* ComponentPaddingView.swift */; };
 		C0D2270F2DCCC26C0075DB31 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C092753A2DCAA00200BBC858 /* XCTest.framework */; platformFilter = ios; };
 		C0D227132DCCC26C0075DB31 /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C092753A2DCAA00200BBC858 /* XCTest.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C0D227282DCCD63C0075DB31 /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = C0D227252DCCD0FC0075DB31 /* Documentation.docc */; };
@@ -1338,8 +1341,6 @@
 
 /* Begin PBXFileReference section */
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
-		C009746C2F03D26F00BC7680 /* FlowHorizontalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowHorizontalAlignment.swift; sourceTree = "<group>"; };
-		C00974702F03D29C00BC7680 /* FlowVerticalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowVerticalAlignment.swift; sourceTree = "<group>"; };
 		C009747A2F03D38B00BC7680 /* AnyFlowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyFlowItem.swift; sourceTree = "<group>"; };
 		C009747E2F03D3AF00BC7680 /* FlowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowItem.swift; sourceTree = "<group>"; };
 		C00974822F03D3F500BC7680 /* AnyFlowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyFlowCell.swift; sourceTree = "<group>"; };
@@ -1442,7 +1443,6 @@
 		C02C87E82F0266B400A2FE9F /* ComponentHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentHostingController.swift; sourceTree = "<group>"; };
 		C02C87E92F0266B400A2FE9F /* ComponentHostingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentHostingRoot.swift; sourceTree = "<group>"; };
 		C02C87EA2F0266B400A2FE9F /* ComponentHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentHostingView.swift; sourceTree = "<group>"; };
-		C02C87F52F0266B400A2FE9F /* ComponentFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFrame.swift; sourceTree = "<group>"; };
 		C02C87F62F0266B400A2FE9F /* ComponentModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentModifier.swift; sourceTree = "<group>"; };
 		C02C87F82F0266B400A2FE9F /* ComponentSizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSizing.swift; sourceTree = "<group>"; };
 		C02C87F92F0266B400A2FE9F /* ComponentSizingStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentSizingStrategy.swift; sourceTree = "<group>"; };
@@ -1728,6 +1728,8 @@
 		C057F01E23CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C09275362DCA9FFA00BBC858 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/AppleTVOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C092753A2DCAA00200BBC858 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowHorizontalAlignment.swift; sourceTree = "<group>"; };
+		C0946A3A2F0A676900BA7CD3 /* FlowVerticalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowVerticalAlignment.swift; sourceTree = "<group>"; };
 		C0A01A1523CB8FFC00AC2C3A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		C0A01A1723CB900900AC2C3A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C0A01A1823CB900900AC2C3A /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -1769,11 +1771,13 @@
 		C0C8B8802F09AD140029D19F /* ForegroundColorModifier+ComponentTokenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForegroundColorModifier+ComponentTokenModifier.swift"; sourceTree = "<group>"; };
 		C0C8B8842F09AE500029D19F /* ForegroundGradientModifier+ComponentTokenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForegroundGradientModifier+ComponentTokenModifier.swift"; sourceTree = "<group>"; };
 		C0C8B8882F09AEED0029D19F /* OpacityModifier+ComponentTokenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OpacityModifier+ComponentTokenModifier.swift"; sourceTree = "<group>"; };
-		C0C8B88C2F09AF130029D19F /* PaddingModifier+ComponentTokenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaddingModifier+ComponentTokenModifier.swift"; sourceTree = "<group>"; };
 		C0C8B8902F09AF9B0029D19F /* ScaleEffectModifier+ComponentTokenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScaleEffectModifier+ComponentTokenModifier.swift"; sourceTree = "<group>"; };
 		C0C8B8942F09AFCA0029D19F /* ShadowModifier+ComponentTokenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShadowModifier+ComponentTokenModifier.swift"; sourceTree = "<group>"; };
 		C0C8B8982F09B2BB0029D19F /* SpringAnimationModifier+ComponentTokenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpringAnimationModifier+ComponentTokenModifier.swift"; sourceTree = "<group>"; };
 		C0C8B89C2F09B2EB0029D19F /* StrokeModifier+ComponentTokenModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StrokeModifier+ComponentTokenModifier.swift"; sourceTree = "<group>"; };
+		C0C8B8AD2F09BF330029D19F /* ComponentFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFrame.swift; sourceTree = "<group>"; };
+		C0C8B8B62F09CA690029D19F /* ComponentPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPadding.swift; sourceTree = "<group>"; };
+		C0C8B8BA2F09CBA80029D19F /* ComponentPaddingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPaddingView.swift; sourceTree = "<group>"; };
 		C0C9FE8B2655DECE0074D669 /* Mintfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Mintfile; sourceTree = "<group>"; };
 		C0D226F62DCC26C70075DB31 /* Package@swift-5.9.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-5.9.swift"; sourceTree = "<group>"; };
 		C0D227172DCCC26C0075DB31 /* LevitanDocumentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LevitanDocumentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1858,8 +1862,8 @@
 		C009746B2F03D25F00BC7680 /* Alignment */ = {
 			isa = PBXGroup;
 			children = (
-				C00974702F03D29C00BC7680 /* FlowVerticalAlignment.swift */,
-				C009746C2F03D26F00BC7680 /* FlowHorizontalAlignment.swift */,
+				C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */,
+				C0946A3A2F0A676900BA7CD3 /* FlowVerticalAlignment.swift */,
 			);
 			path = Alignment;
 			sourceTree = "<group>";
@@ -2221,7 +2225,7 @@
 			isa = PBXGroup;
 			children = (
 				C0C8B86F2F09A3AB0029D19F /* Token */,
-				C02C87F52F0266B400A2FE9F /* ComponentFrame.swift */,
+				C0C8B8AD2F09BF330029D19F /* ComponentFrame.swift */,
 				C02C87F62F0266B400A2FE9F /* ComponentModifier.swift */,
 			);
 			path = Modifiers;
@@ -2239,12 +2243,14 @@
 		C02C87FD2F0266B400A2FE9F /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				C0C8B8AC2F09BF2D0029D19F /* Frame */,
 				C02C87CC2F0266B400A2FE9F /* Any */,
 				C02C87D62F0266B400A2FE9F /* Context */,
 				C02C87DC2F0266B400A2FE9F /* Environment */,
 				C02C87E72F0266B400A2FE9F /* Fallback */,
 				C02C87EB2F0266B400A2FE9F /* Hosting */,
 				C02C87F72F0266B400A2FE9F /* Modifiers */,
+				C0C8B8B52F09CA620029D19F /* Padding */,
 				C02C87FA2F0266B400A2FE9F /* Sizing */,
 				C02C87FB2F0266B400A2FE9F /* Component.swift */,
 				C0E821E12F0567F800051412 /* ComponentIdentifier.swift */,
@@ -3403,7 +3409,6 @@
 				C0C8B8802F09AD140029D19F /* ForegroundColorModifier+ComponentTokenModifier.swift */,
 				C0C8B8842F09AE500029D19F /* ForegroundGradientModifier+ComponentTokenModifier.swift */,
 				C0C8B8882F09AEED0029D19F /* OpacityModifier+ComponentTokenModifier.swift */,
-				C0C8B88C2F09AF130029D19F /* PaddingModifier+ComponentTokenModifier.swift */,
 				C0C8B8902F09AF9B0029D19F /* ScaleEffectModifier+ComponentTokenModifier.swift */,
 				C0C8B8942F09AFCA0029D19F /* ShadowModifier+ComponentTokenModifier.swift */,
 				C0C8B8982F09B2BB0029D19F /* SpringAnimationModifier+ComponentTokenModifier.swift */,
@@ -3419,6 +3424,22 @@
 				C0C8B8702F09A3B20029D19F /* ComponentTokenModifier.swift */,
 			);
 			path = Token;
+			sourceTree = "<group>";
+		};
+		C0C8B8AC2F09BF2D0029D19F /* Frame */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Frame;
+			sourceTree = "<group>";
+		};
+		C0C8B8B52F09CA620029D19F /* Padding */ = {
+			isa = PBXGroup;
+			children = (
+				C0C8B8B62F09CA690029D19F /* ComponentPadding.swift */,
+				C0C8B8BA2F09CBA80029D19F /* ComponentPaddingView.swift */,
+			);
+			path = Padding;
 			sourceTree = "<group>";
 		};
 		C0E821C42F053E1900051412 /* Reader */ = {
@@ -3712,6 +3733,7 @@
 				C00975182F051AAE00BC7680 /* FlowLayoutSize.swift in Sources */,
 				C009748C2F03DE0500BC7680 /* FlowItemPredicate.swift in Sources */,
 				C02C8C2E2F0266B400A2FE9F /* FontToken.swift in Sources */,
+				C0C8B8B72F09CA770029D19F /* ComponentPadding.swift in Sources */,
 				C02C8C2F2F0266B400A2FE9F /* CGRect+Extensions.swift in Sources */,
 				C02C8C302F0266B400A2FE9F /* Array+Changeable.swift in Sources */,
 				C02C8C312F0266B400A2FE9F /* FloatingPoint+Extensions.swift in Sources */,
@@ -3795,7 +3817,6 @@
 				C02C8C6B2F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */,
 				C02C8C6C2F0266B400A2FE9F /* ImageResizingMode.swift in Sources */,
 				C02C8C6D2F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */,
-				C02C8C6E2F0266B400A2FE9F /* ComponentFrame.swift in Sources */,
 				C02C8C6F2F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */,
 				C009757E2F052FCF00BC7680 /* VerticalFlow.swift in Sources */,
 				C02C8C702F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */,
@@ -3903,6 +3924,8 @@
 				C02C8CC02F0266B400A2FE9F /* ShadowShape.swift in Sources */,
 				C00975382F051CD800BC7680 /* CollectionViewLayoutBoundsProvider.swift in Sources */,
 				C02C8CC12F0266B400A2FE9F /* InsetsDecorator.swift in Sources */,
+				C0946A3B2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */,
+				C0946A3C2F0A676900BA7CD3 /* FlowVerticalAlignment.swift in Sources */,
 				C00974B32F03E51100BC7680 /* FlowFooter.swift in Sources */,
 				C00975412F051DDF00BC7680 /* FlowLayoutDefaultAppearance.swift in Sources */,
 				C02C8CC22F0266B400A2FE9F /* PlusDecorator.swift in Sources */,
@@ -3919,7 +3942,6 @@
 				C0E821F92F06540A00051412 /* HorizontalFlowReader.swift in Sources */,
 				C02C8CCD2F0266B400A2FE9F /* FrontLayer.swift in Sources */,
 				C02C8CCE2F0266B400A2FE9F /* UIScreen+TraitsObservable.swift in Sources */,
-				C0C8B88F2F09AF1C0029D19F /* PaddingModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8CCF2F0266B400A2FE9F /* RangeReplaceableCollection+Extensions.swift in Sources */,
 				C00975A32F05315700BC7680 /* CollectionViewLayoutScrollManager.swift in Sources */,
 				C02C8CD02F0266B400A2FE9F /* ImageValue.swift in Sources */,
@@ -3962,7 +3984,6 @@
 				C02C8CEF2F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift in Sources */,
 				C00975772F052F9D00BC7680 /* FlowRowSize.swift in Sources */,
 				C02C8CF02F0266B400A2FE9F /* AnyTokenView.swift in Sources */,
-				C009746D2F03D27900BC7680 /* FlowHorizontalAlignment.swift in Sources */,
 				C02C8CF12F0266B400A2FE9F /* CustomShape.swift in Sources */,
 				C0C8B8862F09AE590029D19F /* ForegroundGradientModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8CF22F0266B400A2FE9F /* TextInterpolation.swift in Sources */,
@@ -3985,7 +4006,6 @@
 				C02C8D002F0266B400A2FE9F /* EnvironmentValues+TokenThemeKey.swift in Sources */,
 				C02C8D012F0266B400A2FE9F /* UICollectionView+UpdateData.swift in Sources */,
 				C02C8D022F0266B400A2FE9F /* TokenViewManager.swift in Sources */,
-				C00974712F03D2A100BC7680 /* FlowVerticalAlignment.swift in Sources */,
 				C02C8D032F0266B400A2FE9F /* Component.swift in Sources */,
 				C02C8D042F0266B400A2FE9F /* TokenThemeBody.swift in Sources */,
 				C02C8D052F0266B400A2FE9F /* TraitsObservable.swift in Sources */,
@@ -4015,6 +4035,7 @@
 				C009752F2F051C5E00BC7680 /* FlowLayoutOrigin.swift in Sources */,
 				C00975BF2F0533F000BC7680 /* FlowContainerFooterView.swift in Sources */,
 				C02C8D1A2F0266B400A2FE9F /* Float+TokenValue.swift in Sources */,
+				C0C8B8B02F09BF390029D19F /* ComponentFrame.swift in Sources */,
 				C02C8D1B2F0266B400A2FE9F /* TokenValue.swift in Sources */,
 				C02C8D1C2F0266B400A2FE9F /* StrokeDecorator.swift in Sources */,
 				C02C8D1D2F0266B400A2FE9F /* DurationDecorator.swift in Sources */,
@@ -4084,6 +4105,7 @@
 				C02C8D512F0266B400A2FE9F /* DecorableByForegroundColor.swift in Sources */,
 				C02C8D522F0266B400A2FE9F /* DifferenceIndicesReference.swift in Sources */,
 				C0C8B88B2F09AEF40029D19F /* OpacityModifier+ComponentTokenModifier.swift in Sources */,
+				C0C8B8BC2F09CBAA0029D19F /* ComponentPaddingView.swift in Sources */,
 				C02C8D532F0266B400A2FE9F /* TraitsObservation.swift in Sources */,
 				C02C8D542F0266B400A2FE9F /* DecorableByPlus.swift in Sources */,
 				C02C8D552F0266B400A2FE9F /* UIApplication+TokenView.swift in Sources */,
@@ -4149,6 +4171,7 @@
 				C00975172F051AAE00BC7680 /* FlowLayoutSize.swift in Sources */,
 				C009748B2F03DE0500BC7680 /* FlowItemPredicate.swift in Sources */,
 				C02C89982F0266B400A2FE9F /* FontToken.swift in Sources */,
+				C0C8B8B82F09CA770029D19F /* ComponentPadding.swift in Sources */,
 				C02C89992F0266B400A2FE9F /* CGRect+Extensions.swift in Sources */,
 				C02C899A2F0266B400A2FE9F /* Array+Changeable.swift in Sources */,
 				C02C899B2F0266B400A2FE9F /* FloatingPoint+Extensions.swift in Sources */,
@@ -4232,7 +4255,6 @@
 				C02C89D52F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */,
 				C02C89D62F0266B400A2FE9F /* ImageResizingMode.swift in Sources */,
 				C02C89D72F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */,
-				C02C89D82F0266B400A2FE9F /* ComponentFrame.swift in Sources */,
 				C02C89D92F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */,
 				C00975802F052FCF00BC7680 /* VerticalFlow.swift in Sources */,
 				C02C89DA2F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */,
@@ -4340,6 +4362,8 @@
 				C02C8A2A2F0266B400A2FE9F /* ShadowShape.swift in Sources */,
 				C00975392F051CD800BC7680 /* CollectionViewLayoutBoundsProvider.swift in Sources */,
 				C02C8A2B2F0266B400A2FE9F /* InsetsDecorator.swift in Sources */,
+				C0946A3F2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */,
+				C0946A402F0A676900BA7CD3 /* FlowVerticalAlignment.swift in Sources */,
 				C00974B42F03E51100BC7680 /* FlowFooter.swift in Sources */,
 				C00975402F051DDF00BC7680 /* FlowLayoutDefaultAppearance.swift in Sources */,
 				C02C8A2C2F0266B400A2FE9F /* PlusDecorator.swift in Sources */,
@@ -4356,7 +4380,6 @@
 				C0E821F82F06540A00051412 /* HorizontalFlowReader.swift in Sources */,
 				C02C8A372F0266B400A2FE9F /* FrontLayer.swift in Sources */,
 				C02C8A382F0266B400A2FE9F /* UIScreen+TraitsObservable.swift in Sources */,
-				C0C8B88D2F09AF1C0029D19F /* PaddingModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8A392F0266B400A2FE9F /* RangeReplaceableCollection+Extensions.swift in Sources */,
 				C00975A52F05315700BC7680 /* CollectionViewLayoutScrollManager.swift in Sources */,
 				C02C8A3A2F0266B400A2FE9F /* ImageValue.swift in Sources */,
@@ -4399,7 +4422,6 @@
 				C02C8A592F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift in Sources */,
 				C00975762F052F9D00BC7680 /* FlowRowSize.swift in Sources */,
 				C02C8A5A2F0266B400A2FE9F /* AnyTokenView.swift in Sources */,
-				C009746E2F03D27900BC7680 /* FlowHorizontalAlignment.swift in Sources */,
 				C02C8A5B2F0266B400A2FE9F /* CustomShape.swift in Sources */,
 				C0C8B8872F09AE590029D19F /* ForegroundGradientModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8A5C2F0266B400A2FE9F /* TextInterpolation.swift in Sources */,
@@ -4422,7 +4444,6 @@
 				C02C8A6A2F0266B400A2FE9F /* EnvironmentValues+TokenThemeKey.swift in Sources */,
 				C02C8A6B2F0266B400A2FE9F /* UICollectionView+UpdateData.swift in Sources */,
 				C02C8A6C2F0266B400A2FE9F /* TokenViewManager.swift in Sources */,
-				C00974732F03D2A100BC7680 /* FlowVerticalAlignment.swift in Sources */,
 				C02C8A6D2F0266B400A2FE9F /* Component.swift in Sources */,
 				C02C8A6E2F0266B400A2FE9F /* TokenThemeBody.swift in Sources */,
 				C02C8A6F2F0266B400A2FE9F /* TraitsObservable.swift in Sources */,
@@ -4452,6 +4473,7 @@
 				C00975302F051C5E00BC7680 /* FlowLayoutOrigin.swift in Sources */,
 				C00975C02F0533F000BC7680 /* FlowContainerFooterView.swift in Sources */,
 				C02C8A842F0266B400A2FE9F /* Float+TokenValue.swift in Sources */,
+				C0C8B8AF2F09BF390029D19F /* ComponentFrame.swift in Sources */,
 				C02C8A852F0266B400A2FE9F /* TokenValue.swift in Sources */,
 				C02C8A862F0266B400A2FE9F /* StrokeDecorator.swift in Sources */,
 				C02C8A872F0266B400A2FE9F /* DurationDecorator.swift in Sources */,
@@ -4521,6 +4543,7 @@
 				C02C8ABB2F0266B400A2FE9F /* DecorableByForegroundColor.swift in Sources */,
 				C02C8ABC2F0266B400A2FE9F /* DifferenceIndicesReference.swift in Sources */,
 				C0C8B88A2F09AEF40029D19F /* OpacityModifier+ComponentTokenModifier.swift in Sources */,
+				C0C8B8BD2F09CBAA0029D19F /* ComponentPaddingView.swift in Sources */,
 				C02C8ABD2F0266B400A2FE9F /* TraitsObservation.swift in Sources */,
 				C02C8ABE2F0266B400A2FE9F /* DecorableByPlus.swift in Sources */,
 				C02C8ABF2F0266B400A2FE9F /* UIApplication+TokenView.swift in Sources */,
@@ -4607,6 +4630,7 @@
 				C0C8B8462F09A02F0029D19F /* FontModifier.swift in Sources */,
 				C0C8B8472F09A02F0029D19F /* StrokeModifier.swift in Sources */,
 				C0C8B8482F09A02F0029D19F /* ForegroundGradientModifier.swift in Sources */,
+				C0C8B8BB2F09CBAA0029D19F /* ComponentPaddingView.swift in Sources */,
 				C0C8B8492F09A02F0029D19F /* SpringAnimationModifier.swift in Sources */,
 				C0C8B84A2F09A02F0029D19F /* PaddingModifier.swift in Sources */,
 				C0C8B84B2F09A02F0029D19F /* TransitionModifier.swift in Sources */,
@@ -4635,6 +4659,7 @@
 				C02C8AFA2F0266B400A2FE9F /* ImageValue+View.swift in Sources */,
 				C02C8AFB2F0266B400A2FE9F /* GradientValue+View.swift in Sources */,
 				C02C8AFC2F0266B400A2FE9F /* UIView+TokenView.swift in Sources */,
+				C0C8B8B92F09CA770029D19F /* ComponentPadding.swift in Sources */,
 				C02C8AFD2F0266B400A2FE9F /* TokenViewProperties+UILabel+Text.swift in Sources */,
 				C02C8AFE2F0266B400A2FE9F /* DecorableByAlpha.swift in Sources */,
 				C00974DB2F03F15F00BC7680 /* CollectionViewLayoutSizing.swift in Sources */,
@@ -4667,6 +4692,8 @@
 				C02C8B152F0266B400A2FE9F /* TextOperationQueue.swift in Sources */,
 				C02C8B162F0266B400A2FE9F /* TypographyLineToken.swift in Sources */,
 				C02C8B182F0266B400A2FE9F /* TokenTrait.swift in Sources */,
+				C0946A3D2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */,
+				C0946A3E2F0A676900BA7CD3 /* FlowVerticalAlignment.swift in Sources */,
 				C0C8A8E42F07B972001651F6 /* UIView+Extensions.swift in Sources */,
 				C02C8B192F0266B400A2FE9F /* MethodSwizzler.swift in Sources */,
 				C02C8B1B2F0266B400A2FE9F /* Set+Changeable.swift in Sources */,
@@ -4681,7 +4708,6 @@
 				C02C8B212F0266B400A2FE9F /* ImageResizingMode.swift in Sources */,
 				C02C8B222F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */,
 				C00974E72F03F19D00BC7680 /* CollectionViewLayoutAttributes.swift in Sources */,
-				C02C8B232F0266B400A2FE9F /* ComponentFrame.swift in Sources */,
 				C02C8B242F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */,
 				C009747B2F03D38E00BC7680 /* AnyFlowItem.swift in Sources */,
 				C02C8B252F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */,
@@ -4766,7 +4792,6 @@
 				C02C8B6A2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */,
 				C02C8B6B2F0266B400A2FE9F /* TextView.swift in Sources */,
 				C02C8B6C2F0266B400A2FE9F /* FallbackComponentBody.swift in Sources */,
-				C00974722F03D2A100BC7680 /* FlowVerticalAlignment.swift in Sources */,
 				C0E821DC2F05580B00051412 /* FlowScrollAnchor.swift in Sources */,
 				C02C8B6D2F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */,
 				C00975832F052FDD00BC7680 /* HorizontalFlowLayout.swift in Sources */,
@@ -4780,6 +4805,7 @@
 				C02C8B742F0266B400A2FE9F /* Int+TokenValue.swift in Sources */,
 				C02C8B752F0266B400A2FE9F /* ShadowShape.swift in Sources */,
 				C02C8B762F0266B400A2FE9F /* InsetsDecorator.swift in Sources */,
+				C0C8B8AE2F09BF390029D19F /* ComponentFrame.swift in Sources */,
 				C02C8B772F0266B400A2FE9F /* PlusDecorator.swift in Sources */,
 				C02C8B782F0266B400A2FE9F /* TokenDecorator.swift in Sources */,
 				C02C8B792F0266B400A2FE9F /* ObjectAssociation.swift in Sources */,
@@ -4855,7 +4881,6 @@
 				C02C8BB42F0266B400A2FE9F /* ForegroundColorDecorator.swift in Sources */,
 				C02C8BB52F0266B400A2FE9F /* EnvironmentValues+TokenThemeKey.swift in Sources */,
 				C02C8BB62F0266B400A2FE9F /* UICollectionView+UpdateData.swift in Sources */,
-				C009746F2F03D27900BC7680 /* FlowHorizontalAlignment.swift in Sources */,
 				C02C8BB72F0266B400A2FE9F /* TokenViewManager.swift in Sources */,
 				C02C8BB82F0266B400A2FE9F /* Component.swift in Sources */,
 				C02C8BB92F0266B400A2FE9F /* TokenThemeBody.swift in Sources */,
@@ -4907,7 +4932,6 @@
 				C02C8BDF2F0266B400A2FE9F /* DecorableByLetterSpacing.swift in Sources */,
 				C02C8BE02F0266B400A2FE9F /* DecorableByLineHeight.swift in Sources */,
 				C02C8BE12F0266B400A2FE9F /* DecorableByFontScale.swift in Sources */,
-				C0C8B88E2F09AF1C0029D19F /* PaddingModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8BE22F0266B400A2FE9F /* TokenViewProperties+UITextField.swift in Sources */,
 				C02C8BE32F0266B400A2FE9F /* ShadowValue.swift in Sources */,
 				C00974AF2F03E19900BC7680 /* AnyFlowFooterView.swift in Sources */,
