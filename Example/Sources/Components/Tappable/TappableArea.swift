@@ -12,9 +12,6 @@ struct TappableArea<Content: View> {
     var pressAction: (@MainActor (_ isPressed: Bool) -> Void)?
 }
 
-extension TappableArea: Equatable where Content: Equatable { }
-extension TappableArea: Sendable where Content: Sendable { }
-
 extension TappableArea: View {
 
     public var body: some View {
@@ -29,6 +26,9 @@ extension TappableArea: View {
         .buttonStyle(buttonStyle)
     }
 }
+
+extension TappableArea: Equatable where Content: Equatable { }
+extension TappableArea: Sendable where Content: Sendable { }
 
 extension TappableArea: Changeable {
 

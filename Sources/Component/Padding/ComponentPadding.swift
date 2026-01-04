@@ -15,9 +15,6 @@ public struct ComponentPadding<Content: View> {
     }
 }
 
-extension ComponentPadding: Equatable where Content: Equatable { }
-extension ComponentPadding: Sendable where Content: Sendable { }
-
 extension ComponentPadding: View {
 
     public var body: some View {
@@ -28,6 +25,9 @@ extension ComponentPadding: View {
         }
     }
 }
+
+extension ComponentPadding: Equatable where Content: Equatable { }
+extension ComponentPadding: Sendable where Content: Sendable { }
 
 extension ComponentPadding: Component where Content: Component {
 
