@@ -13,6 +13,8 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.tokens.backgroundColor = Colors.background.default
+
         setupFlowView()
 
         profileSubscription = profileStore
@@ -47,30 +49,8 @@ extension ProfileViewController {
             .componentViewController(self)
             .fallbackComponentSizeCache(FallbackComponentSizeCache())
 
-//        let items = users.map { user in
-//            Cell(
-//                avatar: Avatar(
-//                    url: user.photoURL,
-//                    placeholder: Image(.avatarPlaceholder),
-//                    size: .small
-//                ),
-//                title: user.fullName,
-//                subtitle: user.position,
-//                action: CellAction(
-//                    title: "Edit",
-//                    action: { [weak self] in
-//                        self?.onUserActionTap()
-//                    }
-//                ),
-//                divider: user.id == users.last?.id ? nil : CellDivider(),
-//                tapAction: { [weak self] in
-//                    self?.onUserTap()
-//                }
-//            )
-//            .flowItem(identifier: user.fullName)
-//        }
-
         let flow = VerticalFlow {
+            skillsItem(profile: profile)
             aboutMeItem(profile: profile)
         }
 
@@ -106,6 +86,7 @@ extension ProfileViewController {
             }
         }
         .card(header: header)
+        .padding(all: 16.0)
         .flowItem(identifier: #function)
     }
 
@@ -120,9 +101,8 @@ extension ProfileViewController {
         return Levitan.Text(profile.aboutMe)
             .typography(Typographies.paragraph2)
             .foregroundColor(Colors.text.primary)
-//            .accentColor(Colors.text.contrast)
             .card(header: header)
-//            .padding(all: 16.0)
+            .padding(all: 16.0)
             .flowItem(identifier: #function)
     }
 }
