@@ -91,7 +91,7 @@ public final class FlowView<Layout: FlowLayout>: UIView {
     public func update(
         with content: Flow<Layout>,
         context: ComponentContext,
-        completion: (() -> Void)?
+        completion: ((_ skipped: Bool) -> Void)?
     ) {
         let context = context.componentLayoutInvalidation { [weak self] in
             self?.invalidateIntrinsicContentSize()
@@ -117,12 +117,11 @@ public final class FlowView<Layout: FlowLayout>: UIView {
             sections: content.sections,
             context: context
         ) { skipped in
-            guard !skipped else {
-                return
-            }
+            completion?(skipped)
 
-            content.updateAction?()
-            completion?()
+            if !skipped {
+                content.updateAction?()
+            }
         }
     }
 
