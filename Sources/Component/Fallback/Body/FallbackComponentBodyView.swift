@@ -376,7 +376,8 @@ extension FallbackComponentBodyView {
     internal func update(with content: Content, context: ComponentContext) {
         let cache = context.fallbackComponentSizeCache.value
 
-        let contentContext = context.componentLayoutInvalidation { [weak cache] in
+        let contentContext = context.componentLayoutInvalidation { [weak self, weak cache] in
+            self?.invalidateIntrinsicContentSize()
             cache?.resetSize(for: content)
         }
 

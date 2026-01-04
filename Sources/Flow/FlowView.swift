@@ -93,6 +93,12 @@ public final class FlowView<Layout: FlowLayout>: UIView {
         context: ComponentContext,
         completion: (() -> Void)?
     ) {
+        let context = context.componentLayoutInvalidation { [weak self] in
+            self?.invalidateIntrinsicContentSize()
+        }
+
+        self.context = context
+
         collectionView.accessibilityIdentifier = content.accessibilityIdentifier
 
         #if os(iOS)
@@ -103,10 +109,6 @@ public final class FlowView<Layout: FlowLayout>: UIView {
 
         updateScrollIndicator(with: content)
         updateScrollBouncing(with: content)
-
-        self.context = context.componentLayoutInvalidation { [weak self] in
-            self?.invalidateIntrinsicContentSize()
-        }
 
         collectionViewLayout.layout = content.layout
 
@@ -367,8 +369,12 @@ extension FlowView: FallbackComponentView {
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
-        // TODO: Вычислять размер из лэйаута
-        ComponentSizing(width: .fill, height: .hug)
+        let scrollAxis = content.layout.scrollAxis
+
+        return ComponentSizing(
+            width: scrollAxis.contains(.horizontal) ? .hug : .fill,
+            height: scrollAxis.contains(.vertical) ? .hug : .fill
+        )
     }
 
     public func update(with content: Flow<Layout>, context: ComponentContext) {

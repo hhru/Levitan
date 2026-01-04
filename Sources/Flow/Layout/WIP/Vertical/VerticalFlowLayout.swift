@@ -17,6 +17,9 @@ public struct VerticalFlowLayout {
         self.appearance = appearance
         self.scrollAnchor = scrollAnchor
     }
+}
+
+extension VerticalFlowLayout {
 
     @MainActor
     private func resolveHeaderSize(
