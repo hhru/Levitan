@@ -5,7 +5,7 @@ import SwiftUI
 ///
 /// - SeeAlso: ``ComponentSizing``
 /// - SeeAlso: ``Component``
-public struct ComponentPadding<Content: Component> {
+public struct ComponentPadding<Content: View> {
 
     /// Компонент, который будет обернут в контейнер.
     public let content: Content
@@ -27,8 +27,9 @@ public struct ComponentPadding<Content: Component> {
     }
 }
 
-extension ComponentPadding: Sendable where Content: Sendable { }
+extension ComponentPadding: Equatable where Content: Equatable { }
 extension ComponentPadding: Hashable where Content: Hashable { }
+extension ComponentPadding: Sendable where Content: Sendable { }
 
 extension ComponentPadding: View {
 
@@ -41,7 +42,7 @@ extension ComponentPadding: View {
     }
 }
 
-extension ComponentPadding: Component {
+extension ComponentPadding: Component where Content: Component {
 
     public typealias UIView = ComponentPaddingView<Content>
 
