@@ -1,6 +1,5 @@
 import Combine
 import Levitan
-import SwiftUI
 import UIKit
 
 final class ProfileViewController: UIViewController {
@@ -9,6 +8,7 @@ final class ProfileViewController: UIViewController {
     private var profileSubscription: AnyCancellable?
 
     private let flowView = VerticalFlow.UIView()
+    private var flowContext = ComponentContext.default
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,7 @@ final class ProfileViewController: UIViewController {
         view.tokens.backgroundColor = Colors.background.default
 
         setupFlowView()
+        setupFlowContext()
 
         profileSubscription = profileStore
             .profilePublisher
@@ -43,12 +44,13 @@ extension ProfileViewController {
         NSLayoutConstraint.activate(constraints)
     }
 
-    private func updateFlowView(profile: Profile) {
-        let context = ComponentContext
-            .default
+    private func setupFlowContext() {
+        flowContext = flowContext
             .componentViewController(self)
             .fallbackComponentSizeCache(FallbackComponentSizeCache())
+    }
 
+    private func updateFlowView(profile: Profile) {
         let flow = VerticalFlow {
             headerItem(profile: profile)
             contactsItem(profile: profile)
@@ -56,10 +58,7 @@ extension ProfileViewController {
             aboutMeItem(profile: profile)
         }
 
-        flowView.update(
-            with: flow,
-            context: context
-        )
+        flowView.update(with: flow, context: flowContext)
     }
 }
 
@@ -167,43 +166,29 @@ extension ProfileViewController {
 extension ProfileViewController {
 
     private func onEditContactsTap() {
-        var actions: [ActionSheetAction] = []
-
-        if profileStore.profile.phoneNumber == nil {
-            let action = ActionSheetAction(title: "Add phone number") {
-                self.profileStore.updateProfilePhoneNumber(with: Profile.default.phoneNumber)
+        let actionSheet = ActionSheet(title: "Contacts") {
+            if profileStore.profile.phoneNumber == nil {
+                ActionSheetAction(title: "Add phone number") {
+                    self.profileStore.updateProfilePhoneNumber(with: Profile.default.phoneNumber)
+                }
+            } else {
+                ActionSheetAction(title: "Remove phone number", style: .destructive) {
+                    self.profileStore.updateProfilePhoneNumber(with: nil)
+                }
             }
 
-            actions.append(action)
-        } else {
-            let action = ActionSheetAction(title: "Remove phone number", style: .destructive) {
-                self.profileStore.updateProfilePhoneNumber(with: nil)
+            if profileStore.profile.emailAddress == nil {
+                ActionSheetAction(title: "Add email address") {
+                    self.profileStore.updateProfileEmailAddress(with: Profile.default.emailAddress)
+                }
+            } else {
+                ActionSheetAction(title: "Remove email address", style: .destructive) {
+                    self.profileStore.updateProfileEmailAddress(with: nil)
+                }
             }
 
-            actions.append(action)
+            ActionSheetAction.cancel(title: "Cancel")
         }
-
-        if profileStore.profile.emailAddress == nil {
-            let action = ActionSheetAction(title: "Add email address") {
-                self.profileStore.updateProfileEmailAddress(with: Profile.default.emailAddress)
-            }
-
-            actions.append(action)
-        } else {
-            let action = ActionSheetAction(title: "Remove email address", style: .destructive) {
-                self.profileStore.updateProfileEmailAddress(with: nil)
-            }
-
-            actions.append(action)
-        }
-
-        actions.append(.cancel(title: "Cancel"))
-
-        let actionSheet = ActionSheet(
-            title: "Contacts",
-            tintColor: UIColor(named: "AccentColor"),
-            actions: actions
-        )
 
         showActionSheet(actionSheet)
     }
@@ -216,27 +201,22 @@ extension ProfileViewController {
             placeholder: "Skills separated by commas"
         )
 
-        let saveAction = AlertAction(title: "Save") { texts in
-            let newSkills = texts
-                .first?
-                .components(separatedBy: ",")
-                .map { $0.trimmingCharacters(in: .whitespaces) } ?? []
+        let alert = Alert(title: "Skills", textFields: [textField]) {
+            AlertAction(title: "Save") { texts in
+                let newSkills = texts
+                    .first?
+                    .components(separatedBy: ",")
+                    .map { $0.trimmingCharacters(in: .whitespaces) } ?? []
 
-            self.profileStore.updateProfileSkills(with: newSkills)
+                self.profileStore.updateProfileSkills(with: newSkills)
+            }
+
+            AlertAction(title: "Reset", style: .destructive) {
+                self.profileStore.updateProfileSkills(with: [])
+            }
+
+            AlertAction.cancel(title: "Cancel")
         }
-
-        let resetAction = AlertAction(title: "Reset", style: .destructive) {
-            self.profileStore.updateProfileSkills(with: [])
-        }
-
-        let cancelAction = AlertAction.cancel(title: "Cancel")
-
-        let alert = Alert(
-            title: "Skills",
-            tintColor: UIColor(named: "AccentColor"),
-            textFields: [textField],
-            actions: [saveAction, resetAction, cancelAction]
-        )
 
         showAlert(alert)
     }
@@ -249,22 +229,17 @@ extension ProfileViewController {
             placeholder: "About me"
         )
 
-        let saveAction = AlertAction(title: "Save") { texts in
-            self.profileStore.updateProfileAboutMe(with: texts.first ?? "")
+        let alert = Alert(title: "About me", textFields: [textField]) {
+            AlertAction(title: "Save") { texts in
+                self.profileStore.updateProfileAboutMe(with: texts.first ?? "")
+            }
+
+            AlertAction(title: "Reset", style: .destructive) {
+                self.profileStore.updateProfileAboutMe(with: "")
+            }
+
+            AlertAction.cancel(title: "Cancel")
         }
-
-        let resetAction = AlertAction(title: "Reset", style: .destructive) {
-            self.profileStore.updateProfileAboutMe(with: "")
-        }
-
-        let cancelAction = AlertAction.cancel(title: "Cancel")
-
-        let alert = Alert(
-            title: "About Me",
-            tintColor: UIColor(named: "AccentColor"),
-            textFields: [textField],
-            actions: [saveAction, resetAction, cancelAction]
-        )
 
         showAlert(alert)
     }

@@ -1,7 +1,7 @@
 import Foundation
 import Levitan
 
-struct Profile: Hashable, Changeable {
+struct Profile: Changeable, Hashable, Sendable {
 
     var photoURL: URL?
     var name: String

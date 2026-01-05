@@ -1,10 +1,10 @@
+import Levitan
 import UIKit
 
 struct Alert {
 
     let title: String?
     let message: String?
-    let tintColor: UIColor?
 
     let textFields: [AlertTextField]
     let actions: [AlertAction]
@@ -12,15 +12,28 @@ struct Alert {
     init(
         title: String?,
         message: String? = nil,
-        tintColor: UIColor? = nil,
         textFields: [AlertTextField] = [],
         actions: [AlertAction] = []
     ) {
         self.title = title
         self.message = message
-        self.tintColor = tintColor
+
         self.textFields = textFields
         self.actions = actions
+    }
+
+    init(
+        title: String?,
+        message: String? = nil,
+        textFields: [AlertTextField] = [],
+        @ViewArrayBuilder<AlertAction> actions: () -> [AlertAction]
+    ) {
+        self.init(
+            title: title,
+            message: message,
+            textFields: textFields,
+            actions: actions()
+        )
     }
 }
 
@@ -33,7 +46,7 @@ extension UIViewController {
             preferredStyle: .alert
         )
 
-        if let tintColor = alert.tintColor {
+        if let tintColor = UIColor(named: "AccentColor") {
             alertController.view.tintColor = tintColor
         }
 

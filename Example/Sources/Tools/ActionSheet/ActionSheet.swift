@@ -1,22 +1,32 @@
+import Levitan
 import UIKit
 
 struct ActionSheet {
 
     let title: String?
     let message: String?
-    let tintColor: UIColor?
     let actions: [ActionSheetAction]
 
     init(
         title: String? = nil,
         message: String? = nil,
-        tintColor: UIColor? = nil,
         actions: [ActionSheetAction] = []
     ) {
         self.title = title
         self.message = message
-        self.tintColor = tintColor
         self.actions = actions
+    }
+
+    init(
+        title: String? = nil,
+        message: String? = nil,
+        @ViewArrayBuilder<ActionSheetAction> actions: () -> [ActionSheetAction]
+    ) {
+        self.init(
+            title: title,
+            message: message,
+            actions: actions()
+        )
     }
 }
 
@@ -29,7 +39,7 @@ extension UIViewController {
             preferredStyle: .actionSheet
         )
 
-        if let tintColor = actionSheet.tintColor {
+        if let tintColor = UIColor(named: "AccentColor") {
             alertController.view.tintColor = tintColor
         }
 
