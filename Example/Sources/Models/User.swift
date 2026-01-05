@@ -15,8 +15,8 @@ struct User: Changeable, Hashable, Sendable {
 
 extension User {
 
-    static let all: [User] = [
-        User(
+    static let all: [Self] = [
+        Self(
             id: 1,
             photoURL: URL(string: "https://randomuser.me/api/portraits/men/1.jpg"),
             name: "John Doe",
@@ -24,7 +24,7 @@ extension User {
             rating: 1,
             isFavorite: true
         ),
-        User(
+        Self(
             id: 2,
             photoURL: URL(string: "https://randomuser.me/api/portraits/women/2.jpg"),
             name: "Jane Smith",
@@ -32,7 +32,7 @@ extension User {
             rating: 2,
             isFavorite: true
         ),
-        User(
+        Self(
             id: 3,
             photoURL: URL(string: "https://randomuser.me/api/portraits/men/3.jpg"),
             name: "Michael Johnson",
@@ -40,7 +40,7 @@ extension User {
             rating: 0,
             isFavorite: true
         ),
-        User(
+        Self(
             id: 4,
             photoURL: URL(string: "https://randomuser.me/api/portraits/women/4.jpg"),
             name: "Emily Davis",
@@ -48,7 +48,7 @@ extension User {
             rating: 0,
             isFavorite: true
         ),
-        User(
+        Self(
             id: 5,
             photoURL: URL(string: "https://randomuser.me/api/portraits/men/5.jpg"),
             name: "David Martinez",
@@ -56,7 +56,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 6,
             photoURL: URL(string: "https://randomuser.me/api/portraits/women/6.jpg"),
             name: "Sarah Garcia",
@@ -64,7 +64,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 7,
             photoURL: URL(string: "https://randomuser.me/api/portraits/men/7.jpg"),
             name: "James Wilson",
@@ -72,7 +72,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 8,
             photoURL: URL(string: "https://randomuser.me/api/portraits/women/8.jpg"),
             name: "Jessica Lopez",
@@ -80,7 +80,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 9,
             photoURL: URL(string: "https://randomuser.me/api/portraits/men/9.jpg"),
             name: "Robert Brown",
@@ -88,7 +88,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 10,
             photoURL: URL(string: "https://randomuser.me/api/portraits/women/10.jpg"),
             name: "Linda Miller",
@@ -96,7 +96,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 11,
             photoURL: URL(string: "https://randomuser.me/api/portraits/men/11.jpg"),
             name: "Thomas Anderson",
@@ -104,7 +104,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 12,
             photoURL: URL(string: "https://randomuser.me/api/portraits/women/12.jpg"),
             name: "Sophia Turner",
@@ -112,7 +112,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 13,
             photoURL: URL(string: "https://randomuser.me/api/portraits/men/13.jpg"),
             name: "Daniel Clark",
@@ -120,7 +120,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 14,
             photoURL: URL(string: "https://randomuser.me/api/portraits/women/14.jpg"),
             name: "Olivia Scott",
@@ -128,7 +128,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 15,
             photoURL: URL(string: "https://randomuser.me/api/portraits/men/15.jpg"),
             name: "Ethan Parker",
@@ -136,7 +136,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 16,
             photoURL: URL(string: "https://randomuser.me/api/portraits/women/16.jpg"),
             name: "Mia Evans",
@@ -144,7 +144,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 17,
             photoURL: URL(string: "https://randomuser.me/api/portraits/men/17.jpg"),
             name: "Lucas Morgan",
@@ -152,7 +152,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 18,
             photoURL: URL(string: "https://randomuser.me/api/portraits/women/18.jpg"),
             name: "Amelia Reed",
@@ -160,7 +160,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 19,
             photoURL: URL(string: "https://randomuser.me/api/portraits/men/19.jpg"),
             name: "Nathan Murphy",
@@ -168,7 +168,7 @@ extension User {
             rating: 0,
             isFavorite: false
         ),
-        User(
+        Self(
             id: 20,
             photoURL: URL(string: "https://randomuser.me/api/portraits/women/20.jpg"),
             name: "Isabella Foster",

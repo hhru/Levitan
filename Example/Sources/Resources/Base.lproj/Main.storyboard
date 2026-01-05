@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Users View Controller-->
+        <!--Chats View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="UsersViewController" customModule="LevitanExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ChatsViewController" customModule="LevitanExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,6 +57,7 @@
                         <color key="selectedImageTintColor" name="AccentColor"/>
                     </tabBar>
                     <connections>
+                        <segue destination="Fjo-5R-gRC" kind="relationship" relationship="viewControllers" id="Hu0-n9-Ych"/>
                         <segue destination="snA-tT-7cm" kind="relationship" relationship="viewControllers" id="idb-iw-Lr0"/>
                         <segue destination="wFH-Wb-0Sg" kind="relationship" relationship="viewControllers" id="GR3-BI-a0u"/>
                         <segue destination="5ju-4k-PfG" kind="relationship" relationship="viewControllers" id="Vb1-Ak-GqW"/>
@@ -64,7 +65,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w40-kJ-Cd6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-204" y="885"/>
+            <point key="canvasLocation" x="-816" y="887"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Plj-PP-WNO">
@@ -115,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFm-w3-2yz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="2646"/>
+            <point key="canvasLocation" x="1024" y="2646"/>
         </scene>
         <!--Debug-->
         <scene sceneID="f8s-uW-ewo">
@@ -136,10 +137,47 @@
             </objects>
             <point key="canvasLocation" x="1024" y="1865"/>
         </scene>
+        <!--Contacts View Controller-->
+        <scene sceneID="bh0-FL-XcN">
+            <objects>
+                <viewController id="0fB-ol-05Y" customClass="ContactsViewController" customModule="LevitanExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uaI-Ik-kEo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mBf-1L-R9h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="o8Y-VL-rTZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KTq-2J-WxX" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2700" y="2646"/>
+        </scene>
+        <!--Contacts-->
+        <scene sceneID="skQ-7f-adW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fjo-5R-gRC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Contacts" image="Contacts" selectedImage="ContactsSelected" id="tZz-Yf-7lf"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ONg-Ho-oEB">
+                        <rect key="frame" x="0.0" y="118" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0fB-ol-05Y" kind="relationship" relationship="rootViewController" id="EBA-D8-p4e"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HKZ-BN-Vvo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2700" y="1865"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Chats" width="24" height="24"/>
         <image name="ChatsSelected" width="24" height="24"/>
+        <image name="Contacts" width="24" height="24"/>
+        <image name="ContactsSelected" width="24" height="24"/>
         <image name="Debug" width="24" height="24"/>
         <image name="DebugSelected" width="24" height="24"/>
         <image name="Profile" width="24" height="24"/>

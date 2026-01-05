@@ -15,18 +15,28 @@ final class ProfileViewController: UIViewController {
 
         view.tokens.backgroundColor = Colors.background.default
 
+        setupNavigationBar()
         setupFlowView()
         setupFlowContext()
 
         profileSubscription = profileStore
             .profilePublisher
-            .sink { [weak self] profile in
-                self?.updateFlowView(profile: profile)
+            .sink { [weak self] _ in
+                self?.updateFlowView()
             }
     }
 }
 
 extension ProfileViewController {
+
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Reset",
+            style: .plain,
+            target: self,
+            action: #selector(onResetProfileTap)
+        )
+    }
 
     private func setupFlowView() {
         view.addSubview(flowView)
@@ -50,7 +60,9 @@ extension ProfileViewController {
             .fallbackComponentSizeCache(FallbackComponentSizeCache())
     }
 
-    private func updateFlowView(profile: Profile) {
+    private func updateFlowView() {
+        let profile = profileStore.profile
+
         let flow = VerticalFlow {
             headerItem(profile: profile)
             contactsItem(profile: profile)
@@ -164,6 +176,10 @@ extension ProfileViewController {
 }
 
 extension ProfileViewController {
+
+    @objc private func onResetProfileTap() {
+        profileStore.updateProfile(with: .default)
+    }
 
     private func onEditContactsTap() {
         let actionSheet = ActionSheet(title: "Contacts") {

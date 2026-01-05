@@ -3,9 +3,7 @@ import Levitan
 import SwiftUI
 import UIKit
 
-final class UsersViewController: UIViewController {
-
-    private let selectAction: (@MainActor (_ userID: Int) -> Void)?
+final class ContactsViewController: UIViewController {
 
     private let usersStore = UsersStore.shared
     private var usersSubscription: AnyCancellable?
@@ -16,19 +14,7 @@ final class UsersViewController: UIViewController {
     private var flowContext = ComponentContext.default
 
     private var searchText = "" {
-        didSet { updateFlowView(users: usersStore.users) }
-    }
-
-    init(selectAction: (@MainActor (_ userID: Int) -> Void)?) {
-        self.selectAction = selectAction
-
-        super.init()
-    }
-
-    required init?(coder: NSCoder) {
-        self.selectAction = nil
-
-        super.init(coder: coder)
+        didSet { updateFlowView() }
     }
 
     override func viewDidLoad() {
@@ -46,25 +32,32 @@ final class UsersViewController: UIViewController {
 
         usersSubscription = usersStore
             .usersPublisher
-            .sink { [weak self] users in
-                self?.updateFlowView(users: users)
+            .sink { [weak self] _ in
+                self?.updateFlowView()
             }
     }
 }
 
-extension UsersViewController: UISearchResultsUpdating {
+extension ContactsViewController: UISearchResultsUpdating {
 
     func updateSearchResults(for searchController: UISearchController) {
         searchText = searchController.searchBar.text ?? ""
     }
 }
 
-extension UsersViewController {
+extension ContactsViewController {
 
     private func setupNavigationBar() {
         navigationItem.title = "Users"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Reset",
+            style: .plain,
+            target: self,
+            action: #selector(onResetUsersTap)
+        )
     }
 
     private func setupSearchController() {
@@ -96,30 +89,37 @@ extension UsersViewController {
             .fallbackComponentSizeCache(FallbackComponentSizeCache())
     }
 
-    private func updateFlowView(users: [User]) {
+    private func updateFlowView() {
         let searchText = searchText
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .lowercased()
 
-        let filteredUsers = searchText.isEmpty
-            ? users
-            : users.filter { $0.name.lowercased().contains(searchText) }
+        var users = usersStore
+            .users
+            .sorted { $0.rating > $1.rating }
 
-        let sortedUsers = filteredUsers.sorted { $0.rating > $1.rating }
+        if !searchText.isEmpty {
+            users.removeAll { user in
+                !user
+                    .name
+                    .lowercased()
+                    .contains(searchText)
+            }
+        }
 
         let flow = VerticalFlow {
             if searchText.isEmpty {
                 userSection(
                     title: "Favorites",
-                    users: sortedUsers.filter { $0.isFavorite }
+                    users: users.filter { $0.isFavorite }
                 )
 
                 userSection(
                     title: "Other",
-                    users: sortedUsers.filter { !$0.isFavorite }
+                    users: users.filter { !$0.isFavorite }
                 )
             } else {
-                userSection(users: sortedUsers)
+                userSection(users: users)
             }
         }
 
@@ -127,7 +127,7 @@ extension UsersViewController {
     }
 }
 
-extension UsersViewController {
+extension ContactsViewController {
 
     private func userSection(title: String? = nil, users: [User]) -> VerticalFlowSection? {
         guard !users.isEmpty else {
@@ -165,7 +165,7 @@ extension UsersViewController {
             action: CellAction(
                 title: "Edit",
                 action: { [weak self] in
-                    self?.onUserActionTap(userID: user.id)
+                    self?.onEditUserTap(userID: user.id)
                 }
             ),
             divider: !isLast,
@@ -177,7 +177,53 @@ extension UsersViewController {
     }
 }
 
-extension UsersViewController {
+extension ContactsViewController {
+
+    @objc private func onResetUsersTap() {
+        usersStore.updateUsers(with: User.all)
+    }
+
+    private func onUserTap(userID: Int) {
+        // TODO: открывать чат
+    }
+
+    private func onEditUserTap(userID: Int) {
+        guard let user = usersStore.user(id: userID) else {
+            return
+        }
+
+        let actionSheet = ActionSheet(title: user.name) {
+            ActionSheetAction(title: "Remove user", style: .destructive) {
+                self.usersStore.removeUser(id: userID)
+            }
+
+            ActionSheetAction(title: "Edit user name") {
+                self.onEditUserNameTap(userID: userID)
+            }
+
+            ActionSheetAction(title: "Edit user description") {
+                self.onEditUserDescriptionTap(userID: userID)
+            }
+
+            ActionSheetAction(title: "Edit user rating") {
+                self.onEditUserRatingTap(userID: userID)
+            }
+
+            if user.isFavorite {
+                ActionSheetAction(title: "Remove from Favorites") {
+                    self.usersStore.updateUser(id: userID, isFavorite: false)
+                }
+            } else {
+                ActionSheetAction(title: "Add to Favorites") {
+                    self.usersStore.updateUser(id: userID, isFavorite: true)
+                }
+            }
+
+            ActionSheetAction.cancel(title: "Cancel")
+        }
+
+        showActionSheet(actionSheet)
+    }
 
     private func onEditUserNameTap(userID: Int) {
         let name = usersStore.user(id: userID)?.name ?? ""
@@ -249,47 +295,5 @@ extension UsersViewController {
         }
 
         showAlert(alert)
-    }
-
-    private func onUserActionTap(userID: Int) {
-        guard let user = usersStore.users.first(where: { $0.id == userID }) else {
-            return
-        }
-
-        let actionSheet = ActionSheet(title: user.name) {
-            ActionSheetAction(title: "Remove user", style: .destructive) {
-                self.usersStore.removeUser(id: userID)
-            }
-
-            ActionSheetAction(title: "Edit user name") {
-                self.onEditUserNameTap(userID: userID)
-            }
-
-            ActionSheetAction(title: "Edit user description") {
-                self.onEditUserDescriptionTap(userID: userID)
-            }
-
-            ActionSheetAction(title: "Edit user rating") {
-                self.onEditUserRatingTap(userID: userID)
-            }
-
-            if user.isFavorite {
-                ActionSheetAction(title: "Remove from Favorites") {
-                    self.usersStore.updateUser(id: userID, isFavorite: false)
-                }
-            } else {
-                ActionSheetAction(title: "Add to Favorites") {
-                    self.usersStore.updateUser(id: userID, isFavorite: true)
-                }
-            }
-
-            ActionSheetAction.cancel(title: "Cancel")
-        }
-
-        showActionSheet(actionSheet)
-    }
-
-    private func onUserTap(userID: Int) {
-        selectAction?(userID)
     }
 }

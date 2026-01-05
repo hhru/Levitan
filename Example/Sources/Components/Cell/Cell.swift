@@ -28,10 +28,14 @@ extension Cell: Component {
                         Text(title)
                             .typography(Typographies.label2)
                             .foregroundColor(Colors.text.primary)
+                            .lineLimit(2)
+                            .lineBreakMode(.byTruncatingTail)
 
                         Text(subtitle)
                             .typography(Typographies.label3)
                             .foregroundColor(Colors.text.secondary)
+                            .lineLimit(2)
+                            .lineBreakMode(.byTruncatingTail)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
 
