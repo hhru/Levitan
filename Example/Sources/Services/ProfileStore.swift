@@ -29,19 +29,19 @@ extension ProfileStore {
         }
     }
 
-    func updateProfilePhoneNumber(with phoneNumber: String?) {
+    func updateProfile(phoneNumber: String?) {
         updateProfile(with: profile.changing { $0.phoneNumber = phoneNumber })
     }
 
-    func updateProfileEmailAddress(with emailAddress: String?) {
+    func updateProfile(emailAddress: String?) {
         updateProfile(with: profile.changing { $0.emailAddress = emailAddress })
     }
 
-    func updateProfileSkills(with skills: [String]) {
+    func updateProfile(skills: [String]) {
         updateProfile(with: profile.changing { $0.skills = skills })
     }
 
-    func updateProfileAboutMe(with aboutMe: String) {
+    func updateProfile(aboutMe: String) {
         updateProfile(with: profile.changing { $0.aboutMe = aboutMe })
     }
 }

@@ -174,7 +174,93 @@ extension ChatViewController {
         chatsStore.updateChats(with: Chat.all)
     }
 
-    private func onChatMessageTap(messageID: Int) {
-        // TODO: implement it
+    private func onChatMessageTap(messageID: UUID) {
+        guard let message = chatsStore.chat(userID: userID)?.message(id: messageID) else {
+            return
+        }
+
+        let actionSheet = ActionSheet {
+            ActionSheetAction(title: "Add message before") {
+                let date = message
+                    .date
+                    .addingTimeInterval(-0.01)
+
+                self.onInsertMessageTap(date: date)
+            }
+
+            ActionSheetAction(title: "Add message after") {
+                let date = message
+                    .date
+                    .addingTimeInterval(0.01)
+
+                self.onInsertMessageTap(date: date)
+            }
+
+            ActionSheetAction(title: "Edit message") {
+                self.onEditMessageTap(messageID: messageID)
+            }
+
+            ActionSheetAction(title: "Remove message", style: .destructive) {
+                self.chatsStore.removeChatMessage(
+                    userID: self.userID,
+                    messageID: messageID
+                )
+            }
+
+            ActionSheetAction.cancel(title: "Cancel")
+        }
+
+        showActionSheet(actionSheet)
+    }
+
+    private func onEditMessageTap(messageID: UUID) {
+        let text = chatsStore
+            .chat(userID: userID)?
+            .message(id: messageID)?
+            .text
+
+        let alert = Alert.textEditor(
+            title: "Message",
+            text: text,
+            placeholder: "Text",
+            saveAction: { text in
+                self.chatsStore.updateChatMessage(
+                    userID: self.userID,
+                    messageID: messageID,
+                    text: text
+                )
+            }
+        )
+
+        showAlert(alert)
+    }
+
+    private func onInsertMessageTap(date: Date) {
+        let textField = AlertTextField(
+            text: "",
+            placeholder: "Text"
+        )
+
+        let alert = Alert(title: "New message", textFields: [textField]) {
+            AlertAction(title: "Add incoming message") { texts in
+                self.chatsStore.insertChatIncomingMessage(
+                    userID: self.userID,
+                    text: texts.first ?? "",
+                    date: date
+                )
+            }
+
+            AlertAction(title: "Add outgoing message") { texts in
+                self.chatsStore.insertChatOutgoingMessage(
+                    userID: self.userID,
+                    text: texts.first ?? "",
+                    date: date
+                )
+            }
+
+            AlertAction.cancel(title: "Cancel")
+        }
+
+        showAlert(alert)
     }
 }

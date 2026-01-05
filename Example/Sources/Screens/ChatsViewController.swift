@@ -190,18 +190,18 @@ extension ChatsViewController {
         }
 
         let actionSheet = ActionSheet {
-            ActionSheetAction(title: "Remove chat", style: .destructive) {
-                self.chatsStore.removeChat(userID: userID)
-            }
-
             if chat.isPinned {
-                ActionSheetAction(title: "Unpin Chat") {
+                ActionSheetAction(title: "Unpin сhat") {
                     self.chatsStore.updateChat(userID: userID, isPinned: false)
                 }
             } else {
                 ActionSheetAction(title: "Pin chat") {
                     self.chatsStore.updateChat(userID: userID, isPinned: true)
                 }
+            }
+
+            ActionSheetAction(title: "Remove chat", style: .destructive) {
+                self.chatsStore.removeChat(userID: userID)
             }
 
             ActionSheetAction.cancel(title: "Cancel")

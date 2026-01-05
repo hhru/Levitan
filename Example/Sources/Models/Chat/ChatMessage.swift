@@ -1,9 +1,11 @@
 import Foundation
+import Levitan
 
-struct ChatMessage: Hashable, Sendable {
+struct ChatMessage: Changeable, Hashable, Sendable {
 
-    let id: Int
+    let id = UUID()
+
     let type: ChatMessageType
-    let text: String
-    let date: Date
+    var text: String
+    var date: Date
 }

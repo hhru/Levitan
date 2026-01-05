@@ -52,11 +52,19 @@ struct ThemeColors: Sendable {
 
         /// Ligth: #F8F8F8
         /// Dark: #262626
-        let incomingMessage: ColorValue
+        let incomingMessageBackground: ColorValue
+
+        /// Ligth: #F1F1F1
+        /// Dark: #303030
+        let incomingMessageStroke: ColorValue
 
         /// Ligth: #0070FF
         /// Dark: #2B7FFF
-        let outgoingMessage: ColorValue
+        let outgoingMessageBackground: ColorValue
+
+        /// Ligth: #0D63E3
+        /// Dark: #0070FF
+        let outgoingMessageStroke: ColorValue
     }
 
     let background: Background

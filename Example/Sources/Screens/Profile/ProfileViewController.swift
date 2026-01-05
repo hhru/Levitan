@@ -185,21 +185,21 @@ extension ProfileViewController {
         let actionSheet = ActionSheet(title: "Contacts") {
             if profileStore.profile.phoneNumber == nil {
                 ActionSheetAction(title: "Add phone number") {
-                    self.profileStore.updateProfilePhoneNumber(with: Profile.default.phoneNumber)
+                    self.profileStore.updateProfile(phoneNumber: Profile.default.phoneNumber)
                 }
             } else {
                 ActionSheetAction(title: "Remove phone number", style: .destructive) {
-                    self.profileStore.updateProfilePhoneNumber(with: nil)
+                    self.profileStore.updateProfile(phoneNumber: nil)
                 }
             }
 
             if profileStore.profile.emailAddress == nil {
                 ActionSheetAction(title: "Add email address") {
-                    self.profileStore.updateProfileEmailAddress(with: Profile.default.emailAddress)
+                    self.profileStore.updateProfile(emailAddress: Profile.default.emailAddress)
                 }
             } else {
                 ActionSheetAction(title: "Remove email address", style: .destructive) {
-                    self.profileStore.updateProfileEmailAddress(with: nil)
+                    self.profileStore.updateProfile(emailAddress: nil)
                 }
             }
 
@@ -212,27 +212,18 @@ extension ProfileViewController {
     private func onEditSkillsTap() {
         let skills = profileStore.profile.skills.joined(separator: ", ")
 
-        let textField = AlertTextField(
+        let alert = Alert.textEditor(
+            title: "Skills",
             text: skills,
-            placeholder: "Skills separated by commas"
-        )
-
-        let alert = Alert(title: "Skills", textFields: [textField]) {
-            AlertAction(title: "Save") { texts in
-                let newSkills = texts
-                    .first?
+            placeholder: "Skills separated by commas",
+            saveAction: { skills in
+                let newSkills = skills
                     .components(separatedBy: ",")
-                    .map { $0.trimmingCharacters(in: .whitespaces) } ?? []
+                    .map { $0.trimmingCharacters(in: .whitespaces) }
 
-                self.profileStore.updateProfileSkills(with: newSkills)
+                self.profileStore.updateProfile(skills: newSkills)
             }
-
-            AlertAction(title: "Reset", style: .destructive) {
-                self.profileStore.updateProfileSkills(with: [])
-            }
-
-            AlertAction.cancel(title: "Cancel")
-        }
+        )
 
         showAlert(alert)
     }
@@ -240,22 +231,14 @@ extension ProfileViewController {
     private func onEditAboutMeTap(profile: Profile) {
         let aboutMe = profileStore.profile.aboutMe
 
-        let textField = AlertTextField(
+        let alert = Alert.textEditor(
+            title: "About me",
             text: aboutMe,
-            placeholder: "About me"
+            placeholder: "About me",
+            saveAction: { aboutMe in
+                self.profileStore.updateProfile(aboutMe: aboutMe)
+            }
         )
-
-        let alert = Alert(title: "About me", textFields: [textField]) {
-            AlertAction(title: "Save") { texts in
-                self.profileStore.updateProfileAboutMe(with: texts.first ?? "")
-            }
-
-            AlertAction(title: "Reset", style: .destructive) {
-                self.profileStore.updateProfileAboutMe(with: "")
-            }
-
-            AlertAction.cancel(title: "Cancel")
-        }
 
         showAlert(alert)
     }

@@ -196,10 +196,6 @@ extension ContactsViewController {
         }
 
         let actionSheet = ActionSheet(title: user.name) {
-            ActionSheetAction(title: "Remove user", style: .destructive) {
-                self.usersStore.removeUser(id: userID)
-            }
-
             ActionSheetAction(title: "Edit user name") {
                 self.onEditUserNameTap(userID: userID)
             }
@@ -222,6 +218,10 @@ extension ContactsViewController {
                 }
             }
 
+            ActionSheetAction(title: "Remove user", style: .destructive) {
+                self.usersStore.removeUser(id: userID)
+            }
+
             ActionSheetAction.cancel(title: "Cancel")
         }
 
@@ -229,47 +229,37 @@ extension ContactsViewController {
     }
 
     private func onEditUserNameTap(userID: Int) {
-        let name = usersStore.user(id: userID)?.name ?? ""
+        let name = usersStore.user(id: userID)?.name
 
-        let textField = AlertTextField(
+        let alert = Alert.textEditor(
+            title: "User name",
             text: name,
-            placeholder: "Name"
+            placeholder: "Name",
+            saveAction: { name in
+                self.usersStore.updateUser(
+                    id: userID,
+                    name: name
+                )
+            }
         )
-
-        let alert = Alert(title: "User name", textFields: [textField]) {
-            AlertAction(title: "Save") { texts in
-                self.usersStore.updateUser(id: userID, name: texts.first ?? "")
-            }
-
-            AlertAction(title: "Reset", style: .destructive) {
-                self.usersStore.updateUser(id: userID, name: "")
-            }
-
-            AlertAction.cancel(title: "Cancel")
-        }
 
         showAlert(alert)
     }
 
     private func onEditUserDescriptionTap(userID: Int) {
-        let description = usersStore.user(id: userID)?.description ?? ""
+        let description = usersStore.user(id: userID)?.description
 
-        let textField = AlertTextField(
+        let alert = Alert.textEditor(
+            title: "User description",
             text: description,
-            placeholder: "Description"
+            placeholder: "Description",
+            saveAction: { description in
+                self.usersStore.updateUser(
+                    id: userID,
+                    description: description
+                )
+            }
         )
-
-        let alert = Alert(title: "User description", textFields: [textField]) {
-            AlertAction(title: "Save") { texts in
-                self.usersStore.updateUser(id: userID, description: texts.first ?? "")
-            }
-
-            AlertAction(title: "Reset", style: .destructive) {
-                self.usersStore.updateUser(id: userID, description: "")
-            }
-
-            AlertAction.cancel(title: "Cancel")
-        }
 
         showAlert(alert)
     }
@@ -277,25 +267,17 @@ extension ContactsViewController {
     private func onEditUserRatingTap(userID: Int) {
         let rating = usersStore.user(id: userID)?.rating ?? .zero
 
-        let textField = AlertTextField(
+        let alert = Alert.textEditor(
+            title: "User rating",
             text: String(rating),
-            placeholder: "Rating"
-        )
-
-        let alert = Alert(title: "User rating", textFields: [textField]) {
-            AlertAction(title: "Save") { texts in
+            placeholder: "Rating",
+            saveAction: { rating in
                 self.usersStore.updateUser(
                     id: userID,
-                    rating: texts.first.flatMap { Int($0) } ?? .zero
+                    rating: Int(rating) ?? .zero
                 )
             }
-
-            AlertAction(title: "Reset", style: .destructive) {
-                self.usersStore.updateUser(id: userID, rating: .zero)
-            }
-
-            AlertAction.cancel(title: "Cancel")
-        }
+        )
 
         showAlert(alert)
     }

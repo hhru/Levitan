@@ -23,11 +23,12 @@ extension ChatIncomingMessage: Component {
                 time: time,
                 timeColor: Colors.text.secondary
             )
-            .background(Colors.chat.incomingMessage)
+            .background(Colors.chat.incomingMessageBackground)
             .corners(
                 radius: 12.0,
                 mask: [.topLeft, .topRight, .bottomRight]
             )
+            .stroke(Strokes.stroke1.color(Colors.chat.incomingMessageStroke))
             .onTap(tapAction)
             .onPress { isPressed = $0 && tapAction != nil }
             .pressedEffect(isPressed, anchor: .bottomLeading)

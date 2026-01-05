@@ -7,6 +7,24 @@ struct Chat: Changeable, Hashable, Sendable {
 
     var messages: [ChatMessage]
     var isPinned: Bool
+
+    init(
+        userID: Int,
+        messages: [ChatMessage] = [],
+        isPinned: Bool = false
+    ) {
+        self.userID = userID
+        self.messages = messages
+        self.isPinned = isPinned
+    }
+
+    func message(id: UUID) -> ChatMessage? {
+        messages.first { $0.id == id }
+    }
+
+    func messageIndex(id: UUID) -> Int? {
+        messages.firstIndex { $0.id == id }
+    }
 }
 
 extension Chat {
@@ -17,7 +35,6 @@ extension Chat {
         userID: 1,
         messages: [
             ChatMessage(
-                id: 1,
                 type: .outgoing,
                 text: """
                     Hi! We're interested in your profile for our iOS Developer position at Apple.
@@ -25,7 +42,6 @@ extension Chat {
                 date: date.addingTimeInterval(-172_509.0)
             ),
             ChatMessage(
-                id: 2,
                 type: .incoming,
                 text: """
                     Hello! Thanks for reaching out. I'd love to hear more about the role.
@@ -33,7 +49,6 @@ extension Chat {
                 date: date.addingTimeInterval(-172_094.0)
             ),
             ChatMessage(
-                id: 3,
                 type: .outgoing,
                 text: """
                     Great! The position involves working on our core iOS apps, \
@@ -42,7 +57,6 @@ extension Chat {
                 date: date.addingTimeInterval(-171_905.0)
             ),
             ChatMessage(
-                id: 4,
                 type: .incoming,
                 text: """
                     Sounds exciting. Could you specify which technologies and experience are you looking for?
@@ -50,7 +64,6 @@ extension Chat {
                 date: date.addingTimeInterval(-171_305.0)
             ),
             ChatMessage(
-                id: 5,
                 type: .outgoing,
                 text: """
                     We're looking for someone with 3+ years of experience in Swift and Objective-C, \
@@ -59,7 +72,6 @@ extension Chat {
                 date: date.addingTimeInterval(-170_933.0)
             ),
             ChatMessage(
-                id: 6,
                 type: .incoming,
                 text: """
                     I have about 4 years of experience in Swift and have worked extensively with UIKit \
@@ -68,7 +80,6 @@ extension Chat {
                 date: date.addingTimeInterval(-170_645.0)
             ),
             ChatMessage(
-                id: 7,
                 type: .outgoing,
                 text: """
                     That's perfect. Are you also familiar with asynchronous programming and Combine framework?
@@ -76,7 +87,6 @@ extension Chat {
                 date: date.addingTimeInterval(-100_378.0)
             ),
             ChatMessage(
-                id: 8,
                 type: .incoming,
                 text: """
                     Yes, I have used Combine in production apps and comfortable with async/await introduced \
@@ -85,7 +95,6 @@ extension Chat {
                 date: date.addingTimeInterval(-99_784.0)
             ),
             ChatMessage(
-                id: 9,
                 type: .outgoing,
                 text: """
                     Excellent. What about your experience with unit and UI testing?
@@ -93,7 +102,6 @@ extension Chat {
                 date: date.addingTimeInterval(-99_498.0)
             ),
             ChatMessage(
-                id: 10,
                 type: .incoming,
                 text: """
                     I write unit tests using XCTest and have experience automating UI tests using XCUITest.
@@ -101,7 +109,6 @@ extension Chat {
                 date: date.addingTimeInterval(-99_299.0)
             ),
             ChatMessage(
-                id: 11,
                 type: .outgoing,
                 text: """
                     Nice! Could you share examples of apps you've developed or contributed to?
@@ -109,7 +116,6 @@ extension Chat {
                 date: date.addingTimeInterval(-98_880.0)
             ),
             ChatMessage(
-                id: 12,
                 type: .incoming,
                 text: """
                     Sure. I was a lead dev on a budgeting app and contributed to an e-commerce app currently \
@@ -118,7 +124,6 @@ extension Chat {
                 date: date.addingTimeInterval(-98_323.0)
             ),
             ChatMessage(
-                id: 13,
                 type: .outgoing,
                 text: """
                     Thanks! Would you be available for a video interview later this week?
@@ -126,7 +131,6 @@ extension Chat {
                 date: date.addingTimeInterval(-98_141.0)
             ),
             ChatMessage(
-                id: 14,
                 type: .incoming,
                 text: """
                     Yes, I am available on Thursday or Friday afternoon.
@@ -134,7 +138,6 @@ extension Chat {
                 date: date.addingTimeInterval(-2_413.0)
             ),
             ChatMessage(
-                id: 15,
                 type: .outgoing,
                 text: """
                     Let's schedule it for Thursday 2pm. I'll send you the invite shortly.
@@ -142,7 +145,6 @@ extension Chat {
                 date: date.addingTimeInterval(-2_162.0)
             ),
             ChatMessage(
-                id: 16,
                 type: .incoming,
                 text: """
                     Perfect, looking forward to it!
@@ -150,7 +152,6 @@ extension Chat {
                 date: date.addingTimeInterval(-1_572.0)
             ),
             ChatMessage(
-                id: 17,
                 type: .outgoing,
                 text: """
                     Great! Please prepare to discuss your previous projects and coding challenges.
@@ -158,7 +159,6 @@ extension Chat {
                 date: date.addingTimeInterval(-1_252.0)
             ),
             ChatMessage(
-                id: 18,
                 type: .incoming,
                 text: """
                     Will do. Thanks for the heads up.
@@ -166,7 +166,6 @@ extension Chat {
                 date: date.addingTimeInterval(-1_066.0)
             ),
             ChatMessage(
-                id: 19,
                 type: .outgoing,
                 text: """
                     You're welcome. If you have any questions before then, just let me know.
@@ -174,7 +173,6 @@ extension Chat {
                 date: date.addingTimeInterval(-656.0)
             ),
             ChatMessage(
-                id: 20,
                 type: .incoming,
                 text: """
                     Thanks, will do. Have a great day!
@@ -189,7 +187,6 @@ extension Chat {
         userID: 2,
         messages: [
             ChatMessage(
-                id: 1,
                 type: .incoming,
                 text: """
                     Hi! I came across your company and wanted to ask \
@@ -198,7 +195,6 @@ extension Chat {
                 date: date.addingTimeInterval(-86_400.0)
             ),
             ChatMessage(
-                id: 2,
                 type: .outgoing,
                 text: """
                     Hello! Thanks for reaching out. \
@@ -208,7 +204,6 @@ extension Chat {
                 date: date.addingTimeInterval(-85_800.0)
             ),
             ChatMessage(
-                id: 3,
                 type: .incoming,
                 text: """
                     I see. Actually, I have some experience with iOS as well. \
@@ -217,7 +212,6 @@ extension Chat {
                 date: date.addingTimeInterval(-85_400.0)
             ),
             ChatMessage(
-                id: 4,
                 type: .outgoing,
                 text: """
                     Absolutely! If you’re interested, we’d love to review your iOS experience \
@@ -233,7 +227,6 @@ extension Chat {
         userID: 12,
         messages: [
             ChatMessage(
-                id: 1,
                 type: .outgoing,
                 text: """
                     Hi! We've reviewed your portfolio and think you'd be a great fit \
@@ -242,7 +235,6 @@ extension Chat {
                 date: date.addingTimeInterval(-250_000.0)
             ),
             ChatMessage(
-                id: 2,
                 type: .incoming,
                 text: """
                     Hello! Thank you for considering me. \
@@ -251,7 +243,6 @@ extension Chat {
                 date: date.addingTimeInterval(-249_500.0)
             ),
             ChatMessage(
-                id: 3,
                 type: .outgoing,
                 text: """
                     The position involves working on user research, wireframes, prototypes, \
@@ -260,7 +251,6 @@ extension Chat {
                 date: date.addingTimeInterval(-248_700.0)
             ),
             ChatMessage(
-                id: 4,
                 type: .incoming,
                 text: """
                     That sounds exciting! What tools and methodologies does your team typically use?
@@ -268,7 +258,6 @@ extension Chat {
                 date: date.addingTimeInterval(-248_200.0)
             ),
             ChatMessage(
-                id: 5,
                 type: .outgoing,
                 text: """
                     We mainly use Figma and Sketch for design, and conduct regular usability testing sessions. \
@@ -277,7 +266,6 @@ extension Chat {
                 date: date.addingTimeInterval(-247_500.0)
             ),
             ChatMessage(
-                id: 6,
                 type: .incoming,
                 text: """
                     Great! I have extensive experience with Figma, and I've run usability studies \
@@ -286,7 +274,6 @@ extension Chat {
                 date: date.addingTimeInterval(-246_900.0)
             ),
             ChatMessage(
-                id: 7,
                 type: .outgoing,
                 text: """
                     That's perfect. Can you share a specific project \
@@ -295,7 +282,6 @@ extension Chat {
                 date: date.addingTimeInterval(-200_000.0)
             ),
             ChatMessage(
-                id: 8,
                 type: .incoming,
                 text: """
                     Absolutely. At my previous company, I redesigned the onboarding flow \
@@ -304,7 +290,6 @@ extension Chat {
                 date: date.addingTimeInterval(-199_500.0)
             ),
             ChatMessage(
-                id: 9,
                 type: .outgoing,
                 text: """
                     Impressive! How comfortable are you working with cross-functional teams \
@@ -313,7 +298,6 @@ extension Chat {
                 date: date.addingTimeInterval(-199_000.0)
             ),
             ChatMessage(
-                id: 10,
                 type: .incoming,
                 text: """
                     Very comfortable. I regularly facilitate workshops \
@@ -322,7 +306,6 @@ extension Chat {
                 date: date.addingTimeInterval(-198_600.0)
             ),
             ChatMessage(
-                id: 11,
                 type: .outgoing,
                 text: """
                     Excellent. Would you be open to participating in a design challenge \
@@ -331,7 +314,6 @@ extension Chat {
                 date: date.addingTimeInterval(-180_000.0)
             ),
             ChatMessage(
-                id: 12,
                 type: .incoming,
                 text: """
                     Sure, I welcome the opportunity to demonstrate my skills through a design challenge.
@@ -339,7 +321,6 @@ extension Chat {
                 date: date.addingTimeInterval(-179_600.0)
             ),
             ChatMessage(
-                id: 13,
                 type: .outgoing,
                 text: """
                     Great to hear! We usually allocate about 48 hours for the challenge, \
@@ -348,7 +329,6 @@ extension Chat {
                 date: date.addingTimeInterval(-179_100.0)
             ),
             ChatMessage(
-                id: 14,
                 type: .incoming,
                 text: """
                     Sounds fair. I'd appreciate any guidelines or resources you can share to prepare.
@@ -356,7 +336,6 @@ extension Chat {
                 date: date.addingTimeInterval(-178_700.0)
             ),
             ChatMessage(
-                id: 15,
                 type: .outgoing,
                 text: """
                     Absolutely, I will email you a detailed brief and some sample challenges by end of day.
@@ -364,7 +343,6 @@ extension Chat {
                 date: date.addingTimeInterval(-10_000.0)
             ),
             ChatMessage(
-                id: 16,
                 type: .incoming,
                 text: """
                     Thanks a lot! Also, could you share a bit about the team culture \
@@ -373,7 +351,6 @@ extension Chat {
                 date: date.addingTimeInterval(-9_500.0)
             ),
             ChatMessage(
-                id: 17,
                 type: .outgoing,
                 text: """
                     We foster a collaborative culture with a focus on creativity and innovation. \
@@ -382,7 +359,6 @@ extension Chat {
                 date: date.addingTimeInterval(-9_000.0)
             ),
             ChatMessage(
-                id: 18,
                 type: .incoming,
                 text: """
                     That's wonderful. I'm passionate about learning and growth, so this sounds ideal.
@@ -390,7 +366,6 @@ extension Chat {
                 date: date.addingTimeInterval(-8_600.0)
             ),
             ChatMessage(
-                id: 19,
                 type: .outgoing,
                 text: """
                     Perfect! When would you be available for the technical interview \
@@ -399,7 +374,6 @@ extension Chat {
                 date: date.addingTimeInterval(-8_200.0)
             ),
             ChatMessage(
-                id: 20,
                 type: .incoming,
                 text: """
                     I am flexible next week, preferably in the afternoons. \
@@ -408,7 +382,6 @@ extension Chat {
                 date: date.addingTimeInterval(-7_800.0)
             ),
             ChatMessage(
-                id: 21,
                 type: .outgoing,
                 text: """
                     Let's plan for Tuesday at 3pm then. I'll send the calendar invite shortly.
@@ -416,7 +389,6 @@ extension Chat {
                 date: date.addingTimeInterval(-7_400.0)
             ),
             ChatMessage(
-                id: 22,
                 type: .incoming,
                 text: """
                     Tuesday at 3pm works perfectly. Thanks!
@@ -424,7 +396,6 @@ extension Chat {
                 date: date.addingTimeInterval(-7_100.0)
             ),
             ChatMessage(
-                id: 23,
                 type: .outgoing,
                 text: """
                     Excellent. Meanwhile, feel free to ask if you need any clarifications.
@@ -432,7 +403,6 @@ extension Chat {
                 date: date.addingTimeInterval(-6_800.0)
             ),
             ChatMessage(
-                id: 24,
                 type: .incoming,
                 text: """
                     Will do. By the way, do Apple designers collaborate often with product managers?
@@ -440,7 +410,6 @@ extension Chat {
                 date: date.addingTimeInterval(-6_500.0)
             ),
             ChatMessage(
-                id: 25,
                 type: .outgoing,
                 text: """
                     Yes, very closely. Our process emphasizes cross-team synergy throughout product lifecycle.
@@ -448,7 +417,6 @@ extension Chat {
                 date: date.addingTimeInterval(-6_100.0)
             ),
             ChatMessage(
-                id: 26,
                 type: .incoming,
                 text: """
                     Good to know. Looking forward to collaborating with such dynamic teams.
@@ -456,7 +424,6 @@ extension Chat {
                 date: date.addingTimeInterval(-5_800.0)
             ),
             ChatMessage(
-                id: 27,
                 type: .outgoing,
                 text: """
                     We’re excited to potentially have you onboard. Thanks for your time today!
@@ -464,7 +431,6 @@ extension Chat {
                 date: date.addingTimeInterval(-5_400.0)
             ),
             ChatMessage(
-                id: 28,
                 type: .incoming,
                 text: """
                     Thank you as well. I appreciate your detailed responses and transparency.
@@ -472,7 +438,6 @@ extension Chat {
                 date: date.addingTimeInterval(-5_000.0)
             ),
             ChatMessage(
-                id: 29,
                 type: .outgoing,
                 text: """
                     You're very welcome. Expect the email shortly with next steps.
@@ -480,7 +445,6 @@ extension Chat {
                 date: date.addingTimeInterval(-4_700.0)
             ),
             ChatMessage(
-                id: 30,
                 type: .incoming,
                 text: """
                     Looking forward to it. Have a great day!

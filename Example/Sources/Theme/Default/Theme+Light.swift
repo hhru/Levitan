@@ -21,8 +21,10 @@ extension Theme {
                 background: 0xF1F4F9FF
             ),
             chat: ThemeColors.Chat(
-                incomingMessage: 0xF8F8F8FF,
-                outgoingMessage: 0x0070FFFF
+                incomingMessageBackground: 0xF8F8F8FF,
+                incomingMessageStroke: 0xF1F1F1FF,
+                outgoingMessageBackground: 0x0070FFFF,
+                outgoingMessageStroke: 0x0D63E3FF
             ),
             stroke: 0xDCE3EBFF
         ),

@@ -37,6 +37,34 @@ struct Alert {
     }
 }
 
+extension Alert {
+
+    static func textEditor(
+        title: String?,
+        message: String? = nil,
+        text: String? = nil,
+        placeholder: String? = nil,
+        saveAction: @escaping @MainActor (_ text: String) -> Void
+    ) -> Alert {
+        let textField = AlertTextField(
+            text: text ?? "",
+            placeholder: placeholder
+        )
+
+        return Alert(title: title, textFields: [textField]) {
+            AlertAction(title: "Save") { texts in
+                saveAction(texts.first ?? "")
+            }
+
+            AlertAction(title: "Reset", style: .destructive) {
+                saveAction("")
+            }
+
+            AlertAction.cancel(title: "Cancel")
+        }
+    }
+}
+
 extension UIViewController {
 
     func showAlert(_ alert: Alert, animated: Bool = true) {

@@ -25,11 +25,12 @@ extension ChatOutgoingMessage: Component {
                 time: time,
                 timeColor: Colors.text.contrast
             )
-            .background(Colors.chat.outgoingMessage)
+            .background(Colors.chat.outgoingMessageBackground)
             .corners(
                 radius: 12.0,
                 mask: [.topLeft, .topRight, .bottomLeft]
             )
+            .stroke(Strokes.stroke1.color(Colors.chat.outgoingMessageStroke))
             .onTap(tapAction)
             .onPress { isPressed = $0 && tapAction != nil }
             .pressedEffect(isPressed, anchor: .bottomTrailing)

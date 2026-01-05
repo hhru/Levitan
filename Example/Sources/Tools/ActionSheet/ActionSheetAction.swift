@@ -6,12 +6,12 @@ struct ActionSheetAction {
 
     let style: UIAlertAction.Style
 
-    let handler: (() -> Void)?
+    let handler: (@MainActor () -> Void)?
 
     init(
         title: String,
         style: UIAlertAction.Style = .default,
-        handler: (() -> Void)? = nil
+        handler: (@MainActor () -> Void)? = nil
     ) {
         self.title = title
         self.style = style

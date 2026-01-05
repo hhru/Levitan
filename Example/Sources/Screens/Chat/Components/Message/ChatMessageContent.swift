@@ -37,5 +37,4 @@ extension ChatMessageContent: View {
         time: Date(),
         timeColor: Colors.text.contrast
     )
-    .backgroundColor(Colors.chat.outgoingMessage)
 }
