@@ -1,0 +1,180 @@
+import Combine
+import Levitan
+import UIKit
+
+final class ChatViewController: UIViewController {
+
+    let userID: Int
+
+    private let chatsStore = ChatsStore.shared
+    private var chatsSubscription: AnyCancellable?
+
+    private let usersStore = UsersStore.shared
+    private var usersSubscription: AnyCancellable?
+
+    private let flowView = VerticalFlow.UIView()
+    private var flowContext = ComponentContext.default
+
+    init(userID: Int) {
+        self.userID = userID
+
+        super.init(nibName: nil, bundle: nil)
+
+        hidesBottomBarWhenPushed = true
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.tokens.backgroundColor = Colors.background.default
+
+        setupNavigationBar()
+        setupFlowView()
+        setupFlowContext()
+
+        usersSubscription = usersStore
+            .usersPublisher
+            .sink { [weak self] _ in
+                self?.updateNavigationBar()
+            }
+
+        chatsSubscription = chatsStore
+            .chatsPublisher
+            .sink { [weak self] _ in
+                self?.updateFlowView()
+            }
+    }
+}
+
+extension ChatViewController {
+
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Reset",
+            style: .plain,
+            target: self,
+            action: #selector(onResetChatsTap)
+        )
+    }
+
+    private func setupFlowView() {
+        view.addSubview(flowView)
+
+        flowView.contentInsetAdjustmentBehavior = .always
+        flowView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            flowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            flowView.topAnchor.constraint(equalTo: view.topAnchor),
+            flowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            flowView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    private func setupFlowContext() {
+        flowContext = flowContext
+            .componentViewController(self)
+            .fallbackComponentSizeCache(FallbackComponentSizeCache())
+    }
+
+    private func updateNavigationBar() {
+        navigationItem.title = usersStore
+            .user(id: userID)?
+            .name ?? "Unknown user"
+    }
+
+    private func updateFlowView() {
+        let messages = chatsStore.chat(userID: userID)?.messages ?? []
+
+        let messageGroupes = Dictionary(
+            grouping: messages,
+            by: { Calendar.current.startOfDay(for: $0.date) }
+        )
+
+        let sections = messageGroupes
+            .keys
+            .sorted()
+            .compactMap { messageGroupes[$0] }
+            .compactMap { chatMessageSection(messages: $0) }
+
+        let flow = VerticalFlow(sections: sections)
+            .scrollAnchor(.bottomLeading)
+            .pinnedViews(.header)
+
+        flowView.update(with: flow, context: flowContext)
+    }
+}
+
+extension ChatViewController {
+
+    private func chatMessageSection(messages: [ChatMessage]) -> VerticalFlowSection? {
+        guard let date = messages.first?.date else {
+            return nil
+        }
+
+        let header = ChatHeader(date: date, info: nil)
+            .frame(width: .fill)
+            .padding(top: 16.0, bottom: 8.0)
+            .flowHeader()
+
+        return VerticalFlowSection(identifier: date) {
+            messages.map { message in
+                chatMessageItem(message: message)
+            }
+        }
+        .header(header)
+        .verticalSpacing(8.0)
+    }
+
+    private func chatMessageItem(message: ChatMessage) -> any FlowItem {
+        switch message.type {
+        case .incoming:
+            chatIncomingMessageItem(message: message)
+
+        case .outgoing:
+            chatOutgoingMessageItem(message: message)
+        }
+    }
+
+    private func chatIncomingMessageItem(message: ChatMessage) -> any FlowItem {
+        ChatIncomingMessage(
+            text: message.text,
+            time: message.date,
+            tapAction: { [weak self] in
+                self?.onChatMessageTap(messageID: message.id)
+            }
+        )
+        .padding(top: 8.0)
+        .flowItem(identifier: message.id)
+    }
+
+    private func chatOutgoingMessageItem(message: ChatMessage) -> any FlowItem {
+        ChatOutgoingMessage(
+            text: message.text,
+            time: message.date,
+            tapAction: { [weak self] in
+                self?.onChatMessageTap(messageID: message.id)
+            }
+        )
+        .padding(top: 8.0)
+        .flowItem(identifier: message.id)
+    }
+}
+
+extension ChatViewController {
+
+    @objc private func onResetChatsTap() {
+        chatsStore.updateChats(with: Chat.all)
+    }
+
+    private func onChatMessageTap(messageID: Int) {
+        // TODO: implement it
+    }
+}

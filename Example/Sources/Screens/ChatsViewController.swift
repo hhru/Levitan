@@ -178,7 +178,10 @@ extension ChatsViewController {
     }
 
     private func onChatTap(userID: Int) {
-        // TODO: открывать чат
+        navigationController?.pushViewController(
+            ChatViewController(userID: userID),
+            animated: true
+        )
     }
 
     private func onEditChatTap(userID: Int) {

@@ -31,12 +31,13 @@ extension ChatHeader: View {
         }
         .padding(.horizontal, info == nil ? 12.0 : 16.0)
         .padding(.vertical, info == nil ? 4.0 : 8.0)
+        .backgroundColor(Colors.background.default)
         .clipShape(ShapeToken.capsule)
         .stroke(Strokes.stroke1.color(Colors.stroke))
-        .backgroundColor(Colors.background.default)
         .onTap(tapAction)
         .onPress { isPressed = $0 && tapAction != nil }
         .pressedEffect(isPressed)
+        .padding(.horizontal, 12.0)
         .frame(maxWidth: .infinity)
     }
 }

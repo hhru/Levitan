@@ -6,8 +6,6 @@ struct ChatIncomingMessage: Equatable, Sendable {
     let text: String
     let time: Date
 
-    let isLast: Bool
-
     @ViewAction
     var tapAction: (@MainActor () -> Void)?
 
@@ -28,17 +26,12 @@ extension ChatIncomingMessage: Component {
             .background(Colors.chat.incomingMessage)
             .corners(
                 radius: 12.0,
-                mask: isLast
-                ? [.topLeft, .topRight, .bottomRight]
-                : .all
+                mask: [.topLeft, .topRight, .bottomRight]
             )
-            .padding(.leading, 12.0)
             .onTap(tapAction)
             .onPress { isPressed = $0 && tapAction != nil }
-            .pressedEffect(
-                isPressed,
-                anchor: isLast ? .bottomLeading : .leading
-            )
+            .pressedEffect(isPressed, anchor: .bottomLeading)
+            .padding(.leading, 12.0)
 
             Spacer(minLength: 32.0)
         }
@@ -56,7 +49,6 @@ extension ChatIncomingMessage: Component {
             Phasellus id varius sem, at aliquam metus.
             """,
         time: Date(),
-        isLast: true,
         tapAction: { print("Tapped") }
     )
 }

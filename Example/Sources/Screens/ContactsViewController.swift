@@ -184,7 +184,10 @@ extension ContactsViewController {
     }
 
     private func onUserTap(userID: Int) {
-        // TODO: открывать чат
+        navigationController?.pushViewController(
+            ChatViewController(userID: userID),
+            animated: true
+        )
     }
 
     private func onEditUserTap(userID: Int) {
