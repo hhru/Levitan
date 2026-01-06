@@ -1,14 +1,22 @@
 import SwiftUI
 
-internal struct TransitionSpringModifier<Content: View> {
+public struct TransitionSpringModifier<Content: View> {
 
-    internal let transition: AnyTransition
-    internal let animation: SpringAnimationToken?
+    public let transition: AnyTransition
+    public let animation: SpringAnimationToken?
+
+    public init(
+        transition: AnyTransition,
+        animation: SpringAnimationToken?
+    ) {
+        self.transition = transition
+        self.animation = animation
+    }
 }
 
 extension TransitionSpringModifier: TokenViewModifier {
 
-    internal func body(content: Content, theme: TokenTheme) -> some View {
+    public func body(content: Content, theme: TokenTheme) -> some View {
         if let animation = animation?.resolve(for: theme) {
             content.transition(transition.animation(animation.animation))
         } else {
@@ -22,7 +30,7 @@ extension View {
     public nonisolated func transitionSpring(
         _ transition: AnyTransition,
         animation: SpringAnimationToken?
-    ) -> some View {
+    ) -> TokenModifiedView<TransitionSpringModifier<Self>> {
         modifier(
             TransitionSpringModifier(
                 transition: transition,

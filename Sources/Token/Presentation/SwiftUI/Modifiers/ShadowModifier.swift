@@ -1,20 +1,30 @@
 #if canImport(UIKit)
 import SwiftUI
 
-internal struct ShadowModifier<Content: View>:
+public struct ShadowModifier<Content: View>:
     TokenShapedModifier,
     Hashable,
     Sendable {
 
-    internal let shadow: ShadowToken?
+    public let shadow: ShadowToken?
 
-    internal let shape: ShapeToken?
-    internal let shapeInsets: SpacingToken?
+    public let shape: ShapeToken?
+    public let shapeInsets: SpacingToken?
+
+    public init(
+        shadow: ShadowToken?,
+        shape: ShapeToken?,
+        shapeInsets: SpacingToken?
+    ) {
+        self.shadow = shadow
+        self.shape = shape
+        self.shapeInsets = shapeInsets
+    }
 }
 
 extension ShadowModifier: TokenViewModifier {
 
-    internal func body(content: Content, theme: TokenTheme) -> some View {
+    public func body(content: Content, theme: TokenTheme) -> some View {
         if let shadow = shadow?.resolve(for: theme), !shadow.isClear {
             let shape = shape?.resolve(for: theme) ?? .rectangle
             let shapeInsets = shapeInsets?.resolve(for: theme) ?? .zero
@@ -121,7 +131,7 @@ extension View {
         _ shadow: ShadowToken?,
         shape: ShapeToken? = nil,
         shapeInsets: SpacingToken? = nil
-    ) -> some View & TokenShapedView {
+    ) -> TokenModifiedView<ShadowModifier<Self>> {
         modifier(
             ShadowModifier(
                 shadow: shadow,
@@ -135,7 +145,7 @@ extension View {
         _ shadow: ShadowToken?,
         corners: CornersToken,
         shapeInsets: SpacingToken? = nil
-    ) -> some View & TokenShapedView {
+    ) -> TokenModifiedView<ShadowModifier<Self>> {
         self.shadow(
             shadow,
             shape: .rectangle(corners: corners),
@@ -146,7 +156,9 @@ extension View {
 
 extension View where Self: TokenShapedView {
 
-    public nonisolated func shadow(_ shadow: ShadowToken?) -> some View & TokenShapedView {
+    public nonisolated func shadow(
+        _ shadow: ShadowToken?
+    ) -> TokenModifiedView<ShadowModifier<Self>> {
         modifier(
             ShadowModifier(
                 shadow: shadow,

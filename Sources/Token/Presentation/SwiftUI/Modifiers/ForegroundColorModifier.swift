@@ -1,20 +1,26 @@
 import SwiftUI
 
-internal struct ForegroundColorModifier<Content: View>: Hashable, Sendable {
+public struct ForegroundColorModifier<Content: View>: Hashable, Sendable {
 
-    internal let color: ColorToken?
+    public let color: ColorToken?
+
+    public init(color: ColorToken?) {
+        self.color = color
+    }
 }
 
 extension ForegroundColorModifier: TokenViewModifier {
 
-    internal func body(content: Content, theme: TokenTheme) -> some View {
+    public func body(content: Content, theme: TokenTheme) -> some View {
         content.foregroundColor(color?.resolve(for: theme).color)
     }
 }
 
 extension View {
 
-    public nonisolated func foregroundColor(_ color: ColorToken?) -> some View {
+    public nonisolated func foregroundColor(
+        _ color: ColorToken?
+    ) -> TokenModifiedView<ForegroundColorModifier<Self>> {
         modifier(ForegroundColorModifier(color: color))
     }
 }

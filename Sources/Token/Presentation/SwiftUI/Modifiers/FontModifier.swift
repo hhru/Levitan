@@ -1,14 +1,18 @@
 #if canImport(UIKit)
 import SwiftUI
 
-internal struct FontModifier<Content: View>: Hashable, Sendable {
+public struct FontModifier<Content: View>: Hashable, Sendable {
 
-    internal let font: FontToken?
+    public let font: FontToken?
+
+    public init(font: FontToken?) {
+        self.font = font
+    }
 }
 
 extension FontModifier: TokenViewModifier {
 
-    internal func body(content: Content, theme: TokenTheme) -> some View {
+    public func body(content: Content, theme: TokenTheme) -> some View {
         if let font = font?.resolve(for: theme) {
             content.font(font.font)
         } else {
@@ -19,7 +23,9 @@ extension FontModifier: TokenViewModifier {
 
 extension View {
 
-    public nonisolated func font(_ font: FontToken?) -> some View {
+    public nonisolated func font(
+        _ font: FontToken?
+    ) -> TokenModifiedView<FontModifier<Self>> {
         modifier(FontModifier(font: font))
     }
 }

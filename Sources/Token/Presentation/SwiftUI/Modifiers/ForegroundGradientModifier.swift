@@ -1,13 +1,17 @@
 import SwiftUI
 
-internal struct ForegroundGradientModifier<Content: View>: Hashable, Sendable {
+public struct ForegroundGradientModifier<Content: View>: Hashable, Sendable {
 
-    internal let gradient: GradientToken?
+    public let gradient: GradientToken?
+
+    public init(gradient: GradientToken?) {
+        self.gradient = gradient
+    }
 }
 
 extension ForegroundGradientModifier: TokenViewModifier {
 
-    internal func body(content: Content, theme: TokenTheme) -> some View {
+    public func body(content: Content, theme: TokenTheme) -> some View {
         if let gradient = gradient?.linearGradient.resolve(for: theme) {
             content.foregroundStyle(gradient)
         } else {
@@ -18,7 +22,9 @@ extension ForegroundGradientModifier: TokenViewModifier {
 
 extension View {
 
-    public nonisolated func foregroundGradient(_ gradient: GradientToken?) -> some View {
+    public nonisolated func foregroundGradient(
+        _ gradient: GradientToken?
+    ) -> TokenModifiedView<ForegroundGradientModifier<Self>> {
         modifier(ForegroundGradientModifier(gradient: gradient))
     }
 }

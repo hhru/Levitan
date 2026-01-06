@@ -1,20 +1,17 @@
 import SwiftUI
 
-internal struct ClipShapeModifier<Content: View>:
-    TokenShapedModifier,
-    Hashable,
-    Sendable {
+public struct ClipShapeModifier<Content: View>: Hashable, Sendable {
 
-    internal let shape: ShapeToken?
+    public let shape: ShapeToken?
 
-    internal var shapeInsets: SpacingToken? {
-        nil
+    public init(shape: ShapeToken?) {
+        self.shape = shape
     }
 }
 
 extension ClipShapeModifier: TokenViewModifier {
 
-    internal func body(content: Content, theme: TokenTheme) -> some View {
+    public func body(content: Content, theme: TokenTheme) -> some View {
         if let shape = shape?.resolve(for: theme) {
             content.clipShape(shape)
         } else {
@@ -23,20 +20,31 @@ extension ClipShapeModifier: TokenViewModifier {
     }
 }
 
+extension ClipShapeModifier: TokenShapedModifier {
+
+    public var shapeInsets: SpacingToken? {
+        nil
+    }
+}
+
 extension View {
 
-    public nonisolated func clipShape(_ shape: ShapeToken?) -> some View & TokenShapedView {
+    public nonisolated func clipShape(
+        _ shape: ShapeToken?
+    ) -> TokenModifiedView<ClipShapeModifier<Self>> {
         modifier(ClipShapeModifier(shape: shape))
     }
 
-    public nonisolated func corners(_ corners: CornersToken?) -> some View & TokenShapedView {
+    public nonisolated func corners(
+        _ corners: CornersToken?
+    ) -> TokenModifiedView<ClipShapeModifier<Self>> {
         clipShape(corners.map { .rectangle(corners: $0) })
     }
 
     public nonisolated func corners(
         radius: CornerRadiusToken?,
         mask: CornersMask = .all
-    ) -> some View & TokenShapedView {
+    ) -> TokenModifiedView<ClipShapeModifier<Self>> {
         corners(radius.map { CornersToken(radius: $0, mask: mask) })
     }
 }
