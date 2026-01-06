@@ -47,14 +47,12 @@ extension Cell: Component {
                     CellDivider()
                 }
             }
-            .padding(.leading, 16)
+            .padding(.leading, 16.0)
         }
         .background(isPressed ? Colors.background.pressed : nil)
         .contentShape(Rectangle())
         .onTap(tapAction)
         .onPress { isPressed = $0 && tapAction != nil }
-        .onAppear { print(Self.self, "onAppear", title) }
-        .onDisappear { print(Self.self, "onDisappear", title) }
     }
 
     func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {

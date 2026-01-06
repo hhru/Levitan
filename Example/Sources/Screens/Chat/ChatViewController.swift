@@ -96,6 +96,7 @@ extension ChatViewController {
     private func setupFlowView() {
         view.addSubview(flowView)
 
+        flowView.keyboardDismissMode = .interactive
         flowView.contentInsetAdjustmentBehavior = .always
         flowView.translatesAutoresizingMaskIntoConstraints = false
 
