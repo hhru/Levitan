@@ -135,35 +135,35 @@ extension Chat {
                 text: """
                     Yes, I am available on Thursday or Friday afternoon.
                     """,
-                date: date.addingTimeInterval(-2_413.0)
+                date: date.addingTimeInterval(-2413.0)
             ),
             ChatMessage(
                 type: .outgoing,
                 text: """
                     Let's schedule it for Thursday 2pm. I'll send you the invite shortly.
                     """,
-                date: date.addingTimeInterval(-2_162.0)
+                date: date.addingTimeInterval(-2162.0)
             ),
             ChatMessage(
                 type: .incoming,
                 text: """
                     Perfect, looking forward to it!
                     """,
-                date: date.addingTimeInterval(-1_572.0)
+                date: date.addingTimeInterval(-1572.0)
             ),
             ChatMessage(
                 type: .outgoing,
                 text: """
                     Great! Please prepare to discuss your previous projects and coding challenges.
                     """,
-                date: date.addingTimeInterval(-1_252.0)
+                date: date.addingTimeInterval(-1252.0)
             ),
             ChatMessage(
                 type: .incoming,
                 text: """
                     Will do. Thanks for the heads up.
                     """,
-                date: date.addingTimeInterval(-1_066.0)
+                date: date.addingTimeInterval(-1066.0)
             ),
             ChatMessage(
                 type: .outgoing,
@@ -348,7 +348,7 @@ extension Chat {
                     Thanks a lot! Also, could you share a bit about the team culture \
                     and work environment at Apple?
                     """,
-                date: date.addingTimeInterval(-9_500.0)
+                date: date.addingTimeInterval(-9500.0)
             ),
             ChatMessage(
                 type: .outgoing,
@@ -356,14 +356,14 @@ extension Chat {
                     We foster a collaborative culture with a focus on creativity and innovation. \
                     Employees enjoy a great work-life balance and continuous learning opportunities.
                     """,
-                date: date.addingTimeInterval(-9_000.0)
+                date: date.addingTimeInterval(-9000.0)
             ),
             ChatMessage(
                 type: .incoming,
                 text: """
                     That's wonderful. I'm passionate about learning and growth, so this sounds ideal.
                     """,
-                date: date.addingTimeInterval(-8_600.0)
+                date: date.addingTimeInterval(-8600.0)
             ),
             ChatMessage(
                 type: .outgoing,
@@ -371,7 +371,7 @@ extension Chat {
                     Perfect! When would you be available for the technical interview \
                     and design challenge kickoff?
                     """,
-                date: date.addingTimeInterval(-8_200.0)
+                date: date.addingTimeInterval(-8200.0)
             ),
             ChatMessage(
                 type: .incoming,
@@ -379,77 +379,77 @@ extension Chat {
                     I am flexible next week, preferably in the afternoons. \
                     Let me know what works.
                     """,
-                date: date.addingTimeInterval(-7_800.0)
+                date: date.addingTimeInterval(-7800.0)
             ),
             ChatMessage(
                 type: .outgoing,
                 text: """
                     Let's plan for Tuesday at 3pm then. I'll send the calendar invite shortly.
                     """,
-                date: date.addingTimeInterval(-7_400.0)
+                date: date.addingTimeInterval(-7400.0)
             ),
             ChatMessage(
                 type: .incoming,
                 text: """
                     Tuesday at 3pm works perfectly. Thanks!
                     """,
-                date: date.addingTimeInterval(-7_100.0)
+                date: date.addingTimeInterval(-7100.0)
             ),
             ChatMessage(
                 type: .outgoing,
                 text: """
                     Excellent. Meanwhile, feel free to ask if you need any clarifications.
                     """,
-                date: date.addingTimeInterval(-6_800.0)
+                date: date.addingTimeInterval(-6800.0)
             ),
             ChatMessage(
                 type: .incoming,
                 text: """
                     Will do. By the way, do Apple designers collaborate often with product managers?
                     """,
-                date: date.addingTimeInterval(-6_500.0)
+                date: date.addingTimeInterval(-6500.0)
             ),
             ChatMessage(
                 type: .outgoing,
                 text: """
                     Yes, very closely. Our process emphasizes cross-team synergy throughout product lifecycle.
                     """,
-                date: date.addingTimeInterval(-6_100.0)
+                date: date.addingTimeInterval(-6100.0)
             ),
             ChatMessage(
                 type: .incoming,
                 text: """
                     Good to know. Looking forward to collaborating with such dynamic teams.
                     """,
-                date: date.addingTimeInterval(-5_800.0)
+                date: date.addingTimeInterval(-5800.0)
             ),
             ChatMessage(
                 type: .outgoing,
                 text: """
                     We’re excited to potentially have you onboard. Thanks for your time today!
                     """,
-                date: date.addingTimeInterval(-5_400.0)
+                date: date.addingTimeInterval(-5400.0)
             ),
             ChatMessage(
                 type: .incoming,
                 text: """
                     Thank you as well. I appreciate your detailed responses and transparency.
                     """,
-                date: date.addingTimeInterval(-5_000.0)
+                date: date.addingTimeInterval(-5000.0)
             ),
             ChatMessage(
                 type: .outgoing,
                 text: """
                     You're very welcome. Expect the email shortly with next steps.
                     """,
-                date: date.addingTimeInterval(-4_700.0)
+                date: date.addingTimeInterval(-4700.0)
             ),
             ChatMessage(
                 type: .incoming,
                 text: """
                     Looking forward to it. Have a great day!
                     """,
-                date: date.addingTimeInterval(-4_400.0)
+                date: date.addingTimeInterval(-4400.0)
             )
         ],
         isPinned: false

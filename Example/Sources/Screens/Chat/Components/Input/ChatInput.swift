@@ -18,7 +18,7 @@ extension ChatInput: FallbackComponent {
 
 #Preview {
     ChatInput(
-        text: .constant("Text "),
+        text: .constant("Text"),
         sendAction: { print("Tapped") }
     )
     .padding(all: 16.0)

@@ -59,6 +59,26 @@ final class ChatViewController: UIViewController {
             .sink { [weak self] _ in
                 self?.updateFlowView()
             }
+
+        subscribeToKeyboardNotifications()
+    }
+}
+
+extension ChatViewController: KeyboardHandler {
+
+    public func handleKeyboardFrame(
+        animationDuration: TimeInterval,
+        animationOptions: UIView.AnimationOptions
+    ) {
+        UIView.animate(
+            withDuration: animationDuration,
+            delay: .zero,
+            options: [animationOptions, .beginFromCurrentState],
+            animations: {
+                self.view.layoutIfNeeded()
+                self.updateFlowViewInsets()
+            }
+        )
     }
 }
 
@@ -142,6 +162,13 @@ extension ChatViewController {
         flowView.update(with: flow, context: flowContext)
     }
 
+    private func updateFlowViewInsets() {
+        flowView.contentInsets.bottom = flowView
+            .frame
+            .intersection(chatInputView.frame)
+            .height - view.safeAreaInsets.bottom
+    }
+
     private func updateChatInputView() {
         let text = ViewBinding(
             get: { [weak self] in
@@ -163,6 +190,11 @@ extension ChatViewController {
             with: chatInput,
             context: chatInputContext
         )
+
+        UIView.animate(withDuration: 0.1) {
+            self.view.layoutIfNeeded()
+            self.updateFlowViewInsets()
+        }
     }
 }
 
@@ -319,7 +351,7 @@ extension ChatViewController {
     }
 
     private func onSendMessageTap() {
-        chatsStore.insertChatIncomingMessage(
+        chatsStore.insertChatOutgoingMessage(
             userID: self.userID,
             text: chatInputText,
             date: Date()

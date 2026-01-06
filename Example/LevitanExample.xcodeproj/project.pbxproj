@@ -32,6 +32,10 @@
 		C06A6D662F0C5435007F606E /* ChatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D652F0C542F007F606E /* ChatInput.swift */; };
 		C06A6D682F0C549B007F606E /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D672F0C5497007F606E /* ChatInputView.swift */; };
 		C06A6D6A2F0C5533007F606E /* ChatInputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D692F0C552E007F606E /* ChatInputButton.swift */; };
+		C06EE5322F0CBCC500AD1F6A /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5312F0CBCBF00AD1F6A /* KeyboardHandler.swift */; };
+		C06EE5342F0CBD3100AD1F6A /* NotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */; };
+		C06EE5362F0CBD8700AD1F6A /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */; };
+		C0C4DC8B2F0CB05B00DBF01A /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4DC852F0CB05A00DBF01A /* NSLayoutConstraint+Extensions.swift */; };
 		C0C8A89C2F066ACB001651F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89B2F066ACA001651F6 /* User.swift */; };
 		C0C8A89E2F066C17001651F6 /* ThemeTypographies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */; };
 		C0C8A8A32F066CD9001651F6 /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8A22F066CD1001651F6 /* ThemeColors.swift */; };
@@ -140,6 +144,10 @@
 		C06A6D652F0C542F007F606E /* ChatInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInput.swift; sourceTree = "<group>"; };
 		C06A6D672F0C5497007F606E /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
 		C06A6D692F0C552E007F606E /* ChatInputButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputButton.swift; sourceTree = "<group>"; };
+		C06EE5312F0CBCBF00AD1F6A /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
+		C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationObserver.swift; sourceTree = "<group>"; };
+		C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
+		C0C4DC852F0CB05A00DBF01A /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
 		C0C8A89B2F066ACA001651F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTypographies.swift; sourceTree = "<group>"; };
 		C0C8A8A22F066CD1001651F6 /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
@@ -258,9 +266,12 @@
 		C06A6D412F0B007E007F606E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				C0C8A8C12F06A8B2001651F6 /* Extensions */,
 				C06A6D452F0B00FB007F606E /* ActionSheet */,
 				C06A6D482F0B02EF007F606E /* Alert */,
+				C0C8A8C12F06A8B2001651F6 /* Extensions */,
+				C06EE5312F0CBCBF00AD1F6A /* KeyboardHandler.swift */,
+				C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */,
+				C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -388,6 +399,7 @@
 		C0C8A8C12F06A8B2001651F6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C0C4DC852F0CB05A00DBF01A /* NSLayoutConstraint+Extensions.swift */,
 				C0C8A8C22F06A8BA001651F6 /* DateFormatter+Extensions.swift */,
 			);
 			path = Extensions;
@@ -616,6 +628,7 @@
 				C0C8A8D52F06B918001651F6 /* ContactsViewController.swift in Sources */,
 				C06A6D472F0B0108007F606E /* ActionSheet.swift in Sources */,
 				C06A6D4A2F0B0505007F606E /* AlertTextField.swift in Sources */,
+				C06EE5322F0CBCC500AD1F6A /* KeyboardHandler.swift in Sources */,
 				C0E822012F065FEB00051412 /* Avatar.swift in Sources */,
 				C06A6D612F0BCA7B007F606E /* ChatsViewController.swift in Sources */,
 				C0C8A8AE2F067562001651F6 /* Tappable.swift in Sources */,
@@ -630,6 +643,7 @@
 				C0C8B8182F096F5C0029D19F /* Card.swift in Sources */,
 				C0C8A8CB2F06B11C001651F6 /* ChatHeader.swift in Sources */,
 				C009745F2F03CEEE00BC7680 /* SceneDelegate.swift in Sources */,
+				C06EE5342F0CBD3100AD1F6A /* NotificationObserver.swift in Sources */,
 				C0C8A8BF2F06A386001651F6 /* Theme+Dark.swift in Sources */,
 				C0C8A8A52F066F21001651F6 /* Theme.swift in Sources */,
 				C06A6D632F0BD290007F606E /* ChatsStore.swift in Sources */,
@@ -647,6 +661,7 @@
 				C0C8A8A32F066CD9001651F6 /* ThemeColors.swift in Sources */,
 				C0C8B80D2F09406F0029D19F /* Profile.swift in Sources */,
 				C0E822202F06633500051412 /* Cell.swift in Sources */,
+				C0C4DC8B2F0CB05B00DBF01A /* NSLayoutConstraint+Extensions.swift in Sources */,
 				C06A6D5C2F0B16BA007F606E /* UsersStore.swift in Sources */,
 				C06A6D6A2F0C5533007F606E /* ChatInputButton.swift in Sources */,
 				C06A6D682F0C549B007F606E /* ChatInputView.swift in Sources */,
@@ -658,6 +673,7 @@
 				C0C8A89C2F066ACB001651F6 /* User.swift in Sources */,
 				C0C8A8BD2F06A36A001651F6 /* Theme+Light.swift in Sources */,
 				C0C8A8C32F06A8BE001651F6 /* DateFormatter+Extensions.swift in Sources */,
+				C06EE5362F0CBD8700AD1F6A /* ObjectAssociation.swift in Sources */,
 				C0C8A8BA2F06A1A7001651F6 /* ThemeAnimations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -815,7 +831,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -833,7 +848,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (

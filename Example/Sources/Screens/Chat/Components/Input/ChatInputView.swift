@@ -3,7 +3,6 @@ import UIKit
 
 class ChatInputView: UIView {
 
-    private let stackView = UIStackView()
     private let textView = UITextView()
     private let sendButton = ChatInputButton.UIView()
 
@@ -13,7 +12,10 @@ class ChatInputView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        setupStackView()
+        tokens.backgroundColor = Colors.background.default
+        tokens.corners = .rounded(radius: 16.0)
+        tokens.stroke = Strokes.outside.color(Colors.stroke)
+
         setupTextView()
         setupSendButton()
     }
@@ -23,33 +25,8 @@ class ChatInputView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupStackView() {
-        addSubview(stackView)
-
-        stackView.axis = .horizontal
-        stackView.spacing = 8.0
-        stackView.alignment = .top
-
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
-        let constraints = [
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stackView.topAnchor.constraint(equalTo: topAnchor),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-        ]
-
-        NSLayoutConstraint.activate(constraints)
-    }
-
     private func setupTextView() {
-        stackView.addArrangedSubview(textView)
-
-        textView.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        textView.setContentHuggingPriority(.defaultLow, for: .vertical)
-
-        textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        textView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        addSubview(textView)
 
         textView.textContainerInset = UIEdgeInsets(
             top: 8.0,
@@ -69,28 +46,63 @@ class ChatInputView: UIView {
         textView.tokens.textColor = Colors.text.primary
         textView.tokens.textFont = typography.font
         textView.tokens.typingAttributes = typography
-
-        textView.tokens.corners = .rounded(radius: 12.0)
+        textView.tokens.corners = .rounded(radius: 20.0)
         textView.tokens.stroke = Strokes.inside.color(Colors.stroke)
+
+        textView.translatesAutoresizingMaskIntoConstraints = false
+
+        textView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        textView.setContentHuggingPriority(.defaultHigh, for: .vertical)
+
+        textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        textView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+
+        textView
+            .leadingAnchor
+            .constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 12.0)
+            .activate()
+
+        textView
+            .topAnchor
+            .constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 12.0)
+            .activate()
+
+        textView
+            .bottomAnchor
+            .constraint(equalTo: keyboardLayoutGuide.topAnchor, constant: -12.0)
+            .activate()
     }
 
     private func setupSendButton() {
-        stackView.addArrangedSubview(sendButton)
+        addSubview(sendButton)
 
-        sendButton.setContentHuggingPriority(.required, for: .horizontal)
-        sendButton.setContentHuggingPriority(.required, for: .vertical)
+        sendButton.translatesAutoresizingMaskIntoConstraints = false
 
-        sendButton.setContentCompressionResistancePriority(.required, for: .horizontal)
-        sendButton.setContentCompressionResistancePriority(.required, for: .vertical)
+        sendButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        sendButton.setContentHuggingPriority(.defaultHigh, for: .vertical)
+
+        sendButton.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        sendButton.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
 
         sendButton
             .heightAnchor
             .constraint(lessThanOrEqualTo: textView.heightAnchor)
-            .isActive = true
+            .activate()
 
-        sendButton.tokens.backgroundColor = Colors.background.pressed
-        sendButton.tokens.corners = .rounded(radius: 12.0)
-        sendButton.tokens.stroke = Strokes.outside.color(Colors.stroke)
+        sendButton
+            .leadingAnchor
+            .constraint(equalTo: textView.trailingAnchor, constant: 8.0)
+            .activate()
+
+        sendButton
+            .topAnchor
+            .constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 12.0)
+            .activate()
+
+        sendButton
+            .trailingAnchor
+            .constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -12.0)
+            .activate()
     }
 
     private func updateSendButton() {
