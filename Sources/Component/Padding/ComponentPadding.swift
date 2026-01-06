@@ -81,7 +81,7 @@ extension ComponentPadding: Component where Content: Component {
     }
 }
 
-extension Component {
+extension View where Self: Equatable {
 
     /// Помещает компонент в контейнер с заданными отступами.
     ///
@@ -89,7 +89,7 @@ extension Component {
     /// - Returns: Контейнер для добавления отступов к компоненту.
     ///
     /// - SeeAlso: ``ComponentPadding``
-    public nonisolated func padding(_ insets: InsetsToken?) -> some Component {
+    public nonisolated func padding(_ insets: InsetsToken?) -> ComponentPadding<Self> {
         ComponentPadding(content: self, insets: insets)
     }
 
@@ -108,7 +108,7 @@ extension Component {
         leading: SpacingToken = .zero,
         bottom: SpacingToken = .zero,
         trailing: SpacingToken = .zero
-    ) -> some Component {
+    ) -> ComponentPadding<Self> {
         padding(
             InsetsToken(
                 top: top,
@@ -127,7 +127,10 @@ extension Component {
     /// - Returns: Контейнер для добавления отступов к компоненту.
     ///
     /// - SeeAlso: ``ComponentPadding``
-    public nonisolated func padding(_ edge: InsetsEdge, _ value: SpacingToken) -> some Component {
+    public nonisolated func padding(
+        _ edge: InsetsEdge,
+        _ value: SpacingToken
+    ) -> ComponentPadding<Self> {
         padding(InsetsToken(edge, value))
     }
 
@@ -137,7 +140,7 @@ extension Component {
     /// - Returns: Контейнер для добавления отступов к компоненту.
     ///
     /// - SeeAlso: ``ComponentPadding``
-    public nonisolated func padding(all value: SpacingToken?) -> some Component {
+    public nonisolated func padding(all value: SpacingToken?) -> ComponentPadding<Self> {
         padding(value.map(InsetsToken.init(all:)))
     }
 }
