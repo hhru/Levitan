@@ -1,6 +1,8 @@
 import Foundation
 import Levitan
 
+// swiftlint:disable file_length
+
 struct User: Changeable, Hashable, Sendable {
 
     let id: Int
