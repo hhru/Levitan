@@ -1150,6 +1150,9 @@
 		C06EE5582F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5572F0D205800AD1F6A /* EdgeInsets+Extensions.swift */; };
 		C06EE5592F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5572F0D205800AD1F6A /* EdgeInsets+Extensions.swift */; };
 		C06EE55A2F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5572F0D205800AD1F6A /* EdgeInsets+Extensions.swift */; };
+		C06EE5672F0D985300AD1F6A /* ViewGestureState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5662F0D985100AD1F6A /* ViewGestureState.swift */; };
+		C06EE5682F0D985300AD1F6A /* ViewGestureState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5662F0D985100AD1F6A /* ViewGestureState.swift */; };
+		C06EE5692F0D985300AD1F6A /* ViewGestureState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5662F0D985100AD1F6A /* ViewGestureState.swift */; };
 		C0946A3B2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */; };
 		C0946A3C2F0A676900BA7CD3 /* FlowVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A3A2F0A676900BA7CD3 /* FlowVerticalAlignment.swift */; };
 		C0946A3D2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */; };
@@ -1728,6 +1731,7 @@
 		C057F01E23CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C06A6D3C2F0AE42B007F606E /* ComponentFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFrame.swift; sourceTree = "<group>"; };
 		C06EE5572F0D205800AD1F6A /* EdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
+		C06EE5662F0D985100AD1F6A /* ViewGestureState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewGestureState.swift; sourceTree = "<group>"; };
 		C09275362DCA9FFA00BBC858 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/AppleTVOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C092753A2DCAA00200BBC858 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowHorizontalAlignment.swift; sourceTree = "<group>"; };
@@ -2269,6 +2273,7 @@
 				C02C88022F0266B400A2FE9F /* ViewEnvironment.swift */,
 				C02C88032F0266B400A2FE9F /* ViewFocusBinding.swift */,
 				C02C88042F0266B400A2FE9F /* ViewFocusState.swift */,
+				C06EE5662F0D985100AD1F6A /* ViewGestureState.swift */,
 				C02C88052F0266B400A2FE9F /* ViewNamespace.swift */,
 				C02C88062F0266B400A2FE9F /* ViewState.swift */,
 			);
@@ -3874,6 +3879,7 @@
 				C02C8CA62F0266B400A2FE9F /* TokenShapedModifier.swift in Sources */,
 				C02C8CA72F0266B400A2FE9F /* TokenViewProperties+UIButton.swift in Sources */,
 				C02C8CA82F0266B400A2FE9F /* ParagraphFirstLineIndentDecorator.swift in Sources */,
+				C06EE5692F0D985300AD1F6A /* ViewGestureState.swift in Sources */,
 				C02C8CA92F0266B400A2FE9F /* TokenViewProperties+SFSafariViewController.swift in Sources */,
 				C02C8CAA2F0266B400A2FE9F /* GradientToken.swift in Sources */,
 				C0C8B82C2F09907B0029D19F /* AnimationModifier+ComponentTokenModifier.swift in Sources */,
@@ -4312,6 +4318,7 @@
 				C02C8A102F0266B400A2FE9F /* TokenShapedModifier.swift in Sources */,
 				C02C8A112F0266B400A2FE9F /* TokenViewProperties+UIButton.swift in Sources */,
 				C02C8A122F0266B400A2FE9F /* ParagraphFirstLineIndentDecorator.swift in Sources */,
+				C06EE5672F0D985300AD1F6A /* ViewGestureState.swift in Sources */,
 				C02C8A132F0266B400A2FE9F /* TokenViewProperties+SFSafariViewController.swift in Sources */,
 				C02C8A142F0266B400A2FE9F /* GradientToken.swift in Sources */,
 				C0C8B82E2F09907B0029D19F /* AnimationModifier+ComponentTokenModifier.swift in Sources */,
@@ -4638,6 +4645,7 @@
 				C02C8AF62F0266B400A2FE9F /* AlignmentDecorator+TextDecorator.swift in Sources */,
 				C00974F02F044E4300BC7680 /* CollectionViewState.swift in Sources */,
 				C02C8AF82F0266B400A2FE9F /* CALayer+MaskLayer.swift in Sources */,
+				C06EE5682F0D985300AD1F6A /* ViewGestureState.swift in Sources */,
 				C02C8AF92F0266B400A2FE9F /* TokenViewPayload.swift in Sources */,
 				C02C8AFA2F0266B400A2FE9F /* ImageValue+View.swift in Sources */,
 				C02C8AFB2F0266B400A2FE9F /* GradientValue+View.swift in Sources */,

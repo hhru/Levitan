@@ -3,7 +3,7 @@ import SwiftUI
 
 // TODO: Добавить документацию
 @propertyWrapper
-public struct ViewFocusState<Value: Hashable>: DynamicProperty {
+public struct ViewFocusState<Value: Hashable> {
 
     private var focusState: FocusState<Value>
 
@@ -24,6 +24,9 @@ public struct ViewFocusState<Value: Hashable>: DynamicProperty {
     public init<Wrapped: Hashable>() where Value == Wrapped? {
         self.focusState = FocusState()
     }
+}
+
+extension ViewFocusState: DynamicProperty {
 
     public mutating func update() {
         focusState.update()

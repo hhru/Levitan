@@ -15,7 +15,7 @@ import SwiftUI
 /// И чтобы не реализовывать требования протокола `Equatable` вручную,
 /// удобно использовать данную обертку.
 @propertyWrapper
-public struct ViewNamespace: DynamicProperty, Sendable {
+public struct ViewNamespace: Sendable {
 
     /// Тип идентификатора пространства имен.
     public typealias ID = Namespace.ID
@@ -30,6 +30,9 @@ public struct ViewNamespace: DynamicProperty, Sendable {
     public init() {
         namespace = Namespace()
     }
+}
+
+extension ViewNamespace: DynamicProperty {
 
     public mutating func update() {
         namespace.update()

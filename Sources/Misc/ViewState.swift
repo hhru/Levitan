@@ -30,7 +30,7 @@ import SwiftUI
 /// }
 /// ```
 @propertyWrapper
-public struct ViewState<Value>: DynamicProperty {
+public struct ViewState<Value> {
 
     private var state: State<Value>
 
@@ -40,7 +40,6 @@ public struct ViewState<Value>: DynamicProperty {
         nonmutating set { state.wrappedValue = newValue }
     }
 
-    // TODO: Добавить поддержку в компоненты SwiftUI и возвращать ViewBinding
     /// Байндинг для значения состояния.
     public var projectedValue: Binding<Value> {
         state.projectedValue
@@ -49,19 +48,15 @@ public struct ViewState<Value>: DynamicProperty {
     /// Создает состояние с начальным значением.
     ///
     /// - Parameter value: Начальное значение.
-    public init(wrappedValue value: Value) {
-        state = State(wrappedValue: value)
+    public init(wrappedValue: Value) {
+        state = State(wrappedValue: wrappedValue)
     }
 
     /// Создает состояние с начальным значением.
     ///
     /// - Parameter value: Начальное значение
-    public init(initialValue value: Value) {
-        self.init(wrappedValue: value)
-    }
-
-    public mutating func update() {
-        state.update()
+    public init(initialValue: Value) {
+        state = State(initialValue: initialValue)
     }
 }
 
@@ -69,7 +64,14 @@ extension ViewState where Value: ExpressibleByNilLiteral {
 
     /// Создает состояние без начального значения.
     public init() {
-        self.init(wrappedValue: nil)
+        state = State()
+    }
+}
+
+extension ViewState: DynamicProperty {
+
+    public mutating func update() {
+        state.update()
     }
 }
 
