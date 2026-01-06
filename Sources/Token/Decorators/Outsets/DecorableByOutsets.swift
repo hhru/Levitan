@@ -7,7 +7,7 @@ public protocol DecorableByOutsets {
 
 extension DecorableByOutsets {
 
-    public func outset(_ edge: InsetsEdge, _ value: CGFloat) -> Self {
+    public func outset(_ edge: InsetsEdge, by value: CGFloat) -> Self {
         outset(by: InsetsValue(edge, value))
     }
 
