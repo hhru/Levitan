@@ -13,7 +13,6 @@ extension Theme {
                 primary: 0x000000FF,
                 secondary: 0x768694FF,
                 tertiary: 0xAABBCAFF,
-                accent: 0x0070FFFF,
                 contrast: 0xFFFFFFFF
             ),
             tag: ThemeColors.Tag(
@@ -26,6 +25,7 @@ extension Theme {
                 outgoingMessageBackground: 0x0070FFFF,
                 outgoingMessageStroke: 0x0D63E3FF
             ),
+            accent: 0x0070FFFF,
             stroke: 0xDCE3EBFF
         ),
         typographies: ThemeTypographies(),

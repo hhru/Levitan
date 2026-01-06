@@ -29,6 +29,9 @@
 		C06A6D5C2F0B16BA007F606E /* UsersStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D5B2F0B16B5007F606E /* UsersStore.swift */; };
 		C06A6D612F0BCA7B007F606E /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D602F0BCA77007F606E /* ChatsViewController.swift */; };
 		C06A6D632F0BD290007F606E /* ChatsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D622F0BD28D007F606E /* ChatsStore.swift */; };
+		C06A6D662F0C5435007F606E /* ChatInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D652F0C542F007F606E /* ChatInput.swift */; };
+		C06A6D682F0C549B007F606E /* ChatInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D672F0C5497007F606E /* ChatInputView.swift */; };
+		C06A6D6A2F0C5533007F606E /* ChatInputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D692F0C552E007F606E /* ChatInputButton.swift */; };
 		C0C8A89C2F066ACB001651F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89B2F066ACA001651F6 /* User.swift */; };
 		C0C8A89E2F066C17001651F6 /* ThemeTypographies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */; };
 		C0C8A8A32F066CD9001651F6 /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A8A22F066CD1001651F6 /* ThemeColors.swift */; };
@@ -134,6 +137,9 @@
 		C06A6D5B2F0B16B5007F606E /* UsersStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersStore.swift; sourceTree = "<group>"; };
 		C06A6D602F0BCA77007F606E /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
 		C06A6D622F0BD28D007F606E /* ChatsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsStore.swift; sourceTree = "<group>"; };
+		C06A6D652F0C542F007F606E /* ChatInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInput.swift; sourceTree = "<group>"; };
+		C06A6D672F0C5497007F606E /* ChatInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputView.swift; sourceTree = "<group>"; };
+		C06A6D692F0C552E007F606E /* ChatInputButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInputButton.swift; sourceTree = "<group>"; };
 		C0C8A89B2F066ACA001651F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTypographies.swift; sourceTree = "<group>"; };
 		C0C8A8A22F066CD1001651F6 /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
@@ -297,6 +303,16 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		C06A6D642F0C5423007F606E /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				C06A6D652F0C542F007F606E /* ChatInput.swift */,
+				C06A6D692F0C552E007F606E /* ChatInputButton.swift */,
+				C06A6D672F0C5497007F606E /* ChatInputView.swift */,
+			);
+			path = Input;
+			sourceTree = "<group>";
+		};
 		C0C0ABE72F02695100C6E122 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +404,7 @@
 		C0C8A8C92F06B0FB001651F6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				C06A6D642F0C5423007F606E /* Input */,
 				C0C8A8B22F068F37001651F6 /* Message */,
 				C0C8A8CA2F06B11A001651F6 /* ChatHeader.swift */,
 			);
@@ -625,11 +642,14 @@
 				C0C8B8112F0947B10029D19F /* ProfileViewController.swift in Sources */,
 				C0C8A8AC2F06754C001651F6 /* TappableButtonStyle.swift in Sources */,
 				C06A6D3B2F0AD6D4007F606E /* ProfileContact.swift in Sources */,
+				C06A6D662F0C5435007F606E /* ChatInput.swift in Sources */,
 				C0C8A8A82F067350001651F6 /* CellAction.swift in Sources */,
 				C0C8A8A32F066CD9001651F6 /* ThemeColors.swift in Sources */,
 				C0C8B80D2F09406F0029D19F /* Profile.swift in Sources */,
 				C0E822202F06633500051412 /* Cell.swift in Sources */,
 				C06A6D5C2F0B16BA007F606E /* UsersStore.swift in Sources */,
+				C06A6D6A2F0C5533007F606E /* ChatInputButton.swift in Sources */,
+				C06A6D682F0C549B007F606E /* ChatInputView.swift in Sources */,
 				C0C8A8CD2F06B51E001651F6 /* ThemeStrokes.swift in Sources */,
 				C00974602F03CEEE00BC7680 /* AppDelegate.swift in Sources */,
 				C0C8A8B82F06A14B001651F6 /* PressedEffectModifier.swift in Sources */,

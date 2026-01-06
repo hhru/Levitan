@@ -15,6 +15,13 @@ final class ChatViewController: UIViewController {
     private let flowView = VerticalFlow.UIView()
     private var flowContext = ComponentContext.default
 
+    private let chatInputView = ChatInput.UIView()
+    private var chatInputContext = ComponentContext.default
+
+    private var chatInputText = "" {
+        didSet { updateChatInputView() }
+    }
+
     init(userID: Int) {
         self.userID = userID
 
@@ -36,6 +43,10 @@ final class ChatViewController: UIViewController {
         setupNavigationBar()
         setupFlowView()
         setupFlowContext()
+        setupChatInputView()
+        setupChatInputContext()
+
+        updateChatInputView()
 
         usersSubscription = usersStore
             .usersPublisher
@@ -84,6 +95,26 @@ extension ChatViewController {
             .fallbackComponentSizeCache(FallbackComponentSizeCache())
     }
 
+    private func setupChatInputView() {
+        view.addSubview(chatInputView)
+
+        chatInputView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            chatInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            chatInputView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            chatInputView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    private func setupChatInputContext() {
+        chatInputContext = chatInputContext
+            .componentViewController(self)
+            .fallbackComponentSizeCache(FallbackComponentSizeCache())
+    }
+
     private func updateNavigationBar() {
         navigationItem.title = usersStore
             .user(id: userID)?
@@ -110,6 +141,29 @@ extension ChatViewController {
 
         flowView.update(with: flow, context: flowContext)
     }
+
+    private func updateChatInputView() {
+        let text = ViewBinding(
+            get: { [weak self] in
+                self?.chatInputText ?? ""
+            },
+            set: { [weak self] text in
+                self?.chatInputText = text
+            }
+        )
+
+        let chatInput = ChatInput(
+            text: text,
+            sendAction: { [weak self] in
+                self?.onSendMessageTap()
+            }
+        )
+
+        chatInputView.update(
+            with: chatInput,
+            context: chatInputContext
+        )
+    }
 }
 
 extension ChatViewController {
@@ -120,8 +174,8 @@ extension ChatViewController {
         }
 
         let header = ChatHeader(date: date, info: nil)
-            .frame(width: .fill)
             .padding(top: 16.0, bottom: 8.0)
+            .frame(width: .fill)
             .flowHeader()
 
         return VerticalFlowSection(identifier: date) {
@@ -262,5 +316,15 @@ extension ChatViewController {
         }
 
         showAlert(alert)
+    }
+
+    private func onSendMessageTap() {
+        chatsStore.insertChatIncomingMessage(
+            userID: self.userID,
+            text: chatInputText,
+            date: Date()
+        )
+
+        chatInputText = ""
     }
 }

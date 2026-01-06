@@ -70,7 +70,7 @@ extension ChatsViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
-        searchController.searchBar.tokens.tintColor = Colors.text.accent
+        searchController.searchBar.tokens.tintColor = Colors.accent
     }
 
     private func setupFlowView() {

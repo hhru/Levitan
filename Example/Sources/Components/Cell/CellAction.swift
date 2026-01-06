@@ -17,7 +17,7 @@ extension CellAction: View {
     var body: some View {
         Text(title)
             .typography(Typographies.label2)
-            .foregroundColor(Colors.text.accent)
+            .foregroundColor(Colors.accent)
             .onTap(action)
             .onPress { isPressed = $0 }
             .pressedEffect(isPressed, anchor: .trailing)

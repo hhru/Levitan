@@ -25,7 +25,7 @@ extension CardHeader: View {
             if let editAction {
                 Text("Edit")
                     .typography(Typographies.label2)
-                    .foregroundColor(Colors.text.accent)
+                    .foregroundColor(Colors.accent)
                     .onTap(editAction)
                     .onPress { isPressed = $0 }
                     .pressedEffect(isPressed)

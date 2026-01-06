@@ -33,7 +33,7 @@ extension ChatHeader: View {
         .padding(.vertical, info == nil ? 4.0 : 8.0)
         .backgroundColor(Colors.background.default)
         .clipShape(ShapeToken.capsule)
-        .stroke(Strokes.stroke1.color(Colors.stroke))
+        .stroke(Strokes.inside.color(Colors.stroke))
         .onTap(tapAction)
         .onPress { isPressed = $0 && tapAction != nil }
         .pressedEffect(isPressed)

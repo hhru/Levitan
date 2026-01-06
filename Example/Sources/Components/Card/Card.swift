@@ -20,7 +20,7 @@ extension Card: View {
                 .padding(20.0)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .clipShape(.rounded(radius: 20.0))
-                .stroke(Strokes.stroke1.color(Colors.stroke))
+                .stroke(Strokes.inside.color(Colors.stroke))
         }
         .frame(maxWidth: .infinity)
     }

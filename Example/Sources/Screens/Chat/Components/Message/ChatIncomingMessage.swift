@@ -13,7 +13,7 @@ struct ChatIncomingMessage: Equatable, Sendable {
     private var isPressed = false
 }
 
-extension ChatIncomingMessage: Component {
+extension ChatIncomingMessage: View {
 
     var body: some View {
         HStack(spacing: .zero) {
@@ -28,7 +28,7 @@ extension ChatIncomingMessage: Component {
                 radius: 12.0,
                 mask: [.topLeft, .topRight, .bottomRight]
             )
-            .stroke(Strokes.stroke1.color(Colors.chat.incomingMessageStroke))
+            .stroke(Strokes.inside.color(Colors.chat.incomingMessageStroke))
             .onTap(tapAction)
             .onPress { isPressed = $0 && tapAction != nil }
             .pressedEffect(isPressed, anchor: .bottomLeading)
@@ -37,6 +37,9 @@ extension ChatIncomingMessage: Component {
             Spacer(minLength: 32.0)
         }
     }
+}
+
+extension ChatIncomingMessage: Component {
 
     func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
         ComponentSizing(width: .fill, height: .hug(forced: true))
