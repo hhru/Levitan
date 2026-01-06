@@ -1147,6 +1147,9 @@
 		C06A6D3D2F0AE42E007F606E /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D3C2F0AE42B007F606E /* ComponentFrame.swift */; };
 		C06A6D3E2F0AE42E007F606E /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D3C2F0AE42B007F606E /* ComponentFrame.swift */; };
 		C06A6D3F2F0AE42E007F606E /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D3C2F0AE42B007F606E /* ComponentFrame.swift */; };
+		C06EE5582F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5572F0D205800AD1F6A /* EdgeInsets+Extensions.swift */; };
+		C06EE5592F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5572F0D205800AD1F6A /* EdgeInsets+Extensions.swift */; };
+		C06EE55A2F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5572F0D205800AD1F6A /* EdgeInsets+Extensions.swift */; };
 		C0946A3B2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */; };
 		C0946A3C2F0A676900BA7CD3 /* FlowVerticalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A3A2F0A676900BA7CD3 /* FlowVerticalAlignment.swift */; };
 		C0946A3D2F0A676900BA7CD3 /* FlowHorizontalAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */; };
@@ -1176,7 +1179,6 @@
 		C0C8B8472F09A02F0029D19F /* StrokeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83F2F09A02F0029D19F /* StrokeModifier.swift */; };
 		C0C8B8482F09A02F0029D19F /* ForegroundGradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83A2F09A02F0029D19F /* ForegroundGradientModifier.swift */; };
 		C0C8B8492F09A02F0029D19F /* SpringAnimationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83E2F09A02F0029D19F /* SpringAnimationModifier.swift */; };
-		C0C8B84A2F09A02F0029D19F /* PaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83B2F09A02F0029D19F /* PaddingModifier.swift */; };
 		C0C8B84B2F09A02F0029D19F /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8402F09A02F0029D19F /* TransitionModifier.swift */; };
 		C0C8B84C2F09A02F0029D19F /* TransitionSpringModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8412F09A02F0029D19F /* TransitionSpringModifier.swift */; };
 		C0C8B84D2F09A02F0029D19F /* ShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83D2F09A02F0029D19F /* ShadowModifier.swift */; };
@@ -1191,7 +1193,6 @@
 		C0C8B8562F09A02F0029D19F /* StrokeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83F2F09A02F0029D19F /* StrokeModifier.swift */; };
 		C0C8B8572F09A02F0029D19F /* ForegroundGradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83A2F09A02F0029D19F /* ForegroundGradientModifier.swift */; };
 		C0C8B8582F09A02F0029D19F /* SpringAnimationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83E2F09A02F0029D19F /* SpringAnimationModifier.swift */; };
-		C0C8B8592F09A02F0029D19F /* PaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83B2F09A02F0029D19F /* PaddingModifier.swift */; };
 		C0C8B85A2F09A02F0029D19F /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8402F09A02F0029D19F /* TransitionModifier.swift */; };
 		C0C8B85B2F09A02F0029D19F /* TransitionSpringModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8412F09A02F0029D19F /* TransitionSpringModifier.swift */; };
 		C0C8B85C2F09A02F0029D19F /* ShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83D2F09A02F0029D19F /* ShadowModifier.swift */; };
@@ -1206,7 +1207,6 @@
 		C0C8B8652F09A02F0029D19F /* StrokeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83F2F09A02F0029D19F /* StrokeModifier.swift */; };
 		C0C8B8662F09A02F0029D19F /* ForegroundGradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83A2F09A02F0029D19F /* ForegroundGradientModifier.swift */; };
 		C0C8B8672F09A02F0029D19F /* SpringAnimationModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83E2F09A02F0029D19F /* SpringAnimationModifier.swift */; };
-		C0C8B8682F09A02F0029D19F /* PaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83B2F09A02F0029D19F /* PaddingModifier.swift */; };
 		C0C8B8692F09A02F0029D19F /* TransitionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8402F09A02F0029D19F /* TransitionModifier.swift */; };
 		C0C8B86A2F09A02F0029D19F /* TransitionSpringModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8412F09A02F0029D19F /* TransitionSpringModifier.swift */; };
 		C0C8B86B2F09A02F0029D19F /* ShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B83D2F09A02F0029D19F /* ShadowModifier.swift */; };
@@ -1727,6 +1727,7 @@
 		C057F01723CB8EEB00C2D895 /* LevitanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LevitanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C057F01E23CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C06A6D3C2F0AE42B007F606E /* ComponentFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentFrame.swift; sourceTree = "<group>"; };
+		C06EE5572F0D205800AD1F6A /* EdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		C09275362DCA9FFA00BBC858 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/AppleTVOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C092753A2DCAA00200BBC858 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C0946A392F0A676900BA7CD3 /* FlowHorizontalAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowHorizontalAlignment.swift; sourceTree = "<group>"; };
@@ -1758,7 +1759,6 @@
 		C0C8B8382F09A02F0029D19F /* FontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
 		C0C8B8392F09A02F0029D19F /* ForegroundColorModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForegroundColorModifier.swift; sourceTree = "<group>"; };
 		C0C8B83A2F09A02F0029D19F /* ForegroundGradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForegroundGradientModifier.swift; sourceTree = "<group>"; };
-		C0C8B83B2F09A02F0029D19F /* PaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingModifier.swift; sourceTree = "<group>"; };
 		C0C8B83C2F09A02F0029D19F /* ScaleEffectModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleEffectModifier.swift; sourceTree = "<group>"; };
 		C0C8B83D2F09A02F0029D19F /* ShadowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowModifier.swift; sourceTree = "<group>"; };
 		C0C8B83E2F09A02F0029D19F /* SpringAnimationModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimationModifier.swift; sourceTree = "<group>"; };
@@ -2707,7 +2707,6 @@
 				C0C8B8392F09A02F0029D19F /* ForegroundColorModifier.swift */,
 				C0C8B83A2F09A02F0029D19F /* ForegroundGradientModifier.swift */,
 				C02C88982F0266B400A2FE9F /* OpacityModifier.swift */,
-				C0C8B83B2F09A02F0029D19F /* PaddingModifier.swift */,
 				C0C8B83C2F09A02F0029D19F /* ScaleEffectModifier.swift */,
 				C0C8B83D2F09A02F0029D19F /* ShadowModifier.swift */,
 				C0C8B83E2F09A02F0029D19F /* SpringAnimationModifier.swift */,
@@ -3246,6 +3245,7 @@
 		C02C89692F0266B400A2FE9F /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				C06EE5572F0D205800AD1F6A /* EdgeInsets+Extensions.swift */,
 				C0C8B8032F0917DF0029D19F /* EnvironmentValues+Extensions.swift */,
 				C02C89662F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift */,
 				C02C89672F0266B400A2FE9F /* UserInterfaceSizeClass+Extensions.swift */,
@@ -3767,7 +3767,6 @@
 				C0C8B8652F09A02F0029D19F /* StrokeModifier.swift in Sources */,
 				C0C8B8662F09A02F0029D19F /* ForegroundGradientModifier.swift in Sources */,
 				C0C8B8672F09A02F0029D19F /* SpringAnimationModifier.swift in Sources */,
-				C0C8B8682F09A02F0029D19F /* PaddingModifier.swift in Sources */,
 				C0C8B8692F09A02F0029D19F /* TransitionModifier.swift in Sources */,
 				C0C8B86A2F09A02F0029D19F /* TransitionSpringModifier.swift in Sources */,
 				C0C8B86B2F09A02F0029D19F /* ShadowModifier.swift in Sources */,
@@ -3993,6 +3992,7 @@
 				C02C8D022F0266B400A2FE9F /* TokenViewManager.swift in Sources */,
 				C02C8D032F0266B400A2FE9F /* Component.swift in Sources */,
 				C02C8D042F0266B400A2FE9F /* TokenThemeBody.swift in Sources */,
+				C06EE5582F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */,
 				C02C8D052F0266B400A2FE9F /* TraitsObservable.swift in Sources */,
 				C02C8D072F0266B400A2FE9F /* Nullable.swift in Sources */,
 				C02C8D082F0266B400A2FE9F /* TokenViewProperties+CAGradientLayer.swift in Sources */,
@@ -4205,7 +4205,6 @@
 				C0C8B8562F09A02F0029D19F /* StrokeModifier.swift in Sources */,
 				C0C8B8572F09A02F0029D19F /* ForegroundGradientModifier.swift in Sources */,
 				C0C8B8582F09A02F0029D19F /* SpringAnimationModifier.swift in Sources */,
-				C0C8B8592F09A02F0029D19F /* PaddingModifier.swift in Sources */,
 				C0C8B85A2F09A02F0029D19F /* TransitionModifier.swift in Sources */,
 				C0C8B85B2F09A02F0029D19F /* TransitionSpringModifier.swift in Sources */,
 				C0C8B85C2F09A02F0029D19F /* ShadowModifier.swift in Sources */,
@@ -4431,6 +4430,7 @@
 				C02C8A6C2F0266B400A2FE9F /* TokenViewManager.swift in Sources */,
 				C02C8A6D2F0266B400A2FE9F /* Component.swift in Sources */,
 				C02C8A6E2F0266B400A2FE9F /* TokenThemeBody.swift in Sources */,
+				C06EE55A2F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */,
 				C02C8A6F2F0266B400A2FE9F /* TraitsObservable.swift in Sources */,
 				C02C8A712F0266B400A2FE9F /* Nullable.swift in Sources */,
 				C02C8A722F0266B400A2FE9F /* TokenViewProperties+CAGradientLayer.swift in Sources */,
@@ -4616,7 +4616,6 @@
 				C0C8B8482F09A02F0029D19F /* ForegroundGradientModifier.swift in Sources */,
 				C0C8B8BB2F09CBAA0029D19F /* ComponentPaddingView.swift in Sources */,
 				C0C8B8492F09A02F0029D19F /* SpringAnimationModifier.swift in Sources */,
-				C0C8B84A2F09A02F0029D19F /* PaddingModifier.swift in Sources */,
 				C0C8B84B2F09A02F0029D19F /* TransitionModifier.swift in Sources */,
 				C0C8B84C2F09A02F0029D19F /* TransitionSpringModifier.swift in Sources */,
 				C0C8B84D2F09A02F0029D19F /* ShadowModifier.swift in Sources */,
@@ -4931,6 +4930,7 @@
 				C02C8BEC2F0266B400A2FE9F /* TokenTraitProvider.swift in Sources */,
 				C02C8BED2F0266B400A2FE9F /* EnvironmentValues+ComponentContainerSize.swift in Sources */,
 				C02C8BEE2F0266B400A2FE9F /* TokenViewProperties+UIBarPositioning.swift in Sources */,
+				C06EE5592F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */,
 				C0C8B8712F09A3B80029D19F /* ComponentTokenModifier.swift in Sources */,
 				C02C8BEF2F0266B400A2FE9F /* TokenThemeResolver.swift in Sources */,
 				C009750A2F0514B300BC7680 /* CollectionViewManager.swift in Sources */,

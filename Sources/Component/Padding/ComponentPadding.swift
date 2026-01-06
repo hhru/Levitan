@@ -11,7 +11,7 @@ public struct ComponentPadding<Content: View> {
     public let content: Content
 
     /// Отступы, которые будут применены к компоненту.
-    public let insets: InsetsToken?
+    public let insets: EdgeInsets
 
     /// Создает контейнер c отступами.
     ///
@@ -20,7 +20,7 @@ public struct ComponentPadding<Content: View> {
     ///   - insets: Отступы, которые будут применены к компоненту.
     public init(
         content: Content,
-        insets: InsetsToken?
+        insets: EdgeInsets
     ) {
         self.content = content
         self.insets = insets
@@ -28,17 +28,12 @@ public struct ComponentPadding<Content: View> {
 }
 
 extension ComponentPadding: Equatable where Content: Equatable { }
-extension ComponentPadding: Hashable where Content: Hashable { }
 extension ComponentPadding: Sendable where Content: Sendable { }
 
 extension ComponentPadding: View {
 
     public var body: some View {
-        if let insets {
-            content.padding(insets)
-        } else {
-            content
-        }
+        content.padding(insets)
     }
 }
 
@@ -51,10 +46,6 @@ extension ComponentPadding: Component where Content: Component {
             fitting: size,
             context: context
         )
-
-        guard let insets = insets?.resolve(for: context.tokenTheme) else {
-            return sizing
-        }
 
         switch (sizing.width, sizing.height) {
         case let (.fixed(width), .fixed(height)):
@@ -89,7 +80,7 @@ extension View where Self: Equatable {
     /// - Returns: Контейнер для добавления отступов к компоненту.
     ///
     /// - SeeAlso: ``ComponentPadding``
-    public nonisolated func padding(_ insets: InsetsToken?) -> ComponentPadding<Self> {
+    public nonisolated func padding(_ insets: EdgeInsets) -> ComponentPadding<Self> {
         ComponentPadding(content: self, insets: insets)
     }
 
@@ -104,13 +95,13 @@ extension View where Self: Equatable {
     ///
     /// - SeeAlso: ``ComponentPadding``
     public nonisolated func padding(
-        top: SpacingToken = .zero,
-        leading: SpacingToken = .zero,
-        bottom: SpacingToken = .zero,
-        trailing: SpacingToken = .zero
+        top: CGFloat = .zero,
+        leading: CGFloat = .zero,
+        bottom: CGFloat = .zero,
+        trailing: CGFloat = .zero
     ) -> ComponentPadding<Self> {
         padding(
-            InsetsToken(
+            EdgeInsets(
                 top: top,
                 leading: leading,
                 bottom: bottom,
@@ -123,25 +114,25 @@ extension View where Self: Equatable {
     ///
     /// - Parameters:
     ///   - edge: Набор краев, к которым будет применен отступ.
-    ///   - value: Значение отступа.
+    ///   - length: Значение отступа.
     /// - Returns: Контейнер для добавления отступов к компоненту.
     ///
     /// - SeeAlso: ``ComponentPadding``
     public nonisolated func padding(
-        _ edge: InsetsEdge,
-        _ value: SpacingToken
+        _ edge: Edge.Set,
+        _ length: CGFloat
     ) -> ComponentPadding<Self> {
-        padding(InsetsToken(edge, value))
+        padding(EdgeInsets(edge, length))
     }
 
     /// Помещает компонент в контейнер с заданными отступами.
     ///
-    /// - Parameter value: Значение отступа для всех краев компонента.
+    /// - Parameter length: Значение отступа для всех краев компонента.
     /// - Returns: Контейнер для добавления отступов к компоненту.
     ///
     /// - SeeAlso: ``ComponentPadding``
-    public nonisolated func padding(all value: SpacingToken?) -> ComponentPadding<Self> {
-        padding(value.map(InsetsToken.init(all:)))
+    public nonisolated func padding(_ length: CGFloat) -> ComponentPadding<Self> {
+        padding(EdgeInsets(all: length))
     }
 }
 #endif

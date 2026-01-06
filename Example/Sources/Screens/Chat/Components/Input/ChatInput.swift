@@ -21,5 +21,5 @@ extension ChatInput: FallbackComponent {
         text: .constant("Text"),
         sendAction: { print("Tapped") }
     )
-    .padding(all: 16.0)
+    .padding(16.0)
 }

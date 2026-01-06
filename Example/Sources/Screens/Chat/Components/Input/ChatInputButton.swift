@@ -18,7 +18,7 @@ extension ChatInputButton: View {
     var body: some View {
         Image(.send)
             .foregroundColor(Colors.accent)
-            .padding(all: 8.0)
+            .padding(8.0)
             .onTap(tapAction)
             .onPress { isPressed = $0 }
             .pressedEffect(isPressed)
