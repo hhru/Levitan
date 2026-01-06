@@ -1,7 +1,7 @@
 import Levitan
 import UIKit
 
-class ChatInputView: UIView {
+class ChatInputView: TokenShapeView {
 
     private let textView = UITextView()
     private let sendButton = ChatInputButton.UIView()
@@ -12,8 +12,8 @@ class ChatInputView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        tokens.backgroundColor = Colors.background.default
-        tokens.corners = .rounded(radius: 16.0)
+        tokens.shape = .rounded(radius: 24.0)
+        tokens.shapeColor = Colors.background.default
         tokens.stroke = Strokes.outside.color(Colors.stroke)
 
         setupTextView()
