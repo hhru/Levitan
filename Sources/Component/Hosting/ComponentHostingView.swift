@@ -22,6 +22,12 @@ public final class ComponentHostingView<Content: View>: UIView {
 
     private var componentViewControllerProvider: (() -> UIViewController?)?
 
+    public override var intrinsicContentSize: CGSize {
+        hostingController?
+            .viewIfLoaded?
+            .intrinsicContentSize ?? super.intrinsicContentSize
+    }
+
     public override init(frame: CGRect = .zero) {
         super.init(frame: frame)
 
@@ -75,6 +81,8 @@ extension ComponentHostingView {
         if let parentViewController {
             hostingController.didMove(toParent: parentViewController)
         }
+
+        invalidateIntrinsicContentSize()
     }
 
     private func setupHostingControllerIfNeeded(
@@ -156,10 +164,11 @@ extension ComponentHostingView {
         _ hostingController: HostingController,
         with hostingRoot: HostingRoot
     ) {
+        invalidateIntrinsicContentSize()
+
         hostingController.rootView = hostingRoot
 
         hostingController.view.invalidateIntrinsicContentSize()
-
         hostingController.view.setNeedsLayout()
         hostingController.view.layoutIfNeeded()
     }
@@ -186,6 +195,8 @@ extension ComponentHostingView: ComponentView {
                 self?.hostingController
             }
             .componentLayoutInvalidation { [weak self] in
+                self?.invalidateIntrinsicContentSize()
+
                 self?
                     .hostingController?
                     .view
