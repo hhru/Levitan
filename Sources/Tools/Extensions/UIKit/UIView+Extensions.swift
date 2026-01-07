@@ -3,11 +3,17 @@ import UIKit
 
 extension UIView {
 
-    internal func sizeWithFixedWidthAndFixedHeight(fixedWidth: CGFloat, fixedHeight: CGFloat) -> CGSize {
+    internal func sizeWithFixedWidthAndFixedHeight(
+        fixedWidth: CGFloat,
+        fixedHeight: CGFloat
+    ) -> CGSize {
         CGSize(width: fixedWidth, height: fixedHeight)
     }
 
-    internal func sizeWithFixedWidthAndHuggingHeight(fixedWidth: CGFloat, proposedHeight: CGFloat?) -> CGSize {
+    internal func sizeWithFixedWidthAndHuggingHeight(
+        fixedWidth: CGFloat,
+        containerHeight: CGFloat?
+    ) -> CGSize {
         let targetSize = CGSize(
             width: fixedWidth,
             height: UIView.layoutFittingCompressedSize.height
@@ -19,81 +25,39 @@ extension UIView {
             verticalFittingPriority: .fittingSizeLevel
         )
 
-        let height = proposedHeight?.nonZero.map { proposedHeight in
-            min(size.height, proposedHeight)
+        let height = containerHeight?.nonZero.map { containerHeight in
+            min(size.height, containerHeight)
         } ?? size.height
 
         return CGSize(width: fixedWidth, height: height)
     }
 
-    internal func sizeWithFixedWidthAndFillingHeight(fixedWidth: CGFloat, proposedHeight: CGFloat?) -> CGSize {
-        switch proposedHeight?.nonZero {
-        case nil:
-            let targetSize = CGSize(
-                width: fixedWidth,
-                height: UIView.layoutFittingCompressedSize.height
-            )
-
-            return systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .almostRequired,
-                verticalFittingPriority: .fittingSizeLevel
-            )
-
-        case let height?:
+    internal func sizeWithFixedWidthAndFillingHeight(
+        fixedWidth: CGFloat,
+        containerHeight: CGFloat?
+    ) -> CGSize {
+        if let height = containerHeight?.nonZero {
             return CGSize(width: fixedWidth, height: height)
         }
-    }
 
-    internal func sizeWithHuggingWidthAndHuggingHeight(proposedWidth: CGFloat?, proposedHeight: CGFloat?) -> CGSize {
+        let targetSize = CGSize(
+            width: fixedWidth,
+            height: UIView.layoutFittingCompressedSize.height
+        )
+
         let size = systemLayoutSizeFitting(
-            UIView.layoutFittingCompressedSize,
-            withHorizontalFittingPriority: .fittingSizeLevel,
+            targetSize,
+            withHorizontalFittingPriority: .almostRequired,
             verticalFittingPriority: .fittingSizeLevel
         )
 
-        if let proposedWidth = proposedWidth?.nonZero, proposedWidth < size.width {
-            let targetSize = CGSize(
-                width: proposedWidth,
-                height: UIView.layoutFittingCompressedSize.height
-            )
-
-            let size = systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .almostRequired,
-                verticalFittingPriority: .fittingSizeLevel
-            )
-
-            let height = proposedHeight?.nonZero.map { proposedHeight in
-                min(size.height, proposedHeight)
-            } ?? size.height
-
-            return CGSize(width: proposedWidth, height: height)
-        }
-
-        if let proposedHeight = proposedHeight?.nonZero, proposedHeight < size.height {
-            let targetSize = CGSize(
-                width: UIView.layoutFittingCompressedSize.width,
-                height: proposedHeight
-            )
-
-            let size = systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .fittingSizeLevel,
-                verticalFittingPriority: .almostRequired
-            )
-
-            let width = proposedWidth?.nonZero.map { proposedWidth in
-                min(size.width, proposedWidth)
-            } ?? size.width
-
-            return CGSize(width: width, height: proposedHeight)
-        }
-
-        return size
+        return CGSize(width: fixedWidth, height: size.height)
     }
 
-    internal func sizeWithHuggingWidthAndFixedHeight(proposedWidth: CGFloat?, fixedHeight: CGFloat) -> CGSize {
+    internal func sizeWithHuggingWidthAndFixedHeight(
+        containerWidth: CGFloat?,
+        fixedHeight: CGFloat
+    ) -> CGSize {
         let targetSize = CGSize(
             width: UIView.layoutFittingCompressedSize.width,
             height: fixedHeight
@@ -105,18 +69,52 @@ extension UIView {
             verticalFittingPriority: .almostRequired
         )
 
-        let width = proposedWidth?.nonZero.map { proposedWidth in
-            min(size.width, proposedWidth)
+        let width = containerWidth?.nonZero.map { containerWidth in
+            min(size.width, containerWidth)
         } ?? size.width
 
         return CGSize(width: width, height: fixedHeight)
     }
 
-    internal func sizeWithHuggingWidthAndFillingHeight(proposedWidth: CGFloat?, proposedHeight: CGFloat?) -> CGSize {
-        let targetHeight = proposedHeight?.nonZero.map { proposedHeight in
-            proposedHeight.isInfinite
+    internal func sizeWithHuggingWidthAndHuggingHeight(
+        containerWidth: CGFloat?,
+        containerHeight: CGFloat?
+    ) -> CGSize {
+        let size = systemLayoutSizeFitting(
+            UIView.layoutFittingCompressedSize,
+            withHorizontalFittingPriority: .fittingSizeLevel,
+            verticalFittingPriority: .fittingSizeLevel
+        )
+
+        let containerWidth = containerWidth?.nonZero
+
+        if let containerWidth, containerWidth < size.width {
+            return sizeWithFixedWidthAndHuggingHeight(
+                fixedWidth: containerWidth,
+                containerHeight: containerHeight
+            )
+        }
+
+        let containerHeight = containerHeight?.nonZero
+
+        if let containerHeight = containerHeight?.nonZero, containerHeight < size.height {
+            return sizeWithHuggingWidthAndFixedHeight(
+                containerWidth: containerWidth,
+                fixedHeight: containerHeight
+            )
+        }
+
+        return size
+    }
+
+    internal func sizeWithHuggingWidthAndFillingHeight(
+        containerWidth: CGFloat?,
+        containerHeight: CGFloat?
+    ) -> CGSize {
+        let targetHeight = containerHeight?.nonZero.map { containerHeight in
+            containerHeight.isInfinite
                 ? UIView.layoutFittingExpandedSize.height
-                : proposedHeight
+                : containerHeight
         } ?? UIView.layoutFittingCompressedSize.height
 
         let targetSize = CGSize(
@@ -127,98 +125,55 @@ extension UIView {
         let size = systemLayoutSizeFitting(
             targetSize,
             withHorizontalFittingPriority: .fittingSizeLevel,
-            verticalFittingPriority: proposedHeight?.isNormal == true
+            verticalFittingPriority: containerHeight?.isNormal == true
                 ? .almostRequired
                 : .fittingSizeLevel
         )
 
-        if let proposedWidth = proposedWidth?.nonZero, proposedWidth < size.width {
-            if let proposedHeight = proposedHeight?.nonZero {
-                return CGSize(width: proposedWidth, height: proposedHeight)
-            }
+        let containerWidth = containerWidth?.nonZero
 
-            let targetSize = CGSize(width: proposedWidth, height: targetHeight)
-
-            let size = systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .almostRequired,
-                verticalFittingPriority: .fittingSizeLevel
+        if let containerWidth, containerWidth < size.width {
+            return sizeWithFixedWidthAndFillingHeight(
+                fixedWidth: containerWidth,
+                containerHeight: containerHeight
             )
-
-            return CGSize(width: proposedWidth, height: size.height)
         }
 
-        let height = proposedHeight?.nonZero ?? size.height
+        let height = containerHeight?.nonZero ?? size.height
 
         return CGSize(width: size.width, height: height)
     }
 
-    internal func sizeWithFillingWidthAndFillingHeight(proposedWidth: CGFloat?, proposedHeight: CGFloat?) -> CGSize {
-        switch (proposedWidth?.nonZero, proposedHeight?.nonZero) {
-        case (nil, nil):
-            return systemLayoutSizeFitting(
-                UIView.layoutFittingCompressedSize,
-                withHorizontalFittingPriority: .fittingSizeLevel,
-                verticalFittingPriority: .fittingSizeLevel
-            )
-
-        case let (width?, nil):
-            let targetSize = CGSize(
-                width: width,
-                height: UIView.layoutFittingCompressedSize.height
-            )
-
-            let size = systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .almostRequired,
-                verticalFittingPriority: .fittingSizeLevel
-            )
-
-            return CGSize(width: width, height: size.height)
-
-        case let (nil, height?):
-            let targetSize = CGSize(
-                width: UIView.layoutFittingCompressedSize.width,
-                height: height
-            )
-
-            let size = systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .fittingSizeLevel,
-                verticalFittingPriority: .almostRequired
-            )
-
-            return CGSize(width: size.width, height: height)
-
-        case let (width?, height?):
-            return CGSize(width: width, height: height)
-        }
-    }
-
-    internal func sizeWithFillingWidthAndFixedHeight(proposedWidth: CGFloat?, fixedHeight: CGFloat) -> CGSize {
-        switch proposedWidth?.nonZero {
-        case nil:
-            let targetSize = CGSize(
-                width: UIView.layoutFittingCompressedSize.width,
-                height: fixedHeight
-            )
-
-            return systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .fittingSizeLevel,
-                verticalFittingPriority: .almostRequired
-            )
-
-        case let width?:
+    internal func sizeWithFillingWidthAndFixedHeight(
+        containerWidth: CGFloat?,
+        fixedHeight: CGFloat
+    ) -> CGSize {
+        if let width = containerWidth?.nonZero {
             return CGSize(width: width, height: fixedHeight)
         }
+
+        let targetSize = CGSize(
+            width: UIView.layoutFittingCompressedSize.width,
+            height: fixedHeight
+        )
+
+        let size = systemLayoutSizeFitting(
+            targetSize,
+            withHorizontalFittingPriority: .fittingSizeLevel,
+            verticalFittingPriority: .almostRequired
+        )
+
+        return CGSize(width: size.width, height: fixedHeight)
     }
 
-    internal func sizeWithFillingWidthAndHuggingHeight(proposedWidth: CGFloat?, proposedHeight: CGFloat?) -> CGSize {
-        let targetWidth = proposedWidth?.nonZero.map { proposedWidth in
-            proposedWidth.isInfinite
+    internal func sizeWithFillingWidthAndHuggingHeight(
+        containerWidth: CGFloat?,
+        containerHeight: CGFloat?
+    ) -> CGSize {
+        let targetWidth = containerWidth?.nonZero.map { containerWidth in
+            containerWidth.isInfinite
                 ? UIView.layoutFittingExpandedSize.width
-                : proposedWidth
+                : containerWidth
         } ?? UIView.layoutFittingCompressedSize.width
 
         let targetSize = CGSize(
@@ -228,31 +183,49 @@ extension UIView {
 
         let size = systemLayoutSizeFitting(
             targetSize,
-            withHorizontalFittingPriority: proposedWidth?.isNormal == true
+            withHorizontalFittingPriority: containerWidth?.isNormal == true
                 ? .almostRequired
                 : .fittingSizeLevel,
             verticalFittingPriority: .fittingSizeLevel
         )
 
-        if let proposedHeight = proposedHeight?.nonZero, proposedHeight < size.height {
-            if let proposedWidth = proposedWidth?.nonZero {
-                return CGSize(width: proposedWidth, height: proposedHeight)
-            }
+        let containerHeight = containerHeight?.nonZero
 
-            let targetSize = CGSize(width: targetWidth, height: proposedHeight)
-
-            let size = systemLayoutSizeFitting(
-                targetSize,
-                withHorizontalFittingPriority: .fittingSizeLevel,
-                verticalFittingPriority: .almostRequired
+        if let containerHeight, containerHeight < size.height {
+            return sizeWithFillingWidthAndFixedHeight(
+                containerWidth: containerWidth,
+                fixedHeight: containerHeight
             )
-
-            return CGSize(width: size.width, height: proposedHeight)
         }
 
-        let width = proposedWidth?.nonZero ?? size.width
+        let width = containerWidth?.nonZero ?? size.width
 
         return CGSize(width: width, height: size.height)
+    }
+
+    internal func sizeWithFillingWidthAndFillingHeight(
+        containerWidth: CGFloat?,
+        containerHeight: CGFloat?
+    ) -> CGSize {
+        if let containerWidth = containerWidth?.nonZero {
+            return sizeWithFixedWidthAndFillingHeight(
+                fixedWidth: containerWidth,
+                containerHeight: containerHeight
+            )
+        }
+
+        if let containerHeight = containerHeight?.nonZero {
+            return sizeWithFillingWidthAndFixedHeight(
+                containerWidth: containerWidth,
+                fixedHeight: containerHeight
+            )
+        }
+
+        return systemLayoutSizeFitting(
+            UIView.layoutFittingCompressedSize,
+            withHorizontalFittingPriority: .fittingSizeLevel,
+            verticalFittingPriority: .fittingSizeLevel
+        )
     }
 }
 #endif
