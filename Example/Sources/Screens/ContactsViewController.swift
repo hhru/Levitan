@@ -8,13 +8,13 @@ final class ContactsViewController: UIViewController {
     private let usersStore = UsersStore.shared
     private var usersSubscription: AnyCancellable?
 
-    private let searchController = UISearchController(searchResultsController: nil)
+    private var context = ComponentContext.default
 
-    private let flowView = VerticalFlow.UIView()
-    private var flowContext = ComponentContext.default
+    private let searchController = UISearchController(searchResultsController: nil)
+    private let contentView = VerticalFlow.UIView()
 
     private var searchText = "" {
-        didSet { updateFlowView() }
+        didSet { updateContentView() }
     }
 
     override func viewDidLoad() {
@@ -22,18 +22,19 @@ final class ContactsViewController: UIViewController {
 
         view.tokens.backgroundColor = Colors.background.default
 
-        definesPresentationContext = true
+        context = context
+            .componentViewController(self)
+            .fallbackComponentSizeCache(FallbackComponentSizeCache())
+            .textCache(TextCache())
 
         setupNavigationBar()
         setupSearchController()
-
-        setupFlowView()
-        setupFlowContext()
+        setupContentView()
 
         usersSubscription = usersStore
             .usersPublisher
             .sink { [weak self] _ in
-                self?.updateFlowView()
+                self?.updateContentView()
             }
     }
 }
@@ -65,31 +66,27 @@ extension ContactsViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.tokens.tintColor = Colors.accent
+
+        definesPresentationContext = true
     }
 
-    private func setupFlowView() {
-        view.addSubview(flowView)
+    private func setupContentView() {
+        view.addSubview(contentView)
 
-        flowView.contentInsetAdjustmentBehavior = .always
-        flowView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.contentInsetAdjustmentBehavior = .always
+        contentView.translatesAutoresizingMaskIntoConstraints = false
 
         let constraints = [
-            flowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            flowView.topAnchor.constraint(equalTo: view.topAnchor),
-            flowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            flowView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentView.topAnchor.constraint(equalTo: view.topAnchor),
+            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ]
 
         NSLayoutConstraint.activate(constraints)
     }
 
-    private func setupFlowContext() {
-        flowContext = flowContext
-            .componentViewController(self)
-            .fallbackComponentSizeCache(FallbackComponentSizeCache())
-    }
-
-    private func updateFlowView() {
+    private func updateContentView() {
         let searchText = searchText
             .trimmingCharacters(in: .whitespacesAndNewlines)
             .lowercased()
@@ -107,7 +104,7 @@ extension ContactsViewController {
             }
         }
 
-        let flow = VerticalFlow {
+        let content = VerticalFlow {
             if searchText.isEmpty {
                 userSection(
                     title: "Favorites",
@@ -123,7 +120,10 @@ extension ContactsViewController {
             }
         }
 
-        flowView.update(with: flow, context: flowContext)
+        contentView.update(
+            with: content,
+            context: context
+        )
     }
 }
 

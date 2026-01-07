@@ -12,11 +12,10 @@ final class ChatViewController: UIViewController {
     private let usersStore = UsersStore.shared
     private var usersSubscription: AnyCancellable?
 
-    private let flowView = VerticalFlow.UIView()
-    private var flowContext = ComponentContext.default
+    private var context = ComponentContext.default
 
+    private let contentView = VerticalFlow.UIView()
     private let chatInputView = ChatInput.UIView()
-    private var chatInputContext = ComponentContext.default
 
     private var chatInputText = "" {
         didSet { updateChatInputView() }
@@ -40,11 +39,13 @@ final class ChatViewController: UIViewController {
 
         view.tokens.backgroundColor = Colors.background.default
 
+        context = context
+            .componentViewController(self)
+            .fallbackComponentSizeCache(FallbackComponentSizeCache())
+
         setupNavigationBar()
-        setupFlowView()
-        setupFlowContext()
+        setupContentView()
         setupChatInputView()
-        setupChatInputContext()
 
         updateChatInputView()
 
@@ -93,27 +94,21 @@ extension ChatViewController {
         )
     }
 
-    private func setupFlowView() {
-        view.addSubview(flowView)
+    private func setupContentView() {
+        view.addSubview(contentView)
 
-        flowView.keyboardDismissMode = .interactive
-        flowView.contentInsetAdjustmentBehavior = .always
-        flowView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.keyboardDismissMode = .interactive
+        contentView.contentInsetAdjustmentBehavior = .always
+        contentView.translatesAutoresizingMaskIntoConstraints = false
 
         let constraints = [
-            flowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            flowView.topAnchor.constraint(equalTo: view.topAnchor),
-            flowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            flowView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentView.topAnchor.constraint(equalTo: view.topAnchor),
+            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ]
 
         NSLayoutConstraint.activate(constraints)
-    }
-
-    private func setupFlowContext() {
-        flowContext = flowContext
-            .componentViewController(self)
-            .fallbackComponentSizeCache(FallbackComponentSizeCache())
     }
 
     private func setupChatInputView() {
@@ -128,12 +123,6 @@ extension ChatViewController {
         ]
 
         NSLayoutConstraint.activate(constraints)
-    }
-
-    private func setupChatInputContext() {
-        chatInputContext = chatInputContext
-            .componentViewController(self)
-            .fallbackComponentSizeCache(FallbackComponentSizeCache())
     }
 
     private func updateNavigationBar() {
@@ -156,18 +145,21 @@ extension ChatViewController {
             .compactMap { messageGroupes[$0] }
             .compactMap { chatMessageSection(messages: $0) }
 
-        let flow = VerticalFlow(sections: sections)
+        let content = VerticalFlow(sections: sections)
             .scrollAnchor(.bottomLeading)
             .pinnedViews(.header)
 
-        flowView.update(with: flow, context: flowContext)
+        contentView.update(
+            with: content,
+            context: context
+        )
     }
 
     private func updateFlowViewInsets() {
-        flowView.contentInsets.bottom = flowView
+        contentView.contentInsets.bottom = contentView
             .frame
             .intersection(chatInputView.frame)
-            .height - view.safeAreaInsets.bottom
+            .height - contentView.safeAreaInsets.bottom
     }
 
     private func updateChatInputView() {
@@ -189,7 +181,7 @@ extension ChatViewController {
 
         chatInputView.update(
             with: chatInput,
-            context: chatInputContext
+            context: context
         )
 
         UIView.animate(withDuration: 0.1) {

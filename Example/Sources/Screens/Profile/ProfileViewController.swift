@@ -7,22 +7,27 @@ final class ProfileViewController: UIViewController {
     private let profileStore = ProfileStore.shared
     private var profileSubscription: AnyCancellable?
 
-    private let flowView = VerticalFlow.UIView()
-    private var flowContext = ComponentContext.default
+    private var context = ComponentContext.default
+
+    private let contentView = VerticalFlow.UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.tokens.backgroundColor = Colors.background.default
 
+        context = context
+            .componentViewController(self)
+            .fallbackComponentSizeCache(FallbackComponentSizeCache())
+            .textCache(TextCache())
+
         setupNavigationBar()
-        setupFlowView()
-        setupFlowContext()
+        setupContentView()
 
         profileSubscription = profileStore
             .profilePublisher
             .sink { [weak self] _ in
-                self?.updateFlowView()
+                self?.updateContentView()
             }
     }
 }
@@ -38,39 +43,36 @@ extension ProfileViewController {
         )
     }
 
-    private func setupFlowView() {
-        view.addSubview(flowView)
+    private func setupContentView() {
+        view.addSubview(contentView)
 
-        flowView.contentInsetAdjustmentBehavior = .always
-        flowView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.contentInsetAdjustmentBehavior = .always
+        contentView.translatesAutoresizingMaskIntoConstraints = false
 
         let constraints = [
-            flowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            flowView.topAnchor.constraint(equalTo: view.topAnchor),
-            flowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            flowView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentView.topAnchor.constraint(equalTo: view.topAnchor),
+            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ]
 
         NSLayoutConstraint.activate(constraints)
     }
 
-    private func setupFlowContext() {
-        flowContext = flowContext
-            .componentViewController(self)
-            .fallbackComponentSizeCache(FallbackComponentSizeCache())
-    }
-
-    private func updateFlowView() {
+    private func updateContentView() {
         let profile = profileStore.profile
 
-        let flow = VerticalFlow {
+        let content = VerticalFlow {
             headerItem(profile: profile)
             contactsItem(profile: profile)
             skillsItem(profile: profile)
             aboutMeItem(profile: profile)
         }
 
-        flowView.update(with: flow, context: flowContext)
+        contentView.update(
+            with: content,
+            context: context
+        )
     }
 }
 
