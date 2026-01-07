@@ -125,6 +125,7 @@ extension ChatsViewController {
         let content = VerticalFlow {
             chatSection(chats: chats)
         }
+        .scrollAlwaysBounces()
 
         contentView.update(
             with: content,

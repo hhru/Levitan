@@ -58,7 +58,7 @@ final class ChatViewController: UIViewController {
         chatsSubscription = chatsStore
             .chatsPublisher
             .sink { [weak self] _ in
-                self?.updateFlowView()
+                self?.updateContentView()
             }
 
         subscribeToKeyboardNotifications()
@@ -77,7 +77,7 @@ extension ChatViewController: KeyboardHandler {
             options: [animationOptions, .beginFromCurrentState],
             animations: {
                 self.view.layoutIfNeeded()
-                self.updateFlowViewInsets()
+                self.updateContentInsets()
             }
         )
     }
@@ -131,7 +131,7 @@ extension ChatViewController {
             .name ?? "Unknown user"
     }
 
-    private func updateFlowView() {
+    private func updateContentView() {
         let messages = chatsStore.chat(userID: userID)?.messages ?? []
 
         let messageGroupes = Dictionary(
@@ -146,6 +146,7 @@ extension ChatViewController {
             .compactMap { chatMessageSection(messages: $0) }
 
         let content = VerticalFlow(sections: sections)
+            .scrollAlwaysBounces()
             .scrollAnchor(.bottomLeading)
             .pinnedViews(.header)
 
@@ -155,7 +156,7 @@ extension ChatViewController {
         )
     }
 
-    private func updateFlowViewInsets() {
+    private func updateContentInsets() {
         contentView.contentInsets.bottom = contentView
             .frame
             .intersection(chatInputView.frame)
@@ -186,7 +187,7 @@ extension ChatViewController {
 
         UIView.animate(withDuration: 0.1) {
             self.view.layoutIfNeeded()
-            self.updateFlowViewInsets()
+            self.updateContentInsets()
         }
     }
 }

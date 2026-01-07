@@ -68,6 +68,7 @@ extension ProfileViewController {
             skillsItem(profile: profile)
             aboutMeItem(profile: profile)
         }
+        .scrollAlwaysBounces()
 
         contentView.update(
             with: content,

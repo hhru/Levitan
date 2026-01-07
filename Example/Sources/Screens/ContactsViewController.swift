@@ -119,6 +119,7 @@ extension ContactsViewController {
                 userSection(users: users)
             }
         }
+        .scrollAlwaysBounces()
 
         contentView.update(
             with: content,
