@@ -41,14 +41,27 @@ public final class FlowContainerFooterView<Content: Component>: AnyFlowSupplemen
 
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
-        let constraints = [
-            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ]
+        contentView
+            .topAnchor
+            .constraint(equalTo: contentView.topAnchor)
+            .activate()
 
-        NSLayoutConstraint.activate(constraints)
+        contentView
+            .leadingAnchor
+            .constraint(equalTo: contentView.leadingAnchor)
+            .activate()
+
+        contentView
+            .trailingAnchor
+            .constraint(equalTo: contentView.trailingAnchor)
+            .priority(.almostRequired)
+            .activate()
+
+        contentView
+            .bottomAnchor
+            .constraint(equalTo: contentView.bottomAnchor)
+            .priority(.almostRequired)
+            .activate()
     }
 
     @discardableResult

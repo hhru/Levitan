@@ -44,16 +44,28 @@ public final class FlowContainerCell<Content: Component>: AnyFlowCell {
         contentView.addSubview(itemContentView)
 
         itemContentView.translatesAutoresizingMaskIntoConstraints = false
-        itemContentView.frame = contentView.bounds
 
-        let constraints = [
-            itemContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            itemContentView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            itemContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            itemContentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ]
+        itemContentView
+            .topAnchor
+            .constraint(equalTo: contentView.topAnchor)
+            .activate()
 
-        NSLayoutConstraint.activate(constraints)
+        itemContentView
+            .leadingAnchor
+            .constraint(equalTo: contentView.leadingAnchor)
+            .activate()
+
+        itemContentView
+            .trailingAnchor
+            .constraint(equalTo: contentView.trailingAnchor)
+            .priority(.almostRequired)
+            .activate()
+
+        itemContentView
+            .bottomAnchor
+            .constraint(equalTo: contentView.bottomAnchor)
+            .priority(.almostRequired)
+            .activate()
     }
 
     @discardableResult
