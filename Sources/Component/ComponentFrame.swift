@@ -46,41 +46,33 @@ extension ComponentFrame: View {
         case let (.fixed(width), .fixed(height)):
             content.frame(width: width, height: height, alignment: alignment)
 
-        case let (.fixed(width), .hug(isHeightForced)):
-            content
-                .fixedSize(horizontal: false, vertical: isHeightForced)
-                .frame(width: width, alignment: alignment)
+        case let (.fixed(width), .hug):
+            content.frame(width: width, alignment: alignment)
 
         case let (.fixed(width), .fill):
             content
                 .frame(maxHeight: .infinity, alignment: alignment)
                 .frame(width: width, alignment: alignment)
 
-        case let (.hug(isWidthForced), .hug(isHeightForced)):
-            content.fixedSize(horizontal: isWidthForced, vertical: isHeightForced)
+        case let (.hug, .fixed(height)):
+            content.frame(height: height, alignment: alignment)
 
-        case let (.hug(isWidthForced), .fixed(height)):
+        case (.hug, .hug):
             content
-                .fixedSize(horizontal: isWidthForced, vertical: false)
-                .frame(height: height, alignment: alignment)
 
-        case let (.hug(isWidthForced), .fill):
-            content
-                .fixedSize(horizontal: isWidthForced, vertical: false)
-                .frame(maxHeight: .infinity, alignment: alignment)
-
-        case (.fill, .fill):
-            content.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
+        case (.hug, .fill):
+            content.frame(maxHeight: .infinity, alignment: alignment)
 
         case let (.fill, .fixed(height)):
             content
                 .frame(maxWidth: .infinity, alignment: alignment)
                 .frame(height: height, alignment: alignment)
 
-        case let (.fill, .hug(isHeightForced)):
-            content
-                .fixedSize(horizontal: false, vertical: isHeightForced)
-                .frame(maxWidth: .infinity, alignment: alignment)
+        case (.fill, .hug):
+            content.frame(maxWidth: .infinity, alignment: alignment)
+
+        case (.fill, .fill):
+            content.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
         }
     }
 }

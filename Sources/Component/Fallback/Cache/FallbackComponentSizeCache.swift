@@ -16,11 +16,11 @@ public final class FallbackComponentSizeCache {
 
     internal func restoreSize<Content: Equatable>(
         for content: Content,
-        fitting fittingSize: CGSize
+        fitting containerSize: CGSize
     ) -> FallbackComponentBodySize? {
         let key = FallbackComponentSizeCacheKey(
             content: content,
-            fittingSize: fittingSize
+            containerSize: containerSize
         )
 
         return sizes[key]
@@ -29,11 +29,11 @@ public final class FallbackComponentSizeCache {
     internal func storeSize<Content: Equatable>(
         _ size: FallbackComponentBodySize,
         for content: Content,
-        fitting fittingSize: CGSize
+        fitting containerSize: CGSize
     ) {
         let key = FallbackComponentSizeCacheKey(
             content: content,
-            fittingSize: fittingSize
+            containerSize: containerSize
         )
 
         sizes[key] = size
