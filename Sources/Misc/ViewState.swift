@@ -47,14 +47,14 @@ public struct ViewState<Value> {
 
     /// Создает состояние с начальным значением.
     ///
-    /// - Parameter value: Начальное значение.
+    /// - Parameter wrappedValue: Начальное значение.
     public init(wrappedValue: Value) {
         state = State(wrappedValue: wrappedValue)
     }
 
     /// Создает состояние с начальным значением.
     ///
-    /// - Parameter value: Начальное значение
+    /// - Parameter initialValue: Начальное значение
     public init(initialValue: Value) {
         state = State(initialValue: initialValue)
     }
