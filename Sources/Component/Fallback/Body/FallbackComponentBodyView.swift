@@ -102,8 +102,8 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         fixedHeight: CGFloat
     ) -> FallbackComponentBodySize {
         let size = contentView.sizeWithFixedWidthAndFixedHeight(
-            fixedWidth: fixedWidth,
-            fixedHeight: fixedHeight
+            width: fixedWidth,
+            height: fixedHeight
         )
 
         return FallbackComponentBodySize(size: size)
@@ -114,8 +114,9 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         proposedHeight: CGFloat?
     ) -> FallbackComponentBodySize {
         let size = contentView.sizeWithFixedWidthAndHuggingHeight(
-            fixedWidth: fixedWidth,
-            containerHeight: proposedHeight
+            width: fixedWidth,
+            containerHeight: proposedHeight,
+            isHeightLimited: true
         )
 
         return FallbackComponentBodySize(size: size)
@@ -126,7 +127,7 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         proposedHeight: CGFloat?
     ) -> FallbackComponentBodySize {
         let extrinsicSize = contentView.sizeWithFixedWidthAndFillingHeight(
-            fixedWidth: fixedWidth,
+            width: fixedWidth,
             containerHeight: proposedHeight
         )
 
@@ -147,7 +148,8 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     ) -> FallbackComponentBodySize {
         let size = contentView.sizeWithHuggingWidthAndFixedHeight(
             containerWidth: proposedWidth,
-            fixedHeight: fixedHeight
+            isWidthLimited: true,
+            height: fixedHeight
         )
 
         return FallbackComponentBodySize(size: size)
@@ -159,7 +161,9 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     ) -> FallbackComponentBodySize {
         let size = contentView.sizeWithHuggingWidthAndHuggingHeight(
             containerWidth: proposedWidth,
-            containerHeight: proposedHeight
+            isWidthLimited: true,
+            containerHeight: proposedHeight,
+            isHeightLimited: true
         )
 
         return FallbackComponentBodySize(size: size)
@@ -171,6 +175,7 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     ) -> FallbackComponentBodySize {
         let extrinsicSize = contentView.sizeWithHuggingWidthAndFillingHeight(
             containerWidth: proposedWidth,
+            isWidthLimited: true,
             containerHeight: proposedHeight
         )
 
@@ -191,7 +196,7 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     ) -> FallbackComponentBodySize {
         let extrinsicSize = contentView.sizeWithFillingWidthAndFixedHeight(
             containerWidth: proposedWidth,
-            fixedHeight: fixedHeight
+            height: fixedHeight
         )
 
         let intrinsicSize = CGSize(
@@ -211,7 +216,8 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     ) -> FallbackComponentBodySize {
         let extrinsicSize = contentView.sizeWithFillingWidthAndHuggingHeight(
             containerWidth: proposedWidth,
-            containerHeight: proposedHeight
+            containerHeight: proposedHeight,
+            isHeightLimited: true
         )
 
         let intrinsicSize = CGSize(
