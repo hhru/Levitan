@@ -103,10 +103,14 @@ public protocol Component: View, Equatable {
     /// Используется при встраивании любого компонента в Lazy-контейнер (например, коллекцию)
     /// или при встраивании UIKit-компонента в SwiftUI-представление.
     ///
-    /// - Note: Может быть вызван многократно в рамках прохода лэйаута.
-    ///
     /// Предлагаемые размеры в параметре `size` могут иметь нулевое и бесконечное значение,
     /// которые используются для определения минимального и максимального размера соответственно.
+    ///
+    /// По умолчанию возвращает стратегию `hug` по высоте и по ширине, это значит,
+    /// что при встраивании компонента он будет стремиться сохранить собственные размеры,
+    /// даже если настроен на растягивание.
+    ///
+    /// - Note: Может быть вызван многократно в рамках прохода лэйаута.
     ///
     /// - Parameters:
     ///   - size: Предлагаемый размер компонента.
@@ -115,11 +119,23 @@ public protocol Component: View, Equatable {
     ///
     /// - SeeAlso: ``ComponentSizing``
     /// - SeeAlso: ``ComponentContext``
-    @MainActor
     func sizing(
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing
+}
+
+extension Component {
+
+    public func sizing(
+        fitting size: CGSize,
+        context: ComponentContext
+    ) -> ComponentSizing {
+        ComponentSizing(
+            width: .hug,
+            height: .hug
+        )
+    }
 }
 
 extension Component {

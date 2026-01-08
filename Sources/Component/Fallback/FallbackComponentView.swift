@@ -19,6 +19,10 @@ public protocol FallbackComponentView: ComponentView {
     /// Предлагаемые размеры в параметре `size` могут иметь нулевое и бесконечное значение,
     /// которые используются для определения минимального и максимального размера соответственно.
     ///
+    /// По умолчанию возвращает стратегию `hug` по высоте и по ширине, это значит,
+    /// что при встраивании компонента он будет стремиться сохранить собственные размеры,
+    /// даже если настроен на растягивание.
+    ///
     /// - Note: Может быть вызван многократно в рамках прохода лэйаута.
     ///
     /// - Parameters:
@@ -34,5 +38,19 @@ public protocol FallbackComponentView: ComponentView {
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing
+}
+
+extension FallbackComponentView {
+
+    public static func sizing(
+        for content: Content,
+        fitting size: CGSize,
+        context: ComponentContext
+    ) -> ComponentSizing {
+        ComponentSizing(
+            width: .hug,
+            height: .hug
+        )
+    }
 }
 #endif
