@@ -43,23 +43,23 @@ public final class FlowContainerHeaderView<Content: Component>: AnyFlowSupplemen
 
         contentView
             .topAnchor
-            .constraint(equalTo: contentView.topAnchor)
+            .constraint(equalTo: topAnchor)
             .activate()
 
         contentView
             .leadingAnchor
-            .constraint(equalTo: contentView.leadingAnchor)
+            .constraint(equalTo: leadingAnchor)
             .activate()
 
         contentView
             .trailingAnchor
-            .constraint(equalTo: contentView.trailingAnchor)
+            .constraint(equalTo: trailingAnchor)
             .priority(.almostRequired)
             .activate()
 
         contentView
             .bottomAnchor
-            .constraint(equalTo: contentView.bottomAnchor)
+            .constraint(equalTo: bottomAnchor)
             .priority(.almostRequired)
             .activate()
     }
