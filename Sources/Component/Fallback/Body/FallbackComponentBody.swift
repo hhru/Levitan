@@ -19,7 +19,7 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
     public func makeUIView(context: Context) -> UIView {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.environment.componentIdentifier?.value ?? "nil"],
+            ["id:", context.environment.componentIdentifier ?? "nil"],
             subsystem: "Component",
             category: "FallbackComponentBody"
         )
@@ -30,7 +30,7 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
     public func updateUIView(_ view: UIView, context: Context) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.environment.componentIdentifier?.value ?? "nil"],
+            ["id:", context.environment.componentIdentifier ?? "nil"],
             subsystem: "Component",
             category: "FallbackComponentBody"
         )
@@ -53,7 +53,7 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
     ) -> CGSize? {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.environment.componentIdentifier?.value ?? "nil"],
+            ["id:", context.environment.componentIdentifier ?? "nil"],
             ["proposalWidth:", proposal.width ?? "nil"],
             ["proposalHeight:", proposal.height ?? "nil"],
             subsystem: "Component",

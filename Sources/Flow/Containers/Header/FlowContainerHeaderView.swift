@@ -92,7 +92,7 @@ extension FlowContainerHeaderView: FlowHeaderView {
     ) -> ComponentSizing {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier?.value ?? "nil"],
+            ["id:", context.componentIdentifier ?? "nil"],
             ["size:", size],
             subsystem: "Flow",
             category: "FlowContainerHeaderView"
@@ -110,7 +110,7 @@ extension FlowContainerHeaderView: FlowHeaderView {
     ) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier?.value ?? "nil"],
+            ["id:", context.componentIdentifier ?? "nil"],
             subsystem: "Flow",
             category: "FlowContainerHeaderView"
         )

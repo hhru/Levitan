@@ -104,7 +104,7 @@ extension FlowContainerCell: FlowCell {
     ) -> ComponentSizing {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier?.value ?? "nil"],
+            ["id:", context.componentIdentifier ?? "nil"],
             ["size:", size],
             subsystem: "Flow",
             category: "FlowContainerCell"
@@ -122,7 +122,7 @@ extension FlowContainerCell: FlowCell {
     ) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier?.value ?? "nil"],
+            ["id:", context.componentIdentifier ?? "nil"],
             subsystem: "Flow",
             category: "FlowContainerCell"
         )

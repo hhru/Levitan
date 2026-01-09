@@ -322,7 +322,7 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     ) -> FallbackComponentBodySize {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier?.value ?? "nil"],
+            ["id:", context.componentIdentifier ?? "nil"],
             ["containerSize:", containerSize],
             ["proposalWidth:", proposedWidth ?? "nil"],
             ["proposalHeight:", proposedHeight ?? "nil"],
@@ -371,7 +371,7 @@ extension FallbackComponentBodyView {
     internal func layout(proposedWidth: CGFloat?, proposedHeight: CGFloat?) -> CGSize? {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context?.componentIdentifier?.value ?? "nil"],
+            ["id:", context?.componentIdentifier ?? "nil"],
             ["proposalWidth:", proposedWidth ?? "nil"],
             ["proposalHeight:", proposedHeight ?? "nil"],
             subsystem: "Component",
@@ -403,7 +403,7 @@ extension FallbackComponentBodyView {
     internal func update(with content: Content, context: ComponentContext) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier?.value ?? "nil"],
+            ["id:", context.componentIdentifier ?? "nil"],
             subsystem: "Component",
             category: "FallbackComponentBodyView"
         )

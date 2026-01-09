@@ -46,12 +46,23 @@ public struct ComponentIdentifier: Hashable, @unchecked Sendable {
         self.init(value as AnyHashable)
     }
 
-    /// Модифицирует идентификатор компонента, заменяя его уточнения.
+    /// Модифицирует идентификатор компонента, добавляя к нему уточнение.
     ///
-    /// - Parameter traits: Новые уточнения идентификатора.
+    /// - Parameter traits: Уточнения идентификатора.
     /// - Returns: Новый идентификатор компонента.
     public func traits(_ traits: some Hashable & Sendable) -> Self {
-        Self(value, traits: traits)
+        Self(self, traits: traits)
+    }
+}
+
+extension ComponentIdentifier: CustomStringConvertible {
+
+    public var description: String {
+        if let traits {
+            return "\(value) (\(traits))"
+        }
+
+        return "\(value)"
     }
 }
 #endif
