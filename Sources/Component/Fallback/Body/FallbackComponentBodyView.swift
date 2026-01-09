@@ -116,7 +116,7 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         let size = contentView.sizeWithFixedWidthAndHuggingHeight(
             width: fixedWidth,
             containerHeight: proposedHeight,
-            isHeightLimited: true
+            maxHeight: proposedHeight
         )
 
         return FallbackComponentBodySize(size: size)
@@ -148,7 +148,7 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     ) -> FallbackComponentBodySize {
         let size = contentView.sizeWithHuggingWidthAndFixedHeight(
             containerWidth: proposedWidth,
-            isWidthLimited: true,
+            maxWidth: proposedWidth,
             height: fixedHeight
         )
 
@@ -161,9 +161,9 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     ) -> FallbackComponentBodySize {
         let size = contentView.sizeWithHuggingWidthAndHuggingHeight(
             containerWidth: proposedWidth,
-            isWidthLimited: true,
+            maxWidth: proposedWidth,
             containerHeight: proposedHeight,
-            isHeightLimited: true
+            maxHeight: proposedHeight
         )
 
         return FallbackComponentBodySize(size: size)
@@ -175,7 +175,7 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     ) -> FallbackComponentBodySize {
         let extrinsicSize = contentView.sizeWithHuggingWidthAndFillingHeight(
             containerWidth: proposedWidth,
-            isWidthLimited: true,
+            maxWidth: proposedWidth,
             containerHeight: proposedHeight
         )
 
@@ -217,7 +217,7 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         let extrinsicSize = contentView.sizeWithFillingWidthAndHuggingHeight(
             containerWidth: proposedWidth,
             containerHeight: proposedHeight,
-            isHeightLimited: true
+            maxHeight: proposedHeight
         )
 
         let intrinsicSize = CGSize(
