@@ -312,33 +312,6 @@ extension TextView: FallbackComponentView {
         return ComponentSizing(size: textSize)
     }
 
-    public nonisolated static func size(
-        for content: Text,
-        fitting size: CGSize,
-        context: ComponentContext
-    ) -> CGSize {
-        let maxWidth = size.width.isZero
-            ? 2.0
-            : size.width
-
-        let maxHeight = maxWidth.isNormal
-            ? .infinity
-            : size.height.nonZero ?? .infinity
-
-        let maxSize = CGSize(width: maxWidth, height: maxHeight)
-
-        let attributedText = attributedText(
-            for: content,
-            context: context
-        )
-
-        return attributedText.size(
-            fitting: maxSize,
-            lineLimit: content.lineLimit,
-            lineBreakMode: content.lineBreakMode
-        )
-    }
-
     public func update(with content: Text, context: ComponentContext) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
@@ -425,6 +398,28 @@ extension TextView {
             .shared
             .textLayout(for: content, context: context)
             .attributedText
+    }
+
+    public nonisolated static func size(
+        for content: Text,
+        fitting size: CGSize,
+        context: ComponentContext
+    ) -> CGSize {
+        let maxSize = CGSize(
+            width: size.width.nonZero ?? 2.0,
+            height: size.height.nonZero ?? 2.0
+        )
+
+        let attributedText = attributedText(
+            for: content,
+            context: context
+        )
+
+        return attributedText.size(
+            fitting: maxSize,
+            lineLimit: content.lineLimit,
+            lineBreakMode: content.lineBreakMode
+        )
     }
 }
 #endif
