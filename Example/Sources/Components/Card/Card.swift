@@ -26,7 +26,7 @@ extension Card: View {
     }
 }
 
-extension Card: Component where Content: Component {
+extension Card: Component where Content: Equatable {
 
     func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
         ComponentSizing(width: .fill, height: .hug)

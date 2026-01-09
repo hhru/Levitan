@@ -1,7 +1,7 @@
 import Levitan
 import SwiftUI
 
-struct Tag: Equatable, Sendable {
+struct Tag: Component, Sendable {
 
     let label: String
 }
@@ -16,13 +16,6 @@ extension Tag: View {
             .padding(.horizontal, 8.0)
             .background(Colors.tag.background)
             .clipShape(.rounded(radius: 8.0))
-    }
-}
-
-extension Tag: Component {
-
-    func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
-        ComponentSizing(width: .hug, height: .hug)
     }
 }
 

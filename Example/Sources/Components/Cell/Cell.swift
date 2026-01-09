@@ -16,7 +16,7 @@ struct Cell: Equatable, Sendable {
     private var isPressed = false
 }
 
-extension Cell: Component {
+extension Cell: View {
 
     var body: some View {
         HStack(spacing: .zero) {
@@ -54,6 +54,9 @@ extension Cell: Component {
         .onTap(tapAction)
         .onPress { isPressed = $0 && tapAction != nil }
     }
+}
+
+extension Cell: Component {
 
     func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
         ComponentSizing(width: .fill, height: .hug)
