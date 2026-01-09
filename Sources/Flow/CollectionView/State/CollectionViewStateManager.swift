@@ -225,7 +225,7 @@ extension CollectionViewStateManager {
             ?? collectionView.contentBoundsSize
 
         return context
-            .componentIdentifier(item.identifier)
+            .componentIdentifier(item.wrapped.identifier)
             .componentContainerSize(containerSize)
             .componentLayoutInvalidation { [weak self] in
                 self?.invalidateItemsLayout(at: [indexPath])
