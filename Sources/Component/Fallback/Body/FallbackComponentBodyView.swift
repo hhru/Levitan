@@ -382,11 +382,9 @@ extension FallbackComponentBodyView {
             return contentSize?.extrinsic
         }
 
-        let contextContainerSize = context.componentContainerSize ?? UIScreen.main.bounds.size
-
         let containerSize = CGSize(
-            width: proposedWidth ?? contextContainerSize.width,
-            height: proposedHeight ?? contextContainerSize.height
+            width: proposedWidth ?? .infinity,
+            height: proposedHeight ?? .infinity
         )
 
         let size = size(
