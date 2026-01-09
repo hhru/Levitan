@@ -663,7 +663,7 @@ extension CollectionViewLayout {
 
     private func invalidate() {
         Logger.debug(
-            ["\(Self.self).\(#function) -- invalidatePreferringAttributes"],
+            ["\(Self.self).\(#function)"],
             subsystem: "Flow",
             category: "CollectionViewLayout"
         )

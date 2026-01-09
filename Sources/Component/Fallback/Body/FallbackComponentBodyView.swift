@@ -320,16 +320,6 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         proposedWidth: CGFloat?,
         proposedHeight: CGFloat?
     ) -> FallbackComponentBodySize {
-        Logger.debug(
-            ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier ?? "nil"],
-            ["containerSize:", containerSize],
-            ["proposalWidth:", proposedWidth ?? "nil"],
-            ["proposalHeight:", proposedHeight ?? "nil"],
-            subsystem: "Component",
-            category: "FallbackComponentBodyView"
-        )
-
         let cacheSize = context
             .fallbackComponentSizeCache?
             .restoreSize(for: content, fitting: containerSize)
@@ -353,13 +343,6 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
             size,
             for: content,
             fitting: containerSize
-        )
-
-        Logger.debug(
-            ["\(Self.self).\(#function) -- END"],
-            ["size:", size.extrinsic],
-            subsystem: "Component",
-            category: "FallbackComponentBodyView"
         )
 
         return size
@@ -396,6 +379,13 @@ extension FallbackComponentBodyView {
         )
 
         contentSize = size
+
+        Logger.debug(
+            ["\(Self.self).\(#function) -- END"],
+            ["size:", size.extrinsic],
+            subsystem: "Component",
+            category: "FallbackComponentBodyView"
+        )
 
         return size.extrinsic
     }
