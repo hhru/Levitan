@@ -66,30 +66,34 @@ extension UIView {
         containerHeight: CGFloat?,
         isHeightLimited: Bool
     ) -> CGSize {
-        var size = sizeWithFixedWidthAndFillingHeight(
-            width: width,
-            isWidthForced: isWidthForced,
-            containerHeight: containerHeight
-        )
+        let targetHeight = containerHeight?.nonZero.map { containerHeight in
+            containerHeight.isInfinite
+                ? UIView.layoutFittingExpandedSize.height
+                : containerHeight
+        } ?? UIView.layoutFittingCompressedSize.height
 
-        guard let containerHeight = containerHeight?.nonZero else {
-            return size
-        }
+        let targetSize = CGSize(width: width, height: targetHeight)
 
-        guard isHeightLimited, size.height > containerHeight else {
-            return size
-        }
-
-        // Если собственный размер превышает размер контейнера,
-        // то уточняем размер с близким к required приоритетом,
-        // чтобы получить минимальный размер.
-        let targetSize = CGSize(width: width, height: containerHeight)
-
-        size = systemLayoutSizeFitting(
+        var size = systemLayoutSizeFitting(
             targetSize,
             withHorizontalFittingPriority: .almostRequired,
-            verticalFittingPriority: .almostRequired
+            verticalFittingPriority: .fittingSizeLevel
         )
+
+        let containerHeight = containerHeight?.nonZero
+
+        if let containerHeight, isHeightLimited, size.height > containerHeight {
+            // Если собственный размер превышает размер контейнера,
+            // то уточняем размер с близким к required приоритетом,
+            // чтобы получить минимальный размер.
+            let targetSize = CGSize(width: width, height: containerHeight)
+
+            size = systemLayoutSizeFitting(
+                targetSize,
+                withHorizontalFittingPriority: .almostRequired,
+                verticalFittingPriority: .almostRequired
+            )
+        }
 
         return CGSize(
             width: isWidthForced ? width : size.width,
@@ -128,7 +132,9 @@ extension UIView {
         let size = systemLayoutSizeFitting(
             targetSize,
             withHorizontalFittingPriority: .almostRequired,
-            verticalFittingPriority: .fittingSizeLevel
+            verticalFittingPriority: containerHeight?.isNormal == true
+                ? .almostRequired
+                : .fittingSizeLevel
         )
 
         return CGSize(
@@ -165,30 +171,34 @@ extension UIView {
         height: CGFloat,
         isHeightForced: Bool = true
     ) -> CGSize {
-        var size = sizeWithFillingWidthAndFixedHeight(
-            containerWidth: containerWidth,
-            height: height,
-            isHeightForced: isHeightForced
-        )
+        let targetWidth = containerWidth?.nonZero.map { containerWidth in
+            containerWidth.isInfinite
+                ? UIView.layoutFittingExpandedSize.width
+                : containerWidth
+        } ?? UIView.layoutFittingCompressedSize.width
 
-        guard let containerWidth = containerWidth?.nonZero else {
-            return size
-        }
+        let targetSize = CGSize(width: targetWidth, height: height)
 
-        guard isWidthLimited, size.width > containerWidth else {
-            return size
-        }
-
-        // Если собственный размер превышает размер контейнера,
-        // то уточняем размер с близким к required приоритетом,
-        // чтобы получить минимальный размер.
-        let targetSize = CGSize(width: containerWidth, height: height)
-
-        size = systemLayoutSizeFitting(
+        var size = systemLayoutSizeFitting(
             targetSize,
-            withHorizontalFittingPriority: .almostRequired,
+            withHorizontalFittingPriority: .fittingSizeLevel,
             verticalFittingPriority: .almostRequired
         )
+
+        let containerWidth = containerWidth?.nonZero
+
+        if let containerWidth, isWidthLimited, size.width > containerWidth {
+            // Если собственный размер превышает размер контейнера,
+            // то уточняем размер с близким к required приоритетом,
+            // чтобы получить минимальный размер.
+            let targetSize = CGSize(width: containerWidth, height: height)
+
+            size = systemLayoutSizeFitting(
+                targetSize,
+                withHorizontalFittingPriority: .almostRequired,
+                verticalFittingPriority: .almostRequired
+            )
+        }
 
         return CGSize(
             width: size.width,
@@ -222,9 +232,24 @@ extension UIView {
         containerHeight: CGFloat?,
         isHeightLimited: Bool
     ) -> CGSize {
-        let size = sizeWithFillingWidthAndFillingHeight(
-            containerWidth: containerWidth,
-            containerHeight: containerHeight
+        let targetWidth = containerWidth?.nonZero.map { containerWidth in
+            containerWidth.isInfinite
+                ? UIView.layoutFittingExpandedSize.width
+                : containerWidth
+        } ?? UIView.layoutFittingCompressedSize.width
+
+        let targetHeight = containerHeight?.nonZero.map { containerHeight in
+            containerHeight.isInfinite
+                ? UIView.layoutFittingExpandedSize.height
+                : containerHeight
+        } ?? UIView.layoutFittingCompressedSize.height
+
+        let targetSize = CGSize(width: targetWidth, height: targetHeight)
+
+        let size = systemLayoutSizeFitting(
+            targetSize,
+            withHorizontalFittingPriority: .fittingSizeLevel,
+            verticalFittingPriority: .fittingSizeLevel
         )
 
         let containerWidth = containerWidth?.nonZero
@@ -283,9 +308,26 @@ extension UIView {
         isWidthLimited: Bool,
         containerHeight: CGFloat?
     ) -> CGSize {
-        let size = sizeWithFillingWidthAndFillingHeight(
-            containerWidth: containerWidth,
-            containerHeight: containerHeight
+        let targetWidth = containerWidth?.nonZero.map { containerWidth in
+            containerWidth.isInfinite
+                ? UIView.layoutFittingExpandedSize.width
+                : containerWidth
+        } ?? UIView.layoutFittingCompressedSize.width
+
+        let targetHeight = containerHeight?.nonZero.map { containerHeight in
+            containerHeight.isInfinite
+                ? UIView.layoutFittingExpandedSize.height
+                : containerHeight
+        } ?? UIView.layoutFittingCompressedSize.height
+
+        let targetSize = CGSize(width: targetWidth, height: targetHeight)
+
+        let size = systemLayoutSizeFitting(
+            targetSize,
+            withHorizontalFittingPriority: .fittingSizeLevel,
+            verticalFittingPriority: containerHeight?.isNormal == true
+                ? .almostRequired
+                : .fittingSizeLevel
         )
 
         let containerWidth = containerWidth?.nonZero
@@ -334,7 +376,9 @@ extension UIView {
 
         let size = systemLayoutSizeFitting(
             targetSize,
-            withHorizontalFittingPriority: .fittingSizeLevel,
+            withHorizontalFittingPriority: containerWidth?.isNormal == true
+                ? .almostRequired
+                : .fittingSizeLevel,
             verticalFittingPriority: .almostRequired
         )
 
@@ -369,9 +413,26 @@ extension UIView {
         containerHeight: CGFloat?,
         isHeightLimited: Bool
     ) -> CGSize {
-        let size = sizeWithFillingWidthAndFillingHeight(
-            containerWidth: containerWidth,
-            containerHeight: containerHeight
+        let targetWidth = containerWidth?.nonZero.map { containerWidth in
+            containerWidth.isInfinite
+                ? UIView.layoutFittingExpandedSize.width
+                : containerWidth
+        } ?? UIView.layoutFittingCompressedSize.width
+
+        let targetHeight = containerHeight?.nonZero.map { containerHeight in
+            containerHeight.isInfinite
+                ? UIView.layoutFittingExpandedSize.height
+                : containerHeight
+        } ?? UIView.layoutFittingCompressedSize.height
+
+        let targetSize = CGSize(width: targetWidth, height: targetHeight)
+
+        let size = systemLayoutSizeFitting(
+            targetSize,
+            withHorizontalFittingPriority: containerWidth?.isNormal == true
+                ? .almostRequired
+                : .fittingSizeLevel,
+            verticalFittingPriority: .fittingSizeLevel
         )
 
         let containerHeight = containerHeight?.nonZero
@@ -421,8 +482,12 @@ extension UIView {
 
         return systemLayoutSizeFitting(
             targetSize,
-            withHorizontalFittingPriority: .fittingSizeLevel,
-            verticalFittingPriority: .fittingSizeLevel
+            withHorizontalFittingPriority: containerWidth?.isNormal == true
+                ? .almostRequired
+                : .fittingSizeLevel,
+            verticalFittingPriority: containerHeight?.isNormal == true
+                ? .almostRequired
+                : .fittingSizeLevel,
         )
     }
 }
