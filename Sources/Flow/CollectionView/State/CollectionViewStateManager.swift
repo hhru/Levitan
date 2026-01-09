@@ -264,7 +264,7 @@ extension CollectionViewStateManager {
             return nil
         }
 
-        let identifier = section.identifier.traits("Header")
+        let identifier = section.identifier.traits("Footer")
 
         let containerSize = containerSize
             ?? collectionViewLayout?.footerContainerSize(at: indexPath)
