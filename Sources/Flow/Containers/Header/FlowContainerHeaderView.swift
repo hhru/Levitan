@@ -90,7 +90,15 @@ extension FlowContainerHeaderView: FlowHeaderView {
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
-        header.content.sizing(
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentIdentifier?.value ?? "nil"],
+            ["size:", size],
+            subsystem: "Flow",
+            category: "FlowContainerHeaderView"
+        )
+
+        return header.content.sizing(
             fitting: size,
             context: context
         )

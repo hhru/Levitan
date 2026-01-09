@@ -90,7 +90,15 @@ extension FlowContainerFooterView: FlowFooterView {
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
-        footer.content.sizing(
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentIdentifier?.value ?? "nil"],
+            ["size:", size],
+            subsystem: "Flow",
+            category: "FlowContainerFooterView"
+        )
+
+        return footer.content.sizing(
             fitting: size,
             context: context
         )

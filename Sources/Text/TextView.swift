@@ -288,16 +288,28 @@ extension TextView: FallbackComponentView {
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
-        let size = Self.size(
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentIdentifier?.value ?? "nil"],
+            ["size:", size],
+            subsystem: "Text",
+            category: "TextView"
+        )
+
+        let textSize = Self.size(
             for: content,
             fitting: size,
             context: context
         )
 
-        return ComponentSizing(
-            width: .fixed(size.width),
-            height: .fixed(size.height)
+        Logger.debug(
+            ["\(Self.self).\(#function) -- END"],
+            ["textSize:", textSize],
+            subsystem: "Text",
+            category: "TextView"
         )
+
+        return ComponentSizing(size: textSize)
     }
 
     public nonisolated static func size(
@@ -328,6 +340,13 @@ extension TextView: FallbackComponentView {
     }
 
     public func update(with content: Text, context: ComponentContext) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Text",
+            category: "TextView"
+        )
+
         let cache = context.textCache.value
 
         let context = TextLayoutProvider

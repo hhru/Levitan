@@ -102,7 +102,15 @@ extension FlowContainerCell: FlowCell {
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
-        item.content.sizing(
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentIdentifier?.value ?? "nil"],
+            ["size:", size],
+            subsystem: "Flow",
+            category: "FlowContainerCell"
+        )
+
+        return item.content.sizing(
             fitting: size,
             context: context
         )
