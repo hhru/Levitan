@@ -46,10 +46,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     internal override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes = stateManager.itemAttributes(at: indexPath)
 
-        print(
-            "CollectionViewLayout.\(#function)",
-            "IndexPath(row: \(indexPath.row), section: \(indexPath.section))",
-            attributes?.frame.height ?? "nil"
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["indexPath:", indexPath],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
         )
 
         return attributes
@@ -59,9 +60,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
         ofKind elementKind: String,
         at indexPath: IndexPath
     ) -> UICollectionViewLayoutAttributes? {
-        print(
-            "CollectionViewLayout.\(#function)",
-            "IndexPath(section: \(indexPath.section))"
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["indexPath:", indexPath],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
         )
 
         return switch elementKind {
@@ -79,9 +82,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     internal override func initialLayoutAttributesForAppearingItem(
         at indexPath: IndexPath
     ) -> UICollectionViewLayoutAttributes? {
-        print(
-            "CollectionViewLayout.\(#function)",
-            "IndexPath(row: \(indexPath.row), section: \(indexPath.section))"
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["indexPath:", indexPath],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
         )
 
         return stateManager.itemAttributesForAppearing(
@@ -93,9 +98,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     internal override func finalLayoutAttributesForDisappearingItem(
         at indexPath: IndexPath
     ) -> UICollectionViewLayoutAttributes? {
-        print(
-            "CollectionViewLayout.\(#function)",
-            "IndexPath(row: \(indexPath.row), section: \(indexPath.section))"
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["indexPath:", indexPath],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
         )
 
         return stateManager.itemAttributesForDisappearing(
@@ -108,9 +115,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
         ofKind elementKind: String,
         at indexPath: IndexPath
     ) -> UICollectionViewLayoutAttributes? {
-        print(
-            "CollectionViewLayout.\(#function)",
-            "IndexPath(section: \(indexPath.section))"
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["indexPath:", indexPath],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
         )
 
         guard !indexPath.isEmpty else {
@@ -142,9 +151,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
         ofKind elementKind: String,
         at indexPath: IndexPath
     ) -> UICollectionViewLayoutAttributes? {
-        print(
-            "CollectionViewLayout.\(#function)",
-            "IndexPath(section: \(indexPath.section))"
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["indexPath:", indexPath],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
         )
 
         guard !indexPath.isEmpty else {
@@ -170,10 +181,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     }
 
     internal override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        print(
-            "CollectionViewLayout.\(#function)",
-            "y:", rect.minY,
-            "height:", rect.height
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["rect:", rect],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
         )
 
         let attributes = stateManager.attributes(in: rect)
@@ -236,11 +248,16 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     internal override func prepare() {
         super.prepare()
 
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["previousState:", stateManager.previousState == nil ? "nil" : "some"],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
+        )
+
         guard let collectionView, stateManager.previousState == nil else {
             return
         }
-
-        print("CollectionViewLayout.\(#function)")
 
         updateManager.collectionView = collectionView
         scrollManager.collectionView = collectionView
@@ -283,7 +300,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     internal override func prepare(forCollectionViewUpdates updateItems: [UICollectionViewUpdateItem]) {
         super.prepare(forCollectionViewUpdates: updateItems)
 
-        print("CollectionViewLayout.\(#function)")
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
+        )
 
         guard let collectionView else {
             return
@@ -307,7 +328,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     }
 
     internal override func finalizeCollectionViewUpdates() {
-        print("CollectionViewLayout.\(#function)")
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
+        )
 
         stateManager.finalizeStateAfterUpdates()
         updateManager.reset()
@@ -340,22 +365,36 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     internal override func prepare(forAnimatedBoundsChange oldBounds: CGRect) {
         super.prepare(forAnimatedBoundsChange: oldBounds)
 
-        print(
-            "CollectionViewLayout.\(#function)",
-            "oldBounds:", oldBounds,
-            "newBounds:", collectionView?.bounds ?? .zero
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["oldBounds:", oldBounds],
+            ["newBounds:", collectionView?.bounds ?? .zero],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
         )
     }
 
     internal override func finalizeAnimatedBoundsChange() {
         super.finalizeAnimatedBoundsChange()
 
-        print("CollectionViewLayout.\(#function)")
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
+        )
     }
 
     // MARK: - Invalidation
 
     internal override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["oldBounds:", collectionView?.bounds ?? .zero],
+            ["newBounds:", newBounds],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
+        )
+
         guard let collectionView else {
             return super.shouldInvalidateLayout(forBoundsChange: newBounds)
         }
@@ -373,10 +412,12 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     internal override func invalidationContext(
         forBoundsChange newBounds: CGRect
     ) -> UICollectionViewLayoutInvalidationContext {
-        print(
-            "CollectionViewLayout.\(#function)",
-            "oldBounds:", collectionView?.bounds ?? .zero,
-            "newBounds:", newBounds
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["oldBounds:", collectionView?.bounds ?? .zero],
+            ["newBounds:", newBounds],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
         )
 
         let context = super.invalidationContext(forBoundsChange: newBounds)
@@ -401,10 +442,10 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
         forPreferredLayoutAttributes preferredAttributes: UICollectionViewLayoutAttributes,
         withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes
     ) -> Bool {
-        print(
-            "CollectionViewLayout.\(#function)",
-            "preferred:", Unmanaged.passUnretained(preferredAttributes).toOpaque(),
-            "original:", Unmanaged.passUnretained(originalAttributes).toOpaque()
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
         )
 
         guard !preferredAttributes.indexPath.isEmpty else {
@@ -428,7 +469,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
         forPreferredLayoutAttributes preferredAttributes: UICollectionViewLayoutAttributes,
         withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes
     ) -> UICollectionViewLayoutInvalidationContext {
-        print("CollectionViewLayout.\(#function)")
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
+        )
 
         let context = super.invalidationContext(
             forPreferredLayoutAttributes: preferredAttributes,
@@ -479,10 +524,18 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     internal override func invalidateLayout(with context: UICollectionViewLayoutInvalidationContext) {
         defer { super.invalidateLayout(with: context) }
 
-        print("CollectionViewLayout.\(#function)")
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
+        )
 
         if context.invalidateEverything {
-            print("CollectionViewLayout.\(#function) -- invalidateEverything")
+            Logger.debug(
+                ["\(Self.self).\(#function) -- invalidateEverything"],
+                subsystem: "Flow",
+                category: "CollectionViewLayout"
+            )
 
             return invalidate()
         }
@@ -492,7 +545,6 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
         }
 
         context.invalidatedItemIndexPaths?.forEach { indexPath in
-            print("CollectionViewLayout.\(#function) -- invalidatedItemIndexPaths")
             stateManager.invalidateItem(at: indexPath)
         }
 
@@ -507,7 +559,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
         }
 
         if context.invalidateDataSourceCounts {
-            print("CollectionViewLayout.\(#function) -- invalidateDataSourceCounts")
+            Logger.debug(
+                ["\(Self.self).\(#function) -- invalidateDataSourceCounts"],
+                subsystem: "Flow",
+                category: "CollectionViewLayout"
+            )
 
             scrollManager.preservePosition(
                 state: stateManager.currentState,
@@ -519,7 +575,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     }
 
     internal override func invalidateLayout() {
-        print("CollectionViewLayout.\(#function)")
+        Logger.debug(
+            ["\(Self.self).\(#function) -- invalidateDataSourceCounts"],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
+        )
 
         super.invalidateLayout()
     }
@@ -527,7 +587,11 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     // MARK: - Scroll
 
     internal override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
-        print("CollectionViewLayout.\(#function)")
+        Logger.debug(
+            ["\(Self.self).\(#function) -- invalidateDataSourceCounts"],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
+        )
 
         return scrollManager.restorePosition(
             state: stateManager.currentState,
@@ -541,7 +605,11 @@ extension CollectionViewLayout {
 
     private func invalidate(with context: CollectionViewLayoutInvalidationContext) {
         if context.invalidateContainerSize {
-            print("CollectionViewLayout.\(#function) -- invalidateContainerSize")
+            Logger.debug(
+                ["\(Self.self).\(#function) -- invalidateContainerSize"],
+                subsystem: "Flow",
+                category: "CollectionViewLayout"
+            )
 
             return stateManager.invalidateState()
         }
@@ -563,7 +631,11 @@ extension CollectionViewLayout {
             + context.footersPreferredAttributes.count
 
         if let collectionView, preferredAttributesCount > .zero {
-            print("CollectionViewLayout.\(#function) -- invalidatePreferringAttributes", preferredAttributesCount)
+            Logger.debug(
+                ["\(Self.self).\(#function) -- invalidatePreferringAttributes"],
+                subsystem: "Flow",
+                category: "CollectionViewLayout"
+            )
 
             let previousContentSize = stateManager.contentSize
 
@@ -590,7 +662,11 @@ extension CollectionViewLayout {
     }
 
     private func invalidate() {
-        print("CollectionViewLayout.\(#function)")
+        Logger.debug(
+            ["\(Self.self).\(#function) -- invalidatePreferringAttributes"],
+            subsystem: "Flow",
+            category: "CollectionViewLayout"
+        )
 
         updateManager.reset()
 
