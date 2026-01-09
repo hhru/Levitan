@@ -100,7 +100,12 @@ extension FlowContainerFooterView: FlowFooterView {
         with footer: FlowContainerFooter<Content>,
         context: ComponentContext
     ) {
-        print("\(Self.self)<\(Unmanaged.passUnretained(self).toOpaque())>.\(#function)")
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Flow",
+            category: "FlowContainerFooterView"
+        )
 
         accessibilityIdentifier = footer.accessibilityIdentifier
 

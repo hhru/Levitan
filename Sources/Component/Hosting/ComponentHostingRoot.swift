@@ -20,13 +20,6 @@ internal struct ComponentHostingRoot<Content: View>: View {
 
         let componentIdentifier = environment.componentIdentifier
 
-        let _ = Logger.debug(
-            ["\(Self.self).\(#function)"],
-            ["id:", componentIdentifier?.value ?? "nil"],
-            subsystem: "Component",
-            category: "ComponentHostingRoot"
-        )
-
         content
             .iflet(componentIdentifier) { $0.id($1) }
             .iflet(theme) { $0.tokenThemeKey($1.key) }

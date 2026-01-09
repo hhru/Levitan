@@ -100,7 +100,12 @@ extension FlowContainerHeaderView: FlowHeaderView {
         with header: FlowContainerHeader<Content>,
         context: ComponentContext
     ) {
-        print("\(Self.self)<\(Unmanaged.passUnretained(self).toOpaque())>.\(#function)")
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Flow",
+            category: "FlowContainerHeaderView"
+        )
 
         accessibilityIdentifier = header.accessibilityIdentifier
 

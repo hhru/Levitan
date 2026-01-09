@@ -112,7 +112,12 @@ extension FlowContainerCell: FlowCell {
         with item:  FlowContainerItem<Content>,
         context: ComponentContext
     ) {
-        print("\(Self.self)<\(Unmanaged.passUnretained(self).toOpaque())>.\(#function)")
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Flow",
+            category: "FlowContainerCell"
+        )
 
         selectAction = item.selectAction
         deselectAction = item.deselectAction
