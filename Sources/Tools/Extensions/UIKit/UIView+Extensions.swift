@@ -45,10 +45,8 @@ extension UIView {
     ///
     /// Если высота контейнера в параметре `containerHeight` равна `nil` или `zero`,
     /// то будет получена минимальная высота UI-представления.
-    /// Параметр `isHeightLimited` в этом случае игнорируется.
     ///
-    /// Если параметр `isHeightLimited` равен `true`,
-    /// то итоговая высота будет ограничена высотой контейнера,
+    /// Итоговая высота будет ограничена максимальной высотой в параметре `maxHeight`,
     /// если она больше минимальной высоты UI-представления.
     ///
     /// Если UI-представление не имеет собственной высоты, то итоговая высота будет равна
@@ -58,13 +56,13 @@ extension UIView {
     ///   - width: Ширина.
     ///   - isWidthForced: Флаг, игнорирующий собственную ширину.
     ///   - containerHeight: Высота контейнера.
-    ///   - isHeightLimited: Флаг, ограничивающий итоговую высоту контейнером.
+    ///   - maxHeight: Максимальная высоты.
     /// - Returns: Соответствующие размеры.
     internal func sizeWithFixedWidthAndHuggingHeight(
         width: CGFloat,
         isWidthForced: Bool = true,
         containerHeight: CGFloat?,
-        isHeightLimited: Bool
+        maxHeight: CGFloat?
     ) -> CGSize {
         let targetHeight = containerHeight?.nonZero.map { containerHeight in
             containerHeight.isInfinite
@@ -80,13 +78,10 @@ extension UIView {
             verticalFittingPriority: .fittingSizeLevel
         )
 
-        let containerHeight = containerHeight?.nonZero
-
-        if let containerHeight, isHeightLimited, size.height > containerHeight {
-            // Если собственный размер превышает размер контейнера,
-            // то уточняем размер с близким к required приоритетом,
-            // чтобы получить минимальный размер.
-            let targetSize = CGSize(width: width, height: containerHeight)
+        if let maxHeight = maxHeight?.nonZero, maxHeight < size.height {
+            // Если собственный размер превышает максимальный размер,
+            // то уточняем размер с близким к required приоритетом.
+            let targetSize = CGSize(width: width, height: maxHeight)
 
             size = systemLayoutSizeFitting(
                 targetSize,
@@ -147,10 +142,8 @@ extension UIView {
     ///
     /// Если ширина контейнера в параметре `containerWidth` равна `nil` или `zero`,
     /// то будет получена минимальная ширина UI-представления.
-    /// Параметр `isWidthLimited` в этом случае игнорируется.
     ///
-    /// Если параметр `isWidthLimited` равен `true`,
-    /// то итоговая ширина будет ограничена шириной контейнера,
+    /// Итоговая ширина будет ограничена максимальной шириной в параметре `maxWidth`,
     /// если она больше минимальной ширины UI-представления.
     ///
     /// Если UI-представление не имеет собственной ширины, то итоговая ширина будет равна
@@ -161,13 +154,13 @@ extension UIView {
     ///
     /// - Parameters:
     ///   - containerWidth: Ширина контейнера.
-    ///   - isWidthLimited: Флаг, ограничивающий итоговую ширину контейнером.
+    ///   - maxWidth: Максимальная ширина.
     ///   - height: Высота.
     ///   - isHeightForced: Флаг, игнорирующий собственную высоту.
     /// - Returns: Соответствующие размеры.
     internal func sizeWithHuggingWidthAndFixedHeight(
         containerWidth: CGFloat?,
-        isWidthLimited: Bool,
+        maxWidth: CGFloat?,
         height: CGFloat,
         isHeightForced: Bool = true
     ) -> CGSize {
@@ -185,13 +178,10 @@ extension UIView {
             verticalFittingPriority: .almostRequired
         )
 
-        let containerWidth = containerWidth?.nonZero
-
-        if let containerWidth, isWidthLimited, size.width > containerWidth {
-            // Если собственный размер превышает размер контейнера,
-            // то уточняем размер с близким к required приоритетом,
-            // чтобы получить минимальный размер.
-            let targetSize = CGSize(width: containerWidth, height: height)
+        if let maxWidth = maxWidth?.nonZero, maxWidth < size.width {
+            // Если собственный размер превышает максимальный размер,
+            // то уточняем размер с близким к required приоритетом.
+            let targetSize = CGSize(width: maxWidth, height: height)
 
             size = systemLayoutSizeFitting(
                 targetSize,
@@ -210,11 +200,10 @@ extension UIView {
     ///
     /// Если размер контейнера в параметре `containerWidth` и/или `containerHeight`
     /// равен `nil` или `zero` , то будет получен минимальный размер для измерения этого параметра.
-    /// Параметры `isWidthLimited` и/или `isHeightLimited` в этом случае игнорируются.
     ///
-    /// Если параметр `isWidthLimited` или `isHeightLimited` равен `true`,
-    /// то итоговый размер будет ограничен размером контейнера для измерения этого параметра,
-    /// если он больше минимального размера UI-представления.
+    /// Итоговые размеры будут ограничены максимальными размерами,
+    /// которые указаны в параметрах `maxWidth` и `maxHeight`,
+    /// если они больше минимального размера UI-представления.
     ///
     /// Если UI-представление не имеет собственного размера в определенном измерении,
     /// то итоговый размер будет равен либо размеру контейнера, либо минимальному размеру
@@ -222,15 +211,15 @@ extension UIView {
     ///
     /// - Parameters:
     ///   - containerWidth: Ширина контейнера.
-    ///   - isWidthLimited: Флаг, ограничивающий итоговую ширину контейнером.
+    ///   - maxWidth: Максимальная ширина.
     ///   - containerHeight: Высота контейнера.
-    ///   - isHeightLimited: Флаг, ограничивающий итоговую высоту контейнером.
+    ///   - maxHeight: Максимальная высота.
     /// - Returns: Соответствующие размеры.
     internal func sizeWithHuggingWidthAndHuggingHeight(
         containerWidth: CGFloat?,
-        isWidthLimited: Bool,
+        maxWidth: CGFloat?,
         containerHeight: CGFloat?,
-        isHeightLimited: Bool
+        maxHeight: CGFloat?
     ) -> CGSize {
         let targetWidth = containerWidth?.nonZero.map { containerWidth in
             containerWidth.isInfinite
@@ -252,30 +241,24 @@ extension UIView {
             verticalFittingPriority: .fittingSizeLevel
         )
 
-        let containerWidth = containerWidth?.nonZero
-
-        if let containerWidth, isWidthLimited, size.width > containerWidth {
-            // Если собственный размер превышает размер контейнера,
-            // то уточняем размер с близким к required приоритетом,
-            // чтобы получить минимальный размер.
+        if let maxWidth = maxWidth?.nonZero, size.width > maxWidth {
+            // Если собственный размер превышает максимальный размер,
+            // то уточняем размер с близким к required приоритетом.
             return sizeWithFixedWidthAndHuggingHeight(
-                width: containerWidth,
+                width: maxWidth,
                 isWidthForced: false,
                 containerHeight: containerHeight,
-                isHeightLimited: isHeightLimited
+                maxHeight: maxHeight
             )
         }
 
-        let containerHeight = containerHeight?.nonZero
-
-        if let containerHeight, isHeightLimited, size.height > containerHeight {
-            // Если собственный размер превышает размер контейнера,
-            // то уточняем размер с близким к required приоритетом,
-            // чтобы получить минимальный размер.
+        if let maxHeight = maxHeight?.nonZero, size.height > maxHeight {
+            // Если собственный размер превышает максимальный размер,
+            // то уточняем размер с близким к required приоритетом.
             return sizeWithHuggingWidthAndFixedHeight(
                 containerWidth: containerWidth,
-                isWidthLimited: isWidthLimited,
-                height: containerHeight,
+                maxWidth: maxWidth,
+                height: maxHeight,
                 isHeightForced: false
             )
         }
@@ -287,10 +270,8 @@ extension UIView {
     ///
     /// Если ширина контейнера в параметре `containerWidth` равна `nil` или `zero`,
     /// то будет получена минимальная ширина UI-представления.
-    /// Параметр `isWidthLimited` в этом случае игнорируется.
     ///
-    /// Если параметр `isWidthLimited` равен `true`,
-    /// то итоговая ширина будет ограничена шириной контейнера,
+    /// Итоговая ширина будет ограничена максимальной шириной в параметре `maxWidth`,
     /// если она больше минимальной ширины UI-представления.
     ///
     /// Если высота контейнера в параметре `containerHeight` равна `nil` или `zero`,
@@ -305,7 +286,7 @@ extension UIView {
     /// - Returns: Соответствующие размеры.
     internal func sizeWithHuggingWidthAndFillingHeight(
         containerWidth: CGFloat?,
-        isWidthLimited: Bool,
+        maxWidth: CGFloat?,
         containerHeight: CGFloat?
     ) -> CGSize {
         let targetWidth = containerWidth?.nonZero.map { containerWidth in
@@ -330,14 +311,11 @@ extension UIView {
                 : .fittingSizeLevel
         )
 
-        let containerWidth = containerWidth?.nonZero
-
-        if let containerWidth, isWidthLimited, size.width > containerWidth {
-            // Если собственный размер превышает размер контейнера,
-            // то уточняем размер с близким к required приоритетом,
-            // чтобы получить минимальный размер.
+        if let maxWidth = maxWidth?.nonZero, size.width > maxWidth {
+            // Если собственный размер превышает максимальный размер,
+            // то уточняем размер с близким к required приоритетом.
             return sizeWithFixedWidthAndFillingHeight(
-                width: containerWidth,
+                width: maxWidth,
                 isWidthForced: false,
                 containerHeight: containerHeight
             )
@@ -397,21 +375,19 @@ extension UIView {
     ///
     /// Если высота контейнера в параметре `containerHeight` равна `nil` или `zero`,
     /// то будет получена минимальная высота UI-представления.
-    /// Параметр `isHeightLimited` в этом случае игнорируется.
     ///
-    /// Если параметр `isHeightLimited` равен `true`,
-    /// то итоговая высота будет ограничена высотой контейнера,
+    /// Итоговая высота будет ограничена максимальной высотой в параметре `maxHeight`,
     /// если она больше минимальной высоты UI-представления.
     ///
     /// - Parameters:
     ///   - containerWidth: Ширина контейнера.
     ///   - containerHeight: Высота контейнера.
-    ///   - isHeightLimited: Флаг, ограничивающий итоговую высоту контейнером.
+    ///   - maxHeight: Максимальная высота.
     /// - Returns: Соответствующие размеры.
     internal func sizeWithFillingWidthAndHuggingHeight(
         containerWidth: CGFloat?,
         containerHeight: CGFloat?,
-        isHeightLimited: Bool
+        maxHeight: CGFloat?
     ) -> CGSize {
         let targetWidth = containerWidth?.nonZero.map { containerWidth in
             containerWidth.isInfinite
@@ -435,15 +411,12 @@ extension UIView {
             verticalFittingPriority: .fittingSizeLevel
         )
 
-        let containerHeight = containerHeight?.nonZero
-
-        if let containerHeight, isHeightLimited, size.height > containerHeight {
-            // Если собственный размер превышает размер контейнера,
-            // то уточняем размер с близким к required приоритетом,
-            // чтобы получить минимальный размер.
+        if let maxHeight = maxHeight?.nonZero, size.height > maxHeight {
+            // Если собственный размер превышает максимальный размер,
+            // то уточняем размер с близким к required приоритетом.
             return sizeWithFillingWidthAndFixedHeight(
                 containerWidth: containerWidth,
-                height: containerHeight,
+                height: maxHeight,
                 isHeightForced: false
             )
         }

@@ -24,7 +24,11 @@ extension UICollectionView {
     }
 
     internal func containsIndexPath(_ indexPath: IndexPath) -> Bool {
-        (indexPath.section < numberOfSections) && (indexPath.item < numberOfItems(inSection: indexPath.section))
+        guard indexPath.section < numberOfSections else {
+            return false
+        }
+
+        return indexPath.item < numberOfItems(inSection: indexPath.section)
     }
 
     internal func reloadData(completion: (@MainActor () -> Void)?) {
