@@ -28,14 +28,8 @@ extension Card: View {
 
 extension Card: Component where Content: Component {
 
-    func sizing(
-        fitting size: CGSize,
-        context: ComponentContext
-    ) -> ComponentSizing {
-        ComponentSizing(
-            width: .fill,
-            height: .hug
-        )
+    func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
+        ComponentSizing(width: .fill, height: .hug)
     }
 }
 

@@ -28,14 +28,8 @@ extension ChatInputButton: View {
 
 extension ChatInputButton: Component {
 
-    func sizing(
-        fitting size: CGSize,
-        context: ComponentContext
-    ) -> ComponentSizing {
-        ComponentSizing(
-            width: .hug(forced: true),
-            height: .hug(forced: true)
-        )
+    func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
+        ComponentSizing(width: .hug, height: .hug)
     }
 }
 
