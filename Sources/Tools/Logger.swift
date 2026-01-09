@@ -3,6 +3,11 @@ import OSLog
 
 internal enum Logger {
 
+    private static let queue = DispatchQueue(
+        label: "\(Self.self)",
+        qos: .background
+    )
+
     internal static func debug(
         messages: @autoclosure () -> [[Any]],
         subsystem: @autoclosure () -> Any,
@@ -20,12 +25,14 @@ internal enum Logger {
         let subsystem = "\(subsystem())"
         let category = "\(category())"
 
-        let logger = os.Logger(
-            subsystem: subsystem,
-            category: category
-        )
+        queue.async {
+            let logger = os.Logger(
+                subsystem: subsystem,
+                category: category
+            )
 
-        logger.debug("\(messages)")
+            logger.debug("\(messages)")
+        }
         #endif
     }
 
