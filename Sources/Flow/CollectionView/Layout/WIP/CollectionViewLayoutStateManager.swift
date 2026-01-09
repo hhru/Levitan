@@ -51,8 +51,6 @@ internal final class CollectionViewLayoutStateManager<Layout: FlowLayout> {
                     reusing: itemCachedAttributes[itemIndexPath]
                 )
 
-                print("attibutes:", Unmanaged.passUnretained(itemAttributes).toOpaque())
-
                 itemCachedAttributes[itemIndexPath] = itemAttributes
 
                 attributes.append(itemAttributes)
@@ -220,12 +218,10 @@ extension CollectionViewLayoutStateManager {
 
         if let previousIndexPath = item.indexPath, previousIndexPath != currentIndexPath {
             // Ячейка перемещена: возвращаем обычные аттрибуты предыдущего стейта
-            let attributes = previousState?
+            return previousState?
                 .sections[previousIndexPath.section]
                 .items[previousIndexPath.item]
                 .attributes(at: previousIndexPath)
-
-            return attributes
         }
 
         // Ячейка добавлена или обновлена: возвращаем начальные аттрибуты текущего стейта
@@ -237,8 +233,6 @@ extension CollectionViewLayoutStateManager {
         // Прихраниваем атрибуты до завершения обновления,
         // чтобы через них обновлять UI-представление при инвалидации
         itemAnimatedAttributes[currentIndexPath] = attributes
-
-        print("attibutes:", Unmanaged.passUnretained(attributes).toOpaque())
 
         return attributes
     }
@@ -268,15 +262,9 @@ extension CollectionViewLayoutStateManager {
         }
 
         // Ячейка удалена или обновлена: возвращаем финальные аттрибуты предыдущего стейта
-        let attributes = previousState?
+        return previousState?
             .item(at: previousIndexPath)?
             .attributesForDisappearing(at: previousIndexPath, appearance: appearance)
-
-        if let attributes {
-            print("attibutes:", Unmanaged.passUnretained(attributes).toOpaque())
-        }
-
-        return attributes
     }
 
     internal func headerAttributes(at indexPath: IndexPath) -> CollectionViewLayoutAttributes? {
@@ -314,8 +302,6 @@ extension CollectionViewLayoutStateManager {
             appearance: appearance
         )
 
-        print("attibutes:", Unmanaged.passUnretained(attributes).toOpaque())
-
         // Прихраниваем атрибуты до завершения обновления,
         // чтобы через них обновлять UI-представление при инвалидации
         headerAnimatedAttributes[currentIndexPath] = attributes
@@ -350,19 +336,13 @@ extension CollectionViewLayoutStateManager {
         }
 
         // Секция удалена или обновлена: возвращаем финальные аттрибуты предыдущего стейта
-        let attributes = previousState?
+        return previousState?
             .header(at: previousIndex)?
             .attributesForDisappearing(
                 at: previousIndexPath,
                 boundsProvider: self,
                 appearance: appearance
             )
-
-        if let attributes {
-            print("attibutes:", Unmanaged.passUnretained(attributes).toOpaque())
-        }
-
-        return attributes
     }
 
     internal func footerAttributes(at indexPath: IndexPath) -> CollectionViewLayoutAttributes? {

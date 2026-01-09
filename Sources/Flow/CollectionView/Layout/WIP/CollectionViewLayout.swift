@@ -610,7 +610,7 @@ extension CollectionViewLayout: AnyCollectionViewLayout {
             .currentState?
             .item(at: indexPath)?
             .size?
-            .actualValue ?? containerSize
+            .containerSize ?? containerSize
     }
 
     internal func headerContainerSize(at indexPath: IndexPath) -> CGSize {
@@ -618,7 +618,7 @@ extension CollectionViewLayout: AnyCollectionViewLayout {
             .currentState?
             .header(at: indexPath.section)?
             .size?
-            .actualValue ?? containerSize
+            .containerSize ?? containerSize
     }
 
     internal func footerContainerSize(at indexPath: IndexPath) -> CGSize {
@@ -626,7 +626,7 @@ extension CollectionViewLayout: AnyCollectionViewLayout {
             .currentState?
             .footer(at: indexPath.section)?
             .size?
-            .actualValue ?? containerSize
+            .containerSize ?? containerSize
     }
 }
 
@@ -638,61 +638,106 @@ extension CollectionViewLayout: FlowLayoutContext {
 
     internal func itemSize(
         at indexPath: IndexPath,
-        proposedSize: CGSize,
+        containerSize: CGSize,
         estimatedSize: CGSize
     ) -> FlowLayoutSize {
-        let sizing = collectionView
-            .flatMap { $0.delegate as? CollectionViewLayoutDelegate }?
-            .collectionViewLayout(self, sizingForItemAt: indexPath, fitting: proposedSize)
+        let boundingSize = CGSize(
+            width: layout.scrollAxis.contains(.horizontal)
+                ? .infinity
+                : containerSize.width,
+            height: layout.scrollAxis.contains(.vertical)
+                ? .infinity
+                : containerSize.height,
+        )
+
+        let delegate = collectionView?.delegate as? CollectionViewLayoutDelegate
+
+        let sizing = delegate?.collectionViewLayout(
+            self,
+            sizingForItemAt: indexPath,
+            boundingSize: boundingSize,
+            containerSize: containerSize
+        )
 
         guard let sizing else {
             return .actual(.zero)
         }
 
         return FlowLayoutSize(
+            estimatedSize: estimatedSize,
             sizing: sizing,
-            proposedSize: proposedSize,
-            estimatedSize: estimatedSize
+            containerSize: containerSize,
+            boundingSize: boundingSize
         )
     }
 
     internal func headerSize(
         at index: Int,
-        proposedSize: CGSize,
+        containerSize: CGSize,
         estimatedSize: CGSize
     ) -> FlowLayoutSize {
-        let sizing = collectionView
-            .flatMap { $0.delegate as? CollectionViewLayoutDelegate }?
-            .collectionViewLayout(self, sizingForHeaderAt: index, fitting: proposedSize)
+        let boundingSize = CGSize(
+            width: layout.scrollAxis.contains(.horizontal)
+                ? .infinity
+                : containerSize.width,
+            height: layout.scrollAxis.contains(.vertical)
+                ? .infinity
+                : containerSize.height,
+        )
+
+        let delegate = collectionView?.delegate as? CollectionViewLayoutDelegate
+
+        let sizing = delegate?.collectionViewLayout(
+            self,
+            sizingForHeaderAt: index,
+            boundingSize: boundingSize,
+            containerSize: containerSize
+        )
 
         guard let sizing else {
             return .actual(.zero)
         }
 
         return FlowLayoutSize(
+            estimatedSize: estimatedSize,
             sizing: sizing,
-            proposedSize: proposedSize,
-            estimatedSize: estimatedSize
+            containerSize: containerSize,
+            boundingSize: boundingSize
         )
     }
 
     internal func footerSize(
         at index: Int,
-        proposedSize: CGSize,
+        containerSize: CGSize,
         estimatedSize: CGSize
     ) -> FlowLayoutSize {
-        let sizing = collectionView
-            .flatMap { $0.delegate as? CollectionViewLayoutDelegate }?
-            .collectionViewLayout(self, sizingForFooterAt: index, fitting: proposedSize)
+        let boundingSize = CGSize(
+            width: layout.scrollAxis.contains(.horizontal)
+                ? .infinity
+                : containerSize.width,
+            height: layout.scrollAxis.contains(.vertical)
+                ? .infinity
+                : containerSize.height,
+        )
+
+        let delegate = collectionView?.delegate as? CollectionViewLayoutDelegate
+
+        let sizing = delegate?.collectionViewLayout(
+            self,
+            sizingForFooterAt: index,
+            boundingSize: boundingSize,
+            containerSize: containerSize
+        )
 
         guard let sizing else {
             return .actual(.zero)
         }
 
         return FlowLayoutSize(
+            estimatedSize: estimatedSize,
             sizing: sizing,
-            proposedSize: proposedSize,
-            estimatedSize: estimatedSize
+            containerSize: containerSize,
+            boundingSize: boundingSize
         )
     }
 }

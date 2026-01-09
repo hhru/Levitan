@@ -4,16 +4,13 @@ import UIKit
 @MainActor
 internal final class CollectionViewUpdateManager<Layout: FlowLayout> {
 
-    internal typealias Section = FlowSection<Layout>
-    internal typealias Update = CollectionViewUpdate<Layout>
+    private var currentUpdate: CollectionViewUpdate<Layout>?
+    private var pendingUpdate: CollectionViewUpdate<Layout>?
 
-    private var currentUpdate: Update?
-    private var pendingUpdate: Update?
+    private let differenceCalculator = DifferenceCalculator()
 
     internal let collectionView: UICollectionView
     internal let stateManager: CollectionViewStateManager<Layout>
-
-    private let differenceCalculator = DifferenceCalculator()
 
     internal init(
         collectionView: UICollectionView,
@@ -25,11 +22,11 @@ internal final class CollectionViewUpdateManager<Layout: FlowLayout> {
 
     internal func update(
         strategy: FlowUpdateStrategy,
-        sections: [Section],
+        sections: [FlowSection<Layout>],
         context: ComponentContext,
         completion: (@MainActor (_ skipped: Bool) -> Void)?
     ) {
-        let update = Update(
+        let update = CollectionViewUpdate(
             strategy: strategy,
             sections: sections,
             context: context,
@@ -65,7 +62,7 @@ extension CollectionViewUpdateManager {
     }
 
     private func performUpdate(
-        update: Update,
+        update: CollectionViewUpdate<Layout>,
         completion: @escaping @MainActor () -> Void
     ) {
         switch update.strategy {
@@ -86,7 +83,7 @@ extension CollectionViewUpdateManager {
     }
 
     private func reloadSections(
-        with sections: [Section],
+        with sections: [FlowSection<Layout>],
         context: ComponentContext,
         completion: @escaping @MainActor () -> Void
     ) {
@@ -99,7 +96,7 @@ extension CollectionViewUpdateManager {
     }
 
     private func updateSections(
-        with sections: [Section],
+        with sections: [FlowSection<Layout>],
         context: ComponentContext,
         completion: @escaping @MainActor () -> Void
     ) {

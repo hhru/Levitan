@@ -35,7 +35,7 @@ extension VerticalFlowLayout {
 
         return context.headerSize(
             at: index,
-            proposedSize: containerSize,
+            containerSize: containerSize,
             estimatedSize: estimatedSize
         )
     }
@@ -54,7 +54,7 @@ extension VerticalFlowLayout {
 
         return context.footerSize(
             at: index,
-            proposedSize: containerSize,
+            containerSize: containerSize,
             estimatedSize: estimatedSize
         )
     }
@@ -68,15 +68,13 @@ extension VerticalFlowLayout {
         metrics: VerticalFlowMetrics
     ) -> FlowLayoutSize {
         let estimatedSize = CGSize(
-            width: metrics.estimatedWidth
-                ?? containerSize.width,
-            height: metrics.estimatedHeight
-                ?? 40.0
+            width: metrics.estimatedWidth ?? containerSize.width,
+            height: metrics.estimatedHeight ?? 40.0
         )
 
         return context.itemSize(
             at: indexPath,
-            proposedSize: containerSize,
+            containerSize: containerSize,
             estimatedSize: estimatedSize
         )
     }

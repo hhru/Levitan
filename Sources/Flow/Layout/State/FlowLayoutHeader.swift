@@ -49,18 +49,7 @@ extension FlowLayoutHeader {
         attributes.zIndex = zIndex ?? .zero
         attributes.alpha = alpha ?? 1.0
         attributes.transform = transform ?? .identity
-
-        switch size {
-        case .actual, nil:
-            attributes.sizing = nil
-
-        case let .estimated(_, sizing, proposedSize):
-            attributes.sizing = CollectionViewLayoutSizing(
-                width: sizing.width,
-                height: sizing.height,
-                proposedSize: proposedSize
-            )
-        }
+        attributes.sizing = size?.sizing
 
         return attributes
     }

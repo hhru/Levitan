@@ -73,46 +73,64 @@ internal class CollectionViewDelegateManager<Layout: FlowLayout>:
     internal func collectionViewLayout(
         _ collectionViewLayout: UICollectionViewLayout,
         sizingForItemAt indexPath: IndexPath,
-        fitting size: CGSize
+        boundingSize: CGSize,
+        containerSize: CGSize
     ) -> ComponentSizing? {
-        guard let context = stateManager.itemContext(at: indexPath) else {
+        let context = stateManager.itemContext(
+            at: indexPath,
+            containerSize: containerSize
+        )
+
+        guard let context else {
             return nil
         }
 
         return stateManager
             .state
             .item(at: indexPath)?
-            .sizing(fitting: size, context: context)
+            .sizing(fitting: boundingSize, context: context)
     }
 
     internal func collectionViewLayout(
         _ collectionViewLayout: UICollectionViewLayout,
         sizingForHeaderAt index: Int,
-        fitting size: CGSize
+        boundingSize: CGSize,
+        containerSize: CGSize
     ) -> ComponentSizing? {
-        guard let context = stateManager.headerContext(at: IndexPath(section: index)) else {
+        let context = stateManager.headerContext(
+            at: IndexPath(section: index),
+            containerSize: containerSize
+        )
+
+        guard let context else {
             return nil
         }
 
         return stateManager
             .state
             .header(at: index)?
-            .sizing(fitting: size, context: context)
+            .sizing(fitting: boundingSize, context: context)
     }
 
     internal func collectionViewLayout(
         _ collectionViewLayout: UICollectionViewLayout,
         sizingForFooterAt index: Int,
-        fitting size: CGSize
+        boundingSize: CGSize,
+        containerSize: CGSize
     ) -> ComponentSizing? {
-        guard let context = stateManager.footerContext(at: IndexPath(section: index)) else {
+        let context = stateManager.footerContext(
+            at: IndexPath(section: index),
+            containerSize: containerSize
+        )
+
+        guard let context else {
             return nil
         }
 
         return stateManager
             .state
             .footer(at: index)?
-            .sizing(fitting: size, context: context)
+            .sizing(fitting: boundingSize, context: context)
     }
 
     // MARK: - UICollectionViewDelegate

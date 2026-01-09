@@ -20,13 +20,24 @@ open class AnyFlowCell: UICollectionViewCell {
             return super.apply(layoutAttributes)
         }
 
-        print(
-            "\(Self.self)<\(Unmanaged.passUnretained(self).toOpaque())>.\(#function)",
-            "attibutes:", Unmanaged.passUnretained(layoutAttributes).toOpaque(),
-            "y:", layoutAttributes.frame.minY,
-            "height:", layoutAttributes.frame.height,
-            "estimated:", layoutAttributes.sizing != nil
-        )
+        if let sizing = layoutAttributes.sizing {
+            Logger.debug(
+                ["\(Self.self).\(#function)"],
+                ["estimatedSize:", layoutAttributes.frame.size],
+                ["containerSize:", sizing.containerSize],
+                ["width:", sizing.width],
+                ["height:", sizing.height],
+                subsystem: "Flow",
+                category: "AnyFlowCell"
+            )
+        } else {
+            Logger.debug(
+                ["\(Self.self).\(#function)"],
+                ["actualSize:", layoutAttributes.frame.size],
+                subsystem: "Flow",
+                category: "AnyFlowCell"
+            )
+        }
 
         super.apply(layoutAttributes)
     }
@@ -38,13 +49,24 @@ open class AnyFlowCell: UICollectionViewCell {
             return super.preferredLayoutAttributesFitting(layoutAttributes)
         }
 
-        print(
-            "\(Self.self)<\(Unmanaged.passUnretained(self).toOpaque())>.\(#function)",
-            "attibutes:", Unmanaged.passUnretained(layoutAttributes).toOpaque(),
-            "y:", layoutAttributes.frame.minY,
-            "height:", layoutAttributes.frame.height,
-            "estimated:", layoutAttributes.sizing != nil
-        )
+        if let sizing = layoutAttributes.sizing {
+            Logger.debug(
+                ["\(Self.self).\(#function)"],
+                ["estimatedSize:", layoutAttributes.frame.size],
+                ["containerSize:", sizing.containerSize],
+                ["width:", sizing.width],
+                ["height:", sizing.height],
+                subsystem: "Flow",
+                category: "AnyFlowCell"
+            )
+        } else {
+            Logger.debug(
+                ["\(Self.self).\(#function)"],
+                ["actualSize:", layoutAttributes.frame.size],
+                subsystem: "Flow",
+                category: "AnyFlowCell"
+            )
+        }
 
         guard let sizing = layoutAttributes.sizing else {
             return layoutAttributes
@@ -52,66 +74,80 @@ open class AnyFlowCell: UICollectionViewCell {
 
         layoutAttributes.size = size(for: sizing)
 
+        Logger.debug(
+            ["\(Self.self).\(#function) -- END"],
+            ["newActualSize:", layoutAttributes.size],
+            subsystem: "Flow",
+            category: "AnyFlowCell"
+        )
+
         return layoutAttributes
     }
 }
 
 extension AnyFlowCell {
 
+    // swiftlint:disable:next function_body_length
     private func size(for sizing: CollectionViewLayoutSizing) -> CGSize {
         switch (sizing.width, sizing.height) {
         case let (.fixed(fixedWidth), .fixed(fixedHeight)):
             contentView.sizeWithFixedWidthAndFixedHeight(
-                fixedWidth: fixedWidth,
-                fixedHeight: fixedHeight
+                width: fixedWidth,
+                height: fixedHeight
             )
 
-        case let (.fixed(fixedWidth), .hug(isHeightForced)):
+        case let (.fixed(fixedWidth), .hug):
             contentView.sizeWithFixedWidthAndHuggingHeight(
-                fixedWidth: fixedWidth,
-                proposedHeight: isHeightForced ? nil : sizing.proposedSize.height
+                width: fixedWidth,
+                containerHeight: sizing.containerSize.height,
+                maxHeight: sizing.boundingSize.height
             )
 
         case let (.fixed(fixedWidth), .fill):
             contentView.sizeWithFixedWidthAndFillingHeight(
-                fixedWidth: fixedWidth,
-                proposedHeight: sizing.proposedSize.height
+                width: fixedWidth,
+                containerHeight: sizing.containerSize.height
             )
 
-        case let (.hug(isWidthForced), .hug(isHeightForced)):
-            contentView.sizeWithHuggingWidthAndHuggingHeight(
-                proposedWidth: isWidthForced ? nil : sizing.proposedSize.width,
-                proposedHeight: isHeightForced ? nil : sizing.proposedSize.height
-            )
-
-        case let (.hug(isWidthForced), .fixed(fixedHeight)):
+        case let (.hug, .fixed(fixedHeight)):
             contentView.sizeWithHuggingWidthAndFixedHeight(
-                proposedWidth: isWidthForced ? nil : sizing.proposedSize.width,
-                fixedHeight: fixedHeight
+                containerWidth: sizing.containerSize.width,
+                maxWidth: sizing.boundingSize.width,
+                height: fixedHeight
             )
 
-        case let (.hug(isWidthForced), .fill):
+        case (.hug, .hug):
+            contentView.sizeWithHuggingWidthAndHuggingHeight(
+                containerWidth: sizing.containerSize.width,
+                maxWidth: sizing.boundingSize.width,
+                containerHeight: sizing.containerSize.height,
+                maxHeight: sizing.boundingSize.height
+            )
+
+        case (.hug, .fill):
             contentView.sizeWithHuggingWidthAndFillingHeight(
-                proposedWidth: isWidthForced ? nil : sizing.proposedSize.width,
-                proposedHeight: sizing.proposedSize.height
-            )
-
-        case (.fill, .fill):
-            contentView.sizeWithFillingWidthAndFillingHeight(
-                proposedWidth: sizing.proposedSize.width,
-                proposedHeight: sizing.proposedSize.height
+                containerWidth: sizing.containerSize.width,
+                maxWidth: sizing.boundingSize.width,
+                containerHeight: sizing.containerSize.height
             )
 
         case let (.fill, .fixed(fixedHeight)):
             contentView.sizeWithFillingWidthAndFixedHeight(
-                proposedWidth: sizing.proposedSize.width,
-                fixedHeight: fixedHeight
+                containerWidth: sizing.containerSize.width,
+                height: fixedHeight
             )
 
-        case let (.fill, .hug(isHeightForced)):
+        case (.fill, .hug):
             contentView.sizeWithFillingWidthAndHuggingHeight(
-                proposedWidth: sizing.proposedSize.width,
-                proposedHeight: isHeightForced ? nil : sizing.proposedSize.height
+                containerWidth: sizing.containerSize.width,
+                containerHeight: sizing.containerSize.height,
+                maxHeight: sizing.boundingSize.height
+            )
+
+        case (.fill, .fill):
+            contentView.sizeWithFillingWidthAndFillingHeight(
+                containerWidth: sizing.containerSize.width,
+                containerHeight: sizing.containerSize.height
             )
         }
     }

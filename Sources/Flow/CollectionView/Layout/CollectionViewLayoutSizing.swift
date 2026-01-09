@@ -7,6 +7,7 @@ internal struct CollectionViewLayoutSizing: Equatable {
     internal let width: ComponentSizingStrategy
     internal let height: ComponentSizingStrategy
 
-    internal let proposedSize: CGSize
+    internal let containerSize: CGSize
+    internal let boundingSize: CGSize
 }
 #endif

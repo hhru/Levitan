@@ -79,21 +79,33 @@ internal final class CollectionViewStateManager<Layout: FlowLayout>:
 
 extension CollectionViewStateManager {
 
-    internal func itemContext(at indexPath: IndexPath) -> ComponentContext? {
+    internal func itemContext(at indexPath: IndexPath, containerSize: CGSize?) -> ComponentContext? {
         state.item(at: indexPath).flatMap { item in
-            itemContext(for: item, at: indexPath)
+            itemContext(
+                for: item,
+                at: indexPath,
+                containerSize: containerSize
+            )
         }
     }
 
-    internal func headerContext(at indexPath: IndexPath) -> ComponentContext? {
+    internal func headerContext(at indexPath: IndexPath, containerSize: CGSize?) -> ComponentContext? {
         state.section(at: indexPath).flatMap { section in
-            headerContext(for: section, at: indexPath)
+            headerContext(
+                for: section,
+                at: indexPath,
+                containerSize: containerSize
+            )
         }
     }
 
-    internal func footerContext(at indexPath: IndexPath) -> ComponentContext? {
+    internal func footerContext(at indexPath: IndexPath, containerSize: CGSize?) -> ComponentContext? {
         state.section(at: indexPath).flatMap { section in
-            footerContext(for: section, at: indexPath)
+            footerContext(
+                for: section,
+                at: indexPath,
+                containerSize: containerSize
+            )
         }
     }
 
@@ -195,58 +207,75 @@ extension CollectionViewStateManager {
 
 extension CollectionViewStateManager {
 
-    private func itemContext(for item: AnyFlowItem, at indexPath: IndexPath) -> ComponentContext? {
+    private var collectionViewLayout: AnyCollectionViewLayout? {
+        collectionView.collectionViewLayout as? AnyCollectionViewLayout
+    }
+
+    private func itemContext(
+        for item: AnyFlowItem,
+        at indexPath: IndexPath,
+        containerSize: CGSize? = nil
+    ) -> ComponentContext? {
         guard let context = state.context else {
             return nil
         }
 
-        let itemContext = context
-            .componentIdentifier(item.wrapped.identifier)
+        let containerSize = containerSize
+            ?? collectionViewLayout?.itemContainerSize(at: indexPath)
+            ?? collectionView.contentBoundsSize
+
+        return context
+            .componentIdentifier(item.identifier)
+            .componentContainerSize(containerSize)
             .componentLayoutInvalidation { [weak self] in
                 self?.invalidateItemsLayout(at: [indexPath])
             }
-
-        guard let collectionViewLayout = collectionView.collectionViewLayout as? AnyCollectionViewLayout else {
-            return itemContext
-        }
-
-        return itemContext.componentContainerSize(collectionViewLayout.itemContainerSize(at: indexPath))
     }
 
-    private func headerContext(for section: FlowSection<Layout>, at indexPath: IndexPath) -> ComponentContext? {
+    private func headerContext(
+        for section: FlowSection<Layout>,
+        at indexPath: IndexPath,
+        containerSize: CGSize? = nil
+    ) -> ComponentContext? {
         guard let context = state.context else {
             return nil
         }
 
-        let headerContext = context
-            .componentIdentifier(ComponentIdentifier(section.identifier, traits: "Header"))
+        let identifier = section.identifier.traits("Header")
+
+        let containerSize = containerSize
+            ?? collectionViewLayout?.headerContainerSize(at: indexPath)
+            ?? collectionView.contentBoundsSize
+
+        return context
+            .componentIdentifier(identifier)
+            .componentContainerSize(containerSize)
             .componentLayoutInvalidation { [weak self] in
                 self?.invalidateHeadersLayout(at: [indexPath])
             }
-
-        guard let collectionViewLayout = collectionView.collectionViewLayout as? AnyCollectionViewLayout else {
-            return headerContext
-        }
-
-        return headerContext.componentContainerSize(collectionViewLayout.headerContainerSize(at: indexPath))
     }
 
-    private func footerContext(for section: FlowSection<Layout>, at indexPath: IndexPath) -> ComponentContext? {
+    private func footerContext(
+        for section: FlowSection<Layout>,
+        at indexPath: IndexPath,
+        containerSize: CGSize? = nil
+    ) -> ComponentContext? {
         guard let context = state.context else {
             return nil
         }
 
-        let footerContext = context
-            .componentIdentifier(ComponentIdentifier(section.identifier, traits: "Footer"))
+        let identifier = section.identifier.traits("Header")
+
+        let containerSize = containerSize
+            ?? collectionViewLayout?.footerContainerSize(at: indexPath)
+            ?? collectionView.contentBoundsSize
+
+        return context
+            .componentIdentifier(identifier)
+            .componentContainerSize(containerSize)
             .componentLayoutInvalidation { [weak self] in
                 self?.invalidateFootersLayout(at: [indexPath])
             }
-
-        guard let collectionViewLayout = collectionView.collectionViewLayout as? AnyCollectionViewLayout else {
-            return footerContext
-        }
-
-        return footerContext.componentContainerSize(collectionViewLayout.footerContainerSize(at: indexPath))
     }
 
     private func registerInconsistentCell() {
@@ -367,7 +396,6 @@ extension CollectionViewStateManager {
     }
 
     private func invalidateItemsLayout(at indexPaths: [IndexPath]) {
-        // TODO: Точно ли верный тип контекста?
         let invalidationContext = UICollectionViewLayoutInvalidationContext()
 
         invalidationContext.invalidateItems(at: indexPaths)
@@ -378,7 +406,6 @@ extension CollectionViewStateManager {
     }
 
     private func invalidateHeadersLayout(at indexPaths: [IndexPath]) {
-        // TODO: Точно ли верный тип контекста?
         let invalidationContext = UICollectionViewLayoutInvalidationContext()
 
         invalidationContext.invalidateSupplementaryElements(
@@ -392,7 +419,6 @@ extension CollectionViewStateManager {
     }
 
     private func invalidateFootersLayout(at indexPaths: [IndexPath]) {
-        // TODO: Точно ли верный тип контекста?
         let invalidationContext = UICollectionViewLayoutInvalidationContext()
 
         invalidationContext.invalidateSupplementaryElements(

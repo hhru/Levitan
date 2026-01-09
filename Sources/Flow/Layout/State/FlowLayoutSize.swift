@@ -2,43 +2,24 @@
 import CoreGraphics
 import Foundation
 
-public enum FlowLayoutSize: Sendable {
+public enum FlowLayoutSize: Equatable, Sendable {
 
-    case actual(_ size: CGSize)
+    case actual(_ value: CGSize)
 
     case estimated(
-        _ size: CGSize,
+        _ value: CGSize,
         sizing: ComponentSizing,
-        proposedSize: CGSize
+        containerSize: CGSize,
+        boundingSize: CGSize
     )
 
     public var value: CGSize {
         switch self {
-        case let .actual(size):
-            return size
+        case let .actual(value):
+            value
 
-        case let .estimated(size, _, _):
-            return size
-        }
-    }
-
-    public var actualValue: CGSize? {
-        switch self {
-        case let .actual(size):
-            return size
-
-        case .estimated:
-            return nil
-        }
-    }
-
-    public var estimatedValue: CGSize? {
-        switch self {
-        case .actual:
-            return nil
-
-        case let .estimated(size, _, _):
-            return size
+        case let .estimated(value, _, _, _):
+            value
         }
     }
 
@@ -61,31 +42,52 @@ public enum FlowLayoutSize: Sendable {
             true
         }
     }
+}
+
+extension FlowLayoutSize {
+
+    internal var sizing: CollectionViewLayoutSizing? {
+        switch self {
+        case .actual:
+            nil
+
+        case let .estimated(_, sizing, containerSize, boundingSize):
+            CollectionViewLayoutSizing(
+                width: sizing.width,
+                height: sizing.height,
+                containerSize: containerSize,
+                boundingSize: boundingSize
+            )
+        }
+    }
+
+    internal var containerSize: CGSize {
+        switch self {
+        case let .actual(size):
+            size
+
+        case let .estimated(_, _, containerSize, _):
+            containerSize
+        }
+    }
 
     internal init(
+        estimatedSize: CGSize,
         sizing: ComponentSizing,
-        proposedSize: CGSize,
-        estimatedSize: CGSize
+        containerSize: CGSize,
+        boundingSize: CGSize
     ) {
         switch (sizing.width, sizing.height) {
-        case (.hug, .hug), (.fixed, .hug), (.hug, .fixed), (.hug, .fill), (.fill, .hug):
+        case let (.fixed(width), .fixed(height)):
+            self = .actual(CGSize(width: width, height: height))
+
+        default:
             self = .estimated(
                 estimatedSize,
                 sizing: sizing,
-                proposedSize: proposedSize
+                containerSize: containerSize,
+                boundingSize: boundingSize
             )
-
-        case let (.fixed(fixedWidth), .fixed(fixedHeight)):
-            self = .actual(CGSize(width: fixedWidth, height: fixedHeight))
-
-        case let (.fixed(fixedWidth), .fill):
-            self = .actual(CGSize(width: fixedWidth, height: proposedSize.height))
-
-        case let (.fill, .fixed(fixedHeight)):
-            self = .actual(CGSize(width: proposedSize.width, height: fixedHeight))
-
-        case (.fill, .fill):
-            self = .actual(proposedSize)
         }
     }
 }

@@ -25,19 +25,22 @@ internal protocol CollectionViewLayoutDelegate: UICollectionViewDelegate {
     func collectionViewLayout(
         _ collectionViewLayout: UICollectionViewLayout,
         sizingForItemAt indexPath: IndexPath,
-        fitting size: CGSize
+        boundingSize: CGSize,
+        containerSize: CGSize
     ) -> ComponentSizing?
 
     func collectionViewLayout(
         _ collectionViewLayout: UICollectionViewLayout,
         sizingForHeaderAt index: Int,
-        fitting size: CGSize
+        boundingSize: CGSize,
+        containerSize: CGSize
     ) -> ComponentSizing?
 
     func collectionViewLayout(
         _ collectionViewLayout: UICollectionViewLayout,
         sizingForFooterAt index: Int,
-        fitting size: CGSize
+        boundingSize: CGSize,
+        containerSize: CGSize
     ) -> ComponentSizing?
 }
 #endif

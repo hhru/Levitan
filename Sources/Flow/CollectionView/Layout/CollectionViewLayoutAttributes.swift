@@ -28,6 +28,9 @@ internal final class CollectionViewLayoutAttributes: UICollectionViewLayoutAttri
             sizing == other.sizing
         }
     }
+}
+
+extension CollectionViewLayoutAttributes {
 
     internal func shouldUpdate(preferring attributes: UICollectionViewLayoutAttributes) -> Bool {
         guard sizing != nil else {

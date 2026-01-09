@@ -4,8 +4,6 @@ import UIKit
 @MainActor
 internal final class CollectionViewManager<Layout: FlowLayout> {
 
-    internal typealias Section = FlowSection<Layout>
-
     private let stateManager: CollectionViewStateManager<Layout>
     private let delegateManager: CollectionViewDelegateManager<Layout>
     private let updateManager: CollectionViewUpdateManager<Layout>
@@ -17,7 +15,7 @@ internal final class CollectionViewManager<Layout: FlowLayout> {
         set { delegateManager.collectionViewDelegate = newValue }
     }
 
-    internal var sections: [Section] {
+    internal var sections: [FlowSection<Layout>] {
         stateManager.state.sections
     }
 
@@ -112,7 +110,7 @@ internal final class CollectionViewManager<Layout: FlowLayout> {
 
     internal func update(
         strategy: FlowUpdateStrategy,
-        sections: [Section],
+        sections: [FlowSection<Layout>],
         context: ComponentContext,
         completion: (@MainActor (_ skipped: Bool) -> Void)? = nil
     ) {

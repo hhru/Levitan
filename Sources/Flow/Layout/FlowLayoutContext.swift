@@ -9,19 +9,19 @@ public protocol FlowLayoutContext {
 
     func itemSize(
         at indexPath: IndexPath,
-        proposedSize: CGSize,
+        containerSize: CGSize,
         estimatedSize: CGSize
     ) -> FlowLayoutSize
 
     func headerSize(
         at index: Int,
-        proposedSize: CGSize,
+        containerSize: CGSize,
         estimatedSize: CGSize
     ) -> FlowLayoutSize
 
     func footerSize(
         at index: Int,
-        proposedSize: CGSize,
+        containerSize: CGSize,
         estimatedSize: CGSize
     ) -> FlowLayoutSize
 }
