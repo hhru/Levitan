@@ -320,10 +320,19 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
         proposedWidth: CGFloat?,
         proposedHeight: CGFloat?
     ) -> FallbackComponentBodySize {
-        let cacheSize = context.fallbackComponentSizeCache?.restoreSize(
-            for: content,
-            fitting: containerSize
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentIdentifier?.value ?? "nil"],
+            ["containerSize:", containerSize],
+            ["proposalWidth:", proposedWidth ?? "nil"],
+            ["proposalHeight:", proposedHeight ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBodyView"
         )
+
+        let cacheSize = context
+            .fallbackComponentSizeCache?
+            .restoreSize(for: content, fitting: containerSize)
 
         if let size = cacheSize {
             return size
@@ -346,6 +355,13 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
             fitting: containerSize
         )
 
+        Logger.debug(
+            ["\(Self.self).\(#function) -- END"],
+            ["size:", size.extrinsic],
+            subsystem: "Component",
+            category: "FallbackComponentBodyView"
+        )
+
         return size
     }
 }
@@ -353,6 +369,15 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
 extension FallbackComponentBodyView {
 
     internal func layout(proposedWidth: CGFloat?, proposedHeight: CGFloat?) -> CGSize? {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context?.componentIdentifier?.value ?? "nil"],
+            ["proposalWidth:", proposedWidth ?? "nil"],
+            ["proposalHeight:", proposedHeight ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBodyView"
+        )
+
         guard let content, let context else {
             return contentSize?.extrinsic
         }
@@ -378,6 +403,13 @@ extension FallbackComponentBodyView {
     }
 
     internal func update(with content: Content, context: ComponentContext) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBodyView"
+        )
+
         let cache = context.fallbackComponentSizeCache.value
 
         let contentContext = context.componentLayoutInvalidation { [weak self, weak cache] in

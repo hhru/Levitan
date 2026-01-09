@@ -17,10 +17,24 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
     public let content: Content
 
     public func makeUIView(context: Context) -> UIView {
-        UIView()
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.environment.componentIdentifier?.value ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBody"
+        )
+
+        return UIView()
     }
 
     public func updateUIView(_ view: UIView, context: Context) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.environment.componentIdentifier?.value ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBody"
+        )
+
         let context = context
             .environment
             .componentContext
@@ -37,7 +51,16 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
         uiView: UIView,
         context: Context
     ) -> CGSize? {
-        uiView.layout(
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.environment.componentIdentifier?.value ?? "nil"],
+            ["proposalWidth:", proposal.width ?? "nil"],
+            ["proposalHeight:", proposal.height ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBody"
+        )
+
+        return uiView.layout(
             proposedWidth: proposal.width,
             proposedHeight: proposal.height
         )
@@ -70,6 +93,14 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
         let proposalHeight = children
             .first { $0.label == "height" }?
             .value as? CGFloat
+
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["proposalWidth:", proposalWidth ?? "nil"],
+            ["proposalHeight:", proposalHeight ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBody"
+        )
 
         size = uiView.layout(
             proposedWidth: proposalWidth,

@@ -44,6 +44,14 @@ public final class ComponentHostingView<Content: View>: UIView {
     public override func didMoveToSuperview() {
         super.didMoveToSuperview()
 
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", hostingRoot?.context.componentIdentifier?.value ?? "nil"],
+            ["superview:", superview == nil ? "nil" : "some"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
         if superview == nil {
             if let hostingController {
                 resetHostingControllerIfNeeded(hostingController)
@@ -60,6 +68,13 @@ extension ComponentHostingView {
         _ hostingController: HostingController,
         parentViewController: UIViewController?
     ) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", hostingRoot?.context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         hostingController.view.frame = bounds
 
@@ -89,6 +104,13 @@ extension ComponentHostingView {
         _ hostingController: HostingController,
         superview: UIView
     ) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", hostingRoot?.context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
         let nearestViewController = componentViewControllerProvider?()
             ?? superview.next(of: UIViewController.self)
 
@@ -117,6 +139,13 @@ extension ComponentHostingView {
     }
 
     private func setupHostingControllerIfNeeded(with hostingRoot: HostingRoot) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", hostingRoot.context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
         guard let superview else {
             return
         }
@@ -139,6 +168,13 @@ extension ComponentHostingView {
     }
 
     private func resetHostingController(_ hostingController: HostingController) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", hostingRoot?.context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
         hostingController.beginAppearanceTransition(false, animated: false)
 
         if hostingController.parent == nil {
@@ -151,6 +187,13 @@ extension ComponentHostingView {
     }
 
     private func resetHostingControllerIfNeeded(_ hostingController: HostingController) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", hostingRoot?.context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
         self.hostingController = nil
 
         guard hostingController.viewIfLoaded?.superview != nil else {
@@ -164,6 +207,13 @@ extension ComponentHostingView {
         _ hostingController: HostingController,
         with hostingRoot: HostingRoot
     ) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", hostingRoot.context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
         invalidateIntrinsicContentSize()
 
         hostingController.rootView = hostingRoot
@@ -174,6 +224,13 @@ extension ComponentHostingView {
     }
 
     private func updateHostingControllerIfNeeded() {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", hostingRoot?.context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
         guard let hostingController, let hostingRoot else {
             return
         }
@@ -188,6 +245,13 @@ extension ComponentHostingView {
 extension ComponentHostingView: ComponentView {
 
     public func update(with content: Content, context: ComponentContext) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentIdentifier?.value ?? "nil"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
         componentViewControllerProvider = context.componentViewControllerProvider
 
         let context = context
