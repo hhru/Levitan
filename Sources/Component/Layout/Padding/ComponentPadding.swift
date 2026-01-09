@@ -11,7 +11,7 @@ public struct ComponentPadding<Content: View> {
     public let content: Content
 
     /// Отступы, которые будут применены к компоненту.
-    public let insets: EdgeInsets
+    public var insets: EdgeInsets
 
     /// Создает контейнер c отступами.
     ///
@@ -69,6 +69,77 @@ extension ComponentPadding: Component where Content: Component {
         default:
             return sizing
         }
+    }
+}
+
+extension ComponentPadding: Changeable {
+
+    /// Добавляет дополнительные отступы к текущим отступам контейнера.
+    ///
+    /// - Parameter insets: Отступы, которые будут применены к компоненту.
+    /// - Returns: Контейнер для добавления отступов к компоненту.
+    ///
+    /// - SeeAlso: ``ComponentPadding``
+    public nonisolated func padding(_ insets: EdgeInsets) -> Self {
+        changing { padding in
+            padding.insets = EdgeInsets(
+                top: padding.insets.top + insets.top,
+                leading: padding.insets.leading + insets.leading,
+                bottom: padding.insets.bottom + insets.bottom,
+                trailing: padding.insets.trailing + insets.trailing
+            )
+        }
+    }
+
+    /// Добавляет дополнительные отступы к текущим отступам контейнера.
+    ///
+    /// - Parameters:
+    ///   - top: Верхний отступ. По умолчанию равен `0.0`.
+    ///   - leading: Ведущий отступ. По умолчанию равен `0.0`.
+    ///   - bottom: Нижний отступ. По умолчанию равен `0.0`.
+    ///   - trailing: Замыкающий отступ. По умолчанию равен `0.0`.
+    /// - Returns: Контейнер для добавления отступов к компоненту.
+    ///
+    /// - SeeAlso: ``ComponentPadding``
+    public nonisolated func padding(
+        top: CGFloat = .zero,
+        leading: CGFloat = .zero,
+        bottom: CGFloat = .zero,
+        trailing: CGFloat = .zero
+    ) -> Self {
+        padding(
+            EdgeInsets(
+                top: top,
+                leading: leading,
+                bottom: bottom,
+                trailing: trailing
+            )
+        )
+    }
+
+    /// Добавляет дополнительные отступы к текущим отступам контейнера.
+    ///
+    /// - Parameters:
+    ///   - edge: Набор краев, к которым будет применен отступ.
+    ///   - length: Значение отступа.
+    /// - Returns: Контейнер для добавления отступов к компоненту.
+    ///
+    /// - SeeAlso: ``ComponentPadding``
+    public nonisolated func padding(
+        _ edge: Edge.Set,
+        _ length: CGFloat
+    ) -> Self {
+        padding(EdgeInsets(edge, length))
+    }
+
+    /// Добавляет дополнительные отступы к текущим отступам контейнера.
+    ///
+    /// - Parameter length: Значение отступа для всех краев компонента.
+    /// - Returns: Контейнер для добавления отступов к компоненту.
+    ///
+    /// - SeeAlso: ``ComponentPadding``
+    public nonisolated func padding(_ length: CGFloat) -> Self {
+        padding(EdgeInsets(all: length))
     }
 }
 
