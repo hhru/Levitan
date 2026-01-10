@@ -387,14 +387,6 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
     // MARK: - Invalidation
 
     internal override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        Logger.debug(
-            ["\(Self.self).\(#function)"],
-            ["oldBounds:", collectionView?.bounds ?? .zero],
-            ["newBounds:", newBounds],
-            subsystem: "Flow",
-            category: "CollectionViewLayout"
-        )
-
         guard let collectionView else {
             return super.shouldInvalidateLayout(forBoundsChange: newBounds)
         }
@@ -442,12 +434,6 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
         forPreferredLayoutAttributes preferredAttributes: UICollectionViewLayoutAttributes,
         withOriginalAttributes originalAttributes: UICollectionViewLayoutAttributes
     ) -> Bool {
-        Logger.debug(
-            ["\(Self.self).\(#function)"],
-            subsystem: "Flow",
-            category: "CollectionViewLayout"
-        )
-
         guard !preferredAttributes.indexPath.isEmpty else {
             return super.shouldInvalidateLayout(
                 forPreferredLayoutAttributes: preferredAttributes,
@@ -576,7 +562,7 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
 
     internal override func invalidateLayout() {
         Logger.debug(
-            ["\(Self.self).\(#function) -- invalidateDataSourceCounts"],
+            ["\(Self.self).\(#function)"],
             subsystem: "Flow",
             category: "CollectionViewLayout"
         )
@@ -588,7 +574,7 @@ internal final class CollectionViewLayout<Layout: FlowLayout>: UICollectionViewL
 
     internal override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
         Logger.debug(
-            ["\(Self.self).\(#function) -- invalidateDataSourceCounts"],
+            ["\(Self.self).\(#function)"],
             subsystem: "Flow",
             category: "CollectionViewLayout"
         )
