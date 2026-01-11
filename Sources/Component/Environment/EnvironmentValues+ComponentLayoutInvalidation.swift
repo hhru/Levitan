@@ -58,7 +58,7 @@ extension ComponentContext {
     /// - Returns: Окружение с добавленным действием для инвалидации лэйаута.
     public func componentLayoutInvalidation(_ invalidation: @escaping @MainActor () -> Void) -> Self {
         transformEnvironment(\.componentLayoutInvalidation) { componentLayoutInvalidation in
-            componentLayoutInvalidation.append(invalidation)
+            componentLayoutInvalidation.prepend(invalidation)
         }
     }
 }
