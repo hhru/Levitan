@@ -14,6 +14,10 @@ extension NSAttributedString {
             return .zero
         }
 
+        guard size.width >= .zero, size.height >= .zero else {
+            return .zero
+        }
+
         let layoutManager = NSLayoutManager()
         let textContainer = NSTextContainer(size: size)
         let textStorage = NSTextStorage(attributedString: self)
@@ -33,30 +37,6 @@ extension NSAttributedString {
             width: ceil(contentSize.width),
             height: ceil(contentSize.height)
         )
-    }
-
-    internal func width(
-        fitting height: CGFloat = .greatestFiniteMagnitude,
-        lineLimit: Int? = nil,
-        lineBreakMode: NSLineBreakMode = .byWordWrapping
-    ) -> CGFloat {
-        size(
-            fitting: CGSize(width: .greatestFiniteMagnitude, height: height),
-            lineLimit: lineLimit,
-            lineBreakMode: lineBreakMode
-        ).width
-    }
-
-    internal func height(
-        fitting width: CGFloat = .greatestFiniteMagnitude,
-        lineLimit: Int? = nil,
-        lineBreakMode: NSLineBreakMode = .byWordWrapping
-    ) -> CGFloat {
-        size(
-            fitting: CGSize(width: width, height: .greatestFiniteMagnitude),
-            lineLimit: lineLimit,
-            lineBreakMode: lineBreakMode
-        ).height
     }
 }
 #endif

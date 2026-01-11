@@ -233,7 +233,10 @@ internal final class ItemDifferenceCalculator {
     }
 }
 
-extension MutableCollection where Element: MutableCollection, Index == Int, Element.Index == Int {
+extension MutableCollection where
+    Element: MutableCollection,
+    Index == Int,
+    Element.Index == Int {
 
     internal subscript(path: ItemPath) -> Element.Element {
         get { self[path.section][path.index] }
