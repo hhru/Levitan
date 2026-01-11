@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C029BD162F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */; };
+		C029BD172F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */; };
+		C029BD182F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */; };
+		C029BD1B2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD1A2F13979F0035B417 /* FallbackComponentCacheSize.swift */; };
+		C029BD1C2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD1A2F13979F0035B417 /* FallbackComponentCacheSize.swift */; };
+		C029BD1D2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD1A2F13979F0035B417 /* FallbackComponentCacheSize.swift */; };
+		C029BD232F13AB420035B417 /* FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD222F13AB3D0035B417 /* FallbackComponentCache.swift */; };
+		C029BD242F13AB420035B417 /* FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD222F13AB3D0035B417 /* FallbackComponentCache.swift */; };
+		C029BD252F13AB420035B417 /* FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD222F13AB3D0035B417 /* FallbackComponentCache.swift */; };
 		C02C897E2F0266B400A2FE9F /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89572F0266B400A2FE9F /* Diffable.swift */; };
 		C02C897F2F0266B400A2FE9F /* OutsetsDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C886A2F0266B400A2FE9F /* OutsetsDecorator.swift */; };
 		C02C89802F0266B400A2FE9F /* CGFloat+TokenValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89012F0266B400A2FE9F /* CGFloat+TokenValue.swift */; };
@@ -70,7 +79,7 @@
 		C02C89BE2F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C895D2F0266B400A2FE9F /* CGSize+Extensions.swift */; };
 		C02C89BF2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88CA2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift */; };
 		C02C89C02F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BB2F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift */; };
-		C02C89C12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentSizeCache.swift */; };
+		C02C89C12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */; };
 		C02C89C22F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89662F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift */; };
 		C02C89C32F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C881C2F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift */; };
 		C02C89C42F0266B400A2FE9F /* FontValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89182F0266B400A2FE9F /* FontValue.swift */; };
@@ -87,12 +96,10 @@
 		C02C89D52F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89102F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift */; };
 		C02C89D62F0266B400A2FE9F /* ImageResizingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C891D2F0266B400A2FE9F /* ImageResizingMode.swift */; };
 		C02C89D72F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88252F0266B400A2FE9F /* ImageToken+TextPart.swift */; };
-		C02C89D92F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E32F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift */; };
 		C02C89DA2F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88162F0266B400A2FE9F /* EnvironmentValues+TextCache.swift */; };
 		C02C89DB2F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BA2F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift */; };
 		C02C89DC2F0266B400A2FE9F /* DecorableByStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C887E2F0266B400A2FE9F /* DecorableByStroke.swift */; };
 		C02C89DD2F0266B400A2FE9F /* AnimationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88F72F0266B400A2FE9F /* AnimationToken.swift */; };
-		C02C89DE2F0266B400A2FE9F /* FallbackComponentSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E22F0266B400A2FE9F /* FallbackComponentSizeCache.swift */; };
 		C02C89DF2F0266B400A2FE9F /* ComponentContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87D32F0266B400A2FE9F /* ComponentContext.swift */; };
 		C02C89E02F0266B400A2FE9F /* CornersToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88FE2F0266B400A2FE9F /* CornersToken.swift */; };
 		C02C89E12F0266B400A2FE9F /* ViewFocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88042F0266B400A2FE9F /* ViewFocusState.swift */; };
@@ -276,7 +283,6 @@
 		C02C8AA22F0266B400A2FE9F /* EnvironmentValues+ComponentContainerSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87D72F0266B400A2FE9F /* EnvironmentValues+ComponentContainerSize.swift */; };
 		C02C8AA32F0266B400A2FE9F /* TokenViewProperties+UIBarPositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BE2F0266B400A2FE9F /* TokenViewProperties+UIBarPositioning.swift */; };
 		C02C8AA42F0266B400A2FE9F /* TokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E82F0266B400A2FE9F /* TokenThemeResolver.swift */; };
-		C02C8AA52F0266B400A2FE9F /* FallbackComponentBodySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87DE2F0266B400A2FE9F /* FallbackComponentBodySize.swift */; };
 		C02C8AA62F0266B400A2FE9F /* DecorableByOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88662F0266B400A2FE9F /* DecorableByOpacity.swift */; };
 		C02C8AA72F0266B400A2FE9F /* DifferenceChangeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89442F0266B400A2FE9F /* DifferenceChangeset.swift */; };
 		C02C8AA82F0266B400A2FE9F /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C896C2F0266B400A2FE9F /* UICollectionView+Extensions.swift */; };
@@ -374,7 +380,7 @@
 		C02C8B092F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C895D2F0266B400A2FE9F /* CGSize+Extensions.swift */; };
 		C02C8B0A2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88CA2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift */; };
 		C02C8B0B2F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BB2F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift */; };
-		C02C8B0C2F0266B400A2FE9F /* EnvironmentValues+FallbackComponentSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentSizeCache.swift */; };
+		C02C8B0C2F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */; };
 		C02C8B0D2F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89662F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift */; };
 		C02C8B0E2F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C881C2F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift */; };
 		C02C8B0F2F0266B400A2FE9F /* FontValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89182F0266B400A2FE9F /* FontValue.swift */; };
@@ -391,12 +397,10 @@
 		C02C8B202F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89102F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift */; };
 		C02C8B212F0266B400A2FE9F /* ImageResizingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C891D2F0266B400A2FE9F /* ImageResizingMode.swift */; };
 		C02C8B222F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88252F0266B400A2FE9F /* ImageToken+TextPart.swift */; };
-		C02C8B242F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E32F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift */; };
 		C02C8B252F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88162F0266B400A2FE9F /* EnvironmentValues+TextCache.swift */; };
 		C02C8B262F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BA2F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift */; };
 		C02C8B272F0266B400A2FE9F /* DecorableByStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C887E2F0266B400A2FE9F /* DecorableByStroke.swift */; };
 		C02C8B282F0266B400A2FE9F /* AnimationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88F72F0266B400A2FE9F /* AnimationToken.swift */; };
-		C02C8B292F0266B400A2FE9F /* FallbackComponentSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E22F0266B400A2FE9F /* FallbackComponentSizeCache.swift */; };
 		C02C8B2A2F0266B400A2FE9F /* ComponentContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87D32F0266B400A2FE9F /* ComponentContext.swift */; };
 		C02C8B2B2F0266B400A2FE9F /* CornersToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88FE2F0266B400A2FE9F /* CornersToken.swift */; };
 		C02C8B2C2F0266B400A2FE9F /* ViewFocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88042F0266B400A2FE9F /* ViewFocusState.swift */; };
@@ -580,7 +584,6 @@
 		C02C8BED2F0266B400A2FE9F /* EnvironmentValues+ComponentContainerSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87D72F0266B400A2FE9F /* EnvironmentValues+ComponentContainerSize.swift */; };
 		C02C8BEE2F0266B400A2FE9F /* TokenViewProperties+UIBarPositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BE2F0266B400A2FE9F /* TokenViewProperties+UIBarPositioning.swift */; };
 		C02C8BEF2F0266B400A2FE9F /* TokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E82F0266B400A2FE9F /* TokenThemeResolver.swift */; };
-		C02C8BF02F0266B400A2FE9F /* FallbackComponentBodySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87DE2F0266B400A2FE9F /* FallbackComponentBodySize.swift */; };
 		C02C8BF12F0266B400A2FE9F /* DecorableByOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88662F0266B400A2FE9F /* DecorableByOpacity.swift */; };
 		C02C8BF22F0266B400A2FE9F /* DifferenceChangeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89442F0266B400A2FE9F /* DifferenceChangeset.swift */; };
 		C02C8BF32F0266B400A2FE9F /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C896C2F0266B400A2FE9F /* UICollectionView+Extensions.swift */; };
@@ -678,7 +681,7 @@
 		C02C8C542F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C895D2F0266B400A2FE9F /* CGSize+Extensions.swift */; };
 		C02C8C552F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88CA2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift */; };
 		C02C8C562F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BB2F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift */; };
-		C02C8C572F0266B400A2FE9F /* EnvironmentValues+FallbackComponentSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentSizeCache.swift */; };
+		C02C8C572F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */; };
 		C02C8C582F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89662F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift */; };
 		C02C8C592F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C881C2F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift */; };
 		C02C8C5A2F0266B400A2FE9F /* FontValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89182F0266B400A2FE9F /* FontValue.swift */; };
@@ -695,12 +698,10 @@
 		C02C8C6B2F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89102F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift */; };
 		C02C8C6C2F0266B400A2FE9F /* ImageResizingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C891D2F0266B400A2FE9F /* ImageResizingMode.swift */; };
 		C02C8C6D2F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88252F0266B400A2FE9F /* ImageToken+TextPart.swift */; };
-		C02C8C6F2F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E32F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift */; };
 		C02C8C702F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88162F0266B400A2FE9F /* EnvironmentValues+TextCache.swift */; };
 		C02C8C712F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BA2F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift */; };
 		C02C8C722F0266B400A2FE9F /* DecorableByStroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C887E2F0266B400A2FE9F /* DecorableByStroke.swift */; };
 		C02C8C732F0266B400A2FE9F /* AnimationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88F72F0266B400A2FE9F /* AnimationToken.swift */; };
-		C02C8C742F0266B400A2FE9F /* FallbackComponentSizeCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E22F0266B400A2FE9F /* FallbackComponentSizeCache.swift */; };
 		C02C8C752F0266B400A2FE9F /* ComponentContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87D32F0266B400A2FE9F /* ComponentContext.swift */; };
 		C02C8C762F0266B400A2FE9F /* CornersToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88FE2F0266B400A2FE9F /* CornersToken.swift */; };
 		C02C8C772F0266B400A2FE9F /* ViewFocusState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88042F0266B400A2FE9F /* ViewFocusState.swift */; };
@@ -884,7 +885,6 @@
 		C02C8D382F0266B400A2FE9F /* EnvironmentValues+ComponentContainerSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87D72F0266B400A2FE9F /* EnvironmentValues+ComponentContainerSize.swift */; };
 		C02C8D392F0266B400A2FE9F /* TokenViewProperties+UIBarPositioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BE2F0266B400A2FE9F /* TokenViewProperties+UIBarPositioning.swift */; };
 		C02C8D3A2F0266B400A2FE9F /* TokenThemeResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E82F0266B400A2FE9F /* TokenThemeResolver.swift */; };
-		C02C8D3B2F0266B400A2FE9F /* FallbackComponentBodySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87DE2F0266B400A2FE9F /* FallbackComponentBodySize.swift */; };
 		C02C8D3C2F0266B400A2FE9F /* DecorableByOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88662F0266B400A2FE9F /* DecorableByOpacity.swift */; };
 		C02C8D3D2F0266B400A2FE9F /* DifferenceChangeset.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89442F0266B400A2FE9F /* DifferenceChangeset.swift */; };
 		C02C8D3E2F0266B400A2FE9F /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C896C2F0266B400A2FE9F /* UICollectionView+Extensions.swift */; };
@@ -1347,6 +1347,9 @@
 
 /* Begin PBXFileReference section */
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
+		C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentCacheKey.swift; sourceTree = "<group>"; };
+		C029BD1A2F13979F0035B417 /* FallbackComponentCacheSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentCacheSize.swift; sourceTree = "<group>"; };
+		C029BD222F13AB3D0035B417 /* FallbackComponentCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentCache.swift; sourceTree = "<group>"; };
 		C02C87C12F02667300A2FE9F /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
 		C02C87C22F02667300A2FE9F /* Levitan.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Levitan.podspec; sourceTree = "<group>"; };
 		C02C87C32F0266B400A2FE9F /* Array+Changeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Changeable.swift"; sourceTree = "<group>"; };
@@ -1365,11 +1368,8 @@
 		C02C87DA2F0266B400A2FE9F /* EnvironmentValues+ComponentLayoutInvalidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentLayoutInvalidation.swift"; sourceTree = "<group>"; };
 		C02C87DB2F0266B400A2FE9F /* EnvironmentValues+ComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentViewController.swift"; sourceTree = "<group>"; };
 		C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBody.swift; sourceTree = "<group>"; };
-		C02C87DE2F0266B400A2FE9F /* FallbackComponentBodySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBodySize.swift; sourceTree = "<group>"; };
 		C02C87DF2F0266B400A2FE9F /* FallbackComponentBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBodyView.swift; sourceTree = "<group>"; };
-		C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentSizeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+FallbackComponentSizeCache.swift"; sourceTree = "<group>"; };
-		C02C87E22F0266B400A2FE9F /* FallbackComponentSizeCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentSizeCache.swift; sourceTree = "<group>"; };
-		C02C87E32F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentSizeCacheKey.swift; sourceTree = "<group>"; };
+		C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+FallbackComponentCache.swift"; sourceTree = "<group>"; };
 		C02C87E52F0266B400A2FE9F /* FallbackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponent.swift; sourceTree = "<group>"; };
 		C02C87E62F0266B400A2FE9F /* FallbackComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentView.swift; sourceTree = "<group>"; };
 		C02C87E82F0266B400A2FE9F /* ComponentHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentHostingController.swift; sourceTree = "<group>"; };
@@ -1902,7 +1902,6 @@
 			isa = PBXGroup;
 			children = (
 				C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */,
-				C02C87DE2F0266B400A2FE9F /* FallbackComponentBodySize.swift */,
 				C02C87DF2F0266B400A2FE9F /* FallbackComponentBodyView.swift */,
 			);
 			path = Body;
@@ -1911,9 +1910,10 @@
 		C02C87E42F0266B400A2FE9F /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentSizeCache.swift */,
-				C02C87E22F0266B400A2FE9F /* FallbackComponentSizeCache.swift */,
-				C02C87E32F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift */,
+				C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */,
+				C029BD222F13AB3D0035B417 /* FallbackComponentCache.swift */,
+				C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */,
+				C029BD1A2F13979F0035B417 /* FallbackComponentCacheSize.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -3702,6 +3702,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C029BD172F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */,
 				C02C8C142F0266B400A2FE9F /* Diffable.swift in Sources */,
 				C02C8C152F0266B400A2FE9F /* OutsetsDecorator.swift in Sources */,
 				C02C8C162F0266B400A2FE9F /* CGFloat+TokenValue.swift in Sources */,
@@ -3716,6 +3717,7 @@
 				C02C8C1F2F0266B400A2FE9F /* DecorableByDuration.swift in Sources */,
 				C02C8C202F0266B400A2FE9F /* AnyTextPart.swift in Sources */,
 				C02C8C212F0266B400A2FE9F /* FallbackComponentView.swift in Sources */,
+				C029BD1D2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */,
 				C02C8C222F0266B400A2FE9F /* FallbackComponent.swift in Sources */,
 				C02C8C232F0266B400A2FE9F /* DifferenceCalculator.swift in Sources */,
 				C02C8C242F0266B400A2FE9F /* DifferenceTrace.swift in Sources */,
@@ -3869,7 +3871,7 @@
 				C02C8C542F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */,
 				C02C8C552F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C02C8C562F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */,
-				C02C8C572F0266B400A2FE9F /* EnvironmentValues+FallbackComponentSizeCache.swift in Sources */,
+				C02C8C572F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */,
 				C02C8C582F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */,
 				C02C8C592F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */,
 				C02C8C5A2F0266B400A2FE9F /* FontValue.swift in Sources */,
@@ -3886,12 +3888,10 @@
 				C02C8C6B2F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */,
 				C02C8C6C2F0266B400A2FE9F /* ImageResizingMode.swift in Sources */,
 				C02C8C6D2F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */,
-				C02C8C6F2F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */,
 				C02C8C702F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */,
 				C02C8C712F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift in Sources */,
 				C02C8C722F0266B400A2FE9F /* DecorableByStroke.swift in Sources */,
 				C02C8C732F0266B400A2FE9F /* AnimationToken.swift in Sources */,
-				C02C8C742F0266B400A2FE9F /* FallbackComponentSizeCache.swift in Sources */,
 				C02C8C752F0266B400A2FE9F /* ComponentContext.swift in Sources */,
 				C02C8C762F0266B400A2FE9F /* CornersToken.swift in Sources */,
 				C02C8C772F0266B400A2FE9F /* ViewFocusState.swift in Sources */,
@@ -4040,6 +4040,7 @@
 				C06EE5582F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */,
 				C02C8D052F0266B400A2FE9F /* TraitsObservable.swift in Sources */,
 				C02C8D072F0266B400A2FE9F /* Nullable.swift in Sources */,
+				C029BD252F13AB420035B417 /* FallbackComponentCache.swift in Sources */,
 				C02C8D082F0266B400A2FE9F /* TokenViewProperties+CAGradientLayer.swift in Sources */,
 				C0C8B8292F098FE00029D19F /* AccentColorModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8D0A2F0266B400A2FE9F /* ComponentHostingView.swift in Sources */,
@@ -4090,7 +4091,6 @@
 				C02C8D382F0266B400A2FE9F /* EnvironmentValues+ComponentContainerSize.swift in Sources */,
 				C02C8D392F0266B400A2FE9F /* TokenViewProperties+UIBarPositioning.swift in Sources */,
 				C02C8D3A2F0266B400A2FE9F /* TokenThemeResolver.swift in Sources */,
-				C02C8D3B2F0266B400A2FE9F /* FallbackComponentBodySize.swift in Sources */,
 				C02C8D3C2F0266B400A2FE9F /* DecorableByOpacity.swift in Sources */,
 				C02C8D3D2F0266B400A2FE9F /* DifferenceChangeset.swift in Sources */,
 				C02C8D3E2F0266B400A2FE9F /* UICollectionView+Extensions.swift in Sources */,
@@ -4142,6 +4142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C029BD182F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */,
 				C02C897E2F0266B400A2FE9F /* Diffable.swift in Sources */,
 				C02C897F2F0266B400A2FE9F /* OutsetsDecorator.swift in Sources */,
 				C02C89802F0266B400A2FE9F /* CGFloat+TokenValue.swift in Sources */,
@@ -4156,6 +4157,7 @@
 				C02C89892F0266B400A2FE9F /* DecorableByDuration.swift in Sources */,
 				C02C898A2F0266B400A2FE9F /* AnyTextPart.swift in Sources */,
 				C02C898B2F0266B400A2FE9F /* FallbackComponentView.swift in Sources */,
+				C029BD1C2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */,
 				C02C898C2F0266B400A2FE9F /* FallbackComponent.swift in Sources */,
 				C02C898D2F0266B400A2FE9F /* DifferenceCalculator.swift in Sources */,
 				C02C898E2F0266B400A2FE9F /* DifferenceTrace.swift in Sources */,
@@ -4309,7 +4311,7 @@
 				C02C89BE2F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */,
 				C02C89BF2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C02C89C02F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */,
-				C02C89C12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentSizeCache.swift in Sources */,
+				C02C89C12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */,
 				C02C89C22F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */,
 				C02C89C32F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */,
 				C02C89C42F0266B400A2FE9F /* FontValue.swift in Sources */,
@@ -4326,12 +4328,10 @@
 				C02C89D52F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */,
 				C02C89D62F0266B400A2FE9F /* ImageResizingMode.swift in Sources */,
 				C02C89D72F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */,
-				C02C89D92F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */,
 				C02C89DA2F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */,
 				C02C89DB2F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift in Sources */,
 				C02C89DC2F0266B400A2FE9F /* DecorableByStroke.swift in Sources */,
 				C02C89DD2F0266B400A2FE9F /* AnimationToken.swift in Sources */,
-				C02C89DE2F0266B400A2FE9F /* FallbackComponentSizeCache.swift in Sources */,
 				C02C89DF2F0266B400A2FE9F /* ComponentContext.swift in Sources */,
 				C02C89E02F0266B400A2FE9F /* CornersToken.swift in Sources */,
 				C02C89E12F0266B400A2FE9F /* ViewFocusState.swift in Sources */,
@@ -4480,6 +4480,7 @@
 				C06EE55A2F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */,
 				C02C8A6F2F0266B400A2FE9F /* TraitsObservable.swift in Sources */,
 				C02C8A712F0266B400A2FE9F /* Nullable.swift in Sources */,
+				C029BD242F13AB420035B417 /* FallbackComponentCache.swift in Sources */,
 				C02C8A722F0266B400A2FE9F /* TokenViewProperties+CAGradientLayer.swift in Sources */,
 				C0C8B8282F098FE00029D19F /* AccentColorModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8A742F0266B400A2FE9F /* ComponentHostingView.swift in Sources */,
@@ -4530,7 +4531,6 @@
 				C02C8AA22F0266B400A2FE9F /* EnvironmentValues+ComponentContainerSize.swift in Sources */,
 				C02C8AA32F0266B400A2FE9F /* TokenViewProperties+UIBarPositioning.swift in Sources */,
 				C02C8AA42F0266B400A2FE9F /* TokenThemeResolver.swift in Sources */,
-				C02C8AA52F0266B400A2FE9F /* FallbackComponentBodySize.swift in Sources */,
 				C02C8AA62F0266B400A2FE9F /* DecorableByOpacity.swift in Sources */,
 				C02C8AA72F0266B400A2FE9F /* DifferenceChangeset.swift in Sources */,
 				C02C8AA82F0266B400A2FE9F /* UICollectionView+Extensions.swift in Sources */,
@@ -4668,7 +4668,7 @@
 				C02C8B092F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */,
 				C02C8B0A2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C02C8B0B2F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */,
-				C02C8B0C2F0266B400A2FE9F /* EnvironmentValues+FallbackComponentSizeCache.swift in Sources */,
+				C02C8B0C2F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */,
 				C02C8B0D2F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */,
 				C02C8B0E2F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */,
 				C02C8B0F2F0266B400A2FE9F /* FontValue.swift in Sources */,
@@ -4684,16 +4684,15 @@
 				C02C8B1B2F0266B400A2FE9F /* Set+Changeable.swift in Sources */,
 				C02C8B1D2F0266B400A2FE9F /* TokenViewBinding.swift in Sources */,
 				C02C8B1E2F0266B400A2FE9F /* StrokeType.swift in Sources */,
+				C029BD1B2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */,
 				C0C8B87F2F09ACF30029D19F /* FontModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8B202F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */,
 				C02C8B212F0266B400A2FE9F /* ImageResizingMode.swift in Sources */,
 				C02C8B222F0266B400A2FE9F /* ImageToken+TextPart.swift in Sources */,
-				C02C8B242F0266B400A2FE9F /* FallbackComponentSizeCacheKey.swift in Sources */,
 				C02C8B252F0266B400A2FE9F /* EnvironmentValues+TextCache.swift in Sources */,
 				C02C8B262F0266B400A2FE9F /* TokenViewProperties+CAShapeLayer.swift in Sources */,
 				C02C8B272F0266B400A2FE9F /* DecorableByStroke.swift in Sources */,
 				C02C8B282F0266B400A2FE9F /* AnimationToken.swift in Sources */,
-				C02C8B292F0266B400A2FE9F /* FallbackComponentSizeCache.swift in Sources */,
 				C02C8B2A2F0266B400A2FE9F /* ComponentContext.swift in Sources */,
 				C02C8B2B2F0266B400A2FE9F /* CornersToken.swift in Sources */,
 				C02C8B2C2F0266B400A2FE9F /* ViewFocusState.swift in Sources */,
@@ -4785,6 +4784,7 @@
 				C02C8B892F0266B400A2FE9F /* TokenViewProperties+UISwitch.swift in Sources */,
 				C02C8B8A2F0266B400A2FE9F /* TokenModifiedView.swift in Sources */,
 				C02C8B8B2F0266B400A2FE9F /* TokenViewProperties+UIImageView.swift in Sources */,
+				C029BD232F13AB420035B417 /* FallbackComponentCache.swift in Sources */,
 				C02C8B8C2F0266B400A2FE9F /* AlphaDecorator.swift in Sources */,
 				C02C8B8D2F0266B400A2FE9F /* TextContext.swift in Sources */,
 				C02C8B8E2F0266B400A2FE9F /* TokenViewModifier.swift in Sources */,
@@ -4850,6 +4850,7 @@
 				C0C8CBE12F104183005821BE /* FlowContainerCell.swift in Sources */,
 				C0C8CBE22F104183005821BE /* HorizontalFlowLayout.swift in Sources */,
 				C0C8CBE32F104183005821BE /* FlowLayoutOrigin.swift in Sources */,
+				C029BD162F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */,
 				C0C8CBE42F104183005821BE /* CollectionViewLayoutScrollAnchor.swift in Sources */,
 				C0C8CBE52F104183005821BE /* CollectionViewStateManager.swift in Sources */,
 				C0C8CBE62F104183005821BE /* FlowLayoutScrollAnchor.swift in Sources */,
@@ -4971,7 +4972,6 @@
 				C06EE5592F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */,
 				C0C8B8712F09A3B80029D19F /* ComponentTokenModifier.swift in Sources */,
 				C02C8BEF2F0266B400A2FE9F /* TokenThemeResolver.swift in Sources */,
-				C02C8BF02F0266B400A2FE9F /* FallbackComponentBodySize.swift in Sources */,
 				C02C8BF12F0266B400A2FE9F /* DecorableByOpacity.swift in Sources */,
 				C02C8BF22F0266B400A2FE9F /* DifferenceChangeset.swift in Sources */,
 				C02C8BF32F0266B400A2FE9F /* UICollectionView+Extensions.swift in Sources */,

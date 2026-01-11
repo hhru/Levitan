@@ -24,7 +24,7 @@ final class ContactsViewController: UIViewController {
 
         context = context
             .componentViewController(self)
-            .fallbackComponentSizeCache(FallbackComponentSizeCache())
+            .fallbackComponentCache(FallbackComponentCache())
             .textCache(TextCache())
 
         setupNavigationBar()

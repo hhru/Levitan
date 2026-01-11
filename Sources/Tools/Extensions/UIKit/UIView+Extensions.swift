@@ -61,10 +61,10 @@ extension UIView {
     internal func sizeWithFixedWidthAndHuggingHeight(
         width: CGFloat,
         isWidthForced: Bool = true,
-        containerHeight: CGFloat?,
+        containerHeight: CGFloat,
         maxHeight: CGFloat?
     ) -> CGSize {
-        let targetHeight = containerHeight?.nonZero.map { containerHeight in
+        let targetHeight = containerHeight.nonZero.map { containerHeight in
             containerHeight.isInfinite
                 ? UIView.layoutFittingExpandedSize.height
                 : containerHeight
@@ -114,9 +114,9 @@ extension UIView {
     internal func sizeWithFixedWidthAndFillingHeight(
         width: CGFloat,
         isWidthForced: Bool = true,
-        containerHeight: CGFloat?
+        containerHeight: CGFloat
     ) -> CGSize {
-        let targetHeight = containerHeight?.nonZero.map { containerHeight in
+        let targetHeight = containerHeight.nonZero.map { containerHeight in
             containerHeight.isInfinite
                 ? UIView.layoutFittingExpandedSize.height
                 : containerHeight
@@ -127,7 +127,7 @@ extension UIView {
         let size = systemLayoutSizeFitting(
             targetSize,
             withHorizontalFittingPriority: .almostRequired,
-            verticalFittingPriority: containerHeight?.isNormal == true
+            verticalFittingPriority: containerHeight.isNormal
                 ? .almostRequired
                 : .fittingSizeLevel
         )
@@ -159,12 +159,12 @@ extension UIView {
     ///   - isHeightForced: Флаг, игнорирующий собственную высоту.
     /// - Returns: Соответствующие размеры.
     internal func sizeWithHuggingWidthAndFixedHeight(
-        containerWidth: CGFloat?,
+        containerWidth: CGFloat,
         maxWidth: CGFloat?,
         height: CGFloat,
         isHeightForced: Bool = true
     ) -> CGSize {
-        let targetWidth = containerWidth?.nonZero.map { containerWidth in
+        let targetWidth = containerWidth.nonZero.map { containerWidth in
             containerWidth.isInfinite
                 ? UIView.layoutFittingExpandedSize.width
                 : containerWidth
@@ -216,18 +216,18 @@ extension UIView {
     ///   - maxHeight: Максимальная высота.
     /// - Returns: Соответствующие размеры.
     internal func sizeWithHuggingWidthAndHuggingHeight(
-        containerWidth: CGFloat?,
+        containerWidth: CGFloat,
         maxWidth: CGFloat?,
-        containerHeight: CGFloat?,
+        containerHeight: CGFloat,
         maxHeight: CGFloat?
     ) -> CGSize {
-        let targetWidth = containerWidth?.nonZero.map { containerWidth in
+        let targetWidth = containerWidth.nonZero.map { containerWidth in
             containerWidth.isInfinite
                 ? UIView.layoutFittingExpandedSize.width
                 : containerWidth
         } ?? UIView.layoutFittingCompressedSize.width
 
-        let targetHeight = containerHeight?.nonZero.map { containerHeight in
+        let targetHeight = containerHeight.nonZero.map { containerHeight in
             containerHeight.isInfinite
                 ? UIView.layoutFittingExpandedSize.height
                 : containerHeight
@@ -285,17 +285,17 @@ extension UIView {
     ///   - containerHeight: Высота контейнера.
     /// - Returns: Соответствующие размеры.
     internal func sizeWithHuggingWidthAndFillingHeight(
-        containerWidth: CGFloat?,
+        containerWidth: CGFloat,
         maxWidth: CGFloat?,
-        containerHeight: CGFloat?
+        containerHeight: CGFloat
     ) -> CGSize {
-        let targetWidth = containerWidth?.nonZero.map { containerWidth in
+        let targetWidth = containerWidth.nonZero.map { containerWidth in
             containerWidth.isInfinite
                 ? UIView.layoutFittingExpandedSize.width
                 : containerWidth
         } ?? UIView.layoutFittingCompressedSize.width
 
-        let targetHeight = containerHeight?.nonZero.map { containerHeight in
+        let targetHeight = containerHeight.nonZero.map { containerHeight in
             containerHeight.isInfinite
                 ? UIView.layoutFittingExpandedSize.height
                 : containerHeight
@@ -306,7 +306,7 @@ extension UIView {
         let size = systemLayoutSizeFitting(
             targetSize,
             withHorizontalFittingPriority: .fittingSizeLevel,
-            verticalFittingPriority: containerHeight?.isNormal == true
+            verticalFittingPriority: containerHeight.isNormal
                 ? .almostRequired
                 : .fittingSizeLevel
         )
@@ -340,11 +340,11 @@ extension UIView {
     ///   - isHeightForced: Флаг, игнорирующий собственную высоту.
     /// - Returns: Соответствующие размеры.
     internal func sizeWithFillingWidthAndFixedHeight(
-        containerWidth: CGFloat?,
+        containerWidth: CGFloat,
         height: CGFloat,
         isHeightForced: Bool = true
     ) -> CGSize {
-        let targetWidth = containerWidth?.nonZero.map { containerWidth in
+        let targetWidth = containerWidth.nonZero.map { containerWidth in
             containerWidth.isInfinite
                 ? UIView.layoutFittingExpandedSize.width
                 : containerWidth
@@ -354,7 +354,7 @@ extension UIView {
 
         let size = systemLayoutSizeFitting(
             targetSize,
-            withHorizontalFittingPriority: containerWidth?.isNormal == true
+            withHorizontalFittingPriority: containerWidth.isNormal
                 ? .almostRequired
                 : .fittingSizeLevel,
             verticalFittingPriority: .almostRequired
@@ -385,17 +385,17 @@ extension UIView {
     ///   - maxHeight: Максимальная высота.
     /// - Returns: Соответствующие размеры.
     internal func sizeWithFillingWidthAndHuggingHeight(
-        containerWidth: CGFloat?,
-        containerHeight: CGFloat?,
+        containerWidth: CGFloat,
+        containerHeight: CGFloat,
         maxHeight: CGFloat?
     ) -> CGSize {
-        let targetWidth = containerWidth?.nonZero.map { containerWidth in
+        let targetWidth = containerWidth.nonZero.map { containerWidth in
             containerWidth.isInfinite
                 ? UIView.layoutFittingExpandedSize.width
                 : containerWidth
         } ?? UIView.layoutFittingCompressedSize.width
 
-        let targetHeight = containerHeight?.nonZero.map { containerHeight in
+        let targetHeight = containerHeight.nonZero.map { containerHeight in
             containerHeight.isInfinite
                 ? UIView.layoutFittingExpandedSize.height
                 : containerHeight
@@ -405,7 +405,7 @@ extension UIView {
 
         let size = systemLayoutSizeFitting(
             targetSize,
-            withHorizontalFittingPriority: containerWidth?.isNormal == true
+            withHorizontalFittingPriority: containerWidth.isNormal
                 ? .almostRequired
                 : .fittingSizeLevel,
             verticalFittingPriority: .fittingSizeLevel
@@ -436,16 +436,16 @@ extension UIView {
     ///   - containerHeight: Высота контейнера.
     /// - Returns: Соответствующие размеры.
     internal func sizeWithFillingWidthAndFillingHeight(
-        containerWidth: CGFloat?,
-        containerHeight: CGFloat?
+        containerWidth: CGFloat,
+        containerHeight: CGFloat
     ) -> CGSize {
-        let targetWidth = containerWidth?.nonZero.map { containerWidth in
+        let targetWidth = containerWidth.nonZero.map { containerWidth in
             containerWidth.isInfinite
                 ? UIView.layoutFittingExpandedSize.width
                 : containerWidth
         } ?? UIView.layoutFittingCompressedSize.width
 
-        let targetHeight = containerHeight?.nonZero.map { containerHeight in
+        let targetHeight = containerHeight.nonZero.map { containerHeight in
             containerHeight.isInfinite
                 ? UIView.layoutFittingExpandedSize.height
                 : containerHeight
@@ -455,10 +455,10 @@ extension UIView {
 
         return systemLayoutSizeFitting(
             targetSize,
-            withHorizontalFittingPriority: containerWidth?.isNormal == true
+            withHorizontalFittingPriority: containerWidth.isNormal
                 ? .almostRequired
                 : .fittingSizeLevel,
-            verticalFittingPriority: containerHeight?.isNormal == true
+            verticalFittingPriority: containerHeight.isNormal
                 ? .almostRequired
                 : .fittingSizeLevel,
         )

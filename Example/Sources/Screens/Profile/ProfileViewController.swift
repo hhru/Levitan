@@ -18,7 +18,7 @@ final class ProfileViewController: UIViewController {
 
         context = context
             .componentViewController(self)
-            .fallbackComponentSizeCache(FallbackComponentSizeCache())
+            .fallbackComponentCache(FallbackComponentCache())
             .textCache(TextCache())
 
         setupNavigationBar()

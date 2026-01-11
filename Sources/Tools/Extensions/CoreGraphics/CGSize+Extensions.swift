@@ -20,5 +20,9 @@ extension CGSize {
             height: height + insets.vertical
         )
     }
+
+    internal func contains(_ other: CGSize) -> Bool {
+        other.width <= width && other.height <= height
+    }
 }
 #endif

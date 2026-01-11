@@ -14,12 +14,6 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     private var content: Content?
     private var context: ComponentContext?
 
-    private var contentSize: FallbackComponentBodySize?
-
-    public override var intrinsicContentSize: CGSize {
-        contentSize?.intrinsic ?? super.intrinsicContentSize
-    }
-
     public override var canBecomeFirstResponder: Bool {
         contentView.canBecomeFirstResponder
     }
@@ -37,39 +31,6 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
 
         super.init(frame: frame)
 
-        setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
-
-        setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        setContentHuggingPriority(.defaultHigh, for: .vertical)
-
-        setupContentView()
-    }
-
-    @available(*, unavailable)
-    public required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    @discardableResult
-    public override func becomeFirstResponder() -> Bool {
-        contentView.becomeFirstResponder()
-    }
-
-    @discardableResult
-    public override func resignFirstResponder() -> Bool {
-        contentView.resignFirstResponder()
-    }
-
-    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        contentView.hitTest(point, with: event)
-    }
-
-    public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
-        contentView.point(inside: point, with: event)
-    }
-
-    private func setupContentView() {
         addSubview(contentView)
 
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -97,218 +58,93 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
             .activate()
     }
 
-    private func sizeWithFixedWidthAndFixedHeight(
-        fixedWidth: CGFloat,
-        fixedHeight: CGFloat
-    ) -> FallbackComponentBodySize {
-        let size = contentView.sizeWithFixedWidthAndFixedHeight(
-            width: fixedWidth,
-            height: fixedHeight
-        )
-
-        return FallbackComponentBodySize(size: size)
+    @available(*, unavailable)
+    public required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
-    private func sizeWithFixedWidthAndHuggingHeight(
-        fixedWidth: CGFloat,
-        proposedHeight: CGFloat?
-    ) -> FallbackComponentBodySize {
-        let size = contentView.sizeWithFixedWidthAndHuggingHeight(
-            width: fixedWidth,
-            containerHeight: proposedHeight,
-            maxHeight: proposedHeight
-        )
-
-        return FallbackComponentBodySize(size: size)
+    @discardableResult
+    public override func becomeFirstResponder() -> Bool {
+        contentView.becomeFirstResponder()
     }
 
-    private func sizeWithFixedWidthAndFillingHeight(
-        fixedWidth: CGFloat,
-        proposedHeight: CGFloat?
-    ) -> FallbackComponentBodySize {
-        let extrinsicSize = contentView.sizeWithFixedWidthAndFillingHeight(
-            width: fixedWidth,
-            containerHeight: proposedHeight
-        )
-
-        let intrinsicSize = CGSize(
-            width: fixedWidth,
-            height: UIView.noIntrinsicMetric
-        )
-
-        return FallbackComponentBodySize(
-            extrinsic: extrinsicSize,
-            intrinsic: intrinsicSize
-        )
+    @discardableResult
+    public override func resignFirstResponder() -> Bool {
+        contentView.resignFirstResponder()
     }
 
-    private func sizeWithHuggingWidthAndFixedHeight(
-        proposedWidth: CGFloat?,
-        fixedHeight: CGFloat
-    ) -> FallbackComponentBodySize {
-        let size = contentView.sizeWithHuggingWidthAndFixedHeight(
-            containerWidth: proposedWidth,
-            maxWidth: proposedWidth,
-            height: fixedHeight
-        )
-
-        return FallbackComponentBodySize(size: size)
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        contentView.hitTest(point, with: event)
     }
 
-    private func sizeWithHuggingWidthAndHuggingHeight(
-        proposedWidth: CGFloat?,
-        proposedHeight: CGFloat?
-    ) -> FallbackComponentBodySize {
-        let size = contentView.sizeWithHuggingWidthAndHuggingHeight(
-            containerWidth: proposedWidth,
-            maxWidth: proposedWidth,
-            containerHeight: proposedHeight,
-            maxHeight: proposedHeight
-        )
-
-        return FallbackComponentBodySize(size: size)
+    public override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+        contentView.point(inside: point, with: event)
     }
+}
 
-    private func sizeWithHuggingWidthAndFillingHeight(
-        proposedWidth: CGFloat?,
-        proposedHeight: CGFloat?
-    ) -> FallbackComponentBodySize {
-        let extrinsicSize = contentView.sizeWithHuggingWidthAndFillingHeight(
-            containerWidth: proposedWidth,
-            maxWidth: proposedWidth,
-            containerHeight: proposedHeight
-        )
+extension FallbackComponentBodyView {
 
-        let intrinsicSize = CGSize(
-            width: extrinsicSize.width,
-            height: UIView.noIntrinsicMetric
-        )
-
-        return FallbackComponentBodySize(
-            extrinsic: extrinsicSize,
-            intrinsic: intrinsicSize
-        )
-    }
-
-    private func sizeWithFillingWidthAndFixedHeight(
-        proposedWidth: CGFloat?,
-        fixedHeight: CGFloat
-    ) -> FallbackComponentBodySize {
-        let extrinsicSize = contentView.sizeWithFillingWidthAndFixedHeight(
-            containerWidth: proposedWidth,
-            height: fixedHeight
-        )
-
-        let intrinsicSize = CGSize(
-            width: UIView.noIntrinsicMetric,
-            height: fixedHeight
-        )
-
-        return FallbackComponentBodySize(
-            extrinsic: extrinsicSize,
-            intrinsic: intrinsicSize
-        )
-    }
-
-    private func sizeWithFillingWidthAndHuggingHeight(
-        proposedWidth: CGFloat?,
-        proposedHeight: CGFloat?
-    ) -> FallbackComponentBodySize {
-        let extrinsicSize = contentView.sizeWithFillingWidthAndHuggingHeight(
-            containerWidth: proposedWidth,
-            containerHeight: proposedHeight,
-            maxHeight: proposedHeight
-        )
-
-        let intrinsicSize = CGSize(
-            width: UIView.noIntrinsicMetric,
-            height: extrinsicSize.height
-        )
-
-        return FallbackComponentBodySize(
-            extrinsic: extrinsicSize,
-            intrinsic: intrinsicSize
-        )
-    }
-
-    private func sizeWithFillingWidthAndFillingHeight(
-        proposedWidth: CGFloat?,
-        proposedHeight: CGFloat?
-    ) -> FallbackComponentBodySize {
-        let extrinsicSize = contentView.sizeWithFillingWidthAndFillingHeight(
-            containerWidth: proposedWidth,
-            containerHeight: proposedHeight
-        )
-
-        let intrinsicSize = CGSize(
-            width: UIView.noIntrinsicMetric,
-            height: UIView.noIntrinsicMetric
-        )
-
-        return FallbackComponentBodySize(
-            extrinsic: extrinsicSize,
-            intrinsic: intrinsicSize
-        )
-    }
-
-    private func size(
-        proposedWidth: CGFloat?,
-        proposedHeight: CGFloat?,
-        sizing: ComponentSizing
-    ) -> FallbackComponentBodySize {
+    // swiftlint:disable:next function_body_length
+    private func size(proposedSize: CGSize, sizing: ComponentSizing) -> CGSize {
         switch (sizing.width, sizing.height) {
         case let (.fixed(fixedWidth), .fixed(fixedHeight)):
-            sizeWithFixedWidthAndFixedHeight(
-                fixedWidth: fixedWidth,
-                fixedHeight: fixedHeight
+            contentView.sizeWithFixedWidthAndFixedHeight(
+                width: fixedWidth,
+                height: fixedHeight
             )
 
         case let (.fixed(fixedWidth), .hug):
-            sizeWithFixedWidthAndHuggingHeight(
-                fixedWidth: fixedWidth,
-                proposedHeight: proposedHeight
+            contentView.sizeWithFixedWidthAndHuggingHeight(
+                width: fixedWidth,
+                containerHeight: proposedSize.height,
+                maxHeight: proposedSize.height
             )
 
         case let (.fixed(fixedWidth), .fill):
-            sizeWithFixedWidthAndFillingHeight(
-                fixedWidth: fixedWidth,
-                proposedHeight: proposedHeight
+            contentView.sizeWithFixedWidthAndFillingHeight(
+                width: fixedWidth,
+                containerHeight: proposedSize.height
             )
 
         case let (.hug, .fixed(fixedHeight)):
-            sizeWithHuggingWidthAndFixedHeight(
-                proposedWidth: proposedWidth,
-                fixedHeight: fixedHeight
+            contentView.sizeWithHuggingWidthAndFixedHeight(
+                containerWidth: proposedSize.width,
+                maxWidth: proposedSize.width,
+                height: fixedHeight
             )
 
         case (.hug, .hug):
-            sizeWithHuggingWidthAndHuggingHeight(
-                proposedWidth: proposedWidth,
-                proposedHeight: proposedHeight
+            contentView.sizeWithHuggingWidthAndHuggingHeight(
+                containerWidth: proposedSize.width,
+                maxWidth: proposedSize.width,
+                containerHeight: proposedSize.height,
+                maxHeight: proposedSize.height
             )
 
         case (.hug, .fill):
-            sizeWithHuggingWidthAndFillingHeight(
-                proposedWidth: proposedWidth,
-                proposedHeight: proposedHeight
+            contentView.sizeWithHuggingWidthAndFillingHeight(
+                containerWidth: proposedSize.width,
+                maxWidth: proposedSize.width,
+                containerHeight: proposedSize.height
             )
 
         case let (.fill, .fixed(fixedHeight)):
-            sizeWithFillingWidthAndFixedHeight(
-                proposedWidth: proposedWidth,
-                fixedHeight: fixedHeight
+            contentView.sizeWithFillingWidthAndFixedHeight(
+                containerWidth: proposedSize.width,
+                height: fixedHeight
             )
 
         case (.fill, .hug):
-            sizeWithFillingWidthAndHuggingHeight(
-                proposedWidth: proposedWidth,
-                proposedHeight: proposedHeight
+            contentView.sizeWithFillingWidthAndHuggingHeight(
+                containerWidth: proposedSize.width,
+                containerHeight: proposedSize.height,
+                maxHeight: proposedSize.height
             )
 
         case (.fill, .fill):
-            sizeWithFillingWidthAndFillingHeight(
-                proposedWidth: proposedWidth,
-                proposedHeight: proposedHeight
+            contentView.sizeWithFillingWidthAndFillingHeight(
+                containerWidth: proposedSize.width,
+                containerHeight: proposedSize.height
             )
         }
     }
@@ -316,33 +152,37 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
     private func size(
         content: Content,
         context: ComponentContext,
-        containerSize: CGSize,
-        proposedWidth: CGFloat?,
-        proposedHeight: CGFloat?
-    ) -> FallbackComponentBodySize {
-        let cacheSize = context
-            .fallbackComponentSizeCache?
-            .restoreSize(for: content, fitting: containerSize)
+        proposedSize: CGSize,
+        boundingSize: CGSize
+    ) -> CGSize {
+        let cache = context.fallbackComponentCache.value
+
+        let cacheSize = cache?.restoreSize(
+            for: content,
+            proposedSize: proposedSize,
+            boundingSize: boundingSize
+        )
 
         if let size = cacheSize {
             return size
         }
 
         let sizing = content.sizing(
-            fitting: containerSize,
+            fitting: boundingSize,
             context: context
         )
 
         let size = size(
-            proposedWidth: proposedWidth,
-            proposedHeight: proposedHeight,
+            proposedSize: proposedSize,
             sizing: sizing
         )
 
-        context.fallbackComponentSizeCache?.storeSize(
-            size,
+        cache?.storeSize(
             for: content,
-            fitting: containerSize
+            size: size,
+            sizing: sizing,
+            proposedSize: proposedSize,
+            boundingSize: boundingSize
         )
 
         return size
@@ -352,56 +192,34 @@ public final class FallbackComponentBodyView<Content: FallbackComponent>: UIView
 extension FallbackComponentBodyView {
 
     internal func layout(proposedWidth: CGFloat?, proposedHeight: CGFloat?) -> CGSize? {
-        Logger.debug(
-            ["\(Self.self).\(#function)"],
-            ["id:", context?.componentIdentifier ?? "nil"],
-            ["proposalWidth:", proposedWidth ?? "nil"],
-            ["proposalHeight:", proposedHeight ?? "nil"],
-            subsystem: "Component",
-            category: "FallbackComponentBodyView"
-        )
-
         guard let content, let context else {
-            return contentSize?.extrinsic
+            return nil
         }
 
-        let containerSize = CGSize(
+        // Считаем идеальные размеры как минимальные
+        let proposedSize = CGSize(
+            width: proposedWidth ?? .zero,
+            height: proposedHeight ?? .zero
+        )
+
+        // Для получения идеальных размеров не ограничиваем стратегии
+        let boundingSize = CGSize(
             width: proposedWidth ?? .infinity,
             height: proposedHeight ?? .infinity
         )
 
-        let size = size(
+        return size(
             content: content,
             context: context,
-            containerSize: containerSize,
-            proposedWidth: proposedWidth,
-            proposedHeight: proposedHeight
+            proposedSize: proposedSize,
+            boundingSize: boundingSize
         )
-
-        contentSize = size
-
-        Logger.debug(
-            ["\(Self.self).\(#function) -- END"],
-            ["size:", size.extrinsic],
-            subsystem: "Component",
-            category: "FallbackComponentBodyView"
-        )
-
-        return size.extrinsic
     }
 
     internal func update(with content: Content, context: ComponentContext) {
-        Logger.debug(
-            ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier ?? "nil"],
-            subsystem: "Component",
-            category: "FallbackComponentBodyView"
-        )
+        let cache = context.fallbackComponentCache.value
 
-        let cache = context.fallbackComponentSizeCache.value
-
-        let contentContext = context.componentLayoutInvalidation { [weak self, weak cache] in
-            self?.invalidateIntrinsicContentSize()
+        let contentContext = context.componentLayoutInvalidation { [weak cache] in
             cache?.resetSize(for: content)
         }
 
@@ -415,10 +233,6 @@ extension FallbackComponentBodyView {
             with: content,
             context: contentContext
         )
-
-        if contentSize != nil {
-            invalidateIntrinsicContentSize()
-        }
     }
 }
 #endif
