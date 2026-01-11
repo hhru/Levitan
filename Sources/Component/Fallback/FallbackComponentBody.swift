@@ -15,6 +15,7 @@ public struct FallbackComponentBody<Content: FallbackComponent> {
     internal let content: Content
 }
 
+// Хранилище для контекста, которого нет в приватном методе _overrideSizeThatFits
 private let componentContextAssociation = ObjectAssociation<ComponentContext>()
 
 extension FallbackComponentBody: UIViewRepresentable {
@@ -285,5 +286,4 @@ extension FallbackComponentBody {
         }
     }
 }
-
 #endif
