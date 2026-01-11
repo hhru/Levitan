@@ -1,12 +1,22 @@
 import SwiftUI
 
-internal struct TransitionModifier<Content: View>: TokenViewModifier {
+public struct TransitionModifier<Content: View> {
 
-    internal let transition: AnyTransition
-    internal let animation: AnimationToken?
+    public let transition: AnyTransition
+    public let animation: AnimationToken?
 
-    @ViewBuilder
-    internal func body(content: Content, theme: TokenTheme) -> some View {
+    public init(
+        transition: AnyTransition,
+        animation: AnimationToken?
+    ) {
+        self.transition = transition
+        self.animation = animation
+    }
+}
+
+extension TransitionModifier: TokenViewModifier {
+
+    public func body(content: Content, theme: TokenTheme) -> some View {
         if let animation = animation?.resolve(for: theme) {
             content.transition(transition.animation(animation.animation))
         } else {
@@ -20,7 +30,7 @@ extension View {
     public nonisolated func transition(
         _ transition: AnyTransition,
         animation: AnimationToken?
-    ) -> some View {
+    ) -> TokenModifiedView<TransitionModifier<Self>> {
         modifier(
             TransitionModifier(
                 transition: transition,

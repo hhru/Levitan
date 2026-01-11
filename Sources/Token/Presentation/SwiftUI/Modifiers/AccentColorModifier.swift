@@ -1,17 +1,26 @@
 import SwiftUI
 
-internal struct AccentColorModifier<Content: View>: TokenViewModifier {
+public struct AccentColorModifier<Content: View>: Hashable, Sendable {
 
-    internal let color: ColorToken?
+    public let color: ColorToken?
 
-    internal func body(content: Content, theme: TokenTheme) -> some View {
+    public init(color: ColorToken?) {
+        self.color = color
+    }
+}
+
+extension AccentColorModifier: TokenViewModifier {
+
+    public func body(content: Content, theme: TokenTheme) -> some View {
         content.accentColor(color?.color.resolve(for: theme))
     }
 }
 
 extension View {
 
-    public nonisolated func accentColor(_ color: ColorToken?) -> some View {
+    public nonisolated func accentColor(
+        _ color: ColorToken?
+    ) -> TokenModifiedView<AccentColorModifier<Self>> {
         modifier(AccentColorModifier(color: color))
     }
 }

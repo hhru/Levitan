@@ -1,4 +1,5 @@
 import CoreGraphics
+import Foundation
 
 public struct RectangleShape: CustomShape, Hashable {
 

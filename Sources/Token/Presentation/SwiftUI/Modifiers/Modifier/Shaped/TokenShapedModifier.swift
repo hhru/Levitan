@@ -1,6 +1,6 @@
 import SwiftUI
 
-public protocol TokenShapedModifier: TokenViewModifier {
+public protocol TokenShapedModifier {
 
     var shape: ShapeToken? { get }
     var shapeInsets: SpacingToken? { get }

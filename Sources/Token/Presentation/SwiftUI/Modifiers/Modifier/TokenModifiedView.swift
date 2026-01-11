@@ -8,7 +8,7 @@ public struct TokenModifiedView<Modifier: TokenViewModifier> {
     public let content: Content
     public let modifier: Modifier
 
-    @Environment(\.tokenTheme)
+    @ViewEnvironment(\.tokenTheme)
     private var theme: TokenTheme
 
     public init(
@@ -19,6 +19,18 @@ public struct TokenModifiedView<Modifier: TokenViewModifier> {
         self.modifier = modifier
     }
 }
+
+extension TokenModifiedView: Equatable where
+    Content: Equatable,
+    Modifier: Equatable { }
+
+extension TokenModifiedView: Hashable where
+    Content: Hashable,
+    Modifier: Hashable { }
+
+extension TokenModifiedView: Sendable where
+    Content: Sendable,
+    Modifier: Sendable { }
 
 extension TokenModifiedView: View {
 
