@@ -3,13 +3,13 @@ import UIKit
 
 extension ImageValue: TextPart {
 
-    public func attributedText(context: ComponentContext) -> NSAttributedString {
+    public func attributedText(context: TextContext) -> NSAttributedString {
         let contextTypography = context
-            .textTypography
+            .typography
             .resolve(for: context.tokenTheme)
 
         let typography = context
-            .textDecoration
+            .decoration
             .decorate(typography: contextTypography, context: context)
 
         let foregroundColor = typography.foregroundColor

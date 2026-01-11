@@ -3,7 +3,7 @@ import UIKit
 
 extension UIImage: TextPart {
 
-    public func attributedText(context: ComponentContext) -> NSAttributedString {
+    public func attributedText(context: TextContext) -> NSAttributedString {
         ImageValue(source: .uiImage(self)).attributedText(context: context)
     }
 }

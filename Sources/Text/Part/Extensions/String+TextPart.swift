@@ -3,13 +3,13 @@ import Foundation
 
 extension String: TextPart {
 
-    public func attributedText(context: ComponentContext) -> NSAttributedString {
+    public func attributedText(context: TextContext) -> NSAttributedString {
         let typography = context
-            .textTypography
+            .typography
             .resolve(for: context.tokenTheme)
 
         let attributes = context
-            .textDecoration
+            .decoration
             .decorate(typography: typography, context: context)
             .attributes
 

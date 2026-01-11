@@ -20,11 +20,11 @@ extension AnyTextPart: TextPart {
         wrapped.isEnabled
     }
 
-    public var tapAction: (@Sendable @MainActor () -> Void)? {
+    public var tapAction: (@MainActor () -> Void)? {
         wrapped.tapAction
     }
 
-    public func attributedText(context: ComponentContext) -> NSAttributedString {
+    public func attributedText(context: TextContext) -> NSAttributedString {
         wrapped.attributedText(context: context)
     }
 }

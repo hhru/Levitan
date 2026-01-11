@@ -15,7 +15,7 @@ public struct AnyTextDecorator: TextDecorator {
 
     public func decorate(
         typography: TypographyValue,
-        context: ComponentContext
+        context: TextContext
     ) -> TypographyValue {
         wrapped.decorate(
             typography: typography,

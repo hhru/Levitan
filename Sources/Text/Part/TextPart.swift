@@ -4,9 +4,9 @@ import Foundation
 public protocol TextPart: Hashable, Sendable {
 
     var isEnabled: Bool { get }
-    var tapAction: (@Sendable @MainActor () -> Void)? { get }
+    var tapAction: (@MainActor () -> Void)? { get }
 
-    func attributedText(context: ComponentContext) -> NSAttributedString
+    func attributedText(context: TextContext) -> NSAttributedString
 }
 
 extension TextPart {
@@ -15,7 +15,7 @@ extension TextPart {
         true
     }
 
-    public var tapAction: (@Sendable @MainActor () -> Void)? {
+    public var tapAction: (@MainActor () -> Void)? {
         nil
     }
 
