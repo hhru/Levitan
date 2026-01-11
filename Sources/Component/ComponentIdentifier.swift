@@ -55,6 +55,37 @@ public struct ComponentIdentifier: Hashable, @unchecked Sendable {
     }
 }
 
+extension ComponentIdentifier {
+
+    /// Определяет равенство идентификатора и Hashable-значения любого типа.
+    ///
+    /// Возвращает `true`, если сами экземпляры равны,
+    /// либо если значение идентификатора равно другому значению,
+    /// но при этом у него отсутствуют уточнения.
+    ///
+    /// - Parameters:
+    ///   - lhs: Идентификатор компонента.
+    ///   - rhs: Hashable-значение идентификатора.
+    /// - Returns: Результат сравнения.
+    public static func == (lhs: Self, rhs: AnyHashable) -> Bool {
+        ((lhs as AnyHashable) == rhs) || (lhs.value == rhs && lhs.traits == nil)
+    }
+
+    /// Определяет равенство Hashable-значения любого типа и идентификатора.
+    ///
+    /// Возвращает `true`, если сами экземпляры равны,
+    /// либо если значение идентификатора равно другому значению,
+    /// но при этом у него отсутствуют уточнения.
+    ///
+    /// - Parameters:
+    ///   - lhs: Hashable-значение идентификатора.
+    ///   - rhs: Идентификатор компонента.
+    /// - Returns: Результат сравнения.
+    public static func == (lhs: AnyHashable, rhs: Self) -> Bool {
+        (lhs == (rhs as AnyHashable)) || (lhs == rhs.value && rhs.traits == nil)
+    }
+}
+
 extension ComponentIdentifier: CustomStringConvertible {
 
     public var description: String {
