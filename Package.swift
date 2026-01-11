@@ -4,8 +4,8 @@ import PackageDescription
 let package = Package(
     name: "Levitan",
     platforms: [
-        .iOS(.v14),
-        .tvOS(.v14)
+        .iOS(.v15),
+        .tvOS(.v15)
     ],
     products: [
         .library(
