@@ -128,7 +128,6 @@
 		C02C89FA2F0266B400A2FE9F /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89682F0266B400A2FE9F /* View+Extensions.swift */; };
 		C02C89FB2F0266B400A2FE9F /* TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88132F0266B400A2FE9F /* TextDecorator.swift */; };
 		C02C89FC2F0266B400A2FE9F /* TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E12F0266B400A2FE9F /* TokenView.swift */; };
-		C02C89FD2F0266B400A2FE9F /* FallbackComponentBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87DF2F0266B400A2FE9F /* FallbackComponentBodyView.swift */; };
 		C02C89FE2F0266B400A2FE9F /* DifferenceOccurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89492F0266B400A2FE9F /* DifferenceOccurrence.swift */; };
 		C02C89FF2F0266B400A2FE9F /* DifferenceStageSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C894A2F0266B400A2FE9F /* DifferenceStageSections.swift */; };
 		C02C8A002F0266B400A2FE9F /* ResizingModeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88792F0266B400A2FE9F /* ResizingModeDecorator.swift */; };
@@ -429,7 +428,6 @@
 		C02C8B452F0266B400A2FE9F /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89682F0266B400A2FE9F /* View+Extensions.swift */; };
 		C02C8B462F0266B400A2FE9F /* TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88132F0266B400A2FE9F /* TextDecorator.swift */; };
 		C02C8B472F0266B400A2FE9F /* TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E12F0266B400A2FE9F /* TokenView.swift */; };
-		C02C8B482F0266B400A2FE9F /* FallbackComponentBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87DF2F0266B400A2FE9F /* FallbackComponentBodyView.swift */; };
 		C02C8B492F0266B400A2FE9F /* DifferenceOccurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89492F0266B400A2FE9F /* DifferenceOccurrence.swift */; };
 		C02C8B4A2F0266B400A2FE9F /* DifferenceStageSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C894A2F0266B400A2FE9F /* DifferenceStageSections.swift */; };
 		C02C8B4B2F0266B400A2FE9F /* ResizingModeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88792F0266B400A2FE9F /* ResizingModeDecorator.swift */; };
@@ -730,7 +728,6 @@
 		C02C8C902F0266B400A2FE9F /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89682F0266B400A2FE9F /* View+Extensions.swift */; };
 		C02C8C912F0266B400A2FE9F /* TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88132F0266B400A2FE9F /* TextDecorator.swift */; };
 		C02C8C922F0266B400A2FE9F /* TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E12F0266B400A2FE9F /* TokenView.swift */; };
-		C02C8C932F0266B400A2FE9F /* FallbackComponentBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87DF2F0266B400A2FE9F /* FallbackComponentBodyView.swift */; };
 		C02C8C942F0266B400A2FE9F /* DifferenceOccurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89492F0266B400A2FE9F /* DifferenceOccurrence.swift */; };
 		C02C8C952F0266B400A2FE9F /* DifferenceStageSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C894A2F0266B400A2FE9F /* DifferenceStageSections.swift */; };
 		C02C8C962F0266B400A2FE9F /* ResizingModeDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88792F0266B400A2FE9F /* ResizingModeDecorator.swift */; };
@@ -1368,7 +1365,6 @@
 		C02C87DA2F0266B400A2FE9F /* EnvironmentValues+ComponentLayoutInvalidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentLayoutInvalidation.swift"; sourceTree = "<group>"; };
 		C02C87DB2F0266B400A2FE9F /* EnvironmentValues+ComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentViewController.swift"; sourceTree = "<group>"; };
 		C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBody.swift; sourceTree = "<group>"; };
-		C02C87DF2F0266B400A2FE9F /* FallbackComponentBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBodyView.swift; sourceTree = "<group>"; };
 		C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+FallbackComponentCache.swift"; sourceTree = "<group>"; };
 		C02C87E52F0266B400A2FE9F /* FallbackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponent.swift; sourceTree = "<group>"; };
 		C02C87E62F0266B400A2FE9F /* FallbackComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentView.swift; sourceTree = "<group>"; };
@@ -1898,15 +1894,6 @@
 			path = Environment;
 			sourceTree = "<group>";
 		};
-		C02C87E02F0266B400A2FE9F /* Body */ = {
-			isa = PBXGroup;
-			children = (
-				C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */,
-				C02C87DF2F0266B400A2FE9F /* FallbackComponentBodyView.swift */,
-			);
-			path = Body;
-			sourceTree = "<group>";
-		};
 		C02C87E42F0266B400A2FE9F /* Cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -1921,9 +1908,9 @@
 		C02C87E72F0266B400A2FE9F /* Fallback */ = {
 			isa = PBXGroup;
 			children = (
-				C02C87E02F0266B400A2FE9F /* Body */,
 				C02C87E42F0266B400A2FE9F /* Cache */,
 				C02C87E52F0266B400A2FE9F /* FallbackComponent.swift */,
+				C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */,
 				C02C87E62F0266B400A2FE9F /* FallbackComponentView.swift */,
 			);
 			path = Fallback;
@@ -3920,7 +3907,6 @@
 				C02C8C902F0266B400A2FE9F /* View+Extensions.swift in Sources */,
 				C02C8C912F0266B400A2FE9F /* TextDecorator.swift in Sources */,
 				C02C8C922F0266B400A2FE9F /* TokenView.swift in Sources */,
-				C02C8C932F0266B400A2FE9F /* FallbackComponentBodyView.swift in Sources */,
 				C02C8C942F0266B400A2FE9F /* DifferenceOccurrence.swift in Sources */,
 				C02C8C952F0266B400A2FE9F /* DifferenceStageSections.swift in Sources */,
 				C0C8A8E32F07B972001651F6 /* UIView+Extensions.swift in Sources */,
@@ -4360,7 +4346,6 @@
 				C02C89FA2F0266B400A2FE9F /* View+Extensions.swift in Sources */,
 				C02C89FB2F0266B400A2FE9F /* TextDecorator.swift in Sources */,
 				C02C89FC2F0266B400A2FE9F /* TokenView.swift in Sources */,
-				C02C89FD2F0266B400A2FE9F /* FallbackComponentBodyView.swift in Sources */,
 				C02C89FE2F0266B400A2FE9F /* DifferenceOccurrence.swift in Sources */,
 				C02C89FF2F0266B400A2FE9F /* DifferenceStageSections.swift in Sources */,
 				C0C8A8E22F07B972001651F6 /* UIView+Extensions.swift in Sources */,
@@ -4722,7 +4707,6 @@
 				C02C8B452F0266B400A2FE9F /* View+Extensions.swift in Sources */,
 				C02C8B462F0266B400A2FE9F /* TextDecorator.swift in Sources */,
 				C02C8B472F0266B400A2FE9F /* TokenView.swift in Sources */,
-				C02C8B482F0266B400A2FE9F /* FallbackComponentBodyView.swift in Sources */,
 				C02C8B492F0266B400A2FE9F /* DifferenceOccurrence.swift in Sources */,
 				C02C8B4A2F0266B400A2FE9F /* DifferenceStageSections.swift in Sources */,
 				C02C8B4B2F0266B400A2FE9F /* ResizingModeDecorator.swift in Sources */,
