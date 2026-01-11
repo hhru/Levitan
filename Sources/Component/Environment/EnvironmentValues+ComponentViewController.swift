@@ -59,7 +59,7 @@ extension ComponentContext {
     ///
     /// Если ближайший экземпляр `UIViewController` не определен,
     /// то система попытается самостоятельно найти его по цепочке `UIResponder`.
-    public func componentViewController(_ viewController: UIViewController) -> Self {
+    public func componentViewController(_ viewController: UIViewController?) -> Self {
         self.componentViewControllerStorage(
             ComponentViewControllerStorage { [weak viewController] in
                 viewController
