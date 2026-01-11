@@ -3,10 +3,28 @@ import SwiftUI
 
 internal struct ComponentLayoutInvalidationEnvironmentKey: EnvironmentKey {
 
-    internal static let defaultValue: @MainActor () -> Void = { }
+    internal static let defaultValue: [@MainActor () -> Void] = []
 }
 
 extension EnvironmentValues {
+
+    /// Действия для инвалидации лэйаута.
+    ///
+    /// Выполняются компонентом при изменении его внутренних размеров
+    /// исключительно после изменения внутреннего состояния.
+    ///
+    /// Каждый компонент может добавлять дополнительные действия
+    /// для инвалидации своих размеров дочерними компонентами.
+    /// Например, встроенная коллекция инвалидирует свой лэйаут
+    /// и вызывает инвалидацию у родительской коллекции.
+    ///
+    /// - Warning: Не рекомендуется выполнять инвалидацию при изменении внешнего состояния,
+    ///            переданного через байндинги или через ручное связывание замыканиями.
+    ///            Компонент должен выполнять эти действия, только если изменилось его собственное состояние.
+    public var componentLayoutInvalidation: [@MainActor () -> Void] {
+        get { self[ComponentLayoutInvalidationEnvironmentKey.self] }
+        set { self[ComponentLayoutInvalidationEnvironmentKey.self] = newValue }
+    }
 
     /// Действие для инвалидации лэйаута.
     ///
@@ -18,12 +36,15 @@ extension EnvironmentValues {
     /// Например, встроенная коллекция инвалидирует свой лэйаут
     /// и вызывает инвалидацию у родительской коллекции.
     ///
-    /// - Warning: Не рекомендуется вызывать инвалидацию при изменении внешнего состояния,
+    /// - Warning: Не рекомендуется выполнять инвалидацию при изменении внешнего состояния,
     ///            переданного через байндинги или через ручное связывание замыканиями.
-    ///            Компонент должен выполнять это действие только, если изменилось его собственное состояние.
-    public internal(set) var invalidateComponentLayout: @MainActor () -> Void {
-        get { self[ComponentLayoutInvalidationEnvironmentKey.self] }
-        set { self[ComponentLayoutInvalidationEnvironmentKey.self] = newValue }
+    ///            Компонент должен выполнять это действие, только если изменилось его собственное состояние.
+    public var invalidateComponentLayout: @MainActor () -> Void {
+        { [componentLayoutInvalidation] in
+            for invalidation in componentLayoutInvalidation {
+                invalidation()
+            }
+        }
     }
 }
 
@@ -36,11 +57,8 @@ extension ComponentContext {
     /// - Parameter invalidation: Дополнительное действие для инвалидации лэйаута.
     /// - Returns: Окружение с добавленным действием для инвалидации лэйаута.
     public func componentLayoutInvalidation(_ invalidation: @escaping @MainActor () -> Void) -> Self {
-        transformEnvironment(\.invalidateComponentLayout) { currentInvalidation in
-            currentInvalidation = { [currentInvalidation] in
-                invalidation()
-                currentInvalidation()
-            }
+        transformEnvironment(\.componentLayoutInvalidation) { invalidations in
+            invalidations.append(invalidation)
         }
     }
 }

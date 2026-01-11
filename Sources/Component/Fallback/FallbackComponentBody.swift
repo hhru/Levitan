@@ -15,7 +15,8 @@ public struct FallbackComponentBody<Content: FallbackComponent> {
     internal let content: Content
 }
 
-// Хранилище для контекста, которого нет в приватном методе _overrideSizeThatFits
+// Хранилище для контекста, которого нет в приватном методе _overrideSizeThatFits,
+// можно удалить после отказа от iOS 15.
 private let componentContextAssociation = ObjectAssociation<ComponentContext>()
 
 extension FallbackComponentBody: UIViewRepresentable {
