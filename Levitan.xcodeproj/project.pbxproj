@@ -916,9 +916,6 @@
 		C02C8D5C2F0266B400A2FE9F /* AlignmentDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88342F0266B400A2FE9F /* AlignmentDecorator.swift */; };
 		C02C8D5D2F0266B400A2FE9F /* StrikethroughDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C880E2F0266B400A2FE9F /* StrikethroughDecorator+TextDecorator.swift */; };
 		C02C8D5E2F0266B400A2FE9F /* EnvironmentValues+ComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87DB2F0266B400A2FE9F /* EnvironmentValues+ComponentViewController.swift */; };
-		C030470E2F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030470D2F13FF150026BCA4 /* FallbackComponentBodyCoordinator.swift */; };
-		C030470F2F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030470D2F13FF150026BCA4 /* FallbackComponentBodyCoordinator.swift */; };
-		C03047102F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030470D2F13FF150026BCA4 /* FallbackComponentBodyCoordinator.swift */; };
 		C043A2BE2DCE37D700F6C58A /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; };
 		C043A2BF2DCE37D700F6C58A /* Levitan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C057F01823CB8EEB00C2D895 /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C057F00E23CB8EEB00C2D895 /* Levitan.framework */; };
@@ -1652,7 +1649,6 @@
 		C02C897A2F0266B400A2FE9F /* MethodSwizzler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodSwizzler.swift; sourceTree = "<group>"; };
 		C02C897B2F0266B400A2FE9F /* Nullable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nullable.swift; sourceTree = "<group>"; };
 		C02C897C2F0266B400A2FE9F /* ObjectAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
-		C030470D2F13FF150026BCA4 /* FallbackComponentBodyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBodyCoordinator.swift; sourceTree = "<group>"; };
 		C043A2CC2DCE382400F6C58A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C057F00E23CB8EEB00C2D895 /* Levitan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Levitan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C057F01223CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1912,9 +1908,9 @@
 		C02C87E72F0266B400A2FE9F /* Fallback */ = {
 			isa = PBXGroup;
 			children = (
-				C030470C2F13FF0D0026BCA4 /* Body */,
 				C02C87E42F0266B400A2FE9F /* Cache */,
 				C02C87E52F0266B400A2FE9F /* FallbackComponent.swift */,
+				C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */,
 				C02C87E62F0266B400A2FE9F /* FallbackComponentView.swift */,
 			);
 			path = Fallback;
@@ -3022,15 +3018,6 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		C030470C2F13FF0D0026BCA4 /* Body */ = {
-			isa = PBXGroup;
-			children = (
-				C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */,
-				C030470D2F13FF150026BCA4 /* FallbackComponentBodyCoordinator.swift */,
-			);
-			path = Body;
-			sourceTree = "<group>";
-		};
 		C057F00423CB8EEB00C2D895 = {
 			isa = PBXGroup;
 			children = (
@@ -3715,7 +3702,6 @@
 				C02C8C1D2F0266B400A2FE9F /* FontSizeDecorator.swift in Sources */,
 				C02C8C1E2F0266B400A2FE9F /* TextCache.swift in Sources */,
 				C02C8C1F2F0266B400A2FE9F /* DecorableByDuration.swift in Sources */,
-				C030470F2F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */,
 				C02C8C202F0266B400A2FE9F /* AnyTextPart.swift in Sources */,
 				C02C8C212F0266B400A2FE9F /* FallbackComponentView.swift in Sources */,
 				C029BD1D2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */,
@@ -4155,7 +4141,6 @@
 				C02C89872F0266B400A2FE9F /* FontSizeDecorator.swift in Sources */,
 				C02C89882F0266B400A2FE9F /* TextCache.swift in Sources */,
 				C02C89892F0266B400A2FE9F /* DecorableByDuration.swift in Sources */,
-				C030470E2F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */,
 				C02C898A2F0266B400A2FE9F /* AnyTextPart.swift in Sources */,
 				C02C898B2F0266B400A2FE9F /* FallbackComponentView.swift in Sources */,
 				C029BD1C2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */,
@@ -4946,7 +4931,6 @@
 				C02C8BD62F0266B400A2FE9F /* UIViewController+TokenView.swift in Sources */,
 				C02C8BD72F0266B400A2FE9F /* TokenViewPropertyBinding.swift in Sources */,
 				C02C8BD82F0266B400A2FE9F /* Double+TokenValue.swift in Sources */,
-				C03047102F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */,
 				C0C8B8922F09AFA30029D19F /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8BDA2F0266B400A2FE9F /* TokenViewProperties+UILabel.swift in Sources */,
 				C02C8BDB2F0266B400A2FE9F /* TokenThemeUnit.swift in Sources */,
