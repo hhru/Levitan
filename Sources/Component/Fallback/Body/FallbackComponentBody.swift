@@ -17,10 +17,24 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
     public let content: Content
 
     public func makeUIView(context: Context) -> UIView {
-        UIView()
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.environment.componentIdentifier ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBody"
+        )
+
+        return UIView()
     }
 
     public func updateUIView(_ view: UIView, context: Context) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.environment.componentIdentifier ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBody"
+        )
+
         let context = context
             .environment
             .componentContext
@@ -37,10 +51,28 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
         uiView: UIView,
         context: Context
     ) -> CGSize? {
-        uiView.layout(
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.environment.componentIdentifier ?? "nil"],
+            ["proposalWidth:", proposal.width ?? "nil"],
+            ["proposalHeight:", proposal.height ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBody"
+        )
+
+        let size = uiView.layout(
             proposedWidth: proposal.width,
             proposedHeight: proposal.height
         )
+
+        Logger.debug(
+            ["\(Self.self).\(#function) -- END"],
+            ["size:", size ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBody"
+        )
+
+        return size
     }
 
     /// Приватное API для определения размеров.
@@ -71,10 +103,25 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
             .first { $0.label == "height" }?
             .value as? CGFloat
 
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["proposalWidth:", proposalWidth ?? "nil"],
+            ["proposalHeight:", proposalHeight ?? "nil"],
+            subsystem: "Component",
+            category: "FallbackComponentBody"
+        )
+
         size = uiView.layout(
             proposedWidth: proposalWidth,
             proposedHeight: proposalHeight
         ) ?? size
+
+        Logger.debug(
+            ["\(Self.self).\(#function) -- END"],
+            ["size:", size],
+            subsystem: "Component",
+            category: "FallbackComponentBody"
+        )
     }
 }
 #endif
