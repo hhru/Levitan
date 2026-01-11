@@ -1,4 +1,5 @@
 import CoreGraphics
+import Foundation
 
 internal struct AlphaDecorator<Value: DecorableByAlpha>: TokenDecorator {
 

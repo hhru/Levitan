@@ -1,4 +1,5 @@
 import CoreGraphics
+import Foundation
 
 extension CGSize:
     @retroactive @unchecked Sendable,

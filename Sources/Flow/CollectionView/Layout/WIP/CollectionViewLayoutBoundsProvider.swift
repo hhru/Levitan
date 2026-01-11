@@ -1,5 +1,6 @@
 #if canImport(UIKit)
-import CoreFoundation
+import CoreGraphics
+import Foundation
 
 @MainActor
 internal protocol CollectionViewLayoutBoundsProvider {
