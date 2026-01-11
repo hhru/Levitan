@@ -43,7 +43,7 @@ final class ChatViewController: UIViewController {
             .componentViewController(self)
             .fallbackComponentCache(FallbackComponentCache())
             .textCache(TextCache())
-        
+
         setupNavigationBar()
         setupContentView()
         setupChatInputView()
