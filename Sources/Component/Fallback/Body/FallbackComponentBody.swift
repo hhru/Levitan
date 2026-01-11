@@ -19,6 +19,12 @@ extension FallbackComponentBody {
 
     @MainActor
     private static func setupCoordinatorIfNeeded(_ coordinator: Coordinator, context: ComponentContext) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            subsystem: "Component",
+            category: "FallbackComponentBody"
+        )
+
         let nearestViewController = context.componentViewController ?? coordinator
             .view
             .superview?
