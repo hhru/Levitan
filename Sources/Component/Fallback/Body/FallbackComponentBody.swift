@@ -10,23 +10,81 @@ import SwiftUI
 /// - SeeAlso: ``FallbackComponent``
 /// - SeeAlso: ``FallbackComponentView``
 /// - SeeAlso: ``ComponentContext``
-public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresentable {
+public struct FallbackComponentBody<Content: FallbackComponent> {
 
-    public typealias UIView = FallbackComponentBodyView<Content>
+    internal let content: Content
+}
 
-    public let content: Content
+extension FallbackComponentBody {
+
+    @MainActor
+    private static func setupCoordinatorIfNeeded(_ coordinator: Coordinator, context: ComponentContext) {
+        let nearestViewController = context.componentViewController ?? coordinator
+            .view
+            .superview?
+            .next(of: UIViewController.self)
+
+        let shouldIgnoreParentViewController = nearestViewController.map { viewController in
+            viewController is UINavigationController
+                || viewController is UITabBarController
+                || viewController is UISplitViewController
+        } ?? true
+
+        let parentViewController = shouldIgnoreParentViewController
+            ? nil
+            : nearestViewController
+
+        guard coordinator.parent !== parentViewController else {
+            return
+        }
+
+        resetCoordinatorIfNeeded(coordinator)
+
+        if let parentViewController {
+            parentViewController.addChild(coordinator)
+            coordinator.didMove(toParent: parentViewController)
+        }
+    }
+
+    @MainActor
+    private static func resetCoordinatorIfNeeded(_ coordinator: Coordinator) {
+        guard coordinator.parent != nil else {
+            return
+        }
+
+        coordinator.willMove(toParent: nil)
+        coordinator.removeFromParent()
+    }
+}
+
+extension FallbackComponentBody: UIViewRepresentable {
+
+    public static func dismantleUIView(_ uiView: UIView, coordinator: Coordinator) {
+        resetCoordinatorIfNeeded(coordinator)
+    }
+
+    public func makeCoordinator() -> FallbackComponentBodyCoordinator<Content> {
+        Coordinator()
+    }
 
     public func makeUIView(context: Context) -> UIView {
-        UIView()
+        context.coordinator.view
     }
 
     public func updateUIView(_ view: UIView, context: Context) {
+        let coordinator = context.coordinator
+
         let context = context
             .environment
             .componentContext
 
-        view.update(
-            with: content,
+        Self.setupCoordinatorIfNeeded(
+            coordinator,
+            context: context
+        )
+
+        coordinator.update(
+            content: content,
             context: context
         )
     }
@@ -37,7 +95,7 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
         uiView: UIView,
         context: Context
     ) -> CGSize? {
-        uiView.layout(
+        context.coordinator.sizeThatFits(
             proposedWidth: proposal.width,
             proposedHeight: proposal.height
         )
@@ -63,17 +121,21 @@ public struct FallbackComponentBody<Content: FallbackComponent>: UIViewRepresent
     ) {
         let children = Mirror(reflecting: proposedSize).children
 
-        let proposalWidth = children
+        let proposedWidth = children
             .first { $0.label == "width" }?
             .value as? CGFloat
 
-        let proposalHeight = children
+        let proposedHeight = children
             .first { $0.label == "height" }?
             .value as? CGFloat
 
-        size = uiView.layout(
-            proposedWidth: proposalWidth,
-            proposedHeight: proposalHeight
+        let coordinator = uiView
+            .next
+            .flatMap { $0 as? Coordinator }
+
+        size = coordinator?.sizeThatFits(
+            proposedWidth: proposedWidth,
+            proposedHeight: proposedHeight
         ) ?? size
     }
 }

@@ -26,14 +26,8 @@ import Foundation
 ///             .padding()
 ///     }
 ///
-///     func sizing(
-///         fitting size: CGSize,
-///         context: ComponentContext
-///     ) -> ComponentSizing {
-///         ComponentSizing(
-///             width: .fill,
-///             height: .hug
-///         )
+///     func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
+///         ComponentSizing(width: .fill, height: .hug)
 ///     }
 /// }
 /// ```

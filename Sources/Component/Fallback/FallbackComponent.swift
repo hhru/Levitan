@@ -76,11 +76,9 @@ import SwiftUI
 /// - SeeAlso: ``FallbackComponentBody``
 /// - SeeAlso: ``ComponentContext``
 /// - SeeAlso: ``Component``
-public protocol FallbackComponent: Component
-where UIView: FallbackComponentView { }
+public protocol FallbackComponent: Component where UIView: FallbackComponentView { }
 
-extension FallbackComponent
-where Body == FallbackComponentBody<Self> {
+extension FallbackComponent where Body == FallbackComponentBody<Self> {
 
     public var body: Body {
         FallbackComponentBody<Self>(content: self)

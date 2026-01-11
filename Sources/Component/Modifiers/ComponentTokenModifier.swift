@@ -1,26 +1,21 @@
-#if canImport(UIKit)
-import SwiftUI
+import Foundation
 
-/// Модификатор, который может быть применен к компонентам
-/// для изменения их представления или поведения.
+/// Модификатор токенов UI-компонента.
 ///
-/// Кроме стандартных полей протокола `ViewModifier` из SwiftUI,
-/// протокол `ComponentModifier` требует реализацию метода `sizing(content:fitting:context:)`,
+/// Кроме стандартных полей протокола `TokenViewModifier`,
+/// протокол `ComponentTokenModifier` требует реализацию метода `sizing(content:fitting:context:)`,
 /// сохраняя возможность встраивать компонент в Lazy-контейнер (например, коллекцию), например:
 ///
 /// ``` swift
-/// struct PressedEffectModifier: ComponentModifier {
+/// struct AccentColorModifier<Content: Component>: ComponentTokenModifier {
 ///
-///     let isPressed: Bool
-///     let anchor: UnitPoint
+///     let color: ColorToken?
 ///
-///     func body(content: Content) -> some View {
-///         content
-///             .scaleEffect(isPressed ? 0.95 : 1.0, anchor: anchor)
-///             .animation(.easeInOut(duration: 0.2), value: isPressed)
+///     func body(content: Content, theme: TokenTheme) -> some View {
+///         content.accentColor(color?.color.resolve(for: theme))
 ///     }
 ///
-///     func sizing<Content: Component>(
+///     func sizing(
 ///         content: Content,
 ///         fitting size: CGSize,
 ///         context: ComponentContext
@@ -36,27 +31,24 @@ import SwiftUI
 ///
 /// extension Component {
 ///
-///     nonisolated func pressedEffect(
-///         _ isPressed: Bool,
-///         anchor: UnitPoint = .center
-///     ) -> some Component {
-///         modifier(
-///             PressedEffectModifier(
-///                 isPressed: isPressed,
-///                 anchor: anchor
-///             )
-///         )
+///     public nonisolated func accentColor(_ color: ColorToken?) -> some Component {
+///         modifier(AccentColorModifier(color: color))
 ///     }
 /// }
 /// ```
 ///
 /// - SeeAlso: ``Component``
-public protocol ComponentModifier: ViewModifier, Equatable {
+/// - SeeAlso: ``TokenViewModifier``
+public protocol ComponentTokenModifier: TokenViewModifier, Equatable
+where Content: Component {
 
     /// Возвращает данные для определения размеров компонента.
     ///
     /// Используется при встраивании любого компонента в Lazy-контейнер (например, коллекцию)
     /// или при встраивании UIKit-компонента в SwiftUI-представление.
+    ///
+    /// Так как большинство модификаторов не меняют размеры компонентов,
+    /// реализация по умолчанию возвращает данные контента как есть.
     ///
     /// - Note: Может быть вызван многократно в рамках прохода лэйаута.
     ///
@@ -68,16 +60,30 @@ public protocol ComponentModifier: ViewModifier, Equatable {
     ///
     /// - SeeAlso: ``ComponentSizing``
     /// - SeeAlso: ``ComponentContext``
-    func sizing<Content: Component>(
+    func sizing(
         content: Content,
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing
 }
 
-extension ModifiedContent: Component where
-    Content: Component,
-    Modifier: ComponentModifier {
+extension ComponentTokenModifier {
+
+    public func sizing(
+        content: Content,
+        fitting size: CGSize,
+        context: ComponentContext
+    ) -> ComponentSizing {
+        content.sizing(
+            fitting: size,
+            context: context
+        )
+    }
+}
+
+extension TokenModifiedView: Component where
+    Modifier: ComponentTokenModifier,
+    Self: Equatable {
 
     public func sizing(
         fitting size: CGSize,
@@ -90,4 +96,3 @@ extension ModifiedContent: Component where
         )
     }
 }
-#endif

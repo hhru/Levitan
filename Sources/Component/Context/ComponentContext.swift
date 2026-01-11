@@ -87,41 +87,25 @@ import SwiftUI
 @dynamicMemberLookup
 public struct ComponentContext {
 
-    private let currentEnvironment: EnvironmentValues
-    private let hostingEnvironment: EnvironmentValues?
+    internal let environment: EnvironmentValues
+    internal let overrides: [ComponentContextOverride]
 
-    private let overrides: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride]
-
-    private init(
-        currentEnvironment: EnvironmentValues,
-        hostingEnvironment: EnvironmentValues?,
-        overrides: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride]
+    internal init(
+        environment: EnvironmentValues,
+        overrides: [ComponentContextOverride] = []
     ) {
-        self.currentEnvironment = currentEnvironment
-        self.hostingEnvironment = hostingEnvironment
-
+        self.environment = environment
         self.overrides = overrides
     }
 
-    internal init(environment: EnvironmentValues) {
-        self.currentEnvironment = environment
-        self.hostingEnvironment = environment
-
-        self.overrides = [:]
-    }
-
-    internal func hostingEnvironment(defaultEnvironment: EnvironmentValues) -> EnvironmentValues {
-        if hostingEnvironment != nil {
-            return currentEnvironment
+    internal func resolveEnvironment(_ environment: EnvironmentValues) -> EnvironmentValues {
+        overrides.reduce(into: environment) { environment, value in
+            value.override(for: &environment)
         }
-
-        return overrides
-            .values
-            .reduce(into: defaultEnvironment) { $1.override(for: &$0) }
     }
 
     internal func resolveValue<Value>(at keyPath: KeyPath<EnvironmentValues, Value>) -> Value {
-        currentEnvironment[keyPath: keyPath]
+        environment[keyPath: keyPath]
     }
 
     internal func overrideValue<Value>(
@@ -133,16 +117,18 @@ public struct ComponentContext {
             value: newValue
         )
 
-        var currentEnvironment = currentEnvironment
+        var environment = environment
 
-        override.override(for: &currentEnvironment)
+        environment[keyPath: keyPath] = newValue
 
         return Self(
-            currentEnvironment: currentEnvironment,
-            hostingEnvironment: hostingEnvironment,
-            overrides: overrides.updatingValue(override, forKey: keyPath)
+            environment: environment,
+            overrides: overrides.appending(override)
         )
     }
+}
+
+extension ComponentContext {
 
     /// Переопределяет переменную с заданным ключом, используя замыкание для модификации его значения.
     ///
@@ -181,8 +167,10 @@ public struct ComponentContext {
     ///
     /// - Parameter isDisabled: новое значение.
     /// - Returns: Окружение с переопределенной переменной.
-    public func disabled(_ isDisabled: Bool = true) -> Self {
-        self.isEnabled(!isDisabled && self.isEnabled)
+    public func disabled(_ isDisabled: Bool = true) -> ComponentContext {
+        transformEnvironment(\.isEnabled) { isEnabled in
+            isEnabled = isEnabled && !isDisabled
+        }
     }
 
     /// Извлекает значение для заданного ключа переменной окружения.
@@ -214,12 +202,8 @@ extension ComponentContext {
     /// Рекомендуется использовать в корневом UIKit-компоненте.
     /// Но также допускается использование по месту для обнуления контекста или в целях миграции.
     @MainActor
-    public static var `default`: ComponentContext {
-        Self(
-            currentEnvironment: .default,
-            hostingEnvironment: nil,
-            overrides: [:]
-        )
+    public static var `default`: Self {
+        Self(environment: .default)
     }
 }
 #endif
