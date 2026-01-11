@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C01142042F145369007EB0F6 /* FallbackComponentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01142032F145368007EB0F6 /* FallbackComponentBody.swift */; };
+		C01142052F145369007EB0F6 /* FallbackComponentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01142032F145368007EB0F6 /* FallbackComponentBody.swift */; };
+		C01142062F145369007EB0F6 /* FallbackComponentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01142032F145368007EB0F6 /* FallbackComponentBody.swift */; };
 		C029BD162F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */; };
 		C029BD172F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */; };
 		C029BD182F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */; };
@@ -157,7 +160,6 @@
 		C02C8A1E2F0266B400A2FE9F /* LineHeightDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88592F0266B400A2FE9F /* LineHeightDecorator.swift */; };
 		C02C8A1F2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C896D2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift */; };
 		C02C8A202F0266B400A2FE9F /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88322F0266B400A2FE9F /* TextView.swift */; };
-		C02C8A212F0266B400A2FE9F /* FallbackComponentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */; };
 		C02C8A222F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88C52F0266B400A2FE9F /* TokenViewProperties+UISlider.swift */; };
 		C02C8A232F0266B400A2FE9F /* RectangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C892C2F0266B400A2FE9F /* RectangleShape.swift */; };
 		C02C8A242F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88D32F0266B400A2FE9F /* CALayer+FrontLayer.swift */; };
@@ -457,7 +459,6 @@
 		C02C8B692F0266B400A2FE9F /* LineHeightDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88592F0266B400A2FE9F /* LineHeightDecorator.swift */; };
 		C02C8B6A2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C896D2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift */; };
 		C02C8B6B2F0266B400A2FE9F /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88322F0266B400A2FE9F /* TextView.swift */; };
-		C02C8B6C2F0266B400A2FE9F /* FallbackComponentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */; };
 		C02C8B6D2F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88C52F0266B400A2FE9F /* TokenViewProperties+UISlider.swift */; };
 		C02C8B6E2F0266B400A2FE9F /* RectangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C892C2F0266B400A2FE9F /* RectangleShape.swift */; };
 		C02C8B6F2F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88D32F0266B400A2FE9F /* CALayer+FrontLayer.swift */; };
@@ -757,7 +758,6 @@
 		C02C8CB42F0266B400A2FE9F /* LineHeightDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88592F0266B400A2FE9F /* LineHeightDecorator.swift */; };
 		C02C8CB52F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C896D2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift */; };
 		C02C8CB62F0266B400A2FE9F /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88322F0266B400A2FE9F /* TextView.swift */; };
-		C02C8CB72F0266B400A2FE9F /* FallbackComponentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */; };
 		C02C8CB82F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88C52F0266B400A2FE9F /* TokenViewProperties+UISlider.swift */; };
 		C02C8CB92F0266B400A2FE9F /* RectangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C892C2F0266B400A2FE9F /* RectangleShape.swift */; };
 		C02C8CBA2F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88D32F0266B400A2FE9F /* CALayer+FrontLayer.swift */; };
@@ -916,9 +916,6 @@
 		C02C8D5C2F0266B400A2FE9F /* AlignmentDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88342F0266B400A2FE9F /* AlignmentDecorator.swift */; };
 		C02C8D5D2F0266B400A2FE9F /* StrikethroughDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C880E2F0266B400A2FE9F /* StrikethroughDecorator+TextDecorator.swift */; };
 		C02C8D5E2F0266B400A2FE9F /* EnvironmentValues+ComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87DB2F0266B400A2FE9F /* EnvironmentValues+ComponentViewController.swift */; };
-		C030470E2F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030470D2F13FF150026BCA4 /* FallbackComponentBodyCoordinator.swift */; };
-		C030470F2F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030470D2F13FF150026BCA4 /* FallbackComponentBodyCoordinator.swift */; };
-		C03047102F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C030470D2F13FF150026BCA4 /* FallbackComponentBodyCoordinator.swift */; };
 		C043A2BE2DCE37D700F6C58A /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; };
 		C043A2BF2DCE37D700F6C58A /* Levitan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C057F01823CB8EEB00C2D895 /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C057F00E23CB8EEB00C2D895 /* Levitan.framework */; };
@@ -1089,6 +1086,7 @@
 
 /* Begin PBXFileReference section */
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
+		C01142032F145368007EB0F6 /* FallbackComponentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBody.swift; sourceTree = "<group>"; };
 		C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentCacheKey.swift; sourceTree = "<group>"; };
 		C029BD1A2F13979F0035B417 /* FallbackComponentCacheSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentCacheSize.swift; sourceTree = "<group>"; };
 		C029BD222F13AB3D0035B417 /* FallbackComponentCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentCache.swift; sourceTree = "<group>"; };
@@ -1109,7 +1107,6 @@
 		C02C87D92F0266B400A2FE9F /* EnvironmentValues+ComponentIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentIdentifier.swift"; sourceTree = "<group>"; };
 		C02C87DA2F0266B400A2FE9F /* EnvironmentValues+ComponentLayoutInvalidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentLayoutInvalidation.swift"; sourceTree = "<group>"; };
 		C02C87DB2F0266B400A2FE9F /* EnvironmentValues+ComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentViewController.swift"; sourceTree = "<group>"; };
-		C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBody.swift; sourceTree = "<group>"; };
 		C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+FallbackComponentCache.swift"; sourceTree = "<group>"; };
 		C02C87E52F0266B400A2FE9F /* FallbackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponent.swift; sourceTree = "<group>"; };
 		C02C87E62F0266B400A2FE9F /* FallbackComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentView.swift; sourceTree = "<group>"; };
@@ -1394,7 +1391,6 @@
 		C02C897A2F0266B400A2FE9F /* MethodSwizzler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodSwizzler.swift; sourceTree = "<group>"; };
 		C02C897B2F0266B400A2FE9F /* Nullable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nullable.swift; sourceTree = "<group>"; };
 		C02C897C2F0266B400A2FE9F /* ObjectAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
-		C030470D2F13FF150026BCA4 /* FallbackComponentBodyCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBodyCoordinator.swift; sourceTree = "<group>"; };
 		C043A2CC2DCE382400F6C58A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C057F00E23CB8EEB00C2D895 /* Levitan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Levitan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C057F01223CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1568,9 +1564,9 @@
 		C02C87E72F0266B400A2FE9F /* Fallback */ = {
 			isa = PBXGroup;
 			children = (
-				C030470C2F13FF0D0026BCA4 /* Body */,
 				C02C87E42F0266B400A2FE9F /* Cache */,
 				C02C87E52F0266B400A2FE9F /* FallbackComponent.swift */,
+				C01142032F145368007EB0F6 /* FallbackComponentBody.swift */,
 				C02C87E62F0266B400A2FE9F /* FallbackComponentView.swift */,
 			);
 			path = Fallback;
@@ -2677,15 +2673,6 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		C030470C2F13FF0D0026BCA4 /* Body */ = {
-			isa = PBXGroup;
-			children = (
-				C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */,
-				C030470D2F13FF150026BCA4 /* FallbackComponentBodyCoordinator.swift */,
-			);
-			path = Body;
-			sourceTree = "<group>";
-		};
 		C057F00423CB8EEB00C2D895 = {
 			isa = PBXGroup;
 			children = (
@@ -3069,7 +3056,6 @@
 				C02C8C1D2F0266B400A2FE9F /* FontSizeDecorator.swift in Sources */,
 				C02C8C1E2F0266B400A2FE9F /* TextCache.swift in Sources */,
 				C02C8C1F2F0266B400A2FE9F /* DecorableByDuration.swift in Sources */,
-				C030470F2F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */,
 				C02C8C202F0266B400A2FE9F /* AnyTextPart.swift in Sources */,
 				C02C8C212F0266B400A2FE9F /* FallbackComponentView.swift in Sources */,
 				C029BD1D2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */,
@@ -3224,7 +3210,6 @@
 				C02C8CB42F0266B400A2FE9F /* LineHeightDecorator.swift in Sources */,
 				C02C8CB52F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */,
 				C02C8CB62F0266B400A2FE9F /* TextView.swift in Sources */,
-				C02C8CB72F0266B400A2FE9F /* FallbackComponentBody.swift in Sources */,
 				C02C8CB82F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */,
 				C02C8CB92F0266B400A2FE9F /* RectangleShape.swift in Sources */,
 				C02C8CBA2F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */,
@@ -3332,6 +3317,7 @@
 				C02C8D1D2F0266B400A2FE9F /* DurationDecorator.swift in Sources */,
 				C02C8D1E2F0266B400A2FE9F /* DecorableByOutsets.swift in Sources */,
 				C02C8D1F2F0266B400A2FE9F /* DecorableByResizingMode.swift in Sources */,
+				C01142052F145369007EB0F6 /* FallbackComponentBody.swift in Sources */,
 				C02C8D202F0266B400A2FE9F /* DefaultTokenThemeResolver.swift in Sources */,
 				C02C8D212F0266B400A2FE9F /* UIViewController+TokenView.swift in Sources */,
 				C02C8D222F0266B400A2FE9F /* TokenViewPropertyBinding.swift in Sources */,
@@ -3423,7 +3409,6 @@
 				C02C89872F0266B400A2FE9F /* FontSizeDecorator.swift in Sources */,
 				C02C89882F0266B400A2FE9F /* TextCache.swift in Sources */,
 				C02C89892F0266B400A2FE9F /* DecorableByDuration.swift in Sources */,
-				C030470E2F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */,
 				C02C898A2F0266B400A2FE9F /* AnyTextPart.swift in Sources */,
 				C02C898B2F0266B400A2FE9F /* FallbackComponentView.swift in Sources */,
 				C029BD1C2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */,
@@ -3578,7 +3563,6 @@
 				C02C8A1E2F0266B400A2FE9F /* LineHeightDecorator.swift in Sources */,
 				C02C8A1F2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */,
 				C02C8A202F0266B400A2FE9F /* TextView.swift in Sources */,
-				C02C8A212F0266B400A2FE9F /* FallbackComponentBody.swift in Sources */,
 				C02C8A222F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */,
 				C02C8A232F0266B400A2FE9F /* RectangleShape.swift in Sources */,
 				C02C8A242F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */,
@@ -3686,6 +3670,7 @@
 				C02C8A872F0266B400A2FE9F /* DurationDecorator.swift in Sources */,
 				C02C8A882F0266B400A2FE9F /* DecorableByOutsets.swift in Sources */,
 				C02C8A892F0266B400A2FE9F /* DecorableByResizingMode.swift in Sources */,
+				C01142042F145369007EB0F6 /* FallbackComponentBody.swift in Sources */,
 				C02C8A8A2F0266B400A2FE9F /* DefaultTokenThemeResolver.swift in Sources */,
 				C02C8A8B2F0266B400A2FE9F /* UIViewController+TokenView.swift in Sources */,
 				C02C8A8C2F0266B400A2FE9F /* TokenViewPropertyBinding.swift in Sources */,
@@ -3934,7 +3919,6 @@
 				C02C8B692F0266B400A2FE9F /* LineHeightDecorator.swift in Sources */,
 				C02C8B6A2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */,
 				C02C8B6B2F0266B400A2FE9F /* TextView.swift in Sources */,
-				C02C8B6C2F0266B400A2FE9F /* FallbackComponentBody.swift in Sources */,
 				C02C8B6D2F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */,
 				C02C8B6E2F0266B400A2FE9F /* RectangleShape.swift in Sources */,
 				C02C8B6F2F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */,
@@ -3992,6 +3976,7 @@
 				C02C8BA42F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift in Sources */,
 				C02C8BA52F0266B400A2FE9F /* AnyTokenView.swift in Sources */,
 				C02C8BA62F0266B400A2FE9F /* CustomShape.swift in Sources */,
+				C01142062F145369007EB0F6 /* FallbackComponentBody.swift in Sources */,
 				C02C8BA72F0266B400A2FE9F /* TextInterpolation.swift in Sources */,
 				C02C8BA82F0266B400A2FE9F /* Collection+Extensions.swift in Sources */,
 				C02C8BA92F0266B400A2FE9F /* TokenViewDSL.swift in Sources */,
@@ -4042,7 +4027,6 @@
 				C02C8BD62F0266B400A2FE9F /* UIViewController+TokenView.swift in Sources */,
 				C02C8BD72F0266B400A2FE9F /* TokenViewPropertyBinding.swift in Sources */,
 				C02C8BD82F0266B400A2FE9F /* Double+TokenValue.swift in Sources */,
-				C03047102F13FF180026BCA4 /* FallbackComponentBodyCoordinator.swift in Sources */,
 				C0C8B8922F09AFA30029D19F /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8BDA2F0266B400A2FE9F /* TokenViewProperties+UILabel.swift in Sources */,
 				C02C8BDB2F0266B400A2FE9F /* TokenThemeUnit.swift in Sources */,
