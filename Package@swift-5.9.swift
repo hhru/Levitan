@@ -4,7 +4,6 @@ import PackageDescription
 let package = Package(
     name: "Levitan",
     platforms: [
-        .macOS(.v12),
         .iOS(.v14),
         .tvOS(.v14)
     ],

@@ -13,8 +13,6 @@ analyzer_rules:
   - unused_import
 
 only_rules:
-  - accessibility_label_for_image
-  - accessibility_trait_for_button
   - anonymous_argument_in_multiline_closure
   - array_init
   # - attributes
@@ -311,7 +309,7 @@ file_name:
     - main.swift
   prefix_pattern: ''
   suffix_pattern: '([+][A-z][A-z]+)+'
-  nested_type_separator: ''
+  nested_type_separator: '.'
 
 file_types_order:
   order:
