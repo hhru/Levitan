@@ -20,7 +20,7 @@ public final class ComponentHostingView<Content: View>: UIView {
     private var hostingController: HostingController?
     private var hostingRoot: HostingRoot?
 
-    private var componentViewControllerProvider: (() -> UIViewController?)?
+    private weak var componentViewController: UIViewController?
 
     public override var intrinsicContentSize: CGSize {
         hostingController?
@@ -111,7 +111,7 @@ extension ComponentHostingView {
             category: "ComponentHostingView"
         )
 
-        let nearestViewController = componentViewControllerProvider?()
+        let nearestViewController = componentViewController
             ?? superview.next(of: UIViewController.self)
 
         let shouldIgnoreParentViewController = nearestViewController.map { viewController in
@@ -252,7 +252,7 @@ extension ComponentHostingView: ComponentView {
             category: "ComponentHostingView"
         )
 
-        componentViewControllerProvider = context.componentViewControllerProvider
+        componentViewController = context.componentViewController
 
         let context = context
             .componentViewControllerProvider { [weak self] in

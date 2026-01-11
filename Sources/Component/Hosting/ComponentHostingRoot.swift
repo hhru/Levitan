@@ -13,8 +13,8 @@ internal struct ComponentHostingRoot<Content: View>: View {
         let environment = context.resolveEnvironment(environment)
 
         let theme = environment
-            .componentViewControllerProvider()?
-            .view?
+            .componentViewController?
+            .view
             .tokens
             .theme
 
