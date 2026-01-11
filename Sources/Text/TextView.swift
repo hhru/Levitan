@@ -405,9 +405,13 @@ extension TextView {
         fitting size: CGSize,
         context: ComponentContext
     ) -> CGSize {
+        if size.width < 1.0, size.height < 1.0 {
+            return .zero
+        }
+
         let maxSize = CGSize(
-            width: size.width.nonZero ?? 2.0,
-            height: size.height.nonZero ?? 2.0
+            width: size.width.nonZero ?? 1.0,
+            height: size.height.nonZero ?? 1.0
         )
 
         let attributedText = attributedText(
@@ -415,10 +419,15 @@ extension TextView {
             context: context
         )
 
-        return attributedText.size(
+        let attributedTextSize = attributedText.size(
             fitting: maxSize,
             lineLimit: content.lineLimit,
             lineBreakMode: content.lineBreakMode
+        )
+
+        return CGSize(
+            width: min(attributedTextSize.width, size.width),
+            height: attributedTextSize.height
         )
     }
 }
