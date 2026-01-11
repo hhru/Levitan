@@ -55,6 +55,53 @@ public struct ComponentIdentifier: Hashable, @unchecked Sendable {
     }
 }
 
+extension ComponentIdentifier {
+
+    /// Определяет равенство идентификатора компонента и Hashable-значения любого типа.
+    ///
+    /// Возвращает `true`, если сами экземпляры равны,
+    /// либо если значение идентификатора равно другому значению,
+    /// но при этом у него отсутствуют уточнения.
+    ///
+    /// - Parameters:
+    ///   - lhs: Идентификатор компонента.
+    ///   - rhs: Hashable-значение идентификатора.
+    /// - Returns: Результат сравнения.
+    public static func == (lhs: Self, rhs: AnyHashable) -> Bool {
+        if lhs as AnyHashable == rhs {
+            return true
+        }
+
+        if lhs == rhs as? ComponentIdentifier {
+            return true
+        }
+
+        return lhs.value == rhs && lhs.traits == nil
+    }
+
+    /// Определяет равенство Hashable-значения любого типа и идентификатора компонента.
+    ///
+    /// Возвращает `true`, если сами экземпляры равны,
+    /// либо если значение идентификатора равно другому значению,
+    /// но при этом у него отсутствуют уточнения.
+    ///
+    /// - Parameters:
+    ///   - lhs: Hashable-значение идентификатора.
+    ///   - rhs: Идентификатор компонента.
+    /// - Returns: Результат сравнения.
+    public static func == (lhs: AnyHashable, rhs: Self) -> Bool {
+        if lhs == rhs as AnyHashable {
+            return true
+        }
+
+        if lhs as? ComponentIdentifier == rhs {
+            return true
+        }
+
+        return lhs == rhs.value && rhs.traits == nil
+    }
+}
+
 extension ComponentIdentifier: CustomStringConvertible {
 
     public var description: String {
@@ -64,5 +111,49 @@ extension ComponentIdentifier: CustomStringConvertible {
 
         return "\(value)"
     }
+}
+
+/// Определяет равенство опционального идентификатора компонента и Hashable-значения любого типа.
+///
+/// Возвращает `true`, если сами экземпляры равны,
+/// либо если значение идентификатора равно другому значению,
+/// но при этом у него отсутствуют уточнения.
+///
+/// - Parameters:
+///   - lhs: Идентификатор компонента.
+///   - rhs: Hashable-значение идентификатора.
+/// - Returns: Результат сравнения.
+public func == (lhs: ComponentIdentifier?, rhs: AnyHashable) -> Bool {
+    if lhs as AnyHashable == rhs {
+        return true
+    }
+
+    if let lhs, (lhs as AnyHashable == rhs) || (lhs.value == rhs && lhs.traits == nil) {
+        return true
+    }
+
+    return false
+}
+
+/// Определяет равенство Hashable-значения любого типа и опционального идентификатора компонента.
+///
+/// Возвращает `true`, если сами экземпляры равны,
+/// либо если значение идентификатора равно другому значению,
+/// но при этом у него отсутствуют уточнения.
+///
+/// - Parameters:
+///   - lhs: Hashable-значение идентификатора.
+///   - rhs: Идентификатор компонента.
+/// - Returns: Результат сравнения.
+public func == (lhs: AnyHashable, rhs: ComponentIdentifier?) -> Bool {
+    if lhs == rhs as AnyHashable {
+        return true
+    }
+
+    if let rhs, (lhs == rhs as AnyHashable) || (lhs == rhs.value && rhs.traits == nil) {
+        return true
+    }
+
+    return false
 }
 #endif
