@@ -64,6 +64,12 @@ final class ChatViewController: UIViewController {
 
         subscribeToKeyboardNotifications()
     }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        updateContentInsets()
+    }
 }
 
 extension ChatViewController: KeyboardHandler {
@@ -188,7 +194,6 @@ extension ChatViewController {
 
         UIView.animate(withDuration: 0.1) {
             self.view.layoutIfNeeded()
-            self.updateContentInsets()
         }
     }
 }
