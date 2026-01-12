@@ -16,7 +16,9 @@ struct ChatInputButton: Equatable, Sendable {
 extension ChatInputButton: View {
 
     var body: some View {
-        Image(.send)
+        Image(systemName: "paperplane.fill")
+            .resizable()
+            .frame(width: 24.0, height: 24.0)
             .foregroundColor(Colors.accent)
             .padding(8.0)
             .onTap(tapAction)
