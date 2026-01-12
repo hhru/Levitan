@@ -136,9 +136,9 @@ extension PerformanceTracker {
 
         if frameDuration > Thresholds.hang {
             hangDuration += frameDuration - Thresholds.hang
+        } else {
+            hitchDuration += max(displayLink.timestamp - lastTargetFrameTimestamp, .zero)
         }
-
-        hitchDuration += max(displayLink.timestamp - lastTargetFrameTimestamp, .zero)
     }
 }
 
@@ -168,9 +168,9 @@ extension PerformanceTracker {
             "  - min FPS: \(minFPS)",
             "  - max FPS: \(maxFPS)",
             "  - mean FPS: \(meanFPS)\n",
-            "  - hitch duration: \(hitchDuration * 1000) ms",
+            "  - hitch duration: \(hitchDuration * 1000.0) ms",
             "  - hitch rate: \(hitchRate) ms / s\n",
-            "  - hang duration: \(hangDuration * 1000) ms",
+            "  - hang duration: \(hangDuration * 1000.0) ms",
             "  - hang rate: \(hangRate) s / h\n",
             separator: "\n"
         )
