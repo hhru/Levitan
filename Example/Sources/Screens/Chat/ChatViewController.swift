@@ -14,7 +14,7 @@ final class ChatViewController: UIViewController {
 
     private var context = ComponentContext.default
 
-    private let contentView = VerticalFlow.UIView()
+    private let contentView = VFlow.UIView()
     private let chatInputView = ChatInput.UIView()
 
     private var chatInputText = "" {
@@ -152,7 +152,7 @@ extension ChatViewController {
             .compactMap { messageGroupes[$0] }
             .compactMap { chatMessageSection(messages: $0) }
 
-        let content = VerticalFlow(sections: sections)
+        let content = VFlow(sections: sections)
             .scrollAlwaysBounces()
             .scrollAnchor(.bottomLeading)
             .pinnedViews(.header)
@@ -200,7 +200,7 @@ extension ChatViewController {
 
 extension ChatViewController {
 
-    private func chatMessageSection(messages: [ChatMessage]) -> VerticalFlowSection? {
+    private func chatMessageSection(messages: [ChatMessage]) -> VFlowSection? {
         guard let date = messages.first?.date else {
             return nil
         }
@@ -210,7 +210,7 @@ extension ChatViewController {
             .frame(width: .fill)
             .flowHeader()
 
-        return VerticalFlowSection(identifier: date) {
+        return VFlowSection(identifier: date) {
             messages.map { message in
                 chatMessageItem(message: message)
             }

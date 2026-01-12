@@ -13,7 +13,7 @@ final class ContactsViewController: UIViewController {
     private var context = ComponentContext.default
 
     private let searchController = UISearchController(searchResultsController: nil)
-    private let contentView = VerticalFlow.UIView()
+    private let contentView = VFlow.UIView()
 
     private var searchText = "" {
         didSet { updateContentView() }
@@ -118,7 +118,7 @@ extension ContactsViewController {
             }
         }
 
-        let content = VerticalFlow {
+        let content = VFlow {
             if searchText.isEmpty {
                 userSection(
                     title: "Favorites",
@@ -144,7 +144,7 @@ extension ContactsViewController {
 
 extension ContactsViewController {
 
-    private func userSection(title: String? = nil, users: [User]) -> VerticalFlowSection? {
+    private func userSection(title: String? = nil, users: [User]) -> VFlowSection? {
         guard !users.isEmpty else {
             return nil
         }
@@ -161,7 +161,7 @@ extension ContactsViewController {
                 .flowHeader()
         }
 
-        return VerticalFlowSection(
+        return VFlowSection(
             identifier: title,
             items: items,
             header: header

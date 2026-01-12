@@ -103,9 +103,9 @@ extension Token where Value == ThemeTypographies {
 
 class DebugViewController: UIViewController {
 
-    let flowView = VerticalFlow.UIView()
+    let flowView = VFlow.UIView()
 
-    var flow = VerticalFlow.empty {
+    var flow = VFlow.empty {
         didSet { flowView.update(with: flow, context: context) }
     }
 
@@ -132,7 +132,7 @@ class DebugViewController: UIViewController {
     }
 
     private func testUpdateWithoutChanges() {
-        flow = VerticalFlow {
+        flow = VFlow {
             FlowSection(
                 identifier: 0,
                 items: (0..<1).map { index in
@@ -145,7 +145,7 @@ class DebugViewController: UIViewController {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VerticalFlow {
+            self.flow = VFlow {
                 FlowSection(
                     identifier: 0,
                     items: (0..<1).map { index in
@@ -160,7 +160,7 @@ class DebugViewController: UIViewController {
     }
 
     private func testSectionReloading() {
-        flow = VerticalFlow {
+        flow = VFlow {
             FlowSection(
                 identifier: 0,
                 items: (0..<1).map { index in
@@ -173,7 +173,7 @@ class DebugViewController: UIViewController {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VerticalFlow {
+            self.flow = VFlow {
                 FlowSection(
                     identifier: 0,
                     items: (0..<1).map { index in
@@ -188,10 +188,10 @@ class DebugViewController: UIViewController {
     }
 
     private func testSectionInserting() {
-        flow = VerticalFlow(sections: [])
+        flow = VFlow(sections: [])
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VerticalFlow {
+            self.flow = VFlow {
                 FlowSection(
                     identifier: 1,
                     items: (0..<1).map { index in
@@ -205,7 +205,7 @@ class DebugViewController: UIViewController {
     }
 
     private func testSectionDeleting() {
-        flow = VerticalFlow {
+        flow = VFlow {
             FlowSection(
                 identifier: 0,
                 items: (0..<2).map { index in
@@ -234,7 +234,7 @@ class DebugViewController: UIViewController {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VerticalFlow {
+            self.flow = VFlow {
                 FlowSection(
                     identifier: 0,
                     items: (0..<2).map { index in
@@ -255,7 +255,7 @@ class DebugViewController: UIViewController {
     }
 
     private func testSectionMoving() {
-        flow = VerticalFlow {
+        flow = VFlow {
             FlowSection(
                 identifier: 0,
                 items: (0..<1).map { index in
@@ -284,7 +284,7 @@ class DebugViewController: UIViewController {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VerticalFlow {
+            self.flow = VFlow {
                 FlowSection(
                     identifier: 1,
                     items: (0..<2).map { index in
@@ -315,7 +315,7 @@ class DebugViewController: UIViewController {
     }
 
     private func testItemReloading() {
-        flow = VerticalFlow {
+        flow = VFlow {
             FlowSection(identifier: 0) {
                 Foo(title: "Cell: 0 - 1", color: .lightGray)
                     .flowItem(identifier: "0-1")
@@ -323,7 +323,7 @@ class DebugViewController: UIViewController {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VerticalFlow {
+            self.flow = VFlow {
                 FlowSection(identifier: 0) {
                     Foo(title: "Cell: 0 - 1\n NEW", color: .lightGray)
                         .flowItem(identifier: "0-1")
@@ -333,7 +333,7 @@ class DebugViewController: UIViewController {
     }
 
     private func testItemInserting() {
-        flow = VerticalFlow {
+        flow = VFlow {
             FlowSection(identifier: 0) {
                 Foo(title: "Cell: 0 - 0", color: .lightGray)
                     .flowItem(identifier: "0-0")
@@ -344,7 +344,7 @@ class DebugViewController: UIViewController {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VerticalFlow {
+            self.flow = VFlow {
                 FlowSection(identifier: 0) {
                     Foo(title: "Cell: 0 - 0", color: .lightGray)
                         .flowItem(identifier: "0-0")
@@ -360,7 +360,7 @@ class DebugViewController: UIViewController {
     }
 
     private func testItemDeleting() {
-        flow = VerticalFlow {
+        flow = VFlow {
             FlowSection(identifier: 0) {
                 Foo(title: "Cell: 0 - 0", color: .lightGray)
                     .flowItem(identifier: "0-0")
@@ -374,7 +374,7 @@ class DebugViewController: UIViewController {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VerticalFlow {
+            self.flow = VFlow {
                 FlowSection(identifier: 0) {
                     Foo(title: "Cell: 0 - 0", color: .lightGray)
                         .flowItem(identifier: "0-0")
@@ -387,7 +387,7 @@ class DebugViewController: UIViewController {
     }
 
     private func testItemMoving() {
-        flow = VerticalFlow {
+        flow = VFlow {
             FlowSection(identifier: 0) {
                 Foo(title: "Cell: 0 - 0", color: .lightGray)
                     .flowItem(identifier: "0-0")
@@ -401,7 +401,7 @@ class DebugViewController: UIViewController {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VerticalFlow {
+            self.flow = VFlow {
                 FlowSection(identifier: 0) {
                     Foo(title: "Cell: 0 - 1", color: .lightGray)
                         .flowItem(identifier: "0-1")
@@ -417,7 +417,7 @@ class DebugViewController: UIViewController {
     }
 
     private func testSwiftUIItemReloading() {
-        flow = VerticalFlow {
+        flow = VFlow {
             FlowSection(identifier: 0) {
                 Bar(title: "Cell: 0 - 0\n NEW \n NEW", color: .gray)
                     .flowItem(identifier: "0-0")
@@ -425,7 +425,7 @@ class DebugViewController: UIViewController {
         }
 
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-//            self.flow = VerticalFlow {
+//            self.flow = VFlow {
 //                FlowSection(identifier: 0) {
 //                    Bar(title: "Cell: 0 - 0 NEW \n NEW \n NEW", color: .gray)
 //                        .flowItem(identifier: "0-0")
@@ -435,7 +435,7 @@ class DebugViewController: UIViewController {
     }
 
     private func testTextWithFrameReloading() {
-        flow = VerticalFlow {
+        flow = VFlow {
             FlowSection(identifier: 0) {
                 Text("Cell: 0 - 0")
                     .frame(width: .fill)
@@ -444,7 +444,7 @@ class DebugViewController: UIViewController {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VerticalFlow {
+            self.flow = VFlow {
                 FlowSection(identifier: 0) {
                     Text("Cell: 0 - 0 NEW \n NEW")
                         .frame(width: .fill)
@@ -455,7 +455,7 @@ class DebugViewController: UIViewController {
     }
 
     private func testInsetsChanging() {
-        flow = VerticalFlow {
+        flow = VFlow {
             FlowSection(identifier: 1) {
                 Foo(title: "Cell: 0 - 0", color: .lightGray)
                     .flowItem(identifier: "1-0")
@@ -466,7 +466,7 @@ class DebugViewController: UIViewController {
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VerticalFlow {
+            self.flow = VFlow {
                 FlowSection(identifier: 1) {
                     Foo(title: "Cell: 0 - 0", color: .lightGray)
                         .flowItem(identifier: "1-0")

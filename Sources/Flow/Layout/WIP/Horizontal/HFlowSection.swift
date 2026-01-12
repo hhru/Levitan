@@ -1,9 +1,9 @@
 #if canImport(UIKit)
 import UIKit
 
-public typealias HorizontalFlowSection = FlowSection<HorizontalFlowLayout>
+public typealias HFlowSection = FlowSection<HFlowLayout>
 
-extension HorizontalFlowSection {
+extension HFlowSection {
 
     public func rows(_ rows: [FlowRow]?) -> Self {
         changing { $0.metrics.rows = rows }

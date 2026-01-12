@@ -1,32 +1,20 @@
 #if canImport(UIKit)
 import UIKit
 
-public typealias VerticalFlow = Flow<VerticalFlowLayout>
+public typealias VFlowSection = FlowSection<VFlowLayout>
 
-extension VerticalFlow {
-
-    public func metrics(_ metrics: VerticalFlowMetrics) -> Self {
-        changing { $0.layout.metrics = metrics }
-    }
-
-    public func appearance(_ appearance: FlowLayoutAppearance) -> Self {
-        changing { $0.layout.appearance = appearance }
-    }
-
-    public func scrollAnchor(_ scrollAnchor: FlowLayoutScrollAnchor) -> Self {
-        changing { $0.layout.scrollAnchor = scrollAnchor }
-    }
+extension VFlowSection {
 
     public func columns(_ columns: [FlowColumn]?) -> Self {
-        changing { $0.layout.metrics.columns = columns }
+        changing { $0.metrics.columns = columns }
     }
 
     public func alignment(_ alignment: FlowHorizontalAlignment) -> Self {
-        changing { $0.layout.metrics.alignment = alignment }
+        changing { $0.metrics.alignment = alignment }
     }
 
     public func insets(_ insets: UIEdgeInsets) -> Self {
-        changing { $0.layout.metrics.insets = insets }
+        changing { $0.metrics.insets = insets }
     }
 
     public func insets(
@@ -50,23 +38,23 @@ extension VerticalFlow {
     }
 
     public func estimatedWidth(_ estimatedWidth: CGFloat?) -> Self {
-        changing { $0.layout.metrics.estimatedWidth = estimatedWidth }
+        changing { $0.metrics.estimatedWidth = estimatedWidth }
     }
 
     public func estimatedHeight(_ estimatedHeight: CGFloat?) -> Self {
-        changing { $0.layout.metrics.estimatedHeight = estimatedHeight }
+        changing { $0.metrics.estimatedHeight = estimatedHeight }
     }
 
     public func horizontalSpacing(_ horizontalSpacing: CGFloat?) -> Self {
-        changing { $0.layout.metrics.horizontalSpacing = horizontalSpacing }
+        changing { $0.metrics.horizontalSpacing = horizontalSpacing }
     }
 
     public func verticalSpacing(_ verticalSpacing: CGFloat?) -> Self {
-        changing { $0.layout.metrics.verticalSpacing = verticalSpacing }
+        changing { $0.metrics.verticalSpacing = verticalSpacing }
     }
 
     public func pinnedViews(_ pinnedViews: FlowLayoutPinnedViews?) -> Self {
-        changing { $0.layout.metrics.pinnedViews = pinnedViews }
+        changing { $0.metrics.pinnedViews = pinnedViews }
     }
 }
 #endif

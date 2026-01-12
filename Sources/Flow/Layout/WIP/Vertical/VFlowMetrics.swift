@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
-public struct VerticalFlowMetrics {
+public struct VFlowMetrics {
 
     public var columns: [FlowColumn]?
     public var alignment: FlowHorizontalAlignment
@@ -41,12 +41,12 @@ public struct VerticalFlowMetrics {
     }
 }
 
-extension VerticalFlowMetrics: FlowLayoutMetrics {
+extension VFlowMetrics: FlowLayoutMetrics {
 
     public static let `default` = Self()
 }
 
-extension VerticalFlowMetrics: Changeable {
+extension VFlowMetrics: Changeable {
 
     public func columns(_ columns: [FlowColumn]?) -> Self {
         changing { $0.columns = columns }

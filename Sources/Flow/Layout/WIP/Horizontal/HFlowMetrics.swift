@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
-public struct HorizontalFlowMetrics {
+public struct HFlowMetrics {
 
     public var rows: [FlowRow]?
     public var alignment: FlowVerticalAlignment
@@ -41,12 +41,12 @@ public struct HorizontalFlowMetrics {
     }
 }
 
-extension HorizontalFlowMetrics: FlowLayoutMetrics {
+extension HFlowMetrics: FlowLayoutMetrics {
 
     public static let `default` = Self()
 }
 
-extension HorizontalFlowMetrics: Changeable {
+extension HFlowMetrics: Changeable {
 
     public func rows(_ rows: [FlowRow]?) -> Self {
         changing { $0.rows = rows }

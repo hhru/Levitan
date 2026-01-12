@@ -2,14 +2,14 @@
 import CoreGraphics
 import Foundation
 
-public struct VerticalFlowLayout {
+public struct VFlowLayout {
 
-    public var metrics: VerticalFlowMetrics
+    public var metrics: VFlowMetrics
     public var appearance: FlowLayoutAppearance
     public var scrollAnchor: FlowLayoutScrollAnchor
 
     public init(
-        metrics: VerticalFlowMetrics = .default,
+        metrics: VFlowMetrics = .default,
         appearance: FlowLayoutAppearance = .default,
         scrollAnchor: FlowLayoutScrollAnchor = .top
     ) {
@@ -19,14 +19,14 @@ public struct VerticalFlowLayout {
     }
 }
 
-extension VerticalFlowLayout {
+extension VFlowLayout {
 
     @MainActor
     private func resolveHeaderSize(
         at index: Int,
         fitting containerSize: CGSize,
         context: FlowLayoutContext,
-        metrics: VerticalFlowMetrics
+        metrics: VFlowMetrics
     ) -> FlowLayoutSize {
         let estimatedSize = CGSize(
             width: metrics.estimatedWidth ?? containerSize.width,
@@ -45,7 +45,7 @@ extension VerticalFlowLayout {
         at index: Int,
         fitting containerSize: CGSize,
         context: FlowLayoutContext,
-        metrics: VerticalFlowMetrics
+        metrics: VFlowMetrics
     ) -> FlowLayoutSize {
         let estimatedSize = CGSize(
             width: metrics.estimatedWidth ?? containerSize.width,
@@ -65,7 +65,7 @@ extension VerticalFlowLayout {
         fitting containerSize: CGSize,
         updating previousSize: CGSize?,
         context: FlowLayoutContext,
-        metrics: VerticalFlowMetrics
+        metrics: VFlowMetrics
     ) -> FlowLayoutSize {
         let estimatedSize = CGSize(
             width: metrics.estimatedWidth ?? containerSize.width,
@@ -83,7 +83,7 @@ extension VerticalFlowLayout {
     private func updateHeader(
         _ header: inout FlowLayoutHeader,
         size: FlowLayoutSize?,
-        metrics: VerticalFlowMetrics,
+        metrics: VFlowMetrics,
         minOrigin: CGFloat,
         maxOrigin: CGFloat
     ) {
@@ -113,7 +113,7 @@ extension VerticalFlowLayout {
     private func updateFooter(
         _ footer: inout FlowLayoutFooter,
         size: FlowLayoutSize?,
-        metrics: VerticalFlowMetrics,
+        metrics: VFlowMetrics,
         minOrigin: CGFloat,
         maxOrigin: CGFloat
     ) {
@@ -146,7 +146,7 @@ extension VerticalFlowLayout {
         offset: CGFloat,
         fitting containerSize: CGSize,
         context: FlowLayoutContext,
-        metrics: VerticalFlowMetrics
+        metrics: VFlowMetrics
     ) -> CGFloat {
         let containerSize = containerSize.inset(by: metrics.insets)
         var offset = offset
@@ -184,7 +184,7 @@ extension VerticalFlowLayout {
         at sectionIndex: Int,
         fitting containerSize: CGSize,
         context: FlowLayoutContext,
-        metrics: VerticalFlowMetrics
+        metrics: VFlowMetrics
     ) {
         guard section.size == nil else {
             return
@@ -260,7 +260,7 @@ extension VerticalFlowLayout {
     }
 }
 
-extension VerticalFlowLayout: FlowLayout {
+extension VFlowLayout: FlowLayout {
 
     public static let `default` = Self()
 
@@ -329,7 +329,7 @@ extension VerticalFlowLayout: FlowLayout {
 
         for sectionIndex in state.sections.indices {
             state.updateSection(at: sectionIndex) { section in
-                let sectionMetrics = VerticalFlowMetrics(
+                let sectionMetrics = VFlowMetrics(
                     columns: section.metrics?.columns ?? metrics.columns,
                     alignment: section.metrics?.alignment ?? metrics.alignment,
                     insets: section.metrics?.insets ?? .zero,
@@ -365,9 +365,9 @@ extension VerticalFlowLayout: FlowLayout {
     }
 }
 
-extension VerticalFlowLayout: Changeable {
+extension VFlowLayout: Changeable {
 
-    public func metrics(_ metrics: VerticalFlowMetrics) -> Self {
+    public func metrics(_ metrics: VFlowMetrics) -> Self {
         changing { $0.metrics = metrics }
     }
 

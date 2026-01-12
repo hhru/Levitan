@@ -2,14 +2,14 @@
 import CoreGraphics
 import Foundation
 
-public struct HorizontalFlowLayout {
+public struct HFlowLayout {
 
-    public var metrics: HorizontalFlowMetrics
+    public var metrics: HFlowMetrics
     public var appearance: FlowLayoutAppearance
     public var scrollAnchor: FlowLayoutScrollAnchor
 
     public init(
-        metrics: HorizontalFlowMetrics = .default,
+        metrics: HFlowMetrics = .default,
         appearance: FlowLayoutAppearance = .default,
         scrollAnchor: FlowLayoutScrollAnchor = .leading
     ) {
@@ -19,7 +19,7 @@ public struct HorizontalFlowLayout {
     }
 }
 
-extension HorizontalFlowLayout: FlowLayout {
+extension HFlowLayout: FlowLayout {
 
     public static let `default` = Self()
 
@@ -31,14 +31,14 @@ extension HorizontalFlowLayout: FlowLayout {
         _ state: inout FlowLayoutState<Self>,
         context: FlowLayoutContext
     ) -> Bool {
-        // TODO: реализовать по аналогии с VerticalFlowLayout
+        // TODO: реализовать по аналогии с VFlowLayout
         true
     }
 }
 
-extension HorizontalFlowLayout: Changeable {
+extension HFlowLayout: Changeable {
 
-    public func metrics(_ metrics: HorizontalFlowMetrics) -> Self {
+    public func metrics(_ metrics: HFlowMetrics) -> Self {
         changing { $0.metrics = metrics }
     }
 

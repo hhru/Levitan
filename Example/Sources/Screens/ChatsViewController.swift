@@ -13,7 +13,7 @@ final class ChatsViewController: UIViewController {
 
     private var context = ComponentContext.default
 
-    private let contentView = VerticalFlow.UIView()
+    private let contentView = VFlow.UIView()
     private let searchController = UISearchController(searchResultsController: nil)
 
     private var searchText = "" {
@@ -122,7 +122,7 @@ extension ChatsViewController {
             }
         }
 
-        let content = VerticalFlow {
+        let content = VFlow {
             chatSection(chats: chats)
         }
         .scrollAlwaysBounces()
@@ -136,12 +136,12 @@ extension ChatsViewController {
 
 extension ChatsViewController {
 
-    private func chatSection(chats: [Chat]) -> VerticalFlowSection? {
+    private func chatSection(chats: [Chat]) -> VFlowSection? {
         guard !chats.isEmpty else {
             return nil
         }
 
-        return VerticalFlowSection(identifier: #function) {
+        return VFlowSection(identifier: #function) {
             chats.enumerated().map { index, chat in
                 chatItem(chat: chat, isLast: index >= chats.count - 1)
             }

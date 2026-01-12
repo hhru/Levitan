@@ -9,7 +9,7 @@ final class ProfileViewController: UIViewController {
 
     private var context = ComponentContext.default
 
-    private let contentView = VerticalFlow.UIView()
+    private let contentView = VFlow.UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ extension ProfileViewController {
     private func updateContentView() {
         let profile = profileStore.profile
 
-        let content = VerticalFlow {
+        let content = VFlow {
             headerItem(profile: profile)
             contactsItem(profile: profile)
             skillsItem(profile: profile)
@@ -98,7 +98,7 @@ extension ProfileViewController {
             }
         )
 
-        return VerticalFlow {
+        return VFlow {
             if profile.phoneNumber == nil, profile.emailAddress == nil {
                 Text("No contacts added yet.")
                     .typography(Typographies.paragraph2)
@@ -132,7 +132,7 @@ extension ProfileViewController {
             }
         )
 
-        return VerticalFlow {
+        return VFlow {
             if profile.skills.isEmpty {
                 Text("No skills added yet.")
                     .typography(Typographies.paragraph2)
