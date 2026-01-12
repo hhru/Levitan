@@ -46,7 +46,7 @@ extension View {
 #Preview {
     HStack {
         Card(
-            content: SwiftUI.Text("Hello"),
+            content: Text("Hello"),
             header: CardHeader(
                 title: "About me",
                 editAction: { print("Tapped") }
