@@ -58,14 +58,12 @@ extension FallbackComponentBody: UIViewRepresentable {
             .environment
             .componentContext
 
-        let size = sizeThatFits(
+        return sizeThatFits(
             proposedWidth: proposal.width,
             proposedHeight: proposal.height,
             context: context,
             view: uiView
         )
-
-        return size
     }
 
     /// Приватное API для определения размеров.

@@ -5,7 +5,8 @@ let package = Package(
     name: "Levitan",
     platforms: [
         .iOS(.v15),
-        .tvOS(.v15)
+        .tvOS(.v15),
+        .macOS(.v12)
     ],
     products: [
         .library(
