@@ -1,4 +1,3 @@
-#if canImport(UIKit)
 import SwiftUI
 
 /// Обертка для реализации внутреннего состояния UI-компонента.
@@ -88,4 +87,3 @@ extension ViewState: Hashable where Value: Hashable {
 }
 
 extension ViewState: Sendable where Value: Sendable { }
-#endif

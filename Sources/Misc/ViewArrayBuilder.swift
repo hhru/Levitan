@@ -1,4 +1,3 @@
-#if canImport(UIKit)
 import Foundation
 
 // TODO: Добавить документацию
@@ -45,4 +44,3 @@ public enum ViewArrayBuilder<Element> {
         elements.flatMap { $0 }
     }
 }
-#endif

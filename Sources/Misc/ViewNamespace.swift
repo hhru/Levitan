@@ -1,4 +1,3 @@
-#if canImport(UIKit)
 import SwiftUI
 
 /// Обертка для создания пространства имен с постоянным идентификатором UI-компонента,
@@ -50,4 +49,3 @@ extension ViewNamespace: Hashable {
 
     public func hash(into hasher: inout Hasher) { }
 }
-#endif

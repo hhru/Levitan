@@ -1,4 +1,3 @@
-#if canImport(UIKit)
 import SwiftUI
 
 @propertyWrapper
@@ -94,4 +93,3 @@ extension ViewGestureState: Hashable where Value: Hashable {
 }
 
 extension ViewGestureState: Sendable where Value: Sendable { }
-#endif

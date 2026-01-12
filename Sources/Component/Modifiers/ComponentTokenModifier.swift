@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import Foundation
 
 /// Модификатор токенов UI-компонента.
@@ -96,3 +97,4 @@ extension TokenModifiedView: Component where
         )
     }
 }
+#endif
