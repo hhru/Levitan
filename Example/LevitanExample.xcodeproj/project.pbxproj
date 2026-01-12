@@ -64,6 +64,7 @@
 		C0E822032F065FFF00051412 /* AvatarSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E822022F065FFD00051412 /* AvatarSize.swift */; };
 		C0E822202F06633500051412 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8221F2F06633400051412 /* Cell.swift */; };
 		C0E822222F06635F00051412 /* CellDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E822212F06635C00051412 /* CellDivider.swift */; };
+		C0F805992F14F384007D8F74 /* PerformanceTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F805932F14F37F007D8F74 /* PerformanceTracker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		C0E822022F065FFD00051412 /* AvatarSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSize.swift; sourceTree = "<group>"; };
 		C0E8221F2F06633400051412 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		C0E822212F06635C00051412 /* CellDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellDivider.swift; sourceTree = "<group>"; };
+		C0F805932F14F37F007D8F74 /* PerformanceTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTracker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				C06EE5312F0CBCBF00AD1F6A /* KeyboardHandler.swift */,
 				C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */,
 				C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */,
+				C0F805932F14F37F007D8F74 /* PerformanceTracker.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				C0E822032F065FFF00051412 /* AvatarSize.swift in Sources */,
 				C06A6D442F0B0092007F606E /* ActionSheetAction.swift in Sources */,
 				C0C8A8D52F06B918001651F6 /* ContactsViewController.swift in Sources */,
+				C0F805992F14F384007D8F74 /* PerformanceTracker.swift in Sources */,
 				C06A6D472F0B0108007F606E /* ActionSheet.swift in Sources */,
 				C06A6D4A2F0B0505007F606E /* AlertTextField.swift in Sources */,
 				C06EE5322F0CBCC500AD1F6A /* KeyboardHandler.swift in Sources */,
@@ -848,6 +852,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 42YU8Z2589;
 				INFOPLIST_FILE = Sources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (

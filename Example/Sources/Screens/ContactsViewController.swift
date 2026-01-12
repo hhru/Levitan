@@ -5,6 +5,8 @@ import UIKit
 
 final class ContactsViewController: UIViewController {
 
+    private let performanceTracker = PerformanceTracker()
+
     private let usersStore = UsersStore.shared
     private var usersSubscription: AnyCancellable?
 
@@ -36,6 +38,18 @@ final class ContactsViewController: UIViewController {
             .sink { [weak self] _ in
                 self?.updateContentView()
             }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        performanceTracker.reset()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        performanceTracker.track()
     }
 }
 

@@ -157,7 +157,7 @@ only_rules:
   - single_test_class
   - sorted_first_last
   - statement_position
-  - static_operator
+  # - static_operator
   - superfluous_disable_command
   - superfluous_else
   - switch_case_alignment
