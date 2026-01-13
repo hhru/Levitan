@@ -4,7 +4,11 @@ import UIKit
 
 internal final class ComponentHostingController<Content: View>: UIHostingController<Content> {
 
-    private var intrinsicContentSize: CGSize?
+    private var intrinsicContentSize: CGSize? {
+        didSet { intrinsicContentSizeInvalidation?() }
+    }
+
+    internal var intrinsicContentSizeInvalidation: (@MainActor () -> Void)?
 
     // До iOS 16 UIHostingController самовольно отображает скрытую панель навигации.
     // Чтобы это предотвратить, переопределяем для него navigationController
@@ -15,6 +19,20 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
         }
 
         return nil
+    }
+
+    internal init(
+        rootView: Content,
+        intrinsicContentSizeInvalidation: (@MainActor() -> Void)? = nil
+    ) {
+        self.intrinsicContentSizeInvalidation = intrinsicContentSizeInvalidation
+
+        super.init(rootView: rootView)
+    }
+
+    @available(*, unavailable)
+    internal required dynamic init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     internal override func viewDidLoad() {
@@ -34,10 +52,6 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
 
         if intrinsicContentSize != view.intrinsicContentSize {
             intrinsicContentSize = view.intrinsicContentSize
-
-            if let superview = view.superview as? ComponentHostingView<Content> {
-                superview.invalidateIntrinsicContentSize()
-            }
         }
     }
 }

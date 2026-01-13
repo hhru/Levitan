@@ -157,7 +157,12 @@ extension ComponentHostingView {
             )
         }
 
-        let hostingController = HostingController(rootView: hostingRoot)
+        let hostingController = HostingController(
+            rootView: hostingRoot,
+            intrinsicContentSizeInvalidation: { [weak self] in
+                self?.invalidateIntrinsicContentSize()
+            }
+        )
 
         setupHostingControllerIfNeeded(
             hostingController,
