@@ -238,6 +238,10 @@ internal class CollectionViewDelegateManager<Layout: FlowLayout>:
 
     // MARK: - UIScrollViewDelegate
 
+    internal func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        collectionViewDelegate?.scrollViewDidScroll?(scrollView)
+    }
+
     internal func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         scrollView.contentOffset = CGPoint(
             x: floor(scrollView.contentOffset.x),
