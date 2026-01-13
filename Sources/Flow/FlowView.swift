@@ -52,7 +52,10 @@ public final class FlowView<Layout: FlowLayout>: UIView {
     public override var intrinsicContentSize: CGSize {
         let contentSize = contentSize
 
-        guard contentSize.width > .leastNonzeroMagnitude else {
+        guard
+            contentSize.width > .leastNonzeroMagnitude,
+            contentSize.height > .leastNonzeroMagnitude
+        else {
             return super.intrinsicContentSize
         }
 
