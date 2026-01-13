@@ -6,12 +6,12 @@ public struct AnyFlowHeader: Sendable {
     internal let wrapped: any FlowHeader
     internal let viewType: AnyFlowHeaderView.Type
 
-    private let updateViewBox: @MainActor (
+    private let updateViewBox: @Sendable @MainActor (
         _ view: UICollectionReusableView,
         _ context: ComponentContext
     ) -> Void
 
-    private let sizingBox: @MainActor (
+    private let sizingBox: @Sendable @MainActor (
         _ size: CGSize,
         _ context: ComponentContext
     ) -> ComponentSizing

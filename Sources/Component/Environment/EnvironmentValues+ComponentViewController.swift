@@ -2,14 +2,14 @@
 import SwiftUI
 import UIKit
 
-internal struct ComponentViewControllerStorage: Sendable {
-
-    internal let viewController: @MainActor () -> UIViewController?
-}
-
 internal struct ComponentViewControllerEnvironmentKey: EnvironmentKey {
 
     internal static let defaultValue: ComponentViewControllerStorage? = nil
+}
+
+internal struct ComponentViewControllerStorage: Sendable {
+
+    internal let viewController: @Sendable @MainActor () -> UIViewController?
 }
 
 extension EnvironmentValues {
@@ -76,7 +76,7 @@ extension ComponentContext {
     /// Если ближайший экземпляр `UIViewController` не определен,
     /// то система попытается самостоятельно найти его по цепочке `UIResponder`.
     public func componentViewControllerProvider(
-        _ viewController: @escaping @MainActor () -> UIViewController?
+        _ viewController: @escaping @Sendable @MainActor () -> UIViewController?
     ) -> Self {
         self.componentViewControllerStorage(
             ComponentViewControllerStorage(viewController: viewController)

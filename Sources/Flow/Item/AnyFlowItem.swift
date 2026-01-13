@@ -7,12 +7,12 @@ public struct AnyFlowItem: Sendable {
     internal let cellType: AnyFlowCell.Type
     internal let identifier: ComponentIdentifier
 
-    private let updateCellBox: @MainActor(
+    private let updateCellBox: @Sendable @MainActor (
         _ cell: UICollectionViewCell,
         _ context: ComponentContext
     ) -> Void
 
-    private let sizingBox: @MainActor (
+    private let sizingBox: @Sendable @MainActor (
         _ size: CGSize,
         _ context: ComponentContext
     ) -> ComponentSizing

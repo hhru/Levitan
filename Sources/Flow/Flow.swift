@@ -21,7 +21,7 @@ public struct Flow<Layout: FlowLayout>: Sendable {
     public var updateStrategy: FlowUpdateStrategy
 
     @ViewAction
-    public var updateAction: (@MainActor () -> Void)?
+    public var updateAction: (@Sendable @MainActor () -> Void)?
 
     #if os(iOS)
     public init(
@@ -33,7 +33,7 @@ public struct Flow<Layout: FlowLayout>: Sendable {
         isScrollIndicatorVisible: Bool = true,
         isScrollAlwaysBouncing: Bool = false,
         updateStrategy: FlowUpdateStrategy = .update,
-        updateAction: (@MainActor () -> Void)? = nil
+        updateAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
         self.layout = layout
         self.sections = sections
@@ -58,7 +58,7 @@ public struct Flow<Layout: FlowLayout>: Sendable {
         isScrollIndicatorVisible: Bool = true,
         isScrollAlwaysBouncing: Bool = false,
         updateStrategy: FlowUpdateStrategy = .update,
-        updateAction: (@MainActor () -> Void)? = nil
+        updateAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
         self.layout = layout
         self.sections = sections
@@ -85,7 +85,7 @@ public struct Flow<Layout: FlowLayout>: Sendable {
         isScrollIndicatorVisible: Bool = true,
         isScrollAlwaysBouncing: Bool = false,
         updateStrategy: FlowUpdateStrategy = .update,
-        updateAction: (@MainActor () -> Void)? = nil
+        updateAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
         self.init(
             sections: [section],
@@ -108,7 +108,7 @@ public struct Flow<Layout: FlowLayout>: Sendable {
         isScrollIndicatorVisible: Bool = true,
         isScrollAlwaysBouncing: Bool = false,
         updateStrategy: FlowUpdateStrategy = .update,
-        updateAction: (@MainActor () -> Void)? = nil
+        updateAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
         self.init(
             sections: [section],
@@ -200,12 +200,12 @@ extension Flow: Changeable {
         changing { $0.updateStrategy = updateStrategy }
     }
 
-    public func onUpdate(_ action: (@MainActor () -> Void)?) -> Self {
+    public func onUpdate(_ action: (@Sendable @MainActor () -> Void)?) -> Self {
         guard let action else {
             return self
         }
 
-        let newAction = { @MainActor [updateAction] in
+        let newAction = { @Sendable @MainActor [updateAction] in
             updateAction?()
             action()
         }
