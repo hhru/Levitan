@@ -4,8 +4,8 @@ import Foundation
 public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
 
     public let identifier: ComponentIdentifier
-    public let items: [AnyFlowItem]
 
+    public let items: [AnyFlowItem]
     public var header: AnyFlowHeader?
     public var footer: AnyFlowFooter?
 
@@ -16,7 +16,7 @@ public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
         items: [AnyFlowItem],
         header: AnyFlowHeader?,
         footer: AnyFlowFooter?,
-        metrics: Layout.Metrics = .default
+        metrics: Layout.Metrics
     ) {
         self.identifier = ComponentIdentifier(identifier)
         self.items = items

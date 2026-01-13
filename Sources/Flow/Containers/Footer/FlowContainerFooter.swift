@@ -1,5 +1,5 @@
 #if canImport(UIKit)
-import Foundation
+import SwiftUI
 
 public struct FlowContainerFooter<Content: Component>: @unchecked Sendable {
 
@@ -68,8 +68,21 @@ extension FlowContainerFooter: Changeable {
 
 extension Component {
 
-    public func flowFooter() -> FlowContainerFooter<Self> {
+    public nonisolated func flowFooter() -> FlowContainerFooter<Self> {
         FlowContainerFooter(content: self)
+    }
+}
+
+extension View where Self: Equatable {
+
+    public nonisolated func flowFooter(
+        width: ComponentSizingStrategy = .hug,
+        height: ComponentSizingStrategy = .hug,
+        alignment: Alignment = .center
+    ) -> FlowContainerFooter<some Component> {
+        self
+            .frame(width: width, height: height, alignment: alignment)
+            .flowFooter()
     }
 }
 #endif

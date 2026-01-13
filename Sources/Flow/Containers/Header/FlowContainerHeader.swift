@@ -1,5 +1,5 @@
 #if canImport(UIKit)
-import Foundation
+import SwiftUI
 
 public struct FlowContainerHeader<Content: Component>: @unchecked Sendable {
 
@@ -68,8 +68,21 @@ extension FlowContainerHeader: Changeable {
 
 extension Component {
 
-    public func flowHeader() -> FlowContainerHeader<Self> {
+    public nonisolated func flowHeader() -> FlowContainerHeader<Self> {
         FlowContainerHeader(content: self)
+    }
+}
+
+extension View where Self: Equatable {
+
+    public nonisolated func flowHeader(
+        width: ComponentSizingStrategy = .hug,
+        height: ComponentSizingStrategy = .hug,
+        alignment: Alignment = .center
+    ) -> FlowContainerHeader<some Component> {
+        self
+            .frame(width: width, height: height, alignment: alignment)
+            .flowHeader()
     }
 }
 #endif
