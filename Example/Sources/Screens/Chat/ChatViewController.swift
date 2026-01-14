@@ -21,6 +21,10 @@ final class ChatViewController: UIViewController {
         didSet { updateChatInputView() }
     }
 
+    private var contentMargins: UIEdgeInsets = .zero {
+        didSet { updateContentView() }
+    }
+
     init(userID: Int) {
         self.userID = userID
 
@@ -104,8 +108,6 @@ extension ChatViewController {
     private func setupContentView() {
         view.addSubview(contentView)
 
-        contentView.keyboardDismissMode = .interactive
-        contentView.contentInsetAdjustmentBehavior = .always
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
         let constraints = [
@@ -153,6 +155,9 @@ extension ChatViewController {
             .compactMap { chatMessageSection(messages: $0) }
 
         let content = VFlow(sections: sections)
+            .contentMargins(contentMargins)
+            .contentMarginsAdjustmentBehavior(.always)
+            .keyboardDismissMode(.interactive)
             .scrollAlwaysBounces()
             .scrollAnchor(.bottomLeading)
             .pinnedViews(.header)
@@ -164,7 +169,7 @@ extension ChatViewController {
     }
 
     private func updateContentInsets() {
-        contentView.contentInsets.bottom = contentView
+        contentMargins.bottom = contentView
             .frame
             .intersection(chatInputView.frame)
             .height - contentView.safeAreaInsets.bottom

@@ -87,7 +87,6 @@ extension ContactsViewController {
     private func setupContentView() {
         view.addSubview(contentView)
 
-        contentView.contentInsetAdjustmentBehavior = .always
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
         let constraints = [
@@ -133,6 +132,7 @@ extension ContactsViewController {
                 userSection(users: users)
             }
         }
+        .contentMarginsAdjustmentBehavior(.always)
         .scrollAlwaysBounces()
 
         contentView.update(

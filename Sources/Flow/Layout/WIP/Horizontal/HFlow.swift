@@ -45,8 +45,8 @@ extension HFlow {
         )
     }
 
-    public func insets(all value: CGFloat = .zero) -> Self {
-        insets(UIEdgeInsets(all: value))
+    public func insets(_ length: CGFloat = .zero) -> Self {
+        insets(UIEdgeInsets(all: length))
     }
 
     public func estimatedWidth(_ estimatedWidth: CGFloat?) -> Self {

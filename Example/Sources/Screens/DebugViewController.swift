@@ -118,7 +118,6 @@ class DebugViewController: UIViewController {
     private func setupFlowView() {
         view.addSubview(flowView)
 
-        flowView.contentInsetAdjustmentBehavior = .always
         flowView.translatesAutoresizingMaskIntoConstraints = false
 
         let constraints = [
@@ -475,7 +474,7 @@ class DebugViewController: UIViewController {
                         .flowItem(id: "1-2")
                 }
             }
-            .insets(all: 16.0)
+            .insets(16.0)
         }
     }
 

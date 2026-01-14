@@ -9,10 +9,6 @@ public final class FlowView<Layout: FlowLayout>: UIView {
     private let collectionViewLayout: CollectionViewLayout<Layout>
     private let collectionViewManager: CollectionViewManager<Layout>
 
-    public var scrollView: UIScrollView {
-        collectionView
-    }
-
     public var collectionViewDelegate: UICollectionViewDelegate? {
         get { collectionViewManager.collectionViewDelegate }
         set { collectionViewManager.collectionViewDelegate = newValue }
@@ -24,21 +20,6 @@ public final class FlowView<Layout: FlowLayout>: UIView {
         set { collectionView.refreshControl = newValue }
     }
     #endif
-
-    public var keyboardDismissMode: UIScrollView.KeyboardDismissMode {
-        get { collectionView.keyboardDismissMode }
-        set { collectionView.keyboardDismissMode = newValue }
-    }
-
-    public var contentInsetAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior {
-        get { collectionView.contentInsetAdjustmentBehavior }
-        set { collectionView.contentInsetAdjustmentBehavior = newValue }
-    }
-
-    public var contentInsets: UIEdgeInsets {
-        get { collectionView.contentInset }
-        set { updateContentInsets(with: newValue) }
-    }
 
     public var contentOffset: CGPoint {
         get { collectionView.contentOffset }
@@ -102,6 +83,9 @@ public final class FlowView<Layout: FlowLayout>: UIView {
 
         self.context = context
 
+        updateContentMargins(with: content)
+
+        collectionView.keyboardDismissMode = content.keyboardDismissMode
         collectionView.accessibilityIdentifier = content.accessibilityIdentifier
 
         #if os(iOS)
@@ -313,20 +297,30 @@ extension FlowView {
         NSLayoutConstraint.activate(constraints)
     }
 
-    private func updateContentInsets(with contentInsets: UIEdgeInsets) {
-        guard collectionView.contentInset != contentInsets else {
-            return
+    private func updateContentMargins(with content: Flow<Layout>) {
+        var shouldInvalidateComponentLayout = false
+
+        if collectionView.contentInsetAdjustmentBehavior != content.contentMarginsAdjustmentBehavior {
+            collectionView.contentInsetAdjustmentBehavior = content.contentMarginsAdjustmentBehavior
+
+            shouldInvalidateComponentLayout = true
         }
 
-        collectionView.contentInset = contentInsets
+        if collectionView.contentInset != content.contentMargins {
+            collectionView.contentInset = content.contentMargins
 
-        collectionView.horizontalScrollIndicatorInsets.left = contentInsets.left
-        collectionView.horizontalScrollIndicatorInsets.right = contentInsets.right
+            collectionView.horizontalScrollIndicatorInsets.left = content.contentMargins.left
+            collectionView.horizontalScrollIndicatorInsets.right = content.contentMargins.right
 
-        collectionView.verticalScrollIndicatorInsets.top = contentInsets.top
-        collectionView.verticalScrollIndicatorInsets.bottom = contentInsets.bottom
+            collectionView.verticalScrollIndicatorInsets.top = content.contentMargins.top
+            collectionView.verticalScrollIndicatorInsets.bottom = content.contentMargins.bottom
 
-        context?.invalidateComponentLayout()
+            shouldInvalidateComponentLayout = true
+        }
+
+        if shouldInvalidateComponentLayout {
+            context?.invalidateComponentLayout()
+        }
     }
 
     private func updateScrollIndicator(with content: Flow<Layout>) {

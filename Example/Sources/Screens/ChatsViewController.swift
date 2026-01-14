@@ -82,7 +82,6 @@ extension ChatsViewController {
     private func setupContentView() {
         view.addSubview(contentView)
 
-        contentView.contentInsetAdjustmentBehavior = .always
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
         let constraints = [
@@ -128,6 +127,7 @@ extension ChatsViewController {
             itemsID: \.element.userID,
             items: { chatItem(chat: $1, isLast: $0 >= chats.count - 1) }
         )
+        .contentMarginsAdjustmentBehavior(.always)
         .scrollAlwaysBounces()
 
         contentView.update(

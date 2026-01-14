@@ -1,5 +1,5 @@
 #if canImport(UIKit)
-import Foundation
+import UIKit
 
 public struct Flow<Layout: FlowLayout>: Sendable {
 
@@ -8,6 +8,10 @@ public struct Flow<Layout: FlowLayout>: Sendable {
     public let sections: [Section]
     public var layout: Layout
 
+    public var contentMargins: UIEdgeInsets
+    public var contentMarginsAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior
+
+    public var keyboardDismissMode: UIScrollView.KeyboardDismissMode
     public var accessibilityIdentifier: String?
 
     #if os(iOS)
@@ -27,6 +31,9 @@ public struct Flow<Layout: FlowLayout>: Sendable {
     public init(
         sections: [Section],
         layout: Layout = .default,
+        contentMargins: UIEdgeInsets = .zero,
+        contentMarginsAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior = .automatic,
+        keyboardDismissMode: UIScrollView.KeyboardDismissMode = .none,
         accessibilityIdentifier: String? = nil,
         isPagingEnabled: Bool = false,
         isScrollEnabled: Bool = true,
@@ -38,6 +45,10 @@ public struct Flow<Layout: FlowLayout>: Sendable {
         self.layout = layout
         self.sections = sections
 
+        self.contentMargins = contentMargins
+        self.contentMarginsAdjustmentBehavior = contentMarginsAdjustmentBehavior
+
+        self.keyboardDismissMode = keyboardDismissMode
         self.accessibilityIdentifier = accessibilityIdentifier
 
         self.isPagingEnabled = isPagingEnabled
@@ -53,6 +64,9 @@ public struct Flow<Layout: FlowLayout>: Sendable {
     public init(
         sections: [Section],
         layout: Layout = .default,
+        contentMargins: UIEdgeInsets = .zero,
+        contentMarginsAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior = .automatic,
+        keyboardDismissMode: UIScrollView.KeyboardDismissMode = .none,
         accessibilityIdentifier: String? = nil,
         isScrollEnabled: Bool = true,
         isScrollIndicatorVisible: Bool = true,
@@ -63,6 +77,10 @@ public struct Flow<Layout: FlowLayout>: Sendable {
         self.layout = layout
         self.sections = sections
 
+        self.contentMargins = contentMargins
+        self.contentMarginsAdjustmentBehavior = contentMarginsAdjustmentBehavior
+
+        self.keyboardDismissMode = keyboardDismissMode
         self.accessibilityIdentifier = accessibilityIdentifier
 
         self.isScrollEnabled = isScrollEnabled
@@ -79,6 +97,9 @@ public struct Flow<Layout: FlowLayout>: Sendable {
     public init(
         section: Section,
         layout: Layout = .default,
+        contentMargins: UIEdgeInsets = .zero,
+        contentMarginsAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior = .automatic,
+        keyboardDismissMode: UIScrollView.KeyboardDismissMode = .none,
         accessibilityIdentifier: String? = nil,
         isPagingEnabled: Bool = false,
         isScrollEnabled: Bool = true,
@@ -90,6 +111,9 @@ public struct Flow<Layout: FlowLayout>: Sendable {
         self.init(
             sections: [section],
             layout: layout,
+            contentMargins: contentMargins,
+            contentMarginsAdjustmentBehavior: contentMarginsAdjustmentBehavior,
+            keyboardDismissMode: keyboardDismissMode,
             accessibilityIdentifier: accessibilityIdentifier,
             isPagingEnabled: isPagingEnabled,
             isScrollEnabled: isScrollEnabled,
@@ -103,6 +127,9 @@ public struct Flow<Layout: FlowLayout>: Sendable {
     public init(
         section: Section,
         layout: Layout = .default,
+        contentMargins: UIEdgeInsets = .zero,
+        contentMarginsAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior = .automatic,
+        keyboardDismissMode: UIScrollView.KeyboardDismissMode = .none,
         accessibilityIdentifier: String? = nil,
         isScrollEnabled: Bool = true,
         isScrollIndicatorVisible: Bool = true,
@@ -113,6 +140,9 @@ public struct Flow<Layout: FlowLayout>: Sendable {
         self.init(
             sections: [section],
             layout: layout,
+            contentMargins: contentMargins,
+            contentMarginsAdjustmentBehavior: contentMarginsAdjustmentBehavior,
+            keyboardDismissMode: keyboardDismissMode,
             accessibilityIdentifier: accessibilityIdentifier,
             isScrollEnabled: isScrollEnabled,
             isScrollIndicatorVisible: isScrollIndicatorVisible,
@@ -133,6 +163,42 @@ extension Flow: Changeable {
 
     public func layout(_ layout: Layout) -> Self {
         changing { $0.layout = layout }
+    }
+
+    public func contentMargins(_ contentMargins: UIEdgeInsets) -> Self {
+        changing { $0.contentMargins = contentMargins }
+    }
+
+    public func contentMargins(
+        top: CGFloat = .zero,
+        leading: CGFloat = .zero,
+        bottom: CGFloat = .zero,
+        trailing: CGFloat = .zero
+    ) -> Self {
+        contentMargins(
+            UIEdgeInsets(
+                top: top,
+                left: leading,
+                bottom: bottom,
+                right: trailing
+            )
+        )
+    }
+
+    public func contentMargins(_ length: CGFloat = .zero) -> Self {
+        contentMargins(UIEdgeInsets(all: length))
+    }
+
+    public func contentMarginsAdjustmentBehavior(
+        _ contentMarginsAdjustmentBehavior: UIScrollView.ContentInsetAdjustmentBehavior
+    ) -> Self {
+        changing { $0.contentMarginsAdjustmentBehavior = contentMarginsAdjustmentBehavior }
+    }
+
+    public func keyboardDismissMode(
+        _ keyboardDismissMode: UIScrollView.KeyboardDismissMode
+    ) -> Self {
+        changing { $0.keyboardDismissMode = keyboardDismissMode }
     }
 
     public func accessibilityIdentifier(_ accessibilityIdentifier: String?) -> Self {

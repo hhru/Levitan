@@ -46,7 +46,6 @@ extension ProfileViewController {
     private func setupContentView() {
         view.addSubview(contentView)
 
-        contentView.contentInsetAdjustmentBehavior = .always
         contentView.translatesAutoresizingMaskIntoConstraints = false
 
         let constraints = [
@@ -68,6 +67,7 @@ extension ProfileViewController {
             skillsItem(profile: profile)
             aboutMeItem(profile: profile)
         }
+        .contentMarginsAdjustmentBehavior(.always)
         .scrollAlwaysBounces()
 
         contentView.update(
