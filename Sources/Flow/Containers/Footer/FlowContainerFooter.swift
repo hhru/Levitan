@@ -68,14 +68,12 @@ extension FlowContainerFooter: Changeable {
     }
 }
 
-extension Component {
+extension View where Self: Equatable {
 
-    public nonisolated func flowFooter() -> FlowContainerFooter<Self> {
+    public nonisolated func flowFooter() -> FlowContainerFooter<Self>
+    where Self: Component {
         FlowContainerFooter(content: self)
     }
-}
-
-extension View where Self: Equatable {
 
     public nonisolated func flowFooter(
         width: ComponentSizingStrategy = .hug,
@@ -85,6 +83,22 @@ extension View where Self: Equatable {
         self
             .frame(width: width, height: height, alignment: alignment)
             .flowFooter()
+    }
+}
+
+extension View where Self: Equatable {
+
+    internal nonisolated func anyFlowFooter() -> any FlowFooter
+    where Self: Component {
+        flowFooter()
+    }
+
+    internal nonisolated func anyFlowFooter() -> any FlowFooter {
+        if let component = self as? any Component {
+            return component.anyFlowFooter()
+        }
+
+        return flowFooter()
     }
 }
 #endif

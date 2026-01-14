@@ -212,7 +212,7 @@ extension CollectionViewStateManager {
     }
 
     private func itemContext(
-        for item: AnyFlowItem,
+        for item: FlowSectionItem,
         at indexPath: IndexPath,
         containerSize: CGSize? = nil
     ) -> ComponentContext? {

@@ -68,14 +68,12 @@ extension FlowContainerHeader: Changeable {
     }
 }
 
-extension Component {
+extension View where Self: Equatable {
 
-    public nonisolated func flowHeader() -> FlowContainerHeader<Self> {
+    public nonisolated func flowHeader() -> FlowContainerHeader<Self>
+    where Self: Component {
         FlowContainerHeader(content: self)
     }
-}
-
-extension View where Self: Equatable {
 
     public nonisolated func flowHeader(
         width: ComponentSizingStrategy = .hug,
@@ -85,6 +83,22 @@ extension View where Self: Equatable {
         self
             .frame(width: width, height: height, alignment: alignment)
             .flowHeader()
+    }
+}
+
+extension View where Self: Equatable {
+
+    internal nonisolated func anyFlowHeader() -> any FlowHeader
+    where Self: Component {
+        flowHeader()
+    }
+
+    internal nonisolated func anyFlowHeader() -> any FlowHeader {
+        if let component = self as? any Component {
+            return component.anyFlowHeader()
+        }
+
+        return flowHeader()
     }
 }
 #endif

@@ -5,68 +5,71 @@ public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
 
     public let id: ComponentID
 
-    public let items: [AnyFlowItem]
-    public var header: AnyFlowHeader?
-    public var footer: AnyFlowFooter?
+    internal var metrics: Layout.Metrics
+    internal var header: FlowSectionHeader?
+    internal var footer: FlowSectionFooter?
 
-    public var metrics: Layout.Metrics
+    internal let items: [FlowSectionItem]
 
     private init(
         id: some Hashable & Sendable,
-        items: [AnyFlowItem],
-        header: AnyFlowHeader?,
-        footer: AnyFlowFooter?,
-        metrics: Layout.Metrics
+        metrics: Layout.Metrics,
+        header: FlowSectionHeader?,
+        footer: FlowSectionFooter?,
+        items: [FlowSectionItem]
     ) {
         self.id = ComponentID(id)
 
-        self.items = items
+        self.metrics = metrics
         self.header = header
         self.footer = footer
 
-        self.metrics = metrics
+        self.items = items
     }
 
     public init(
         id: some Hashable & Sendable,
-        items: [any FlowItem],
+        metrics: Layout.Metrics = .default,
         header: (any FlowHeader)? = nil,
         footer: (any FlowFooter)? = nil,
-        metrics: Layout.Metrics = .default
+        items: [any FlowItem]
     ) {
         self.init(
             id: id,
-            items: items.map { $0.eraseToAnyItem() },
-            header: header?.eraseToAnyHeader(),
-            footer: footer?.eraseToAnyFooter(),
-            metrics: metrics
+            metrics: metrics,
+            header: header?.sectionHeader(),
+            footer: footer?.sectionFooter(),
+            items: items.map { $0.sectionItem() }
         )
     }
 
     public init(
-        item: any FlowItem,
+        metrics: Layout.Metrics = .default,
         header: (any FlowHeader)? = nil,
         footer: (any FlowFooter)? = nil,
-        metrics: Layout.Metrics = .default
+        item: any FlowItem
     ) {
         self.init(
             id: item.id,
-            items: [item.eraseToAnyItem()],
-            header: header?.eraseToAnyHeader(),
-            footer: footer?.eraseToAnyFooter(),
-            metrics: metrics
+            metrics: metrics,
+            header: header,
+            footer: footer,
+            items: [item]
         )
     }
 
     public init(
         id: some Hashable & Sendable,
+        metrics: Layout.Metrics = .default,
         header: (any FlowHeader)? = nil,
         footer: (any FlowFooter)? = nil,
-        metrics: Layout.Metrics = .default,
-        @FlowSectionBuilder items: () -> [any FlowItem]
+        @FlowItemArrayBuilder items: () -> [any FlowItem]
     ) {
         self.init(
             id: id,
+            metrics: metrics,
+            header: header,
+            footer: footer,
             items: items()
         )
     }
@@ -74,16 +77,16 @@ public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
 
 extension FlowSection: Changeable {
 
+    public func metrics(_ metrics: Layout.Metrics) -> Self {
+        changing { $0.metrics = metrics }
+    }
+
     public func header(_ header: (any FlowHeader)?) -> Self {
-        changing { $0.header = header?.eraseToAnyHeader() }
+        changing { $0.header = header?.sectionHeader() }
     }
 
     public func footer(_ footer: (any FlowFooter)?) -> Self {
-        changing { $0.footer = footer?.eraseToAnyFooter() }
-    }
-
-    public func metrics(_ metrics: Layout.Metrics) -> Self {
-        changing { $0.metrics = metrics }
+        changing { $0.footer = footer?.sectionFooter() }
     }
 }
 
@@ -99,13 +102,13 @@ extension FlowSection: DiffableSection {
             && metrics == other.metrics
     }
 
-    internal func items(_ items: [AnyFlowItem]) -> Self {
+    internal func items(_ items: [FlowSectionItem]) -> Self {
         Self(
             id: id,
-            items: items,
+            metrics: metrics,
             header: header,
             footer: footer,
-            metrics: metrics
+            items: items
         )
     }
 }

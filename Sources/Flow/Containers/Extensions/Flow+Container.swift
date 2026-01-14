@@ -5,34 +5,72 @@ extension Flow {
 
     public init<Data: RandomAccessCollection, ID: Hashable & Sendable>(
         _ data: Data,
-        sections: @escaping (Data.Element) -> some Component
+        sections: (Data.Element) -> Section?
     ) where Data.Element: Identifiable, Data.Element.ID == ID {
-        self.init(
-            items: data.map { element in
-                sections(element).flowItem(id: element.id)
-            }
-        )
+        self.init(sections: data.compactMap(sections))
+    }
+
+    public init(
+        _ data: Range<Int>,
+        sections: (Int) -> Section?
+    ) {
+        self.init(sections: data.compactMap(sections))
     }
 
     public init<Data: RandomAccessCollection, ID: Hashable & Sendable>(
-        _ data: Data,
-        id: KeyPath<Data.Element, ID>,
-        items: @escaping (Data.Element) -> some Component
+        id: some Hashable & Sendable,
+        metrics: Layout.Metrics = .default,
+        header: (any View & Equatable)? = nil,
+        footer: (any View & Equatable)? = nil,
+        itemsData: Data,
+        itemsID: KeyPath<Data.Element, ID>,
+        items: (Data.Element) -> (any View & Equatable)?
     ) {
         self.init(
-            items: data.map { element in
-                items(element).flowItem(id: element[keyPath: id])
+            id: id,
+            metrics: metrics,
+            header: header?.anyFlowHeader(),
+            footer: footer?.anyFlowFooter(),
+            items: itemsData.compactMap { element in
+                items(element)?.anyFlowItem(id: element[keyPath: itemsID])
             }
         )
     }
 
     public init<Data: RandomAccessCollection, ID: Hashable & Sendable>(
-        _ data: Data,
-        items: @escaping (Data.Element) -> some Component
+        id: some Hashable & Sendable,
+        metrics: Layout.Metrics = .default,
+        header: (any View & Equatable)? = nil,
+        footer: (any View & Equatable)? = nil,
+        itemsData: Data,
+        items: (Data.Element) -> (any View & Equatable)?
     ) where Data.Element: Identifiable, Data.Element.ID == ID {
         self.init(
-            items: data.map { element in
-                items(element).flowItem(id: element.id)
+            id: id,
+            metrics: metrics,
+            header: header?.anyFlowHeader(),
+            footer: footer?.anyFlowFooter(),
+            items: itemsData.compactMap { element in
+                items(element)?.anyFlowItem(id: element.id)
+            }
+        )
+    }
+
+    public init(
+        id: some Hashable & Sendable,
+        metrics: Layout.Metrics = .default,
+        header: (any View & Equatable)? = nil,
+        footer: (any View & Equatable)? = nil,
+        itemsData: Range<Int>,
+        items: (Int) -> (any View & Equatable)?
+    ) {
+        self.init(
+            id: id,
+            metrics: metrics,
+            header: header?.anyFlowHeader(),
+            footer: footer?.anyFlowFooter(),
+            items: itemsData.compactMap { index in
+                items(index)?.anyFlowItem(id: index)
             }
         )
     }

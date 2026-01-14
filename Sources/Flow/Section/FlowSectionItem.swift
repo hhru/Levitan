@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
-public struct AnyFlowItem: Sendable {
+public struct FlowSectionItem: Sendable {
 
     internal let wrapped: any FlowItem
     internal let cellType: AnyFlowCell.Type
@@ -68,7 +68,7 @@ public struct AnyFlowItem: Sendable {
     }
 }
 
-extension AnyFlowItem: Diffable {
+extension FlowSectionItem: Diffable {
 
     internal var differenceID: AnyHashable {
         id
@@ -79,7 +79,7 @@ extension AnyFlowItem: Diffable {
     }
 }
 
-extension AnyFlowItem: Equatable {
+extension FlowSectionItem: Equatable {
 
     public static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.isContentEqualBox(rhs)
@@ -88,8 +88,8 @@ extension AnyFlowItem: Equatable {
 
 extension FlowItem {
 
-    public func eraseToAnyItem() -> AnyFlowItem {
-        AnyFlowItem(self)
+    internal func sectionItem() -> FlowSectionItem {
+        FlowSectionItem(self)
     }
 }
 #endif

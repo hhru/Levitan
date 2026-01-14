@@ -208,18 +208,15 @@ extension ChatViewController {
         let header = ChatHeader(date: date, info: nil)
             .padding(top: 16.0, bottom: 8.0)
             .frame(width: .fill)
-            .flowHeader()
 
-        return VFlowSection(id: date) {
-            messages.map { message in
-                chatMessageItem(message: message)
-            }
+        return VFlowSection(id: date, itemsData: messages) { message in
+            chatMessageItem(message: message)
         }
         .header(header)
         .verticalSpacing(8.0)
     }
 
-    private func chatMessageItem(message: ChatMessage) -> any FlowItem {
+    private func chatMessageItem(message: ChatMessage) -> any Component {
         switch message.type {
         case .incoming:
             chatIncomingMessageItem(message: message)
@@ -229,7 +226,7 @@ extension ChatViewController {
         }
     }
 
-    private func chatIncomingMessageItem(message: ChatMessage) -> any FlowItem {
+    private func chatIncomingMessageItem(message: ChatMessage) -> any Component {
         ChatIncomingMessage(
             text: message.text,
             time: message.date,
@@ -238,10 +235,9 @@ extension ChatViewController {
             }
         )
         .padding(top: 8.0)
-        .flowItem(id: message.id)
     }
 
-    private func chatOutgoingMessageItem(message: ChatMessage) -> any FlowItem {
+    private func chatOutgoingMessageItem(message: ChatMessage) -> any Component {
         ChatOutgoingMessage(
             text: message.text,
             time: message.date,
@@ -250,7 +246,6 @@ extension ChatViewController {
             }
         )
         .padding(top: 8.0)
-        .flowItem(id: message.id)
     }
 }
 

@@ -121,17 +121,15 @@ extension FlowContainerItem: Changeable {
     }
 }
 
-extension Component {
+extension View where Self: Equatable {
 
-    public nonisolated func flowItem(id: some Hashable & Sendable) -> FlowContainerItem<Self> {
+    public nonisolated func flowItem(id: some Hashable & Sendable) -> FlowContainerItem<Self>
+    where Self: Component {
         FlowContainerItem(
             id: id,
             content: self
         )
     }
-}
-
-extension View where Self: Equatable {
 
     public nonisolated func flowItem(
         id: some Hashable & Sendable,
@@ -142,6 +140,22 @@ extension View where Self: Equatable {
         self
             .frame(width: width, height: height, alignment: alignment)
             .flowItem(id: id)
+    }
+}
+
+extension View where Self: Equatable {
+
+    internal nonisolated func anyFlowItem(id: some Hashable & Sendable) -> any FlowItem
+    where Self: Component {
+        flowItem(id: id)
+    }
+
+    internal nonisolated func anyFlowItem(id: some Hashable & Sendable) -> any FlowItem {
+        if let component = self as? any Component {
+            return component.anyFlowItem(id: id)
+        }
+
+        return flowItem(id: id)
     }
 }
 #endif

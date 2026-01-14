@@ -122,27 +122,6 @@ public struct Flow<Layout: FlowLayout>: Sendable {
         )
     }
     #endif
-
-    public init(@FlowBuilder<Layout> sections: () -> [Section]) {
-        self.init(sections: sections())
-    }
-
-    public init(items: [any FlowItem]) {
-        self.init(
-            section: Section(
-                id: items.first?.id,
-                items: items
-            )
-        )
-    }
-
-    public init(item: any FlowItem) {
-        self.init(items: [item])
-    }
-
-    public init(@FlowSectionBuilder items: () -> [any FlowItem]) {
-        self.init(items: items())
-    }
 }
 
 extension Flow: FallbackComponent {
@@ -200,6 +179,58 @@ extension Flow {
 
     public static var empty: Self {
         Self(sections: [])
+    }
+
+    public init(@FlowSectionArrayBuilder<Layout> sections: () -> [Section]) {
+        self.init(sections: sections())
+    }
+
+    public init(
+        id: some Hashable & Sendable,
+        metrics: Layout.Metrics = .default,
+        header: (any FlowHeader)? = nil,
+        footer: (any FlowFooter)? = nil,
+        items: [any FlowItem]
+    ) {
+        self.init(
+            section: Section(
+                id: id,
+                metrics: metrics,
+                header: header,
+                footer: footer,
+                items: items
+            )
+        )
+    }
+
+    public init(
+        metrics: Layout.Metrics = .default,
+        header: (any FlowHeader)? = nil,
+        footer: (any FlowFooter)? = nil,
+        item: any FlowItem
+    ) {
+        self.init(
+            id: item.id,
+            metrics: metrics,
+            footer: footer,
+            items: [item]
+        )
+    }
+
+    public init(
+        id: some Hashable & Sendable,
+        metrics: Layout.Metrics = .default,
+        header: (any FlowHeader)? = nil,
+        footer: (any FlowFooter)? = nil,
+        @FlowItemArrayBuilder items: () -> [any FlowItem]
+    ) {
+        self.init(
+            id: id,
+            metrics: metrics,
+            header: header,
+            footer: footer,
+            items: items()
+        )
     }
 }
 #endif

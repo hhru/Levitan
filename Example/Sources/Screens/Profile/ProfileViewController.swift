@@ -62,7 +62,7 @@ extension ProfileViewController {
     private func updateContentView() {
         let profile = profileStore.profile
 
-        let content = VFlow {
+        let content = VFlow(id: #function) {
             headerItem(profile: profile)
             contactsItem(profile: profile)
             skillsItem(profile: profile)
@@ -98,7 +98,7 @@ extension ProfileViewController {
             }
         )
 
-        return VFlow {
+        return VFlow(id: #function) {
             if profile.phoneNumber == nil, profile.emailAddress == nil {
                 Text("No contacts added yet.")
                     .typography(Typographies.paragraph2)
@@ -132,7 +132,7 @@ extension ProfileViewController {
             }
         )
 
-        return VFlow {
+        return VFlow(id: #function) {
             if profile.skills.isEmpty {
                 Text("No skills added yet.")
                     .typography(Typographies.paragraph2)
@@ -140,8 +140,7 @@ extension ProfileViewController {
                     .flowItem(id: "empty")
             } else {
                 profile.skills.map { skill in
-                    Tag(label: skill)
-                        .flowItem(id: skill)
+                    Tag(label: skill).flowItem(id: skill)
                 }
             }
         }

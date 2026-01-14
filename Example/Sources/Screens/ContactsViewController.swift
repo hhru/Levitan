@@ -149,26 +149,28 @@ extension ContactsViewController {
             return nil
         }
 
-        let items = users.enumerated().map { index, user in
-            userItem(user: user, isLast: index >= users.count - 1)
-        }
-
         let header = title.map { title in
             Text(title)
                 .typography(Typographies.label2)
                 .foregroundColor(Colors.text.secondary)
                 .padding(top: 20.0, leading: 16.0, bottom: 8.0, trailing: 16.0)
-                .flowHeader()
         }
 
         return VFlowSection(
             id: title,
-            items: items,
-            header: header
+            header: header,
+            itemsData: Array(users.enumerated()),
+            itemsID: \.element.id,
+            items: { index, user in
+                userItem(
+                    user: user,
+                    isLast: index >= users.count - 1
+                )
+            }
         )
     }
 
-    private func userItem(user: User, isLast: Bool) -> any FlowItem {
+    private func userItem(user: User, isLast: Bool) -> any Component {
         Cell(
             avatar: Avatar(
                 url: user.photoURL,
@@ -188,7 +190,6 @@ extension ContactsViewController {
                 self?.onUserTap(userID: user.id)
             }
         )
-        .flowItem(id: user.id)
     }
 }
 

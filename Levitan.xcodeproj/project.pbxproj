@@ -1031,7 +1031,7 @@
 		C0C8B8BC2F09CBAA0029D19F /* ComponentPaddingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8BA2F09CBA80029D19F /* ComponentPaddingView.swift */; };
 		C0C8B8BD2F09CBAA0029D19F /* ComponentPaddingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8BA2F09CBA80029D19F /* ComponentPaddingView.swift */; };
 		C0C8CB2E2F104183005821BE /* FlowContainerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAE12F104183005821BE /* FlowContainerHeader.swift */; };
-		C0C8CB2F2F104183005821BE /* AnyFlowFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB1C2F104183005821BE /* AnyFlowFooter.swift */; };
+		C0C8CB2F2F104183005821BE /* FlowSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB1C2F104183005821BE /* FlowSectionFooter.swift */; };
 		C0C8CB302F104183005821BE /* CollectionViewInconsistentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC12F104183005821BE /* CollectionViewInconsistentCell.swift */; };
 		C0C8CB312F104183005821BE /* FlowColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB032F104183005821BE /* FlowColumn.swift */; };
 		C0C8CB322F104183005821BE /* FlowSectionPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB1A2F104183005821BE /* FlowSectionPredicate.swift */; };
@@ -1052,7 +1052,6 @@
 		C0C8CB412F104183005821BE /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CADC2F104183005821BE /* CollectionViewManager.swift */; };
 		C0C8CB422F104183005821BE /* FlowContainerFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CADE2F104183005821BE /* FlowContainerFooter.swift */; };
 		C0C8CB432F104183005821BE /* CollectionViewLayoutScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC72F104183005821BE /* CollectionViewLayoutScrollManager.swift */; };
-		C0C8CB442F104183005821BE /* AnyFlowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAE92F104183005821BE /* AnyFlowItem.swift */; };
 		C0C8CB452F104183005821BE /* FlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB2C2F104183005821BE /* FlowView.swift */; };
 		C0C8CB462F104183005821BE /* VFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB092F104183005821BE /* VFlowReader.swift */; };
 		C0C8CB472F104183005821BE /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC52F104183005821BE /* CollectionViewLayoutScrollAnchorAxis.swift */; };
@@ -1062,7 +1061,7 @@
 		C0C8CB4B2F104183005821BE /* VFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB072F104183005821BE /* VFlowLayout.swift */; };
 		C0C8CB4C2F104183005821BE /* CollectionViewInconsistentSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC22F104183005821BE /* CollectionViewInconsistentSupplementaryView.swift */; };
 		C0C8CB4D2F104183005821BE /* AnyFlowSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB262F104183005821BE /* AnyFlowSupplementaryView.swift */; };
-		C0C8CB4E2F104183005821BE /* FlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB292F104183005821BE /* FlowBuilder.swift */; };
+		C0C8CB4E2F104183005821BE /* FlowSectionArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB292F104183005821BE /* FlowSectionArrayBuilder.swift */; };
 		C0C8CB4F2F104183005821BE /* CollectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD52F104183005821BE /* CollectionViewState.swift */; };
 		C0C8CB502F104183005821BE /* CollectionViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD82F104183005821BE /* CollectionViewUpdate.swift */; };
 		C0C8CB512F104183005821BE /* VFlowSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB0A2F104183005821BE /* VFlowSection.swift */; };
@@ -1084,7 +1083,7 @@
 		C0C8CB612F104183005821BE /* CollectionViewUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD92F104183005821BE /* CollectionViewUpdateManager.swift */; };
 		C0C8CB622F104183005821BE /* FlowLayoutScrollAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB122F104183005821BE /* FlowLayoutScrollAxis.swift */; };
 		C0C8CB632F104183005821BE /* HFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB002F104183005821BE /* HFlowReader.swift */; };
-		C0C8CB642F104183005821BE /* AnyFlowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB212F104183005821BE /* AnyFlowHeader.swift */; };
+		C0C8CB642F104183005821BE /* FlowSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB212F104183005821BE /* FlowSectionHeader.swift */; };
 		C0C8CB652F104183005821BE /* FlowLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAF62F104183005821BE /* FlowLayoutSection.swift */; };
 		C0C8CB662F104183005821BE /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB0D2F104183005821BE /* FlowLayout.swift */; };
 		C0C8CB672F104183005821BE /* FlowLayoutHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAF32F104183005821BE /* FlowLayoutHeader.swift */; };
@@ -1095,7 +1094,7 @@
 		C0C8CB6C2F104183005821BE /* CollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD12F104183005821BE /* CollectionViewLayoutDelegate.swift */; };
 		C0C8CB6D2F104183005821BE /* FlowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB232F104183005821BE /* FlowHeader.swift */; };
 		C0C8CB6E2F104183005821BE /* FlowContainerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAE22F104183005821BE /* FlowContainerHeaderView.swift */; };
-		C0C8CB6F2F104183005821BE /* FlowSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB192F104183005821BE /* FlowSectionBuilder.swift */; };
+		C0C8CB6F2F104183005821BE /* FlowItemArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB192F104183005821BE /* FlowItemArrayBuilder.swift */; };
 		C0C8CB702F104183005821BE /* FlowReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB162F104183005821BE /* FlowReaderView.swift */; };
 		C0C8CB712F104183005821BE /* CollectionViewLayoutStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CACC2F104183005821BE /* CollectionViewLayoutStateManager.swift */; };
 		C0C8CB722F104183005821BE /* CollectionViewLayoutSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD32F104183005821BE /* CollectionViewLayoutSizing.swift */; };
@@ -1116,7 +1115,7 @@
 		C0C8CB812F104183005821BE /* CollectionViewLayoutBoundsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CACB2F104183005821BE /* CollectionViewLayoutBoundsProvider.swift */; };
 		C0C8CB822F104183005821BE /* VFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB062F104183005821BE /* VFlow.swift */; };
 		C0C8CB832F104183005821BE /* FlowContainerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAE12F104183005821BE /* FlowContainerHeader.swift */; };
-		C0C8CB842F104183005821BE /* AnyFlowFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB1C2F104183005821BE /* AnyFlowFooter.swift */; };
+		C0C8CB842F104183005821BE /* FlowSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB1C2F104183005821BE /* FlowSectionFooter.swift */; };
 		C0C8CB852F104183005821BE /* CollectionViewInconsistentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC12F104183005821BE /* CollectionViewInconsistentCell.swift */; };
 		C0C8CB862F104183005821BE /* FlowColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB032F104183005821BE /* FlowColumn.swift */; };
 		C0C8CB872F104183005821BE /* FlowSectionPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB1A2F104183005821BE /* FlowSectionPredicate.swift */; };
@@ -1137,7 +1136,6 @@
 		C0C8CB962F104183005821BE /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CADC2F104183005821BE /* CollectionViewManager.swift */; };
 		C0C8CB972F104183005821BE /* FlowContainerFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CADE2F104183005821BE /* FlowContainerFooter.swift */; };
 		C0C8CB982F104183005821BE /* CollectionViewLayoutScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC72F104183005821BE /* CollectionViewLayoutScrollManager.swift */; };
-		C0C8CB992F104183005821BE /* AnyFlowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAE92F104183005821BE /* AnyFlowItem.swift */; };
 		C0C8CB9A2F104183005821BE /* FlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB2C2F104183005821BE /* FlowView.swift */; };
 		C0C8CB9B2F104183005821BE /* VFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB092F104183005821BE /* VFlowReader.swift */; };
 		C0C8CB9C2F104183005821BE /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC52F104183005821BE /* CollectionViewLayoutScrollAnchorAxis.swift */; };
@@ -1147,7 +1145,7 @@
 		C0C8CBA02F104183005821BE /* VFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB072F104183005821BE /* VFlowLayout.swift */; };
 		C0C8CBA12F104183005821BE /* CollectionViewInconsistentSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC22F104183005821BE /* CollectionViewInconsistentSupplementaryView.swift */; };
 		C0C8CBA22F104183005821BE /* AnyFlowSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB262F104183005821BE /* AnyFlowSupplementaryView.swift */; };
-		C0C8CBA32F104183005821BE /* FlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB292F104183005821BE /* FlowBuilder.swift */; };
+		C0C8CBA32F104183005821BE /* FlowSectionArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB292F104183005821BE /* FlowSectionArrayBuilder.swift */; };
 		C0C8CBA42F104183005821BE /* CollectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD52F104183005821BE /* CollectionViewState.swift */; };
 		C0C8CBA52F104183005821BE /* CollectionViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD82F104183005821BE /* CollectionViewUpdate.swift */; };
 		C0C8CBA62F104183005821BE /* VFlowSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB0A2F104183005821BE /* VFlowSection.swift */; };
@@ -1169,7 +1167,7 @@
 		C0C8CBB62F104183005821BE /* CollectionViewUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD92F104183005821BE /* CollectionViewUpdateManager.swift */; };
 		C0C8CBB72F104183005821BE /* FlowLayoutScrollAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB122F104183005821BE /* FlowLayoutScrollAxis.swift */; };
 		C0C8CBB82F104183005821BE /* HFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB002F104183005821BE /* HFlowReader.swift */; };
-		C0C8CBB92F104183005821BE /* AnyFlowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB212F104183005821BE /* AnyFlowHeader.swift */; };
+		C0C8CBB92F104183005821BE /* FlowSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB212F104183005821BE /* FlowSectionHeader.swift */; };
 		C0C8CBBA2F104183005821BE /* FlowLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAF62F104183005821BE /* FlowLayoutSection.swift */; };
 		C0C8CBBB2F104183005821BE /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB0D2F104183005821BE /* FlowLayout.swift */; };
 		C0C8CBBC2F104183005821BE /* FlowLayoutHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAF32F104183005821BE /* FlowLayoutHeader.swift */; };
@@ -1180,7 +1178,7 @@
 		C0C8CBC12F104183005821BE /* CollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD12F104183005821BE /* CollectionViewLayoutDelegate.swift */; };
 		C0C8CBC22F104183005821BE /* FlowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB232F104183005821BE /* FlowHeader.swift */; };
 		C0C8CBC32F104183005821BE /* FlowContainerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAE22F104183005821BE /* FlowContainerHeaderView.swift */; };
-		C0C8CBC42F104183005821BE /* FlowSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB192F104183005821BE /* FlowSectionBuilder.swift */; };
+		C0C8CBC42F104183005821BE /* FlowItemArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB192F104183005821BE /* FlowItemArrayBuilder.swift */; };
 		C0C8CBC52F104183005821BE /* FlowReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB162F104183005821BE /* FlowReaderView.swift */; };
 		C0C8CBC62F104183005821BE /* CollectionViewLayoutStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CACC2F104183005821BE /* CollectionViewLayoutStateManager.swift */; };
 		C0C8CBC72F104183005821BE /* CollectionViewLayoutSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD32F104183005821BE /* CollectionViewLayoutSizing.swift */; };
@@ -1201,7 +1199,7 @@
 		C0C8CBD62F104183005821BE /* CollectionViewLayoutBoundsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CACB2F104183005821BE /* CollectionViewLayoutBoundsProvider.swift */; };
 		C0C8CBD72F104183005821BE /* VFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB062F104183005821BE /* VFlow.swift */; };
 		C0C8CBD82F104183005821BE /* FlowContainerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAE12F104183005821BE /* FlowContainerHeader.swift */; };
-		C0C8CBD92F104183005821BE /* AnyFlowFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB1C2F104183005821BE /* AnyFlowFooter.swift */; };
+		C0C8CBD92F104183005821BE /* FlowSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB1C2F104183005821BE /* FlowSectionFooter.swift */; };
 		C0C8CBDA2F104183005821BE /* CollectionViewInconsistentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC12F104183005821BE /* CollectionViewInconsistentCell.swift */; };
 		C0C8CBDB2F104183005821BE /* FlowColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB032F104183005821BE /* FlowColumn.swift */; };
 		C0C8CBDC2F104183005821BE /* FlowSectionPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB1A2F104183005821BE /* FlowSectionPredicate.swift */; };
@@ -1222,7 +1220,6 @@
 		C0C8CBEB2F104183005821BE /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CADC2F104183005821BE /* CollectionViewManager.swift */; };
 		C0C8CBEC2F104183005821BE /* FlowContainerFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CADE2F104183005821BE /* FlowContainerFooter.swift */; };
 		C0C8CBED2F104183005821BE /* CollectionViewLayoutScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC72F104183005821BE /* CollectionViewLayoutScrollManager.swift */; };
-		C0C8CBEE2F104183005821BE /* AnyFlowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAE92F104183005821BE /* AnyFlowItem.swift */; };
 		C0C8CBEF2F104183005821BE /* FlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB2C2F104183005821BE /* FlowView.swift */; };
 		C0C8CBF02F104183005821BE /* VFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB092F104183005821BE /* VFlowReader.swift */; };
 		C0C8CBF12F104183005821BE /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC52F104183005821BE /* CollectionViewLayoutScrollAnchorAxis.swift */; };
@@ -1232,7 +1229,7 @@
 		C0C8CBF52F104183005821BE /* VFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB072F104183005821BE /* VFlowLayout.swift */; };
 		C0C8CBF62F104183005821BE /* CollectionViewInconsistentSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAC22F104183005821BE /* CollectionViewInconsistentSupplementaryView.swift */; };
 		C0C8CBF72F104183005821BE /* AnyFlowSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB262F104183005821BE /* AnyFlowSupplementaryView.swift */; };
-		C0C8CBF82F104183005821BE /* FlowBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB292F104183005821BE /* FlowBuilder.swift */; };
+		C0C8CBF82F104183005821BE /* FlowSectionArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB292F104183005821BE /* FlowSectionArrayBuilder.swift */; };
 		C0C8CBF92F104183005821BE /* CollectionViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD52F104183005821BE /* CollectionViewState.swift */; };
 		C0C8CBFA2F104183005821BE /* CollectionViewUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD82F104183005821BE /* CollectionViewUpdate.swift */; };
 		C0C8CBFB2F104183005821BE /* VFlowSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB0A2F104183005821BE /* VFlowSection.swift */; };
@@ -1254,7 +1251,7 @@
 		C0C8CC0B2F104183005821BE /* CollectionViewUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD92F104183005821BE /* CollectionViewUpdateManager.swift */; };
 		C0C8CC0C2F104183005821BE /* FlowLayoutScrollAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB122F104183005821BE /* FlowLayoutScrollAxis.swift */; };
 		C0C8CC0D2F104183005821BE /* HFlowReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB002F104183005821BE /* HFlowReader.swift */; };
-		C0C8CC0E2F104183005821BE /* AnyFlowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB212F104183005821BE /* AnyFlowHeader.swift */; };
+		C0C8CC0E2F104183005821BE /* FlowSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB212F104183005821BE /* FlowSectionHeader.swift */; };
 		C0C8CC0F2F104183005821BE /* FlowLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAF62F104183005821BE /* FlowLayoutSection.swift */; };
 		C0C8CC102F104183005821BE /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB0D2F104183005821BE /* FlowLayout.swift */; };
 		C0C8CC112F104183005821BE /* FlowLayoutHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAF32F104183005821BE /* FlowLayoutHeader.swift */; };
@@ -1265,7 +1262,7 @@
 		C0C8CC162F104183005821BE /* CollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD12F104183005821BE /* CollectionViewLayoutDelegate.swift */; };
 		C0C8CC172F104183005821BE /* FlowHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB232F104183005821BE /* FlowHeader.swift */; };
 		C0C8CC182F104183005821BE /* FlowContainerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAE22F104183005821BE /* FlowContainerHeaderView.swift */; };
-		C0C8CC192F104183005821BE /* FlowSectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB192F104183005821BE /* FlowSectionBuilder.swift */; };
+		C0C8CC192F104183005821BE /* FlowItemArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB192F104183005821BE /* FlowItemArrayBuilder.swift */; };
 		C0C8CC1A2F104183005821BE /* FlowReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CB162F104183005821BE /* FlowReaderView.swift */; };
 		C0C8CC1B2F104183005821BE /* CollectionViewLayoutStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CACC2F104183005821BE /* CollectionViewLayoutStateManager.swift */; };
 		C0C8CC1C2F104183005821BE /* CollectionViewLayoutSizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8CAD32F104183005821BE /* CollectionViewLayoutSizing.swift */; };
@@ -1294,6 +1291,9 @@
 		C0E821E22F0567FC00051412 /* ComponentID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821E12F0567F800051412 /* ComponentID.swift */; };
 		C0E821E32F0567FC00051412 /* ComponentID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821E12F0567F800051412 /* ComponentID.swift */; };
 		C0E821E42F0567FC00051412 /* ComponentID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E821E12F0567F800051412 /* ComponentID.swift */; };
+		C0E93EA82F17B5E0001DF87A /* FlowSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93EA72F17B5DB001DF87A /* FlowSectionItem.swift */; };
+		C0E93EA92F17B5E0001DF87A /* FlowSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93EA72F17B5DB001DF87A /* FlowSectionItem.swift */; };
+		C0E93EAA2F17B5E0001DF87A /* FlowSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E93EA72F17B5DB001DF87A /* FlowSectionItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1744,7 +1744,6 @@
 		C0C8CAE42F104183005821BE /* FlowContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowContainerCell.swift; sourceTree = "<group>"; };
 		C0C8CAE52F104183005821BE /* FlowContainerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowContainerItem.swift; sourceTree = "<group>"; };
 		C0C8CAE82F104183005821BE /* AnyFlowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyFlowCell.swift; sourceTree = "<group>"; };
-		C0C8CAE92F104183005821BE /* AnyFlowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyFlowItem.swift; sourceTree = "<group>"; };
 		C0C8CAEA2F104183005821BE /* FlowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCell.swift; sourceTree = "<group>"; };
 		C0C8CAEB2F104183005821BE /* FlowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowItem.swift; sourceTree = "<group>"; };
 		C0C8CAEC2F104183005821BE /* FlowItemPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowItemPredicate.swift; sourceTree = "<group>"; };
@@ -1782,19 +1781,19 @@
 		C0C8CB152F104183005821BE /* FlowReaderProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowReaderProxy.swift; sourceTree = "<group>"; };
 		C0C8CB162F104183005821BE /* FlowReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowReaderView.swift; sourceTree = "<group>"; };
 		C0C8CB182F104183005821BE /* FlowSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSection.swift; sourceTree = "<group>"; };
-		C0C8CB192F104183005821BE /* FlowSectionBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSectionBuilder.swift; sourceTree = "<group>"; };
+		C0C8CB192F104183005821BE /* FlowItemArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowItemArrayBuilder.swift; sourceTree = "<group>"; };
 		C0C8CB1A2F104183005821BE /* FlowSectionPredicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSectionPredicate.swift; sourceTree = "<group>"; };
-		C0C8CB1C2F104183005821BE /* AnyFlowFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyFlowFooter.swift; sourceTree = "<group>"; };
+		C0C8CB1C2F104183005821BE /* FlowSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSectionFooter.swift; sourceTree = "<group>"; };
 		C0C8CB1D2F104183005821BE /* AnyFlowFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyFlowFooterView.swift; sourceTree = "<group>"; };
 		C0C8CB1E2F104183005821BE /* FlowFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowFooter.swift; sourceTree = "<group>"; };
 		C0C8CB1F2F104183005821BE /* FlowFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowFooterView.swift; sourceTree = "<group>"; };
-		C0C8CB212F104183005821BE /* AnyFlowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyFlowHeader.swift; sourceTree = "<group>"; };
+		C0C8CB212F104183005821BE /* FlowSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSectionHeader.swift; sourceTree = "<group>"; };
 		C0C8CB222F104183005821BE /* AnyFlowHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyFlowHeaderView.swift; sourceTree = "<group>"; };
 		C0C8CB232F104183005821BE /* FlowHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowHeader.swift; sourceTree = "<group>"; };
 		C0C8CB242F104183005821BE /* FlowHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowHeaderView.swift; sourceTree = "<group>"; };
 		C0C8CB262F104183005821BE /* AnyFlowSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyFlowSupplementaryView.swift; sourceTree = "<group>"; };
 		C0C8CB282F104183005821BE /* Flow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
-		C0C8CB292F104183005821BE /* FlowBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowBuilder.swift; sourceTree = "<group>"; };
+		C0C8CB292F104183005821BE /* FlowSectionArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSectionArrayBuilder.swift; sourceTree = "<group>"; };
 		C0C8CB2A2F104183005821BE /* FlowScrollAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowScrollAnchor.swift; sourceTree = "<group>"; };
 		C0C8CB2B2F104183005821BE /* FlowUpdateStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowUpdateStrategy.swift; sourceTree = "<group>"; };
 		C0C8CB2C2F104183005821BE /* FlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowView.swift; sourceTree = "<group>"; };
@@ -1804,6 +1803,7 @@
 		C0D227172DCCC26C0075DB31 /* LevitanDocumentation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LevitanDocumentation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D227252DCCD0FC0075DB31 /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		C0E821E12F0567F800051412 /* ComponentID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentID.swift; sourceTree = "<group>"; };
+		C0E93EA72F17B5DB001DF87A /* FlowSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSectionItem.swift; sourceTree = "<group>"; };
 		C0E97A692BC6DFA000CF37A7 /* .xcode-runtime-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-runtime-version"; sourceTree = "<group>"; };
 		C0E97A6A2BC6DFA000CF37A7 /* .xcode-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".xcode-version"; sourceTree = "<group>"; };
 		C0E97A6B2BC6DFA000CF37A7 /* .system-version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ".system-version"; sourceTree = "<group>"; };
@@ -3286,9 +3286,9 @@
 			isa = PBXGroup;
 			children = (
 				C0C8CAE82F104183005821BE /* AnyFlowCell.swift */,
-				C0C8CAE92F104183005821BE /* AnyFlowItem.swift */,
 				C0C8CAEA2F104183005821BE /* FlowCell.swift */,
 				C0C8CAEB2F104183005821BE /* FlowItem.swift */,
+				C0C8CB192F104183005821BE /* FlowItemArrayBuilder.swift */,
 				C0C8CAEC2F104183005821BE /* FlowItemPredicate.swift */,
 			);
 			path = Item;
@@ -3401,7 +3401,10 @@
 			isa = PBXGroup;
 			children = (
 				C0C8CB182F104183005821BE /* FlowSection.swift */,
-				C0C8CB192F104183005821BE /* FlowSectionBuilder.swift */,
+				C0C8CB292F104183005821BE /* FlowSectionArrayBuilder.swift */,
+				C0C8CB1C2F104183005821BE /* FlowSectionFooter.swift */,
+				C0C8CB212F104183005821BE /* FlowSectionHeader.swift */,
+				C0E93EA72F17B5DB001DF87A /* FlowSectionItem.swift */,
 				C0C8CB1A2F104183005821BE /* FlowSectionPredicate.swift */,
 			);
 			path = Section;
@@ -3410,7 +3413,6 @@
 		C0C8CB202F104183005821BE /* Footer */ = {
 			isa = PBXGroup;
 			children = (
-				C0C8CB1C2F104183005821BE /* AnyFlowFooter.swift */,
 				C0C8CB1D2F104183005821BE /* AnyFlowFooterView.swift */,
 				C0C8CB1E2F104183005821BE /* FlowFooter.swift */,
 				C0C8CB1F2F104183005821BE /* FlowFooterView.swift */,
@@ -3421,7 +3423,6 @@
 		C0C8CB252F104183005821BE /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				C0C8CB212F104183005821BE /* AnyFlowHeader.swift */,
 				C0C8CB222F104183005821BE /* AnyFlowHeaderView.swift */,
 				C0C8CB232F104183005821BE /* FlowHeader.swift */,
 				C0C8CB242F104183005821BE /* FlowHeaderView.swift */,
@@ -3451,7 +3452,6 @@
 				C0C8CB1B2F104183005821BE /* Section */,
 				C0C8CB272F104183005821BE /* Supplementary */,
 				C0C8CB282F104183005821BE /* Flow.swift */,
-				C0C8CB292F104183005821BE /* FlowBuilder.swift */,
 				C0C8CB2A2F104183005821BE /* FlowScrollAnchor.swift */,
 				C0C8CB2B2F104183005821BE /* FlowUpdateStrategy.swift */,
 				C0C8CB2C2F104183005821BE /* FlowView.swift */,
@@ -3756,7 +3756,7 @@
 				C02C8C3F2F0266B400A2FE9F /* AnyComponentPresenter.swift in Sources */,
 				C02C8C402F0266B400A2FE9F /* TextBuilder.swift in Sources */,
 				C0C8CB832F104183005821BE /* FlowContainerHeader.swift in Sources */,
-				C0C8CB842F104183005821BE /* AnyFlowFooter.swift in Sources */,
+				C0C8CB842F104183005821BE /* FlowSectionFooter.swift in Sources */,
 				C0C8CB852F104183005821BE /* CollectionViewInconsistentCell.swift in Sources */,
 				C0C8CB862F104183005821BE /* FlowColumn.swift in Sources */,
 				C0C8CB872F104183005821BE /* FlowSectionPredicate.swift in Sources */,
@@ -3777,7 +3777,6 @@
 				C0C8CB962F104183005821BE /* CollectionViewManager.swift in Sources */,
 				C0C8CB972F104183005821BE /* FlowContainerFooter.swift in Sources */,
 				C0C8CB982F104183005821BE /* CollectionViewLayoutScrollManager.swift in Sources */,
-				C0C8CB992F104183005821BE /* AnyFlowItem.swift in Sources */,
 				C0C8CB9A2F104183005821BE /* FlowView.swift in Sources */,
 				C0C8CB9B2F104183005821BE /* VFlowReader.swift in Sources */,
 				C0C8CB9C2F104183005821BE /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */,
@@ -3787,7 +3786,7 @@
 				C0C8CBA02F104183005821BE /* VFlowLayout.swift in Sources */,
 				C0C8CBA12F104183005821BE /* CollectionViewInconsistentSupplementaryView.swift in Sources */,
 				C0C8CBA22F104183005821BE /* AnyFlowSupplementaryView.swift in Sources */,
-				C0C8CBA32F104183005821BE /* FlowBuilder.swift in Sources */,
+				C0C8CBA32F104183005821BE /* FlowSectionArrayBuilder.swift in Sources */,
 				C0C8CBA42F104183005821BE /* CollectionViewState.swift in Sources */,
 				C0C8CBA52F104183005821BE /* CollectionViewUpdate.swift in Sources */,
 				C0C8CBA62F104183005821BE /* VFlowSection.swift in Sources */,
@@ -3809,7 +3808,7 @@
 				C0C8CBB62F104183005821BE /* CollectionViewUpdateManager.swift in Sources */,
 				C0C8CBB72F104183005821BE /* FlowLayoutScrollAxis.swift in Sources */,
 				C0C8CBB82F104183005821BE /* HFlowReader.swift in Sources */,
-				C0C8CBB92F104183005821BE /* AnyFlowHeader.swift in Sources */,
+				C0C8CBB92F104183005821BE /* FlowSectionHeader.swift in Sources */,
 				C0C8CBBA2F104183005821BE /* FlowLayoutSection.swift in Sources */,
 				C0C8CBBB2F104183005821BE /* FlowLayout.swift in Sources */,
 				C0C8CBBC2F104183005821BE /* FlowLayoutHeader.swift in Sources */,
@@ -3820,7 +3819,7 @@
 				C0C8CBC12F104183005821BE /* CollectionViewLayoutDelegate.swift in Sources */,
 				C0C8CBC22F104183005821BE /* FlowHeader.swift in Sources */,
 				C0C8CBC32F104183005821BE /* FlowContainerHeaderView.swift in Sources */,
-				C0C8CBC42F104183005821BE /* FlowSectionBuilder.swift in Sources */,
+				C0C8CBC42F104183005821BE /* FlowItemArrayBuilder.swift in Sources */,
 				C0C8CBC52F104183005821BE /* FlowReaderView.swift in Sources */,
 				C0C8CBC62F104183005821BE /* CollectionViewLayoutStateManager.swift in Sources */,
 				C0C8CBC72F104183005821BE /* CollectionViewLayoutSizing.swift in Sources */,
@@ -4099,6 +4098,7 @@
 				C02C8D3A2F0266B400A2FE9F /* TokenThemeResolver.swift in Sources */,
 				C02C8D3C2F0266B400A2FE9F /* DecorableByOpacity.swift in Sources */,
 				C02C8D3D2F0266B400A2FE9F /* DifferenceChangeset.swift in Sources */,
+				C0E93EA92F17B5E0001DF87A /* FlowSectionItem.swift in Sources */,
 				C02C8D3E2F0266B400A2FE9F /* UICollectionView+Extensions.swift in Sources */,
 				C02C8D3F2F0266B400A2FE9F /* TokenViewProperties.swift in Sources */,
 				C02C8D402F0266B400A2FE9F /* DecorableByParagraphFirstLineIndent.swift in Sources */,
@@ -4197,7 +4197,7 @@
 				C02C89A92F0266B400A2FE9F /* AnyComponentPresenter.swift in Sources */,
 				C02C89AA2F0266B400A2FE9F /* TextBuilder.swift in Sources */,
 				C0C8CB2E2F104183005821BE /* FlowContainerHeader.swift in Sources */,
-				C0C8CB2F2F104183005821BE /* AnyFlowFooter.swift in Sources */,
+				C0C8CB2F2F104183005821BE /* FlowSectionFooter.swift in Sources */,
 				C0C8CB302F104183005821BE /* CollectionViewInconsistentCell.swift in Sources */,
 				C0C8CB312F104183005821BE /* FlowColumn.swift in Sources */,
 				C0C8CB322F104183005821BE /* FlowSectionPredicate.swift in Sources */,
@@ -4218,7 +4218,6 @@
 				C0C8CB412F104183005821BE /* CollectionViewManager.swift in Sources */,
 				C0C8CB422F104183005821BE /* FlowContainerFooter.swift in Sources */,
 				C0C8CB432F104183005821BE /* CollectionViewLayoutScrollManager.swift in Sources */,
-				C0C8CB442F104183005821BE /* AnyFlowItem.swift in Sources */,
 				C0C8CB452F104183005821BE /* FlowView.swift in Sources */,
 				C0C8CB462F104183005821BE /* VFlowReader.swift in Sources */,
 				C0C8CB472F104183005821BE /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */,
@@ -4228,7 +4227,7 @@
 				C0C8CB4B2F104183005821BE /* VFlowLayout.swift in Sources */,
 				C0C8CB4C2F104183005821BE /* CollectionViewInconsistentSupplementaryView.swift in Sources */,
 				C0C8CB4D2F104183005821BE /* AnyFlowSupplementaryView.swift in Sources */,
-				C0C8CB4E2F104183005821BE /* FlowBuilder.swift in Sources */,
+				C0C8CB4E2F104183005821BE /* FlowSectionArrayBuilder.swift in Sources */,
 				C0C8CB4F2F104183005821BE /* CollectionViewState.swift in Sources */,
 				C0C8CB502F104183005821BE /* CollectionViewUpdate.swift in Sources */,
 				C0C8CB512F104183005821BE /* VFlowSection.swift in Sources */,
@@ -4250,7 +4249,7 @@
 				C0C8CB612F104183005821BE /* CollectionViewUpdateManager.swift in Sources */,
 				C0C8CB622F104183005821BE /* FlowLayoutScrollAxis.swift in Sources */,
 				C0C8CB632F104183005821BE /* HFlowReader.swift in Sources */,
-				C0C8CB642F104183005821BE /* AnyFlowHeader.swift in Sources */,
+				C0C8CB642F104183005821BE /* FlowSectionHeader.swift in Sources */,
 				C0C8CB652F104183005821BE /* FlowLayoutSection.swift in Sources */,
 				C0C8CB662F104183005821BE /* FlowLayout.swift in Sources */,
 				C0C8CB672F104183005821BE /* FlowLayoutHeader.swift in Sources */,
@@ -4261,7 +4260,7 @@
 				C0C8CB6C2F104183005821BE /* CollectionViewLayoutDelegate.swift in Sources */,
 				C0C8CB6D2F104183005821BE /* FlowHeader.swift in Sources */,
 				C0C8CB6E2F104183005821BE /* FlowContainerHeaderView.swift in Sources */,
-				C0C8CB6F2F104183005821BE /* FlowSectionBuilder.swift in Sources */,
+				C0C8CB6F2F104183005821BE /* FlowItemArrayBuilder.swift in Sources */,
 				C0C8CB702F104183005821BE /* FlowReaderView.swift in Sources */,
 				C0C8CB712F104183005821BE /* CollectionViewLayoutStateManager.swift in Sources */,
 				C0C8CB722F104183005821BE /* CollectionViewLayoutSizing.swift in Sources */,
@@ -4540,6 +4539,7 @@
 				C02C8AA42F0266B400A2FE9F /* TokenThemeResolver.swift in Sources */,
 				C02C8AA62F0266B400A2FE9F /* DecorableByOpacity.swift in Sources */,
 				C02C8AA72F0266B400A2FE9F /* DifferenceChangeset.swift in Sources */,
+				C0E93EA82F17B5E0001DF87A /* FlowSectionItem.swift in Sources */,
 				C02C8AA82F0266B400A2FE9F /* UICollectionView+Extensions.swift in Sources */,
 				C02C8AA92F0266B400A2FE9F /* TokenViewProperties.swift in Sources */,
 				C02C8AAA2F0266B400A2FE9F /* DecorableByParagraphFirstLineIndent.swift in Sources */,
@@ -4846,7 +4846,7 @@
 				C02C8BC12F0266B400A2FE9F /* BackLayer.swift in Sources */,
 				C02C8BC22F0266B400A2FE9F /* TokenShapeLayer.swift in Sources */,
 				C0C8CBD82F104183005821BE /* FlowContainerHeader.swift in Sources */,
-				C0C8CBD92F104183005821BE /* AnyFlowFooter.swift in Sources */,
+				C0C8CBD92F104183005821BE /* FlowSectionFooter.swift in Sources */,
 				C0C8CBDA2F104183005821BE /* CollectionViewInconsistentCell.swift in Sources */,
 				C0C8CBDB2F104183005821BE /* FlowColumn.swift in Sources */,
 				C0C8CBDC2F104183005821BE /* FlowSectionPredicate.swift in Sources */,
@@ -4868,7 +4868,6 @@
 				C0C8CBEB2F104183005821BE /* CollectionViewManager.swift in Sources */,
 				C0C8CBEC2F104183005821BE /* FlowContainerFooter.swift in Sources */,
 				C0C8CBED2F104183005821BE /* CollectionViewLayoutScrollManager.swift in Sources */,
-				C0C8CBEE2F104183005821BE /* AnyFlowItem.swift in Sources */,
 				C0C8CBEF2F104183005821BE /* FlowView.swift in Sources */,
 				C0C8CBF02F104183005821BE /* VFlowReader.swift in Sources */,
 				C0C8CBF12F104183005821BE /* CollectionViewLayoutScrollAnchorAxis.swift in Sources */,
@@ -4878,7 +4877,7 @@
 				C0C8CBF52F104183005821BE /* VFlowLayout.swift in Sources */,
 				C0C8CBF62F104183005821BE /* CollectionViewInconsistentSupplementaryView.swift in Sources */,
 				C0C8CBF72F104183005821BE /* AnyFlowSupplementaryView.swift in Sources */,
-				C0C8CBF82F104183005821BE /* FlowBuilder.swift in Sources */,
+				C0C8CBF82F104183005821BE /* FlowSectionArrayBuilder.swift in Sources */,
 				C0C8CBF92F104183005821BE /* CollectionViewState.swift in Sources */,
 				C0C8CBFA2F104183005821BE /* CollectionViewUpdate.swift in Sources */,
 				C0C8CBFB2F104183005821BE /* VFlowSection.swift in Sources */,
@@ -4900,7 +4899,7 @@
 				C0C8CC0B2F104183005821BE /* CollectionViewUpdateManager.swift in Sources */,
 				C0C8CC0C2F104183005821BE /* FlowLayoutScrollAxis.swift in Sources */,
 				C0C8CC0D2F104183005821BE /* HFlowReader.swift in Sources */,
-				C0C8CC0E2F104183005821BE /* AnyFlowHeader.swift in Sources */,
+				C0C8CC0E2F104183005821BE /* FlowSectionHeader.swift in Sources */,
 				C0C8CC0F2F104183005821BE /* FlowLayoutSection.swift in Sources */,
 				C0C8CC102F104183005821BE /* FlowLayout.swift in Sources */,
 				C0C8CC112F104183005821BE /* FlowLayoutHeader.swift in Sources */,
@@ -4911,7 +4910,7 @@
 				C0C8CC162F104183005821BE /* CollectionViewLayoutDelegate.swift in Sources */,
 				C0C8CC172F104183005821BE /* FlowHeader.swift in Sources */,
 				C0C8CC182F104183005821BE /* FlowContainerHeaderView.swift in Sources */,
-				C0C8CC192F104183005821BE /* FlowSectionBuilder.swift in Sources */,
+				C0C8CC192F104183005821BE /* FlowItemArrayBuilder.swift in Sources */,
 				C0C8CC1A2F104183005821BE /* FlowReaderView.swift in Sources */,
 				C0C8CC1B2F104183005821BE /* CollectionViewLayoutStateManager.swift in Sources */,
 				C0C8CC1C2F104183005821BE /* CollectionViewLayoutSizing.swift in Sources */,
@@ -5002,6 +5001,7 @@
 				C02C8C042F0266B400A2FE9F /* TokenViewProperties+UIActivityIndicatorView.swift in Sources */,
 				C0C8B8952F09AFD10029D19F /* ShadowModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8C052F0266B400A2FE9F /* DefaultTokenThemeStorage.swift in Sources */,
+				C0E93EAA2F17B5E0001DF87A /* FlowSectionItem.swift in Sources */,
 				C02C8C062F0266B400A2FE9F /* DecorableByForegroundColor.swift in Sources */,
 				C02C8C072F0266B400A2FE9F /* DifferenceIndicesReference.swift in Sources */,
 				C02C8C082F0266B400A2FE9F /* TraitsObservation.swift in Sources */,

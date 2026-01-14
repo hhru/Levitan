@@ -122,9 +122,12 @@ extension ChatsViewController {
             }
         }
 
-        let content = VFlow {
-            chatSection(chats: chats)
-        }
+        let content = VFlow(
+            id: #function,
+            itemsData: Array(chats.enumerated()),
+            itemsID: \.element.userID,
+            items: { chatItem(chat: $1, isLast: $0 >= chats.count - 1) }
+        )
         .scrollAlwaysBounces()
 
         contentView.update(
@@ -136,19 +139,7 @@ extension ChatsViewController {
 
 extension ChatsViewController {
 
-    private func chatSection(chats: [Chat]) -> VFlowSection? {
-        guard !chats.isEmpty else {
-            return nil
-        }
-
-        return VFlowSection(id: #function) {
-            chats.enumerated().map { index, chat in
-                chatItem(chat: chat, isLast: index >= chats.count - 1)
-            }
-        }
-    }
-
-    private func chatItem(chat: Chat, isLast: Bool) -> any FlowItem {
+    private func chatItem(chat: Chat, isLast: Bool) -> any Component {
         let user = usersStore.user(id: chat.userID)
         let lastMessage = chat.messages.last?.text
 
@@ -171,7 +162,6 @@ extension ChatsViewController {
                 self?.onChatTap(userID: chat.userID)
             }
         )
-        .flowItem(id: chat.userID)
     }
 }
 

@@ -1,7 +1,7 @@
 import Foundation
 import Levitan
 
-struct ChatMessage: Changeable, Hashable, Sendable {
+struct ChatMessage: Changeable, Identifiable, Hashable, Sendable {
 
     let id = UUID()
 
