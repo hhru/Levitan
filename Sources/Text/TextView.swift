@@ -290,7 +290,7 @@ extension TextView: FallbackComponentView {
     ) -> ComponentSizing {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier ?? "nil"],
+            ["id:", context.componentID ?? "nil"],
             ["size:", size],
             subsystem: "Text",
             category: "TextView"
@@ -315,7 +315,7 @@ extension TextView: FallbackComponentView {
     public func update(with content: Text, context: ComponentContext) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier ?? "nil"],
+            ["id:", context.componentID ?? "nil"],
             subsystem: "Text",
             category: "TextView"
         )

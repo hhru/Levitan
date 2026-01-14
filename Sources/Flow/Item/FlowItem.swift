@@ -2,13 +2,13 @@
 import CoreGraphics
 import Foundation
 
-public protocol FlowItem: Equatable, Sendable {
+public protocol FlowItem: Identifiable, Equatable, Sendable {
 
     associatedtype Cell: FlowCell
     where Cell.Item == Self
 
     typealias Deselection = Cell.Deselection
 
-    var identifier: ComponentIdentifier { get }
+    var id: ComponentID { get }
 }
 #endif

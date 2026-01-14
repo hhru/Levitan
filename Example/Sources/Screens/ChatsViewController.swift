@@ -141,7 +141,7 @@ extension ChatsViewController {
             return nil
         }
 
-        return VFlowSection(identifier: #function) {
+        return VFlowSection(id: #function) {
             chats.enumerated().map { index, chat in
                 chatItem(chat: chat, isLast: index >= chats.count - 1)
             }
@@ -171,7 +171,7 @@ extension ChatsViewController {
                 self?.onChatTap(userID: chat.userID)
             }
         )
-        .flowItem(identifier: chat.userID)
+        .flowItem(id: chat.userID)
     }
 }
 

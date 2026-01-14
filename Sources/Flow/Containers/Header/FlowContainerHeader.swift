@@ -28,6 +28,8 @@ public struct FlowContainerHeader<Content: Component>: @unchecked Sendable {
     }
 }
 
+extension FlowContainerHeader: Hashable where Content: Hashable { }
+
 extension FlowContainerHeader: FlowHeader {
 
     public typealias View = FlowContainerHeaderView<Content>

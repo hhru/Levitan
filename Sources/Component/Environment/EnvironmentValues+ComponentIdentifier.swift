@@ -1,9 +1,9 @@
 #if canImport(UIKit)
 import SwiftUI
 
-internal struct ComponentIdentifierEnvironmentKey: EnvironmentKey {
+internal struct ComponentIDEnvironmentKey: EnvironmentKey {
 
-    internal static var defaultValue: ComponentIdentifier? { nil }
+    internal static var defaultValue: ComponentID? { nil }
 }
 
 extension EnvironmentValues {
@@ -16,9 +16,9 @@ extension EnvironmentValues {
     ///
     /// - Note: Является техническим значением окружения и не должно использоваться в обычных компонентах,
     ///         его переопределяют встроенные компоненты.
-    public var componentIdentifier: ComponentIdentifier? {
-        get { self[ComponentIdentifierEnvironmentKey.self] }
-        set { self[ComponentIdentifierEnvironmentKey.self] = newValue }
+    public var componentID: ComponentID? {
+        get { self[ComponentIDEnvironmentKey.self] }
+        set { self[ComponentIDEnvironmentKey.self] = newValue }
     }
 }
 #endif

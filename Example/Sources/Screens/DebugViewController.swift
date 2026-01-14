@@ -134,10 +134,10 @@ class DebugViewController: UIViewController {
     private func testUpdateWithoutChanges() {
         flow = VFlow {
             FlowSection(
-                identifier: 0,
+                id: 0,
                 items: (0..<1).map { index in
                     Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                        .flowItem(identifier: "0-\(index)")
+                        .flowItem(id: "0-\(index)")
                 }
             )
             .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
@@ -147,10 +147,10 @@ class DebugViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.flow = VFlow {
                 FlowSection(
-                    identifier: 0,
+                    id: 0,
                     items: (0..<1).map { index in
                         Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                            .flowItem(identifier: "0-\(index)")
+                            .flowItem(id: "0-\(index)")
                     }
                 )
                 .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
@@ -162,10 +162,10 @@ class DebugViewController: UIViewController {
     private func testSectionReloading() {
         flow = VFlow {
             FlowSection(
-                identifier: 0,
+                id: 0,
                 items: (0..<1).map { index in
                     Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                        .flowItem(identifier: "0-\(index)")
+                        .flowItem(id: "0-\(index)")
                 }
             )
             .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
@@ -175,10 +175,10 @@ class DebugViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.flow = VFlow {
                 FlowSection(
-                    identifier: 0,
+                    id: 0,
                     items: (0..<1).map { index in
                         Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                            .flowItem(identifier: "0-\(index)")
+                            .flowItem(id: "0-\(index)")
                     }
                 )
                 .header(Foo(title: "Header \n NEW", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
@@ -193,10 +193,10 @@ class DebugViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.flow = VFlow {
                 FlowSection(
-                    identifier: 1,
+                    id: 1,
                     items: (0..<1).map { index in
                         Foo(title: "Cell: 1 - \(index)", color: .lightGray)
-                            .flowItem(identifier: "1-\(index)")
+                            .flowItem(id: "1-\(index)")
                     }
                 )
                 .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
@@ -207,28 +207,28 @@ class DebugViewController: UIViewController {
     private func testSectionDeleting() {
         flow = VFlow {
             FlowSection(
-                identifier: 0,
+                id: 0,
                 items: (0..<2).map { index in
                     Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                        .flowItem(identifier: "0-\(index)")
+                        .flowItem(id: "0-\(index)")
                 }
             )
 
             FlowSection(
-                identifier: 1,
+                id: 1,
                 items: (0..<1).map { index in
                     Foo(title: "Cell: 1 - \(index)", color: .lightGray)
-                        .flowItem(identifier: "1-\(index)")
+                        .flowItem(id: "1-\(index)")
                 }
             )
             .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
             .footer(Foo(title: "Footer", color: UIColor.green.withAlphaComponent(0.75)).flowFooter())
 
             FlowSection(
-                identifier: 2,
+                id: 2,
                 items: (0..<2).map { index in
                     Foo(title: "Cell: 2 - \(index)", color: .lightGray)
-                        .flowItem(identifier: "2-\(index)")
+                        .flowItem(id: "2-\(index)")
                 }
             )
         }
@@ -236,18 +236,18 @@ class DebugViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.flow = VFlow {
                 FlowSection(
-                    identifier: 0,
+                    id: 0,
                     items: (0..<2).map { index in
                         Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                            .flowItem(identifier: "0-\(index)")
+                            .flowItem(id: "0-\(index)")
                     }
                 )
 
                 FlowSection(
-                    identifier: 2,
+                    id: 2,
                     items: (0..<2).map { index in
                         Foo(title: "Cell: 2 - \(index)", color: .lightGray)
-                            .flowItem(identifier: "2-\(index)")
+                            .flowItem(id: "2-\(index)")
                     }
                 )
             }
@@ -257,28 +257,28 @@ class DebugViewController: UIViewController {
     private func testSectionMoving() {
         flow = VFlow {
             FlowSection(
-                identifier: 0,
+                id: 0,
                 items: (0..<1).map { index in
                     Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                        .flowItem(identifier: "0-\(index)")
+                        .flowItem(id: "0-\(index)")
                 }
             )
             .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
             .footer(Foo(title: "Footer", color: UIColor.green.withAlphaComponent(0.75)).flowFooter())
 
             FlowSection(
-                identifier: 1,
+                id: 1,
                 items: (0..<2).map { index in
                     Foo(title: "Cell: 1 - \(index)", color: .lightGray)
-                        .flowItem(identifier: "1-\(index)")
+                        .flowItem(id: "1-\(index)")
                 }
             )
 
             FlowSection(
-                identifier: 2,
+                id: 2,
                 items: (0..<2).map { index in
                     Foo(title: "Cell: 2 - \(index)", color: .lightGray)
-                        .flowItem(identifier: "2-\(index)")
+                        .flowItem(id: "2-\(index)")
                 }
             )
         }
@@ -286,26 +286,26 @@ class DebugViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.flow = VFlow {
                 FlowSection(
-                    identifier: 1,
+                    id: 1,
                     items: (0..<2).map { index in
                         Foo(title: "Cell: 1 - \(index)", color: .lightGray)
-                            .flowItem(identifier: "1-\(index)")
+                            .flowItem(id: "1-\(index)")
                     }
                 )
 
                 FlowSection(
-                    identifier: 2,
+                    id: 2,
                     items: (0..<2).map { index in
                         Foo(title: "Cell: 2 - \(index)", color: .lightGray)
-                            .flowItem(identifier: "2-\(index)")
+                            .flowItem(id: "2-\(index)")
                     }
                 )
 
                 FlowSection(
-                    identifier: 0,
+                    id: 0,
                     items: (0..<1).map { index in
                         Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                            .flowItem(identifier: "0-\(index)")
+                            .flowItem(id: "0-\(index)")
                     }
                 )
                 .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
@@ -316,17 +316,17 @@ class DebugViewController: UIViewController {
 
     private func testItemReloading() {
         flow = VFlow {
-            FlowSection(identifier: 0) {
+            FlowSection(id: 0) {
                 Foo(title: "Cell: 0 - 1", color: .lightGray)
-                    .flowItem(identifier: "0-1")
+                    .flowItem(id: "0-1")
             }
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.flow = VFlow {
-                FlowSection(identifier: 0) {
+                FlowSection(id: 0) {
                     Foo(title: "Cell: 0 - 1\n NEW", color: .lightGray)
-                        .flowItem(identifier: "0-1")
+                        .flowItem(id: "0-1")
                 }
             }
         }
@@ -334,26 +334,26 @@ class DebugViewController: UIViewController {
 
     private func testItemInserting() {
         flow = VFlow {
-            FlowSection(identifier: 0) {
+            FlowSection(id: 0) {
                 Foo(title: "Cell: 0 - 0", color: .lightGray)
-                    .flowItem(identifier: "0-0")
+                    .flowItem(id: "0-0")
 
                 Foo(title: "Cell: 0 - 2", color: .lightGray)
-                    .flowItem(identifier: "0-2")
+                    .flowItem(id: "0-2")
             }
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.flow = VFlow {
-                FlowSection(identifier: 0) {
+                FlowSection(id: 0) {
                     Foo(title: "Cell: 0 - 0", color: .lightGray)
-                        .flowItem(identifier: "0-0")
+                        .flowItem(id: "0-0")
 
                     Foo(title: "Cell: 0 - 1", color: .lightGray)
-                        .flowItem(identifier: "0-1")
+                        .flowItem(id: "0-1")
 
                     Foo(title: "Cell: 0 - 2", color: .lightGray)
-                        .flowItem(identifier: "0-2")
+                        .flowItem(id: "0-2")
                 }
             }
         }
@@ -361,26 +361,26 @@ class DebugViewController: UIViewController {
 
     private func testItemDeleting() {
         flow = VFlow {
-            FlowSection(identifier: 0) {
+            FlowSection(id: 0) {
                 Foo(title: "Cell: 0 - 0", color: .lightGray)
-                    .flowItem(identifier: "0-0")
+                    .flowItem(id: "0-0")
 
                 Foo(title: "Cell: 0 - 1", color: .lightGray)
-                    .flowItem(identifier: "0-1")
+                    .flowItem(id: "0-1")
 
                 Foo(title: "Cell: 0 - 2", color: .lightGray)
-                    .flowItem(identifier: "0-2")
+                    .flowItem(id: "0-2")
             }
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.flow = VFlow {
-                FlowSection(identifier: 0) {
+                FlowSection(id: 0) {
                     Foo(title: "Cell: 0 - 0", color: .lightGray)
-                        .flowItem(identifier: "0-0")
+                        .flowItem(id: "0-0")
 
                     Foo(title: "Cell: 0 - 2", color: .lightGray)
-                        .flowItem(identifier: "0-2")
+                        .flowItem(id: "0-2")
                 }
             }
         }
@@ -388,29 +388,29 @@ class DebugViewController: UIViewController {
 
     private func testItemMoving() {
         flow = VFlow {
-            FlowSection(identifier: 0) {
+            FlowSection(id: 0) {
                 Foo(title: "Cell: 0 - 0", color: .lightGray)
-                    .flowItem(identifier: "0-0")
+                    .flowItem(id: "0-0")
 
                 Foo(title: "Cell: 0 - 1", color: .lightGray)
-                    .flowItem(identifier: "0-1")
+                    .flowItem(id: "0-1")
 
                 Foo(title: "Cell: 0 - 2", color: .lightGray)
-                    .flowItem(identifier: "0-2")
+                    .flowItem(id: "0-2")
             }
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.flow = VFlow {
-                FlowSection(identifier: 0) {
+                FlowSection(id: 0) {
                     Foo(title: "Cell: 0 - 1", color: .lightGray)
-                        .flowItem(identifier: "0-1")
+                        .flowItem(id: "0-1")
 
                     Foo(title: "Cell: 0 - 2", color: .lightGray)
-                        .flowItem(identifier: "0-2")
+                        .flowItem(id: "0-2")
 
                     Foo(title: "Cell: 0 - 0", color: .lightGray)
-                        .flowItem(identifier: "0-0")
+                        .flowItem(id: "0-0")
                 }
             }
         }
@@ -418,17 +418,17 @@ class DebugViewController: UIViewController {
 
     private func testSwiftUIItemReloading() {
         flow = VFlow {
-            FlowSection(identifier: 0) {
+            FlowSection(id: 0) {
                 Bar(title: "Cell: 0 - 0\n NEW \n NEW", color: .gray)
-                    .flowItem(identifier: "0-0")
+                    .flowItem(id: "0-0")
             }
         }
 
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
 //            self.flow = VFlow {
-//                FlowSection(identifier: 0) {
+//                FlowSection(id: 0) {
 //                    Bar(title: "Cell: 0 - 0 NEW \n NEW \n NEW", color: .gray)
-//                        .flowItem(identifier: "0-0")
+//                        .flowItem(id: "0-0")
 //                }
 //            }
 //        }
@@ -436,19 +436,19 @@ class DebugViewController: UIViewController {
 
     private func testTextWithFrameReloading() {
         flow = VFlow {
-            FlowSection(identifier: 0) {
+            FlowSection(id: 0) {
                 Text("Cell: 0 - 0")
                     .frame(width: .fill)
-                    .flowItem(identifier: "0-0")
+                    .flowItem(id: "0-0")
             }
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.flow = VFlow {
-                FlowSection(identifier: 0) {
+                FlowSection(id: 0) {
                     Text("Cell: 0 - 0 NEW \n NEW")
                         .frame(width: .fill)
-                        .flowItem(identifier: "0-0")
+                        .flowItem(id: "0-0")
                 }
             }
         }
@@ -456,23 +456,23 @@ class DebugViewController: UIViewController {
 
     private func testInsetsChanging() {
         flow = VFlow {
-            FlowSection(identifier: 1) {
+            FlowSection(id: 1) {
                 Foo(title: "Cell: 0 - 0", color: .lightGray)
-                    .flowItem(identifier: "1-0")
+                    .flowItem(id: "1-0")
 
                 Foo(title: "Cell: 0 - 2", color: .lightGray)
-                    .flowItem(identifier: "1-2")
+                    .flowItem(id: "1-2")
             }
         }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
             self.flow = VFlow {
-                FlowSection(identifier: 1) {
+                FlowSection(id: 1) {
                     Foo(title: "Cell: 0 - 0", color: .lightGray)
-                        .flowItem(identifier: "1-0")
+                        .flowItem(id: "1-0")
 
                     Foo(title: "Cell: 0 - 2", color: .lightGray)
-                        .flowItem(identifier: "1-2")
+                        .flowItem(id: "1-2")
                 }
             }
             .insets(all: 16.0)

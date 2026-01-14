@@ -87,7 +87,7 @@ extension ProfileViewController {
         )
         .frame(width: .fill)
         .padding(top: 16.0, leading: 16.0, trailing: 16.0)
-        .flowItem(identifier: #function)
+        .flowItem(id: #function)
     }
 
     private func contactsItem(profile: Profile) -> any FlowItem {
@@ -103,25 +103,25 @@ extension ProfileViewController {
                 Text("No contacts added yet.")
                     .typography(Typographies.paragraph2)
                     .foregroundColor(Colors.text.secondary)
-                    .flowItem(identifier: "empty")
+                    .flowItem(id: "empty")
             } else {
                 if let phoneNumber = profile.phoneNumber {
                     ProfileContact(title: "Phone", value: phoneNumber)
                         .frame(width: .fill)
-                        .flowItem(identifier: "phone")
+                        .flowItem(id: "phone")
                 }
 
                 if let emailAddress = profile.emailAddress {
                     ProfileContact(title: "Email", value: emailAddress)
                         .frame(width: .fill)
-                        .flowItem(identifier: "email")
+                        .flowItem(id: "email")
                 }
             }
         }
         .verticalSpacing(8.0)
         .card(header: header)
         .padding(top: 24.0, leading: 16.0, trailing: 16.0)
-        .flowItem(identifier: #function)
+        .flowItem(id: #function)
     }
 
     private func skillsItem(profile: Profile) -> any FlowItem {
@@ -137,11 +137,11 @@ extension ProfileViewController {
                 Text("No skills added yet.")
                     .typography(Typographies.paragraph2)
                     .foregroundColor(Colors.text.secondary)
-                    .flowItem(identifier: "empty")
+                    .flowItem(id: "empty")
             } else {
                 profile.skills.map { skill in
                     Tag(label: skill)
-                        .flowItem(identifier: skill)
+                        .flowItem(id: skill)
                 }
             }
         }
@@ -149,7 +149,7 @@ extension ProfileViewController {
         .verticalSpacing(8.0)
         .card(header: header)
         .padding(top: 24.0, leading: 16.0, trailing: 16.0)
-        .flowItem(identifier: #function)
+        .flowItem(id: #function)
     }
 
     private func aboutMeItem(profile: Profile) -> any FlowItem {
@@ -166,7 +166,7 @@ extension ProfileViewController {
                 .foregroundColor(Colors.text.secondary)
                 .card(header: header)
                 .padding(top: 24.0, leading: 16.0, trailing: 16.0)
-                .flowItem(identifier: #function)
+                .flowItem(id: #function)
         }
 
         return Levitan.Text(profile.aboutMe)
@@ -174,7 +174,7 @@ extension ProfileViewController {
             .foregroundColor(Colors.text.primary)
             .card(header: header)
             .padding(top: 24.0, leading: 16.0, trailing: 16.0)
-            .flowItem(identifier: #function)
+            .flowItem(id: #function)
     }
 }
 

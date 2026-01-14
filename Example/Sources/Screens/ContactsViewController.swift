@@ -162,7 +162,7 @@ extension ContactsViewController {
         }
 
         return VFlowSection(
-            identifier: title,
+            id: title,
             items: items,
             header: header
         )
@@ -188,7 +188,7 @@ extension ContactsViewController {
                 self?.onUserTap(userID: user.id)
             }
         )
-        .flowItem(identifier: user.id)
+        .flowItem(id: user.id)
     }
 }
 

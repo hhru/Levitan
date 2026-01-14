@@ -3,7 +3,7 @@ import SwiftUI
 
 public struct FlowContainerItem<Content: Component>: @unchecked Sendable {
 
-    public let identifier: ComponentIdentifier
+    public let id: ComponentID
     public let content: Content
 
     public var accessibilityIdentifier: String?
@@ -21,7 +21,7 @@ public struct FlowContainerItem<Content: Component>: @unchecked Sendable {
     public var disappearAction: (@MainActor () -> Void)?
 
     public init(
-        identifier: some Hashable & Sendable,
+        id: some Hashable & Sendable,
         content: Content,
         accessibilityIdentifier: String? = nil,
         selectAction: (@MainActor (_ deselection: Deselection) -> Void)? = nil,
@@ -29,7 +29,7 @@ public struct FlowContainerItem<Content: Component>: @unchecked Sendable {
         appearAction: (@MainActor () -> Void)? = nil,
         disappearAction: (@MainActor () -> Void)? = nil
     ) {
-        self.identifier = ComponentIdentifier(identifier)
+        self.id = ComponentID(id)
         self.content = content
 
         self.accessibilityIdentifier = accessibilityIdentifier
@@ -41,6 +41,8 @@ public struct FlowContainerItem<Content: Component>: @unchecked Sendable {
         self.disappearAction = disappearAction
     }
 }
+
+extension FlowContainerItem: Hashable where Content: Hashable { }
 
 extension FlowContainerItem: FlowItem {
 
@@ -121,9 +123,9 @@ extension FlowContainerItem: Changeable {
 
 extension Component {
 
-    public nonisolated func flowItem(identifier: some Hashable & Sendable) -> FlowContainerItem<Self> {
+    public nonisolated func flowItem(id: some Hashable & Sendable) -> FlowContainerItem<Self> {
         FlowContainerItem(
-            identifier: identifier,
+            id: id,
             content: self
         )
     }
@@ -132,14 +134,14 @@ extension Component {
 extension View where Self: Equatable {
 
     public nonisolated func flowItem(
-        identifier: some Hashable & Sendable,
+        id: some Hashable & Sendable,
         width: ComponentSizingStrategy = .hug,
         height: ComponentSizingStrategy = .hug,
         alignment: Alignment = .center
     ) -> FlowContainerItem<some Component> {
         self
             .frame(width: width, height: height, alignment: alignment)
-            .flowItem(identifier: identifier)
+            .flowItem(id: id)
     }
 }
 #endif

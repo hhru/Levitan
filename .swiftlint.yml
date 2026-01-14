@@ -338,6 +338,7 @@ generic_type_name:
     warning: 20
     error: 200
   excluded:
+    - ID
     - T
     - U
     - V

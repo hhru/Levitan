@@ -46,7 +46,7 @@ public final class ComponentHostingView<Content: View>: UIView {
 
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", hostingRoot?.context.componentIdentifier ?? "nil"],
+            ["id:", hostingRoot?.context.componentID ?? "nil"],
             ["superview:", superview == nil ? "nil" : "some"],
             subsystem: "Component",
             category: "ComponentHostingView"
@@ -70,7 +70,7 @@ extension ComponentHostingView {
     ) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", hostingRoot?.context.componentIdentifier ?? "nil"],
+            ["id:", hostingRoot?.context.componentID ?? "nil"],
             subsystem: "Component",
             category: "ComponentHostingView"
         )
@@ -106,7 +106,7 @@ extension ComponentHostingView {
     ) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", hostingRoot?.context.componentIdentifier ?? "nil"],
+            ["id:", hostingRoot?.context.componentID ?? "nil"],
             subsystem: "Component",
             category: "ComponentHostingView"
         )
@@ -141,7 +141,7 @@ extension ComponentHostingView {
     private func setupHostingControllerIfNeeded(with hostingRoot: HostingRoot) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", hostingRoot.context.componentIdentifier ?? "nil"],
+            ["id:", hostingRoot.context.componentID ?? "nil"],
             subsystem: "Component",
             category: "ComponentHostingView"
         )
@@ -175,7 +175,7 @@ extension ComponentHostingView {
     private func resetHostingController(_ hostingController: HostingController) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", hostingRoot?.context.componentIdentifier ?? "nil"],
+            ["id:", hostingRoot?.context.componentID ?? "nil"],
             subsystem: "Component",
             category: "ComponentHostingView"
         )
@@ -194,7 +194,7 @@ extension ComponentHostingView {
     private func resetHostingControllerIfNeeded(_ hostingController: HostingController) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", hostingRoot?.context.componentIdentifier ?? "nil"],
+            ["id:", hostingRoot?.context.componentID ?? "nil"],
             subsystem: "Component",
             category: "ComponentHostingView"
         )
@@ -214,7 +214,7 @@ extension ComponentHostingView {
     ) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", hostingRoot.context.componentIdentifier ?? "nil"],
+            ["id:", hostingRoot.context.componentID ?? "nil"],
             subsystem: "Component",
             category: "ComponentHostingView"
         )
@@ -231,7 +231,7 @@ extension ComponentHostingView {
     private func updateHostingControllerIfNeeded() {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", hostingRoot?.context.componentIdentifier ?? "nil"],
+            ["id:", hostingRoot?.context.componentID ?? "nil"],
             subsystem: "Component",
             category: "ComponentHostingView"
         )
@@ -252,7 +252,7 @@ extension ComponentHostingView: ComponentView {
     public func update(with content: Content, context: ComponentContext) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier ?? "nil"],
+            ["id:", context.componentID ?? "nil"],
             subsystem: "Component",
             category: "ComponentHostingView"
         )

@@ -210,7 +210,7 @@ extension ChatViewController {
             .frame(width: .fill)
             .flowHeader()
 
-        return VFlowSection(identifier: date) {
+        return VFlowSection(id: date) {
             messages.map { message in
                 chatMessageItem(message: message)
             }
@@ -238,7 +238,7 @@ extension ChatViewController {
             }
         )
         .padding(top: 8.0)
-        .flowItem(identifier: message.id)
+        .flowItem(id: message.id)
     }
 
     private func chatOutgoingMessageItem(message: ChatMessage) -> any FlowItem {
@@ -250,7 +250,7 @@ extension ChatViewController {
             }
         )
         .padding(top: 8.0)
-        .flowItem(identifier: message.id)
+        .flowItem(id: message.id)
     }
 }
 

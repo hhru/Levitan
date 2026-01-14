@@ -92,7 +92,7 @@ extension FlowContainerFooterView: FlowFooterView {
     ) -> ComponentSizing {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier ?? "nil"],
+            ["id:", context.componentID ?? "nil"],
             ["size:", size],
             subsystem: "Flow",
             category: "FlowContainerFooterView"
@@ -110,7 +110,7 @@ extension FlowContainerFooterView: FlowFooterView {
     ) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentIdentifier ?? "nil"],
+            ["id:", context.componentID ?? "nil"],
             subsystem: "Flow",
             category: "FlowContainerFooterView"
         )

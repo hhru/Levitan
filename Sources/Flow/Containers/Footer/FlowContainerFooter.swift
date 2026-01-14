@@ -28,6 +28,8 @@ public struct FlowContainerFooter<Content: Component>: @unchecked Sendable {
     }
 }
 
+extension FlowContainerFooter: Hashable where Content: Hashable { }
+
 extension FlowContainerFooter: FlowFooter {
 
     public typealias View = FlowContainerFooterView<Content>

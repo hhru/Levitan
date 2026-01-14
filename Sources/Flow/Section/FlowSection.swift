@@ -3,7 +3,7 @@ import Foundation
 
 public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
 
-    public let identifier: ComponentIdentifier
+    public let id: ComponentID
 
     public let items: [AnyFlowItem]
     public var header: AnyFlowHeader?
@@ -12,29 +12,30 @@ public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
     public var metrics: Layout.Metrics
 
     private init(
-        identifier: some Hashable & Sendable,
+        id: some Hashable & Sendable,
         items: [AnyFlowItem],
         header: AnyFlowHeader?,
         footer: AnyFlowFooter?,
         metrics: Layout.Metrics
     ) {
-        self.identifier = ComponentIdentifier(identifier)
-        self.items = items
+        self.id = ComponentID(id)
 
+        self.items = items
         self.header = header
         self.footer = footer
+
         self.metrics = metrics
     }
 
     public init(
-        identifier: some Hashable & Sendable,
+        id: some Hashable & Sendable,
         items: [any FlowItem],
         header: (any FlowHeader)? = nil,
         footer: (any FlowFooter)? = nil,
         metrics: Layout.Metrics = .default
     ) {
         self.init(
-            identifier: identifier,
+            id: id,
             items: items.map { $0.eraseToAnyItem() },
             header: header?.eraseToAnyHeader(),
             footer: footer?.eraseToAnyFooter(),
@@ -49,7 +50,7 @@ public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
         metrics: Layout.Metrics = .default
     ) {
         self.init(
-            identifier: item.identifier,
+            id: item.id,
             items: [item.eraseToAnyItem()],
             header: header?.eraseToAnyHeader(),
             footer: footer?.eraseToAnyFooter(),
@@ -58,11 +59,14 @@ public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
     }
 
     public init(
-        identifier: some Hashable & Sendable,
+        id: some Hashable & Sendable,
+        header: (any FlowHeader)? = nil,
+        footer: (any FlowFooter)? = nil,
+        metrics: Layout.Metrics = .default,
         @FlowSectionBuilder items: () -> [any FlowItem]
     ) {
         self.init(
-            identifier: identifier,
+            id: id,
             items: items()
         )
     }
@@ -85,8 +89,8 @@ extension FlowSection: Changeable {
 
 extension FlowSection: DiffableSection {
 
-    internal var differenceIdentifier: AnyHashable {
-        identifier
+    internal var differenceID: AnyHashable {
+        id
     }
 
     internal func isContentEqual(to other: Self) -> Bool {
@@ -97,7 +101,7 @@ extension FlowSection: DiffableSection {
 
     internal func items(_ items: [AnyFlowItem]) -> Self {
         Self(
-            identifier: identifier,
+            id: id,
             items: items,
             header: header,
             footer: footer,

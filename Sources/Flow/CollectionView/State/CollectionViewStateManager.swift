@@ -225,7 +225,7 @@ extension CollectionViewStateManager {
             ?? collectionView.contentBoundsSize
 
         return context
-            .componentIdentifier(item.wrapped.identifier)
+            .componentID(item.wrapped.id)
             .componentContainerSize(containerSize)
             .componentLayoutInvalidation { [weak self] in
                 self?.invalidateItemsLayout(at: [indexPath])
@@ -241,14 +241,14 @@ extension CollectionViewStateManager {
             return nil
         }
 
-        let identifier = section.identifier.traits("Header")
+        let id = section.id.traits("Header")
 
         let containerSize = containerSize
             ?? collectionViewLayout?.headerContainerSize(at: indexPath)
             ?? collectionView.contentBoundsSize
 
         return context
-            .componentIdentifier(identifier)
+            .componentID(id)
             .componentContainerSize(containerSize)
             .componentLayoutInvalidation { [weak self] in
                 self?.invalidateHeadersLayout(at: [indexPath])
@@ -264,14 +264,14 @@ extension CollectionViewStateManager {
             return nil
         }
 
-        let identifier = section.identifier.traits("Footer")
+        let id = section.id.traits("Footer")
 
         let containerSize = containerSize
             ?? collectionViewLayout?.footerContainerSize(at: indexPath)
             ?? collectionView.contentBoundsSize
 
         return context
-            .componentIdentifier(identifier)
+            .componentID(id)
             .componentContainerSize(containerSize)
             .componentLayoutInvalidation { [weak self] in
                 self?.invalidateFootersLayout(at: [indexPath])

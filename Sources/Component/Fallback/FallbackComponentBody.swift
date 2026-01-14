@@ -24,7 +24,7 @@ extension FallbackComponentBody: UIViewRepresentable {
     public func makeUIView(context: Context) -> Content.UIView {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.environment.componentIdentifier ?? "nil"],
+            ["id:", context.environment.componentID ?? "nil"],
             subsystem: "Component",
             category: "FallbackComponentBody"
         )
@@ -35,7 +35,7 @@ extension FallbackComponentBody: UIViewRepresentable {
     public func updateUIView(_ view: Content.UIView, context: Context) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.environment.componentIdentifier ?? "nil"],
+            ["id:", context.environment.componentID ?? "nil"],
             ["superview:", view.superview ?? "nil"],
             subsystem: "Component",
             category: "FallbackComponentBody"
@@ -71,7 +71,7 @@ extension FallbackComponentBody: UIViewRepresentable {
     ) -> CGSize? {
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.environment.componentIdentifier ?? "nil"],
+            ["id:", context.environment.componentID ?? "nil"],
             ["proposalWidth:", proposal.width ?? "nil"],
             ["proposalHeight:", proposal.height ?? "nil"],
             subsystem: "Component",

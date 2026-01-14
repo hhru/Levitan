@@ -123,47 +123,25 @@ public struct Flow<Layout: FlowLayout>: Sendable {
     }
     #endif
 
-    public init(
-        layout: Layout = .default,
-        @FlowBuilder<Layout> sections: () -> [Section]
-    ) {
-        self.init(
-            sections: sections(),
-            layout: layout
-        )
+    public init(@FlowBuilder<Layout> sections: () -> [Section]) {
+        self.init(sections: sections())
     }
 
-    public init(
-        items: [any FlowItem],
-        layout: Layout = .default
-    ) {
+    public init(items: [any FlowItem]) {
         self.init(
             section: Section(
-                identifier: items.first?.identifier,
+                id: items.first?.id,
                 items: items
-            ),
-            layout: layout
+            )
         )
     }
 
-    public init(
-        item: any FlowItem,
-        layout: Layout = .default
-    ) {
-        self.init(
-            items: [item],
-            layout: layout
-        )
+    public init(item: any FlowItem) {
+        self.init(items: [item])
     }
 
-    public init(
-        layout: Layout = .default,
-        @FlowSectionBuilder items: () -> [any FlowItem]
-    ) {
-        self.init(
-            items: items(),
-            layout: layout
-        )
+    public init(@FlowSectionBuilder items: () -> [any FlowItem]) {
+        self.init(items: items())
     }
 }
 
@@ -173,6 +151,10 @@ extension Flow: FallbackComponent {
 }
 
 extension Flow: Changeable {
+
+    public func layout(_ layout: Layout) -> Self {
+        changing { $0.layout = layout }
+    }
 
     public func accessibilityIdentifier(_ accessibilityIdentifier: String?) -> Self {
         changing { $0.accessibilityIdentifier = accessibilityIdentifier }

@@ -5,7 +5,8 @@ public struct AnyFlowItem: Sendable {
 
     internal let wrapped: any FlowItem
     internal let cellType: AnyFlowCell.Type
-    internal let identifier: ComponentIdentifier
+
+    internal let id: ComponentID
 
     private let updateCellBox: @Sendable @MainActor (
         _ cell: UICollectionViewCell,
@@ -24,8 +25,8 @@ public struct AnyFlowItem: Sendable {
 
         cellType = Wrapped.Cell.self
 
-        identifier = wrapped
-            .identifier
+        id = wrapped
+            .id
             .traits(ObjectIdentifier(Wrapped.self))
 
         updateCellBox = { cell, context in
@@ -69,8 +70,8 @@ public struct AnyFlowItem: Sendable {
 
 extension AnyFlowItem: Diffable {
 
-    internal var differenceIdentifier: AnyHashable {
-        identifier
+    internal var differenceID: AnyHashable {
+        id
     }
 
     internal func isContentEqual(to other: Self) -> Bool {
