@@ -36,7 +36,6 @@ extension FallbackComponentBody: UIViewRepresentable {
         Logger.debug(
             ["\(Self.self).\(#function)"],
             ["id:", context.environment.componentID ?? "nil"],
-            ["superview:", view.superview ?? "nil"],
             subsystem: "Component",
             category: "FallbackComponentBody"
         )
