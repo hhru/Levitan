@@ -1,6 +1,6 @@
 import UIKit
 
-final class PerformanceTrackerMonitor: UIView {
+final class PerformanceMonitor: UIView {
 
     private let tracker = PerformanceTracker.shared
 
@@ -76,7 +76,7 @@ final class PerformanceTrackerMonitor: UIView {
     }
 }
 
-extension PerformanceTrackerMonitor {
+extension PerformanceMonitor {
 
     @objc
     private func onContentPanGesture(_ gesture: UIPanGestureRecognizer) {

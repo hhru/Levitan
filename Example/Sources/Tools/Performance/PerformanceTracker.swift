@@ -164,8 +164,8 @@ extension PerformanceTracker {
         let view = window
             .subviews
             .lazy
-            .compactMap { $0 as? PerformanceTrackerMonitor }
-            .first ?? PerformanceTrackerMonitor(frame: window.frame)
+            .compactMap { $0 as? PerformanceMonitor }
+            .first ?? PerformanceMonitor(frame: window.frame)
 
         guard view.superview == nil else {
             return
@@ -199,7 +199,7 @@ extension PerformanceTracker {
         window
             .subviews
             .lazy
-            .compactMap { $0 as? PerformanceTrackerMonitor }
+            .compactMap { $0 as? PerformanceMonitor }
             .first?
             .removeFromSuperview()
     }

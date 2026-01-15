@@ -35,7 +35,7 @@
 		C06EE5322F0CBCC500AD1F6A /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5312F0CBCBF00AD1F6A /* KeyboardHandler.swift */; };
 		C06EE5342F0CBD3100AD1F6A /* NotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */; };
 		C06EE5362F0CBD8700AD1F6A /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */; };
-		C08D6AC42F18C67D000B34F1 /* PerformanceTrackerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6AC32F18C679000B34F1 /* PerformanceTrackerMonitor.swift */; };
+		C08D6AC42F18C67D000B34F1 /* PerformanceMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6AC32F18C679000B34F1 /* PerformanceMonitor.swift */; };
 		C08D6ACD2F18F20E000B34F1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6ACC2F18F207000B34F1 /* TestViewController.swift */; };
 		C08D6AD02F18FC1F000B34F1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6ACF2F18FC1C000B34F1 /* Test.swift */; };
 		C08D6AD32F18FDE1000B34F1 /* TestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6AD22F18FDDB000B34F1 /* TestElement.swift */; };
@@ -153,7 +153,7 @@
 		C06EE5312F0CBCBF00AD1F6A /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationObserver.swift; sourceTree = "<group>"; };
 		C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
-		C08D6AC32F18C679000B34F1 /* PerformanceTrackerMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTrackerMonitor.swift; sourceTree = "<group>"; };
+		C08D6AC32F18C679000B34F1 /* PerformanceMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceMonitor.swift; sourceTree = "<group>"; };
 		C08D6ACC2F18F207000B34F1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C08D6ACF2F18FC1C000B34F1 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		C08D6AD22F18FDDB000B34F1 /* TestElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestElement.swift; sourceTree = "<group>"; };
@@ -281,7 +281,7 @@
 				C06A6D452F0B00FB007F606E /* ActionSheet */,
 				C06A6D482F0B02EF007F606E /* Alert */,
 				C0C8A8C12F06A8B2001651F6 /* Extensions */,
-				C08D6ABD2F18C670000B34F1 /* PerformanceTracker */,
+				C08D6ABD2F18C670000B34F1 /* Performance */,
 				C06EE5312F0CBCBF00AD1F6A /* KeyboardHandler.swift */,
 				C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */,
 				C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */,
@@ -337,13 +337,13 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
-		C08D6ABD2F18C670000B34F1 /* PerformanceTracker */ = {
+		C08D6ABD2F18C670000B34F1 /* Performance */ = {
 			isa = PBXGroup;
 			children = (
 				C0F805932F14F37F007D8F74 /* PerformanceTracker.swift */,
-				C08D6AC32F18C679000B34F1 /* PerformanceTrackerMonitor.swift */,
+				C08D6AC32F18C679000B34F1 /* PerformanceMonitor.swift */,
 			);
-			path = PerformanceTracker;
+			path = Performance;
 			sourceTree = "<group>";
 		};
 		C08D6ACE2F18FC11000B34F1 /* Test */ = {
@@ -681,7 +681,7 @@
 				C0C8B8162F096BC80029D19F /* ProfileStore.swift in Sources */,
 				C0C8B81D2F097A7D0029D19F /* Tag.swift in Sources */,
 				C06A6D572F0B13AF007F606E /* ChatMessageType.swift in Sources */,
-				C08D6AC42F18C67D000B34F1 /* PerformanceTrackerMonitor.swift in Sources */,
+				C08D6AC42F18C67D000B34F1 /* PerformanceMonitor.swift in Sources */,
 				C0C8A8B42F068F3E001651F6 /* ChatMessageContent.swift in Sources */,
 				C06A6D382F0ACF99007F606E /* ProfileHeader.swift in Sources */,
 				C0C8A89E2F066C17001651F6 /* ThemeTypographies.swift in Sources */,

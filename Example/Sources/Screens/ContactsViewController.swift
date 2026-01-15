@@ -36,8 +36,6 @@ final class ContactsViewController: UIViewController {
             .sink { [weak self] _ in
                 self?.updateContentView()
             }
-
-        PerformanceTracker.shared.showMonitor()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

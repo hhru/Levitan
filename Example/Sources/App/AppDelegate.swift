@@ -11,6 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.tokens.themeManager = .default
 
         PerformanceTracker.shared.start()
+        PerformanceTracker.shared.showMonitor()
 
         return true
     }
