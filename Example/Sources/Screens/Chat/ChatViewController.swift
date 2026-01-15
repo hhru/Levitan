@@ -101,7 +101,7 @@ extension ChatViewController {
             title: "Reset",
             style: .plain,
             target: self,
-            action: #selector(onResetChatsTap)
+            action: #selector(onResetButtonTap)
         )
     }
 
@@ -256,7 +256,8 @@ extension ChatViewController {
 
 extension ChatViewController {
 
-    @objc private func onResetChatsTap() {
+    @objc
+    private func onResetButtonTap() {
         chatsStore.updateChats(with: Chat.all)
     }
 

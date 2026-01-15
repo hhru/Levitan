@@ -36,6 +36,7 @@
 		C06EE5342F0CBD3100AD1F6A /* NotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */; };
 		C06EE5362F0CBD8700AD1F6A /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */; };
 		C08D6AC42F18C67D000B34F1 /* PerformanceTrackerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6AC32F18C679000B34F1 /* PerformanceTrackerMonitor.swift */; };
+		C08D6ACD2F18F20E000B34F1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6ACC2F18F207000B34F1 /* TestViewController.swift */; };
 		C0C4DC8B2F0CB05B00DBF01A /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4DC852F0CB05A00DBF01A /* NSLayoutConstraint+Extensions.swift */; };
 		C0C8A89C2F066ACB001651F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89B2F066ACA001651F6 /* User.swift */; };
 		C0C8A89E2F066C17001651F6 /* ThemeTypographies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */; };
@@ -150,6 +151,7 @@
 		C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationObserver.swift; sourceTree = "<group>"; };
 		C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
 		C08D6AC32F18C679000B34F1 /* PerformanceTrackerMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTrackerMonitor.swift; sourceTree = "<group>"; };
+		C08D6ACC2F18F207000B34F1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C0C4DC852F0CB05A00DBF01A /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
 		C0C8A89B2F066ACA001651F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTypographies.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				C06A6D602F0BCA77007F606E /* ChatsViewController.swift */,
 				C0C8A8D42F06B914001651F6 /* ContactsViewController.swift */,
 				C009745E2F03CEEE00BC7680 /* DebugViewController.swift */,
+				C08D6ACC2F18F207000B34F1 /* TestViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				C0C8B8112F0947B10029D19F /* ProfileViewController.swift in Sources */,
 				C0C8A8AC2F06754C001651F6 /* TappableButtonStyle.swift in Sources */,
 				C06A6D3B2F0AD6D4007F606E /* ProfileContact.swift in Sources */,
+				C08D6ACD2F18F20E000B34F1 /* TestViewController.swift in Sources */,
 				C06A6D662F0C5435007F606E /* ChatInput.swift in Sources */,
 				C0C8A8A82F067350001651F6 /* CellAction.swift in Sources */,
 				C0C8A8A32F066CD9001651F6 /* ThemeColors.swift in Sources */,

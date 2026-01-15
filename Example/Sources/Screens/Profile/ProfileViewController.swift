@@ -39,7 +39,7 @@ extension ProfileViewController {
             title: "Reset",
             style: .plain,
             target: self,
-            action: #selector(onResetProfileTap)
+            action: #selector(onResetButtonTap)
         )
     }
 
@@ -179,7 +179,8 @@ extension ProfileViewController {
 
 extension ProfileViewController {
 
-    @objc private func onResetProfileTap() {
+    @objc
+    private func onResetButtonTap() {
         profileStore.updateProfile(with: .default)
     }
 

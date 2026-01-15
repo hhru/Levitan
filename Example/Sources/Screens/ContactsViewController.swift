@@ -65,7 +65,7 @@ extension ContactsViewController {
             title: "Reset",
             style: .plain,
             target: self,
-            action: #selector(onResetUsersTap)
+            action: #selector(onResetButtonTap)
         )
     }
 
@@ -189,7 +189,8 @@ extension ContactsViewController {
 
 extension ContactsViewController {
 
-    @objc private func onResetUsersTap() {
+    @objc
+    private func onResetButtonTap() {
         PerformanceTracker.shared.reset()
         usersStore.updateUsers(with: User.all)
     }
