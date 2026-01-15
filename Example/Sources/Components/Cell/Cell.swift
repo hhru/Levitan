@@ -50,7 +50,6 @@ extension Cell: View {
             .padding(.leading, 16.0)
         }
         .background(isPressed ? Colors.background.pressed : nil)
-        .contentShape(Rectangle())
         .onTap(tapAction)
         .onPress { isPressed = $0 && tapAction != nil }
     }

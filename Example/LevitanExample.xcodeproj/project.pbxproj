@@ -37,6 +37,9 @@
 		C06EE5362F0CBD8700AD1F6A /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */; };
 		C08D6AC42F18C67D000B34F1 /* PerformanceTrackerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6AC32F18C679000B34F1 /* PerformanceTrackerMonitor.swift */; };
 		C08D6ACD2F18F20E000B34F1 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6ACC2F18F207000B34F1 /* TestViewController.swift */; };
+		C08D6AD02F18FC1F000B34F1 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6ACF2F18FC1C000B34F1 /* Test.swift */; };
+		C08D6AD32F18FDE1000B34F1 /* TestElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6AD22F18FDDB000B34F1 /* TestElement.swift */; };
+		C08D6AD52F18FE3D000B34F1 /* TestElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6AD42F18FE3B000B34F1 /* TestElementView.swift */; };
 		C0C4DC8B2F0CB05B00DBF01A /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4DC852F0CB05A00DBF01A /* NSLayoutConstraint+Extensions.swift */; };
 		C0C8A89C2F066ACB001651F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89B2F066ACA001651F6 /* User.swift */; };
 		C0C8A89E2F066C17001651F6 /* ThemeTypographies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */; };
@@ -152,6 +155,9 @@
 		C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
 		C08D6AC32F18C679000B34F1 /* PerformanceTrackerMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTrackerMonitor.swift; sourceTree = "<group>"; };
 		C08D6ACC2F18F207000B34F1 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		C08D6ACF2F18FC1C000B34F1 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		C08D6AD22F18FDDB000B34F1 /* TestElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestElement.swift; sourceTree = "<group>"; };
+		C08D6AD42F18FE3B000B34F1 /* TestElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestElementView.swift; sourceTree = "<group>"; };
 		C0C4DC852F0CB05A00DBF01A /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
 		C0C8A89B2F066ACA001651F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTypographies.swift; sourceTree = "<group>"; };
@@ -340,6 +346,24 @@
 			path = PerformanceTracker;
 			sourceTree = "<group>";
 		};
+		C08D6ACE2F18FC11000B34F1 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				C08D6AD12F18FDD6000B34F1 /* Components */,
+				C08D6ACC2F18F207000B34F1 /* TestViewController.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		C08D6AD12F18FDD6000B34F1 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C08D6AD22F18FDDB000B34F1 /* TestElement.swift */,
+				C08D6AD42F18FE3B000B34F1 /* TestElementView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		C0C0ABE72F02695100C6E122 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +381,7 @@
 			children = (
 				C06A6D5A2F0B13F1007F606E /* Chat */,
 				C0C8B8072F09406D0029D19F /* Profile.swift */,
+				C08D6ACF2F18FC1C000B34F1 /* Test.swift */,
 				C0C8A89B2F066ACA001651F6 /* User.swift */,
 			);
 			path = Models;
@@ -481,11 +506,11 @@
 			isa = PBXGroup;
 			children = (
 				C06A6D512F0B1109007F606E /* Chat */,
+				C08D6ACE2F18FC11000B34F1 /* Test */,
 				C06A6D302F0ACF84007F606E /* Profile */,
 				C06A6D602F0BCA77007F606E /* ChatsViewController.swift */,
-				C0C8A8D42F06B914001651F6 /* ContactsViewController.swift */,
 				C009745E2F03CEEE00BC7680 /* DebugViewController.swift */,
-				C08D6ACC2F18F207000B34F1 /* TestViewController.swift */,
+				C0C8A8D42F06B914001651F6 /* ContactsViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -648,7 +673,9 @@
 				C06A6D4A2F0B0505007F606E /* AlertTextField.swift in Sources */,
 				C06EE5322F0CBCC500AD1F6A /* KeyboardHandler.swift in Sources */,
 				C0E822012F065FEB00051412 /* Avatar.swift in Sources */,
+				C08D6AD32F18FDE1000B34F1 /* TestElement.swift in Sources */,
 				C06A6D612F0BCA7B007F606E /* ChatsViewController.swift in Sources */,
+				C08D6AD02F18FC1F000B34F1 /* Test.swift in Sources */,
 				C0C8A8AE2F067562001651F6 /* Tappable.swift in Sources */,
 				C0C8A8C52F06A9FA001651F6 /* ChatIncomingMessage.swift in Sources */,
 				C0C8B8162F096BC80029D19F /* ProfileStore.swift in Sources */,
@@ -673,6 +700,7 @@
 				C0C8B81A2F0971BE0029D19F /* CardHeader.swift in Sources */,
 				C06A6D532F0B1115007F606E /* ChatViewController.swift in Sources */,
 				C0C8B8112F0947B10029D19F /* ProfileViewController.swift in Sources */,
+				C08D6AD52F18FE3D000B34F1 /* TestElementView.swift in Sources */,
 				C0C8A8AC2F06754C001651F6 /* TappableButtonStyle.swift in Sources */,
 				C06A6D3B2F0AD6D4007F606E /* ProfileContact.swift in Sources */,
 				C08D6ACD2F18F20E000B34F1 /* TestViewController.swift in Sources */,

@@ -3,15 +3,13 @@ import UIKit
 
 final class TestViewController: UIViewController {
 
-    let initialContent: VFlow
-    let finalContent: VFlow
+    let test: Test
 
     private var context = ComponentContext.default
     private let contentView = VFlow.UIView()
 
-    init(initialContent: VFlow, finalContent: VFlow) {
-        self.initialContent = initialContent
-        self.finalContent = finalContent
+    init(test: Test) {
+        self.test = test
 
         super.init(nibName: nil, bundle: nil)
 
@@ -35,6 +33,8 @@ final class TestViewController: UIViewController {
 
         setupNavigationBar()
         setupContentView()
+
+        updateContentView()
     }
 }
 
@@ -67,16 +67,20 @@ extension TestViewController {
     }
 
     private func updateContentView(strategy: FlowUpdateStrategy = .update) {
+        let content = test
+            .initialContent
+            .updateStrategy(strategy)
+
         contentView.update(
-            with: initialContent.updateStrategy(strategy),
+            with: content,
             context: context
         )
 
         Task {
-            try? await Task.sleep(nanoseconds: 4_000_000_000)
+            try? await Task.sleep(nanoseconds: 3_000_000_000)
 
             contentView.update(
-                with: finalContent,
+                with: test.finalContent,
                 context: context
             )
         }

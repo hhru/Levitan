@@ -24,9 +24,22 @@ extension Tappable: View {
 
         Button(
             action: { tapAction?() },
-            label: { content }
+            label: { content.contentShape(Rectangle()) }
         )
         .buttonStyle(buttonStyle)
+    }
+}
+
+extension Tappable: Component where Content: Component {
+
+    func sizing(
+        fitting size: CGSize,
+        context: ComponentContext
+    ) -> ComponentSizing {
+        content.sizing(
+            fitting: size,
+            context: context
+        )
     }
 }
 

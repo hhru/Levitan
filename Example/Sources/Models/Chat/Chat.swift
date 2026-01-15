@@ -31,6 +31,12 @@ extension Chat {
 
     private static let date = Date()
 
+    static let all: [Self] = [
+        .iOSDeveloper,
+        .androidDeveloper,
+        .uxDesigner
+    ]
+
     static let iOSDeveloper = Self(
         userID: 1,
         messages: [
@@ -454,10 +460,4 @@ extension Chat {
         ],
         isPinned: false
     )
-
-    static let all: [Self] = [
-        .iOSDeveloper,
-        .androidDeveloper,
-        .uxDesigner
-    ]
 }

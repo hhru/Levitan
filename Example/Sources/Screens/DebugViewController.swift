@@ -2,490 +2,91 @@ import UIKit
 import SwiftUI
 import Levitan
 
-// swiftlint:disable all
-
-struct Bar: Component {
-
-    let title: String
-    let color: Color
-
-    var body: some SwiftUI.View {
-        Text(title)
-            .font(.title)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .background(color)
-    }
-
-    func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
-        ComponentSizing(
-            width: .fill,
-            height: .hug
-        )
-    }
-}
-
-struct Foo: FallbackComponent {
-
-    typealias UIView = FooView
-
-    let title: String
-    let color: UIColor
-}
-
-final class FooView: UIView {
-
-    private let label = UILabel()
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        tokens.stroke = .inside(width: 1.0, color: 0x000000FF)
-
-        setupLabel()
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    private func setupLabel() {
-        addSubview(label)
-
-        label.numberOfLines = 0
-        label.translatesAutoresizingMaskIntoConstraints = false
-
-        let constraints = [
-            label.leadingAnchor.constraint(equalTo: leadingAnchor),
-            label.topAnchor.constraint(equalTo: topAnchor),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ]
-
-        NSLayoutConstraint.activate(constraints)
-    }
-}
-
-extension FooView: FallbackComponentView {
-
-    static func sizing(
-        for content: Foo,
-        fitting size: CGSize,
-        context: ComponentContext
-    ) -> ComponentSizing {
-        ComponentSizing(
-            width: .fill,
-            height: .hug
-        )
-    }
-
-    func update(with content: Foo, context: ComponentContext) {
-        label.attributedText = NSAttributedString(
-            string: content.title,
-            attributes: [.font: UIFont.preferredFont(forTextStyle: .title1)]
-        )
-
-        backgroundColor = content.color
-    }
-}
-
-
-extension Token where Value == ThemeTypographies {
-
-    subscript(dynamicMember relativePath: KeyPath<Value, TypographyToken> & Sendable) -> TypographyToken {
-        Token<TypographyValue>(trait: relativePath) { theme in
-            resolve(for: theme)[keyPath: relativePath]
-                .resolve(for: theme)
-                .fontScale(FontScaleValue(textStyle: .title2))
-        }
-    }
-}
-
 class DebugViewController: UIViewController {
 
-    let flowView = VFlow.UIView()
-
-    var flow = VFlow.empty {
-        didSet { flowView.update(with: flow, context: context) }
-    }
-
-    var context: ComponentContext {
-        ComponentContext
-            .default
-            .componentViewController(self)
-    }
-
-    private func setupFlowView() {
-        view.addSubview(flowView)
-
-        flowView.translatesAutoresizingMaskIntoConstraints = false
-
-        let constraints = [
-            flowView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            flowView.topAnchor.constraint(equalTo: view.topAnchor),
-            flowView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            flowView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ]
-
-        NSLayoutConstraint.activate(constraints)
-    }
-
-    private func testUpdateWithoutChanges() {
-        flow = VFlow {
-            FlowSection(
-                id: 0,
-                items: (0..<1).map { index in
-                    Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                        .flowItem(id: "0-\(index)")
-                }
-            )
-            .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
-            .footer(Foo(title: "Footer", color: UIColor.green.withAlphaComponent(0.75)).flowFooter())
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VFlow {
-                FlowSection(
-                    id: 0,
-                    items: (0..<1).map { index in
-                        Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                            .flowItem(id: "0-\(index)")
-                    }
-                )
-                .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
-                .footer(Foo(title: "Footer", color: UIColor.green.withAlphaComponent(0.75)).flowFooter())
-            }
-        }
-    }
-
-    private func testSectionReloading() {
-        flow = VFlow {
-            FlowSection(
-                id: 0,
-                items: (0..<1).map { index in
-                    Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                        .flowItem(id: "0-\(index)")
-                }
-            )
-            .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
-//            .footer(Foo(title: "Footer", color: UIColor.green.withAlphaComponent(0.75)).flowFooter())
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VFlow {
-                FlowSection(
-                    id: 0,
-                    items: (0..<1).map { index in
-                        Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                            .flowItem(id: "0-\(index)")
-                    }
-                )
-                .header(Foo(title: "Header \n NEW", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
-//                .footer(Foo(title: "Footer \n NEW", color: UIColor.green.withAlphaComponent(0.75)).flowFooter())
-            }
-        }
-    }
-
-    private func testSectionInserting() {
-        flow = VFlow(sections: [])
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VFlow {
-                FlowSection(
-                    id: 1,
-                    items: (0..<1).map { index in
-                        Foo(title: "Cell: 1 - \(index)", color: .lightGray)
-                            .flowItem(id: "1-\(index)")
-                    }
-                )
-                .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
-            }
-        }
-    }
-
-    private func testSectionDeleting() {
-        flow = VFlow {
-            FlowSection(
-                id: 0,
-                items: (0..<2).map { index in
-                    Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                        .flowItem(id: "0-\(index)")
-                }
-            )
-
-            FlowSection(
-                id: 1,
-                items: (0..<1).map { index in
-                    Foo(title: "Cell: 1 - \(index)", color: .lightGray)
-                        .flowItem(id: "1-\(index)")
-                }
-            )
-            .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
-            .footer(Foo(title: "Footer", color: UIColor.green.withAlphaComponent(0.75)).flowFooter())
-
-            FlowSection(
-                id: 2,
-                items: (0..<2).map { index in
-                    Foo(title: "Cell: 2 - \(index)", color: .lightGray)
-                        .flowItem(id: "2-\(index)")
-                }
-            )
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VFlow {
-                FlowSection(
-                    id: 0,
-                    items: (0..<2).map { index in
-                        Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                            .flowItem(id: "0-\(index)")
-                    }
-                )
-
-                FlowSection(
-                    id: 2,
-                    items: (0..<2).map { index in
-                        Foo(title: "Cell: 2 - \(index)", color: .lightGray)
-                            .flowItem(id: "2-\(index)")
-                    }
-                )
-            }
-        }
-    }
-
-    private func testSectionMoving() {
-        flow = VFlow {
-            FlowSection(
-                id: 0,
-                items: (0..<1).map { index in
-                    Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                        .flowItem(id: "0-\(index)")
-                }
-            )
-            .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
-            .footer(Foo(title: "Footer", color: UIColor.green.withAlphaComponent(0.75)).flowFooter())
-
-            FlowSection(
-                id: 1,
-                items: (0..<2).map { index in
-                    Foo(title: "Cell: 1 - \(index)", color: .lightGray)
-                        .flowItem(id: "1-\(index)")
-                }
-            )
-
-            FlowSection(
-                id: 2,
-                items: (0..<2).map { index in
-                    Foo(title: "Cell: 2 - \(index)", color: .lightGray)
-                        .flowItem(id: "2-\(index)")
-                }
-            )
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VFlow {
-                FlowSection(
-                    id: 1,
-                    items: (0..<2).map { index in
-                        Foo(title: "Cell: 1 - \(index)", color: .lightGray)
-                            .flowItem(id: "1-\(index)")
-                    }
-                )
-
-                FlowSection(
-                    id: 2,
-                    items: (0..<2).map { index in
-                        Foo(title: "Cell: 2 - \(index)", color: .lightGray)
-                            .flowItem(id: "2-\(index)")
-                    }
-                )
-
-                FlowSection(
-                    id: 0,
-                    items: (0..<1).map { index in
-                        Foo(title: "Cell: 0 - \(index)", color: .lightGray)
-                            .flowItem(id: "0-\(index)")
-                    }
-                )
-                .header(Foo(title: "Header", color: UIColor.blue.withAlphaComponent(0.75)).flowHeader())
-                .footer(Foo(title: "Footer", color: UIColor.green.withAlphaComponent(0.75)).flowFooter())
-            }
-        }
-    }
-
-    private func testItemReloading() {
-        flow = VFlow {
-            FlowSection(id: 0) {
-                Foo(title: "Cell: 0 - 1", color: .lightGray)
-                    .flowItem(id: "0-1")
-            }
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VFlow {
-                FlowSection(id: 0) {
-                    Foo(title: "Cell: 0 - 1\n NEW", color: .lightGray)
-                        .flowItem(id: "0-1")
-                }
-            }
-        }
-    }
-
-    private func testItemInserting() {
-        flow = VFlow {
-            FlowSection(id: 0) {
-                Foo(title: "Cell: 0 - 0", color: .lightGray)
-                    .flowItem(id: "0-0")
-
-                Foo(title: "Cell: 0 - 2", color: .lightGray)
-                    .flowItem(id: "0-2")
-            }
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VFlow {
-                FlowSection(id: 0) {
-                    Foo(title: "Cell: 0 - 0", color: .lightGray)
-                        .flowItem(id: "0-0")
-
-                    Foo(title: "Cell: 0 - 1", color: .lightGray)
-                        .flowItem(id: "0-1")
-
-                    Foo(title: "Cell: 0 - 2", color: .lightGray)
-                        .flowItem(id: "0-2")
-                }
-            }
-        }
-    }
-
-    private func testItemDeleting() {
-        flow = VFlow {
-            FlowSection(id: 0) {
-                Foo(title: "Cell: 0 - 0", color: .lightGray)
-                    .flowItem(id: "0-0")
-
-                Foo(title: "Cell: 0 - 1", color: .lightGray)
-                    .flowItem(id: "0-1")
-
-                Foo(title: "Cell: 0 - 2", color: .lightGray)
-                    .flowItem(id: "0-2")
-            }
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VFlow {
-                FlowSection(id: 0) {
-                    Foo(title: "Cell: 0 - 0", color: .lightGray)
-                        .flowItem(id: "0-0")
-
-                    Foo(title: "Cell: 0 - 2", color: .lightGray)
-                        .flowItem(id: "0-2")
-                }
-            }
-        }
-    }
-
-    private func testItemMoving() {
-        flow = VFlow {
-            FlowSection(id: 0) {
-                Foo(title: "Cell: 0 - 0", color: .lightGray)
-                    .flowItem(id: "0-0")
-
-                Foo(title: "Cell: 0 - 1", color: .lightGray)
-                    .flowItem(id: "0-1")
-
-                Foo(title: "Cell: 0 - 2", color: .lightGray)
-                    .flowItem(id: "0-2")
-            }
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VFlow {
-                FlowSection(id: 0) {
-                    Foo(title: "Cell: 0 - 1", color: .lightGray)
-                        .flowItem(id: "0-1")
-
-                    Foo(title: "Cell: 0 - 2", color: .lightGray)
-                        .flowItem(id: "0-2")
-
-                    Foo(title: "Cell: 0 - 0", color: .lightGray)
-                        .flowItem(id: "0-0")
-                }
-            }
-        }
-    }
-
-    private func testSwiftUIItemReloading() {
-        flow = VFlow {
-            FlowSection(id: 0) {
-                Bar(title: "Cell: 0 - 0\n NEW \n NEW", color: .gray)
-                    .flowItem(id: "0-0")
-            }
-        }
-
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-//            self.flow = VFlow {
-//                FlowSection(id: 0) {
-//                    Bar(title: "Cell: 0 - 0 NEW \n NEW \n NEW", color: .gray)
-//                        .flowItem(id: "0-0")
-//                }
-//            }
-//        }
-    }
-
-    private func testTextWithFrameReloading() {
-        flow = VFlow {
-            FlowSection(id: 0) {
-                Text("Cell: 0 - 0")
-                    .frame(width: .fill)
-                    .flowItem(id: "0-0")
-            }
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VFlow {
-                FlowSection(id: 0) {
-                    Text("Cell: 0 - 0 NEW \n NEW")
-                        .frame(width: .fill)
-                        .flowItem(id: "0-0")
-                }
-            }
-        }
-    }
-
-    private func testInsetsChanging() {
-        flow = VFlow {
-            FlowSection(id: 1) {
-                Foo(title: "Cell: 0 - 0", color: .lightGray)
-                    .flowItem(id: "1-0")
-
-                Foo(title: "Cell: 0 - 2", color: .lightGray)
-                    .flowItem(id: "1-2")
-            }
-        }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-            self.flow = VFlow {
-                FlowSection(id: 1) {
-                    Foo(title: "Cell: 0 - 0", color: .lightGray)
-                        .flowItem(id: "1-0")
-
-                    Foo(title: "Cell: 0 - 2", color: .lightGray)
-                        .flowItem(id: "1-2")
-                }
-            }
-            .insets(16.0)
-        }
-    }
+    private var context = ComponentContext.default
+    private let contentView = VFlow.UIView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.tokens.backgroundColor = Colors.background.default
 
-        setupFlowView()
-        testSectionReloading()
+        context = context
+            .componentViewController(self)
+            .fallbackComponentCache(FallbackComponentCache())
+            .textCache(TextCache())
+
+        setupNavigationBar()
+        setupContentView()
+
+        updateContentView()
     }
 }
 
-// swiftlint:enable all
+extension DebugViewController {
+
+    private func setupNavigationBar() {
+        navigationItem.title = "Debug"
+    }
+
+    private func setupContentView() {
+        view.addSubview(contentView)
+
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentView.topAnchor.constraint(equalTo: view.topAnchor),
+            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    private func updateContentView() {
+        let content = VFlow(id: #function) {
+            testsItem(title: "Sections tests", tests: Test.sections)
+            testsItem(title: "Items tests", tests: Test.items)
+            testsItem(title: "Other tests", tests: Test.other)
+        }
+        .contentMarginsAdjustmentBehavior(.always)
+        .scrollAlwaysBounces()
+
+        contentView.update(
+            with: content,
+            context: context
+        )
+    }
+}
+
+extension DebugViewController {
+
+    func testsItem(title: String, tests: [Test]) -> any FlowItem {
+        VFlow(id: title, itemsData: Array(tests.enumerated()), itemsID: \.element.title) { index, test in
+            Text(test.title)
+                .typography(Typographies.label1)
+                .foregroundColor(Colors.text.primary)
+                .padding(top: index > .zero ? 12.0 : .zero)
+                .padding(bottom: index < tests.count - 1 ? 12.0 : .zero)
+                .frame(width: .fill, alignment: .leading)
+                .onTap { [weak self] in
+                    self?.onTestTap(test: test)
+                }
+        }
+        .card(header: CardHeader(title: title))
+        .padding(top: 16.0, leading: 16.0, trailing: 16.0)
+        .flowItem(id: title)
+    }
+}
+
+extension DebugViewController {
+
+    func onTestTap(test: Test) {
+        navigationController?.pushViewController(
+            TestViewController(test: test),
+            animated: true
+        )
+    }
+}

@@ -25,6 +25,16 @@ extension Theme {
                 outgoingMessageBackground: 0x0070FFFF,
                 outgoingMessageStroke: 0x0D63E3FF
             ),
+            debug: ThemeColors.Debug(
+                primaryItemBackground: 0xF1F4F9FF,
+                primaryItemText: 0x000000FF,
+                secondaryItemBackground: 0xDCE3EBFF,
+                secondaryItemText: 0x000000FF,
+                headerBackground: 0xE8F9ECFF,
+                headerText: 0x10B55FFF,
+                footerBackground: 0xF7F4FFFF,
+                footerText: 0x883BE9FF
+            ),
             accent: 0x0070FFFF,
             stroke: 0xDCE3EBFF
         ),
