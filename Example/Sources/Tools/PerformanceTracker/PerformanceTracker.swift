@@ -43,10 +43,7 @@ final class PerformanceTracker {
             : .zero
     }
 
-    init() {
-        setupDisplayLink()
-        subscribeToAppNotifications()
-    }
+    private init() { }
 }
 
 extension PerformanceTracker {
@@ -99,6 +96,11 @@ extension PerformanceTracker {
             .store(in: &subscriptions)
     }
 
+    private func unsubscribeFromAppNotifications() {
+        subscriptions.forEach { $0.cancel() }
+        subscriptions.removeAll()
+    }
+
     @objc
     private func onDisplayLinkUpdate(_ displayLink: CADisplayLink) {
         defer {
@@ -144,6 +146,74 @@ extension PerformanceTracker {
 
 extension PerformanceTracker {
 
+    static let shared = PerformanceTracker()
+
+    func showMonitor(in window: UIWindow? = nil) {
+        let window = window ?? UIApplication
+            .shared
+            .connectedScenes
+            .lazy
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first { $0.isKeyWindow }
+
+        guard let window else {
+            return assertionFailure("Window was not found")
+        }
+
+        let view = window
+            .subviews
+            .lazy
+            .compactMap { $0 as? PerformanceTrackerMonitor }
+            .first ?? PerformanceTrackerMonitor(frame: window.frame)
+
+        guard view.superview == nil else {
+            return
+        }
+
+        window.addSubview(view)
+
+        let constraints = [
+            view.leadingAnchor.constraint(equalTo: window.leadingAnchor),
+            view.topAnchor.constraint(equalTo: window.topAnchor),
+            view.trailingAnchor.constraint(equalTo: window.trailingAnchor),
+            view.bottomAnchor.constraint(equalTo: window.bottomAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    func hideMonitor(in window: UIWindow? = nil) {
+        let window = window ?? UIApplication
+            .shared
+            .connectedScenes
+            .lazy
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .first { $0.isKeyWindow }
+
+        guard let window else {
+            return assertionFailure("Window was not found")
+        }
+
+        window
+            .subviews
+            .lazy
+            .compactMap { $0 as? PerformanceTrackerMonitor }
+            .first?
+            .removeFromSuperview()
+    }
+
+    func start() {
+        setupDisplayLink()
+        subscribeToAppNotifications()
+    }
+
+    func stop() {
+        unsubscribeFromAppNotifications()
+        resetDisplayLink()
+    }
+
     func reset() {
         duration = .zero
         frameCount = .zero
@@ -157,21 +227,33 @@ extension PerformanceTracker {
     }
 
     func track() {
-        guard let firstFPS, frameCount > 1 else {
+        guard frameCount > 1 else {
             return reset()
         }
 
+        let targetFPS = String(format: "%.1f", UIScreen.main.maximumFramesPerSecond)
+        let firstFPS = firstFPS.map { String(format: "%.2f", $0) } ?? "n/a"
+        let minFPS = String(format: "%.1f", minFPS)
+        let maxFPS = String(format: "%.1f", maxFPS)
+        let meanFPS = String(format: "%.1f", meanFPS)
+
+        let hitchDuration = String(format: "%.2f ms", hitchDuration * 1000.0)
+        let hitchRate = String(format: "%.2f ms/s", hitchRate)
+
+        let hangDuration = String(format: "%.2f ms", hangDuration * 1000.0)
+        let hangRate = String(format: "%.2f s/h", hangRate)
+
         print(
             "Performance:\n",
-            "  - target FPS: \(UIScreen.main.maximumFramesPerSecond)",
-            "  - first FPS: \(firstFPS)",
+            "  - target FPS: \(targetFPS)",
+            "  - first Frame: \(firstFPS)",
             "  - min FPS: \(minFPS)",
             "  - max FPS: \(maxFPS)",
             "  - mean FPS: \(meanFPS)\n",
-            "  - hitch duration: \(hitchDuration * 1000.0) ms",
-            "  - hitch rate: \(hitchRate) ms / s\n",
-            "  - hang duration: \(hangDuration * 1000.0) ms",
-            "  - hang rate: \(hangRate) s / h\n",
+            "  - hitch duration: \(hitchDuration)",
+            "  - hitch rate: \(hitchRate)\n",
+            "  - hang duration: \(hangDuration)",
+            "  - hang rate: \(hangRate)\n",
             separator: "\n"
         )
 

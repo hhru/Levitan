@@ -8,7 +8,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        application.tokens.themeManager(.default)
+        application.tokens.themeManager = .default
+
+        PerformanceTracker.shared.start()
 
         return true
     }

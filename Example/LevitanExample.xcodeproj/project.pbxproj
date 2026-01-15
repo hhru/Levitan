@@ -35,6 +35,7 @@
 		C06EE5322F0CBCC500AD1F6A /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5312F0CBCBF00AD1F6A /* KeyboardHandler.swift */; };
 		C06EE5342F0CBD3100AD1F6A /* NotificationObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */; };
 		C06EE5362F0CBD8700AD1F6A /* ObjectAssociation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */; };
+		C08D6AC42F18C67D000B34F1 /* PerformanceTrackerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D6AC32F18C679000B34F1 /* PerformanceTrackerMonitor.swift */; };
 		C0C4DC8B2F0CB05B00DBF01A /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4DC852F0CB05A00DBF01A /* NSLayoutConstraint+Extensions.swift */; };
 		C0C8A89C2F066ACB001651F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89B2F066ACA001651F6 /* User.swift */; };
 		C0C8A89E2F066C17001651F6 /* ThemeTypographies.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */; };
@@ -148,6 +149,7 @@
 		C06EE5312F0CBCBF00AD1F6A /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationObserver.swift; sourceTree = "<group>"; };
 		C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
+		C08D6AC32F18C679000B34F1 /* PerformanceTrackerMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTrackerMonitor.swift; sourceTree = "<group>"; };
 		C0C4DC852F0CB05A00DBF01A /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
 		C0C8A89B2F066ACA001651F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C0C8A89D2F066C12001651F6 /* ThemeTypographies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeTypographies.swift; sourceTree = "<group>"; };
@@ -268,13 +270,13 @@
 		C06A6D412F0B007E007F606E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				C08D6ABD2F18C670000B34F1 /* PerformanceTracker */,
 				C06A6D452F0B00FB007F606E /* ActionSheet */,
 				C06A6D482F0B02EF007F606E /* Alert */,
 				C0C8A8C12F06A8B2001651F6 /* Extensions */,
 				C06EE5312F0CBCBF00AD1F6A /* KeyboardHandler.swift */,
 				C06EE5332F0CBD3000AD1F6A /* NotificationObserver.swift */,
 				C06EE5352F0CBD7F00AD1F6A /* ObjectAssociation.swift */,
-				C0F805932F14F37F007D8F74 /* PerformanceTracker.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -325,6 +327,15 @@
 				C06A6D672F0C5497007F606E /* ChatInputView.swift */,
 			);
 			path = Input;
+			sourceTree = "<group>";
+		};
+		C08D6ABD2F18C670000B34F1 /* PerformanceTracker */ = {
+			isa = PBXGroup;
+			children = (
+				C0F805932F14F37F007D8F74 /* PerformanceTracker.swift */,
+				C08D6AC32F18C679000B34F1 /* PerformanceTrackerMonitor.swift */,
+			);
+			path = PerformanceTracker;
 			sourceTree = "<group>";
 		};
 		C0C0ABE72F02695100C6E122 /* Products */ = {
@@ -640,6 +651,7 @@
 				C0C8B8162F096BC80029D19F /* ProfileStore.swift in Sources */,
 				C0C8B81D2F097A7D0029D19F /* Tag.swift in Sources */,
 				C06A6D572F0B13AF007F606E /* ChatMessageType.swift in Sources */,
+				C08D6AC42F18C67D000B34F1 /* PerformanceTrackerMonitor.swift in Sources */,
 				C0C8A8B42F068F3E001651F6 /* ChatMessageContent.swift in Sources */,
 				C06A6D382F0ACF99007F606E /* ProfileHeader.swift in Sources */,
 				C0C8A89E2F066C17001651F6 /* ThemeTypographies.swift in Sources */,
