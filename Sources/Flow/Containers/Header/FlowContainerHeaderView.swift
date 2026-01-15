@@ -36,6 +36,27 @@ public final class FlowContainerHeaderView<Content: Component>: AnyFlowSupplemen
         fatalError("init(coder:) has not been implemented")
     }
 
+    @discardableResult
+    public override func becomeFirstResponder() -> Bool {
+        contentView.becomeFirstResponder()
+    }
+
+    @discardableResult
+    public override func resignFirstResponder() -> Bool {
+        contentView.resignFirstResponder()
+    }
+
+    public override func onAppear() {
+        appearAction?()
+    }
+
+    public override func onDisappear() {
+        disappearAction?()
+    }
+}
+
+extension FlowContainerHeaderView {
+
     private func setupContentView() {
         addSubview(contentView)
 
@@ -62,24 +83,6 @@ public final class FlowContainerHeaderView<Content: Component>: AnyFlowSupplemen
             .constraint(equalTo: bottomAnchor)
             .priority(.almostRequired)
             .activate()
-    }
-
-    @discardableResult
-    public override func becomeFirstResponder() -> Bool {
-        contentView.becomeFirstResponder()
-    }
-
-    @discardableResult
-    public override func resignFirstResponder() -> Bool {
-        contentView.resignFirstResponder()
-    }
-
-    public override func onAppear() {
-        appearAction?()
-    }
-
-    public override func onDisappear() {
-        disappearAction?()
     }
 }
 

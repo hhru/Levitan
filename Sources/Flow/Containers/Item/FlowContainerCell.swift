@@ -40,6 +40,35 @@ public final class FlowContainerCell<Content: Component>: AnyFlowCell {
         fatalError("NSCoding not supported")
     }
 
+    @discardableResult
+    public override func becomeFirstResponder() -> Bool {
+        itemContentView.becomeFirstResponder()
+    }
+
+    @discardableResult
+    public override func resignFirstResponder() -> Bool {
+        itemContentView.resignFirstResponder()
+    }
+
+    public override func onSelect(deselection: Deselection) {
+        selectAction?(deselection)
+    }
+
+    public override func onDeselect() {
+        deselectAction?()
+    }
+
+    public override func onAppear() {
+        appearAction?()
+    }
+
+    public override func onDisappear() {
+        disappearAction?()
+    }
+}
+
+extension FlowContainerCell {
+
     private func setupItemContentView() {
         contentView.addSubview(itemContentView)
 
@@ -66,32 +95,6 @@ public final class FlowContainerCell<Content: Component>: AnyFlowCell {
             .constraint(equalTo: contentView.bottomAnchor)
             .priority(.almostRequired)
             .activate()
-    }
-
-    @discardableResult
-    public override func becomeFirstResponder() -> Bool {
-        itemContentView.becomeFirstResponder()
-    }
-
-    @discardableResult
-    public override func resignFirstResponder() -> Bool {
-        itemContentView.resignFirstResponder()
-    }
-
-    public override func onSelect(deselection: Deselection) {
-        selectAction?(deselection)
-    }
-
-    public override func onDeselect() {
-        deselectAction?()
-    }
-
-    public override func onAppear() {
-        appearAction?()
-    }
-
-    public override func onDisappear() {
-        disappearAction?()
     }
 }
 
