@@ -10,9 +10,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         application.tokens.themeManager = .default
 
-        PerformanceTracker.shared.start()
-        PerformanceTracker.shared.showMonitor()
-
         return true
     }
 

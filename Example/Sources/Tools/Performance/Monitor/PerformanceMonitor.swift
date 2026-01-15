@@ -20,14 +20,14 @@ final class PerformanceMonitor: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        translatesAutoresizingMaskIntoConstraints = false
-
         setupContentView()
         setupStackView()
 
         setupTextLabel(fpsLabel)
         setupTextLabel(hitchesLabel)
         setupTextLabel(hangsLabel)
+
+        translatesAutoresizingMaskIntoConstraints = false
     }
 
     @available(*, unavailable)
@@ -122,7 +122,7 @@ extension PerformanceMonitor {
     private func setupStackView() {
         addSubview(stackView)
 
-        stackView.alignment = .center
+        stackView.alignment = .leading
         stackView.axis = .vertical
         stackView.spacing = 2.0
         stackView.isUserInteractionEnabled = false
@@ -154,7 +154,7 @@ extension PerformanceMonitor {
         stackView.addArrangedSubview(textLabel)
 
         textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.font = .systemFont(ofSize: 8.0, weight: .medium)
+        textLabel.font = .monospacedSystemFont(ofSize: 8.0, weight: .medium)
         textLabel.textColor = .white
     }
 
@@ -171,9 +171,9 @@ extension PerformanceMonitor {
         let hangDuration = String(format: "%.2f ms", tracker.hangDuration * 1000.0)
         let hangRate = String(format: "%.2f s/h", tracker.hangRate)
 
-        fpsLabel.text = "FPS: \(currentFPS) (min: \(minFPS))"
+        fpsLabel.text = "    FPS: \(currentFPS) (min: \(minFPS))"
         hitchesLabel.text = "Hitches: \(hitchDuration) (rate: \(hitchRate))"
-        hangsLabel.text = "Hangs: \(hangDuration) (rate: \(hangRate))"
+        hangsLabel.text = "  Hangs: \(hangDuration) (rate: \(hangRate))"
 
         lastDuration = tracker.duration
         lastFrameCount = tracker.frameCount

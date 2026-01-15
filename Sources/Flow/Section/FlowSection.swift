@@ -74,6 +74,21 @@ public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
     }
 }
 
+extension FlowSection {
+
+    public var itemCount: Int {
+        items.count
+    }
+
+    public var hasHeader: Bool {
+        header != nil
+    }
+
+    public var hasFooter: Bool {
+        footer != nil
+    }
+}
+
 extension FlowSection: Changeable {
 
     public func metrics(_ metrics: Layout.Metrics) -> Self {

@@ -13,6 +13,8 @@
 		C00974692F03D08E00BC7680 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C00974672F03D08E00BC7680 /* Main.storyboard */; };
 		C017D14025FBAD11008B90C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C017D13F25FBAD11008B90C0 /* Assets.xcassets */; };
 		C017D14325FBAD11008B90C0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C017D14125FBAD11008B90C0 /* Launch.storyboard */; };
+		C03F60982F198C6D008FDF52 /* PerformanceMonitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F60972F198C6D008FDF52 /* PerformanceMonitorController.swift */; };
+		C03F609A2F198C7C008FDF52 /* PerformanceMonitorWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03F60992F198C7A008FDF52 /* PerformanceMonitorWindow.swift */; };
 		C03F80F62F026A820097B7A3 /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C0ABEF2F02695100C6E122 /* Levitan.framework */; };
 		C03F80F72F026A820097B7A3 /* Levitan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0C0ABEF2F02695100C6E122 /* Levitan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C06A6D382F0ACF99007F606E /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06A6D372F0ACF94007F606E /* ProfileHeader.swift */; };
@@ -133,6 +135,8 @@
 		C017D13F25FBAD11008B90C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C017D14225FBAD11008B90C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
 		C017D14425FBAD11008B90C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C03F60972F198C6D008FDF52 /* PerformanceMonitorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceMonitorController.swift; sourceTree = "<group>"; };
+		C03F60992F198C7A008FDF52 /* PerformanceMonitorWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceMonitorWindow.swift; sourceTree = "<group>"; };
 		C06A6D372F0ACF94007F606E /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		C06A6D3A2F0AD6D0007F606E /* ProfileContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContact.swift; sourceTree = "<group>"; };
 		C06A6D432F0B0091007F606E /* ActionSheetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetAction.swift; sourceTree = "<group>"; };
@@ -257,6 +261,16 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
+		C03F609B2F198CB0008FDF52 /* Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				C08D6AC32F18C679000B34F1 /* PerformanceMonitor.swift */,
+				C03F60972F198C6D008FDF52 /* PerformanceMonitorController.swift */,
+				C03F60992F198C7A008FDF52 /* PerformanceMonitorWindow.swift */,
+			);
+			path = Monitor;
+			sourceTree = "<group>";
+		};
 		C06A6D302F0ACF84007F606E /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,8 +354,8 @@
 		C08D6ABD2F18C670000B34F1 /* Performance */ = {
 			isa = PBXGroup;
 			children = (
+				C03F609B2F198CB0008FDF52 /* Monitor */,
 				C0F805932F14F37F007D8F74 /* PerformanceTracker.swift */,
-				C08D6AC32F18C679000B34F1 /* PerformanceMonitor.swift */,
 			);
 			path = Performance;
 			sourceTree = "<group>";
@@ -668,6 +682,7 @@
 				C0E822032F065FFF00051412 /* AvatarSize.swift in Sources */,
 				C06A6D442F0B0092007F606E /* ActionSheetAction.swift in Sources */,
 				C0C8A8D52F06B918001651F6 /* ContactsViewController.swift in Sources */,
+				C03F609A2F198C7C008FDF52 /* PerformanceMonitorWindow.swift in Sources */,
 				C0F805992F14F384007D8F74 /* PerformanceTracker.swift in Sources */,
 				C06A6D472F0B0108007F606E /* ActionSheet.swift in Sources */,
 				C06A6D4A2F0B0505007F606E /* AlertTextField.swift in Sources */,
@@ -675,6 +690,7 @@
 				C0E822012F065FEB00051412 /* Avatar.swift in Sources */,
 				C08D6AD32F18FDE1000B34F1 /* TestElement.swift in Sources */,
 				C06A6D612F0BCA7B007F606E /* ChatsViewController.swift in Sources */,
+				C03F60982F198C6D008FDF52 /* PerformanceMonitorController.swift in Sources */,
 				C08D6AD02F18FC1F000B34F1 /* Test.swift in Sources */,
 				C0C8A8AE2F067562001651F6 /* Tappable.swift in Sources */,
 				C0C8A8C52F06A9FA001651F6 /* ChatIncomingMessage.swift in Sources */,

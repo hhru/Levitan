@@ -148,60 +148,42 @@ extension PerformanceTracker {
 
     static let shared = PerformanceTracker()
 
-    func showMonitor(in window: UIWindow? = nil) {
-        let window = window ?? UIApplication
+    func showMonitor(for windowScene: UIWindowScene? = nil) {
+        let windowScene = windowScene ?? UIApplication
             .shared
             .connectedScenes
             .lazy
             .compactMap { $0 as? UIWindowScene }
-            .flatMap { $0.windows }
-            .first { $0.isKeyWindow }
+            .first
 
-        guard let window else {
-            return assertionFailure("Window was not found")
+        guard let windowScene else {
+            return assertionFailure("UIWindowScene was not found")
         }
 
-        let view = window
-            .subviews
-            .lazy
-            .compactMap { $0 as? PerformanceMonitor }
-            .first ?? PerformanceMonitor(frame: window.frame)
+        let window = PerformanceMonitorWindow(windowScene: windowScene)
 
-        guard view.superview == nil else {
-            return
-        }
-
-        window.addSubview(view)
-
-        let constraints = [
-            view.leadingAnchor.constraint(equalTo: window.leadingAnchor),
-            view.topAnchor.constraint(equalTo: window.topAnchor),
-            view.trailingAnchor.constraint(equalTo: window.trailingAnchor),
-            view.bottomAnchor.constraint(equalTo: window.bottomAnchor)
-        ]
-
-        NSLayoutConstraint.activate(constraints)
+        window.rootViewController = PerformanceMonitorController(window: window)
+        window.windowLevel = .alert + 1.0
+        window.isHidden = false
     }
 
-    func hideMonitor(in window: UIWindow? = nil) {
-        let window = window ?? UIApplication
-            .shared
-            .connectedScenes
-            .lazy
-            .compactMap { $0 as? UIWindowScene }
-            .flatMap { $0.windows }
-            .first { $0.isKeyWindow }
+    func hideMonitor(for windowScene: UIWindowScene? = nil) {
+        let windows: [UIWindow]
 
-        guard let window else {
-            return assertionFailure("Window was not found")
+        if let windowScene {
+            windows = windowScene.windows
+        } else {
+            windows = UIApplication
+                .shared
+                .connectedScenes
+                .lazy
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap { $0.windows }
         }
 
-        window
-            .subviews
-            .lazy
-            .compactMap { $0 as? PerformanceMonitor }
-            .first?
-            .removeFromSuperview()
+        for window in windows where window is PerformanceMonitorWindow {
+            window.rootViewController = nil
+        }
     }
 
     func start() {

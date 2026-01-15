@@ -22,6 +22,12 @@ class DebugViewController: UIViewController {
 
         updateContentView()
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        PerformanceTracker.shared.hideMonitor()
+    }
 }
 
 extension DebugViewController {
