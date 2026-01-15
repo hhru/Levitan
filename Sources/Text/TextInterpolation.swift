@@ -16,5 +16,9 @@ public struct TextInterpolation: StringInterpolationProtocol {
     public mutating func appendInterpolation(_ part: any TextPart) {
         parts.append(part.eraseToAnyTextPart())
     }
+
+    public mutating func appendInterpolation<Part: CustomStringConvertible>(_ part: Part) {
+        appendInterpolation(part.description)
+    }
 }
 #endif
