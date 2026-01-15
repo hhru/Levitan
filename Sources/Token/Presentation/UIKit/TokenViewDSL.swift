@@ -14,23 +14,36 @@ public struct TokenViewDSL<View: AnyTokenView> {
     internal let viewProperties = TokenViewProperties<View>()
 
     public var theme: TokenTheme {
-        view.tokenViewManager.theme
+        get { view.tokenViewManager.theme }
+
+        nonmutating set {
+            view.tokenViewManager.overrideThemeKey(newValue.key)
+            view.tokenViewManager.overrideThemeScheme(newValue.scheme)
+        }
+    }
+
+    public var themeKey: TokenThemeKey? {
+        get { view.tokenViewManager.theme.key }
+
+        nonmutating set {
+            view.tokenViewManager.overrideThemeKey(newValue)
+        }
+    }
+
+    public var themeScheme: TokenThemeScheme? {
+        get { view.tokenViewManager.theme.scheme }
+
+        nonmutating set {
+            view.tokenViewManager.overrideThemeScheme(newValue)
+        }
     }
 
     public var themeManager: TokenThemeManager? {
-        view.tokenViewManager.themeManager
-    }
+        get { view.tokenViewManager.themeManager }
 
-    public func themeKey(_ themeKey: TokenThemeKey?) {
-        view.tokenViewManager.themeKey(themeKey)
-    }
-
-    public func themeScheme(_ themeScheme: TokenThemeScheme?) {
-        view.tokenViewManager.themeScheme(themeScheme)
-    }
-
-    public func themeManager(_ themeManager: TokenThemeManager?) {
-        view.tokenViewManager.themeManager(themeManager)
+        nonmutating set {
+            view.tokenViewManager.overrideThemeManager(newValue)
+        }
     }
 
     @discardableResult
