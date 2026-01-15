@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
-public struct FlowSectionHeader: Sendable {
+internal struct FlowSectionHeader: Sendable {
 
     internal let wrapped: any FlowHeader
     internal let viewType: AnyFlowHeaderView.Type
@@ -18,7 +18,7 @@ public struct FlowSectionHeader: Sendable {
 
     private let isEqualBox: @Sendable (_ other: Self) -> Bool
 
-    public init<Wrapped: FlowHeader>(_ wrapped: Wrapped) {
+    internal init<Wrapped: FlowHeader>(_ wrapped: Wrapped) {
         self.wrapped = wrapped
 
         viewType = Wrapped.View.self
@@ -71,7 +71,7 @@ extension FlowSectionHeader: Equatable {
 
 extension FlowHeader {
 
-    public func sectionHeader() -> FlowSectionHeader {
+    internal func sectionHeader() -> FlowSectionHeader {
         FlowSectionHeader(self)
     }
 }

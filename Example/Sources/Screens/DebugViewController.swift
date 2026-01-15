@@ -46,7 +46,7 @@ extension DebugViewController {
     }
 
     private func updateContentView() {
-        let content = VFlow(id: #function) {
+        let content = VFlow {
             testsItem(title: "Sections tests", tests: Test.sections)
             testsItem(title: "Items tests", tests: Test.items)
             testsItem(title: "Other tests", tests: Test.other)
@@ -64,7 +64,7 @@ extension DebugViewController {
 extension DebugViewController {
 
     func testsItem(title: String, tests: [Test]) -> any FlowItem {
-        VFlow(id: title, itemsData: Array(tests.enumerated()), itemsID: \.element.title) { index, test in
+        VFlow(itemsData: Array(tests.enumerated()), itemsID: \.element.title) { index, test in
             Text(test.title)
                 .typography(Typographies.label1)
                 .foregroundColor(Colors.text.primary)

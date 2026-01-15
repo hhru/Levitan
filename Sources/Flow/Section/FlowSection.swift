@@ -4,14 +4,13 @@ import Foundation
 public struct FlowSection<Layout: FlowLayout>: Equatable, Sendable {
 
     public let id: ComponentID
+    public var metrics: Layout.Metrics
 
-    internal var metrics: Layout.Metrics
     internal var header: FlowSectionHeader?
     internal var footer: FlowSectionFooter?
-
     internal let items: [FlowSectionItem]
 
-    private init(
+    internal init(
         id: some Hashable & Sendable,
         metrics: Layout.Metrics,
         header: FlowSectionHeader?,

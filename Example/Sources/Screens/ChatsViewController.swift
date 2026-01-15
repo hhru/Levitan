@@ -122,7 +122,6 @@ extension ChatsViewController {
         }
 
         let content = VFlow(
-            id: #function,
             itemsData: Array(chats.enumerated()),
             itemsID: \.element.userID,
             items: { chatItem(chat: $1, isLast: $0 >= chats.count - 1) }

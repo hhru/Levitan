@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
-public struct FlowSectionFooter: Sendable {
+internal struct FlowSectionFooter: Sendable {
 
     internal let wrapped: any FlowFooter
     internal let viewType: AnyFlowFooterView.Type
@@ -18,7 +18,7 @@ public struct FlowSectionFooter: Sendable {
 
     private let isEqualBox: @Sendable (_ other: Self) -> Bool
 
-    public init<Wrapped: FlowFooter>(_ wrapped: Wrapped) {
+    internal init<Wrapped: FlowFooter>(_ wrapped: Wrapped) {
         self.wrapped = wrapped
 
         viewType = Wrapped.View.self
@@ -64,14 +64,14 @@ public struct FlowSectionFooter: Sendable {
 
 extension FlowSectionFooter: Equatable {
 
-    public static func == (lhs: Self, rhs: Self) -> Bool {
+    internal static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.isEqualBox(rhs)
     }
 }
 
 extension FlowFooter {
 
-    public func sectionFooter() -> FlowSectionFooter {
+    internal func sectionFooter() -> FlowSectionFooter {
         FlowSectionFooter(self)
     }
 }

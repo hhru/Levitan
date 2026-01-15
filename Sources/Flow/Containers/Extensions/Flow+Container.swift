@@ -18,7 +18,6 @@ extension Flow {
     }
 
     public init<Data: RandomAccessCollection, ID: Hashable & Sendable>(
-        id: some Hashable & Sendable,
         metrics: Layout.Metrics = .default,
         header: (any View & Equatable)? = nil,
         footer: (any View & Equatable)? = nil,
@@ -27,7 +26,6 @@ extension Flow {
         items: (Data.Element) -> (any View & Equatable)?
     ) {
         self.init(
-            id: id,
             metrics: metrics,
             header: header?.anyFlowHeader(),
             footer: footer?.anyFlowFooter(),
@@ -38,7 +36,6 @@ extension Flow {
     }
 
     public init<Data: RandomAccessCollection, ID: Hashable & Sendable>(
-        id: some Hashable & Sendable,
         metrics: Layout.Metrics = .default,
         header: (any View & Equatable)? = nil,
         footer: (any View & Equatable)? = nil,
@@ -46,7 +43,6 @@ extension Flow {
         items: (Data.Element) -> (any View & Equatable)?
     ) where Data.Element: Identifiable, Data.Element.ID == ID {
         self.init(
-            id: id,
             metrics: metrics,
             header: header?.anyFlowHeader(),
             footer: footer?.anyFlowFooter(),
@@ -57,7 +53,6 @@ extension Flow {
     }
 
     public init(
-        id: some Hashable & Sendable,
         metrics: Layout.Metrics = .default,
         header: (any View & Equatable)? = nil,
         footer: (any View & Equatable)? = nil,
@@ -65,7 +60,6 @@ extension Flow {
         items: (Int) -> (any View & Equatable)?
     ) {
         self.init(
-            id: id,
             metrics: metrics,
             header: header?.anyFlowHeader(),
             footer: footer?.anyFlowFooter(),

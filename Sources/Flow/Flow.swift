@@ -252,7 +252,6 @@ extension Flow {
     }
 
     public init(
-        id: some Hashable & Sendable,
         metrics: Layout.Metrics = .default,
         header: (any FlowHeader)? = nil,
         footer: (any FlowFooter)? = nil,
@@ -260,7 +259,7 @@ extension Flow {
     ) {
         self.init(
             section: Section(
-                id: id,
+                id: \Section.differenceID,
                 metrics: metrics,
                 header: header,
                 footer: footer,
@@ -276,26 +275,29 @@ extension Flow {
         item: any FlowItem
     ) {
         self.init(
-            id: item.id,
-            metrics: metrics,
-            footer: footer,
-            items: [item]
+            section: Section(
+                metrics: metrics,
+                header: header,
+                footer: footer,
+                item: item
+            )
         )
     }
 
     public init(
-        id: some Hashable & Sendable,
         metrics: Layout.Metrics = .default,
         header: (any FlowHeader)? = nil,
         footer: (any FlowFooter)? = nil,
         @FlowItemArrayBuilder items: () -> [any FlowItem]
     ) {
         self.init(
-            id: id,
-            metrics: metrics,
-            header: header,
-            footer: footer,
-            items: items()
+            section: Section(
+                id: \Section.differenceID,
+                metrics: metrics,
+                header: header,
+                footer: footer,
+                items: items
+            )
         )
     }
 }

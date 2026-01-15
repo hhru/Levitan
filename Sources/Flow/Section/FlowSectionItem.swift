@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
-public struct FlowSectionItem: Sendable {
+internal struct FlowSectionItem: Sendable {
 
     internal let wrapped: any FlowItem
     internal let cellType: AnyFlowCell.Type
@@ -20,7 +20,7 @@ public struct FlowSectionItem: Sendable {
 
     private let isContentEqualBox: @Sendable (_ other: Self) -> Bool
 
-    public init<Wrapped: FlowItem>(_ wrapped: Wrapped) {
+    internal init<Wrapped: FlowItem>(_ wrapped: Wrapped) {
         self.wrapped = wrapped
 
         cellType = Wrapped.Cell.self
@@ -81,7 +81,7 @@ extension FlowSectionItem: Diffable {
 
 extension FlowSectionItem: Equatable {
 
-    public static func == (lhs: Self, rhs: Self) -> Bool {
+    internal static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.isContentEqualBox(rhs)
     }
 }

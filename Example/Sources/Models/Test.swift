@@ -15,7 +15,8 @@ extension Test {
         sectionReloading,
         sectionInsertion,
         sectionDeletion,
-        sectionMoving
+        sectionMoving,
+        sectionIDChange
     ]
 
     static let sectionReloading = Self(
@@ -136,6 +137,44 @@ extension Test {
 
             VFlowSection(id: 0, itemsData: 0..<1) { row in
                 TestElement.item(section: 0, row: row)
+            }
+            .header(TestElement.header(section: 0))
+            .footer(TestElement.footer(section: 0))
+        }
+    )
+
+    static let sectionIDChange = Self(
+        title: "☑️  Section ID change",
+        initialContent: VFlow {
+            VFlowSection(id: "Foo") {
+                TestElement
+                    .item(section: 0, row: 0)
+                    .flowItem(id: 0)
+
+                TestElement
+                    .item(section: 0, row: 1)
+                    .flowItem(id: 1)
+
+                TestElement
+                    .item(section: 0, row: 2)
+                    .flowItem(id: 2)
+            }
+            .header(TestElement.header(section: 0))
+            .footer(TestElement.footer(section: 0))
+        },
+        finalContent: VFlow {
+            VFlowSection(id: "Bar") {
+                TestElement
+                    .item(section: 0, row: 0)
+                    .flowItem(id: 0)
+
+                TestElement
+                    .item(section: 0, row: 1)
+                    .flowItem(id: 1)
+
+                TestElement
+                    .item(section: 0, row: 2)
+                    .flowItem(id: 2)
             }
             .header(TestElement.header(section: 0))
             .footer(TestElement.footer(section: 0))
