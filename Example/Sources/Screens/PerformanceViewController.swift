@@ -28,6 +28,8 @@ final class PerformanceViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        UIApplication.shared.isIdleTimerDisabled = true
+
         PerformanceTracker.shared.start()
         PerformanceTracker.shared.showMonitor()
     }
@@ -45,6 +47,8 @@ final class PerformanceViewController: UIViewController {
 
         PerformanceTracker.shared.hideMonitor()
         PerformanceTracker.shared.stop()
+
+        UIApplication.shared.isIdleTimerDisabled = false
     }
 }
 
