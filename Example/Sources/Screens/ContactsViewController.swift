@@ -36,15 +36,6 @@ final class ContactsViewController: UIViewController {
             .sink { [weak self] _ in
                 self?.updateContentView()
             }
-
-        PerformanceTracker.shared.start()
-        PerformanceTracker.shared.showMonitor()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        PerformanceTracker.shared.track()
     }
 }
 
@@ -59,8 +50,6 @@ extension ContactsViewController {
 
     private func setupNavigationBar() {
         navigationItem.title = "Users"
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Reset",
@@ -71,6 +60,9 @@ extension ContactsViewController {
     }
 
     private func setupSearchController() {
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
@@ -192,7 +184,6 @@ extension ContactsViewController {
 
     @objc
     private func onResetButtonTap() {
-        PerformanceTracker.shared.reset()
         usersStore.updateUsers(with: User.all)
     }
 

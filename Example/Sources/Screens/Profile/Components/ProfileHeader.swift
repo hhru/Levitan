@@ -25,6 +25,7 @@ extension ProfileHeader: View {
 
             Text(position)
                 .typography(Typographies.paragraph2)
+                .alignment(.center)
                 .foregroundColor(Colors.text.secondary)
                 .padding(top: 4.0)
         }

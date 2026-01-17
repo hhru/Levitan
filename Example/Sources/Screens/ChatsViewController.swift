@@ -59,8 +59,6 @@ extension ChatsViewController {
 
     private func setupNavigationBar() {
         navigationItem.title = "Chats"
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Reset",
@@ -71,6 +69,9 @@ extension ChatsViewController {
     }
 
     private func setupSearchController() {
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"

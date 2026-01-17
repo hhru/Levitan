@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C005AD912F1BD96D003363A9 /* PerformanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005AD902F1BD968003363A9 /* PerformanceViewController.swift */; };
 		C009745F2F03CEEE00BC7680 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009745D2F03CEEE00BC7680 /* SceneDelegate.swift */; };
 		C00974602F03CEEE00BC7680 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009745C2F03CEEE00BC7680 /* AppDelegate.swift */; };
 		C00974612F03CEEE00BC7680 /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C009745E2F03CEEE00BC7680 /* DebugViewController.swift */; };
@@ -127,6 +128,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C005AD902F1BD968003363A9 /* PerformanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceViewController.swift; sourceTree = "<group>"; };
 		C009745C2F03CEEE00BC7680 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C009745D2F03CEEE00BC7680 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C009745E2F03CEEE00BC7680 /* DebugViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugViewController.swift; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 		C0E8221D2F0661E600051412 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C005AD902F1BD968003363A9 /* PerformanceViewController.swift */,
 				C06A6D512F0B1109007F606E /* Chat */,
 				C08D6ACE2F18FC11000B34F1 /* Test */,
 				C06A6D302F0ACF84007F606E /* Profile */,
@@ -739,6 +742,7 @@
 				C0C8A8C32F06A8BE001651F6 /* DateFormatter+Extensions.swift in Sources */,
 				C06EE5362F0CBD8700AD1F6A /* ObjectAssociation.swift in Sources */,
 				C0C8A8BA2F06A1A7001651F6 /* ThemeAnimations.swift in Sources */,
+				C005AD912F1BD96D003363A9 /* PerformanceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

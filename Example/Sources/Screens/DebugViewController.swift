@@ -22,12 +22,6 @@ class DebugViewController: UIViewController {
 
         updateContentView()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        PerformanceTracker.shared.hideMonitor()
-    }
 }
 
 extension DebugViewController {
@@ -53,6 +47,8 @@ extension DebugViewController {
 
     private func updateContentView() {
         let content = VFlow {
+            performanceItem
+
             testsItem(title: "Sections tests", tests: Test.sections)
             testsItem(title: "Items tests", tests: Test.items)
             testsItem(title: "Other tests", tests: Test.other)
@@ -69,6 +65,19 @@ extension DebugViewController {
 
 extension DebugViewController {
 
+    var performanceItem: any FlowItem {
+        Text("⏱️  Measure performance")
+            .typography(Typographies.label1)
+            .foregroundColor(Colors.text.primary)
+            .frame(width: .fill, alignment: .leading)
+            .onTap { [weak self] in
+                self?.onPerformanceTap()
+            }
+            .card()
+            .padding(top: 16.0, leading: 16.0, trailing: 16.0)
+            .flowItem(id: #function)
+    }
+
     func testsItem(title: String, tests: [Test]) -> any FlowItem {
         VFlow(itemsData: Array(tests.enumerated()), itemsID: \.element.title) { index, test in
             Text(test.title)
@@ -82,12 +91,23 @@ extension DebugViewController {
                 }
         }
         .card(header: CardHeader(title: title))
-        .padding(top: 16.0, leading: 16.0, trailing: 16.0)
+        .padding(top: 24.0, leading: 16.0, trailing: 16.0)
         .flowItem(id: title)
     }
 }
 
 extension DebugViewController {
+
+    func onPerformanceTap() {
+        let navigationController = UINavigationController(
+            rootViewController: PerformanceViewController()
+        )
+
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalTransitionStyle = .coverVertical
+
+        present(navigationController, animated: true)
+    }
 
     func onTestTap(test: Test) {
         navigationController?.pushViewController(
