@@ -521,13 +521,13 @@
 		C0E8221D2F0661E600051412 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C005AD902F1BD968003363A9 /* PerformanceViewController.swift */,
 				C06A6D512F0B1109007F606E /* Chat */,
 				C08D6ACE2F18FC11000B34F1 /* Test */,
 				C06A6D302F0ACF84007F606E /* Profile */,
 				C06A6D602F0BCA77007F606E /* ChatsViewController.swift */,
-				C009745E2F03CEEE00BC7680 /* DebugViewController.swift */,
 				C0C8A8D42F06B914001651F6 /* ContactsViewController.swift */,
+				C009745E2F03CEEE00BC7680 /* DebugViewController.swift */,
+				C005AD902F1BD968003363A9 /* PerformanceViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
