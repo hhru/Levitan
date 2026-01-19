@@ -60,6 +60,26 @@ public final class ComponentHostingView<Content: View>: UIView {
             setupHostingControllerIfNeeded(with: hostingRoot)
         }
     }
+
+    public override func didMoveToWindow() {
+        super.didMoveToWindow()
+
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", hostingRoot?.context.componentID ?? "nil"],
+            ["window:", window == nil ? "nil" : "some"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
+        if window == nil {
+            if let hostingController {
+                resetHostingControllerIfNeeded(hostingController)
+            }
+        } else if let hostingRoot {
+            setupHostingControllerIfNeeded(with: hostingRoot)
+        }
+    }
 }
 
 extension ComponentHostingView {
@@ -199,8 +219,6 @@ extension ComponentHostingView {
             category: "ComponentHostingView"
         )
 
-        self.hostingController = nil
-
         guard hostingController.viewIfLoaded?.superview != nil else {
             return
         }
@@ -257,6 +275,9 @@ extension ComponentHostingView: ComponentView {
             category: "ComponentHostingView"
         )
 
+        let previousIdentifier = hostingRoot?.context.componentID.value
+        let newIdentifier = context.componentID.value
+
         componentViewController = context.componentViewController
 
         let context = context
@@ -280,10 +301,16 @@ extension ComponentHostingView: ComponentView {
         self.hostingRoot = hostingRoot
 
         if let hostingController {
-            return updateHostingController(
-                hostingController,
-                with: hostingRoot
-            )
+            if previousIdentifier == newIdentifier {
+                return updateHostingController(
+                    hostingController,
+                    with: hostingRoot
+                )
+            }
+
+            self.hostingController = nil
+
+            resetHostingControllerIfNeeded(hostingController)
         }
 
         setupHostingControllerIfNeeded(with: hostingRoot)

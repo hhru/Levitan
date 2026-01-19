@@ -18,10 +18,7 @@ internal struct ComponentHostingRoot<Content: View>: View {
             .tokens
             .theme
 
-        let componentID = environment.componentID
-
         content
-            .iflet(componentID) { $0.id($1) }
             .iflet(theme) { $0.tokenThemeKey($1.key) }
             .iflet(theme) { $0.tokenThemeScheme($1.scheme) }
             .environment(\.self, environment)
