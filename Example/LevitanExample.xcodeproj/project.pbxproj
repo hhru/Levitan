@@ -69,6 +69,8 @@
 		C0C8B81A2F0971BE0029D19F /* CardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8192F0971BC0029D19F /* CardHeader.swift */; };
 		C0C8B81D2F097A7D0029D19F /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B81C2F097A7C0029D19F /* Tag.swift */; };
 		C0D52AF72F1E9C120089A744 /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D52AF12F1E9BFC0089A744 /* Task+Extensions.swift */; };
+		C0D52B0A2F1EBA0F0089A744 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D52B082F1EB9AD0089A744 /* PerformanceTests.swift */; };
+		C0D52B0D2F1EBA200089A744 /* TestPlan.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = C0D52B0C2F1EBA200089A744 /* TestPlan.xctestplan */; };
 		C0E822012F065FEB00051412 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E822002F065FEA00051412 /* Avatar.swift */; };
 		C0E822032F065FFF00051412 /* AvatarSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E822022F065FFD00051412 /* AvatarSize.swift */; };
 		C0E822202F06633500051412 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8221F2F06633400051412 /* Cell.swift */; };
@@ -111,6 +113,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = C0D227172DCCC26C0075DB31;
 			remoteInfo = "Levitan Documentation";
+		};
+		C0D52B022F1EB9840089A744 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C017D12B25FBAD0F008B90C0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C017D13225FBAD0F008B90C0;
+			remoteInfo = "Levitan Example";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -192,6 +201,9 @@
 		C0C8B81C2F097A7C0029D19F /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		C0CA7D2D2DCA4A88002A744E /* Levitan.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Levitan.xcodeproj; path = ../Levitan.xcodeproj; sourceTree = SOURCE_ROOT; };
 		C0D52AF12F1E9BFC0089A744 /* Task+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extensions.swift"; sourceTree = "<group>"; };
+		C0D52AFC2F1EB9840089A744 /* Levitan Example Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Levitan Example Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D52B082F1EB9AD0089A744 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
+		C0D52B0C2F1EBA200089A744 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		C0E822002F065FEA00051412 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		C0E822022F065FFD00051412 /* AvatarSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSize.swift; sourceTree = "<group>"; };
 		C0E8221F2F06633400051412 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -205,6 +217,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C03F80F62F026A820097B7A3 /* Levitan.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0D52AF92F1EB9840089A744 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				C017D13525FBAD0F008B90C0 /* Sources */,
+				C0D52B072F1EB99E0089A744 /* Tests */,
 				C017D13425FBAD0F008B90C0 /* Products */,
 				2A7DE3228D44B4ECD25E5F17 /* Frameworks */,
 				C0CA7D2D2DCA4A88002A744E /* Levitan.xcodeproj */,
@@ -245,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				C017D13325FBAD0F008B90C0 /* LevitanExample.app */,
+				C0D52AFC2F1EB9840089A744 /* Levitan Example Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -502,6 +523,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		C0D52B072F1EB99E0089A744 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C0D52B082F1EB9AD0089A744 /* PerformanceTests.swift */,
+				C0D52B0C2F1EBA200089A744 /* TestPlan.xctestplan */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		C0DA318025FBB1E1009A9CB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +597,26 @@
 			productReference = C017D13325FBAD0F008B90C0 /* LevitanExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C0D52AFB2F1EB9840089A744 /* Levitan Example Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0D52B042F1EB9840089A744 /* Build configuration list for PBXNativeTarget "Levitan Example Tests" */;
+			buildPhases = (
+				C0D52AF82F1EB9840089A744 /* Sources */,
+				C0D52AF92F1EB9840089A744 /* Frameworks */,
+				C0D52AFA2F1EB9840089A744 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C0D52B032F1EB9840089A744 /* PBXTargetDependency */,
+			);
+			name = "Levitan Example Tests";
+			packageProductDependencies = (
+			);
+			productName = "Levitan Example Tests";
+			productReference = C0D52AFC2F1EB9840089A744 /* Levitan Example Tests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -574,11 +624,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastSwiftUpdateCheck = 1620;
+				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					C017D13225FBAD0F008B90C0 = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					C0D52AFB2F1EB9840089A744 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = C017D13225FBAD0F008B90C0;
 					};
 				};
 			};
@@ -602,6 +656,7 @@
 			projectRoot = "";
 			targets = (
 				C017D13225FBAD0F008B90C0 /* Levitan Example */,
+				C0D52AFB2F1EB9840089A744 /* Levitan Example Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -652,6 +707,14 @@
 				C00974692F03D08E00BC7680 /* Main.storyboard in Resources */,
 				C017D14325FBAD11008B90C0 /* Launch.storyboard in Resources */,
 				C017D14025FBAD11008B90C0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0D52AFA2F1EB9840089A744 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0D52B0D2F1EBA200089A744 /* TestPlan.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -750,7 +813,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0D52AF82F1EB9840089A744 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0D52B0A2F1EBA0F0089A744 /* PerformanceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C0D52B032F1EB9840089A744 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C017D13225FBAD0F008B90C0 /* Levitan Example */;
+			targetProxy = C0D52B022F1EB9840089A744 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C00974672F03D08E00BC7680 /* Main.storyboard */ = {
@@ -933,6 +1012,50 @@
 			};
 			name = Release;
 		};
+		C0D52B052F1EB9840089A744 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.hh.Levitan.Example.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Levitan Example";
+			};
+			name = Debug;
+		};
+		C0D52B062F1EB9840089A744 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 42YU8Z2589;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.hh.Levitan.Example.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Levitan Example";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -950,6 +1073,15 @@
 			buildConfigurations = (
 				C017D14825FBAD11008B90C0 /* Debug */,
 				C017D14925FBAD11008B90C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0D52B042F1EB9840089A744 /* Build configuration list for PBXNativeTarget "Levitan Example Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0D52B052F1EB9840089A744 /* Debug */,
+				C0D52B062F1EB9840089A744 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

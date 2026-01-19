@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "0A062D6A-EF0E-4694-8615-8EA78E47973C",
+      "name" : "Configuration",
+      "options" : {
+        "uiTestingScreenshotsLifetime" : "keepAlways",
+        "userAttachmentLifetime" : "keepAlways"
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:LevitanExample.xcodeproj",
+        "identifier" : "C0D52AFB2F1EB9840089A744",
+        "name" : "Levitan Example Tests"
+      }
+    }
+  ],
+  "version" : 1
+}
