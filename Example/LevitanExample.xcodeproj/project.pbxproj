@@ -68,6 +68,7 @@
 		C0C8B8182F096F5C0029D19F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8172F096F5A0029D19F /* Card.swift */; };
 		C0C8B81A2F0971BE0029D19F /* CardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B8192F0971BC0029D19F /* CardHeader.swift */; };
 		C0C8B81D2F097A7D0029D19F /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8B81C2F097A7C0029D19F /* Tag.swift */; };
+		C0D52AF72F1E9C120089A744 /* Task+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D52AF12F1E9BFC0089A744 /* Task+Extensions.swift */; };
 		C0E822012F065FEB00051412 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E822002F065FEA00051412 /* Avatar.swift */; };
 		C0E822032F065FFF00051412 /* AvatarSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E822022F065FFD00051412 /* AvatarSize.swift */; };
 		C0E822202F06633500051412 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0E8221F2F06633400051412 /* Cell.swift */; };
@@ -190,6 +191,7 @@
 		C0C8B8192F0971BC0029D19F /* CardHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHeader.swift; sourceTree = "<group>"; };
 		C0C8B81C2F097A7C0029D19F /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		C0CA7D2D2DCA4A88002A744E /* Levitan.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Levitan.xcodeproj; path = ../Levitan.xcodeproj; sourceTree = SOURCE_ROOT; };
+		C0D52AF12F1E9BFC0089A744 /* Task+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+Extensions.swift"; sourceTree = "<group>"; };
 		C0E822002F065FEA00051412 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		C0E822022F065FFD00051412 /* AvatarSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarSize.swift; sourceTree = "<group>"; };
 		C0E8221F2F06633400051412 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 		C0C8A8C12F06A8B2001651F6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C0D52AF12F1E9BFC0089A744 /* Task+Extensions.swift */,
 				C0C4DC852F0CB05A00DBF01A /* NSLayoutConstraint+Extensions.swift */,
 				C0C8A8C22F06A8BA001651F6 /* DateFormatter+Extensions.swift */,
 			);
@@ -728,6 +731,7 @@
 				C0C8A8A32F066CD9001651F6 /* ThemeColors.swift in Sources */,
 				C0C8B80D2F09406F0029D19F /* Profile.swift in Sources */,
 				C0E822202F06633500051412 /* Cell.swift in Sources */,
+				C0D52AF72F1E9C120089A744 /* Task+Extensions.swift in Sources */,
 				C0C4DC8B2F0CB05B00DBF01A /* NSLayoutConstraint+Extensions.swift in Sources */,
 				C06A6D5C2F0B16BA007F606E /* UsersStore.swift in Sources */,
 				C06A6D6A2F0C5533007F606E /* ChatInputButton.swift in Sources */,

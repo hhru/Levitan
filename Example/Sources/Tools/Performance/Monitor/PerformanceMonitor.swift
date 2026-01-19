@@ -164,6 +164,7 @@ extension PerformanceMonitor {
 
         let currentFPS = String(format: "%.1f", Double(frameCountDelta) / durationDelta)
         let minFPS = String(format: "%.1f", tracker.minFPS)
+        let maxFPS = String(format: "%.1f", tracker.maxFPS)
 
         let hitchDuration = String(format: "%.2f ms", tracker.hitchDuration * 1000.0)
         let hitchRate = String(format: "%.2f ms/s", tracker.hitchRate)
@@ -171,7 +172,7 @@ extension PerformanceMonitor {
         let hangDuration = String(format: "%.2f ms", tracker.hangDuration * 1000.0)
         let hangRate = String(format: "%.2f s/h", tracker.hangRate)
 
-        fpsLabel.text = "    FPS: \(currentFPS) (min: \(minFPS))"
+        fpsLabel.text = "    FPS: \(currentFPS) (min: \(minFPS) max: \(maxFPS))"
         hitchesLabel.text = "Hitches: \(hitchDuration) (rate: \(hitchRate))"
         hangsLabel.text = "  Hangs: \(hangDuration) (rate: \(hangRate))"
 

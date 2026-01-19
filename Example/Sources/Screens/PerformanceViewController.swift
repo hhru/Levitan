@@ -4,6 +4,7 @@ import UIKit
 
 final class PerformanceViewController: UIViewController {
 
+    private let performanceTracker = PerformanceTracker.shared
     private let usersStore = UsersStore.shared
 
     private var context = ComponentContext.default
@@ -30,23 +31,21 @@ final class PerformanceViewController: UIViewController {
 
         UIApplication.shared.isIdleTimerDisabled = true
 
-        PerformanceTracker.shared.start()
-        PerformanceTracker.shared.showMonitor()
+        performanceTracker.start()
+        performanceTracker.showMonitor()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.scrollToNextUser(after: .zero)
-        }
+        scrollToEndGradually()
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        PerformanceTracker.shared.hideMonitor()
-        PerformanceTracker.shared.stop()
+        performanceTracker.hideMonitor()
+        performanceTracker.stop()
 
         UIApplication.shared.isIdleTimerDisabled = false
     }
@@ -95,22 +94,74 @@ extension PerformanceViewController {
         )
     }
 
-    private func scrollToNextUser(after userIndex: Int) {
-        guard userIndex < usersStore.users.count - 1 else {
+    private func scrollToEndGradually() {
+        Task {
+            await scrollToEndGradually()
+
+            let meanFPS = String(
+                format: "Mean FPS: %.1f (min: %.1f max: %.1f)",
+                performanceTracker.meanFPS,
+                performanceTracker.minFPS,
+                performanceTracker.maxFPS
+            )
+
+            let hitches = String(
+                format: "Hitches: %.2f ms (rate: %.2f ms/s)",
+                performanceTracker.hitchDuration * 1000.0,
+                performanceTracker.hitchRate
+            )
+
+            let hangs = String(
+                format: "Hangs: %.2f ms (rate: %.2f s/h)",
+                performanceTracker.hangDuration * 1000.0,
+                performanceTracker.hangRate
+            )
+
+            let results = """
+                \(meanFPS)
+                \(hitches)
+                \(hangs)
+                """
+
+            let alert = Alert(
+                title: "Performance",
+                message: results,
+                actions: [.cancel(title: "Cancel")]
+            )
+
+            showAlert(alert)
+        }
+    }
+
+    private func scrollToEndGradually() async {
+        try? await Task.sleep(seconds: 1.5)
+
+        let containerHeight = contentView.frame.height
+        let contentHeight = contentView.contentSize.height
+        let contentOffset = contentView.contentOffset.y
+
+        let maxContentOffset = contentHeight
+            - containerHeight
+            + contentView.safeAreaInsets.bottom
+
+        guard contentOffset < maxContentOffset - 1.0 else {
             return
         }
 
-        let nextUserIndex = min(userIndex + 5, usersStore.users.count - 1)
-        let nextUser = usersStore.users[nextUserIndex]
-
-        contentView.scrollToItem(
-            where: { $0.id == nextUser.id as AnyHashable },
-            anchor: .top
+        let nextContentOffset = CGPoint(
+            x: contentView.contentOffset.x,
+            y: min(
+                contentOffset + containerHeight * 0.5,
+                maxContentOffset
+            )
         )
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            self.scrollToNextUser(after: nextUserIndex)
-        }
+        contentView.setContentOffset(
+            nextContentOffset,
+            animated: true
+        )
+
+        await scrollToEndGradually()
     }
 }
 

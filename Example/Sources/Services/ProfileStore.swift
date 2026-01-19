@@ -23,7 +23,7 @@ extension ProfileStore {
 
     func updateProfile(with profile: Profile) {
         Task {
-            try? await Task.sleep(nanoseconds: 1_000_000_000)
+            try? await Task.sleep(seconds: 1.0)
 
             profileSubject.send(profile)
         }

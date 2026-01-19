@@ -77,7 +77,7 @@ extension TestViewController {
         )
 
         Task {
-            try? await Task.sleep(nanoseconds: 3_000_000_000)
+            try? await Task.sleep(seconds: 3.0)
 
             contentView.update(
                 with: test.finalContent,

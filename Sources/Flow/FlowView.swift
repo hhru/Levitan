@@ -116,6 +116,13 @@ public final class FlowView<Layout: FlowLayout>: UIView {
         collectionView.reloadData()
     }
 
+    public func setContentOffset(_ contentOffset: CGPoint, animated: Bool = true) {
+        collectionView.setContentOffset(
+            contentOffset,
+            animated: animated
+        )
+    }
+
     public func scrollToTop(animated: Bool = true) {
         collectionView.layoutIfNeeded()
 
