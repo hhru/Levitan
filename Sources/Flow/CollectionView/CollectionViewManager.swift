@@ -43,6 +43,8 @@ internal final class CollectionViewManager<Layout: FlowLayout> {
         if #available(iOS 16.0, tvOS 16.0, *) {
             collectionView.selfSizingInvalidation = .disabled
         }
+
+        collectionView.isPrefetchingEnabled = false
     }
 
     internal func sectionIndexPath(where predicate: FlowSectionPredicate<Layout>) -> IndexPath? {

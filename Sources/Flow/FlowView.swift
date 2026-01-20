@@ -72,6 +72,97 @@ public final class FlowView<Layout: FlowLayout>: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        let previousContentSizeCategory = previousTraitCollection?.preferredContentSizeCategory
+
+        if previousContentSizeCategory != traitCollection.preferredContentSizeCategory {
+            collectionViewLayout.invalidateLayout()
+        }
+    }
+}
+
+extension FlowView {
+
+    private func setupCollectionView() {
+        addSubview(collectionView)
+
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+
+        let constraints = [
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ]
+
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    private func updateContentMargins(with content: Flow<Layout>) {
+        var shouldInvalidateComponentLayout = false
+
+        if collectionView.contentInsetAdjustmentBehavior != content.contentMarginsAdjustmentBehavior {
+            collectionView.contentInsetAdjustmentBehavior = content.contentMarginsAdjustmentBehavior
+
+            shouldInvalidateComponentLayout = true
+        }
+
+        if collectionView.contentInset != content.contentMargins {
+            collectionView.contentInset = content.contentMargins
+
+            collectionView.horizontalScrollIndicatorInsets.left = content.contentMargins.left
+            collectionView.horizontalScrollIndicatorInsets.right = content.contentMargins.right
+
+            collectionView.verticalScrollIndicatorInsets.top = content.contentMargins.top
+            collectionView.verticalScrollIndicatorInsets.bottom = content.contentMargins.bottom
+
+            shouldInvalidateComponentLayout = true
+        }
+
+        if shouldInvalidateComponentLayout {
+            context?.invalidateComponentLayout()
+        }
+    }
+
+    private func updateScrollIndicator(with content: Flow<Layout>) {
+        if content.isScrollIndicatorVisible {
+            collectionView.showsHorizontalScrollIndicator = collectionViewLayout
+                .layout
+                .scrollAxis
+                .contains(.horizontal)
+
+            collectionView.showsVerticalScrollIndicator = collectionViewLayout
+                .layout
+                .scrollAxis
+                .contains(.vertical)
+        } else {
+            collectionView.showsHorizontalScrollIndicator = false
+            collectionView.showsVerticalScrollIndicator = false
+        }
+    }
+
+    private func updateScrollBouncing(with content: Flow<Layout>) {
+        if content.isScrollAlwaysBouncing {
+            collectionView.alwaysBounceHorizontal = collectionViewLayout
+                .layout
+                .scrollAxis
+                .contains(.horizontal)
+
+            collectionView.alwaysBounceVertical = collectionViewLayout
+                .layout
+                .scrollAxis
+                .contains(.vertical)
+        } else {
+            collectionView.alwaysBounceHorizontal = false
+            collectionView.alwaysBounceVertical = false
+        }
+    }
+}
+
+extension FlowView {
+
     public func update(
         with content: Flow<Layout>,
         context: ComponentContext,
@@ -274,94 +365,6 @@ public final class FlowView<Layout: FlowLayout>: UIView {
         collectionView
             .cellForItem(at: indexPath)?
             .resignFirstResponder()
-    }
-
-    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-
-        let previousContentSizeCategory = previousTraitCollection?.preferredContentSizeCategory
-
-        if previousContentSizeCategory != traitCollection.preferredContentSizeCategory {
-            collectionViewLayout.invalidateLayout()
-        }
-    }
-}
-
-extension FlowView {
-
-    private func setupCollectionView() {
-        addSubview(collectionView)
-
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-
-        let constraints = [
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ]
-
-        NSLayoutConstraint.activate(constraints)
-    }
-
-    private func updateContentMargins(with content: Flow<Layout>) {
-        var shouldInvalidateComponentLayout = false
-
-        if collectionView.contentInsetAdjustmentBehavior != content.contentMarginsAdjustmentBehavior {
-            collectionView.contentInsetAdjustmentBehavior = content.contentMarginsAdjustmentBehavior
-
-            shouldInvalidateComponentLayout = true
-        }
-
-        if collectionView.contentInset != content.contentMargins {
-            collectionView.contentInset = content.contentMargins
-
-            collectionView.horizontalScrollIndicatorInsets.left = content.contentMargins.left
-            collectionView.horizontalScrollIndicatorInsets.right = content.contentMargins.right
-
-            collectionView.verticalScrollIndicatorInsets.top = content.contentMargins.top
-            collectionView.verticalScrollIndicatorInsets.bottom = content.contentMargins.bottom
-
-            shouldInvalidateComponentLayout = true
-        }
-
-        if shouldInvalidateComponentLayout {
-            context?.invalidateComponentLayout()
-        }
-    }
-
-    private func updateScrollIndicator(with content: Flow<Layout>) {
-        if content.isScrollIndicatorVisible {
-            collectionView.showsHorizontalScrollIndicator = collectionViewLayout
-                .layout
-                .scrollAxis
-                .contains(.horizontal)
-
-            collectionView.showsVerticalScrollIndicator = collectionViewLayout
-                .layout
-                .scrollAxis
-                .contains(.vertical)
-        } else {
-            collectionView.showsHorizontalScrollIndicator = false
-            collectionView.showsVerticalScrollIndicator = false
-        }
-    }
-
-    private func updateScrollBouncing(with content: Flow<Layout>) {
-        if content.isScrollAlwaysBouncing {
-            collectionView.alwaysBounceHorizontal = collectionViewLayout
-                .layout
-                .scrollAxis
-                .contains(.horizontal)
-
-            collectionView.alwaysBounceVertical = collectionViewLayout
-                .layout
-                .scrollAxis
-                .contains(.vertical)
-        } else {
-            collectionView.alwaysBounceHorizontal = false
-            collectionView.alwaysBounceVertical = false
-        }
     }
 }
 
