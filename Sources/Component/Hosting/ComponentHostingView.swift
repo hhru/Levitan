@@ -237,13 +237,15 @@ extension ComponentHostingView {
             category: "ComponentHostingView"
         )
 
-        invalidateIntrinsicContentSize()
-
         hostingController.rootView = hostingRoot
 
-        hostingController.view.invalidateIntrinsicContentSize()
-        hostingController.view.setNeedsLayout()
-        hostingController.view.layoutIfNeeded()
+        if hostingController.viewIfLoaded?.superview != nil {
+            invalidateIntrinsicContentSize()
+
+            hostingController.view.invalidateIntrinsicContentSize()
+            hostingController.view.setNeedsLayout()
+            hostingController.view.layoutIfNeeded()
+        }
     }
 
     private func updateHostingControllerIfNeeded() {
