@@ -9,7 +9,7 @@ final class PerformanceTests: XCTestCase {
         continueAfterFailure = false
     }
 
-    func testThatScrollIsSmooth() {
+    func testThatFlowScrollIsSmooth() {
         application.launch()
 
         let debugTap = application
@@ -22,7 +22,7 @@ final class PerformanceTests: XCTestCase {
         debugTap.tap()
 
         let measurePerformanceButton = application
-            .buttons["⏱️  Measure performance"]
+            .buttons["⏱️  Measure Flow performance"]
             .firstMatch
 
         XCTAssertTrue(measurePerformanceButton.waitForExistence(timeout: 2))

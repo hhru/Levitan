@@ -66,15 +66,35 @@ extension DebugViewController {
 extension DebugViewController {
 
     var performanceItem: any FlowItem {
-        Text("⏱️  Measure performance")
+        VFlow {
+            flowPerformanceItem
+            listPerformanceItem
+        }
+        .card()
+        .padding(top: 16.0, leading: 16.0, trailing: 16.0)
+        .flowItem(id: #function)
+    }
+    var flowPerformanceItem: any FlowItem {
+        Text("⏱️  Measure Flow performance")
             .typography(Typographies.label1)
             .foregroundColor(Colors.text.primary)
+            .padding(bottom: 12.0)
             .frame(width: .fill, alignment: .leading)
             .onTap { [weak self] in
-                self?.onPerformanceTap()
+                self?.onFlowPerformanceTap()
             }
-            .card()
-            .padding(top: 16.0, leading: 16.0, trailing: 16.0)
+            .flowItem(id: #function)
+    }
+
+    var listPerformanceItem: any FlowItem {
+        Text("⏱️  Measure List performance")
+            .typography(Typographies.label1)
+            .foregroundColor(Colors.text.primary)
+            .padding(top: 12.0)
+            .frame(width: .fill, alignment: .leading)
+            .onTap { [weak self] in
+                self?.onListPerformanceTap()
+            }
             .flowItem(id: #function)
     }
 
@@ -98,9 +118,20 @@ extension DebugViewController {
 
 extension DebugViewController {
 
-    func onPerformanceTap() {
+    func onFlowPerformanceTap() {
         let navigationController = UINavigationController(
-            rootViewController: PerformanceViewController()
+            rootViewController: FlowPerformanceViewController()
+        )
+
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalTransitionStyle = .coverVertical
+
+        present(navigationController, animated: true)
+    }
+
+    func onListPerformanceTap() {
+        let navigationController = UINavigationController(
+            rootViewController: ListPerformanceViewController()
         )
 
         navigationController.modalPresentationStyle = .fullScreen

@@ -2,7 +2,7 @@ import Levitan
 import SwiftUI
 import UIKit
 
-final class PerformanceViewController: UIViewController {
+final class FlowPerformanceViewController: UIViewController {
 
     private let performanceTracker = PerformanceTracker.shared
     private let usersStore = UsersStore.shared
@@ -48,10 +48,17 @@ final class PerformanceViewController: UIViewController {
     }
 }
 
-extension PerformanceViewController {
+extension FlowPerformanceViewController {
 
     private func setupNavigationBar() {
         navigationItem.title = "Users"
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Close",
+            style: .plain,
+            target: self,
+            action: #selector(onCloseButtonTap)
+        )
     }
 
     private func setupContentView() {
@@ -162,9 +169,9 @@ extension PerformanceViewController {
     }
 }
 
-extension PerformanceViewController {
+extension FlowPerformanceViewController {
 
-    private func userItem(user: User, isLast: Bool) -> any Component {
+    private func userItem(user: User, isLast: Bool) -> some Component {
         Cell(
             avatar: Avatar(
                 url: nil,
@@ -177,5 +184,13 @@ extension PerformanceViewController {
             divider: !isLast,
             tapAction: nil
         )
+    }
+}
+
+extension FlowPerformanceViewController {
+
+    @objc
+    private func onCloseButtonTap() {
+        dismiss(animated: true)
     }
 }
