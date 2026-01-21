@@ -8,7 +8,7 @@ import Foundation
 /// компонент имел свое уникальное внешнее SwiftUI-хранилище данных.
 ///
 /// - SeeAlso: ``Component``
-public struct ComponentIdentifier: Hashable, @unchecked Sendable {
+public struct ComponentID: Hashable, @unchecked Sendable {
 
     /// Значение идентификатора.
     public let value: AnyHashable
@@ -55,7 +55,7 @@ public struct ComponentIdentifier: Hashable, @unchecked Sendable {
     }
 }
 
-extension ComponentIdentifier {
+extension ComponentID {
 
     /// Определяет равенство идентификатора компонента и Hashable-значения любого типа.
     ///
@@ -72,7 +72,7 @@ extension ComponentIdentifier {
             return true
         }
 
-        if lhs == rhs as? ComponentIdentifier {
+        if lhs == rhs as? ComponentID {
             return true
         }
 
@@ -94,7 +94,7 @@ extension ComponentIdentifier {
             return true
         }
 
-        if lhs as? ComponentIdentifier == rhs {
+        if lhs as? ComponentID == rhs {
             return true
         }
 
@@ -102,7 +102,7 @@ extension ComponentIdentifier {
     }
 }
 
-extension ComponentIdentifier: CustomStringConvertible {
+extension ComponentID: CustomStringConvertible {
 
     public var description: String {
         if let traits {
@@ -123,7 +123,7 @@ extension ComponentIdentifier: CustomStringConvertible {
 ///   - lhs: Идентификатор компонента.
 ///   - rhs: Hashable-значение идентификатора.
 /// - Returns: Результат сравнения.
-public func == (lhs: ComponentIdentifier?, rhs: AnyHashable) -> Bool {
+public func == (lhs: ComponentID?, rhs: AnyHashable) -> Bool {
     if lhs as AnyHashable == rhs {
         return true
     }
@@ -145,7 +145,7 @@ public func == (lhs: ComponentIdentifier?, rhs: AnyHashable) -> Bool {
 ///   - lhs: Hashable-значение идентификатора.
 ///   - rhs: Идентификатор компонента.
 /// - Returns: Результат сравнения.
-public func == (lhs: AnyHashable, rhs: ComponentIdentifier?) -> Bool {
+public func == (lhs: AnyHashable, rhs: ComponentID?) -> Bool {
     if lhs == rhs as AnyHashable {
         return true
     }

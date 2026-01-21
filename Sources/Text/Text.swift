@@ -15,7 +15,7 @@ public struct Text: TokenValue, Sendable {
     public var isEnabled: Bool
 
     @ViewAction
-    public var tapAction: (@MainActor () -> Void)?
+    public var tapAction: (@Sendable @MainActor () -> Void)?
 
     public init(
         parts: [AnyTextPart],
@@ -25,7 +25,7 @@ public struct Text: TokenValue, Sendable {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (@MainActor () -> Void)? = nil
+        tapAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
         self.parts = parts
 
@@ -49,7 +49,7 @@ public struct Text: TokenValue, Sendable {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (@MainActor () -> Void)? = nil
+        tapAction: (@Sendable @MainActor () -> Void)? = nil
     ) {
         self.init(
             parts: [content.eraseToAnyTextPart()],
@@ -70,7 +70,7 @@ public struct Text: TokenValue, Sendable {
         lineLimit: Int? = nil,
         lineBreakMode: NSLineBreakMode = .byWordWrapping,
         isEnabled: Bool = true,
-        tapAction: (@MainActor () -> Void)? = nil,
+        tapAction: (@Sendable @MainActor () -> Void)? = nil,
         @TextBuilder content: () -> [any TextPart]
     ) {
         self.init(
@@ -141,7 +141,7 @@ extension Text: Changeable {
         changing { $0.isEnabled = !isDisabled }
     }
 
-    public func onTap(_ tapAction: (@MainActor () -> Void)?) -> Self {
+    public func onTap(_ tapAction: (@Sendable @MainActor () -> Void)?) -> Self {
         changing { $0.tapAction = tapAction }
     }
 }

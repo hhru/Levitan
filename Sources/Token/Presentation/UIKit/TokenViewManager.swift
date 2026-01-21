@@ -129,7 +129,7 @@ public struct TokenViewManager {
         }
     }
 
-    internal func themeManager(_ themeManager: TokenThemeManager?) {
+    internal func overrideThemeManager(_ themeManager: TokenThemeManager?) {
         guard view.tokenViewPayloadIfExists?.themeManager !== themeManager else {
             return
         }
@@ -150,7 +150,7 @@ public struct TokenViewManager {
         updateTheme()
     }
 
-    internal func themeKey(_ themeKey: TokenThemeKey?) {
+    internal func overrideThemeKey(_ themeKey: TokenThemeKey?) {
         guard view.tokenViewPayloadIfExists?.themeKey != themeKey else {
             return
         }
@@ -162,7 +162,7 @@ public struct TokenViewManager {
         updateTheme()
     }
 
-    internal func themeScheme(_ themeScheme: TokenThemeScheme?) {
+    internal func overrideThemeScheme(_ themeScheme: TokenThemeScheme?) {
         guard view.tokenViewPayloadIfExists?.themeScheme != themeScheme else {
             return
         }

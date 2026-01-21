@@ -41,8 +41,7 @@ extension FallbackComponentBody: UIViewRepresentable {
         componentContextAssociation[view] = context
 
         if let superview = view.superview {
-            superview.tokens.themeKey(theme.key)
-            superview.tokens.themeScheme(theme.scheme)
+            superview.tokens.theme = theme
         }
 
         view.update(with: content, context: context)

@@ -20,6 +20,8 @@ public final class ComponentHostingView<Content: View>: UIView {
     private var hostingController: HostingController?
     private var hostingRoot: HostingRoot?
 
+    private let appearance = ComponentAppearance()
+
     private weak var componentViewController: UIViewController?
 
     public override var intrinsicContentSize: CGSize {
@@ -45,6 +47,18 @@ public final class ComponentHostingView<Content: View>: UIView {
         super.didMoveToSuperview()
 
         if superview == nil {
+            if let hostingController {
+                resetHostingControllerIfNeeded(hostingController)
+            }
+        } else if let hostingRoot {
+            setupHostingControllerIfNeeded(with: hostingRoot)
+        }
+    }
+
+    public override func didMoveToWindow() {
+        super.didMoveToWindow()
+
+        if window == nil {
             if let hostingController {
                 resetHostingControllerIfNeeded(hostingController)
             }
@@ -116,8 +130,11 @@ extension ComponentHostingView {
         )
     }
 
-    private func setupHostingControllerIfNeeded(with hostingRoot: HostingRoot) {
-        guard let superview else {
+    private func setupHostingControllerIfNeeded(
+        with hostingRoot: HostingRoot,
+        forced: Bool = false
+    ) {
+        guard let superview, appearance.isExist || forced else {
             return
         }
 
@@ -128,7 +145,12 @@ extension ComponentHostingView {
             )
         }
 
-        let hostingController = HostingController(rootView: hostingRoot)
+        let hostingController = HostingController(
+            rootView: hostingRoot,
+            intrinsicContentSizeInvalidation: { [weak self] in
+                self?.invalidateIntrinsicContentSize()
+            }
+        )
 
         setupHostingControllerIfNeeded(
             hostingController,
@@ -151,8 +173,6 @@ extension ComponentHostingView {
     }
 
     private func resetHostingControllerIfNeeded(_ hostingController: HostingController) {
-        self.hostingController = nil
-
         guard hostingController.viewIfLoaded?.superview != nil else {
             return
         }
@@ -164,13 +184,15 @@ extension ComponentHostingView {
         _ hostingController: HostingController,
         with hostingRoot: HostingRoot
     ) {
-        invalidateIntrinsicContentSize()
-
         hostingController.rootView = hostingRoot
 
-        hostingController.view.invalidateIntrinsicContentSize()
-        hostingController.view.setNeedsLayout()
-        hostingController.view.layoutIfNeeded()
+        if hostingController.viewIfLoaded?.superview != nil {
+            invalidateIntrinsicContentSize()
+
+            hostingController.view.invalidateIntrinsicContentSize()
+            hostingController.view.setNeedsLayout()
+            hostingController.view.layoutIfNeeded()
+        }
     }
 
     private func updateHostingControllerIfNeeded() {
@@ -188,9 +210,13 @@ extension ComponentHostingView {
 extension ComponentHostingView: ComponentView {
 
     public func update(with content: Content, context: ComponentContext) {
+        let previousID = hostingRoot?.context.componentID.value
+        let newID = context.componentID.value
+
         componentViewController = context.componentViewController
 
         let context = context
+            .componentAppearance(appearance, of: self)
             .componentViewControllerProvider { [weak self] in
                 self?.hostingController
             }
@@ -211,13 +237,41 @@ extension ComponentHostingView: ComponentView {
         self.hostingRoot = hostingRoot
 
         if let hostingController {
-            return updateHostingController(
-                hostingController,
-                with: hostingRoot
-            )
+            if previousID == newID {
+                updateHostingController(
+                    hostingController,
+                    with: hostingRoot
+                )
+            } else {
+                self.hostingController = nil
+
+                resetHostingControllerIfNeeded(hostingController)
+            }
+        }
+
+        setupHostingControllerIfNeeded(
+            with: hostingRoot,
+            forced: true
+        )
+    }
+}
+
+extension ComponentHostingView: ComponentAppearanceView {
+
+    public func onViewAppear() {
+        guard let hostingRoot else {
+            return
         }
 
         setupHostingControllerIfNeeded(with: hostingRoot)
+    }
+
+    public func onViewDisappear() {
+        guard let hostingController else {
+            return
+        }
+
+        resetHostingControllerIfNeeded(hostingController)
     }
 }
 #endif
