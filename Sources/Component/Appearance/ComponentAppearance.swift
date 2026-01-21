@@ -98,11 +98,11 @@ extension ComponentAppearance: ComponentSuperviewAppearance {
 
 extension ComponentAppearance: ComponentSubviewAppearance {
 
-    public func onSuperviewAppear() {
+    internal func onSuperviewAppear() {
         isSuperviewExist = true
     }
 
-    public func onSuperviewDisappear() {
+    internal func onSuperviewDisappear() {
         isSuperviewExist = false
     }
 }
