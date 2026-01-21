@@ -9,7 +9,7 @@ final class PerformanceTests: XCTestCase {
         continueAfterFailure = false
     }
 
-    func testThatScreenTitleIsCorrect() {
+    func testThatScrollIsSmooth() {
         application.launch()
 
         let debugTap = application
