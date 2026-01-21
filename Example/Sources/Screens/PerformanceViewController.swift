@@ -26,17 +26,14 @@ final class PerformanceViewController: UIViewController {
         updateContentView()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
         UIApplication.shared.isIdleTimerDisabled = true
 
+        performanceTracker.reset()
         performanceTracker.start()
         performanceTracker.showMonitor()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
 
         scrollToEndGradually()
     }
