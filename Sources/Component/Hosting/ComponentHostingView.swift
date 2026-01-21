@@ -160,7 +160,10 @@ extension ComponentHostingView {
         )
     }
 
-    private func setupHostingControllerIfNeeded(with hostingRoot: HostingRoot) {
+    private func setupHostingControllerIfNeeded(
+        with hostingRoot: HostingRoot,
+        forced: Bool = false
+    ) {
         Logger.debug(
             ["\(Self.self).\(#function)"],
             ["id:", hostingRoot.context.componentID ?? "nil"],
@@ -168,7 +171,7 @@ extension ComponentHostingView {
             category: "ComponentHostingView"
         )
 
-        guard let superview, appearance.isExist else {
+        guard let superview, appearance.isExist || forced else {
             return
         }
 
@@ -272,15 +275,16 @@ extension ComponentHostingView {
 extension ComponentHostingView: ComponentView {
 
     public func update(with content: Content, context: ComponentContext) {
+        let previousID = hostingRoot?.context.componentID.value
+        let newID = context.componentID.value
+
         Logger.debug(
             ["\(Self.self).\(#function)"],
-            ["id:", context.componentID ?? "nil"],
+            ["previousID:", previousID ?? "nil"],
+            ["newID:", newID ?? "nil"],
             subsystem: "Component",
             category: "ComponentHostingView"
         )
-
-        let previousIdentifier = hostingRoot?.context.componentID.value
-        let newIdentifier = context.componentID.value
 
         componentViewController = context.componentViewController
 
@@ -306,7 +310,7 @@ extension ComponentHostingView: ComponentView {
         self.hostingRoot = hostingRoot
 
         if let hostingController {
-            if previousIdentifier == newIdentifier {
+            if previousID == newID {
                 updateHostingController(
                     hostingController,
                     with: hostingRoot
@@ -318,7 +322,10 @@ extension ComponentHostingView: ComponentView {
             }
         }
 
-        setupHostingControllerIfNeeded(with: hostingRoot)
+        setupHostingControllerIfNeeded(
+            with: hostingRoot,
+            forced: true
+        )
     }
 }
 

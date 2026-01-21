@@ -17,7 +17,7 @@ public final class ComponentAppearance {
         didSet { updateExistence() }
     }
 
-    public private(set) var isExist = false
+    public private(set) var isExist = true
 
     public nonisolated init() { }
 }
