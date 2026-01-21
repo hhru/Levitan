@@ -51,7 +51,7 @@ final class FlowPerformanceViewController: UIViewController {
 extension FlowPerformanceViewController {
 
     private func setupNavigationBar() {
-        navigationItem.title = "Users"
+        navigationItem.title = "Flow"
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Close",

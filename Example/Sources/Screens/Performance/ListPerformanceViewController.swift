@@ -50,7 +50,7 @@ final class ListPerformanceViewController: UIHostingController<AnyView> {
 extension ListPerformanceViewController {
 
     private func setupNavigationBar() {
-        navigationItem.title = "Users"
+        navigationItem.title = "List"
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Close",
