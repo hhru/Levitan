@@ -11,6 +11,8 @@ public final class FlowContainerCell<Content: Component>: AnyFlowCell {
     private var appearAction: (@MainActor () -> Void)?
     private var disappearAction: (@MainActor () -> Void)?
 
+    private let appearance = ComponentAppearance()
+
     public override var canBecomeFirstResponder: Bool {
         itemContentView.canBecomeFirstResponder
     }
@@ -59,10 +61,12 @@ public final class FlowContainerCell<Content: Component>: AnyFlowCell {
     }
 
     public override func onAppear() {
+        appearance.onViewAppear()
         appearAction?()
     }
 
     public override func onDisappear() {
+        appearance.onViewDisappear()
         disappearAction?()
     }
 }
@@ -98,6 +102,8 @@ extension FlowContainerCell {
     }
 }
 
+extension FlowContainerCell: ComponentAppearanceView { }
+
 extension FlowContainerCell: FlowCell {
 
     public static func sizing(
@@ -128,6 +134,11 @@ extension FlowContainerCell: FlowCell {
             ["id:", context.componentID ?? "nil"],
             subsystem: "Flow",
             category: "FlowContainerCell"
+        )
+
+        let context = context.componentAppearance(
+            appearance,
+            of: self
         )
 
         selectAction = item.selectAction

@@ -8,6 +8,8 @@ public final class FlowContainerFooterView<Content: Component>: AnyFlowSupplemen
     private var appearAction: (@MainActor () -> Void)?
     private var disappearAction: (@MainActor () -> Void)?
 
+    private let appearance = ComponentAppearance()
+
     public override var canBecomeFirstResponder: Bool {
         contentView.canBecomeFirstResponder
     }
@@ -86,6 +88,8 @@ extension FlowContainerFooterView {
     }
 }
 
+extension FlowContainerFooterView: ComponentAppearanceView { }
+
 extension FlowContainerFooterView: FlowFooterView {
 
     public static func sizing(
@@ -116,6 +120,11 @@ extension FlowContainerFooterView: FlowFooterView {
             ["id:", context.componentID ?? "nil"],
             subsystem: "Flow",
             category: "FlowContainerFooterView"
+        )
+
+        let context = context.componentAppearance(
+            appearance,
+            of: self
         )
 
         accessibilityIdentifier = footer.accessibilityIdentifier

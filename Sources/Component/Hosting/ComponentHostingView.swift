@@ -20,6 +20,8 @@ public final class ComponentHostingView<Content: View>: UIView {
     private var hostingController: HostingController?
     private var hostingRoot: HostingRoot?
 
+    private let appearance = ComponentAppearance()
+
     private weak var componentViewController: UIViewController?
 
     public override var intrinsicContentSize: CGSize {
@@ -166,7 +168,7 @@ extension ComponentHostingView {
             category: "ComponentHostingView"
         )
 
-        guard let superview else {
+        guard let superview, appearance.isExist else {
             return
         }
 
@@ -283,6 +285,7 @@ extension ComponentHostingView: ComponentView {
         componentViewController = context.componentViewController
 
         let context = context
+            .componentAppearance(appearance, of: self)
             .componentViewControllerProvider { [weak self] in
                 self?.hostingController
             }
@@ -304,18 +307,51 @@ extension ComponentHostingView: ComponentView {
 
         if let hostingController {
             if previousIdentifier == newIdentifier {
-                return updateHostingController(
+                updateHostingController(
                     hostingController,
                     with: hostingRoot
                 )
+            } else {
+                self.hostingController = nil
+
+                resetHostingControllerIfNeeded(hostingController)
             }
-
-            self.hostingController = nil
-
-            resetHostingControllerIfNeeded(hostingController)
         }
 
         setupHostingControllerIfNeeded(with: hostingRoot)
+    }
+}
+
+extension ComponentHostingView: ComponentAppearanceView {
+
+    public func onViewAppear() {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", hostingRoot?.context.componentID ?? "nil"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
+        guard let hostingRoot else {
+            return
+        }
+
+        setupHostingControllerIfNeeded(with: hostingRoot)
+    }
+
+    public func onViewDisappear() {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", hostingRoot?.context.componentID ?? "nil"],
+            subsystem: "Component",
+            category: "ComponentHostingView"
+        )
+
+        guard let hostingController else {
+            return
+        }
+
+        resetHostingControllerIfNeeded(hostingController)
     }
 }
 #endif
