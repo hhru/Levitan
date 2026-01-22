@@ -134,7 +134,7 @@ extension ComponentHostingView {
         with hostingRoot: HostingRoot,
         forced: Bool = false
     ) {
-        guard let superview, appearance.isExist || forced else {
+        guard let superview, window != nil, appearance.isExist || forced else {
             return
         }
 
