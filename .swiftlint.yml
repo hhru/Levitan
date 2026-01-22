@@ -165,7 +165,6 @@ only_rules:
   - syntactic_sugar
   - todo
   - toggle_bool
-  - trailing_closure
   - trailing_comma
   - trailing_newline
   - trailing_semicolon
@@ -476,9 +475,6 @@ statement_position:
 
 switch_case_alignment:
   indented_cases: false
-
-trailing_closure:
-  only_single_muted_parameter: false
 
 trailing_comma:
   mandatory_comma: false
