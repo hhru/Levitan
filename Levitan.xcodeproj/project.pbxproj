@@ -13,15 +13,15 @@
 		C02629632F170E5A007B1C7B /* Flow+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02629622F170E56007B1C7B /* Flow+Container.swift */; };
 		C02629642F170E5A007B1C7B /* Flow+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02629622F170E56007B1C7B /* Flow+Container.swift */; };
 		C02629652F170E5A007B1C7B /* Flow+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02629622F170E56007B1C7B /* Flow+Container.swift */; };
-		C029BD162F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */; };
-		C029BD172F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */; };
-		C029BD182F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */; };
-		C029BD1B2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD1A2F13979F0035B417 /* FallbackComponentCacheSize.swift */; };
-		C029BD1C2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD1A2F13979F0035B417 /* FallbackComponentCacheSize.swift */; };
-		C029BD1D2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD1A2F13979F0035B417 /* FallbackComponentCacheSize.swift */; };
-		C029BD232F13AB420035B417 /* FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD222F13AB3D0035B417 /* FallbackComponentCache.swift */; };
-		C029BD242F13AB420035B417 /* FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD222F13AB3D0035B417 /* FallbackComponentCache.swift */; };
-		C029BD252F13AB420035B417 /* FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD222F13AB3D0035B417 /* FallbackComponentCache.swift */; };
+		C029BD162F138E120035B417 /* ComponentCacheSizeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* ComponentCacheSizeKey.swift */; };
+		C029BD172F138E120035B417 /* ComponentCacheSizeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* ComponentCacheSizeKey.swift */; };
+		C029BD182F138E120035B417 /* ComponentCacheSizeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD152F138E0B0035B417 /* ComponentCacheSizeKey.swift */; };
+		C029BD1B2F1397A10035B417 /* ComponentCacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD1A2F13979F0035B417 /* ComponentCacheSize.swift */; };
+		C029BD1C2F1397A10035B417 /* ComponentCacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD1A2F13979F0035B417 /* ComponentCacheSize.swift */; };
+		C029BD1D2F1397A10035B417 /* ComponentCacheSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD1A2F13979F0035B417 /* ComponentCacheSize.swift */; };
+		C029BD232F13AB420035B417 /* ComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD222F13AB3D0035B417 /* ComponentCache.swift */; };
+		C029BD242F13AB420035B417 /* ComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD222F13AB3D0035B417 /* ComponentCache.swift */; };
+		C029BD252F13AB420035B417 /* ComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029BD222F13AB3D0035B417 /* ComponentCache.swift */; };
 		C02C897E2F0266B400A2FE9F /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89572F0266B400A2FE9F /* Diffable.swift */; };
 		C02C897F2F0266B400A2FE9F /* OutsetsDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C886A2F0266B400A2FE9F /* OutsetsDecorator.swift */; };
 		C02C89802F0266B400A2FE9F /* CGFloat+TokenValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89012F0266B400A2FE9F /* CGFloat+TokenValue.swift */; };
@@ -1370,9 +1370,9 @@
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		C026295E2F17028D007B1C7B /* FlowSection+Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FlowSection+Container.swift"; sourceTree = "<group>"; };
 		C02629622F170E56007B1C7B /* Flow+Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Flow+Container.swift"; sourceTree = "<group>"; };
-		C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentCacheKey.swift; sourceTree = "<group>"; };
-		C029BD1A2F13979F0035B417 /* FallbackComponentCacheSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentCacheSize.swift; sourceTree = "<group>"; };
-		C029BD222F13AB3D0035B417 /* FallbackComponentCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentCache.swift; sourceTree = "<group>"; };
+		C029BD152F138E0B0035B417 /* ComponentCacheSizeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentCacheSizeKey.swift; sourceTree = "<group>"; };
+		C029BD1A2F13979F0035B417 /* ComponentCacheSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentCacheSize.swift; sourceTree = "<group>"; };
+		C029BD222F13AB3D0035B417 /* ComponentCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentCache.swift; sourceTree = "<group>"; };
 		C02C87C12F02667300A2FE9F /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
 		C02C87C22F02667300A2FE9F /* Levitan.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Levitan.podspec; sourceTree = "<group>"; };
 		C02C87C32F0266B400A2FE9F /* Array+Changeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Changeable.swift"; sourceTree = "<group>"; };
@@ -1940,9 +1940,9 @@
 		C02C87E42F0266B400A2FE9F /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				C029BD222F13AB3D0035B417 /* FallbackComponentCache.swift */,
-				C029BD152F138E0B0035B417 /* FallbackComponentCacheKey.swift */,
-				C029BD1A2F13979F0035B417 /* FallbackComponentCacheSize.swift */,
+				C029BD222F13AB3D0035B417 /* ComponentCache.swift */,
+				C029BD152F138E0B0035B417 /* ComponentCacheSizeKey.swift */,
+				C029BD1A2F13979F0035B417 /* ComponentCacheSize.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -1950,7 +1950,6 @@
 		C02C87E72F0266B400A2FE9F /* Fallback */ = {
 			isa = PBXGroup;
 			children = (
-				C02C87E42F0266B400A2FE9F /* Cache */,
 				C02C87E52F0266B400A2FE9F /* FallbackComponent.swift */,
 				C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */,
 				C02C87E62F0266B400A2FE9F /* FallbackComponentView.swift */,
@@ -1992,6 +1991,7 @@
 			children = (
 				C02C87CC2F0266B400A2FE9F /* Any */,
 				C06E4B332F1FEDA6005DDCF6 /* Appearance */,
+				C02C87E42F0266B400A2FE9F /* Cache */,
 				C02C87D62F0266B400A2FE9F /* Context */,
 				C02C87DC2F0266B400A2FE9F /* Environment */,
 				C02C87E72F0266B400A2FE9F /* Fallback */,
@@ -3753,7 +3753,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C029BD172F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */,
+				C029BD172F138E120035B417 /* ComponentCacheSizeKey.swift in Sources */,
 				C02C8C142F0266B400A2FE9F /* Diffable.swift in Sources */,
 				C02C8C152F0266B400A2FE9F /* OutsetsDecorator.swift in Sources */,
 				C02C8C162F0266B400A2FE9F /* CGFloat+TokenValue.swift in Sources */,
@@ -3768,7 +3768,7 @@
 				C02C8C1F2F0266B400A2FE9F /* DecorableByDuration.swift in Sources */,
 				C02C8C202F0266B400A2FE9F /* AnyTextPart.swift in Sources */,
 				C02C8C212F0266B400A2FE9F /* FallbackComponentView.swift in Sources */,
-				C029BD1D2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */,
+				C029BD1D2F1397A10035B417 /* ComponentCacheSize.swift in Sources */,
 				C02C8C222F0266B400A2FE9F /* FallbackComponent.swift in Sources */,
 				C02C8C232F0266B400A2FE9F /* DifferenceCalculator.swift in Sources */,
 				C02C8C242F0266B400A2FE9F /* DifferenceTrace.swift in Sources */,
@@ -4093,7 +4093,7 @@
 				C06EE5582F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */,
 				C02C8D052F0266B400A2FE9F /* TraitsObservable.swift in Sources */,
 				C02C8D072F0266B400A2FE9F /* Nullable.swift in Sources */,
-				C029BD252F13AB420035B417 /* FallbackComponentCache.swift in Sources */,
+				C029BD252F13AB420035B417 /* ComponentCache.swift in Sources */,
 				C02C8D082F0266B400A2FE9F /* TokenViewProperties+CAGradientLayer.swift in Sources */,
 				C0C8B8292F098FE00029D19F /* AccentColorModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8D0A2F0266B400A2FE9F /* ComponentHostingView.swift in Sources */,
@@ -4200,7 +4200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C029BD182F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */,
+				C029BD182F138E120035B417 /* ComponentCacheSizeKey.swift in Sources */,
 				C02C897E2F0266B400A2FE9F /* Diffable.swift in Sources */,
 				C02C897F2F0266B400A2FE9F /* OutsetsDecorator.swift in Sources */,
 				C02C89802F0266B400A2FE9F /* CGFloat+TokenValue.swift in Sources */,
@@ -4215,7 +4215,7 @@
 				C02C89892F0266B400A2FE9F /* DecorableByDuration.swift in Sources */,
 				C02C898A2F0266B400A2FE9F /* AnyTextPart.swift in Sources */,
 				C02C898B2F0266B400A2FE9F /* FallbackComponentView.swift in Sources */,
-				C029BD1C2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */,
+				C029BD1C2F1397A10035B417 /* ComponentCacheSize.swift in Sources */,
 				C02C898C2F0266B400A2FE9F /* FallbackComponent.swift in Sources */,
 				C02C898D2F0266B400A2FE9F /* DifferenceCalculator.swift in Sources */,
 				C02C898E2F0266B400A2FE9F /* DifferenceTrace.swift in Sources */,
@@ -4540,7 +4540,7 @@
 				C06EE55A2F0D205D00AD1F6A /* EdgeInsets+Extensions.swift in Sources */,
 				C02C8A6F2F0266B400A2FE9F /* TraitsObservable.swift in Sources */,
 				C02C8A712F0266B400A2FE9F /* Nullable.swift in Sources */,
-				C029BD242F13AB420035B417 /* FallbackComponentCache.swift in Sources */,
+				C029BD242F13AB420035B417 /* ComponentCache.swift in Sources */,
 				C02C8A722F0266B400A2FE9F /* TokenViewProperties+CAGradientLayer.swift in Sources */,
 				C0C8B8282F098FE00029D19F /* AccentColorModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8A742F0266B400A2FE9F /* ComponentHostingView.swift in Sources */,
@@ -4750,7 +4750,7 @@
 				C02C8B1B2F0266B400A2FE9F /* Set+Changeable.swift in Sources */,
 				C02C8B1D2F0266B400A2FE9F /* TokenViewBinding.swift in Sources */,
 				C02C8B1E2F0266B400A2FE9F /* StrokeType.swift in Sources */,
-				C029BD1B2F1397A10035B417 /* FallbackComponentCacheSize.swift in Sources */,
+				C029BD1B2F1397A10035B417 /* ComponentCacheSize.swift in Sources */,
 				C0C8B87F2F09ACF30029D19F /* FontModifier+ComponentTokenModifier.swift in Sources */,
 				C02C8B202F0266B400A2FE9F /* NSUnderlineStyle+TokenTraitProvider.swift in Sources */,
 				C02C8B212F0266B400A2FE9F /* ImageResizingMode.swift in Sources */,
@@ -4852,7 +4852,7 @@
 				C02C8B892F0266B400A2FE9F /* TokenViewProperties+UISwitch.swift in Sources */,
 				C02C8B8A2F0266B400A2FE9F /* TokenModifiedView.swift in Sources */,
 				C02C8B8B2F0266B400A2FE9F /* TokenViewProperties+UIImageView.swift in Sources */,
-				C029BD232F13AB420035B417 /* FallbackComponentCache.swift in Sources */,
+				C029BD232F13AB420035B417 /* ComponentCache.swift in Sources */,
 				C02C8B8C2F0266B400A2FE9F /* AlphaDecorator.swift in Sources */,
 				C02C8B8D2F0266B400A2FE9F /* TextContext.swift in Sources */,
 				C02C8B8E2F0266B400A2FE9F /* TokenViewModifier.swift in Sources */,
@@ -4919,7 +4919,7 @@
 				C0C8CBE12F104183005821BE /* FlowContainerCell.swift in Sources */,
 				C0C8CBE22F104183005821BE /* HFlowLayout.swift in Sources */,
 				C0C8CBE32F104183005821BE /* FlowLayoutOrigin.swift in Sources */,
-				C029BD162F138E120035B417 /* FallbackComponentCacheKey.swift in Sources */,
+				C029BD162F138E120035B417 /* ComponentCacheSizeKey.swift in Sources */,
 				C0C8CBE42F104183005821BE /* CollectionViewLayoutScrollAnchor.swift in Sources */,
 				C0C8CBE52F104183005821BE /* CollectionViewStateManager.swift in Sources */,
 				C0C8CBE62F104183005821BE /* FlowLayoutScrollAnchor.swift in Sources */,

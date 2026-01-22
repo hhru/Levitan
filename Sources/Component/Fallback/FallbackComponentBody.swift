@@ -42,7 +42,7 @@ extension FallbackComponentBody: UIViewRepresentable {
 
         let environment = context.environment
 
-        let cache = environment.fallbackComponentCache
+        let cache = environment.componentCache
         let theme = environment.tokenTheme
 
         let context = context
@@ -190,7 +190,7 @@ extension FallbackComponentBody {
         view: UIView
     ) -> CGSize {
         let cache = context
-            .fallbackComponentCache
+            .componentCache
             .value
 
         let cacheSize = cache?.restoreSize(

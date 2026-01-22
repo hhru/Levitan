@@ -2,7 +2,7 @@
 import CoreGraphics
 import Foundation
 
-internal struct FallbackComponentCacheSize: Hashable {
+internal struct ComponentCacheSize: Hashable {
 
     internal let targetSize: CGSize
 

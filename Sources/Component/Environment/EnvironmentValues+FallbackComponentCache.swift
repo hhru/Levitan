@@ -1,18 +1,18 @@
 #if canImport(UIKit)
 import SwiftUI
 
-internal struct FallbackComponentCacheEnvironmentKey: EnvironmentKey {
+internal struct ComponentCacheEnvironmentKey: EnvironmentKey {
 
-    internal static var defaultValue: FallbackComponentCache? {
+    internal static var defaultValue: ComponentCache? {
         nil
     }
 }
 
 extension EnvironmentValues {
 
-    public var fallbackComponentCache: FallbackComponentCache? {
-        get { self[FallbackComponentCacheEnvironmentKey.self] }
-        set { self[FallbackComponentCacheEnvironmentKey.self] = newValue }
+    public var componentCache: ComponentCache? {
+        get { self[ComponentCacheEnvironmentKey.self] }
+        set { self[ComponentCacheEnvironmentKey.self] = newValue }
     }
 }
 #endif

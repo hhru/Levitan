@@ -2,14 +2,17 @@
 import CoreGraphics
 import Foundation
 
-public final class FallbackComponentCache {
+public final class ComponentCache {
 
-    private var sizes: [FallbackComponentCacheKey: Set<FallbackComponentCacheSize>] = [:]
+    private var sizes: [ComponentCacheSizeKey: Set<ComponentCacheSize>] = [:]
 
     public init() { }
+}
+
+extension ComponentCache {
 
     internal func resetSize<Content: Equatable>(for content: Content) {
-        sizes.removeValue(forKey: FallbackComponentCacheKey(content: content))
+        sizes.removeValue(forKey: ComponentCacheSizeKey(content: content))
     }
 
     internal func restoreSize<Content: Equatable>(
@@ -17,7 +20,7 @@ public final class FallbackComponentCache {
         proposedSize: CGSize,
         boundingSize: CGSize
     ) -> CGSize? {
-        let key = FallbackComponentCacheKey(content: content)
+        let key = ComponentCacheSizeKey(content: content)
 
         guard let sizes = sizes[key] else {
             return nil
@@ -45,7 +48,7 @@ public final class FallbackComponentCache {
         proposedSize: CGSize,
         boundingSize: CGSize
     ) {
-        let key = FallbackComponentCacheKey(content: content)
+        let key = ComponentCacheSizeKey(content: content)
 
         let targetSize = resolveTargetSize(
             sizing: sizing,
@@ -53,7 +56,7 @@ public final class FallbackComponentCache {
             boundingSize: boundingSize
         )
 
-        let size = FallbackComponentCacheSize(
+        let size = ComponentCacheSize(
             targetSize: targetSize,
             contentSize: size,
             contentSizing: sizing
@@ -67,7 +70,7 @@ public final class FallbackComponentCache {
     }
 }
 
-extension FallbackComponentCache {
+extension ComponentCache {
 
     private func resolveTargetSize(
         sizing: ComponentSizing,

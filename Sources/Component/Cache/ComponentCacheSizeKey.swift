@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import Foundation
 
-internal struct FallbackComponentCacheKey {
+internal struct ComponentCacheSizeKey {
 
     internal let content: Any
 
@@ -23,14 +23,14 @@ internal struct FallbackComponentCacheKey {
     }
 }
 
-extension FallbackComponentCacheKey: Equatable {
+extension ComponentCacheSizeKey: Equatable {
 
     internal static func == (lhs: Self, rhs: Self) -> Bool {
         lhs.contentEqualBox(rhs.content)
     }
 }
 
-extension FallbackComponentCacheKey: Hashable {
+extension ComponentCacheSizeKey: Hashable {
 
     internal func hash(into hasher: inout Hasher) {
         hasher.combine(contentHashValue)

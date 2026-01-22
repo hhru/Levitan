@@ -27,7 +27,7 @@ final class ChatsViewController: UIViewController {
 
         context = context
             .componentViewController(self)
-            .fallbackComponentCache(FallbackComponentCache())
+            .componentCache(ComponentCache())
             .textCache(TextCache())
 
         setupNavigationBar()
