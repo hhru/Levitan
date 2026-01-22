@@ -102,6 +102,7 @@ internal enum Logger {
         )
     }
 
+    // swiftlint:disable:next function_parameter_count
     internal static func debug(
         _ message1: @autoclosure () -> [Any],
         _ message2: @autoclosure () -> [Any],
@@ -124,6 +125,7 @@ internal enum Logger {
         )
     }
 
+    // swiftlint:disable:next function_parameter_count
     internal static func debug(
         _ message1: @autoclosure () -> [Any],
         _ message2: @autoclosure () -> [Any],
