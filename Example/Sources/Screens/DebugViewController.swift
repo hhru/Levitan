@@ -70,10 +70,11 @@ extension DebugViewController {
             flowPerformanceItem
             listPerformanceItem
         }
-        .card()
+        .card(header: CardHeader(title: "Performance"))
         .padding(top: 16.0, leading: 16.0, trailing: 16.0)
         .flowItem(id: #function)
     }
+
     var flowPerformanceItem: any FlowItem {
         Text("⏱️  Measure Flow performance")
             .typography(Typographies.label1)
