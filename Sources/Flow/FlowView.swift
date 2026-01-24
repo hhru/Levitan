@@ -33,6 +33,14 @@ public final class FlowView<Layout: FlowLayout>: UIView {
     public override var intrinsicContentSize: CGSize {
         let contentSize = contentSize
 
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context?.componentID ?? "nil"],
+            ["contentSize:", contentSize],
+            subsystem: "Flow",
+            category: "FlowView"
+        )
+
         guard
             contentSize.width > .leastNonzeroMagnitude,
             contentSize.height > .leastNonzeroMagnitude
@@ -80,6 +88,30 @@ public final class FlowView<Layout: FlowLayout>: UIView {
         if previousContentSizeCategory != traitCollection.preferredContentSizeCategory {
             collectionViewLayout.invalidateLayout()
         }
+    }
+
+    public override func willMove(toWindow newWindow: UIWindow?) {
+        super.willMove(toWindow: newWindow)
+
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context?.componentID ?? "nil"],
+            ["window:", newWindow == nil ? "nil" : "some"],
+            subsystem: "Flow",
+            category: "FlowView"
+        )
+    }
+
+    public override func didMoveToWindow() {
+        super.didMoveToWindow()
+
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context?.componentID ?? "nil"],
+            ["window:", window == nil ? "nil" : "some"],
+            subsystem: "Flow",
+            category: "FlowView"
+        )
     }
 }
 
@@ -201,10 +233,6 @@ extension FlowView {
                 content.updateAction?()
             }
         }
-    }
-
-    public func reload() {
-        collectionView.reloadData()
     }
 
     public func setContentOffset(_ contentOffset: CGPoint, animated: Bool = true) {
@@ -375,6 +403,13 @@ extension FlowView: FallbackComponentView {
         fitting size: CGSize,
         context: ComponentContext
     ) -> ComponentSizing {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentID ?? "nil"],
+            subsystem: "Flow",
+            category: "FlowView"
+        )
+
         let scrollAxis = content.layout.scrollAxis
 
         return ComponentSizing(
@@ -384,6 +419,13 @@ extension FlowView: FallbackComponentView {
     }
 
     public func update(with content: Flow<Layout>, context: ComponentContext) {
+        Logger.debug(
+            ["\(Self.self).\(#function)"],
+            ["id:", context.componentID ?? "nil"],
+            subsystem: "Flow",
+            category: "FlowView"
+        )
+
         update(with: content, context: context, completion: nil)
     }
 }

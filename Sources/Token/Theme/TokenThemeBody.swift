@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol TokenThemeBody: AnyObject {
+public protocol TokenThemeBody: AnyObject, Sendable {
 
     static var defaultLight: Self { get }
     static var defaultDark: Self { get }

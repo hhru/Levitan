@@ -85,7 +85,7 @@
 		C02C89BE2F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C895D2F0266B400A2FE9F /* CGSize+Extensions.swift */; };
 		C02C89BF2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88CA2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift */; };
 		C02C89C02F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BB2F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift */; };
-		C02C89C12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */; };
+		C02C89C12F0266B400A2FE9F /* EnvironmentValues+ComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+ComponentCache.swift */; };
 		C02C89C22F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89662F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift */; };
 		C02C89C32F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C881C2F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift */; };
 		C02C89C42F0266B400A2FE9F /* FontValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89182F0266B400A2FE9F /* FontValue.swift */; };
@@ -385,7 +385,7 @@
 		C02C8B092F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C895D2F0266B400A2FE9F /* CGSize+Extensions.swift */; };
 		C02C8B0A2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88CA2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift */; };
 		C02C8B0B2F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BB2F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift */; };
-		C02C8B0C2F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */; };
+		C02C8B0C2F0266B400A2FE9F /* EnvironmentValues+ComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+ComponentCache.swift */; };
 		C02C8B0D2F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89662F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift */; };
 		C02C8B0E2F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C881C2F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift */; };
 		C02C8B0F2F0266B400A2FE9F /* FontValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89182F0266B400A2FE9F /* FontValue.swift */; };
@@ -685,7 +685,7 @@
 		C02C8C542F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C895D2F0266B400A2FE9F /* CGSize+Extensions.swift */; };
 		C02C8C552F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88CA2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift */; };
 		C02C8C562F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88BB2F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift */; };
-		C02C8C572F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */; };
+		C02C8C572F0266B400A2FE9F /* EnvironmentValues+ComponentCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87E12F0266B400A2FE9F /* EnvironmentValues+ComponentCache.swift */; };
 		C02C8C582F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89662F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift */; };
 		C02C8C592F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C881C2F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift */; };
 		C02C8C5A2F0266B400A2FE9F /* FontValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89182F0266B400A2FE9F /* FontValue.swift */; };
@@ -1391,7 +1391,7 @@
 		C02C87DA2F0266B400A2FE9F /* EnvironmentValues+ComponentLayoutInvalidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentLayoutInvalidation.swift"; sourceTree = "<group>"; };
 		C02C87DB2F0266B400A2FE9F /* EnvironmentValues+ComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentViewController.swift"; sourceTree = "<group>"; };
 		C02C87DD2F0266B400A2FE9F /* FallbackComponentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBody.swift; sourceTree = "<group>"; };
-		C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+FallbackComponentCache.swift"; sourceTree = "<group>"; };
+		C02C87E12F0266B400A2FE9F /* EnvironmentValues+ComponentCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentCache.swift"; sourceTree = "<group>"; };
 		C02C87E52F0266B400A2FE9F /* FallbackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponent.swift; sourceTree = "<group>"; };
 		C02C87E62F0266B400A2FE9F /* FallbackComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentView.swift; sourceTree = "<group>"; };
 		C02C87E82F0266B400A2FE9F /* ComponentHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentHostingController.swift; sourceTree = "<group>"; };
@@ -1932,7 +1932,7 @@
 				C02C87D92F0266B400A2FE9F /* EnvironmentValues+ComponentIdentifier.swift */,
 				C02C87DA2F0266B400A2FE9F /* EnvironmentValues+ComponentLayoutInvalidation.swift */,
 				C02C87DB2F0266B400A2FE9F /* EnvironmentValues+ComponentViewController.swift */,
-				C02C87E12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift */,
+				C02C87E12F0266B400A2FE9F /* EnvironmentValues+ComponentCache.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -3921,7 +3921,7 @@
 				C02C8C542F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */,
 				C02C8C552F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C02C8C562F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */,
-				C02C8C572F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */,
+				C02C8C572F0266B400A2FE9F /* EnvironmentValues+ComponentCache.swift in Sources */,
 				C02C8C582F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */,
 				C02C8C592F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */,
 				C02C8C5A2F0266B400A2FE9F /* FontValue.swift in Sources */,
@@ -4368,7 +4368,7 @@
 				C02C89BE2F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */,
 				C02C89BF2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C02C89C02F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */,
-				C02C89C12F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */,
+				C02C89C12F0266B400A2FE9F /* EnvironmentValues+ComponentCache.swift in Sources */,
 				C02C89C22F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */,
 				C02C89C32F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */,
 				C02C89C42F0266B400A2FE9F /* FontValue.swift in Sources */,
@@ -4734,7 +4734,7 @@
 				C02C8B092F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */,
 				C02C8B0A2F0266B400A2FE9F /* TokenViewProperties+UIToolbar.swift in Sources */,
 				C02C8B0B2F0266B400A2FE9F /* TokenViewProperties+CATextLayer.swift in Sources */,
-				C02C8B0C2F0266B400A2FE9F /* EnvironmentValues+FallbackComponentCache.swift in Sources */,
+				C02C8B0C2F0266B400A2FE9F /* EnvironmentValues+ComponentCache.swift in Sources */,
 				C02C8B0D2F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift in Sources */,
 				C02C8B0E2F0266B400A2FE9F /* TokenViewProperties+UITextField+Text.swift in Sources */,
 				C02C8B0F2F0266B400A2FE9F /* FontValue.swift in Sources */,

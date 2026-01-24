@@ -36,6 +36,7 @@ extension FallbackComponentBody: UIViewRepresentable {
         Logger.debug(
             ["\(Self.self).\(#function)"],
             ["id:", context.environment.componentID ?? "nil"],
+            ["window:", view.window == nil ? "nil" : "some"],
             subsystem: "Component",
             category: "FallbackComponentBody"
         )
@@ -45,8 +46,7 @@ extension FallbackComponentBody: UIViewRepresentable {
         let cache = environment.componentCache
         let theme = environment.tokenTheme
 
-        let context = context
-            .environment
+        let context = environment
             .componentContext
             .componentLayoutInvalidation { [weak cache] in
                 cache?.resetSize(for: content)
