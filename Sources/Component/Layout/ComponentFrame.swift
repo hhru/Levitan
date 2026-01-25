@@ -259,5 +259,4 @@ extension View where Self: Equatable {
         )
     }
 }
-
 #endif

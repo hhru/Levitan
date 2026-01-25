@@ -3,29 +3,22 @@ import SwiftUI
 
 internal struct ComponentLayoutInvalidationEnvironmentKey: EnvironmentKey {
 
-    internal static let defaultValue = ViewAction<@Sendable @MainActor () -> Void>(
-        wrappedValue: { }
-    )
+    internal static let defaultValue = ComponentLayoutInvalidation(action: { })
 }
 
 extension EnvironmentValues {
 
     /// Действие для инвалидации лэйаута.
     ///
-    /// Выполняктся компонентом при изменении его внутренних размеров
+    /// Выполняется компонентом при изменении его внутренних размеров
     /// исключительно после изменения внутреннего состояния.
-    ///
-    /// Каждый компонент может добавлять дополнительные действия
-    /// для инвалидации своих размеров дочерними компонентами.
-    /// Например, встроенная коллекция инвалидирует свой лэйаут
-    /// и вызывает инвалидацию у родительской коллекции.
     ///
     /// - Warning: Не рекомендуется выполнять инвалидацию при изменении внешнего состояния,
     ///            переданного через байндинги или через ручное связывание замыканиями.
     ///            Компонент должен выполнять эти действия, только если изменилось его собственное состояние.
-    public var invalidateComponentLayout: @Sendable @MainActor () -> Void {
-        get { self[ComponentLayoutInvalidationEnvironmentKey.self].wrappedValue }
-        set { self[ComponentLayoutInvalidationEnvironmentKey.self].wrappedValue = newValue }
+    public internal(set) var invalidateComponentLayout: ComponentLayoutInvalidation {
+        get { self[ComponentLayoutInvalidationEnvironmentKey.self] }
+        set { self[ComponentLayoutInvalidationEnvironmentKey.self] = newValue }
     }
 }
 
@@ -33,19 +26,42 @@ extension ComponentContext {
 
     /// Добавляет дополнительное действие для инвалидации лэйаута.
     ///
-    /// Дополнительное действие будет выполнено до выполнения уже имеющихся действий инвалидации.
+    /// Некоторые UIKit-компоненты могут добавлять дополнительные действия
+    /// для инвалидации своих размеров дочерними компонентами.
+    /// Например, встроенная коллекция инвалидирует свой лэйаут
+    /// и вызывает инвалидацию лэйаута родительской коллекции.
+    ///
+    /// В случае SwiftUI-компонентов добавлять дополнительные действия инвалидации не имеет смысла,
+    /// SwiftUI обновляет лэйаут самостоятельно.
+    ///
+    /// - Note: Дополнительное действие инвалидации будет выполнено
+    /// до выполнения уже имеющихся действий инвалидации.
     ///
     /// - Parameter invalidation: Дополнительное действие для инвалидации лэйаута.
     /// - Returns: Окружение с добавленным действием для инвалидации лэйаута.
     public func componentLayoutInvalidation(
         _ invalidation: @escaping @Sendable @MainActor () -> Void
     ) -> Self {
-        transformEnvironment(\.invalidateComponentLayout) { currentInvalidation in
-            currentInvalidation = { [currentInvalidation] in
-                invalidation()
-                currentInvalidation()
-            }
+        let previousInvalidation = resolveValue(at: \.invalidateComponentLayout)
+
+        let newInvalidation = ComponentLayoutInvalidation { [previousInvalidation] in
+            invalidation()
+            previousInvalidation()
         }
+
+        let backdoor = ComponentContextOverride(
+            keyPath: \.invalidateComponentLayout,
+            value: newInvalidation
+        )
+
+        return Self(
+            environment: environment,
+            backdoors: backdoors.updatingValue(
+                backdoor,
+                forKey: \.invalidateComponentLayout
+            ),
+            overrides: overrides
+        )
     }
 }
 #endif

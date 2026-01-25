@@ -79,10 +79,10 @@ extension ComponentAppearance: ComponentSuperviewAppearance {
 
     public func connectAppearance(
         _ appearance: ComponentAppearance,
-        of view: ComponentAppearanceView
+        of view: ComponentAppearanceView?
     ) {
         guard appearance.superview !== self else {
-            return
+            return appearance.view = view
         }
 
         if let superview = appearance.superview {

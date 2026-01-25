@@ -12,15 +12,20 @@ extension EnvironmentValues {
     ///
     /// Может использоваться в качестве максимальных размеров для определения размеров компонента
     /// в методе `sizing(fitting:context:)`.
-    ///
-    /// Значением по умолчанию является размеры ближайшего экземпляра `UIViewController` в окружении,
-    /// либо размеры основного экрана устройства.
-    ///
-    /// - Note: Нет необходимости самостоятельно устанавливать значение для этой переменной,
-    ///         его переопределяют встроенные компоненты.
     public var componentContainerSize: CGSize? {
         get { self[ComponentContainerSizeKey.self] }
         set { self[ComponentContainerSizeKey.self] = newValue }
+    }
+}
+
+extension View {
+
+    /// Устанавливает размеры ближайшего известного контейнера в окружении.
+    ///
+    /// Может использоваться в качестве максимальных размеров для определения размеров компонента
+    /// в методе `sizing(fitting:context:)`.
+    public nonisolated func componentContainerSize(_ containerSize: CGSize?) -> some View {
+        environment(\.componentContainerSize, containerSize)
     }
 }
 #endif

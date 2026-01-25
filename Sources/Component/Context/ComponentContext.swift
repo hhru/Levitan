@@ -88,24 +88,45 @@ import SwiftUI
 public struct ComponentContext {
 
     internal let environment: EnvironmentValues
+    internal let backdoors: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride]
     internal let overrides: [ComponentContextOverride]
 
     internal init(
         environment: EnvironmentValues,
+        backdoors: [PartialKeyPath<EnvironmentValues>: ComponentContextOverride] = [:],
         overrides: [ComponentContextOverride] = []
     ) {
         self.environment = environment
+        self.backdoors = backdoors
         self.overrides = overrides
     }
 
     internal func resolveEnvironment(_ environment: EnvironmentValues) -> EnvironmentValues {
-        overrides.reduce(into: environment) { environment, value in
-            value.override(for: &environment)
+        var environment = environment
+
+        for (_, backdoor) in backdoors {
+            backdoor.overrider(&environment)
         }
+
+        for override in overrides {
+            override.overrider(&environment)
+        }
+
+        return environment
     }
 
     internal func resolveValue<Value>(at keyPath: KeyPath<EnvironmentValues, Value>) -> Value {
-        environment[keyPath: keyPath]
+        if let value = backdoors[keyPath].flatMap({ $0.value as? Value }) {
+            return value
+        }
+
+        var environment = environment
+
+        for override in overrides {
+            override.overrider(&environment)
+        }
+
+        return environment[keyPath: keyPath]
     }
 
     internal func overrideValue<Value>(
@@ -117,12 +138,9 @@ public struct ComponentContext {
             value: newValue
         )
 
-        var environment = environment
-
-        environment[keyPath: keyPath] = newValue
-
         return Self(
             environment: environment,
+            backdoors: backdoors,
             overrides: overrides.appending(override)
         )
     }

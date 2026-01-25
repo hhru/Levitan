@@ -8,7 +8,7 @@ public protocol ComponentSuperviewAppearance: AnyObject, Sendable {
 
     func connectAppearance(
         _ appearance: ComponentAppearance,
-        of view: ComponentAppearanceView
+        of view: ComponentAppearanceView?
     )
 }
 #endif

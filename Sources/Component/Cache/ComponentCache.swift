@@ -2,10 +2,17 @@
 import CoreGraphics
 import Foundation
 
+/// Кэш для компонентов.
+///
+/// Используется для хранения размеров компонентов с более "умным" механизмом их переиспользования.
+///
+/// - SeeAlso: ``Component``
+/// - SeeAlso: ``FallbackComponent``
 public final class ComponentCache {
 
     private var sizes: [ComponentCacheSizeKey: Set<ComponentCacheSize>] = [:]
 
+    /// Создает кэш для компонентов.
     public init() { }
 }
 

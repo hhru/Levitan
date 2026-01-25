@@ -8,7 +8,7 @@ internal struct ComponentAppearanceEnvironmentKey: EnvironmentKey {
 
 extension EnvironmentValues {
 
-    public var componentSuperviewAppearance: ComponentSuperviewAppearance {
+    internal var componentSuperviewAppearance: ComponentSuperviewAppearance {
         get { self[ComponentAppearanceEnvironmentKey.self] }
         set { self[ComponentAppearanceEnvironmentKey.self] = newValue }
     }
@@ -19,7 +19,7 @@ extension ComponentContext {
     @MainActor
     public func componentAppearance(
         _ appearance: ComponentAppearance,
-        of view: ComponentAppearanceView
+        of view: ComponentAppearanceView?
     ) -> Self {
         self.componentSuperviewAppearance.connectAppearance(
             appearance,

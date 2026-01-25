@@ -3,16 +3,24 @@ import SwiftUI
 
 internal struct ComponentContextOverride {
 
-    private let overrider: (_ environment: inout EnvironmentValues) -> Void
+    internal let value: Any
+    internal let overrider: (_ environment: inout EnvironmentValues) -> Void
 
-    internal init<Value>(keyPath: WritableKeyPath<EnvironmentValues, Value>, value: Value) {
-        overrider = { environment in
-            environment[keyPath: keyPath] = value
-        }
+    internal init(
+        _ value: Any,
+        overrider: @escaping (_ environment: inout EnvironmentValues) -> Void
+    ) {
+        self.value = value
+        self.overrider = overrider
     }
 
-    internal func override(for environment: inout EnvironmentValues) {
-        overrider(&environment)
+    internal init<Value>(
+        keyPath: WritableKeyPath<EnvironmentValues, Value>,
+        value: Value
+    ) {
+        self.init(value) { environment in
+            environment[keyPath: keyPath] = value
+        }
     }
 }
 #endif
