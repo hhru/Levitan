@@ -80,7 +80,7 @@ extension ComponentPadding: Changeable {
     /// - Returns: Контейнер для добавления отступов к компоненту.
     ///
     /// - SeeAlso: ``ComponentPadding``
-    public nonisolated func padding(_ insets: EdgeInsets) -> Self {
+    public func padding(_ insets: EdgeInsets) -> Self {
         changing { padding in
             padding.insets = EdgeInsets(
                 top: padding.insets.top + insets.top,
@@ -101,7 +101,7 @@ extension ComponentPadding: Changeable {
     /// - Returns: Контейнер для добавления отступов к компоненту.
     ///
     /// - SeeAlso: ``ComponentPadding``
-    public nonisolated func padding(
+    public func padding(
         top: CGFloat = .zero,
         leading: CGFloat = .zero,
         bottom: CGFloat = .zero,
@@ -125,7 +125,7 @@ extension ComponentPadding: Changeable {
     /// - Returns: Контейнер для добавления отступов к компоненту.
     ///
     /// - SeeAlso: ``ComponentPadding``
-    public nonisolated func padding(
+    public func padding(
         _ edge: Edge.Set,
         _ length: CGFloat
     ) -> Self {
@@ -138,7 +138,7 @@ extension ComponentPadding: Changeable {
     /// - Returns: Контейнер для добавления отступов к компоненту.
     ///
     /// - SeeAlso: ``ComponentPadding``
-    public nonisolated func padding(_ length: CGFloat) -> Self {
+    public func padding(_ length: CGFloat) -> Self {
         padding(EdgeInsets(all: length))
     }
 }
