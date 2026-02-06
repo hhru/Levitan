@@ -1,9 +1,8 @@
-#if canImport(UIKit)
 import SwiftUI
 
 // TODO: Добавить документацию
 @propertyWrapper
-public struct ViewEnvironment<Value>: DynamicProperty {
+public struct ViewEnvironment<Value> {
 
     private var environment: Environment<Value>
     private var forcedValue: Value?
@@ -25,6 +24,9 @@ public struct ViewEnvironment<Value>: DynamicProperty {
 
         environment = Environment(keyPath)
     }
+}
+
+extension ViewEnvironment: DynamicProperty {
 
     public mutating func update() {
         environment.update()
@@ -46,4 +48,3 @@ extension ViewEnvironment: Hashable where Value: Hashable {
         hasher.combine(forcedValue)
     }
 }
-#endif

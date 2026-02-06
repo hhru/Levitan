@@ -1,4 +1,5 @@
 import CoreGraphics
+import Foundation
 
 public protocol DecorableByInsets {
 
@@ -7,7 +8,7 @@ public protocol DecorableByInsets {
 
 extension DecorableByInsets {
 
-    public func inset(_ edge: InsetsEdge, _ value: CGFloat) -> Self {
+    public func inset(_ edge: InsetsEdge, by value: CGFloat) -> Self {
         inset(by: InsetsValue(edge, value))
     }
 

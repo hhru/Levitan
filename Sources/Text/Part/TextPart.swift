@@ -6,7 +6,7 @@ public protocol TextPart: Hashable, Sendable {
     var isEnabled: Bool { get }
     var tapAction: (@Sendable @MainActor () -> Void)? { get }
 
-    func attributedText(context: ComponentContext) -> NSAttributedString
+    func attributedText(context: TextContext) -> NSAttributedString
 }
 
 extension TextPart {

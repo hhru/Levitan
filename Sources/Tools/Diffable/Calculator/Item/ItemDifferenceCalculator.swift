@@ -24,10 +24,10 @@ internal final class ItemDifferenceCalculator {
         }
 
         let flattenSourceCount = sourceSectionsItems.reduce(into: 0) { $0 += $1.count }
-        var flattenSourceIdentifiers = ContiguousArray<AnyHashable>()
+        var flattenSourceIDs = ContiguousArray<AnyHashable>()
         var flattenSourceItemPaths = ContiguousArray<ItemPath>()
 
-        flattenSourceIdentifiers.reserveCapacity(flattenSourceCount)
+        flattenSourceIDs.reserveCapacity(flattenSourceCount)
         flattenSourceItemPaths.reserveCapacity(flattenSourceCount)
 
         var deleted: [ItemPath] = []
@@ -42,18 +42,18 @@ internal final class ItemDifferenceCalculator {
                     section: sourceSectionIndex
                 )
 
-                flattenSourceIdentifiers.append(sourceSectionsItems[sourceItemPath].differenceIdentifier)
+                flattenSourceIDs.append(sourceSectionsItems[sourceItemPath].differenceID)
                 flattenSourceItemPaths.append(sourceItemPath)
             }
         }
 
         // swiftlint:disable:next closure_body_length
-        flattenSourceIdentifiers.withUnsafeBufferPointer { bufferPointer in
+        flattenSourceIDs.withUnsafeBufferPointer { bufferPointer in
             var sourceOccurrencesDictionary = [DifferenceDictionaryKey: DifferenceOccurrence](
                 minimumCapacity: flattenSourceCount
             )
 
-            for flattenSourceIndex in flattenSourceIdentifiers.indices {
+            for flattenSourceIndex in flattenSourceIDs.indices {
                 let pointer = bufferPointer.baseAddress!.advanced(by: flattenSourceIndex)
                 let key = DifferenceDictionaryKey(pointer: pointer)
 
@@ -75,8 +75,8 @@ internal final class ItemDifferenceCalculator {
                 let targetItems = targetSectionsItems[targetSectionIndex]
 
                 for targetItemIndex in targetItems.indices {
-                    var identifier = targetItems[targetItemIndex].differenceIdentifier
-                    let key = DifferenceDictionaryKey(pointer: &identifier)
+                    var id = targetItems[targetItemIndex].differenceID
+                    let key = DifferenceDictionaryKey(pointer: &id)
 
                     switch sourceOccurrencesDictionary[key] {
                     case nil:
@@ -233,7 +233,10 @@ internal final class ItemDifferenceCalculator {
     }
 }
 
-extension MutableCollection where Element: MutableCollection, Index == Int, Element.Index == Int {
+extension MutableCollection where
+    Element: MutableCollection,
+    Index == Int,
+    Element.Index == Int {
 
     internal subscript(path: ItemPath) -> Element.Element {
         get { self[path.section][path.index] }

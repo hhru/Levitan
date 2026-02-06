@@ -13,8 +13,6 @@ analyzer_rules:
   - unused_import
 
 only_rules:
-  - accessibility_label_for_image
-  - accessibility_trait_for_button
   - anonymous_argument_in_multiline_closure
   - array_init
   # - attributes
@@ -159,7 +157,7 @@ only_rules:
   - single_test_class
   - sorted_first_last
   - statement_position
-  - static_operator
+  # - static_operator
   - superfluous_disable_command
   - superfluous_else
   - switch_case_alignment
@@ -167,7 +165,6 @@ only_rules:
   - syntactic_sugar
   - todo
   - toggle_bool
-  - trailing_closure
   - trailing_comma
   - trailing_newline
   - trailing_semicolon
@@ -311,7 +308,7 @@ file_name:
     - main.swift
   prefix_pattern: ''
   suffix_pattern: '([+][A-z][A-z]+)+'
-  nested_type_separator: ''
+  nested_type_separator: '.'
 
 file_types_order:
   order:
@@ -478,9 +475,6 @@ statement_position:
 
 switch_case_alignment:
   indented_cases: false
-
-trailing_closure:
-  only_single_muted_parameter: false
 
 trailing_comma:
   mandatory_comma: false

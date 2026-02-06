@@ -1,4 +1,3 @@
-#if canImport(UIKit)
 import Foundation
 
 // TODO: Добавить документацию
@@ -91,4 +90,3 @@ extension ViewFocusBinding where Value == Bool {
 }
 
 extension ViewFocusBinding: Sendable where Value: Sendable { }
-#endif

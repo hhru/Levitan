@@ -100,14 +100,14 @@ extension Text: ExpressibleByStringInterpolation {
     }
 }
 
-extension Text: FallbackManualComponent {
+extension Text: FallbackComponent {
 
     public typealias UIView = TextView
 }
 
 extension Text: TextPart {
 
-    public func attributedText(context: ComponentContext) -> NSAttributedString {
+    public func attributedText(context: TextContext) -> NSAttributedString {
         UIView.attributedText(
             for: self,
             context: context
@@ -148,26 +148,46 @@ extension Text: Changeable {
 
 extension Text {
 
-    @MainActor
+    public func attributedText(context: ComponentContext) -> NSAttributedString {
+        UIView.attributedText(
+            for: self,
+            context: context
+        )
+    }
+
+    public func size(
+        fitting size: CGSize,
+        context: ComponentContext
+    ) -> CGSize {
+        UIView.size(
+            for: self,
+            fitting: size,
+            context: context
+        )
+    }
+
     public func width(
         fitting height: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext
     ) -> CGFloat {
-        size(
+        let size = size(
             fitting: CGSize(width: .greatestFiniteMagnitude, height: height),
             context: context
-        ).width
+        )
+
+        return size.width
     }
 
-    @MainActor
     public func height(
         fitting width: CGFloat = .greatestFiniteMagnitude,
         context: ComponentContext
     ) -> CGFloat {
-        size(
+        let size = size(
             fitting: CGSize(width: width, height: .greatestFiniteMagnitude),
             context: context
-        ).height
+        )
+
+        return size.height
     }
 }
 #endif

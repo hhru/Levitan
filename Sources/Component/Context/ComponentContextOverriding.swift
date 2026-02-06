@@ -18,7 +18,6 @@ public struct ComponentContextOverriding<Value> {
     public let keyPath: WritableKeyPath<EnvironmentValues, Value>
 
     /// Изначальное значение переопределяемой переменной.
-    @MainActor
     public var value: Value {
         context.resolveValue(at: keyPath)
     }

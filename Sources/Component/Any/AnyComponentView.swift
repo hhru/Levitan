@@ -75,4 +75,14 @@ extension AnyComponentView: ComponentView {
         invalidateIntrinsicContentSize()
     }
 }
+
+extension AnyComponentView {
+
+    public func update(with content: some Component, context: ComponentContext) {
+        update(
+            with: content.eraseToAnyComponent(),
+            context: context
+        )
+    }
+}
 #endif

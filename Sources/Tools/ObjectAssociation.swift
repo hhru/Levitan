@@ -2,7 +2,7 @@ import Foundation
 
 internal final class ObjectAssociation<Value>: @unchecked Sendable {
 
-    private let policy: objc_AssociationPolicy
+    internal let policy: objc_AssociationPolicy
 
     internal init(policy: objc_AssociationPolicy = .OBJC_ASSOCIATION_RETAIN_NONATOMIC) {
         self.policy = policy

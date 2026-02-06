@@ -24,13 +24,19 @@ extension UICollectionView {
     }
 
     internal func containsIndexPath(_ indexPath: IndexPath) -> Bool {
-        (indexPath.section < numberOfSections) && (indexPath.item < numberOfItems(inSection: indexPath.section))
+        guard indexPath.section < numberOfSections else {
+            return false
+        }
+
+        return indexPath.item < numberOfItems(inSection: indexPath.section)
     }
 
-    internal func reloadData(completion: @escaping @Sendable () -> Void) {
+    internal func reloadData(completion: (@MainActor () -> Void)?) {
         reloadData()
 
-        DispatchQueue.main.async(execute: completion)
+        Task { @MainActor in
+            completion?()
+        }
     }
 }
 #endif

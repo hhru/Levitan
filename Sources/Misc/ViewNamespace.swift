@@ -1,4 +1,3 @@
-#if canImport(UIKit)
 import SwiftUI
 
 /// Обертка для создания пространства имен с постоянным идентификатором UI-компонента,
@@ -15,7 +14,7 @@ import SwiftUI
 /// И чтобы не реализовывать требования протокола `Equatable` вручную,
 /// удобно использовать данную обертку.
 @propertyWrapper
-public struct ViewNamespace: DynamicProperty, Sendable {
+public struct ViewNamespace: Sendable {
 
     /// Тип идентификатора пространства имен.
     public typealias ID = Namespace.ID
@@ -30,6 +29,9 @@ public struct ViewNamespace: DynamicProperty, Sendable {
     public init() {
         namespace = Namespace()
     }
+}
+
+extension ViewNamespace: DynamicProperty {
 
     public mutating func update() {
         namespace.update()
@@ -47,4 +49,3 @@ extension ViewNamespace: Hashable {
 
     public func hash(into hasher: inout Hasher) { }
 }
-#endif

@@ -4,6 +4,12 @@ import UIKit
 
 internal final class ComponentHostingController<Content: View>: UIHostingController<Content> {
 
+    private var intrinsicContentSize: CGSize? {
+        didSet { intrinsicContentSizeInvalidation?() }
+    }
+
+    internal var intrinsicContentSizeInvalidation: (@MainActor () -> Void)?
+
     // До iOS 16 UIHostingController самовольно отображает скрытую панель навигации.
     // Чтобы это предотвратить, переопределяем для него navigationController
     // и возвращаем nil для iOS старше 16.
@@ -15,7 +21,12 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
         return nil
     }
 
-    internal override init(rootView: Content) {
+    internal init(
+        rootView: Content,
+        intrinsicContentSizeInvalidation: (@MainActor() -> Void)? = nil
+    ) {
+        self.intrinsicContentSizeInvalidation = intrinsicContentSizeInvalidation
+
         super.init(rootView: rootView)
     }
 
@@ -23,6 +34,29 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
     internal required dynamic init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    internal override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if #available(iOS 16.4, tvOS 16.4, *) {
+            safeAreaRegions = []
+        } else {
+            disableSafeArea()
+        }
+
+        view.backgroundColor = .clear
+    }
+
+    internal override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        if intrinsicContentSize != view.intrinsicContentSize {
+            intrinsicContentSize = view.intrinsicContentSize
+        }
+    }
+}
+
+extension ComponentHostingController {
 
     /// Отключает все отступы SafeArea и клавиатуры для iOS до версии 16.4.
     ///
@@ -69,18 +103,6 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
             objc_registerClassPair(viewSubclass)
             object_setClass(view, viewSubclass)
         }
-    }
-
-    internal override func viewDidLoad() {
-        super.viewDidLoad()
-
-        if #available(iOS 16.4, tvOS 16.4, *) {
-            safeAreaRegions = []
-        } else {
-            disableSafeArea()
-        }
-
-        view.backgroundColor = .clear
     }
 }
 #endif

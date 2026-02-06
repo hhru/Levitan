@@ -1,12 +1,22 @@
 import SwiftUI
 
-internal struct ScaleEffectModifier<Content: View>: TokenViewModifier {
+public struct ScaleEffectModifier<Content: View>: Hashable, Sendable {
 
-    internal let scaling: ScalingToken?
-    internal let anchor: UnitPoint
+    public let scaling: ScalingToken?
+    public let anchor: UnitPoint
 
-    @ViewBuilder
-    internal func body(content: Content, theme: TokenTheme) -> some View {
+    public init(
+        scaling: ScalingToken?,
+        anchor: UnitPoint
+    ) {
+        self.scaling = scaling
+        self.anchor = anchor
+    }
+}
+
+extension ScaleEffectModifier: TokenViewModifier {
+
+    public func body(content: Content, theme: TokenTheme) -> some View {
         if let scaling = scaling?.resolve(for: theme) {
             content.scaleEffect(scaling, anchor: anchor)
         } else {
@@ -20,7 +30,7 @@ extension View {
     public nonisolated func scaleEffect(
         _ scaling: ScalingToken?,
         anchor: UnitPoint = .center
-    ) -> some View {
+    ) -> TokenModifiedView<ScaleEffectModifier<Self>> {
         modifier(
             ScaleEffectModifier(
                 scaling: scaling,

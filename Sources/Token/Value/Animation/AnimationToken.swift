@@ -1,4 +1,5 @@
 import CoreGraphics
+import Foundation
 
 public typealias AnimationToken = Token<AnimationValue>
 

@@ -1,4 +1,5 @@
 import CoreGraphics
+import Foundation
 
 @frozen
 public enum ShapeValue: TokenValue, Sendable {

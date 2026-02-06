@@ -1,13 +1,12 @@
 import SwiftUI
 
-public protocol TokenShapedView: View {
+public protocol TokenShapedView {
 
-    nonisolated var shape: ShapeToken? { get }
-    nonisolated var shapeInsets: SpacingToken? { get }
+    var shape: ShapeToken? { get }
+    var shapeInsets: SpacingToken? { get }
 }
 
-extension TokenModifiedView: TokenShapedView
-where Modifier: TokenShapedModifier {
+extension TokenModifiedView: TokenShapedView where Modifier: TokenShapedModifier {
 
     public var shape: ShapeToken? {
         modifier.shape

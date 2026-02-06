@@ -9,122 +9,48 @@ extension EnvironmentValues {
         Self.default(for: UIScreen.main.traitCollection)
     }
 
-    @MainActor
-    internal static func `default`(for traitCollection: UITraitCollection) -> Self {
-        var environment = EnvironmentValues()
+    internal static func `default`(for traits: UITraitCollection) -> Self {
+        var environment = Self()
 
-        environment.displayScale = traitCollection.displayScale
-        environment.colorScheme = colorScheme(for: traitCollection.userInterfaceStyle)
-        environment.layoutDirection = layoutDirection(for: traitCollection.layoutDirection)
-        environment.horizontalSizeClass = userInterfaceSizeClass(for: traitCollection.horizontalSizeClass)
-        environment.verticalSizeClass = userInterfaceSizeClass(for: traitCollection.verticalSizeClass)
-        environment.legibilityWeight = legibilityWeight(for: traitCollection.legibilityWeight)
-        environment.sizeCategory = sizeCategory(for: traitCollection.preferredContentSizeCategory)
+        environment.displayScale = traits.displayScale
+
+        if let colorScheme = ColorScheme(traits.userInterfaceStyle) {
+            environment.colorScheme = colorScheme
+        }
+
+        if let layoutDirection = LayoutDirection(traits.layoutDirection) {
+            environment.layoutDirection = layoutDirection
+        }
+
+        if let horizontalSizeClass = UserInterfaceSizeClass(traits.horizontalSizeClass) {
+            environment.horizontalSizeClass = horizontalSizeClass
+        }
+
+        if let verticalSizeClass = UserInterfaceSizeClass(traits.verticalSizeClass) {
+            environment.verticalSizeClass = verticalSizeClass
+        }
+
+        if let sizeCategory = ContentSizeCategory(traits.preferredContentSizeCategory) {
+            environment.sizeCategory = sizeCategory
+        }
+
+        if let legibilityWeight = LegibilityWeight(traits.legibilityWeight) {
+            environment.legibilityWeight = legibilityWeight
+        }
+
+        if #available(iOS 17.0, tvOS 17.0, *) {
+            if let allowedDynamicRange = Image.DynamicRange(traits.imageDynamicRange) {
+                environment.allowedDynamicRange = allowedDynamicRange
+            }
+        }
 
         if #available(iOS 15.0, tvOS 15.0, *) {
-            environment.dynamicTypeSize = dynamicTypeSize(for: traitCollection.preferredContentSizeCategory)
+            if let dynamicTypeSize = DynamicTypeSize(traits.preferredContentSizeCategory) {
+                environment.dynamicTypeSize = dynamicTypeSize
+            }
         }
 
         return environment
-    }
-
-    @MainActor
-    private static func colorScheme(
-        for uiUserInterfaceStyle: UIUserInterfaceStyle,
-        defaultValue: ColorScheme? = nil
-    ) -> ColorScheme {
-        if let colorScheme = ColorScheme(uiUserInterfaceStyle) {
-            return colorScheme
-        }
-
-        let systemUserInterfaceStyle = UIScreen
-            .main
-            .traitCollection
-            .userInterfaceStyle
-
-        return defaultValue ?? Self.colorScheme(
-            for: systemUserInterfaceStyle,
-            defaultValue: .light
-        )
-    }
-
-    @MainActor
-    private static func layoutDirection(
-        for uiLayoutDirection: UITraitEnvironmentLayoutDirection,
-        defaultValue: LayoutDirection? = nil
-    ) -> LayoutDirection {
-        if let layoutDirection = LayoutDirection(uiLayoutDirection) {
-            return layoutDirection
-        }
-
-        let systemLayoutDirection = UIScreen
-            .main
-            .traitCollection
-            .layoutDirection
-
-        return defaultValue ?? Self.layoutDirection(
-            for: systemLayoutDirection,
-            defaultValue: .leftToRight
-        )
-    }
-
-    @MainActor
-    private static func userInterfaceSizeClass(
-        for uiUserInterfaceSizeClass: UIUserInterfaceSizeClass
-    ) -> UserInterfaceSizeClass? {
-        #if os(iOS)
-            return UserInterfaceSizeClass(uiUserInterfaceSizeClass)
-        #elseif os(tvOS)
-            return .regular
-        #endif
-    }
-
-    @MainActor
-    private static func legibilityWeight(
-        for uiLegibilityWeight: UILegibilityWeight
-    ) -> LegibilityWeight? {
-        LegibilityWeight(uiLegibilityWeight)
-    }
-
-    @MainActor
-    private static func sizeCategory(
-        for uiSizeCategory: UIContentSizeCategory,
-        defaultValue: ContentSizeCategory? = nil
-    ) -> ContentSizeCategory {
-        if let sizeCategory = ContentSizeCategory(uiSizeCategory) {
-            return sizeCategory
-        }
-
-        let systemSizeCategory = UIScreen
-            .main
-            .traitCollection
-            .preferredContentSizeCategory
-
-        return defaultValue ?? Self.sizeCategory(
-            for: systemSizeCategory,
-            defaultValue: .medium
-        )
-    }
-
-    @MainActor
-    @available(iOS 15.0, tvOS 15.0, *)
-    private static func dynamicTypeSize(
-        for uiSizeCategory: UIContentSizeCategory,
-        defaultValue: DynamicTypeSize? = nil
-    ) -> DynamicTypeSize {
-        if let dynamicTypeSize = DynamicTypeSize(uiSizeCategory) {
-            return dynamicTypeSize
-        }
-
-        let systemSizeCategory = UIScreen
-            .main
-            .traitCollection
-            .preferredContentSizeCategory
-
-        return defaultValue ?? Self.dynamicTypeSize(
-            for: systemSizeCategory,
-            defaultValue: .medium
-        )
     }
 }
 #endif

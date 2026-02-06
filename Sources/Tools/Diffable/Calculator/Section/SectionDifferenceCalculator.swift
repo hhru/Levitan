@@ -13,25 +13,25 @@ internal final class SectionDifferenceCalculator {
         var moved: [DifferenceMotion<Int>] = []
 
         var sourceTraces = ContiguousArray<DifferenceTrace<Int>>()
-        var sourceIdentifiers = ContiguousArray<AnyHashable>()
+        var sourceIDs = ContiguousArray<AnyHashable>()
 
         var targetReferences = ContiguousArray<Int?>(repeating: nil, count: targetSections.count)
 
         sourceTraces.reserveCapacity(sourceSections.count)
-        sourceIdentifiers.reserveCapacity(sourceSections.count)
+        sourceIDs.reserveCapacity(sourceSections.count)
 
         for sourceElement in sourceSections {
             sourceTraces.append(DifferenceTrace())
-            sourceIdentifiers.append(sourceElement.differenceIdentifier)
+            sourceIDs.append(sourceElement.differenceID)
         }
 
         // swiftlint:disable:next closure_body_length
-        sourceIdentifiers.withUnsafeBufferPointer { bufferPointer in
+        sourceIDs.withUnsafeBufferPointer { bufferPointer in
             var sourceOccurrencesDictionary = [DifferenceDictionaryKey: DifferenceOccurrence](
                 minimumCapacity: sourceSections.count
             )
 
-            for sourceIndex in sourceIdentifiers.indices {
+            for sourceIndex in sourceIDs.indices {
                 let pointer = bufferPointer.baseAddress!.advanced(by: sourceIndex)
                 let key = DifferenceDictionaryKey(pointer: pointer)
 
@@ -50,8 +50,8 @@ internal final class SectionDifferenceCalculator {
             }
 
             for targetIndex in targetSections.indices {
-                var identifier = targetSections[targetIndex].differenceIdentifier
-                let key = DifferenceDictionaryKey(pointer: &identifier)
+                var id = targetSections[targetIndex].differenceID
+                let key = DifferenceDictionaryKey(pointer: &id)
 
                 switch sourceOccurrencesDictionary[key] {
                 case nil:

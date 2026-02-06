@@ -1,17 +1,23 @@
 #if canImport(UIKit)
 import SwiftUI
 
-internal struct StrokeModifier<Content: View>: TokenShapedModifier {
+public struct StrokeModifier<Content: View>: Hashable, Sendable {
 
-    internal let stroke: StrokeToken?
-    internal let shape: ShapeToken?
+    public let stroke: StrokeToken?
+    public let shape: ShapeToken?
 
-    internal var shapeInsets: SpacingToken? {
-        stroke?.insets
+    public init(
+        stroke: StrokeToken?,
+        shape: ShapeToken?
+    ) {
+        self.stroke = stroke
+        self.shape = shape
     }
+}
 
-    @ViewBuilder
-    internal func body(content: Content, theme: TokenTheme) -> some View {
+extension StrokeModifier: TokenViewModifier {
+
+    public func body(content: Content, theme: TokenTheme) -> some View {
         if let stroke = stroke?.resolve(for: theme) {
             let shape = shape?.resolve(for: theme) ?? .rectangle
             let color = stroke.color?.color ?? .black
@@ -28,12 +34,19 @@ internal struct StrokeModifier<Content: View>: TokenShapedModifier {
     }
 }
 
+extension StrokeModifier: TokenShapedModifier {
+
+    public var shapeInsets: SpacingToken? {
+        stroke?.insets
+    }
+}
+
 extension View {
 
     public nonisolated func stroke(
         _ stroke: StrokeToken?,
         shape: ShapeToken? = nil
-    ) -> some TokenShapedView {
+    ) -> TokenModifiedView<StrokeModifier<Self>> {
         modifier(
             StrokeModifier(
                 stroke: stroke,
@@ -45,7 +58,7 @@ extension View {
     public nonisolated func stroke(
         _ stroke: StrokeToken?,
         corners: CornersToken
-    ) -> some TokenShapedView {
+    ) -> TokenModifiedView<StrokeModifier<Self>> {
         modifier(
             StrokeModifier(
                 stroke: stroke,
@@ -55,9 +68,11 @@ extension View {
     }
 }
 
-extension TokenShapedView {
+extension View where Self: TokenShapedView {
 
-    public nonisolated func stroke(_ stroke: StrokeToken?) -> some TokenShapedView {
+    public nonisolated func stroke(
+        _ stroke: StrokeToken?
+    ) -> TokenModifiedView<StrokeModifier<Self>> {
         modifier(
             StrokeModifier(
                 stroke: stroke,

@@ -1,4 +1,3 @@
-#if canImport(UIKit)
 import Foundation
 
 /// Обертка для замыканий в UI-компонентах.
@@ -26,14 +25,8 @@ import Foundation
 ///             .padding()
 ///     }
 ///
-///     func sizing(
-///         fitting size: CGSize,
-///         context: ComponentContext
-///     ) -> ComponentSizing {
-///         ComponentSizing(
-///             width: .fill,
-///             height: .hug
-///         )
+///     func sizing(fitting size: CGSize, context: ComponentContext) -> ComponentSizing {
+///         ComponentSizing(width: .fill, height: .hug)
 ///     }
 /// }
 /// ```
@@ -75,4 +68,3 @@ extension ViewAction: Hashable {
         }
     }
 }
-#endif

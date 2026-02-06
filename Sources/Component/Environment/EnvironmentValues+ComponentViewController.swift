@@ -4,12 +4,25 @@ import UIKit
 
 internal struct ComponentViewControllerEnvironmentKey: EnvironmentKey {
 
-    internal static let defaultValue: @Sendable @MainActor () -> UIViewController? = { nil }
+    internal static let defaultValue: ComponentViewControllerStorage? = nil
+}
+
+internal struct ComponentViewControllerStorage: Sendable {
+
+    internal let viewController: @Sendable @MainActor () -> UIViewController?
 }
 
 extension EnvironmentValues {
 
-    /// Замыкание, который предоставляет ближайший экземпляр `UIViewController` в окружении.
+    internal var componentViewControllerStorage: ComponentViewControllerStorage? {
+        get { self[ComponentViewControllerEnvironmentKey.self] }
+        set { self[ComponentViewControllerEnvironmentKey.self] = newValue }
+    }
+}
+
+extension EnvironmentValues {
+
+    /// Ближайший экземпляр `UIViewController` в окружении.
     ///
     /// Используется для встраивания SwiftUI-компонентов в UIKit-представление через `UIHostingController`.
     /// Поэтому рекомендуется переопределять этот параметр в каждом экземпляре `UIViewController`,
@@ -17,30 +30,57 @@ extension EnvironmentValues {
     ///
     /// Если ближайший экземпляр `UIViewController` не определен,
     /// то система попытается самостоятельно найти его по цепочке `UIResponder`.
-    public var componentViewControllerProvider: @Sendable @MainActor () -> UIViewController? {
-        get { self[ComponentViewControllerEnvironmentKey.self] }
-        set { self[ComponentViewControllerEnvironmentKey.self] = newValue }
+    @MainActor
+    public var componentViewController: UIViewController? {
+        componentViewControllerStorage?.viewController()
     }
 }
 
 extension ComponentContext {
 
-    /// Возвращает ближайший экземпляр `UIViewController` в окружении
-    /// для встраивания SwiftUI-компонентов в UIKit-представление через `UIHostingController`.
+    /// Ближайший экземпляр `UIViewController` в окружении.
+    ///
+    /// Используется для встраивания SwiftUI-компонентов в UIKit-представление через `UIHostingController`.
+    /// Поэтому рекомендуется переопределять этот параметр в каждом экземпляре `UIViewController`,
+    /// иначе встраивание SwiftUI-представлений в UIKit может сработать некорректно.
+    ///
+    /// Если ближайший экземпляр `UIViewController` не определен,
+    /// то система попытается самостоятельно найти его по цепочке `UIResponder`.
     @MainActor
     public var componentViewController: UIViewController? {
-        self.componentViewControllerProvider()
+        self.componentViewControllerStorage?.viewController()
     }
 
-    /// Устанавливает ближайший экземпляр `UIViewController` в окружении
-    /// для встраивания SwiftUI-компонентов в UIKit-представление через `UIHostingController`.
+    /// Устанавливает ближайший экземпляр `UIViewController` в окружении.
     ///
-    /// - Parameter viewController: Экземпляр `UIViewController`.
-    /// - Returns: Окружение с переопределенным экземпляром `UIViewController`.
+    /// Используется для встраивания SwiftUI-компонентов в UIKit-представление через `UIHostingController`.
+    /// Поэтому рекомендуется переопределять этот параметр в каждом экземпляре `UIViewController`,
+    /// иначе встраивание SwiftUI-представлений в UIKit может сработать некорректно.
+    ///
+    /// Если ближайший экземпляр `UIViewController` не определен,
+    /// то система попытается самостоятельно найти его по цепочке `UIResponder`.
     public func componentViewController(_ viewController: UIViewController?) -> Self {
-        self.componentViewControllerProvider { [weak viewController] in
-            viewController
-        }
+        self.componentViewControllerStorage(
+            ComponentViewControllerStorage { [weak viewController] in
+                viewController
+            }
+        )
+    }
+
+    /// Устанавливает замыкание, предоставляющее ближайший экземпляр `UIViewController` в окружении.
+    ///
+    /// Используется для встраивания SwiftUI-компонентов в UIKit-представление через `UIHostingController`.
+    /// Поэтому рекомендуется переопределять этот параметр в каждом экземпляре `UIViewController`,
+    /// иначе встраивание SwiftUI-представлений в UIKit может сработать некорректно.
+    ///
+    /// Если ближайший экземпляр `UIViewController` не определен,
+    /// то система попытается самостоятельно найти его по цепочке `UIResponder`.
+    public func componentViewControllerProvider(
+        _ viewController: @escaping @Sendable @MainActor () -> UIViewController?
+    ) -> Self {
+        self.componentViewControllerStorage(
+            ComponentViewControllerStorage(viewController: viewController)
+        )
     }
 }
 #endif

@@ -1,4 +1,5 @@
 import CoreGraphics
+import Foundation
 
 public struct StrokeValue:
     TokenValue,
@@ -12,13 +13,13 @@ public struct StrokeValue:
     public var insets: CGFloat {
         switch type {
         case .inside:
-            return .zero
+            .zero
 
         case .outside:
-            return -width
+            -width
 
         case .center:
-            return -width * 0.5
+            -width * 0.5
         }
     }
 
