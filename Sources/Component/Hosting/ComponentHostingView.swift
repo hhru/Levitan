@@ -109,8 +109,6 @@ extension ComponentHostingView {
             .priority(.almostRequired)
             .activate()
 
-        NSLayoutConstraint.activate(constraints)
-
         if let parentViewController {
             hostingController.didMove(toParent: parentViewController)
         }
