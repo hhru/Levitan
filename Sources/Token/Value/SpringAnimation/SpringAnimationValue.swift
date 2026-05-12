@@ -37,7 +37,7 @@ public struct SpringAnimationValue:
         self.duration = duration
     }
 
-    private func caAnimation(keyPath: String) -> CASpringAnimation {
+    public func caAnimation(keyPath: String) -> CASpringAnimation {
         let caAnimation = CASpringAnimation(keyPath: keyPath)
 
         caAnimation.mass = mass
