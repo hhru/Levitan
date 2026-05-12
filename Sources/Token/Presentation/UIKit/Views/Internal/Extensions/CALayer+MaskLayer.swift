@@ -10,14 +10,14 @@ extension CALayer {
     #if swift(<6.0)
     @MainActor
     #endif
-    internal var maskShape: ShapeValue {
+    internal var maskShape: AnyShapeValue {
         maskLayer?.shape ?? .rectangle
     }
 
     #if swift(<6.0)
     @MainActor
     #endif
-    internal func setupMaskLayer(shape: ShapeValue, frame: CGRect) {
+    internal func setupMaskLayer(shape: AnyShapeValue, frame: CGRect) {
         let maskLayer = MaskLayer()
 
         maskLayer.name = "\(MaskLayer.self)"
@@ -35,7 +35,7 @@ extension CALayer {
     #if swift(<6.0)
     @MainActor
     #endif
-    internal func updateShape(_ shape: ShapeValue) {
+    internal func updateShape(_ shape: AnyShapeValue) {
         if let shapeLayer = self as? TokenShapeLayer {
             return shapeLayer.shape = shape
         }

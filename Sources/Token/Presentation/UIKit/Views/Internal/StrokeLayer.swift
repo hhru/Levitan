@@ -11,7 +11,7 @@ internal final class StrokeLayer: CAShapeLayer {
         }
     }
 
-    internal var shape: ShapeValue {
+    internal var shape: AnyShapeValue {
         didSet {
             if shape != oldValue {
                 updatePathIfPossible()
@@ -21,7 +21,7 @@ internal final class StrokeLayer: CAShapeLayer {
 
     internal init(
         stroke: StrokeValue,
-        shape: ShapeValue
+        shape: AnyShapeValue
     ) {
         self.stroke = stroke
         self.shape = shape

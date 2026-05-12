@@ -13,21 +13,6 @@ public struct SpringAnimationValue:
 
     public var duration: Double
 
-    private var caAnimation: CASpringAnimation {
-        let caAnimation = CASpringAnimation(keyPath: "SpringAnimation.caAnimation")
-        caAnimation.mass = mass
-        caAnimation.damping = damping
-        caAnimation.stiffness = stiffness
-        caAnimation.duration = duration
-        caAnimation.initialVelocity = initialVelocity
-
-        return caAnimation
-    }
-
-    private var calculatedPerceptualDuration: Double {
-        2 * Double.pi / sqrt(stiffness)
-    }
-
     public var animation: Animation {
         .interpolatingSpring(
             mass: mass,
@@ -35,7 +20,7 @@ public struct SpringAnimationValue:
             damping: damping,
             initialVelocity: initialVelocity
         )
-        .speed(calculatedPerceptualDuration / duration)
+        .speed(2.0 * Double.pi / sqrt(stiffness) / duration)
     }
 
     public init(
@@ -50,5 +35,17 @@ public struct SpringAnimationValue:
         self.damping = damping
         self.initialVelocity = initialVelocity
         self.duration = duration
+    }
+
+    public func caAnimation(keyPath: String) -> CASpringAnimation {
+        let caAnimation = CASpringAnimation(keyPath: keyPath)
+
+        caAnimation.mass = mass
+        caAnimation.stiffness = stiffness
+        caAnimation.damping = damping
+        caAnimation.duration = duration
+        caAnimation.initialVelocity = initialVelocity
+
+        return caAnimation
     }
 }

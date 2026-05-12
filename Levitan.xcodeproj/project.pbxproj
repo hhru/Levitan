@@ -184,7 +184,6 @@
 		C02C899B2F0266B400A2FE9F /* FloatingPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89612F0266B400A2FE9F /* FloatingPoint+Extensions.swift */; };
 		C02C899C2F0266B400A2FE9F /* TokenTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88ED2F0266B400A2FE9F /* TokenTheme.swift */; };
 		C02C899D2F0266B400A2FE9F /* ParagraphOtherLineIndentDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88702F0266B400A2FE9F /* ParagraphOtherLineIndentDecorator.swift */; };
-		C02C899E2F0266B400A2FE9F /* ShapeValue+Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88A42F0266B400A2FE9F /* ShapeValue+Shape.swift */; };
 		C02C899F2F0266B400A2FE9F /* DecorableByDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88402F0266B400A2FE9F /* DecorableByDivision.swift */; };
 		C02C89A12F0266B400A2FE9F /* TokenThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88AA2F0266B400A2FE9F /* TokenThemeView.swift */; };
 		C02C89A22F0266B400A2FE9F /* FontScaleToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89132F0266B400A2FE9F /* FontScaleToken.swift */; };
@@ -287,7 +286,6 @@
 		C02C8A1F2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C896D2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift */; };
 		C02C8A202F0266B400A2FE9F /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88322F0266B400A2FE9F /* TextView.swift */; };
 		C02C8A222F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88C52F0266B400A2FE9F /* TokenViewProperties+UISlider.swift */; };
-		C02C8A232F0266B400A2FE9F /* RectangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C892C2F0266B400A2FE9F /* RectangleShape.swift */; };
 		C02C8A242F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88D32F0266B400A2FE9F /* CALayer+FrontLayer.swift */; };
 		C02C8A252F0266B400A2FE9F /* DecorableByBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C883B2F0266B400A2FE9F /* DecorableByBackgroundColor.swift */; };
 		C02C8A262F0266B400A2FE9F /* DecorableByMinus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C885B2F0266B400A2FE9F /* DecorableByMinus.swift */; };
@@ -338,7 +336,6 @@
 		C02C8A582F0266B400A2FE9F /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C891E2F0266B400A2FE9F /* ImageSource.swift */; };
 		C02C8A592F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88152F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift */; };
 		C02C8A5A2F0266B400A2FE9F /* AnyTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E02F0266B400A2FE9F /* AnyTokenView.swift */; };
-		C02C8A5B2F0266B400A2FE9F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C892B2F0266B400A2FE9F /* CustomShape.swift */; };
 		C02C8A5C2F0266B400A2FE9F /* TextInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88312F0266B400A2FE9F /* TextInterpolation.swift */; };
 		C02C8A5D2F0266B400A2FE9F /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C895F2F0266B400A2FE9F /* Collection+Extensions.swift */; };
 		C02C8A5E2F0266B400A2FE9F /* TokenViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E22F0266B400A2FE9F /* TokenViewDSL.swift */; };
@@ -461,7 +458,6 @@
 		C02C8AE62F0266B400A2FE9F /* FloatingPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89612F0266B400A2FE9F /* FloatingPoint+Extensions.swift */; };
 		C02C8AE72F0266B400A2FE9F /* TokenTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88ED2F0266B400A2FE9F /* TokenTheme.swift */; };
 		C02C8AE82F0266B400A2FE9F /* ParagraphOtherLineIndentDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88702F0266B400A2FE9F /* ParagraphOtherLineIndentDecorator.swift */; };
-		C02C8AE92F0266B400A2FE9F /* ShapeValue+Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88A42F0266B400A2FE9F /* ShapeValue+Shape.swift */; };
 		C02C8AEA2F0266B400A2FE9F /* DecorableByDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88402F0266B400A2FE9F /* DecorableByDivision.swift */; };
 		C02C8AEC2F0266B400A2FE9F /* TokenThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88AA2F0266B400A2FE9F /* TokenThemeView.swift */; };
 		C02C8AED2F0266B400A2FE9F /* FontScaleToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89132F0266B400A2FE9F /* FontScaleToken.swift */; };
@@ -564,7 +560,6 @@
 		C02C8B6A2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C896D2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift */; };
 		C02C8B6B2F0266B400A2FE9F /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88322F0266B400A2FE9F /* TextView.swift */; };
 		C02C8B6D2F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88C52F0266B400A2FE9F /* TokenViewProperties+UISlider.swift */; };
-		C02C8B6E2F0266B400A2FE9F /* RectangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C892C2F0266B400A2FE9F /* RectangleShape.swift */; };
 		C02C8B6F2F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88D32F0266B400A2FE9F /* CALayer+FrontLayer.swift */; };
 		C02C8B702F0266B400A2FE9F /* DecorableByBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C883B2F0266B400A2FE9F /* DecorableByBackgroundColor.swift */; };
 		C02C8B712F0266B400A2FE9F /* DecorableByMinus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C885B2F0266B400A2FE9F /* DecorableByMinus.swift */; };
@@ -615,7 +610,6 @@
 		C02C8BA32F0266B400A2FE9F /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C891E2F0266B400A2FE9F /* ImageSource.swift */; };
 		C02C8BA42F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88152F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift */; };
 		C02C8BA52F0266B400A2FE9F /* AnyTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E02F0266B400A2FE9F /* AnyTokenView.swift */; };
-		C02C8BA62F0266B400A2FE9F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C892B2F0266B400A2FE9F /* CustomShape.swift */; };
 		C02C8BA72F0266B400A2FE9F /* TextInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88312F0266B400A2FE9F /* TextInterpolation.swift */; };
 		C02C8BA82F0266B400A2FE9F /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C895F2F0266B400A2FE9F /* Collection+Extensions.swift */; };
 		C02C8BA92F0266B400A2FE9F /* TokenViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E22F0266B400A2FE9F /* TokenViewDSL.swift */; };
@@ -738,7 +732,6 @@
 		C02C8C312F0266B400A2FE9F /* FloatingPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89612F0266B400A2FE9F /* FloatingPoint+Extensions.swift */; };
 		C02C8C322F0266B400A2FE9F /* TokenTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88ED2F0266B400A2FE9F /* TokenTheme.swift */; };
 		C02C8C332F0266B400A2FE9F /* ParagraphOtherLineIndentDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88702F0266B400A2FE9F /* ParagraphOtherLineIndentDecorator.swift */; };
-		C02C8C342F0266B400A2FE9F /* ShapeValue+Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88A42F0266B400A2FE9F /* ShapeValue+Shape.swift */; };
 		C02C8C352F0266B400A2FE9F /* DecorableByDivision.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88402F0266B400A2FE9F /* DecorableByDivision.swift */; };
 		C02C8C372F0266B400A2FE9F /* TokenThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88AA2F0266B400A2FE9F /* TokenThemeView.swift */; };
 		C02C8C382F0266B400A2FE9F /* FontScaleToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89132F0266B400A2FE9F /* FontScaleToken.swift */; };
@@ -841,7 +834,6 @@
 		C02C8CB52F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C896D2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift */; };
 		C02C8CB62F0266B400A2FE9F /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88322F0266B400A2FE9F /* TextView.swift */; };
 		C02C8CB82F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88C52F0266B400A2FE9F /* TokenViewProperties+UISlider.swift */; };
-		C02C8CB92F0266B400A2FE9F /* RectangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C892C2F0266B400A2FE9F /* RectangleShape.swift */; };
 		C02C8CBA2F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88D32F0266B400A2FE9F /* CALayer+FrontLayer.swift */; };
 		C02C8CBB2F0266B400A2FE9F /* DecorableByBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C883B2F0266B400A2FE9F /* DecorableByBackgroundColor.swift */; };
 		C02C8CBC2F0266B400A2FE9F /* DecorableByMinus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C885B2F0266B400A2FE9F /* DecorableByMinus.swift */; };
@@ -892,7 +884,6 @@
 		C02C8CEE2F0266B400A2FE9F /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C891E2F0266B400A2FE9F /* ImageSource.swift */; };
 		C02C8CEF2F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88152F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift */; };
 		C02C8CF02F0266B400A2FE9F /* AnyTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E02F0266B400A2FE9F /* AnyTokenView.swift */; };
-		C02C8CF12F0266B400A2FE9F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C892B2F0266B400A2FE9F /* CustomShape.swift */; };
 		C02C8CF22F0266B400A2FE9F /* TextInterpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88312F0266B400A2FE9F /* TextInterpolation.swift */; };
 		C02C8CF32F0266B400A2FE9F /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C895F2F0266B400A2FE9F /* Collection+Extensions.swift */; };
 		C02C8CF42F0266B400A2FE9F /* TokenViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88E22F0266B400A2FE9F /* TokenViewDSL.swift */; };
@@ -988,6 +979,24 @@
 		C02C8D5B2F0266B400A2FE9F /* Changeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C87C72F0266B400A2FE9F /* Changeable.swift */; };
 		C02C8D5C2F0266B400A2FE9F /* AlignmentDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C88342F0266B400A2FE9F /* AlignmentDecorator.swift */; };
 		C02C8D5D2F0266B400A2FE9F /* StrikethroughDecorator+TextDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C880E2F0266B400A2FE9F /* StrikethroughDecorator+TextDecorator.swift */; };
+		C03080D62FB3561600E59442 /* RectangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D42FB3561600E59442 /* RectangleShape.swift */; };
+		C03080D72FB3561600E59442 /* AnyShapeAnimatableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D02FB3561600E59442 /* AnyShapeAnimatableData.swift */; };
+		C03080D82FB3561600E59442 /* RectangleAnimatableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D32FB3561600E59442 /* RectangleAnimatableData.swift */; };
+		C03080D92FB3561600E59442 /* AnyShapeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D12FB3561600E59442 /* AnyShapeValue.swift */; };
+		C03080DA2FB3561600E59442 /* RectangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D42FB3561600E59442 /* RectangleShape.swift */; };
+		C03080DB2FB3561600E59442 /* AnyShapeAnimatableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D02FB3561600E59442 /* AnyShapeAnimatableData.swift */; };
+		C03080DC2FB3561600E59442 /* RectangleAnimatableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D32FB3561600E59442 /* RectangleAnimatableData.swift */; };
+		C03080DD2FB3561600E59442 /* AnyShapeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D12FB3561600E59442 /* AnyShapeValue.swift */; };
+		C03080DE2FB3561600E59442 /* RectangleShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D42FB3561600E59442 /* RectangleShape.swift */; };
+		C03080DF2FB3561600E59442 /* AnyShapeAnimatableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D02FB3561600E59442 /* AnyShapeAnimatableData.swift */; };
+		C03080E02FB3561600E59442 /* RectangleAnimatableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D32FB3561600E59442 /* RectangleAnimatableData.swift */; };
+		C03080E12FB3561600E59442 /* AnyShapeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080D12FB3561600E59442 /* AnyShapeValue.swift */; };
+		C03080E42FB3568700E59442 /* AdditiveArithmetic+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080E22FB3568700E59442 /* AdditiveArithmetic+Extensions.swift */; };
+		C03080E52FB3568700E59442 /* Equatable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080E32FB3568700E59442 /* Equatable+Extensions.swift */; };
+		C03080E62FB3568700E59442 /* AdditiveArithmetic+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080E22FB3568700E59442 /* AdditiveArithmetic+Extensions.swift */; };
+		C03080E72FB3568700E59442 /* Equatable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080E32FB3568700E59442 /* Equatable+Extensions.swift */; };
+		C03080E82FB3568700E59442 /* AdditiveArithmetic+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080E22FB3568700E59442 /* AdditiveArithmetic+Extensions.swift */; };
+		C03080E92FB3568700E59442 /* Equatable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03080E32FB3568700E59442 /* Equatable+Extensions.swift */; };
 		C043A2BE2DCE37D700F6C58A /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; };
 		C043A2BF2DCE37D700F6C58A /* Levitan.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0A01A4723CB92EB00AC2C3A /* Levitan.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C057F01823CB8EEB00C2D895 /* Levitan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C057F00E23CB8EEB00C2D895 /* Levitan.framework */; };
@@ -1268,7 +1277,6 @@
 		C02C88A12F0266B400A2FE9F /* ColorValue+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ColorValue+View.swift"; sourceTree = "<group>"; };
 		C02C88A22F0266B400A2FE9F /* GradientValue+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GradientValue+View.swift"; sourceTree = "<group>"; };
 		C02C88A32F0266B400A2FE9F /* ImageValue+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageValue+View.swift"; sourceTree = "<group>"; };
-		C02C88A42F0266B400A2FE9F /* ShapeValue+Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShapeValue+Shape.swift"; sourceTree = "<group>"; };
 		C02C88A62F0266B400A2FE9F /* ShadowMaskShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowMaskShape.swift; sourceTree = "<group>"; };
 		C02C88A72F0266B400A2FE9F /* ShadowShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowShape.swift; sourceTree = "<group>"; };
 		C02C88A82F0266B400A2FE9F /* StrokeShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeShape.swift; sourceTree = "<group>"; };
@@ -1373,8 +1381,6 @@
 		C02C89272F0266B400A2FE9F /* ShadowType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowType.swift; sourceTree = "<group>"; };
 		C02C89282F0266B400A2FE9F /* ShadowValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowValue.swift; sourceTree = "<group>"; };
 		C02C892A2F0266B400A2FE9F /* CapsuleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleShape.swift; sourceTree = "<group>"; };
-		C02C892B2F0266B400A2FE9F /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
-		C02C892C2F0266B400A2FE9F /* RectangleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleShape.swift; sourceTree = "<group>"; };
 		C02C892D2F0266B400A2FE9F /* ShapeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeToken.swift; sourceTree = "<group>"; };
 		C02C892E2F0266B400A2FE9F /* ShapeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeValue.swift; sourceTree = "<group>"; };
 		C02C89302F0266B400A2FE9F /* SpringAnimationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringAnimationToken.swift; sourceTree = "<group>"; };
@@ -1433,6 +1439,12 @@
 		C02C897A2F0266B400A2FE9F /* MethodSwizzler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodSwizzler.swift; sourceTree = "<group>"; };
 		C02C897B2F0266B400A2FE9F /* Nullable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nullable.swift; sourceTree = "<group>"; };
 		C02C897C2F0266B400A2FE9F /* ObjectAssociation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
+		C03080D02FB3561600E59442 /* AnyShapeAnimatableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyShapeAnimatableData.swift; sourceTree = "<group>"; };
+		C03080D12FB3561600E59442 /* AnyShapeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyShapeValue.swift; sourceTree = "<group>"; };
+		C03080D32FB3561600E59442 /* RectangleAnimatableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleAnimatableData.swift; sourceTree = "<group>"; };
+		C03080D42FB3561600E59442 /* RectangleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleShape.swift; sourceTree = "<group>"; };
+		C03080E22FB3568700E59442 /* AdditiveArithmetic+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdditiveArithmetic+Extensions.swift"; sourceTree = "<group>"; };
+		C03080E32FB3568700E59442 /* Equatable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Equatable+Extensions.swift"; sourceTree = "<group>"; };
 		C043A2CC2DCE382400F6C58A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C057F00E23CB8EEB00C2D895 /* Levitan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Levitan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C057F01223CB8EEB00C2D895 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2176,7 +2188,6 @@
 				C02C88A12F0266B400A2FE9F /* ColorValue+View.swift */,
 				C02C88A22F0266B400A2FE9F /* GradientValue+View.swift */,
 				C02C88A32F0266B400A2FE9F /* ImageValue+View.swift */,
-				C02C88A42F0266B400A2FE9F /* ShapeValue+Shape.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2510,9 +2521,9 @@
 		C02C892F2F0266B400A2FE9F /* Shape */ = {
 			isa = PBXGroup;
 			children = (
+				C03080D22FB3561600E59442 /* Any */,
+				C03080D52FB3561600E59442 /* Rectangle */,
 				C02C892A2F0266B400A2FE9F /* CapsuleShape.swift */,
-				C02C892B2F0266B400A2FE9F /* CustomShape.swift */,
-				C02C892C2F0266B400A2FE9F /* RectangleShape.swift */,
 				C02C892D2F0266B400A2FE9F /* ShapeToken.swift */,
 				C02C892E2F0266B400A2FE9F /* ShapeValue.swift */,
 			);
@@ -2685,8 +2696,10 @@
 		C02C89652F0266B400A2FE9F /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				C03080E22FB3568700E59442 /* AdditiveArithmetic+Extensions.swift */,
 				C02C895F2F0266B400A2FE9F /* Collection+Extensions.swift */,
 				C02C89602F0266B400A2FE9F /* Dictionary+Extensions.swift */,
+				C03080E32FB3568700E59442 /* Equatable+Extensions.swift */,
 				C02C89612F0266B400A2FE9F /* FloatingPoint+Extensions.swift */,
 				C02C89622F0266B400A2FE9F /* IndexPath+Extensions.swift */,
 				C02C89632F0266B400A2FE9F /* RangeReplaceableCollection+Extensions.swift */,
@@ -2764,6 +2777,24 @@
 				C02C897C2F0266B400A2FE9F /* ObjectAssociation.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		C03080D22FB3561600E59442 /* Any */ = {
+			isa = PBXGroup;
+			children = (
+				C03080D02FB3561600E59442 /* AnyShapeAnimatableData.swift */,
+				C03080D12FB3561600E59442 /* AnyShapeValue.swift */,
+			);
+			path = Any;
+			sourceTree = "<group>";
+		};
+		C03080D52FB3561600E59442 /* Rectangle */ = {
+			isa = PBXGroup;
+			children = (
+				C03080D32FB3561600E59442 /* RectangleAnimatableData.swift */,
+				C03080D42FB3561600E59442 /* RectangleShape.swift */,
+			);
+			path = Rectangle;
 			sourceTree = "<group>";
 		};
 		C057F00423CB8EEB00C2D895 = {
@@ -3124,7 +3155,6 @@
 				C02C8C312F0266B400A2FE9F /* FloatingPoint+Extensions.swift in Sources */,
 				C02C8C322F0266B400A2FE9F /* TokenTheme.swift in Sources */,
 				C02C8C332F0266B400A2FE9F /* ParagraphOtherLineIndentDecorator.swift in Sources */,
-				C02C8C342F0266B400A2FE9F /* ShapeValue+Shape.swift in Sources */,
 				C02C8C352F0266B400A2FE9F /* DecorableByDivision.swift in Sources */,
 				C02C8C372F0266B400A2FE9F /* TokenThemeView.swift in Sources */,
 				C02C8C382F0266B400A2FE9F /* FontScaleToken.swift in Sources */,
@@ -3244,6 +3274,8 @@
 				C00508C22F2139F6006016DE /* ForegroundGradientModifier+ComponentTokenModifier.swift in Sources */,
 				C00508C32F2139F6006016DE /* ComponentID.swift in Sources */,
 				C00508C42F2139F6006016DE /* ComponentView.swift in Sources */,
+				C03080E82FB3568700E59442 /* AdditiveArithmetic+Extensions.swift in Sources */,
+				C03080E92FB3568700E59442 /* Equatable+Extensions.swift in Sources */,
 				C00508C52F2139F6006016DE /* BackgroundColorModifier+ComponentTokenModifier.swift in Sources */,
 				C00508C62F2139F6006016DE /* FallbackComponentCache.swift in Sources */,
 				C00508C72F2139F6006016DE /* ComponentSubviewAppearanceStorage.swift in Sources */,
@@ -3261,6 +3293,10 @@
 				C00508D32F2139F6006016DE /* AnimationModifier+ComponentTokenModifier.swift in Sources */,
 				C00508D42F2139F6006016DE /* ComponentTokenModifier.swift in Sources */,
 				C00508D52F2139F6006016DE /* FallbackComponentCacheSize.swift in Sources */,
+				C03080DE2FB3561600E59442 /* RectangleShape.swift in Sources */,
+				C03080DF2FB3561600E59442 /* AnyShapeAnimatableData.swift in Sources */,
+				C03080E02FB3561600E59442 /* RectangleAnimatableData.swift in Sources */,
+				C03080E12FB3561600E59442 /* AnyShapeValue.swift in Sources */,
 				C00508D62F2139F6006016DE /* FallbackComponentCacheKey.swift in Sources */,
 				C00508D72F2139F6006016DE /* ComponentPadding.swift in Sources */,
 				C00508D82F2139F6006016DE /* ComponentHostingController.swift in Sources */,
@@ -3294,7 +3330,6 @@
 				C02C8CB52F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */,
 				C02C8CB62F0266B400A2FE9F /* TextView.swift in Sources */,
 				C02C8CB82F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */,
-				C02C8CB92F0266B400A2FE9F /* RectangleShape.swift in Sources */,
 				C02C8CBA2F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */,
 				C02C8CBB2F0266B400A2FE9F /* DecorableByBackgroundColor.swift in Sources */,
 				C02C8CBC2F0266B400A2FE9F /* DecorableByMinus.swift in Sources */,
@@ -3345,7 +3380,6 @@
 				C02C8CEE2F0266B400A2FE9F /* ImageSource.swift in Sources */,
 				C02C8CEF2F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift in Sources */,
 				C02C8CF02F0266B400A2FE9F /* AnyTokenView.swift in Sources */,
-				C02C8CF12F0266B400A2FE9F /* CustomShape.swift in Sources */,
 				C02C8CF22F0266B400A2FE9F /* TextInterpolation.swift in Sources */,
 				C02C8CF32F0266B400A2FE9F /* Collection+Extensions.swift in Sources */,
 				C02C8CF42F0266B400A2FE9F /* TokenViewDSL.swift in Sources */,
@@ -3483,7 +3517,6 @@
 				C02C899B2F0266B400A2FE9F /* FloatingPoint+Extensions.swift in Sources */,
 				C02C899C2F0266B400A2FE9F /* TokenTheme.swift in Sources */,
 				C02C899D2F0266B400A2FE9F /* ParagraphOtherLineIndentDecorator.swift in Sources */,
-				C02C899E2F0266B400A2FE9F /* ShapeValue+Shape.swift in Sources */,
 				C02C899F2F0266B400A2FE9F /* DecorableByDivision.swift in Sources */,
 				C02C89A12F0266B400A2FE9F /* TokenThemeView.swift in Sources */,
 				C02C89A22F0266B400A2FE9F /* FontScaleToken.swift in Sources */,
@@ -3603,6 +3636,8 @@
 				C00508902F2139F6006016DE /* ForegroundGradientModifier+ComponentTokenModifier.swift in Sources */,
 				C00508912F2139F6006016DE /* ComponentID.swift in Sources */,
 				C00508922F2139F6006016DE /* ComponentView.swift in Sources */,
+				C03080E62FB3568700E59442 /* AdditiveArithmetic+Extensions.swift in Sources */,
+				C03080E72FB3568700E59442 /* Equatable+Extensions.swift in Sources */,
 				C00508932F2139F6006016DE /* BackgroundColorModifier+ComponentTokenModifier.swift in Sources */,
 				C00508942F2139F6006016DE /* FallbackComponentCache.swift in Sources */,
 				C00508952F2139F6006016DE /* ComponentSubviewAppearanceStorage.swift in Sources */,
@@ -3620,6 +3655,10 @@
 				C00508A12F2139F6006016DE /* AnimationModifier+ComponentTokenModifier.swift in Sources */,
 				C00508A22F2139F6006016DE /* ComponentTokenModifier.swift in Sources */,
 				C00508A32F2139F6006016DE /* FallbackComponentCacheSize.swift in Sources */,
+				C03080DA2FB3561600E59442 /* RectangleShape.swift in Sources */,
+				C03080DB2FB3561600E59442 /* AnyShapeAnimatableData.swift in Sources */,
+				C03080DC2FB3561600E59442 /* RectangleAnimatableData.swift in Sources */,
+				C03080DD2FB3561600E59442 /* AnyShapeValue.swift in Sources */,
 				C00508A42F2139F6006016DE /* FallbackComponentCacheKey.swift in Sources */,
 				C00508A52F2139F6006016DE /* ComponentPadding.swift in Sources */,
 				C00508A62F2139F6006016DE /* ComponentHostingController.swift in Sources */,
@@ -3653,7 +3692,6 @@
 				C02C8A1F2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */,
 				C02C8A202F0266B400A2FE9F /* TextView.swift in Sources */,
 				C02C8A222F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */,
-				C02C8A232F0266B400A2FE9F /* RectangleShape.swift in Sources */,
 				C02C8A242F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */,
 				C02C8A252F0266B400A2FE9F /* DecorableByBackgroundColor.swift in Sources */,
 				C02C8A262F0266B400A2FE9F /* DecorableByMinus.swift in Sources */,
@@ -3704,7 +3742,6 @@
 				C02C8A582F0266B400A2FE9F /* ImageSource.swift in Sources */,
 				C02C8A592F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift in Sources */,
 				C02C8A5A2F0266B400A2FE9F /* AnyTokenView.swift in Sources */,
-				C02C8A5B2F0266B400A2FE9F /* CustomShape.swift in Sources */,
 				C02C8A5C2F0266B400A2FE9F /* TextInterpolation.swift in Sources */,
 				C02C8A5D2F0266B400A2FE9F /* Collection+Extensions.swift in Sources */,
 				C02C8A5E2F0266B400A2FE9F /* TokenViewDSL.swift in Sources */,
@@ -3842,7 +3879,6 @@
 				C02C8AE62F0266B400A2FE9F /* FloatingPoint+Extensions.swift in Sources */,
 				C02C8AE72F0266B400A2FE9F /* TokenTheme.swift in Sources */,
 				C02C8AE82F0266B400A2FE9F /* ParagraphOtherLineIndentDecorator.swift in Sources */,
-				C02C8AE92F0266B400A2FE9F /* ShapeValue+Shape.swift in Sources */,
 				C02C8AEA2F0266B400A2FE9F /* DecorableByDivision.swift in Sources */,
 				C02C8AEC2F0266B400A2FE9F /* TokenThemeView.swift in Sources */,
 				C02C8AED2F0266B400A2FE9F /* FontScaleToken.swift in Sources */,
@@ -3926,6 +3962,10 @@
 				C02C8B3D2F0266B400A2FE9F /* CGPoint+TokenValue.swift in Sources */,
 				C02C8B3E2F0266B400A2FE9F /* Array+TokenValue.swift in Sources */,
 				C02C8B3F2F0266B400A2FE9F /* SpringAnimationValue.swift in Sources */,
+				C03080D62FB3561600E59442 /* RectangleShape.swift in Sources */,
+				C03080D72FB3561600E59442 /* AnyShapeAnimatableData.swift in Sources */,
+				C03080D82FB3561600E59442 /* RectangleAnimatableData.swift in Sources */,
+				C03080D92FB3561600E59442 /* AnyShapeValue.swift in Sources */,
 				C02C8B402F0266B400A2FE9F /* ViewNamespace.swift in Sources */,
 				C02C8B412F0266B400A2FE9F /* TypographyStrokeValue.swift in Sources */,
 				C02C8B442F0266B400A2FE9F /* LineBreakModeDecorator.swift in Sources */,
@@ -3962,7 +4002,6 @@
 				C02C8B6A2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift in Sources */,
 				C02C8B6B2F0266B400A2FE9F /* TextView.swift in Sources */,
 				C02C8B6D2F0266B400A2FE9F /* TokenViewProperties+UISlider.swift in Sources */,
-				C02C8B6E2F0266B400A2FE9F /* RectangleShape.swift in Sources */,
 				C02C8B6F2F0266B400A2FE9F /* CALayer+FrontLayer.swift in Sources */,
 				C02C8B702F0266B400A2FE9F /* DecorableByBackgroundColor.swift in Sources */,
 				C02C8B712F0266B400A2FE9F /* DecorableByMinus.swift in Sources */,
@@ -4013,7 +4052,6 @@
 				C02C8BA32F0266B400A2FE9F /* ImageSource.swift in Sources */,
 				C02C8BA42F0266B400A2FE9F /* EnvironmentValues+TextAnimation.swift in Sources */,
 				C02C8BA52F0266B400A2FE9F /* AnyTokenView.swift in Sources */,
-				C02C8BA62F0266B400A2FE9F /* CustomShape.swift in Sources */,
 				C02C8BA72F0266B400A2FE9F /* TextInterpolation.swift in Sources */,
 				C02C8BA82F0266B400A2FE9F /* Collection+Extensions.swift in Sources */,
 				C02C8BA92F0266B400A2FE9F /* TokenViewDSL.swift in Sources */,
@@ -4083,6 +4121,8 @@
 				C02C8BF32F0266B400A2FE9F /* UICollectionView+Extensions.swift in Sources */,
 				C02C8BF42F0266B400A2FE9F /* TokenViewProperties.swift in Sources */,
 				C02C8BF52F0266B400A2FE9F /* DecorableByParagraphFirstLineIndent.swift in Sources */,
+				C03080E42FB3568700E59442 /* AdditiveArithmetic+Extensions.swift in Sources */,
+				C03080E52FB3568700E59442 /* Equatable+Extensions.swift in Sources */,
 				C02C8BF62F0266B400A2FE9F /* UIImage+TextPart.swift in Sources */,
 				C02C8BF72F0266B400A2FE9F /* TypographyLineValue.swift in Sources */,
 				C02C8BF82F0266B400A2FE9F /* DiffableSection.swift in Sources */,

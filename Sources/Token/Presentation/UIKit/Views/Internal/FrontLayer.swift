@@ -3,7 +3,7 @@ import QuartzCore
 
 internal final class FrontLayer: CALayer {
 
-    internal var shape: ShapeValue = .rectangle {
+    internal var shape: AnyShapeValue = .rectangle {
         didSet {
             updateShadowLayers()
             updateStrokeLayer()

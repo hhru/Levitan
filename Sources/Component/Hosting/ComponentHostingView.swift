@@ -83,14 +83,31 @@ extension ComponentHostingView {
 
         addSubview(hostingController.view)
 
-        let constraints = [
-            hostingController.view.leadingAnchor.constraint(equalTo: leadingAnchor),
-            hostingController.view.topAnchor.constraint(equalTo: topAnchor),
-            hostingController.view.trailingAnchor.constraint(equalTo: trailingAnchor),
-            hostingController.view.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ]
+        hostingController
+            .view
+            .leadingAnchor
+            .constraint(equalTo: leadingAnchor)
+            .activate()
 
-        NSLayoutConstraint.activate(constraints)
+        hostingController
+            .view
+            .topAnchor
+            .constraint(equalTo: topAnchor)
+            .activate()
+
+        hostingController
+            .view
+            .trailingAnchor
+            .constraint(equalTo: trailingAnchor)
+            .priority(.almostRequired)
+            .activate()
+
+        hostingController
+            .view
+            .bottomAnchor
+            .constraint(equalTo: bottomAnchor)
+            .priority(.almostRequired)
+            .activate()
 
         if let parentViewController {
             hostingController.didMove(toParent: parentViewController)

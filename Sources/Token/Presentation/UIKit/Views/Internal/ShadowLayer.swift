@@ -19,7 +19,7 @@ internal final class ShadowLayer: CALayer {
         }
     }
 
-    internal var shape: ShapeValue {
+    internal var shape: AnyShapeValue {
         didSet {
             if shape != oldValue {
                 updateShadowPathIfPossible()
@@ -30,7 +30,7 @@ internal final class ShadowLayer: CALayer {
     internal init(
         shadow: ShadowValue,
         stroke: StrokeValue?,
-        shape: ShapeValue
+        shape: AnyShapeValue
     ) {
         self.shadow = shadow
         self.stroke = stroke

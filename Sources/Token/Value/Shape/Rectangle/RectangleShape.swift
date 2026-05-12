@@ -1,13 +1,16 @@
 import CoreGraphics
-import Foundation
+import SwiftUI
 
-public struct RectangleShape: CustomShape, Hashable {
+public struct RectangleShape: Hashable {
 
-    public let corners: CornersValue
+    public var corners: CornersValue
 
     public init(corners: CornersValue) {
         self.corners = corners
     }
+}
+
+extension RectangleShape {
 
     private func addTopLeftArc(
         to path: CGMutablePath,
@@ -117,6 +120,27 @@ public struct RectangleShape: CustomShape, Hashable {
 
         return CGPath(rect: rect, transform: nil)
     }
+}
+
+extension RectangleShape: ShapeValue {
+
+    public var animatableData: RectangleAnimatableData {
+        get {
+            RectangleAnimatableData(
+                topLeft: corners.topLeft,
+                topRight: corners.topRight,
+                bottomLeft: corners.bottomLeft,
+                bottomRight: corners.bottomRight
+            )
+        }
+
+        set {
+            corners.topLeft = newValue.topLeft
+            corners.topRight = newValue.topRight
+            corners.bottomLeft = newValue.bottomLeft
+            corners.bottomRight = newValue.bottomRight
+        }
+    }
 
     public func path(size: CGSize, insets: CGFloat) -> CGPath {
         guard corners != .rectangular else {
@@ -138,12 +162,12 @@ public struct RectangleShape: CustomShape, Hashable {
     }
 }
 
-extension ShapeValue {
+extension AnyShapeValue {
 
     public static let rectangle = rectangle(corners: .rectangular)
 
     public static func rectangle(corners: CornersValue) -> Self {
-        Self.custom(RectangleShape(corners: corners))
+        Self(RectangleShape(corners: corners))
     }
 }
 
@@ -152,17 +176,15 @@ extension ShapeToken {
     public static let rectangle = rectangle(corners: .rectangular)
 
     public static func rectangle(corners: CornersToken) -> Self {
-        let rectangle = Token<RectangleShape>(traits: [corners]) { theme in
-            RectangleShape(corners: corners.resolve(for: theme))
+        ShapeToken(traits: [corners]) { theme in
+            .rectangle(corners: corners.resolve(for: theme))
         }
-
-        return .custom(rectangle)
     }
 
     public static func rounded(
         radius: CornerRadiusToken,
         mask: CornersMask = .all
     ) -> Self {
-        rectangle(corners: CornersToken(radius: radius, mask: mask) )
+        rectangle(corners: CornersToken(radius: radius, mask: mask))
     }
 }

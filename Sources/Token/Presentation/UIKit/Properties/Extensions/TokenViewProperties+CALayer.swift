@@ -51,7 +51,7 @@ extension TokenViewProperties where View: CALayer {
         }
     }
 
-    public var shape: TokenViewProperty<ShapeValue, Void> {
+    public var shape: TokenViewProperty<AnyShapeValue, Void> {
         property { layer, value in
             layer.updateShape(value ?? .rectangle)
         }

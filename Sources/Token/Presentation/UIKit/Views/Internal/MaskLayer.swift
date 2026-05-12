@@ -3,7 +3,7 @@ import QuartzCore
 
 internal final class MaskLayer: CAShapeLayer {
 
-    internal var shape: ShapeValue = .rectangle {
+    internal var shape: AnyShapeValue = .rectangle {
         didSet {
             if shape != oldValue {
                 updatePathIfPossible()

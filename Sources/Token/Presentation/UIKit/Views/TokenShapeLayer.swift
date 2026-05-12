@@ -3,7 +3,7 @@ import QuartzCore
 
 open class TokenShapeLayer: CALayer {
 
-    public var shape: ShapeValue = .rectangle {
+    public var shape: AnyShapeValue = .rectangle {
         didSet { updateSublayersMask() }
     }
 
