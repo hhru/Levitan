@@ -18,13 +18,5 @@ extension TextPart {
     public var tapAction: (@Sendable @MainActor () -> Void)? {
         nil
     }
-
-    internal func isEqual(to other: any TextPart) -> Bool {
-        guard let other = other as? Self else {
-            return false
-        }
-
-        return self == other
-    }
 }
 #endif

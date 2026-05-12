@@ -66,7 +66,7 @@ extension TokenViewProperties where View: UIView {
         }
     }
 
-    public var shape: TokenViewProperty<ShapeValue, Void> {
+    public var shape: TokenViewProperty<AnyShapeValue, Void> {
         property { view, value in
             view.layer.updateShape(value ?? .rectangle)
         }

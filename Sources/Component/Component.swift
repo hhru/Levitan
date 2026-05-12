@@ -144,14 +144,6 @@ extension Component {
 
 extension Component {
 
-    internal nonisolated func isEqual(to other: any Component) -> Bool {
-        guard let other = other as? Self else {
-            return false
-        }
-
-        return self == other
-    }
-
     internal func eraseToAnyView() -> AnyView {
         AnyView(self)
     }

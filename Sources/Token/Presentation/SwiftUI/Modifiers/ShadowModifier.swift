@@ -57,7 +57,7 @@ extension ShadowModifier {
     private func dropShadowBody(
         content: Content,
         shadow: ShadowValue,
-        shape: ShapeValue,
+        shape: AnyShapeValue,
         shapeInsets: CGFloat
     ) -> some View {
         let color = shadow.color?.color ?? .clear
@@ -92,7 +92,7 @@ extension ShadowModifier {
     private func innerShadowBody(
         content: Content,
         shadow: ShadowValue,
-        shape: ShapeValue,
+        shape: AnyShapeValue,
         shapeInsets: CGFloat
     ) -> some View {
         let color = shadow.color?.color ?? .clear

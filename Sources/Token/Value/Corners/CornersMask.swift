@@ -59,6 +59,11 @@ extension CornersMask {
     public static let bottomLeft = Self(rawValue: 1 << 2)
     public static let bottomRight = Self(rawValue: 1 << 3)
 
+    public static let top: Self = [.topLeft, .topRight]
+    public static let bottom: Self = [.bottomLeft, .bottomRight]
+    public static let left: Self = [.topLeft, .bottomLeft]
+    public static let right: Self = [.topRight, .bottomRight]
+
     public static let all: Self = [
         .topLeft,
         .topRight,

@@ -1,7 +1,7 @@
 import CoreGraphics
-import Foundation
+import SwiftUI
 
-public struct CapsuleShape: CustomShape, Hashable {
+public struct CapsuleShape: Hashable {
 
     private func addTopLeftArc(to path: CGMutablePath, radius: CGFloat, size: CGSize) {
         guard radius > .leastNonzeroMagnitude else {
@@ -66,6 +66,9 @@ public struct CapsuleShape: CustomShape, Hashable {
             clockwise: false
         )
     }
+}
+
+extension CapsuleShape: ShapeValue {
 
     public func path(size: CGSize, insets: CGFloat) -> CGPath {
         let path = CGMutablePath()
@@ -95,14 +98,14 @@ public struct CapsuleShape: CustomShape, Hashable {
     }
 }
 
-extension ShapeValue {
+extension AnyShapeValue {
 
-    public static let capsule = Self.custom(CapsuleShape())
+    public static let capsule = Self(CapsuleShape())
 }
 
 extension ShapeToken {
 
     public static var capsule: Self {
-        .custom(.value(CapsuleShape()))
+        .value(.capsule)
     }
 }

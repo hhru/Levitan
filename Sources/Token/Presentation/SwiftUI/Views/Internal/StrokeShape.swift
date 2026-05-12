@@ -5,7 +5,7 @@ import SwiftUI
 internal struct StrokeShape: Shape {
 
     internal let stroke: StrokeValue
-    internal let shape: ShapeValue
+    internal let shape: AnyShapeValue
 
     private func path(in rect: CGRect, insets: CGFloat) -> CGPath {
         let path = shape.path(size: rect.size, insets: insets)

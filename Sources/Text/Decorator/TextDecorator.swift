@@ -19,17 +19,6 @@ extension TextDecorator where
     }
 }
 
-extension TextDecorator {
-
-    internal func isEqual(to other: any TextDecorator) -> Bool {
-        guard let other = other as? Self else {
-            return false
-        }
-
-        return self == other
-    }
-}
-
 extension Array: TextDecorator where Element: TextDecorator {
 
     public func decorate(typography: TypographyValue, context: TextContext) -> TypographyValue {

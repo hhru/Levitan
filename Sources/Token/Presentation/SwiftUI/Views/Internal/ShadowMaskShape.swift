@@ -6,7 +6,7 @@ internal struct ShadowMaskShape: Shape {
 
     internal let shadow: ShadowValue
 
-    internal let shape: ShapeValue
+    internal let shape: AnyShapeValue
     internal let shapeInsets: CGFloat
 
     private func dropShadowPath(in rect: CGRect) -> Path {
