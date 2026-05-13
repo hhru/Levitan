@@ -16,3 +16,14 @@ extension TokenModifiedView: TokenShapedView where Modifier: TokenShapedModifier
         modifier.shapeInsets
     }
 }
+
+extension Token: TokenShapedView where Value == AnyShapeValue {
+
+    public var shape: ShapeToken? {
+        self
+    }
+
+    public var shapeInsets: SpacingToken? {
+        .zero
+    }
+}
