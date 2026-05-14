@@ -75,7 +75,7 @@ internal final class StrokeLayer: CAShapeLayer {
     }
 
     private func updateStroke() {
-        fillColor = stroke.color?.cgColor
+        fillColor = stroke.color.cgColor
 
         updatePathIfPossible()
     }

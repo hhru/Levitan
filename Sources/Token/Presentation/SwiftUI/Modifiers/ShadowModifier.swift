@@ -60,7 +60,7 @@ extension ShadowModifier {
         shape: AnyShapeValue,
         shapeInsets: CGFloat
     ) -> some View {
-        let color = shadow.color?.color ?? .clear
+        let color = shadow.color.color
 
         let shadowShape = ShadowShape(
             shadow: shadow,
@@ -95,7 +95,7 @@ extension ShadowModifier {
         shape: AnyShapeValue,
         shapeInsets: CGFloat
     ) -> some View {
-        let color = shadow.color?.color ?? .clear
+        let color = shadow.color.color
 
         let shadowShape = ShadowShape(
             shadow: shadow,

@@ -20,7 +20,7 @@ public struct TypographyLineValue:
 
 extension TypographyLineValue: DecorableByColor {
 
-    public func color(_ color: ColorValue?) -> Self {
+    public func color(_ color: ColorValue) -> Self {
         changing { $0.color = color }
     }
 }

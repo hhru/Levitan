@@ -7,13 +7,13 @@ extension StrokeToken {
     public init(
         type: StrokeType,
         width: StrokeWidthToken,
-        color: ColorToken? = nil
+        color: ColorToken = .black
     ) {
         self = Token(traits: [type, width, color]) { theme in
             Value(
                 type: type,
                 width: width.resolve(for: theme),
-                color: color?.resolve(for: theme)
+                color: color.resolve(for: theme)
             )
         }
     }
@@ -22,12 +22,12 @@ extension StrokeToken {
 extension StrokeToken {
 
     public static var zero: Self {
-        .inside(width: .zero, color: nil)
+        .inside(width: .zero)
     }
 
     public static func inside(
         width: StrokeWidthToken,
-        color: ColorToken? = nil
+        color: ColorToken = .black
     ) -> Self {
         Self(
             type: .inside,
@@ -38,7 +38,7 @@ extension StrokeToken {
 
     public static func outside(
         width: StrokeWidthToken,
-        color: ColorToken? = nil
+        color: ColorToken = .black
     ) -> Self {
         Self(
             type: .outside,
@@ -49,7 +49,7 @@ extension StrokeToken {
 
     public static func center(
         width: StrokeWidthToken,
-        color: ColorToken? = nil
+        color: ColorToken = .black
     ) -> Self {
         Self(
             type: .center,

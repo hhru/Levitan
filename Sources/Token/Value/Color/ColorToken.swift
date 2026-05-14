@@ -73,4 +73,12 @@ extension ColorToken {
             alpha: .zero
         )
     }
+
+    public static var black: Self {
+        Self(
+            red: .zero,
+            green: .zero,
+            blue: .zero
+        )
+    }
 }

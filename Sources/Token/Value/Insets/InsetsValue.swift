@@ -103,9 +103,7 @@ public struct InsetsValue:
     }
 }
 
-extension InsetsValue:
-    DecorableByPlus,
-    DecorableByMinus {
+extension InsetsValue: DecorableByPlus {
 
     public static func + (lhs: Self, rhs: Self) -> Self {
         Self(
@@ -115,6 +113,9 @@ extension InsetsValue:
             trailing: lhs.trailing + rhs.trailing
         )
     }
+}
+
+extension InsetsValue: DecorableByMinus {
 
     public static func - (lhs: Self, rhs: Self) -> Self {
         Self(
@@ -123,6 +124,28 @@ extension InsetsValue:
             bottom: lhs.bottom - rhs.bottom,
             trailing: lhs.trailing - rhs.trailing
         )
+    }
+}
+
+extension InsetsValue: Animatable {
+
+    public var animatableData: AnimatablePair<
+        AnimatablePair<CGFloat, CGFloat>,
+        AnimatablePair<CGFloat, CGFloat>
+    > {
+        get {
+            AnimatablePair(
+                AnimatablePair(top, leading),
+                AnimatablePair(bottom, trailing)
+            )
+        }
+
+        set {
+            top = newValue.first.first
+            leading = newValue.first.second
+            bottom = newValue.second.first
+            trailing = newValue.second.second
+        }
     }
 }
 

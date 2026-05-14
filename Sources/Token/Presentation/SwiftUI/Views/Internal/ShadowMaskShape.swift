@@ -2,12 +2,13 @@
 import UIKit
 import SwiftUI
 
+@Animatable
 internal struct ShadowMaskShape: Shape {
 
-    internal let shadow: ShadowValue
+    internal var shadow: ShadowValue
 
-    internal let shape: AnyShapeValue
-    internal let shapeInsets: CGFloat
+    internal var shape: AnyShapeValue
+    internal var shapeInsets: CGFloat
 
     private func dropShadowPath(in rect: CGRect) -> Path {
         let insets = shapeInsets

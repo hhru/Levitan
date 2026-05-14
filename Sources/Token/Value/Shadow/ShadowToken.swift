@@ -7,7 +7,7 @@ extension ShadowToken {
 
     public init(
         type: ShadowType,
-        color: ColorToken?,
+        color: ColorToken,
         offset: CGSize,
         radius: CGFloat,
         spread: CGFloat = .zero
@@ -15,7 +15,7 @@ extension ShadowToken {
         self = Token(traits: [type, color, offset, radius, spread]) { theme in
             Value(
                 type: type,
-                color: color?.resolve(for: theme),
+                color: color.resolve(for: theme),
                 offset: offset,
                 radius: radius,
                 spread: spread
@@ -25,7 +25,7 @@ extension ShadowToken {
 
     public init(
         type: ShadowType,
-        color: ColorToken?,
+        color: ColorToken,
         offset: CGSize,
         blur: CGFloat,
         spread: CGFloat = .zero
@@ -45,14 +45,14 @@ extension ShadowToken {
     public static var clear: Self {
         Self(
             type: .drop,
-            color: nil,
+            color: .clear,
             offset: .zero,
             radius: .zero
         )
     }
 
     public static func drop(
-        color: ColorToken?,
+        color: ColorToken,
         offset: CGSize,
         radius: CGFloat,
         spread: CGFloat = .zero
@@ -67,7 +67,7 @@ extension ShadowToken {
     }
 
     public static func drop(
-        color: ColorToken?,
+        color: ColorToken,
         offset: CGSize,
         blur: CGFloat,
         spread: CGFloat = .zero
@@ -82,7 +82,7 @@ extension ShadowToken {
     }
 
     public static func inner(
-        color: ColorToken?,
+        color: ColorToken,
         offset: CGSize,
         radius: CGFloat,
         spread: CGFloat = .zero
@@ -97,7 +97,7 @@ extension ShadowToken {
     }
 
     public static func inner(
-        color: ColorToken?,
+        color: ColorToken,
         offset: CGSize,
         blur: CGFloat,
         spread: CGFloat = .zero

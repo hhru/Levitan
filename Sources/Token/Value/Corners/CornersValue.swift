@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 
 public struct CornersValue:
     TokenValue,
@@ -49,6 +49,28 @@ public struct CornersValue:
 
     public init(floatLiteral radius: Double) {
         self.init(radius: CGFloat(radius))
+    }
+}
+
+extension CornersValue: Animatable {
+
+    public var animatableData: AnimatablePair<
+        AnimatablePair<CGFloat, CGFloat>,
+        AnimatablePair<CGFloat, CGFloat>
+    > {
+        get {
+            AnimatablePair(
+                AnimatablePair(topLeft, topRight),
+                AnimatablePair(bottomLeft, bottomRight)
+            )
+        }
+
+        set {
+            topLeft = newValue.first.first
+            topRight = newValue.first.second
+            bottomLeft = newValue.second.first
+            bottomRight = newValue.second.second
+        }
     }
 }
 

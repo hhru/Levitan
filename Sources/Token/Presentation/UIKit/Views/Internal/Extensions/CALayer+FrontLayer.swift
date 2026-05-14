@@ -97,10 +97,10 @@ extension CALayer {
             return setupFrontLayerIfNeeded()
         }
 
-        shadowColor = shadow.color?.alpha(1.0).cgColor ?? .black
+        shadowColor = shadow.color.alpha(1.0).cgColor
         shadowOffset = shadow.offset
         shadowRadius = shadow.radius
-        shadowOpacity = Float(shadow.color?.alpha ?? .zero)
+        shadowOpacity = Float(shadow.color.alpha)
     }
 
     #if swift(<6.0)
@@ -129,7 +129,7 @@ extension CALayer {
         }
 
         borderWidth = stroke.width
-        borderColor = stroke.color?.cgColor ?? .black
+        borderColor = stroke.color.cgColor
     }
 }
 #endif

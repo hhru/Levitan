@@ -1,13 +1,13 @@
-import CoreGraphics
-import Foundation
+import SwiftUI
 
 public struct ShadowValue:
     TokenValue,
     Changeable,
     Sendable {
 
-    public var type: ShadowType
-    public var color: ColorValue?
+    public let type: ShadowType
+
+    public var color: ColorValue
     public var offset: CGSize
     public var radius: CGFloat
     public var spread: CGFloat
@@ -17,12 +17,12 @@ public struct ShadowValue:
     }
 
     public var isClear: Bool {
-        color?.isClear ?? true
+        color.isClear
     }
 
     public init(
         type: ShadowType,
-        color: ColorValue?,
+        color: ColorValue,
         offset: CGSize,
         radius: CGFloat,
         spread: CGFloat = .zero
@@ -36,7 +36,7 @@ public struct ShadowValue:
 
     public init(
         type: ShadowType,
-        color: ColorValue?,
+        color: ColorValue,
         offset: CGSize,
         blur: CGFloat,
         spread: CGFloat = .zero
@@ -53,8 +53,36 @@ public struct ShadowValue:
 
 extension ShadowValue: DecorableByColor {
 
-    public func color(_ color: ColorValue?) -> Self {
+    public func color(_ color: ColorValue) -> Self {
         changing { $0.color = color }
+    }
+}
+
+extension ShadowValue: Animatable {
+
+    public var animatableData: AnimatablePair<
+        AnimatablePair<ColorValue.AnimatableData, CGSize.AnimatableData>,
+        AnimatablePair<CGFloat, CGFloat>
+    > {
+        get {
+            AnimatablePair(
+                AnimatablePair(
+                    color.animatableData,
+                    offset.animatableData
+                ),
+                AnimatablePair(
+                    radius,
+                    spread
+                )
+            )
+        }
+
+        set {
+            color.animatableData = newValue.first.first
+            offset.animatableData = newValue.first.second
+            radius = newValue.second.first
+            spread = newValue.second.second
+        }
     }
 }
 
@@ -63,14 +91,14 @@ extension ShadowValue {
     public static var clear: Self {
         Self(
             type: .drop,
-            color: nil,
+            color: .clear,
             offset: .zero,
             radius: .zero
         )
     }
 
     public static func drop(
-        color: ColorValue?,
+        color: ColorValue,
         offset: CGSize,
         radius: CGFloat,
         spread: CGFloat = .zero
@@ -85,7 +113,7 @@ extension ShadowValue {
     }
 
     public static func drop(
-        color: ColorValue?,
+        color: ColorValue,
         offset: CGSize,
         blur: CGFloat,
         spread: CGFloat = .zero
@@ -100,7 +128,7 @@ extension ShadowValue {
     }
 
     public static func inner(
-        color: ColorValue?,
+        color: ColorValue,
         offset: CGSize,
         radius: CGFloat,
         spread: CGFloat = .zero
@@ -115,7 +143,7 @@ extension ShadowValue {
     }
 
     public static func inner(
-        color: ColorValue?,
+        color: ColorValue,
         offset: CGSize,
         blur: CGFloat,
         spread: CGFloat = .zero
