@@ -20,7 +20,7 @@ extension StrokeModifier: TokenViewModifier {
     public func body(content: Content, theme: TokenTheme) -> some View {
         if let stroke = stroke?.resolve(for: theme) {
             let shape = shape?.resolve(for: theme) ?? .rectangle
-            let color = stroke.color?.color ?? .black
+            let color = stroke.color.color
 
             let strokeShape = StrokeShape(
                 stroke: stroke,

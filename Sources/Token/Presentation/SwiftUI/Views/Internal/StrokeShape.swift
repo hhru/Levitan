@@ -2,10 +2,14 @@
 import UIKit
 import SwiftUI
 
-internal struct StrokeShape: Shape {
+@Animatable
+internal struct StrokeShape {
 
-    internal let stroke: StrokeValue
-    internal let shape: AnyShapeValue
+    internal var stroke: StrokeValue
+    internal var shape: AnyShapeValue
+}
+
+extension StrokeShape {
 
     private func path(in rect: CGRect, insets: CGFloat) -> CGPath {
         let path = shape.path(size: rect.size, insets: insets)
@@ -17,6 +21,9 @@ internal struct StrokeShape: Shape {
 
         return path.copy(using: &translation) ?? path
     }
+}
+
+extension StrokeShape: Shape {
 
     internal func path(in rect: CGRect) -> Path {
         let insets = stroke.insets

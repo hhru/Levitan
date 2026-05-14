@@ -1,14 +1,14 @@
-import CoreGraphics
-import Foundation
+import SwiftUI
 
 public struct StrokeValue:
     TokenValue,
     Changeable,
     Sendable {
 
-    public var type: StrokeType
+    public let type: StrokeType
+
     public var width: CGFloat
-    public var color: ColorValue?
+    public var color: ColorValue
 
     public var insets: CGFloat {
         switch type {
@@ -30,7 +30,7 @@ public struct StrokeValue:
     public init(
         type: StrokeType,
         width: CGFloat,
-        color: ColorValue? = nil
+        color: ColorValue = .black
     ) {
         self.type = type
         self.width = width
@@ -40,20 +40,37 @@ public struct StrokeValue:
 
 extension StrokeValue: DecorableByColor {
 
-    public func color(_ color: ColorValue?) -> Self {
+    public func color(_ color: ColorValue) -> Self {
         changing { $0.color = color }
+    }
+}
+
+extension StrokeValue: Animatable {
+
+    public var animatableData: AnimatablePair<CGFloat, ColorValue.AnimatableData> {
+        get {
+            AnimatablePair(
+                width,
+                color.animatableData
+            )
+        }
+
+        set {
+            width = newValue.first
+            color.animatableData = newValue.second
+        }
     }
 }
 
 extension StrokeValue {
 
     public static var zero: Self {
-        .inside(width: .zero, color: nil)
+        .inside(width: .zero)
     }
 
     public static func inside(
         width: CGFloat,
-        color: ColorValue? = nil
+        color: ColorValue = .black
     ) -> Self {
         Self(
             type: .inside,
@@ -64,7 +81,7 @@ extension StrokeValue {
 
     public static func outside(
         width: CGFloat,
-        color: ColorValue? = nil
+        color: ColorValue = .black
     ) -> Self {
         Self(
             type: .outside,
@@ -75,7 +92,7 @@ extension StrokeValue {
 
     public static func center(
         width: CGFloat,
-        color: ColorValue? = nil
+        color: ColorValue = .black
     ) -> Self {
         Self(
             type: .center,

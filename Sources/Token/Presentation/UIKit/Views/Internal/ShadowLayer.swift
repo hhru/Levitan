@@ -163,10 +163,10 @@ internal final class ShadowLayer: CALayer {
     }
 
     private func updateShadow() {
-        shadowColor = shadow.color?.alpha(1.0).cgColor ?? .black
+        shadowColor = shadow.color.alpha(1.0).cgColor
         shadowOffset = shadow.offset
         shadowRadius = shadow.radius
-        shadowOpacity = Float(shadow.color?.alpha ?? .zero)
+        shadowOpacity = Float(shadow.color.alpha)
 
         updateShadowPathIfPossible()
     }

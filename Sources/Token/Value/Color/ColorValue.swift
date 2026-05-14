@@ -162,16 +162,39 @@ public struct ColorValue:
     }
 }
 
-extension ColorValue:
-    DecorableByAlpha,
-    DecorableByOpacity {
+extension ColorValue: DecorableByAlpha {
 
     public func alpha(_ alpha: CGFloat) -> Self {
         changing { $0.alpha = alpha }
     }
+}
+
+extension ColorValue: DecorableByOpacity {
 
     public func opacity(_ opacity: CGFloat) -> Self {
         alpha(opacity)
+    }
+}
+
+extension ColorValue: Animatable {
+
+    public var animatableData: AnimatablePair<
+        AnimatablePair<CGFloat, CGFloat>,
+        AnimatablePair<CGFloat, CGFloat>
+    > {
+        get {
+            AnimatablePair(
+                AnimatablePair(red, green),
+                AnimatablePair(blue, alpha)
+            )
+        }
+
+        set {
+            red = newValue.first.first
+            green = newValue.first.second
+            blue = newValue.second.first
+            alpha = newValue.second.second
+        }
     }
 }
 
@@ -183,6 +206,14 @@ extension ColorValue {
             green: .zero,
             blue: .zero,
             alpha: .zero
+        )
+    }
+
+    public static var black: Self {
+        Self(
+            red: .zero,
+            green: .zero,
+            blue: .zero
         )
     }
 }

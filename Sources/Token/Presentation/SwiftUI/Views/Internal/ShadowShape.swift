@@ -2,9 +2,10 @@
 import UIKit
 import SwiftUI
 
+@Animatable
 internal struct ShadowShape: Shape {
 
-    internal let shadow: ShadowValue
+    internal var shadow: ShadowValue
 
     internal let shape: AnyShapeValue
     internal let shapeInsets: CGFloat
