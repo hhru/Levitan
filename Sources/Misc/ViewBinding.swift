@@ -11,7 +11,7 @@ public struct ViewBinding<Value> {
         let get: () -> Value
         let set: (Value) -> Void
 
-        lazy var initialValue = get()
+        let initialValue: Value
 
         init(
             get: @escaping () -> Value,
@@ -19,6 +19,7 @@ public struct ViewBinding<Value> {
         ) {
             self.get = get
             self.set = set
+            self.initialValue = get()
         }
     }
 
