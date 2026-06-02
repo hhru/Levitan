@@ -5,23 +5,12 @@ import SwiftUI
 public struct ViewEnvironment<Value> {
 
     private var environment: Environment<Value>
-    private var forcedValue: Value?
 
     public var wrappedValue: Value {
-        forcedValue ?? environment.wrappedValue
+        environment.wrappedValue
     }
 
-    public var projectedValue: Value? {
-        get { forcedValue }
-        set { forcedValue = newValue }
-    }
-
-    public init(
-        _ keyPath: KeyPath<EnvironmentValues, Value>,
-        forcedValue: Value? = nil
-    ) {
-        self.forcedValue = forcedValue
-
+    public init(_ keyPath: KeyPath<EnvironmentValues, Value>) {
         environment = Environment(keyPath)
     }
 }
@@ -35,16 +24,14 @@ extension ViewEnvironment: DynamicProperty {
 
 extension ViewEnvironment: Sendable where Value: Sendable { }
 
-extension ViewEnvironment: Equatable where Value: Equatable {
+extension ViewEnvironment: Equatable {
 
     public static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.forcedValue == rhs.forcedValue
+        true
     }
 }
 
-extension ViewEnvironment: Hashable where Value: Hashable {
+extension ViewEnvironment: Hashable {
 
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(forcedValue)
-    }
+    public func hash(into hasher: inout Hasher) { }
 }
