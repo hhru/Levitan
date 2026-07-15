@@ -3,7 +3,7 @@ import SwiftUI
 
 internal struct ComponentContainerSizeKey: EnvironmentKey {
 
-    internal static let defaultValue: CGSize? = nil
+    internal static let defaultValue: CGSize = .zero
 }
 
 extension EnvironmentValues {
@@ -18,7 +18,7 @@ extension EnvironmentValues {
     ///
     /// - Note: Нет необходимости самостоятельно устанавливать значение для этой переменной,
     ///         его переопределяют встроенные компоненты.
-    public var componentContainerSize: CGSize? {
+    public var componentContainerSize: CGSize {
         get { self[ComponentContainerSizeKey.self] }
         set { self[ComponentContainerSizeKey.self] = newValue }
     }
