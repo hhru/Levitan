@@ -23,7 +23,7 @@ internal final class ComponentHostingController<Content: View>: UIHostingControl
 
     internal init(
         rootView: Content,
-        intrinsicContentSizeInvalidation: (@MainActor() -> Void)? = nil
+        intrinsicContentSizeInvalidation: (@MainActor () -> Void)? = nil
     ) {
         self.intrinsicContentSizeInvalidation = intrinsicContentSizeInvalidation
 
