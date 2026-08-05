@@ -68,6 +68,7 @@ extension DebugViewController {
     var performanceItem: any FlowItem {
         VFlow {
             flowPerformanceItem
+            stackPerformanceItem
             listPerformanceItem
         }
         .card(header: CardHeader(title: "Performance"))
@@ -83,6 +84,19 @@ extension DebugViewController {
             .frame(width: .fill, alignment: .leading)
             .onTap { [weak self] in
                 self?.onFlowPerformanceTap()
+            }
+            .flowItem(id: #function)
+    }
+
+    var stackPerformanceItem: any FlowItem {
+        Text("⏱️  Measure Stack performance")
+            .typography(Typographies.label1)
+            .foregroundColor(Colors.text.primary)
+            .padding(top: 12.0)
+            .padding(bottom: 12.0)
+            .frame(width: .fill, alignment: .leading)
+            .onTap { [weak self] in
+                self?.onStackPerformanceTap()
             }
             .flowItem(id: #function)
     }
@@ -122,6 +136,17 @@ extension DebugViewController {
     func onFlowPerformanceTap() {
         let navigationController = UINavigationController(
             rootViewController: FlowPerformanceViewController()
+        )
+
+        navigationController.modalPresentationStyle = .fullScreen
+        navigationController.modalTransitionStyle = .coverVertical
+
+        present(navigationController, animated: true)
+    }
+
+    func onStackPerformanceTap() {
+        let navigationController = UINavigationController(
+            rootViewController: StackPerformanceViewController()
         )
 
         navigationController.modalPresentationStyle = .fullScreen
