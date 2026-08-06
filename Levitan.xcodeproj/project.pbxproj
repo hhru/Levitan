@@ -33,6 +33,8 @@
 		C00508A42F2139F6006016DE /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508652F2139F6006016DE /* FallbackComponentCacheKey.swift */; };
 		C00508A52F2139F6006016DE /* ComponentPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508702F2139F6006016DE /* ComponentPadding.swift */; };
 		C00508A62F2139F6006016DE /* ComponentHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005086C2F2139F6006016DE /* ComponentHostingController.swift */; };
+		AB0000022F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */; };
+		AB0000062F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
 		C00508A72F2139F6006016DE /* AnyComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005084E2F2139F6006016DE /* AnyComponentView.swift */; };
 		C00508A82F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005085E2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift */; };
 		C00508A92F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508812F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift */; };
@@ -83,6 +85,8 @@
 		C00508D62F2139F6006016DE /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508652F2139F6006016DE /* FallbackComponentCacheKey.swift */; };
 		C00508D72F2139F6006016DE /* ComponentPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508702F2139F6006016DE /* ComponentPadding.swift */; };
 		C00508D82F2139F6006016DE /* ComponentHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005086C2F2139F6006016DE /* ComponentHostingController.swift */; };
+		AB0000032F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */; };
+		AB0000072F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
 		C00508D92F2139F6006016DE /* AnyComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005084E2F2139F6006016DE /* AnyComponentView.swift */; };
 		C00508DA2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005085E2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift */; };
 		C00508DB2F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508812F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift */; };
@@ -133,6 +137,8 @@
 		C00509082F2139F6006016DE /* FallbackComponentCacheKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508652F2139F6006016DE /* FallbackComponentCacheKey.swift */; };
 		C00509092F2139F6006016DE /* ComponentPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508702F2139F6006016DE /* ComponentPadding.swift */; };
 		C005090A2F2139F6006016DE /* ComponentHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005086C2F2139F6006016DE /* ComponentHostingController.swift */; };
+		AB0000042F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */; };
+		AB0000082F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
 		C005090B2F2139F6006016DE /* AnyComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005084E2F2139F6006016DE /* AnyComponentView.swift */; };
 		C005090C2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005085E2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift */; };
 		C005090D2F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508812F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift */; };
@@ -1138,6 +1144,8 @@
 		C00508692F2139F6006016DE /* FallbackComponentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentBody.swift; sourceTree = "<group>"; };
 		C005086A2F2139F6006016DE /* FallbackComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackComponentView.swift; sourceTree = "<group>"; };
 		C005086C2F2139F6006016DE /* ComponentHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentHostingController.swift; sourceTree = "<group>"; };
+		AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentMountingPolicy.swift; sourceTree = "<group>"; };
+		AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentMountingPolicy.swift"; sourceTree = "<group>"; };
 		C005086D2F2139F6006016DE /* ComponentHostingRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentHostingRoot.swift; sourceTree = "<group>"; };
 		C005086E2F2139F6006016DE /* ComponentHostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentHostingView.swift; sourceTree = "<group>"; };
 		C00508702F2139F6006016DE /* ComponentPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentPadding.swift; sourceTree = "<group>"; };
@@ -1584,6 +1592,7 @@
 				C005085E2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift */,
 				C005085F2F2139F6006016DE /* EnvironmentValues+ComponentLayoutInvalidation.swift */,
 				C00508602F2139F6006016DE /* EnvironmentValues+ComponentViewController.swift */,
+				AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */,
 				C00508612F2139F6006016DE /* EnvironmentValues+FallbackComponentCache.swift */,
 			);
 			path = Environment;
@@ -1622,6 +1631,7 @@
 			isa = PBXGroup;
 			children = (
 				C005086C2F2139F6006016DE /* ComponentHostingController.swift */,
+				AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */,
 				C005086D2F2139F6006016DE /* ComponentHostingRoot.swift */,
 				C005086E2F2139F6006016DE /* ComponentHostingView.swift */,
 			);
@@ -3300,6 +3310,8 @@
 				C00508D62F2139F6006016DE /* FallbackComponentCacheKey.swift in Sources */,
 				C00508D72F2139F6006016DE /* ComponentPadding.swift in Sources */,
 				C00508D82F2139F6006016DE /* ComponentHostingController.swift in Sources */,
+				AB0000032F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */,
+				AB0000072F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */,
 				C00508D92F2139F6006016DE /* AnyComponentView.swift in Sources */,
 				C00508DA2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */,
 				C00508DB2F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */,
@@ -3662,6 +3674,8 @@
 				C00508A42F2139F6006016DE /* FallbackComponentCacheKey.swift in Sources */,
 				C00508A52F2139F6006016DE /* ComponentPadding.swift in Sources */,
 				C00508A62F2139F6006016DE /* ComponentHostingController.swift in Sources */,
+				AB0000022F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */,
+				AB0000062F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */,
 				C00508A72F2139F6006016DE /* AnyComponentView.swift in Sources */,
 				C00508A82F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */,
 				C00508A92F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */,
@@ -4161,6 +4175,8 @@
 				C00509082F2139F6006016DE /* FallbackComponentCacheKey.swift in Sources */,
 				C00509092F2139F6006016DE /* ComponentPadding.swift in Sources */,
 				C005090A2F2139F6006016DE /* ComponentHostingController.swift in Sources */,
+				AB0000042F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */,
+				AB0000082F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */,
 				C005090B2F2139F6006016DE /* AnyComponentView.swift in Sources */,
 				C005090C2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */,
 				C005090D2F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */,
