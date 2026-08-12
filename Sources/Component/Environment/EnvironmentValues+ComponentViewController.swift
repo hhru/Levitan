@@ -97,7 +97,7 @@ extension View {
     ///
     /// - Parameter viewController: Ближайший экземпляр `UIViewController`.
     /// - Returns: Модифицированный экземпляр UI-представления.
-    public func componentViewController(_ viewController: UIViewController?) -> some View {
+    public nonisolated func componentViewController(_ viewController: UIViewController?) -> some View {
         environment(
             \.componentViewControllerStorage,
             ComponentViewControllerStorage { [weak viewController] in

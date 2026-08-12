@@ -2,11 +2,12 @@
 import CoreGraphics
 import Foundation
 
+@MainActor
 public final class FallbackComponentCache {
 
     private var sizes: [FallbackComponentCacheKey: Set<FallbackComponentCacheSize>] = [:]
 
-    public init() { }
+    public nonisolated init() { }
 
     public func reset() {
         sizes.removeAll(keepingCapacity: true)
