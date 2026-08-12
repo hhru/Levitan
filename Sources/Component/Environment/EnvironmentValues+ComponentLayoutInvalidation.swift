@@ -62,4 +62,21 @@ extension ComponentContext {
         }
     }
 }
+
+extension View {
+
+    /// Добавляет дополнительное действие для инвалидации лэйаута.
+    ///
+    /// Дополнительное действие будет выполнено до выполнения уже имеющихся действий инвалидации.
+    ///
+    /// - Parameter invalidation: Дополнительное действие для инвалидации лэйаута.
+    /// - Returns: Модифицированный экземпляр UI-представления.
+    public nonisolated func componentLayoutInvalidation(
+        _ invalidation: @escaping @MainActor () -> Void
+    ) -> some View {
+        transformEnvironment(\.componentLayoutInvalidation) { componentLayoutInvalidation in
+            componentLayoutInvalidation.prepend(invalidation)
+        }
+    }
+}
 #endif
