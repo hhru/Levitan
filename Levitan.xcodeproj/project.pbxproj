@@ -36,7 +36,7 @@
 		AB0000022F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */; };
 		AB0000062F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
 		C00508A72F2139F6006016DE /* AnyComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005084E2F2139F6006016DE /* AnyComponentView.swift */; };
-		C00508A82F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005085E2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift */; };
+		C00508A82F2139F6006016DE /* EnvironmentValues+ComponentID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005085E2F2139F6006016DE /* EnvironmentValues+ComponentID.swift */; };
 		C00508A92F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508812F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift */; };
 		C00508AA2F2139F6006016DE /* AnyComponentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005084D2F2139F6006016DE /* AnyComponentPresenter.swift */; };
 		C00508AB2F2139F6006016DE /* ShadowModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508822F2139F6006016DE /* ShadowModifier+ComponentTokenModifier.swift */; };
@@ -88,7 +88,7 @@
 		AB0000032F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */; };
 		AB0000072F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
 		C00508D92F2139F6006016DE /* AnyComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005084E2F2139F6006016DE /* AnyComponentView.swift */; };
-		C00508DA2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005085E2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift */; };
+		C00508DA2F2139F6006016DE /* EnvironmentValues+ComponentID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005085E2F2139F6006016DE /* EnvironmentValues+ComponentID.swift */; };
 		C00508DB2F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508812F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift */; };
 		C00508DC2F2139F6006016DE /* AnyComponentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005084D2F2139F6006016DE /* AnyComponentPresenter.swift */; };
 		C00508DD2F2139F6006016DE /* ShadowModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508822F2139F6006016DE /* ShadowModifier+ComponentTokenModifier.swift */; };
@@ -140,7 +140,7 @@
 		AB0000042F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */; };
 		AB0000082F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
 		C005090B2F2139F6006016DE /* AnyComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005084E2F2139F6006016DE /* AnyComponentView.swift */; };
-		C005090C2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005085E2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift */; };
+		C005090C2F2139F6006016DE /* EnvironmentValues+ComponentID.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005085E2F2139F6006016DE /* EnvironmentValues+ComponentID.swift */; };
 		C005090D2F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508812F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift */; };
 		C005090E2F2139F6006016DE /* AnyComponentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005084D2F2139F6006016DE /* AnyComponentPresenter.swift */; };
 		C005090F2F2139F6006016DE /* ShadowModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508822F2139F6006016DE /* ShadowModifier+ComponentTokenModifier.swift */; };
@@ -1133,7 +1133,7 @@
 		C005085B2F2139F6006016DE /* EnvironmentValues+ComponentAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentAppearance.swift"; sourceTree = "<group>"; };
 		C005085C2F2139F6006016DE /* EnvironmentValues+ComponentContainerSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentContainerSize.swift"; sourceTree = "<group>"; };
 		C005085D2F2139F6006016DE /* EnvironmentValues+ComponentContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentContext.swift"; sourceTree = "<group>"; };
-		C005085E2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentIdentifier.swift"; sourceTree = "<group>"; };
+		C005085E2F2139F6006016DE /* EnvironmentValues+ComponentID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentID.swift"; sourceTree = "<group>"; };
 		C005085F2F2139F6006016DE /* EnvironmentValues+ComponentLayoutInvalidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentLayoutInvalidation.swift"; sourceTree = "<group>"; };
 		C00508602F2139F6006016DE /* EnvironmentValues+ComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentViewController.swift"; sourceTree = "<group>"; };
 		C00508612F2139F6006016DE /* EnvironmentValues+FallbackComponentCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+FallbackComponentCache.swift"; sourceTree = "<group>"; };
@@ -1589,20 +1589,13 @@
 				C005085B2F2139F6006016DE /* EnvironmentValues+ComponentAppearance.swift */,
 				C005085C2F2139F6006016DE /* EnvironmentValues+ComponentContainerSize.swift */,
 				C005085D2F2139F6006016DE /* EnvironmentValues+ComponentContext.swift */,
-				C005085E2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift */,
+				C005085E2F2139F6006016DE /* EnvironmentValues+ComponentID.swift */,
 				C005085F2F2139F6006016DE /* EnvironmentValues+ComponentLayoutInvalidation.swift */,
 				C00508602F2139F6006016DE /* EnvironmentValues+ComponentViewController.swift */,
 				AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */,
 				C00508612F2139F6006016DE /* EnvironmentValues+FallbackComponentCache.swift */,
 			);
 			path = Environment;
-			sourceTree = "<group>";
-		};
-		C00508632F2139F6006016DE /* Body */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Body;
 			sourceTree = "<group>";
 		};
 		C00508672F2139F6006016DE /* Cache */ = {
@@ -1618,7 +1611,6 @@
 		C005086B2F2139F6006016DE /* Fallback */ = {
 			isa = PBXGroup;
 			children = (
-				C00508632F2139F6006016DE /* Body */,
 				C00508672F2139F6006016DE /* Cache */,
 				C00508682F2139F6006016DE /* FallbackComponent.swift */,
 				C00508692F2139F6006016DE /* FallbackComponentBody.swift */,
@@ -3313,7 +3305,7 @@
 				AB0000032F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */,
 				AB0000072F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */,
 				C00508D92F2139F6006016DE /* AnyComponentView.swift in Sources */,
-				C00508DA2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */,
+				C00508DA2F2139F6006016DE /* EnvironmentValues+ComponentID.swift in Sources */,
 				C00508DB2F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */,
 				C00508DC2F2139F6006016DE /* AnyComponentPresenter.swift in Sources */,
 				C00508DD2F2139F6006016DE /* ShadowModifier+ComponentTokenModifier.swift in Sources */,
@@ -3677,7 +3669,7 @@
 				AB0000022F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */,
 				AB0000062F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */,
 				C00508A72F2139F6006016DE /* AnyComponentView.swift in Sources */,
-				C00508A82F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */,
+				C00508A82F2139F6006016DE /* EnvironmentValues+ComponentID.swift in Sources */,
 				C00508A92F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */,
 				C00508AA2F2139F6006016DE /* AnyComponentPresenter.swift in Sources */,
 				C00508AB2F2139F6006016DE /* ShadowModifier+ComponentTokenModifier.swift in Sources */,
@@ -4178,7 +4170,7 @@
 				AB0000042F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */,
 				AB0000082F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */,
 				C005090B2F2139F6006016DE /* AnyComponentView.swift in Sources */,
-				C005090C2F2139F6006016DE /* EnvironmentValues+ComponentIdentifier.swift in Sources */,
+				C005090C2F2139F6006016DE /* EnvironmentValues+ComponentID.swift in Sources */,
 				C005090D2F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */,
 				C005090E2F2139F6006016DE /* AnyComponentPresenter.swift in Sources */,
 				C005090F2F2139F6006016DE /* ShadowModifier+ComponentTokenModifier.swift in Sources */,

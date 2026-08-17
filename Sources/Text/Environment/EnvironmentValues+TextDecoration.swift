@@ -13,4 +13,11 @@ extension EnvironmentValues {
         set { self[TextDecorationKey.self] = newValue }
     }
 }
+
+extension View {
+
+    public nonisolated func textDecoration(_ decoration: [AnyTextDecorator]) -> some View {
+        environment(\.textDecoration, decoration)
+    }
+}
 #endif

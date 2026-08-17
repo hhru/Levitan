@@ -2,15 +2,19 @@
 import CoreGraphics
 import Foundation
 
+@MainActor
 public final class FallbackComponentCache {
 
     private var sizes: [FallbackComponentCacheKey: Set<FallbackComponentCacheSize>] = [:]
 
-    public init() { }
+    public nonisolated init() { }
 
-    internal func resetSize<Content: Equatable>(for content: Content) {
-        sizes.removeValue(forKey: FallbackComponentCacheKey(content: content))
+    public func reset() {
+        sizes.removeAll(keepingCapacity: true)
     }
+}
+
+extension FallbackComponentCache {
 
     internal func restoreSize<Content: Equatable>(
         for content: Content,
@@ -64,6 +68,10 @@ public final class FallbackComponentCache {
         sizes.insert(size)
 
         self.sizes[key] = sizes
+    }
+
+    internal func resetSize<Content: Equatable>(for content: Content) {
+        sizes.removeValue(forKey: FallbackComponentCacheKey(content: content))
     }
 }
 
