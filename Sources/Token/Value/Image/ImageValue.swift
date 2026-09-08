@@ -34,16 +34,15 @@ public struct ImageValue:
                 foregroundColor,
                 renderingMode: .alwaysOriginal
             )
+        } else if let primaryColor = primaryColor?.uiColor {
+            let foregroundStyleConfiguration = UIImage.SymbolConfiguration(
+                paletteColors: [primaryColor, secondaryColor?.uiColor, tertiaryColor?.uiColor]
+                    .compactMap(\.self)
+            )
+            uiImage = uiImage.applyingSymbolConfiguration(foregroundStyleConfiguration)
+            ?? uiImage
         } else {
             uiImage = uiImage.withRenderingMode(.alwaysOriginal)
-        }
-
-        if let primaryColor {
-            let foregroundStyleConfiguration = UIImage.SymbolConfiguration(
-                paletteColors: [primaryColor, secondaryColor, tertiaryColor]
-                    .compactMap { $0?.uiColor }
-            )
-            uiImage = uiImage.applyingSymbolConfiguration(foregroundStyleConfiguration) ?? uiImage
         }
 
         if let imageSymbolConfigurationSize = imageSymbolConfiguration?.size {
@@ -51,8 +50,7 @@ public struct ImageValue:
                 font: .systemFont(ofSize: imageSymbolConfigurationSize)
             )
 
-            uiImage = uiImage.applyingSymbolConfiguration(fontSizeConfiguration)?
-                .crop(to: CGSize(width: imageSymbolConfigurationSize, height: imageSymbolConfigurationSize))
+            uiImage = uiImage.applyingSymbolConfiguration(fontSizeConfiguration)
             ?? uiImage
         }
 
