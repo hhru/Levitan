@@ -12,7 +12,11 @@ public struct ImageValue:
     public var source: ImageSource
     public var resizingMode: ImageResizingMode?
     public var foregroundColor: ColorValue?
+    public var primaryColor: ColorValue?
+    public var secondaryColor: ColorValue?
+    public var tertiaryColor: ColorValue?
     public var insets: InsetsValue
+    public var imageSymbolConfiguration: ImageSymbolConfiguration?
 
     #if canImport(UIKit)
     public var uiImage: UIImage {
@@ -34,6 +38,24 @@ public struct ImageValue:
             uiImage = uiImage.withRenderingMode(.alwaysOriginal)
         }
 
+        if let primaryColor {
+            let foregroundStyleConfiguration = UIImage.SymbolConfiguration(
+                paletteColors: [primaryColor, secondaryColor, tertiaryColor]
+                    .compactMap { $0?.uiColor }
+            )
+            uiImage = uiImage.applyingSymbolConfiguration(foregroundStyleConfiguration) ?? uiImage
+        }
+
+        if let imageSymbolConfigurationSize = imageSymbolConfiguration?.size {
+            let fontSizeConfiguration = UIImage.SymbolConfiguration(
+                font: .systemFont(ofSize: imageSymbolConfigurationSize)
+            )
+
+            uiImage = uiImage.applyingSymbolConfiguration(fontSizeConfiguration)?
+                .crop(to: CGSize(width: imageSymbolConfigurationSize, height: imageSymbolConfigurationSize))
+            ?? uiImage
+        }
+
         if insets != .zero {
             uiImage = uiImage.withAlignmentRectInsets(insets.uiEdgeInsets)
         }
@@ -46,8 +68,23 @@ public struct ImageValue:
         source
             .image
             .renderingMode(foregroundColor == nil ? .original : .template)
-            .iflet(resizingMode) { $0.resizable(resizingMode: $1.resizingMode) }
+            .iflet(resizingMode) { $0 = $0.resizable(resizingMode: $1.resizingMode) }
+            .iflet(primaryColor) { image, primaryColor in
+                image
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle(
+                        primaryColor.color,
+                        (secondaryColor ?? primaryColor).color,
+                        (tertiaryColor ?? primaryColor).color
+                    )
+            }
             .iflet(foregroundColor) { $0.foregroundColor($1.color) }
+            .iflet(imageSymbolConfiguration) {
+                $0
+                    .font(.system(size: $1.size))
+                    .frame(width: $1.size, height: $1.size)
+                    .clipped()
+            }
             .if(insets != .zero) { $0.padding(insets.edgeInsets) }
     }
 
@@ -67,6 +104,8 @@ public struct ImageValue:
 extension ImageValue:
     DecorableByResizingMode,
     DecorableByForegroundColor,
+    DecorableByForegroundStyle,
+    DecorableByImageSymbolConfiguration,
     DecorableByInsets {
 
     public func resizable(_ resizingMode: ImageResizingMode?) -> Self {
@@ -74,11 +113,32 @@ extension ImageValue:
     }
 
     public func foregroundColor(_ foregroundColor: ColorValue?) -> Self {
-        changing { $0.foregroundColor = foregroundColor }
+        changing {
+            $0.foregroundColor = foregroundColor
+            $0.primaryColor = nil
+            $0.secondaryColor = nil
+            $0.tertiaryColor = nil
+        }
+    }
+
+    public func foregroundStyle(
+        _ primaryColor: ColorValue,
+        _ secondaryColor: ColorValue?,
+        _ tertiaryColor: ColorValue?
+    ) -> Self {
+        changing {
+            $0.primaryColor = primaryColor
+            $0.secondaryColor = secondaryColor
+            $0.tertiaryColor = tertiaryColor
+        }
     }
 
     public func inset(by insets: InsetsValue) -> Self {
         changing { $0.insets = insets }
+    }
+
+    public func imageSymbolConfiguration(_ imageSymbolConfiguration: ImageSymbolConfiguration?) -> Self {
+        changing { $0.imageSymbolConfiguration = imageSymbolConfiguration }
     }
 }
 
