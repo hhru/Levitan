@@ -11,7 +11,6 @@ public struct ImageValue:
 
     public var source: ImageSource
     public var resizingMode: ImageResizingMode?
-    public var foregroundColor: ColorValue?
     public var primaryColor: ColorValue?
     public var secondaryColor: ColorValue?
     public var tertiaryColor: ColorValue?
@@ -29,15 +28,17 @@ public struct ImageValue:
             )
         }
 
-        if let foregroundColor = foregroundColor?.uiColor {
+        let colors = [primaryColor?.uiColor, secondaryColor?.uiColor, tertiaryColor?.uiColor]
+            .compactMap(\.self)
+
+        if colors.count == 1, let foregroundColor = colors.first {
             uiImage = uiImage.withTintColor(
                 foregroundColor,
                 renderingMode: .alwaysOriginal
             )
         } else if let primaryColor = primaryColor?.uiColor {
             let foregroundStyleConfiguration = UIImage.SymbolConfiguration(
-                paletteColors: [primaryColor, secondaryColor?.uiColor, tertiaryColor?.uiColor]
-                    .compactMap(\.self)
+                paletteColors: colors
             )
             uiImage = uiImage.applyingSymbolConfiguration(foregroundStyleConfiguration)
             ?? uiImage
@@ -67,18 +68,37 @@ public struct ImageValue:
     public var image: some View {
         source
             .image
-            .renderingMode(foregroundColor == nil ? .original : .template)
+            .renderingMode(primaryColor == nil ? .original : .template)
             .iflet(resizingMode) { $0 = $0.resizable(resizingMode: $1.resizingMode) }
             .iflet(primaryColor) { image, primaryColor in
-                image
-                    .symbolRenderingMode(.palette)
-                    .foregroundStyle(
-                        primaryColor.color,
-                        (secondaryColor ?? primaryColor).color,
-                        (tertiaryColor ?? primaryColor).color
-                    )
+                switch (secondaryColor, tertiaryColor) {
+                case let (secondaryColor?, nil):
+                    image
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(
+                            primaryColor.color,
+                            secondaryColor.color
+                        )
+                case let (nil, tertiaryColor?):
+                    image
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(
+                            primaryColor.color,
+                            tertiaryColor.color
+                        )
+                case let (secondaryColor?, tertiaryColor?):
+                    image
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(
+                            primaryColor.color,
+                            secondaryColor.color,
+                            tertiaryColor.color,
+                        )
+                case (nil, nil):
+                    image
+                        .foregroundStyle(primaryColor.color)
+                }
             }
-            .iflet(foregroundColor) { $0.foregroundColor($1.color) }
             .iflet(imageSymbolConfiguration) {
                 $0
                     .font(.system(size: $1.size))
@@ -96,7 +116,7 @@ public struct ImageValue:
     ) {
         self.source = source
         self.resizingMode = resizingMode
-        self.foregroundColor = foregroundColor
+        self.primaryColor = foregroundColor
         self.insets = insets
     }
 }
@@ -114,8 +134,7 @@ extension ImageValue:
 
     public func foregroundColor(_ foregroundColor: ColorValue?) -> Self {
         changing {
-            $0.foregroundColor = foregroundColor
-            $0.primaryColor = nil
+            $0.primaryColor = foregroundColor
             $0.secondaryColor = nil
             $0.tertiaryColor = nil
         }
@@ -127,7 +146,6 @@ extension ImageValue:
         _ tertiaryColor: ColorValue?
     ) -> Self {
         changing {
-            $0.foregroundColor = nil
             $0.primaryColor = primaryColor
             $0.secondaryColor = secondaryColor
             $0.tertiaryColor = tertiaryColor
