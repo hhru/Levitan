@@ -3,7 +3,7 @@ import SwiftUI
 extension Image {
 
     @ViewBuilder
-    internal nonisolated func iflet<T>(
+    internal nonisolated func ifImageLet<T>(
         _ condition: T?,
         _ apply: (inout Image, T) -> Void
     ) -> Image {

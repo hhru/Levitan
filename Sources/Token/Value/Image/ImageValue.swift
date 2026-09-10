@@ -69,7 +69,7 @@ public struct ImageValue:
         source
             .image
             .renderingMode(primaryColor == nil ? .original : .template)
-            .iflet(resizingMode) { $0 = $0.resizable(resizingMode: $1.resizingMode) }
+            .ifImageLet(resizingMode) { $0 = $0.resizable(resizingMode: $1.resizingMode) }
             .iflet(primaryColor) { image, primaryColor in
                 switch (secondaryColor, tertiaryColor) {
                 case let (secondaryColor?, nil):
