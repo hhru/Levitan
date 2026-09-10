@@ -51,7 +51,7 @@ public struct ImageValue:
             )
 
             uiImage = uiImage
-                .applyingSymbolConfiguration(fontSizeConfiguration)
+                .applyingSymbolConfiguration(fontSizeConfiguration)?
                 .crop(to: CGSize(width: imageSymbolConfigurationSize, height: imageSymbolConfigurationSize))
             ?? uiImage
         }
