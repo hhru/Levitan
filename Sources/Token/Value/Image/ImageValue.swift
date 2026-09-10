@@ -50,7 +50,9 @@ public struct ImageValue:
                 font: .systemFont(ofSize: imageSymbolConfigurationSize)
             )
 
-            uiImage = uiImage.applyingSymbolConfiguration(fontSizeConfiguration)
+            uiImage = uiImage
+                .applyingSymbolConfiguration(fontSizeConfiguration)
+                .crop(to: CGSize(width: imageSymbolConfigurationSize, height: imageSymbolConfigurationSize))
             ?? uiImage
         }
 
@@ -125,6 +127,7 @@ extension ImageValue:
         _ tertiaryColor: ColorValue?
     ) -> Self {
         changing {
+            $0.foregroundColor = nil
             $0.primaryColor = primaryColor
             $0.secondaryColor = secondaryColor
             $0.tertiaryColor = tertiaryColor
