@@ -15,7 +15,7 @@ extension ImageValue: TextPart {
         let foregroundColor = typography.foregroundColor
 
         let uiImage = self
-            .foregroundColor(self.foregroundColor ?? foregroundColor)
+            .foregroundColor(self.primaryColor ?? foregroundColor)
             .uiImage
 
         let imageHeight = uiImage.size.height
