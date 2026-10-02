@@ -5,13 +5,13 @@ internal struct ImageSymbolConfigurationDecorator<Value: DecorableByImageSymbolC
     internal let symbolConfiguration: ImageSymbolConfiguration?
 
     internal func decorate(_ value: Value, theme: TokenTheme) -> Value {
-        value.symbolConfiguration(symbolConfiguration)
+        value.imageSymbolConfiguration(symbolConfiguration)
     }
 }
 
 extension Token where Value: DecorableByImageSymbolConfiguration {
 
-    public func symbolConfiguration(_ symbolConfiguration: ImageSymbolConfiguration?) -> Self {
+    public func imageSymbolConfiguration(_ symbolConfiguration: ImageSymbolConfiguration?) -> Self {
         decorated(by: ImageSymbolConfigurationDecorator(symbolConfiguration: symbolConfiguration))
     }
 }

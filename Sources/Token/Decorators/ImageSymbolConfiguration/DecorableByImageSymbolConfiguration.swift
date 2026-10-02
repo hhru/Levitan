@@ -2,5 +2,5 @@ import Foundation
 
 public protocol DecorableByImageSymbolConfiguration {
 
-    func symbolConfiguration(_ symbolConfiguration: ImageSymbolConfiguration?) -> Self
+    func imageSymbolConfiguration(_ symbolConfiguration: ImageSymbolConfiguration?) -> Self
 }
