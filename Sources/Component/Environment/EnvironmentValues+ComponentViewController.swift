@@ -83,4 +83,27 @@ extension ComponentContext {
         )
     }
 }
+
+extension View {
+
+    /// Устанавливает ближайший экземпляр `UIViewController` в окружении.
+    ///
+    /// Используется для встраивания SwiftUI-компонентов в UIKit-представление через `UIHostingController`.
+    /// Поэтому рекомендуется переопределять этот параметр в каждом экземпляре `UIViewController`,
+    /// иначе встраивание SwiftUI-представлений в UIKit может сработать некорректно.
+    ///
+    /// Если ближайший экземпляр `UIViewController` не определен,
+    /// то система попытается самостоятельно найти его по цепочке `UIResponder`.
+    ///
+    /// - Parameter viewController: Ближайший экземпляр `UIViewController`.
+    /// - Returns: Модифицированный экземпляр UI-представления.
+    public nonisolated func componentViewController(_ viewController: UIViewController?) -> some View {
+        environment(
+            \.componentViewControllerStorage,
+            ComponentViewControllerStorage { [weak viewController] in
+                viewController
+            }
+        )
+    }
+}
 #endif

@@ -16,6 +16,15 @@ public final class TextCache: @unchecked Sendable {
         )
     }
 
+    public func reset() {
+        layoutsQueue.async(flags: .barrier) {
+            self.layouts.removeAll(keepingCapacity: true)
+        }
+    }
+}
+
+extension TextCache {
+
     internal func restoreLayout(for key: TextCacheKey) -> TextLayout? {
         layoutsQueue.sync {
             layouts[key]

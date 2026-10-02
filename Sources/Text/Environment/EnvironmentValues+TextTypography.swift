@@ -13,4 +13,11 @@ extension EnvironmentValues {
         set { self[TextTypographyKey.self] = newValue }
     }
 }
+
+extension View {
+
+    public nonisolated func textTypography(_ typography: TypographyToken) -> some View {
+        environment(\.textTypography, typography)
+    }
+}
 #endif

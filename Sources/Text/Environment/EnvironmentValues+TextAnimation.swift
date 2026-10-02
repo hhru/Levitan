@@ -13,4 +13,11 @@ extension EnvironmentValues {
         set { self[TextAnimationKey.self] = newValue }
     }
 }
+
+extension View {
+
+    public nonisolated func textAnimation(_ animation: TextAnimation) -> some View {
+        environment(\.textAnimation, animation)
+    }
+}
 #endif

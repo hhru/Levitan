@@ -15,4 +15,11 @@ extension EnvironmentValues {
         set { self[TextCacheEnvironmentKey.self] = newValue }
     }
 }
+
+extension View {
+
+    public nonisolated func textCache(_ cache: TextCache?) -> some View {
+        environment(\.textCache, cache)
+    }
+}
 #endif
