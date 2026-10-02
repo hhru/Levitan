@@ -2,16 +2,14 @@ import SwiftUI
 
 extension Image {
 
-    @ViewBuilder
-    internal nonisolated func ifImageLet<T>(
+    internal nonisolated func iflet<T>(
         _ condition: T?,
-        _ apply: (inout Image, T) -> Void
+        _ content: (Self, _ value: T) -> Self
     ) -> Image {
-        var result = self
-
         if let value = condition {
-            apply(&result, value)
+            content(self, value)
+        } else {
+            self
         }
-        return result
     }
 }

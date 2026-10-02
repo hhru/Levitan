@@ -6,7 +6,7 @@ import AppKit
 
 public struct ImageSymbolConfiguration: Sendable, Hashable {
 
-    let size: CGFloat
+    public let size: CGFloat
 
     public init(size: CGFloat) {
         self.size = size

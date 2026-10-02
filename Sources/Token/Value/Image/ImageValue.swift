@@ -15,7 +15,7 @@ public struct ImageValue:
     public var secondaryColor: ColorValue?
     public var tertiaryColor: ColorValue?
     public var insets: InsetsValue
-    public var imageSymbolConfiguration: ImageSymbolConfiguration?
+    public var symbolConfiguration: ImageSymbolConfiguration?
 
     #if canImport(UIKit)
     public var uiImage: UIImage {
@@ -28,33 +28,36 @@ public struct ImageValue:
             )
         }
 
-        let colors = [primaryColor?.uiColor, secondaryColor?.uiColor, tertiaryColor?.uiColor]
+        let colors = [primaryColor, secondaryColor, tertiaryColor]
             .compactMap(\.self)
+            .map(\.uiColor)
 
-        if colors.count == 1, let foregroundColor = colors.first {
+        switch colors.count {
+        case .zero:
+            uiImage = uiImage.withRenderingMode(.alwaysOriginal)
+
+        case 1:
             uiImage = uiImage.withTintColor(
-                foregroundColor,
+                colors[.zero],
                 renderingMode: .alwaysOriginal
             )
-        } else if let primaryColor = primaryColor?.uiColor {
+
+        default:
             let foregroundStyleConfiguration = UIImage.SymbolConfiguration(
                 paletteColors: colors
             )
-            uiImage = uiImage.applyingSymbolConfiguration(foregroundStyleConfiguration)
-            ?? uiImage
-        } else {
-            uiImage = uiImage.withRenderingMode(.alwaysOriginal)
+
+            uiImage = uiImage.applyingSymbolConfiguration(foregroundStyleConfiguration) ?? uiImage
         }
 
-        if let imageSymbolConfigurationSize = imageSymbolConfiguration?.size {
+        if let symbolConfigurationSize = symbolConfiguration?.size {
             let fontSizeConfiguration = UIImage.SymbolConfiguration(
-                font: .systemFont(ofSize: imageSymbolConfigurationSize)
+                font: .systemFont(ofSize: symbolConfigurationSize)
             )
 
-            uiImage = uiImage
-                .applyingSymbolConfiguration(fontSizeConfiguration)?
-                .crop(to: CGSize(width: imageSymbolConfigurationSize, height: imageSymbolConfigurationSize))
-            ?? uiImage
+            uiImage = uiImage.applyingSymbolConfiguration(fontSizeConfiguration).flatMap { uiImage in
+                uiImage.cropped(to: CGSize(width: symbolConfigurationSize, height: symbolConfigurationSize))
+            } ?? uiImage
         }
 
         if insets != .zero {
@@ -69,7 +72,7 @@ public struct ImageValue:
         source
             .image
             .renderingMode(primaryColor == nil ? .original : .template)
-            .ifImageLet(resizingMode) { $0 = $0.resizable(resizingMode: $1.resizingMode) }
+            .iflet(resizingMode) { $0.resizable(resizingMode: $1.resizingMode) }
             .iflet(primaryColor) { image, primaryColor in
                 switch (secondaryColor, tertiaryColor) {
                 case let (secondaryColor?, nil):
@@ -79,6 +82,7 @@ public struct ImageValue:
                             primaryColor.color,
                             secondaryColor.color
                         )
+
                 case let (nil, tertiaryColor?):
                     image
                         .symbolRenderingMode(.palette)
@@ -86,23 +90,24 @@ public struct ImageValue:
                             primaryColor.color,
                             tertiaryColor.color
                         )
+
                 case let (secondaryColor?, tertiaryColor?):
                     image
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(
                             primaryColor.color,
                             secondaryColor.color,
-                            tertiaryColor.color,
+                            tertiaryColor.color
                         )
+
                 case (nil, nil):
-                    image
-                        .foregroundStyle(primaryColor.color)
+                    image.foregroundStyle(primaryColor.color)
                 }
             }
-            .iflet(imageSymbolConfiguration) {
-                $0
-                    .font(.system(size: $1.size))
-                    .frame(width: $1.size, height: $1.size)
+            .iflet(symbolConfiguration) { image, symbolConfiguration in
+                image
+                    .font(.system(size: symbolConfiguration.size))
+                    .frame(width: symbolConfiguration.size, height: symbolConfiguration.size)
                     .clipped()
             }
             .if(insets != .zero) { $0.padding(insets.edgeInsets) }
@@ -133,10 +138,10 @@ extension ImageValue:
     }
 
     public func foregroundColor(_ foregroundColor: ColorValue?) -> Self {
-        changing {
-            $0.primaryColor = foregroundColor
-            $0.secondaryColor = nil
-            $0.tertiaryColor = nil
+        changing { image in
+            image.primaryColor = foregroundColor
+            image.secondaryColor = nil
+            image.tertiaryColor = nil
         }
     }
 
@@ -145,10 +150,10 @@ extension ImageValue:
         _ secondaryColor: ColorValue?,
         _ tertiaryColor: ColorValue?
     ) -> Self {
-        changing {
-            $0.primaryColor = primaryColor
-            $0.secondaryColor = secondaryColor
-            $0.tertiaryColor = tertiaryColor
+        changing { image in
+            image.primaryColor = primaryColor
+            image.secondaryColor = secondaryColor
+            image.tertiaryColor = tertiaryColor
         }
     }
 
@@ -156,8 +161,8 @@ extension ImageValue:
         changing { $0.insets = insets }
     }
 
-    public func imageSymbolConfiguration(_ imageSymbolConfiguration: ImageSymbolConfiguration?) -> Self {
-        changing { $0.imageSymbolConfiguration = imageSymbolConfiguration }
+    public func symbolConfiguration(_ symbolConfiguration: ImageSymbolConfiguration?) -> Self {
+        changing { $0.symbolConfiguration = symbolConfiguration }
     }
 }
 
