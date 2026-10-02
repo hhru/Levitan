@@ -4,14 +4,16 @@ import SwiftUI
 
 /// UIKit-представление для встраивания SwiftUI-компонентов.
 ///
-/// Встраивает `UIHostingController` только после добавления в иерархию,
+/// По умолчанию встраивает `UIHostingController` только после добавления в иерархию,
 /// чтобы гарантировать наличие экземпляра `UIViewController` в контексте или в цепочке `UIResponder`.
+/// Момент встраивания настраивается политикой монтирования ``ComponentMountingPolicy``.
 ///
 /// Также самостоятельно синхронизирует SwiftUI-окружение с переопределенными значениями в UIKit-представлениях.
 ///
 /// - SeeAlso: ``Component``
 /// - SeeAlso: ``ComponentView``
 /// - SeeAlso: ``ComponentContext``
+/// - SeeAlso: ``ComponentMountingPolicy``
 public final class ComponentHostingView<Content: View>: UIView {
 
     private typealias HostingRoot = ComponentHostingRoot<Content>
@@ -23,6 +25,8 @@ public final class ComponentHostingView<Content: View>: UIView {
     private let appearance = ComponentAppearance()
 
     private weak var componentViewController: UIViewController?
+
+    private var mountingPolicy: ComponentMountingPolicy = .deferred
 
     public override var intrinsicContentSize: CGSize {
         hostingController?
@@ -151,8 +155,12 @@ extension ComponentHostingView {
         with hostingRoot: HostingRoot,
         forced: Bool = false
     ) {
-        guard let superview, window != nil, appearance.isExist || forced else {
+        guard appearance.isExist || forced else {
             return
+        }
+
+        guard let superview, window != nil else {
+            return setupHostingControllerEagerlyIfNeeded(with: hostingRoot)
         }
 
         if let hostingController {
@@ -172,6 +180,37 @@ extension ComponentHostingView {
         setupHostingControllerIfNeeded(
             hostingController,
             superview: superview
+        )
+
+        self.hostingController = hostingController
+    }
+
+    private func setupHostingControllerEagerlyIfNeeded(with hostingRoot: HostingRoot) {
+        guard mountingPolicy == .eager else {
+            return
+        }
+
+        if let hostingController {
+            guard hostingController.viewIfLoaded?.superview == nil else {
+                return
+            }
+
+            return setupHostingController(
+                hostingController,
+                parentViewController: nil
+            )
+        }
+
+        let hostingController = HostingController(
+            rootView: hostingRoot,
+            intrinsicContentSizeInvalidation: { [weak self] in
+                self?.invalidateIntrinsicContentSize()
+            }
+        )
+
+        setupHostingController(
+            hostingController,
+            parentViewController: nil
         )
 
         self.hostingController = hostingController
@@ -229,6 +268,7 @@ extension ComponentHostingView: ComponentView {
         let newID = context.componentID.value
 
         componentViewController = context.componentViewController
+        mountingPolicy = context.componentMountingPolicy.value
 
         let context = context
             .componentAppearance(appearance, of: self)

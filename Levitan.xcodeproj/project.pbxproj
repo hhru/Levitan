@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB0000022F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */; };
+		AB0000032F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */; };
+		AB0000042F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */; };
+		AB0000062F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
+		AB0000072F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
+		AB0000082F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
 		C005088D2F2139F6006016DE /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508762F2139F6006016DE /* ComponentFrame.swift */; };
 		C005088E2F2139F6006016DE /* ComponentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508862F2139F6006016DE /* ComponentModifier.swift */; };
 		C005088F2F2139F6006016DE /* AnyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005084C2F2139F6006016DE /* AnyComponent.swift */; };
@@ -157,6 +163,27 @@
 		C00509202F2139F6006016DE /* FontModifier+ComponentTokenModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005087D2F2139F6006016DE /* FontModifier+ComponentTokenModifier.swift */; };
 		C00509212F2139F6006016DE /* EnvironmentValues+ComponentContainerSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005085C2F2139F6006016DE /* EnvironmentValues+ComponentContainerSize.swift */; };
 		C00509222F2139F6006016DE /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508892F2139F6006016DE /* Component.swift */; };
+		C0211A2E30703CB90006C777 /* DecorableByForegroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2730703CB90006C777 /* DecorableByForegroundStyle.swift */; };
+		C0211A2F30703CB90006C777 /* ImageSymbolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2B30703CB90006C777 /* ImageSymbolConfiguration.swift */; };
+		C0211A3030703CB90006C777 /* DecorableByImageSymbolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2A30703CB90006C777 /* DecorableByImageSymbolConfiguration.swift */; };
+		C0211A3130703CB90006C777 /* ImageSymbolConfigurationDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2C30703CB90006C777 /* ImageSymbolConfigurationDecorator.swift */; };
+		C0211A3230703CB90006C777 /* ForegroundStyleDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2830703CB90006C777 /* ForegroundStyleDecorator.swift */; };
+		C0211A3330703CB90006C777 /* DecorableByForegroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2730703CB90006C777 /* DecorableByForegroundStyle.swift */; };
+		C0211A3430703CB90006C777 /* ImageSymbolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2B30703CB90006C777 /* ImageSymbolConfiguration.swift */; };
+		C0211A3530703CB90006C777 /* DecorableByImageSymbolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2A30703CB90006C777 /* DecorableByImageSymbolConfiguration.swift */; };
+		C0211A3630703CB90006C777 /* ImageSymbolConfigurationDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2C30703CB90006C777 /* ImageSymbolConfigurationDecorator.swift */; };
+		C0211A3730703CB90006C777 /* ForegroundStyleDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2830703CB90006C777 /* ForegroundStyleDecorator.swift */; };
+		C0211A3830703CB90006C777 /* DecorableByForegroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2730703CB90006C777 /* DecorableByForegroundStyle.swift */; };
+		C0211A3930703CB90006C777 /* ImageSymbolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2B30703CB90006C777 /* ImageSymbolConfiguration.swift */; };
+		C0211A3A30703CB90006C777 /* DecorableByImageSymbolConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2A30703CB90006C777 /* DecorableByImageSymbolConfiguration.swift */; };
+		C0211A3B30703CB90006C777 /* ImageSymbolConfigurationDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2C30703CB90006C777 /* ImageSymbolConfigurationDecorator.swift */; };
+		C0211A3C30703CB90006C777 /* ForegroundStyleDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A2830703CB90006C777 /* ForegroundStyleDecorator.swift */; };
+		C0211A3E30703D1A0006C777 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A3D30703D1A0006C777 /* UIImage+Extensions.swift */; };
+		C0211A3F30703D1A0006C777 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A3D30703D1A0006C777 /* UIImage+Extensions.swift */; };
+		C0211A4030703D1A0006C777 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A3D30703D1A0006C777 /* UIImage+Extensions.swift */; };
+		C0211A4230703F200006C777 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A4130703F200006C777 /* Image+Extensions.swift */; };
+		C0211A4330703F200006C777 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A4130703F200006C777 /* Image+Extensions.swift */; };
+		C0211A4430703F200006C777 /* Image+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0211A4130703F200006C777 /* Image+Extensions.swift */; };
 		C02C897E2F0266B400A2FE9F /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89572F0266B400A2FE9F /* Diffable.swift */; };
 		C02C897F2F0266B400A2FE9F /* OutsetsDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C886A2F0266B400A2FE9F /* OutsetsDecorator.swift */; };
 		C02C89802F0266B400A2FE9F /* CGFloat+TokenValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02C89012F0266B400A2FE9F /* CGFloat+TokenValue.swift */; };
@@ -1112,6 +1139,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentMountingPolicy.swift; sourceTree = "<group>"; };
+		AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentMountingPolicy.swift"; sourceTree = "<group>"; };
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		C005084C2F2139F6006016DE /* AnyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyComponent.swift; sourceTree = "<group>"; };
 		C005084D2F2139F6006016DE /* AnyComponentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyComponentPresenter.swift; sourceTree = "<group>"; };
@@ -1163,6 +1192,13 @@
 		C00508892F2139F6006016DE /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		C005088A2F2139F6006016DE /* ComponentID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentID.swift; sourceTree = "<group>"; };
 		C005088B2F2139F6006016DE /* ComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
+		C0211A2730703CB90006C777 /* DecorableByForegroundStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorableByForegroundStyle.swift; sourceTree = "<group>"; };
+		C0211A2830703CB90006C777 /* ForegroundStyleDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForegroundStyleDecorator.swift; sourceTree = "<group>"; };
+		C0211A2A30703CB90006C777 /* DecorableByImageSymbolConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorableByImageSymbolConfiguration.swift; sourceTree = "<group>"; };
+		C0211A2B30703CB90006C777 /* ImageSymbolConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSymbolConfiguration.swift; sourceTree = "<group>"; };
+		C0211A2C30703CB90006C777 /* ImageSymbolConfigurationDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSymbolConfigurationDecorator.swift; sourceTree = "<group>"; };
+		C0211A3D30703D1A0006C777 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		C0211A4130703F200006C777 /* Image+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extensions.swift"; sourceTree = "<group>"; };
 		C02C87C12F02667300A2FE9F /* Gemfile.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Gemfile.lock; sourceTree = "<group>"; };
 		C02C87C22F02667300A2FE9F /* Levitan.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Levitan.podspec; sourceTree = "<group>"; };
 		C02C87C32F0266B400A2FE9F /* Array+Changeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Changeable.swift"; sourceTree = "<group>"; };
@@ -1584,6 +1620,7 @@
 				C005085E2F2139F6006016DE /* EnvironmentValues+ComponentID.swift */,
 				C005085F2F2139F6006016DE /* EnvironmentValues+ComponentLayoutInvalidation.swift */,
 				C00508602F2139F6006016DE /* EnvironmentValues+ComponentViewController.swift */,
+				AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */,
 				C00508612F2139F6006016DE /* EnvironmentValues+FallbackComponentCache.swift */,
 			);
 			path = Environment;
@@ -1614,6 +1651,7 @@
 			isa = PBXGroup;
 			children = (
 				C005086C2F2139F6006016DE /* ComponentHostingController.swift */,
+				AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */,
 				C005086D2F2139F6006016DE /* ComponentHostingRoot.swift */,
 				C005086E2F2139F6006016DE /* ComponentHostingView.swift */,
 			);
@@ -1694,6 +1732,24 @@
 				C005088B2F2139F6006016DE /* ComponentView.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		C0211A2930703CB90006C777 /* ForegroundStyle */ = {
+			isa = PBXGroup;
+			children = (
+				C0211A2730703CB90006C777 /* DecorableByForegroundStyle.swift */,
+				C0211A2830703CB90006C777 /* ForegroundStyleDecorator.swift */,
+			);
+			path = ForegroundStyle;
+			sourceTree = "<group>";
+		};
+		C0211A2D30703CB90006C777 /* ImageSymbolConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				C0211A2A30703CB90006C777 /* DecorableByImageSymbolConfiguration.swift */,
+				C0211A2C30703CB90006C777 /* ImageSymbolConfigurationDecorator.swift */,
+			);
+			path = ImageSymbolConfiguration;
 			sourceTree = "<group>";
 		};
 		C02C87C62F0266B400A2FE9F /* Extensions */ = {
@@ -2099,6 +2155,8 @@
 				C02C88482F0266B400A2FE9F /* FontScale */,
 				C02C884B2F0266B400A2FE9F /* FontSize */,
 				C02C884E2F0266B400A2FE9F /* ForegroundColor */,
+				C0211A2930703CB90006C777 /* ForegroundStyle */,
+				C0211A2D30703CB90006C777 /* ImageSymbolConfiguration */,
 				C02C88512F0266B400A2FE9F /* Insets */,
 				C02C88542F0266B400A2FE9F /* LetterSpacing */,
 				C02C88572F0266B400A2FE9F /* LineBreakMode */,
@@ -2116,8 +2174,8 @@
 				C02C887A2F0266B400A2FE9F /* ResizingMode */,
 				C02C887D2F0266B400A2FE9F /* Strikethrough */,
 				C02C88802F0266B400A2FE9F /* Stroke */,
-				C02C88832F0266B400A2FE9F /* Underline */,
 				C02C88842F0266B400A2FE9F /* TokenDecorator.swift */,
+				C02C88832F0266B400A2FE9F /* Underline */,
 			);
 			path = Decorators;
 			sourceTree = "<group>";
@@ -2482,6 +2540,7 @@
 		C02C89212F0266B400A2FE9F /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				C0211A2B30703CB90006C777 /* ImageSymbolConfiguration.swift */,
 				C02C891D2F0266B400A2FE9F /* ImageResizingMode.swift */,
 				C02C891E2F0266B400A2FE9F /* ImageSource.swift */,
 				C02C891F2F0266B400A2FE9F /* ImageToken.swift */,
@@ -2706,6 +2765,7 @@
 				C06EE5572F0D205800AD1F6A /* EdgeInsets+Extensions.swift */,
 				C0C8B8032F0917DF0029D19F /* EnvironmentValues+Extensions.swift */,
 				C02C89662F0266B400A2FE9F /* Image.DynamicRange+Extensions.swift */,
+				C0211A4130703F200006C777 /* Image+Extensions.swift */,
 				C02C89672F0266B400A2FE9F /* UserInterfaceSizeClass+Extensions.swift */,
 				C02C89682F0266B400A2FE9F /* View+Extensions.swift */,
 			);
@@ -2719,6 +2779,7 @@
 				C02C896B2F0266B400A2FE9F /* NSLayoutConstraint+Extensions.swift */,
 				C02C896C2F0266B400A2FE9F /* UICollectionView+Extensions.swift */,
 				C02C896D2F0266B400A2FE9F /* UIEdgeInsets+Extensions.swift */,
+				C0211A3D30703D1A0006C777 /* UIImage+Extensions.swift */,
 				C02C896E2F0266B400A2FE9F /* UILayoutPriority+Extensions.swift */,
 				C02C896F2F0266B400A2FE9F /* UIResponder+Extensions.swift */,
 				C0C8A8E12F07B96D001651F6 /* UIView+Extensions.swift */,
@@ -2976,7 +3037,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 2610;
+				LastUpgradeCheck = 2700;
 				ORGANIZATIONNAME = HeadHunter;
 				TargetAttributes = {
 					C057F00D23CB8EEB00C2D895 = {
@@ -3186,6 +3247,7 @@
 				C0C8B86E2F09A02F0029D19F /* ScaleEffectModifier.swift in Sources */,
 				C02C8C502F0266B400A2FE9F /* TokenShapedView.swift in Sources */,
 				C02C8C512F0266B400A2FE9F /* DecorableByStrikethrough.swift in Sources */,
+				C0211A4330703F200006C777 /* Image+Extensions.swift in Sources */,
 				C02C8C522F0266B400A2FE9F /* MaskLayer.swift in Sources */,
 				C02C8C532F0266B400A2FE9F /* TextAnimation.swift in Sources */,
 				C02C8C542F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */,
@@ -3292,6 +3354,8 @@
 				C00508D62F2139F6006016DE /* FallbackComponentCacheKey.swift in Sources */,
 				C00508D72F2139F6006016DE /* ComponentPadding.swift in Sources */,
 				C00508D82F2139F6006016DE /* ComponentHostingController.swift in Sources */,
+				AB0000032F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */,
+				AB0000072F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */,
 				C00508D92F2139F6006016DE /* AnyComponentView.swift in Sources */,
 				C00508DA2F2139F6006016DE /* EnvironmentValues+ComponentID.swift in Sources */,
 				C00508DB2F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */,
@@ -3366,6 +3430,11 @@
 				C02C8CE72F0266B400A2FE9F /* Dictionary+Changeable.swift in Sources */,
 				C02C8CE92F0266B400A2FE9F /* TextPart.swift in Sources */,
 				C02C8CEA2F0266B400A2FE9F /* ImageValue+TextPart.swift in Sources */,
+				C0211A2E30703CB90006C777 /* DecorableByForegroundStyle.swift in Sources */,
+				C0211A2F30703CB90006C777 /* ImageSymbolConfiguration.swift in Sources */,
+				C0211A3030703CB90006C777 /* DecorableByImageSymbolConfiguration.swift in Sources */,
+				C0211A3130703CB90006C777 /* ImageSymbolConfigurationDecorator.swift in Sources */,
+				C0211A3230703CB90006C777 /* ForegroundStyleDecorator.swift in Sources */,
 				C02C8CEB2F0266B400A2FE9F /* ShadowLayer.swift in Sources */,
 				C02C8CEC2F0266B400A2FE9F /* DecorableByNegation.swift in Sources */,
 				C02C8CED2F0266B400A2FE9F /* CGSize+TokenValue.swift in Sources */,
@@ -3374,6 +3443,7 @@
 				C02C8CF02F0266B400A2FE9F /* AnyTokenView.swift in Sources */,
 				C02C8CF22F0266B400A2FE9F /* TextInterpolation.swift in Sources */,
 				C02C8CF32F0266B400A2FE9F /* Collection+Extensions.swift in Sources */,
+				C0211A3F30703D1A0006C777 /* UIImage+Extensions.swift in Sources */,
 				C02C8CF42F0266B400A2FE9F /* TokenViewDSL.swift in Sources */,
 				C02C8CF52F0266B400A2FE9F /* TokenViewProperties+CALayer.swift in Sources */,
 				C02C8CF72F0266B400A2FE9F /* String+TextPart.swift in Sources */,
@@ -3548,6 +3618,7 @@
 				C0C8B85F2F09A02F0029D19F /* ScaleEffectModifier.swift in Sources */,
 				C02C89BA2F0266B400A2FE9F /* TokenShapedView.swift in Sources */,
 				C02C89BB2F0266B400A2FE9F /* DecorableByStrikethrough.swift in Sources */,
+				C0211A4430703F200006C777 /* Image+Extensions.swift in Sources */,
 				C02C89BC2F0266B400A2FE9F /* MaskLayer.swift in Sources */,
 				C02C89BD2F0266B400A2FE9F /* TextAnimation.swift in Sources */,
 				C02C89BE2F0266B400A2FE9F /* CGSize+Extensions.swift in Sources */,
@@ -3654,6 +3725,8 @@
 				C00508A42F2139F6006016DE /* FallbackComponentCacheKey.swift in Sources */,
 				C00508A52F2139F6006016DE /* ComponentPadding.swift in Sources */,
 				C00508A62F2139F6006016DE /* ComponentHostingController.swift in Sources */,
+				AB0000022F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */,
+				AB0000062F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */,
 				C00508A72F2139F6006016DE /* AnyComponentView.swift in Sources */,
 				C00508A82F2139F6006016DE /* EnvironmentValues+ComponentID.swift in Sources */,
 				C00508A92F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */,
@@ -3728,6 +3801,11 @@
 				C02C8A512F0266B400A2FE9F /* Dictionary+Changeable.swift in Sources */,
 				C02C8A532F0266B400A2FE9F /* TextPart.swift in Sources */,
 				C02C8A542F0266B400A2FE9F /* ImageValue+TextPart.swift in Sources */,
+				C0211A3330703CB90006C777 /* DecorableByForegroundStyle.swift in Sources */,
+				C0211A3430703CB90006C777 /* ImageSymbolConfiguration.swift in Sources */,
+				C0211A3530703CB90006C777 /* DecorableByImageSymbolConfiguration.swift in Sources */,
+				C0211A3630703CB90006C777 /* ImageSymbolConfigurationDecorator.swift in Sources */,
+				C0211A3730703CB90006C777 /* ForegroundStyleDecorator.swift in Sources */,
 				C02C8A552F0266B400A2FE9F /* ShadowLayer.swift in Sources */,
 				C02C8A562F0266B400A2FE9F /* DecorableByNegation.swift in Sources */,
 				C02C8A572F0266B400A2FE9F /* CGSize+TokenValue.swift in Sources */,
@@ -3736,6 +3814,7 @@
 				C02C8A5A2F0266B400A2FE9F /* AnyTokenView.swift in Sources */,
 				C02C8A5C2F0266B400A2FE9F /* TextInterpolation.swift in Sources */,
 				C02C8A5D2F0266B400A2FE9F /* Collection+Extensions.swift in Sources */,
+				C0211A4030703D1A0006C777 /* UIImage+Extensions.swift in Sources */,
 				C02C8A5E2F0266B400A2FE9F /* TokenViewDSL.swift in Sources */,
 				C02C8A5F2F0266B400A2FE9F /* TokenViewProperties+CALayer.swift in Sources */,
 				C02C8A612F0266B400A2FE9F /* String+TextPart.swift in Sources */,
@@ -3861,6 +3940,7 @@
 				C02C8ADA2F0266B400A2FE9F /* OpacityDecorator.swift in Sources */,
 				C02C8ADB2F0266B400A2FE9F /* UnderlineDecorator+TextDecorator.swift in Sources */,
 				C02C8ADC2F0266B400A2FE9F /* ShapeValue.swift in Sources */,
+				C0211A3E30703D1A0006C777 /* UIImage+Extensions.swift in Sources */,
 				C02C8ADD2F0266B400A2FE9F /* CGRect+TokenValue.swift in Sources */,
 				C02C8ADE2F0266B400A2FE9F /* Sequence+Extensions.swift in Sources */,
 				C02C8ADF2F0266B400A2FE9F /* DivisionDecorator.swift in Sources */,
@@ -4016,6 +4096,7 @@
 				C02C8B842F0266B400A2FE9F /* RangeReplaceableCollection+Extensions.swift in Sources */,
 				C02C8B852F0266B400A2FE9F /* ImageValue.swift in Sources */,
 				C02C8B862F0266B400A2FE9F /* CALayer+TokenView.swift in Sources */,
+				C0211A4230703F200006C777 /* Image+Extensions.swift in Sources */,
 				C02C8B872F0266B400A2FE9F /* InsetsToken.swift in Sources */,
 				C02C8B882F0266B400A2FE9F /* ParagraphSpacingDecorator.swift in Sources */,
 				C02C8B892F0266B400A2FE9F /* TokenViewProperties+UISwitch.swift in Sources */,
@@ -4099,6 +4180,11 @@
 				C02C8BE32F0266B400A2FE9F /* ShadowValue.swift in Sources */,
 				C02C8BE42F0266B400A2FE9F /* String+TokenValue.swift in Sources */,
 				C02C8BE52F0266B400A2FE9F /* ColorDecorator.swift in Sources */,
+				C0211A3830703CB90006C777 /* DecorableByForegroundStyle.swift in Sources */,
+				C0211A3930703CB90006C777 /* ImageSymbolConfiguration.swift in Sources */,
+				C0211A3A30703CB90006C777 /* DecorableByImageSymbolConfiguration.swift in Sources */,
+				C0211A3B30703CB90006C777 /* ImageSymbolConfigurationDecorator.swift in Sources */,
+				C0211A3C30703CB90006C777 /* ForegroundStyleDecorator.swift in Sources */,
 				C02C8BE62F0266B400A2FE9F /* SpringAnimationToken.swift in Sources */,
 				C02C8BE72F0266B400A2FE9F /* TokenViewProperties+UIView.swift in Sources */,
 				C02C8BE82F0266B400A2FE9F /* ShapeToken.swift in Sources */,
@@ -4153,6 +4239,8 @@
 				C00509082F2139F6006016DE /* FallbackComponentCacheKey.swift in Sources */,
 				C00509092F2139F6006016DE /* ComponentPadding.swift in Sources */,
 				C005090A2F2139F6006016DE /* ComponentHostingController.swift in Sources */,
+				AB0000042F2139F6006016DE /* ComponentMountingPolicy.swift in Sources */,
+				AB0000082F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */,
 				C005090B2F2139F6006016DE /* AnyComponentView.swift in Sources */,
 				C005090C2F2139F6006016DE /* EnvironmentValues+ComponentID.swift in Sources */,
 				C005090D2F2139F6006016DE /* ScaleEffectModifier+ComponentTokenModifier.swift in Sources */,
