@@ -161,7 +161,7 @@ extension ImageValue:
         changing { $0.insets = insets }
     }
 
-    public func symbolConfiguration(_ symbolConfiguration: ImageSymbolConfiguration?) -> Self {
+    public func imageSymbolConfiguration(_ symbolConfiguration: ImageSymbolConfiguration?) -> Self {
         changing { $0.symbolConfiguration = symbolConfiguration }
     }
 }
