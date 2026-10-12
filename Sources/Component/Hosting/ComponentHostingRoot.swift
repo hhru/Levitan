@@ -7,9 +7,8 @@ internal struct ComponentHostingRoot<Content: View>: View {
     internal var context: ComponentContext
 
     internal var body: some View {
-        // Контроллер берется только из переопределений: чтение окружения внешнего хостинга
-        // из контекста в iOS 26 протекает обратно в это окружение, и родительский компонент
-        // получает вложенный UIHostingController, добавляя его дочерним самому себе.
+        // Не через context.componentViewController: до iOS 27 это чтение протекает в окружение
+        // внешнего хостинга, см. ComponentHostingNestingTests.
         let theme = context
             .resolveEnvironment(EnvironmentValues())
             .componentViewController?
