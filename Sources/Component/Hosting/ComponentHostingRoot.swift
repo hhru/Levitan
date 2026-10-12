@@ -4,11 +4,12 @@ import SwiftUI
 internal struct ComponentHostingRoot<Content: View>: View {
 
     internal let content: Content
-    internal var context: ComponentContext
+    internal let context: ComponentContext
+
+    internal let viewControllerProvider: @MainActor () -> UIViewController?
 
     internal var body: some View {
-        let theme = context
-            .componentViewController?
+        let theme = viewControllerProvider()?
             .view
             .tokens
             .theme
