@@ -13,6 +13,7 @@
 		AB0000062F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
 		AB0000072F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
 		AB0000082F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */; };
+		BD630107286740451D607380 /* ComponentHostingNestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A3BA78569B30A7793E48E7 /* ComponentHostingNestingTests.swift */; };
 		C005088D2F2139F6006016DE /* ComponentFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508762F2139F6006016DE /* ComponentFrame.swift */; };
 		C005088E2F2139F6006016DE /* ComponentModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C00508862F2139F6006016DE /* ComponentModifier.swift */; };
 		C005088F2F2139F6006016DE /* AnyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C005084C2F2139F6006016DE /* AnyComponent.swift */; };
@@ -1141,6 +1142,7 @@
 /* Begin PBXFileReference section */
 		AB0000012F2139F6006016DE /* ComponentMountingPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentMountingPolicy.swift; sourceTree = "<group>"; };
 		AB0000052F2139F6006016DE /* EnvironmentValues+ComponentMountingPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ComponentMountingPolicy.swift"; sourceTree = "<group>"; };
+		B1A3BA78569B30A7793E48E7 /* ComponentHostingNestingTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ComponentHostingNestingTests.swift; sourceTree = "<group>"; };
 		C0007FFA23CBAAA5005F95E0 /* .swift-version */ = {isa = PBXFileReference; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		C005084C2F2139F6006016DE /* AnyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyComponent.swift; sourceTree = "<group>"; };
 		C005084D2F2139F6006016DE /* AnyComponentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyComponentPresenter.swift; sourceTree = "<group>"; };
@@ -2910,6 +2912,7 @@
 				C0C3C5932DD5E5A70058A201 /* TestPlans */,
 				C0A01A1523CB8FFC00AC2C3A /* .swiftlint.yml */,
 				C057F01E23CB8EEB00C2D895 /* Info.plist */,
+				B1A3BA78569B30A7793E48E7 /* ComponentHostingNestingTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -3545,6 +3548,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD630107286740451D607380 /* ComponentHostingNestingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

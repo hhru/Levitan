@@ -7,7 +7,10 @@ internal struct ComponentHostingRoot<Content: View>: View {
     internal var context: ComponentContext
 
     internal var body: some View {
+        // Не через context.componentViewController: до iOS 27 это чтение протекает в окружение
+        // внешнего хостинга, см. ComponentHostingNestingTests.
         let theme = context
+            .resolveEnvironment(EnvironmentValues())
             .componentViewController?
             .view
             .tokens
