@@ -4,14 +4,12 @@ import SwiftUI
 internal struct ComponentHostingRoot<Content: View>: View {
 
     internal let content: Content
-    internal var context: ComponentContext
+    internal let context: ComponentContext
+
+    internal let viewControllerProvider: @MainActor () -> UIViewController?
 
     internal var body: some View {
-        // Не через context.componentViewController: до iOS 27 это чтение протекает в окружение
-        // внешнего хостинга, см. ComponentHostingNestingTests.
-        let theme = context
-            .resolveEnvironment(EnvironmentValues())
-            .componentViewController?
+        let theme = viewControllerProvider()?
             .view
             .tokens
             .theme

@@ -270,11 +270,13 @@ extension ComponentHostingView: ComponentView {
         componentViewController = context.componentViewController
         mountingPolicy = context.componentMountingPolicy.value
 
+        let viewControllerProvider = { @MainActor [weak self] in
+            self?.hostingController
+        }
+
         let context = context
             .componentAppearance(appearance, of: self)
-            .componentViewControllerProvider { [weak self] in
-                self?.hostingController
-            }
+            .componentViewControllerProvider(viewControllerProvider)
             .componentLayoutInvalidation { [weak self] in
                 self?.invalidateIntrinsicContentSize()
 
@@ -286,7 +288,8 @@ extension ComponentHostingView: ComponentView {
 
         let hostingRoot = HostingRoot(
             content: content,
-            context: context
+            context: context,
+            viewControllerProvider: viewControllerProvider
         )
 
         self.hostingRoot = hostingRoot
