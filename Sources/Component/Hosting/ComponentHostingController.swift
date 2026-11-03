@@ -58,6 +58,18 @@ public final class ComponentHostingController<Content: View>: UIHostingControlle
 
 extension ComponentHostingController {
 
+    internal func resetParentIfNeeded() {
+        guard parent != nil else {
+            return
+        }
+
+        willMove(toParent: nil)
+        removeFromParent()
+    }
+}
+
+extension ComponentHostingController {
+
     /// Отключает все отступы SafeArea и клавиатуры для iOS до версии 16.4.
     ///
     /// Использует приватное API для отключения отступов, которое стало публичным в iOS 16.4.

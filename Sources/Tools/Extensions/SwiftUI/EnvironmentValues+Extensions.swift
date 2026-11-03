@@ -44,10 +44,8 @@ extension EnvironmentValues {
             }
         }
 
-        if #available(iOS 15.0, tvOS 15.0, *) {
-            if let dynamicTypeSize = DynamicTypeSize(traits.preferredContentSizeCategory) {
-                environment.dynamicTypeSize = dynamicTypeSize
-            }
+        if let dynamicTypeSize = DynamicTypeSize(traits.preferredContentSizeCategory) {
+            environment.dynamicTypeSize = dynamicTypeSize
         }
 
         return environment
