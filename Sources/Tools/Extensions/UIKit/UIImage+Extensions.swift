@@ -4,7 +4,7 @@ import UIKit
 extension UIImage {
 
     internal func cropped(to targetSize: CGSize) -> UIImage? {
-        let format = UIGraphicsImageRendererFormat.default()
+        let format = UIGraphicsImageRendererFormat.preferred()
 
         format.scale = scale
 
