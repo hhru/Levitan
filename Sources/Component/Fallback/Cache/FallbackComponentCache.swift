@@ -18,8 +18,8 @@ extension FallbackComponentCache {
 
     internal func restoreSize<Content: Equatable>(
         for content: Content,
-        proposedSize: CGSize,
-        boundingSize: CGSize
+        proposedWidth: CGFloat?,
+        proposedHeight: CGFloat?
     ) -> CGSize? {
         let key = FallbackComponentCacheKey(content: content)
 
@@ -28,14 +28,14 @@ extension FallbackComponentCache {
         }
 
         for size in sizes {
-            let targetSize = resolveTargetSize(
-                sizing: size.contentSizing,
-                proposedSize: proposedSize,
-                boundingSize: boundingSize
+            let contentSize = resolveContentSize(
+                size: size,
+                proposedWidth: proposedWidth,
+                proposedHeight: proposedHeight
             )
 
-            if let size = size.contentSize(fitting: targetSize) {
-                return size
+            if let contentSize {
+                return contentSize
             }
         }
 
@@ -46,21 +46,27 @@ extension FallbackComponentCache {
         for content: Content,
         size: CGSize,
         sizing: ComponentSizing,
-        proposedSize: CGSize,
-        boundingSize: CGSize
+        proposedWidth: CGFloat?,
+        proposedHeight: CGFloat?
     ) {
         let key = FallbackComponentCacheKey(content: content)
 
         let targetSize = resolveTargetSize(
             sizing: sizing,
-            proposedSize: proposedSize,
-            boundingSize: boundingSize
+            proposedWidth: proposedWidth,
+            proposedHeight: proposedHeight
+        )
+
+        let reuseSize = CGSize(
+            width: min(targetSize.width, size.width),
+            height: min(targetSize.height, size.height)
         )
 
         let size = FallbackComponentCacheSize(
-            targetSize: targetSize,
             contentSize: size,
-            contentSizing: sizing
+            contentSizing: sizing,
+            targetSize: targetSize,
+            reuseSize: reuseSize
         )
 
         var sizes = self.sizes[key] ?? []
@@ -77,29 +83,71 @@ extension FallbackComponentCache {
 
 extension FallbackComponentCache {
 
+    private func resolveContentSize(
+        size: FallbackComponentCacheSize,
+        proposedWidth: CGFloat?,
+        proposedHeight: CGFloat?
+    ) -> CGSize? {
+        let targetSize = resolveTargetSize(
+            sizing: size.contentSizing,
+            proposedWidth: proposedWidth,
+            proposedHeight: proposedHeight
+        )
+
+        let canReuseWidth = size.contentSizing.width.isFixed
+            || (size.targetSize.width.isNormal && targetSize.width.isNormal)
+            || (size.targetSize.width == targetSize.width)
+
+        let canReuseHeight = size.contentSizing.height.isFixed
+            || (size.targetSize.height.isNormal && targetSize.height.isNormal)
+            || (size.targetSize.height == targetSize.height)
+
+        guard canReuseWidth, canReuseHeight else {
+            return nil
+        }
+
+        guard targetSize.contains(size.reuseSize) else {
+            return nil
+        }
+
+        if size.targetSize.contains(targetSize) {
+            return size.contentSize
+        }
+
+        if size.contentSize.contains(targetSize) {
+            return size.contentSize
+        }
+
+        return nil
+    }
+
     private func resolveTargetSize(
         sizing: ComponentSizing,
-        proposedSize: CGSize,
-        boundingSize: CGSize
+        proposedWidth: CGFloat?,
+        proposedHeight: CGFloat?
     ) -> CGSize {
-        switch (sizing.width, sizing.height) {
-        case (.fixed, .fixed):
-            boundingSize
-
-        case (.fixed, _):
-            CGSize(
-                width: boundingSize.width,
-                height: proposedSize.height
+        CGSize(
+            width: resolveTargetSize(
+                sizingStrategy: sizing.width,
+                proposedSize: proposedWidth
+            ),
+            height: resolveTargetSize(
+                sizingStrategy: sizing.height,
+                proposedSize: proposedHeight
             )
+        )
+    }
 
-        case (_, .fixed):
-            CGSize(
-                width: proposedSize.width,
-                height: boundingSize.height
-            )
+    private func resolveTargetSize(
+        sizingStrategy: ComponentSizingStrategy,
+        proposedSize: CGFloat?
+    ) -> CGFloat {
+        switch sizingStrategy {
+        case .fixed:
+            proposedSize ?? .infinity
 
-        default:
-            proposedSize
+        case .hug, .fill:
+            proposedSize ?? .zero
         }
     }
 }

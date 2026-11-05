@@ -109,36 +109,9 @@ extension FallbackComponentBody: UIViewRepresentable {
 extension FallbackComponentBody {
 
     @MainActor
-    private func sizeThatFits(
+    internal func sizeThatFits(
         proposedWidth: CGFloat?,
         proposedHeight: CGFloat?,
-        context: ComponentContext,
-        view: UIView
-    ) -> CGSize {
-        // Считаем идеальные размеры как минимальные
-        let proposedSize = CGSize(
-            width: proposedWidth ?? .zero,
-            height: proposedHeight ?? .zero
-        )
-
-        // Для получения идеальных размеров не ограничиваем стратегии
-        let boundingSize = CGSize(
-            width: proposedWidth ?? .infinity,
-            height: proposedHeight ?? .infinity
-        )
-
-        return sizeThatFits(
-            proposedSize: proposedSize,
-            boundingSize: boundingSize,
-            context: context,
-            view: view
-        )
-    }
-
-    @MainActor
-    private func sizeThatFits(
-        proposedSize: CGSize,
-        boundingSize: CGSize,
         context: ComponentContext,
         view: UIView
     ) -> CGSize {
@@ -148,17 +121,29 @@ extension FallbackComponentBody {
 
         let cacheSize = cache?.restoreSize(
             for: content,
-            proposedSize: proposedSize,
-            boundingSize: boundingSize
+            proposedWidth: proposedWidth,
+            proposedHeight: proposedHeight
         )
 
         if let size = cacheSize {
             return size
         }
 
+        // Для получения идеальных размеров не ограничиваем стратегии
+        let boundingSize = CGSize(
+            width: proposedWidth ?? .infinity,
+            height: proposedHeight ?? .infinity
+        )
+
         let sizing = content.sizing(
             fitting: boundingSize,
             context: context
+        )
+
+        // Считаем идеальные размеры как минимальные
+        let proposedSize = CGSize(
+            width: proposedWidth ?? .zero,
+            height: proposedHeight ?? .zero
         )
 
         let size = sizeThatFits(
@@ -171,8 +156,8 @@ extension FallbackComponentBody {
             for: content,
             size: size,
             sizing: sizing,
-            proposedSize: proposedSize,
-            boundingSize: boundingSize
+            proposedWidth: proposedWidth,
+            proposedHeight: proposedHeight
         )
 
         return size

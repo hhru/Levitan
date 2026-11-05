@@ -38,5 +38,16 @@ public enum ComponentSizingStrategy: Hashable, Sendable {
     ///
     /// Фактически означает, что у компонента нет собственного размера и следовательно констрейнта на размер.
     case fill
+
+    /// Флаг, определяющий наличие фиксированных значений для определения размеров компонентов.
+    public var isFixed: Bool {
+        switch self {
+        case .fixed:
+            true
+
+        case .hug, .fill:
+            false
+        }
+    }
 }
 #endif

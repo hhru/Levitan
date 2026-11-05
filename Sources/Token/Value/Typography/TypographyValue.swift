@@ -25,15 +25,20 @@ public struct TypographyValue:
     public var lineBreakMode: NSLineBreakMode?
 
     public var paragraphStyle: NSParagraphStyle {
-        resolveParagraphStyle()
+        resolveParagraphStyle(font: font.uiFont)
     }
 
     public var attributes: [NSAttributedString.Key: Any] {
-        resolveAttributes(paragraphStyle: paragraphStyle)
+        let font = font.uiFont
+
+        return resolveAttributes(
+            font: font,
+            paragraphStyle: resolveParagraphStyle(font: font)
+        )
     }
 
     public var attributesWithoutParagraphStyle: [NSAttributedString.Key: Any] {
-        resolveAttributes(paragraphStyle: nil)
+        resolveAttributes(font: font.uiFont, paragraphStyle: nil)
     }
 
     public var minimumLineHeight: CGFloat {
@@ -115,9 +120,8 @@ public struct TypographyValue:
         )
     }
 
-    private func resolveParagraphStyle() -> NSParagraphStyle {
-        let scale = font.scale
-        let font = font.uiFont
+    private func resolveParagraphStyle(font: UIFont) -> NSParagraphStyle {
+        let scale = self.font.scale
 
         let paragraphStyle = NSMutableParagraphStyle()
 
@@ -157,12 +161,13 @@ public struct TypographyValue:
         return paragraphStyle
     }
 
-    private func resolveAttributes(paragraphStyle: NSParagraphStyle?) -> [NSAttributedString.Key: Any] {
-        let font = font.uiFont
+    private func resolveAttributes(
+        font: UIFont,
+        paragraphStyle: NSParagraphStyle?
+    ) -> [NSAttributedString.Key: Any] {
+        var attributes = [NSAttributedString.Key: Any](minimumCapacity: 12)
 
-        var attributes: [NSAttributedString.Key: Any] = [
-            .font: font
-        ]
+        attributes[.font] = font
 
         if let letterSpacing {
             attributes[.kern] = letterSpacing
@@ -187,7 +192,7 @@ public struct TypographyValue:
 
         if let stroke {
             attributes[.strokeWidth] = stroke.width
-            attributes[.strokeColor] = stroke.color
+            attributes[.strokeColor] = stroke.color?.uiColor
         }
 
         if let strikethrough {
@@ -197,7 +202,7 @@ public struct TypographyValue:
 
         if let underline {
             attributes[.underlineStyle] = underline.style.rawValue
-            attributes[.strikethroughColor] = underline.color?.uiColor
+            attributes[.underlineColor] = underline.color?.uiColor
         }
 
         return attributes

@@ -14,21 +14,16 @@ public final class TextView: UILabel {
 
     private var hasTapAction = false
 
+    #if os(iOS)
+    private var hoverGestureRecognizer: UIHoverGestureRecognizer?
+    #endif
+
     private lazy var operationQueue: TextOperationQueue = {
         TextOperationQueue(layer: layer)
     }()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-
-        #if os(iOS)
-        let hoverGestureRecognizer = UIHoverGestureRecognizer(
-            target: self,
-            action: #selector(onHoverGesture(recognizer:))
-        )
-
-        addGestureRecognizer(hoverGestureRecognizer)
-        #endif
 
         tokens.customBinding { view, theme in
             view.updateAttributedText(
@@ -44,6 +39,35 @@ public final class TextView: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
 
+    private func setupHoverGestureRecognizerIfNeeded() {
+        #if os(iOS)
+        guard hoverGestureRecognizer == nil else {
+            return
+        }
+
+        let hoverGestureRecognizer = UIHoverGestureRecognizer(
+            target: self,
+            action: #selector(onHoverGesture(recognizer:))
+        )
+
+        addGestureRecognizer(hoverGestureRecognizer)
+
+        self.hoverGestureRecognizer = hoverGestureRecognizer
+        #endif
+    }
+
+    private func resetHoverGestureRecognizerIfNeeded() {
+        #if os(iOS)
+        guard let hoverGestureRecognizer else {
+            return
+        }
+
+        removeGestureRecognizer(hoverGestureRecognizer)
+
+        self.hoverGestureRecognizer = nil
+        #endif
+    }
+
     private func updateAttributedText(hoveredPartIndex: Int?, pressedPartIndex: Int?, theme: TokenTheme) {
         guard let content, let context = context?.tokenTheme(theme) else {
             return
@@ -52,6 +76,8 @@ public final class TextView: UILabel {
         let layout = TextLayoutProvider.shared.textLayout(
             for: content,
             context: context,
+            hoveredPartIndex: hoveredPartIndex,
+            pressedPartIndex: pressedPartIndex,
             cache: cache
         )
 
@@ -103,7 +129,7 @@ public final class TextView: UILabel {
 
         let animation = context?.animation
 
-        let partAnimation = pressedPartIndex == nil
+        let partAnimation = hoveredPartIndex == nil
             ? (window == nil ? nil : animation?.unhover)
             : (window == nil ? nil : animation?.hover)
 
@@ -160,7 +186,7 @@ public final class TextView: UILabel {
         let textBounds = layoutManager.usedRect(for: textContainer)
 
         let textOffset = CGPoint(
-            x: 0.5 * (size.width - textBounds.size.width) - textBounds.origin.x,
+            x: .zero,
             y: 0.5 * (size.height - textBounds.size.height) - textBounds.origin.y
         )
 
@@ -189,7 +215,11 @@ public final class TextView: UILabel {
             return nil
         }
 
-        return content?.parts[partIndex].isEnabled == true
+        guard let content, let part = content.parts[safe: partIndex], part.isEnabled else {
+            return nil
+        }
+
+        return part.tapAction != nil || content.tapAction != nil
             ? partIndex
             : nil
     }
@@ -217,9 +247,7 @@ public final class TextView: UILabel {
         let contentSizeCategory = traitCollection.preferredContentSizeCategory
 
         if previousContentSizeCategory != contentSizeCategory {
-            if !operationQueue.isRunning {
-                updateAttributedText()
-            }
+            updateAttributedText()
         }
     }
 
@@ -325,9 +353,13 @@ extension TextView: FallbackComponentView {
             hasTapAction = true
         }
 
-        updateAttributedText()
+        if hasTapAction {
+            setupHoverGestureRecognizerIfNeeded()
+        } else {
+            resetHoverGestureRecognizerIfNeeded()
+        }
 
-        sizeToFit()
+        updateAttributedText()
     }
 }
 

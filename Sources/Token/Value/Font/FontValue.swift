@@ -87,7 +87,7 @@ extension FontValue {
         scale: FontScaleValue? = nil
     ) -> Self {
         Self(
-            source: .uiFont(trait: #function) { size in
+            source: .uiFont(trait: TokenTrait([TokenTrait(#function), TokenTrait(weight)])) { size in
                 .systemFont(ofSize: size, weight: weight)
             },
             size: size,
@@ -140,7 +140,7 @@ extension FontValue {
         scale: FontScaleValue? = nil
     ) -> Self {
         Self(
-            source: .uiFont(trait: #function) { size in
+            source: .uiFont(trait: TokenTrait([TokenTrait(#function), TokenTrait(weight)])) { size in
                 .monospacedSystemFont(ofSize: size, weight: weight)
             },
             size: size,
@@ -154,7 +154,7 @@ extension FontValue {
         scale: FontScaleValue? = nil
     ) -> Self {
         Self(
-            source: .uiFont(trait: #function) { size in
+            source: .uiFont(trait: TokenTrait([TokenTrait(#function), TokenTrait(weight)])) { size in
                 .monospacedDigitSystemFont(ofSize: size, weight: weight)
             },
             size: size,

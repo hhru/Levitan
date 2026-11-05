@@ -105,7 +105,7 @@ public struct ComponentContext {
     }
 
     internal func resolveValue<Value>(at keyPath: KeyPath<EnvironmentValues, Value>) -> Value {
-        environment[keyPath: keyPath]
+        resolveEnvironment(environment)[keyPath: keyPath]
     }
 
     internal func overrideValue<Value>(
@@ -116,10 +116,6 @@ public struct ComponentContext {
             keyPath: keyPath,
             value: newValue
         )
-
-        var environment = environment
-
-        environment[keyPath: keyPath] = newValue
 
         return Self(
             environment: environment,

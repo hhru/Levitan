@@ -5,7 +5,7 @@ internal struct TokenValueView<Value: View> {
     internal let token: Token<Value>
 
     @Environment(\.tokenTheme)
-    internal var theme: TokenTheme
+    private var theme: TokenTheme
 }
 
 extension TokenValueView: View {
