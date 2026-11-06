@@ -12,14 +12,14 @@ internal final class ObjectAssociation<Value>: @unchecked Sendable {
         get {
             objc_getAssociatedObject(
                 object,
-                Unmanaged.passRetained(self).toOpaque()
+                Unmanaged.passUnretained(self).toOpaque()
             ) as? Value
         }
 
         set {
             objc_setAssociatedObject(
                 object,
-                Unmanaged.passRetained(self).toOpaque(),
+                Unmanaged.passUnretained(self).toOpaque(),
                 newValue,
                 policy
             )
