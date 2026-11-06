@@ -38,7 +38,9 @@ extension FallbackComponentBody: UIViewRepresentable {
                 cache?.resetSize(for: content)
             }
 
-        componentContextAssociation[view] = context
+        if #unavailable(iOS 16.0, tvOS 16.0) {
+            componentContextAssociation[view] = context
+        }
 
         if let superview = view.superview {
             superview.tokens.theme = theme
