@@ -46,7 +46,9 @@ extension FallbackComponentBody: UIViewRepresentable {
             superview.tokens.theme = theme
         }
 
-        view.update(with: content, context: context)
+        FallbackComponentUpdater.perform {
+            view.update(with: content, context: context)
+        }
     }
 
     @available(iOS 16.0, tvOS 16.0, *)

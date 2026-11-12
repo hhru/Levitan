@@ -155,7 +155,10 @@ extension ComponentHostingView {
 
         invalidateIntrinsicContentSize()
 
-        if window != nil {
+        // Запуск layout посреди обновления SwiftUI запускает проход констрейнтов от общего предка,
+        // и UIKit повторно запрашивает размер внешнего UIHostingController, граф которого еще обновляется.
+        // AttributeGraph отдает устаревший layout, чтение удаленных из него представлений приводит к крашу.
+        if window != nil, !FallbackComponentUpdater.isPerforming {
             hostingController.view.setNeedsLayout()
             hostingController.view.layoutIfNeeded()
         }
